@@ -55,6 +55,7 @@ jobs:
         image: postgres:10.13
         ports: ["5432:5432"]
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
