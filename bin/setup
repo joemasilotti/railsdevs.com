@@ -21,7 +21,8 @@ FileUtils.chdir APP_ROOT do
   # unless File.exist?("config/database.yml")
   #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
   # end
-  # Install JavaScript dependencies
+
+  puts "\n== Install JavaScript dependencies =="
   system! "yarn install"
 
   puts "\n== Install foreman which is used by bin/dev script =="
