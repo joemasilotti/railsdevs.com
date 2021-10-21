@@ -45,7 +45,7 @@ jobs:
         run: |
           yarn install --force --non-interactive
 
-  tests:
+  test:
     runs-on: ubuntu-latest
     needs: install-cache
     timeout-minutes: 10
