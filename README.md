@@ -6,8 +6,13 @@ The app is currently a Rails 7 skeleton with support for Tailwind CSS.
 
 ### Getting started
 
-```
-$ bundle
-$ yarn install
-$ bin/dev
-```
+Run `bin/setup`
+
+### Development
+
+Run `bin/dev`
+
+### Testing
+
+Run `rails test` to run unit/integration tests
+Run `rails test:system` to run system/browser tests
