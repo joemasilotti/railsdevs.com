@@ -15,3 +15,7 @@ Run `bin/dev`
 ### Testing
 
 Run `rails test` to run unit/integration tests
+
+### Contributing
+
+Check out the [Roadmap project](https://github.com/joemasilotti/railsdevs.io/projects/2) to see where you can contribute. All cards in the backlog are issues – feel free to comment on one to let others know you might be working on it.
