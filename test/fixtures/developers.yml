@@ -1,0 +1,13 @@
+one:
+  name: Developer One
+  email: one@example.com
+  available_on: <%= Date.new(2021, 1, 1) %>
+  hero: First developer
+  bio: I am the first developer
+
+two:
+  name: Developer Two
+  email: two@example.com
+  available_on: <%= Date.new(2022, 2, 2) %>
+  hero: Second developer
+  bio: I am the second developer

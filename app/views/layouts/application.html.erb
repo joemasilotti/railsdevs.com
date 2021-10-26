@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-100">
   <head>
-    <title>Railsdevs</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Rails Devs</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="h-full">
+    <div class="min-h-full">
+      <%= render "shared/header" %>
+      <%= render "shared/main" do %>
+        <%= yield %>
+      <% end %>
+    </div>
   </body>
 </html>

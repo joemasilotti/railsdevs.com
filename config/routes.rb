@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#show"
+  root "developers#index"
 
-  resource :home, controller: 'home', only: :show
+  resources :developers, only: %i[index new create show]
 end

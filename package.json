@@ -2,6 +2,7 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@tailwindcss/forms": "^0.3.4",
     "autoprefixer": "^10.3.7",
     "esbuild": "^0.13.8",
     "postcss": "^8.3.11",
