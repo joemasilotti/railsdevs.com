@@ -17,6 +17,20 @@ class DevelopersController < ApplicationController
     end
   end
 
+  def edit
+    @developer = Developer.find(params[:id])
+  end
+
+  def update
+    @developer = Developer.find(params[:id])
+
+    if @developer.update(developer_params)
+      redirect_to @developer, notice: "Your profile was updated!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def show
     @developer = Developer.find(params[:id])
   end

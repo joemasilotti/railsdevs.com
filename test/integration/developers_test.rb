@@ -11,7 +11,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", @two.hero
   end
 
-  test "succesful profile creation" do
+  test "successful profile creation" do
     assert_difference "Developer.count", 1 do
       post developers_path, params: {
         developer: {
@@ -23,6 +23,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         }
       }
     end
+  end
+
+  test "successful edit to profile" do
+    @one = developers :one
+
+    get edit_developer_path(@one)
+    assert_select "form"
+
+    patch developer_path(@one), params: {
+      developer: {
+        name: "New Name"
+      }
+    }
+    assert_redirected_to developer_path(@one)
+    follow_redirect!
+
+    @one.reload
+    assert_equal "New Name", @one.name
   end
 
   test "invalid profile creation" do

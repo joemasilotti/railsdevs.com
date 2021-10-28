@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root "developers#index"
 
-  resources :developers, only: %i[index new create show]
+  resources :developers, except: %i[destory]
 end
