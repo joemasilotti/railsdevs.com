@@ -27,25 +27,20 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "successful edit to profile" do
     @one = developers :one
-    new_name = "New Name"
 
     get edit_developer_path(@one)
     assert_select "form"
 
     patch developer_path(@one), params: {
       developer: {
-        name: new_name,
-        email: "dev@example.com",
-        available_on: Date.yesterday,
-        hero: "A developer",
-        bio: "I develop."
+        name: "New Name"
       }
     }
     assert_redirected_to developer_path(@one)
     follow_redirect!
 
     @one.reload
-    assert_equal new_name, @one.name
+    assert_equal "New Name", @one.name
   end
 
   test "invalid profile creation" do
