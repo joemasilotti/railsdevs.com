@@ -10,7 +10,8 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
-gem "hotwire-rails", "~>0.1.3"
+gem "image_processing", "~> 1.12"
+gem "active_storage_validations", "~>0.9"
 
 group :development, :test do
   gem "letter_opener_web"

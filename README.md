@@ -6,6 +6,11 @@ Find Rails developers looking for freelance and contract work.
 
 ### Getting started
 
+#### Install Dependencies
+ImageMagick is required to be installed on your system so that ActiveStorage can transform images. You can find installation instructions for ImageMagick [here](https://imagemagick.org/script/download.php#macosx).
+
+#### Setup Rails
+An installation script is included with the repository that will automatically get the application setup.
 Run `bin/setup`
 
 ### Development
