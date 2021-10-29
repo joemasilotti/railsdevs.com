@@ -5,3 +5,7 @@ import { application } from "./application"
 
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
+import DropController from "./drop_controller.js"
+application.register("drop", DropController)
+import FileLinkController from "./file_link_controller.js"
+application.register("file-link", FileLinkController)

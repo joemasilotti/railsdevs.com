@@ -66,12 +66,18 @@
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.4.tgz#c3c5a9f8302c429af9722b6c50ab48049016d2a3"
   integrity sha512-0LmSKJTuo2dL6BQ+9xxLnS9lbkyfz2mBGeBnQ2J7o9Bn0l0q+ZC6VuoZMZZXPvABI4QT7Nfknv5WhfKYL+boew==
+
 "@rails/activestorage@^6.1.4-1":
   version "6.1.4-1"
   resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-6.1.4-1.tgz#5088854f536716c54566b530a97491d4b885528f"
   integrity sha512-G8L/3o1T8wJXrn24uoBi92XX/S/qPVgP1polNJ5ao03mdU/8tbtW0wWr0MTro4W/zGL23gjZjp2oge4qUTZjDw==
   dependencies:
     spark-md5 "^3.0.0"
+
+"@tailwindcss/aspect-ratio@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/aspect-ratio/-/aspect-ratio-0.3.0.tgz#f779ab3f07cac848fb844122d6662ba6560010b8"
+  integrity sha512-DMgWskNJR6FNPLbQ8Xoq/PKV/9DfNKh5dvKB+SM8x7lVl4+pnxlZ3Ns4+yGmurA/ze708HrnCG1tXk85HolJmw==
 
 "@tailwindcss/forms@^0.3.4":
   version "0.3.4"
