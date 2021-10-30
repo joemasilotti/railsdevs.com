@@ -7,7 +7,19 @@
         <% end %>
       </h1>
 
-      <%= link_to "Add my profile", new_developer_path, class: "block text-gray-200 ml-auto" %>
+      <div class="flex ml-auto text-gray-200 space-x-4">
+        <% if current_user&.developer&.persisted? %>
+          <%= link_to "Edit my profile", edit_developer_path(current_user.developer), class: "block hover:text-gray-300" %>
+        <% else %>
+          <%= link_to "Add my profile", new_developer_path, class: "block hover:text-gray-300" %>
+        <% end %>
+
+        <% if signed_in? %>
+          <%= button_to destroy_user_session_path, method: :delete, title: "Sign out", class: "block text-gray-200 bg-transparent cursor-pointer" do %>
+            <%= icon "outline/logout", class: "w-6 h-6 hover:text-gray-300" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </header>
 </div>

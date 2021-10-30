@@ -1,0 +1,7 @@
+one:
+  email: one@example.com
+  confirmed_at: <%= DateTime.current %>
+
+two:
+  email: two@example.com
+  confirmed_at: <%= DateTime.current %>

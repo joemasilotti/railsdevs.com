@@ -1,4 +1,14 @@
+def create_user!(name)
+  User.create!(
+    email: "#{name}@example.com",
+    password: "password",
+    password_confirmation: "password",
+    confirmed_at: DateTime.current
+  )
+end
+
 Developer.create!(
+  user: create_user!("Dennis"),
   name: "Dennis Ritchie",
   email: "dennis@example.com",
   available_on: Date.new(2021, 1, 1),
@@ -10,6 +20,7 @@ Developer.create!(
 )
 
 Developer.create!(
+  user: create_user!("Bjarne"),
   name: "Bjarne Stroustrup",
   email: "bjarne@example.com",
   available_on: Date.new(2022, 1, 1),
@@ -21,6 +32,7 @@ Developer.create!(
 )
 
 Developer.create!(
+  user: create_user!("Ada"),
   name: "Ada Lovelace",
   email: "ada@example.com",
   available_on: Date.new(2021, 1, 1),
@@ -29,26 +41,4 @@ Developer.create!(
   website: "https://example.com/ada",
   github: "ada",
   twitter: "lovelace"
-)
-
-Developer.create!(
-  name: "James Gosling",
-  email: "james@example.com",
-  available_on: Date.new(2022, 1, 1),
-  hero: "Creator of Java",
-  bio: "Often referred to as \"Dr. Java\", a Canadian computer scientist, best known as the founder and lead designer behind the Java programming language.",
-  website: "https://example.com/james",
-  github: "james",
-  twitter: "gosling"
-)
-
-Developer.create!(
-  name: "Linus Torvalds",
-  email: "linus@example.com",
-  available_on: Date.new(2021, 1, 1),
-  hero: "Creator of Linux",
-  bio: "A Finnish-American software engineer who is the creator and, historically, the main developer of the Linux kernel, used by Linux distributions and other operating systems such as Android.",
-  website: "https://example.com/linus",
-  github: "linus",
-  twitter: "torvalds"
 )
