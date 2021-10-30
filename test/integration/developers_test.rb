@@ -11,6 +11,18 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
+  test "can see send message button if logged in" do
+    one = developers(:one)
+    get developer_path(one)
+
+    assert_select('div[data-behavior="message-button"]', count: 0)
+
+    sign_in users(:one)
+    get developer_path(one)
+
+    assert_select('div[data-behavior="message-button"]')
+  end
+
   test "successful profile creation" do
     sign_in users(:one)
 
