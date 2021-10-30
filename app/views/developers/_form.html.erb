@@ -1,29 +1,7 @@
+<%= render "shared/error_messages", resource: developer %>
+
 <div class="py-8 px-4 sm:px-6 lg:px-8">
   <%= form_with model: developer do |form| %>
-    <% if developer.errors.any? %>
-      <div class="rounded-md bg-red-50 p-4 mb-8">
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <%= icon "solid/x_circle", class: "h-5 w-5 text-red-400" %>
-          </div>
-
-          <div class="ml-3">
-            <h3 class="text-sm font-medium text-red-800">
-              <%= pluralize developer.errors.count, "error" %> prohibited this developer from being saved:
-            </h3>
-
-            <div class="mt-2 text-sm text-red-700">
-              <ul role="list" class="list-disc pl-5 space-y-1">
-                <% developer.errors.each do |error| %>
-                  <li><%= error.full_message %></li>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
     <div>
       <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">

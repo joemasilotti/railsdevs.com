@@ -1,4 +1,6 @@
 class DevelopersController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update]
+
   def index
     @developers = Developer.order(created_at: :desc)
   end
@@ -8,7 +10,7 @@ class DevelopersController < ApplicationController
   end
 
   def create
-    @developer = Developer.new(developer_params)
+    @developer = Developer.new(developer_params.merge(user: current_user))
 
     if @developer.save
       redirect_to @developer, notice: "Your profile was added!"
