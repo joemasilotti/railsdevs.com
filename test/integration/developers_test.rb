@@ -11,6 +11,21 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
+  test "can see send message button if signed in" do
+    sign_in users(:one)
+    developer = developers(:one)
+
+    get developer_path(developers(:one))
+
+    assert_select "a[href=?]", "mailto:#{developer.email}"
+  end
+
+  test "send message button is hidden if not signed in" do
+    developer = developers(:one)
+    get developer_path(developers(:one))
+    assert_select "a[href=?]", "mailto:#{developer.email}", false
+  end
+
   test "successful profile creation" do
     sign_in users(:one)
 
