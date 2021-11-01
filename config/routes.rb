@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "developers#index"
+  devise_for :users
 
-  resources :developers, only: %i[index new create show]
+  resources :developers, except: %i[destroy]
+
+  root to: "developers#index"
 end
