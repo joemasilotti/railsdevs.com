@@ -57,8 +57,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to developer_path(developer)
     follow_redirect!
 
-    developer.reload
-    assert_equal "New Name", developer.name
+    assert_equal "New Name", developer.reload.name
   end
 
   test "invalid profile creation" do
@@ -75,32 +74,34 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "can edit own profile" do
     sign_in users(:one)
-    authorized_developer = developers(:one)
-    unauthorized_developer = developers(:two)
+    developer = developers(:one)
 
-    get edit_developer_path(unauthorized_developer)
-    assert_redirected_to root_path
-
-    patch developer_path(unauthorized_developer), params: {
-      developer: {
-        name: "New Name"
-      }
-    }
-
-    assert_redirected_to root_path
-
-    get edit_developer_path(authorized_developer)
+    get edit_developer_path(developer)
     assert_select "form"
 
-    patch developer_path(authorized_developer), params: {
+    patch developer_path(developer), params: {
       developer: {
         name: "New Name"
       }
     }
-    assert_redirected_to developer_path(authorized_developer)
-    follow_redirect!
+    assert_redirected_to developer_path(developer)
+    assert_equal "New Name", developer.reload.name
+  end
 
-    authorized_developer.reload
-    assert_equal "New Name", authorized_developer.name
+  test "cannot edit another developer's profile" do
+    sign_in users(:one)
+    developer = developers(:two)
+
+    get edit_developer_path(developer)
+    assert_redirected_to root_path
+
+    assert_no_changes "developer.name" do
+      patch developer_path(developer), params: {
+        developer: {
+          name: "New Name"
+        }
+      }
+    end
+    assert_redirected_to root_path
   end
 end

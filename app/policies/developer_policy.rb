@@ -1,5 +1,4 @@
 class DeveloperPolicy < ApplicationPolicy
-
   def create?
     user == record.user
   end
