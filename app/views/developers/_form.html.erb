@@ -58,7 +58,7 @@
           <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1 flex items-center">
             <div class="relative">
-              <%= render "shared/avatar", developer: @developer, data: { "file-upload-target": "image" } %>
+              <%= render "developers/avatar", developer: @developer, data: { "file-upload-target": "image" } %>
               <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <%= icon "outline/refresh", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
               </div>
