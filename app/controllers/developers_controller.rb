@@ -2,7 +2,7 @@ class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
-    @developers = Developer.order(created_at: :desc)
+    @developers = Developer.order(created_at: :desc).with_attached_avatar
   end
 
   def new
@@ -48,7 +48,8 @@ class DevelopersController < ApplicationController
       :bio,
       :website,
       :github,
-      :twitter
+      :twitter,
+      :avatar
     )
   end
 end

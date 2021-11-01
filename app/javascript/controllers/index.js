@@ -2,3 +2,6 @@
 // Run that command whenever you add a new controller
 
 import { application } from "./application"
+
+import FileUploadController from "./file_upload_controller.js"
+application.register("file-upload", FileUploadController)
