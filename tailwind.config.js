@@ -1,11 +1,11 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require("tailwindcss/defaultTheme")
 const colors = require("tailwindcss/colors")
 
 module.exports = {
   mode: "jit",
 
   plugins: [
-    require('@tailwindcss/forms'),
+    require("@tailwindcss/forms"),
   ],
 
   purge: [
@@ -23,6 +23,16 @@ module.exports = {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         serif: ["Merriweather", "serif"],
+      },
+      animation: {
+        "reverse-spin": "reverse-spin 1.5s linear infinite"
+      },
+      keyframes: {
+        "reverse-spin": {
+          from: {
+            transform: "rotate(360deg)"
+          },
+        },
       },
     },
   },

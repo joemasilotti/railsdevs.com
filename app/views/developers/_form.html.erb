@@ -54,14 +54,26 @@
           </div>
         </div>
 
-        <div class="sm:col-span-6" data-controller="file-upload">
+        <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
           <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1 flex items-center">
-            <%= render "shared/avatar", developer: @developer %>
-            <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "input->file-upload#listFiles"}, class: "cursor-pointer invisible before:visible before:block before:absolute before:content-['Change'] before:ml-5 before:bg-white before:py-2 before:px-3 before:border before:border-gray-300 before:rounded-md before:shadow-sm before:text-sm before:leading-4 before:font-medium text-gray-700 before:hover:bg-gray-50 before:focus:outline-none before:focus:ring-2 before:focus:ring-offset-2 before:focus:ring-gray-500" %>
+            <div class="relative">
+              <%= render "shared/avatar", developer: @developer, data: { "file-upload-target": "image" } %>
+              <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <%= icon "outline/refresh", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+              </div>
+            </div>
+
+            <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg",
+              data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"},
+              class: "cursor-pointer invisible before:visible before:block before:absolute before:content-['Change'] before:ml-5 before:bg-white before:py-2 before:px-3 before:border before:border-gray-300 before:rounded-md before:shadow-sm before:text-sm before:leading-4 before:font-medium text-gray-700 before:hover:bg-gray-50 before:focus:outline-none before:focus:ring-2 before:focus:ring-offset-2 before:focus:ring-gray-500" %>
           </div>
-          <div data-file-upload-target="fileList" class="flex flex-col"></div>
-          <div data-file-upload-target="progressContainer"></div>
+
+          <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
+            <div class="ml-3">
+              <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
+            </div>
+          </div>
         </div>
 
         <div class="sm:col-span-6">
