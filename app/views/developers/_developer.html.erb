@@ -1,7 +1,7 @@
 <li>
   <%= link_to developer, class: "bg-white hover:bg-gray-50 border-1 border-white hover:border-gray-900 px-4 py-6 shadow sm:p-6 sm:rounded-lg flex space-x-4 sm:space-x-8" do %>
     <div class="flex-shrink-0">
-      <img class="h-16 w-16 sm:h-24 sm:w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+      <%= render "developers/avatar", developer: developer %>
     </div>
 
     <div class="self-start flex-1">

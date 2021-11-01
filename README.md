@@ -6,11 +6,31 @@ Find Rails developers looking for freelance and contract work.
 
 ### Getting started
 
-Run `bin/setup`
+#### Requirements
+
+You need the following installed:
+
+* Ruby 3.0 or higher
+* [bundler](https://bundler.io) - `gem install bundler`
+* [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
+* [Yarn](https://yarnpkg.com) - `brew install yarn`
+* [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
+
+#### Initial setup
+
+An installation script is included with the repository that will automatically get the application setup.
+
+```bash
+bin/setup
+```
 
 ### Development
 
-Run `bin/dev`
+Run the following (requires [foreman](https://github.com/ddollar/foreman)) to start the server and automatically build assets.
+
+```bash
+bin/dev
+```
 
 ### Testing
 
