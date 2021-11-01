@@ -6,11 +6,13 @@ class DevelopersController < ApplicationController
   end
 
   def new
-    @developer = Developer.new
+    @developer = Developer.new(user: current_user)
+    authorize @developer
   end
 
   def create
     @developer = Developer.new(developer_params.merge(user: current_user))
+    authorize @developer
 
     if @developer.save
       redirect_to @developer, notice: "Your profile was added!"
@@ -21,10 +23,12 @@ class DevelopersController < ApplicationController
 
   def edit
     @developer = Developer.find(params[:id])
+    authorize @developer
   end
 
   def update
     @developer = Developer.find(params[:id])
+    authorize @developer
 
     if @developer.update(developer_params)
       redirect_to @developer, notice: "Your profile was updated!"

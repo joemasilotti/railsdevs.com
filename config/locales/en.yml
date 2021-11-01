@@ -7,4 +7,8 @@ en:
 
   errors:
     messages:
-      content_type_invalid: "image format not supported"
+      content_type_invalid: image format not supported
+
+  pundit:
+    errors:
+      unauthorized: You don't have access to that.

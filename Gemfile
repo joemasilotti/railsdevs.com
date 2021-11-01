@@ -26,3 +26,5 @@ end
 gem "devise", github: "heartcombo/devise"
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "pundit", "~> 2.1"
