@@ -7,6 +7,7 @@ export default class extends Controller {
   select(event) {
     const file = event.currentTarget.files[0]
     this.imageTarget.src = window.URL.createObjectURL(file)
+    this.imageTarget.classList.remove(this.visibilityClass)
 
     this.errorTarget.classList.add(this.visibilityClass)
   }
