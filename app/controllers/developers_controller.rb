@@ -12,6 +12,7 @@ class DevelopersController < ApplicationController
 
   def create
     @developer = Developer.new(developer_params.merge(user: current_user))
+    authorize @developer
 
     if @developer.save
       redirect_to @developer, notice: "Your profile was added!"
