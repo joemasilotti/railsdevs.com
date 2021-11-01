@@ -111,11 +111,12 @@ GEM
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    hotwire-rails (0.1.3)
+      rails (>= 6.0.0)
+      stimulus-rails
+      turbo-rails
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    image_processing (1.12.1)
-      mini_magick (>= 4.9.5, < 5)
-      ruby-vips (>= 2.0.17, < 3)
     jsbundling-rails (0.1.9)
       railties (>= 6.0.0)
     launchy (2.5.0)
@@ -136,7 +137,6 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     method_source (1.0.0)
-    mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
@@ -193,8 +193,6 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
-    ruby-vips (2.1.3)
-      ffi (~> 1.12)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -215,8 +213,12 @@ GEM
     standard (1.3.0)
       rubocop (= 1.20.0)
       rubocop-performance (= 1.11.5)
+    stimulus-rails (0.7.1)
+      rails (>= 6.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    turbo-rails (7.1.1)
+      rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
@@ -235,7 +237,7 @@ PLATFORMS
 DEPENDENCIES
   cssbundling-rails
   devise!
-  image_processing (~> 1.12)
+  hotwire-rails (~> 0.1.3)
   jsbundling-rails
   letter_opener_web
   listen (~> 3.3)
