@@ -13,7 +13,7 @@
         <div class="hidden sm:inline-flex ml-auto flex-row-reverse items-center text-gray-400">
           <% if developer.available_on <= Date.current %>
             <span class="font-medium text-sm text-gray-900">Available now</span>
-            <%= icon "solid/check_circle", class: "h-5 w-5 text-green-400 mr-2" %>
+            <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-green-400 mr-2" %>
           <% else %>
             <span class="text-sm text-gray-900">
               Available in

@@ -19,7 +19,7 @@
         <% if user_signed_in? %>
           <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
             <%= link_to "mailto:#{@developer.email}", data: { behavior: "message-button" }, class: "inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-              <%= icon "solid/mail", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
+              <%= inline_svg_tag "icons/solid/mail.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
               <span>Message</span>
             <% end %>
           </div>
@@ -43,7 +43,7 @@
         <dd class="flex mt-1 text-sm text-gray-900">
           <% if @developer.available_on <= Date.current %>
             <span class="text-sm text-gray-900">Available now</span>
-            <%= icon "solid/check_circle", class: "h-5 w-5 text-green-400 ml-2" %>
+            <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-green-400 ml-2" %>
           <% else %>
             <span class="text-sm text-gray-900">
               Available in

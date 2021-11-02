@@ -16,7 +16,7 @@
 
         <% if signed_in? %>
           <%= button_to destroy_user_session_path, method: :delete, title: "Sign out", class: "block text-gray-200 bg-transparent cursor-pointer" do %>
-            <%= icon "outline/logout", class: "w-6 h-6 hover:text-gray-300" %>
+            <%= inline_svg_tag "icons/outline/logout.svg", class: "w-6 h-6 hover:text-gray-300" %>
           <% end %>
         <% end %>
       </div>
