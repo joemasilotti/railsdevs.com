@@ -8,6 +8,7 @@ en:
   errors:
     messages:
       content_type_invalid: image format not supported
+      max_file_size_invalid: image over %{size}
 
   pundit:
     errors:
