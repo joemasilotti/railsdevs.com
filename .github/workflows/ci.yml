@@ -8,9 +8,7 @@ on:
     branches:
       - main
 
-concurrency:
-  group: ${{ github.head_ref }}
-  cancel-in-progress: true
+concurrency: ci-${{ github.ref }}
 
 jobs:
   install-cache:
