@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
     branches:
-      - main
+      - '*'
 
 concurrency:
   group: ${{ github.head_ref }}
