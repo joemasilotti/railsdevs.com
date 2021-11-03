@@ -24,5 +24,6 @@ export default class extends Controller {
     this.imageTarget.classList.remove(this.loadingClass)
     this.activityTarget.classList.add(this.visibilityClass)
     this.errorTarget.classList.remove(this.visibilityClass)
+    console.error(event.detail.error)
   }
 }
