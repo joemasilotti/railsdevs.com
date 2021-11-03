@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ButtonLinkComponent < ViewComponent::Base
   def initialize(href, icon: nil)
     @href = href
