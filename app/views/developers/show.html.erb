@@ -18,9 +18,8 @@
 
         <% if user_signed_in? %>
           <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-            <%= link_to "mailto:#{@developer.email}", data: { behavior: "message-button" }, class: "inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-              <%= inline_svg_tag "icons/solid/mail.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
-              <span>Message</span>
+            <%= render ButtonLinkComponent.new("mailto:#{@developer.email}", icon: "mail") do %>
+              Message
             <% end %>
           </div>
         <% end %>
