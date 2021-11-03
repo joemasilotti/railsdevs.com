@@ -22,6 +22,10 @@ group :development do
   gem "listen", "~> 3.3"
 end
 
+group :test do
+  gem 'capybara'
+end
+
 # Point at main until Rails 7 changes are released.
 gem "devise", github: "heartcombo/devise"
 
@@ -30,3 +34,4 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "pundit", "~> 2.1"
+gem "view_component", "~> 2.42"
