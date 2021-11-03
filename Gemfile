@@ -23,7 +23,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem "capybara"
 end
 
 # Point at main until Rails 7 changes are released.
