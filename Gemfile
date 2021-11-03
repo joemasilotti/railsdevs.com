@@ -17,6 +17,7 @@ group :development, :test do
   gem "letter_opener_web"
   gem "pry-rails"
   gem "standard"
+  gem "lefthook"
 end
 
 group :development do
