@@ -1,14 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["activity", "image", "error"]
+  static targets = ["activity", "image", "error", "placeholder"]
   static classes = ["visibility", "loading"]
 
   select(event) {
     const file = event.currentTarget.files[0]
     this.imageTarget.src = window.URL.createObjectURL(file)
     this.imageTarget.classList.remove(this.visibilityClass)
-
+    if (this.hasPlaceholderTarget) {
+      this.placeholderTarget.classList.add(this.visibilityClass)
+    }
     this.errorTarget.classList.add(this.visibilityClass)
   }
 

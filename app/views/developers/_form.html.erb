@@ -55,7 +55,7 @@
         </div>
 
         <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
-          <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
+          <span class="block text-sm font-medium text-gray-700">Avatar</span>
           <div class="mt-1 flex items-center">
             <div class="relative">
               <%= render "developers/avatar", developer: @developer, data: { "file-upload-target": "image" } %>
@@ -64,9 +64,8 @@
               </div>
             </div>
 
-            <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg",
-              data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"},
-              class: "cursor-pointer invisible before:visible before:block before:absolute before:content-['Change'] before:ml-5 before:bg-white before:py-2 before:px-3 before:border before:border-gray-300 before:rounded-md before:shadow-sm before:text-sm before:leading-4 before:font-medium text-gray-700 before:hover:bg-gray-50 before:focus:outline-none before:focus:ring-2 before:focus:ring-offset-2 before:focus:ring-gray-500" %>
+            <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
+            <%= form.label :avatar, "Change", class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
           </div>
 
           <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
@@ -76,25 +75,32 @@
           </div>
         </div>
 
-        <div class="sm:col-span-6">
-          <label for="cover-photo" class="block text-sm font-medium text-gray-700">
-            Cover photo
-          </label>
-          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-            <div class="space-y-1 text-center">
-              <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              </svg>
-              <div class="flex text-sm text-gray-600">
-                <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-gray-600 hover:text-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-gray-500">
-                  <span>Upload a file</span>
-                  <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                </label>
-                <p class="pl-1">or drag and drop</p>
-              </div>
-              <p class="text-xs text-gray-500">
-                PNG, JPG, GIF up to 10MB
-              </p>
+        <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50" class="sm:col-span-6">
+          <span class="block text-sm font-medium text-gray-700">Cover image</span>
+          <div class="relative">
+            <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
+            <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+
+            <div class="mb-4 w-full aspect-w-4 aspect-h-1">
+              <% unless @developer.cover_image.attached? %>
+                <%= image_tag "default_splash", alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md" %>
+              <% else %>
+                <%= image_tag @developer.cover_image, alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md"%>
+              <% end %>
+            </div>
+            <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+            </div>
+          </div>
+          <div class="flex text-sm text-gray-600">
+            <p class="">Upload a file</p>
+          </div>
+          <p class="text-xs text-gray-500">
+            PNG, JPG, GIF up to 10MB
+          </p>
+          <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
+            <div class="ml-3">
+              <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
             </div>
           </div>
         </div>
