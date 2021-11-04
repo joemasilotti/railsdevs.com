@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "lefthook"
   gem "listen", "~> 3.3"
 end
 
