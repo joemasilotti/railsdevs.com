@@ -85,8 +85,8 @@ Rails.application.configure do
   # Use mailgun to send email.
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    api_key: ENV["MAILGUN_API_KEY"],
-    domain: ENV["MAILGUN_DOMAIN"]
+    api_key: Rails.application.credentials.dig(:mailgun, :api_key),
+    domain: Rails.application.credentials.dig(:mailgun, :domain)
   }
 
   # Configure host for URL helpers.
