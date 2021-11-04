@@ -83,7 +83,7 @@
 
             <div class="mb-4 w-full aspect-w-4 aspect-h-1">
               <% unless @developer.cover_image.attached? %>
-                <%= image_tag "default_splash", alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md" %>
+                <%= image_tag "default_splash.jpg", alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md" %>
               <% else %>
                 <%= image_tag @developer.cover_image, alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md"%>
               <% end %>
