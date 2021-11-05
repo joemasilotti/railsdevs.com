@@ -6,13 +6,13 @@ class DevelopersController < ApplicationController
   end
 
   def new
+    authorize current_user.developer, policy_class: DeveloperPolicy
     @developer = Developer.new(user: current_user)
-    authorize @developer
   end
 
   def create
+    authorize current_user.developer, policy_class: DeveloperPolicy
     @developer = Developer.new(developer_params.merge(user: current_user))
-    authorize @developer
 
     if @developer.save
       redirect_to @developer, notice: "Your profile was added!"
