@@ -51,7 +51,7 @@ require 'faker'
     name: Faker::Name.name,
     email: Faker::Internet.email,
     available_on: Date.new(2021, 1, 1),
-    hero: "First computer programmer",
+    hero: Faker::FunnyName.name,
     bio: "An English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine.",
     website: "https://example.com/ada",
     github: "ada",
