@@ -1,0 +1,5 @@
+<%= turbo_stream.append "developers" do %>
+  <%= render @developers %>
+
+  <%= last_page_target if @pagy.last == @pagy.page %>
+<% end %>
