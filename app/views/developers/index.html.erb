@@ -1,3 +1,8 @@
-<ul role="list" class="space-y-8 bg-gray-100">
+<ul
+  id="developers"
+  data-controller="pagination"
+  data-pagination-url-value="<%= developers_url %>"
+  data-pagination-page-value="2"
+  role="list" class="space-y-8 bg-gray-100">
   <%= render @developers %>
 </ul>
