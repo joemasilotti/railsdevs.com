@@ -38,3 +38,4 @@ gem "aws-sdk-s3", "~> 1", require: false
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "pundit", "~> 2.1"
+gem 'pagy', '~> 4.11'
