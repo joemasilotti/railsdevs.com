@@ -1,0 +1,16 @@
+class ToastMessageComponent < ViewComponent::Base
+  include ComponentWithIcon
+
+  renders_one :title
+  renders_many :messages
+
+  def initialize(icon:, color: "blue", messages_tag: :div)
+    @icon = icon
+    @color = color
+    @messages_tag = messages_tag
+  end
+
+  def messages_classes
+    "mt-2 pl-5" unless @messages_tag == :div
+  end
+end
