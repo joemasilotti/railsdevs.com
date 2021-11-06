@@ -12,7 +12,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can see send message button if signed in" do
-    sign_in users(:one)
+    sign_in users(:with_profile_one)
     developer = developers(:one)
 
     get developer_path(developers(:one))
@@ -26,8 +26,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", "mailto:#{developer.email}", false
   end
 
+  test "cannot create new proflie if already has one" do
+    sign_in users(:with_profile_one)
+
+    assert_no_difference "Developer.count" do
+      post developers_path, params: {
+        developer: {
+          name: "Developer",
+          email: "dev@example.com",
+          available_on: Date.yesterday,
+          hero: "A developer",
+          bio: "I develop."
+        }
+      }
+    end
+  end
+
   test "successful profile creation" do
-    sign_in users(:one)
+    sign_in users(:without_profile)
 
     assert_difference "Developer.count", 1 do
       post developers_path, params: valid_developer_params
@@ -35,7 +51,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "successful profile creation sends a notification to the admin" do
-    sign_in users(:one)
+    sign_in users(:without_profile)
 
     assert_changes "Notification.count", 1 do
       post developers_path, params: valid_developer_params
@@ -43,7 +59,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit to profile" do
-    sign_in users(:one)
+    sign_in users(:with_profile_one)
     developer = developers(:one)
 
     get edit_developer_path(developer)
@@ -61,7 +77,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid profile creation" do
-    sign_in users(:one)
+    sign_in users(:without_profile)
 
     assert_no_difference "Developer.count" do
       post developers_path, params: {
@@ -73,7 +89,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can edit own profile" do
-    sign_in users(:one)
+    sign_in users(:with_profile_one)
     developer = developers(:one)
 
     get edit_developer_path(developer)
@@ -89,7 +105,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "cannot edit another developer's profile" do
-    sign_in users(:one)
+    sign_in users(:with_profile_one)
     developer = developers(:two)
 
     get edit_developer_path(developer)

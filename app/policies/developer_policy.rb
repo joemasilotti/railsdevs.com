@@ -1,6 +1,6 @@
 class DeveloperPolicy < ApplicationPolicy
   def create?
-    user == record.user
+    record.nil?
   end
 
   def update?

@@ -6,13 +6,13 @@ class DevelopersController < ApplicationController
   end
 
   def new
-    @developer = Developer.new(user: current_user)
-    authorize @developer
+    authorize current_user.developer, policy_class: DeveloperPolicy
+    @developer = current_user.build_developer
   end
 
   def create
-    @developer = Developer.new(developer_params.merge(user: current_user))
-    authorize @developer
+    authorize current_user.developer, policy_class: DeveloperPolicy
+    @developer = current_user.build_developer(developer_params)
 
     if @developer.save
       NewDeveloperProfileNotification.with(developer: @developer).deliver_later(User.admin)
