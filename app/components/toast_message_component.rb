@@ -1,21 +1,6 @@
 class ToastMessageComponent < ViewComponent::Base
   include ComponentWithIcon
 
-  NAMED_STYLES = {
-    blue: {
-      bg: "bg-blue-50",
-      icon: "text-blue-400",
-      title: "text-blue-800",
-      message: "text-blue-700"
-    },
-    red: {
-      bg: "bg-red-50",
-      icon: "text-red-400",
-      title: "text-red-800",
-      message: "text-red-700"
-    }
-  }.freeze
-
   renders_one :title
   renders_many :messages
 
@@ -47,4 +32,21 @@ class ToastMessageComponent < ViewComponent::Base
 
     messages_classes
   end
+
+  private
+
+  NAMED_STYLES = {
+    blue: {
+      bg: "bg-blue-50",
+      icon: "text-blue-400",
+      title: "text-blue-800",
+      message: "text-blue-700"
+    },
+    red: {
+      bg: "bg-red-50",
+      icon: "text-red-400",
+      title: "text-red-800",
+      message: "text-red-700"
+    }
+  }.freeze
 end
