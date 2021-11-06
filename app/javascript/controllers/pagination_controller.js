@@ -9,10 +9,6 @@ export default class extends Controller {
     this.intersectionObserver = new IntersectionObserver((entries) => this.processIntersectionEntries(entries), options)
   }
 
-  connect() {
-    this.intersectionObserver.observe(this.linksTarget)
-  }
-
   disconnect() {
     this.intersectionObserver.unobserve(this.linksTarget)
   }
