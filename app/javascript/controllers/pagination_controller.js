@@ -26,11 +26,10 @@ export default class extends Controller {
   }
 
   loadMore() {
-    let next_page = this.linksTarget.querySelector("a[rel='next']");
-    if (next_page == null) {
-      return
-    }
-    let url = next_page.href
-    get(url, { responseKind: "turbo-stream" })
+    const nextPage = this.linksTarget.querySelector("a[rel='next']")
+    if (nextPage == null) { return }
+
+    const url = nextPage.href
+    get(url, {responseKind: "turbo-stream"})
   }
 }
