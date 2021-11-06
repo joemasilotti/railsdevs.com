@@ -92,6 +92,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Standardize
+        run: bundle exec standardrb
+
       - name: Run tests
         env:
           RAILS_ENV: test
@@ -104,13 +107,3 @@ jobs:
           bin/rails db:create
           bin/rails db:schema:load
           bin/rails test --fail-fast
-
-  standardize_ruby:
-    runs-on: ubuntu-latest
-    needs: install-cache
-    steps:
-      - uses: actions/checkout@v1
-      - name: StandardRB Linter
-        uses: andrewmcodes/standardrb-action@v0.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
