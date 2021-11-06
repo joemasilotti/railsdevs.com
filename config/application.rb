@@ -34,5 +34,8 @@ module Railsdevs
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Load custom configuration.
+    config.fathom = config_for(:fathom)
   end
 end
