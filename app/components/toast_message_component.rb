@@ -14,7 +14,7 @@ class ToastMessageComponent < ViewComponent::Base
       title: "text-red-800",
       message: "text-red-700"
     }
-  }
+  }.freeze
 
   renders_one :title
   renders_many :messages
