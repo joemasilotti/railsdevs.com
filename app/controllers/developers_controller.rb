@@ -53,6 +53,7 @@ class DevelopersController < ApplicationController
       :website,
       :github,
       :twitter,
+      :linkedin,
       :avatar,
       :cover_image
     )
