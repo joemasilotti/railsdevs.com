@@ -30,15 +30,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:one)
 
     assert_difference "Developer.count", 1 do
-      post developers_path, params: {
-        developer: {
-          name: "Developer",
-          email: "dev@example.com",
-          available_on: Date.yesterday,
-          hero: "A developer",
-          bio: "I develop."
-        }
-      }
+      post developers_path, params: valid_developer_params
+    end
+  end
+
+  test "successful profile creation sends a notification to the admin" do
+    sign_in users(:one)
+
+    assert_changes "Notification.count", 1 do
+      post developers_path, params: valid_developer_params
     end
   end
 
@@ -103,5 +103,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       }
     end
     assert_redirected_to root_path
+  end
+
+  def valid_developer_params
+    {
+      developer: {
+        name: "Developer",
+        email: "dev@example.com",
+        available_on: Date.yesterday,
+        hero: "A developer",
+        bio: "I develop."
+      }
+    }
   end
 end

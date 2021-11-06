@@ -5,3 +5,8 @@ one:
 two:
   email: two@example.com
   confirmed_at: <%= DateTime.current %>
+
+admin:
+  email: admin@example.com
+  confirmed_at: <%= DateTime.current %>
+  admin: true
