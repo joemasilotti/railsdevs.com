@@ -1,0 +1,41 @@
+.pagy-nav {
+  @apply flex space-x-2;
+}
+
+.pagy-nav .page a,
+.pagy-nav .page.active,
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled {
+  @apply block rounded-lg px-3 py-1 text-sm text-gray-500 font-semibold bg-gray-200;
+  &:hover{
+    @apply bg-gray-300;
+  }
+  &:active{
+    @apply bg-gray-400 text-white;
+  }
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled {
+  @apply text-gray-400 cursor-default;
+  &:hover {
+    @apply text-gray-400 bg-gray-200;
+  }
+  &:active {
+    @apply text-gray-400 bg-gray-200;
+  }
+}
+
+.pagy-nav .page.active {
+  @apply text-white cursor-default bg-gray-400;
+  &:hover {
+    @apply text-white bg-gray-400;
+  }
+  &:active {
+    @apply bg-gray-400 text-white;
+  }
+}
+
+.pagy-combo-input {
+  @apply bg-white px-2 rounded-sm
+}

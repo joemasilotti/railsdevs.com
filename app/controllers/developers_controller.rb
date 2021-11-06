@@ -1,8 +1,10 @@
 class DevelopersController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
-    @developers = Developer.order(created_at: :desc).with_attached_avatar
+    @pagy, @developers = pagy(Developer.order(created_at: :desc).with_attached_avatar)
   end
 
   def new

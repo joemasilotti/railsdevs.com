@@ -1,3 +1,11 @@
-<ul role="list" class="space-y-8 bg-gray-100">
-  <%= render @developers %>
-</ul>
+<div data-controller="pagination" data-pagination-visibility-class="invisible">
+  <ul id="developers" data-pagination-target="entries" role="list" class="space-y-8 bg-gray-100">
+    <%= render @developers %>
+  </ul>
+
+  <div class="bg-gray-100 pt-8">
+    <%= pagy_links do %>
+      <%== pagy_nav @pagy %>
+    <% end %>
+  </div>
+</div>
