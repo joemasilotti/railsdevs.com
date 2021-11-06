@@ -1,13 +1,12 @@
-one:
+with_profile_one:
   email: one@example.com
   confirmed_at: <%= DateTime.current %>
 
-two:
+with_profile_two:
   email: two@example.com
   confirmed_at: <%= DateTime.current %>
 
-
-three:
+without_profile:
   email: three@example.com
   confirmed_at: <%= DateTime.current %>
 
