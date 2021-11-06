@@ -36,5 +36,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "aws-sdk-s3", "~> 1", require: false
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
+gem "noticed", "~> 1.4"
 gem "pagy", "~> 4.11"
 gem "pundit", "~> 2.1"

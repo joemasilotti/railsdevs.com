@@ -14,7 +14,11 @@ You need the following installed:
 * [bundler](https://bundler.io) - `gem install bundler`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
+
+Optional:
+
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
+* [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
 
 #### Initial setup
 
@@ -26,7 +30,7 @@ bin/setup
 
 ### Development
 
-Run the following (requires [foreman](https://github.com/ddollar/foreman)) to start the server and automatically build assets.
+Run the following (requires `foreman` or `overmind`) to start the server and automatically build assets.
 
 ```bash
 bin/dev

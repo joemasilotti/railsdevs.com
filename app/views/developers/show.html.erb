@@ -89,6 +89,17 @@
         </div>
       <% end %>
 
+      <% if @developer.linkedin.present? %>
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">
+            LinkedIn
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900">
+            <%= link_to @developer.linkedin , "https://www.linkedin.com/in/#{@developer.linkedin}/", target: "_blank", class: "hover:text-gray-600" %>
+          </dd>
+        </div>
+      <% end %>
+
       <div class="sm:col-span-2">
         <dt class="text-sm font-medium text-gray-500">
           Bio
