@@ -1,8 +1,9 @@
-<ul
-  id="developers"
-  data-controller="pagination"
-  data-pagination-url-value="<%= developers_url %>"
-  data-pagination-page-value="2"
-  role="list" class="space-y-8 bg-gray-100">
-  <%= render @developers %>
-</ul>
+<div data-controller="pagination">
+  <ul id="developers" data-pagination-target="entries" role="list" class="space-y-8 bg-gray-100">
+    <%= render @developers %>
+  </ul>
+
+  <%= pagy_links do %>
+    <%== pagy_nav @pagy %>
+  <% end %>
+</div>

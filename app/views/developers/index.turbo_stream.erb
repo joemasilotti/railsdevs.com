@@ -1,5 +1,9 @@
 <%= turbo_stream.append "developers" do %>
   <%= render @developers %>
+<% end %>
 
-  <%= last_page_target if @pagy.last == @pagy.page %>
+<%= turbo_stream.replace "pagy-links" do %>
+  <%= pagy_links do %>
+    <%== pagy_nav @pagy %>
+  <% end %>
 <% end %>
