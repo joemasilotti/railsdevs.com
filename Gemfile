@@ -26,7 +26,7 @@ end
 
 group :test do
   gem "capybara"
-  gem 'faker'
+  gem "faker"
 end
 
 # Point at main until Rails 7 changes are released.
@@ -37,5 +37,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "aws-sdk-s3", "~> 1", require: false
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
+gem "pagy", "~> 4.11"
 gem "pundit", "~> 2.1"
-gem 'pagy', '~> 4.11'
