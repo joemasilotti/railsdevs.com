@@ -26,7 +26,6 @@ end
 
 group :test do
   gem "capybara"
-  gem "faker"
 end
 
 # Point at main until Rails 7 changes are released.

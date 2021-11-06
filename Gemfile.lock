@@ -135,8 +135,6 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -299,7 +297,6 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   devise!
-  faker
   hotwire-rails (~> 0.1.3)
   inline_svg (~> 1.7)
   jsbundling-rails
