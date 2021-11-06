@@ -204,7 +204,7 @@ GEM
       http (>= 4.0.0)
       rails (>= 5.2.0)
     orm_adapter (0.5.0)
-    pagy (4.11.0)
+    pagy (5.2.0)
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -320,7 +320,7 @@ DEPENDENCIES
   listen (~> 3.3)
   mailgun-ruby (~> 1.2)
   noticed (~> 1.4)
-  pagy (~> 4.11)
+  pagy (~> 5.2)
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)
