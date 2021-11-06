@@ -1,20 +1,23 @@
 class DevelopersController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
-    @developers = Developer.order(created_at: :desc).with_attached_avatar
+    @pagy, @developers = pagy(Developer.order(created_at: :desc).with_attached_avatar)
   end
 
   def new
-    @developer = Developer.new(user: current_user)
-    authorize @developer
+    authorize current_user.developer, policy_class: DeveloperPolicy
+    @developer = current_user.build_developer
   end
 
   def create
-    @developer = Developer.new(developer_params.merge(user: current_user))
-    authorize @developer
+    authorize current_user.developer, policy_class: DeveloperPolicy
+    @developer = current_user.build_developer(developer_params)
 
     if @developer.save
+      NewDeveloperProfileNotification.with(developer: @developer).deliver_later(User.admin)
       redirect_to @developer, notice: "Your profile was added!"
     else
       render :new, status: :unprocessable_entity
@@ -53,6 +56,7 @@ class DevelopersController < ApplicationController
       :website,
       :github,
       :twitter,
+      :linkedin,
       :avatar,
       :cover_image
     )
