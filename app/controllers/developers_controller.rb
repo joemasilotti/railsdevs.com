@@ -15,6 +15,7 @@ class DevelopersController < ApplicationController
     @developer = Developer.new(developer_params.merge(user: current_user))
 
     if @developer.save
+      NewDeveloperProfileNotification.with(developer: @developer).deliver_later(User.admin)
       redirect_to @developer, notice: "Your profile was added!"
     else
       render :new, status: :unprocessable_entity
@@ -53,6 +54,7 @@ class DevelopersController < ApplicationController
       :website,
       :github,
       :twitter,
+      :linkedin,
       :avatar,
       :cover_image
     )

@@ -7,4 +7,7 @@ class User < ApplicationRecord
     :validatable
 
   has_one :developer
+  has_many :notifications, as: :recipient
+
+  scope :admin, -> { where(admin: true) }
 end
