@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   connect() {
-    this.linksTarget.classList.add(this.visibilityClass);
+    this.linksTarget.classList.add(this.visibilityClass)
   }
 
   disconnect() {
@@ -31,6 +31,8 @@ export default class extends Controller {
   }
 
   loadMore() {
+    this.linksTarget.classList.add(this.visibilityClass)
+
     const nextPage = this.linksTarget.querySelector("a[rel='next']")
     if (nextPage == null) { return }
 
