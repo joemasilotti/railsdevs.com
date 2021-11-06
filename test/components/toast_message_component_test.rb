@@ -15,7 +15,7 @@ class ToastMessageComponentTest < ViewComponent::TestCase
   end
 
   test "error state toast message - color red" do
-    render_inline(ToastMessageComponent.new(icon: "information_circle", color: "red")) do |c|
+    render_inline(ToastMessageComponent.new(icon: "information_circle", color: :red)) do |c|
       c.message { "Operation successful" }
     end
 
@@ -23,7 +23,7 @@ class ToastMessageComponentTest < ViewComponent::TestCase
   end
 
   test "toast message can show a title" do
-    render_inline(ToastMessageComponent.new(icon: "x_circle", color: "red")) do |c|
+    render_inline(ToastMessageComponent.new(icon: "x_circle", color: :red)) do |c|
       c.title { "There was 1 error" }
       c.message { "Missing parameter" }
     end
@@ -34,7 +34,7 @@ class ToastMessageComponentTest < ViewComponent::TestCase
   end
 
   test "toast messages can have multiple messages" do
-    render_inline(ToastMessageComponent.new(icon: "x_circle", color: "red")) do |c|
+    render_inline(ToastMessageComponent.new(icon: "x_circle", color: :red)) do |c|
       c.title { "There were 2 errors" }
       c.message { tag.p("Missing name") }
       c.message { tag.p("Missing email") }
@@ -47,7 +47,7 @@ class ToastMessageComponentTest < ViewComponent::TestCase
   end
 
   test "toast messages can have multiple messages and ask for a different messages container" do
-    render_inline(ToastMessageComponent.new(icon: "x_circle", color: "red", messages_tag: :ul)) do |c|
+    render_inline(ToastMessageComponent.new(icon: "x_circle", color: :red, messages_tag: :ul)) do |c|
       c.title { "There were 3 errors" }
       c.message { tag.li("Missing name") }
       c.message { tag.li("Missing email") }

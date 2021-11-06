@@ -5,7 +5,7 @@
 <% end %>
 
 <% if flash.alert.present? %>
-  <%= render ToastMessageComponent.new(icon: "x_circle", color: "red") do |c| %>
+  <%= render ToastMessageComponent.new(icon: "x_circle", color: :red) do |c| %>
     <%= c.message do %> <p><%= flash.alert %></p> <% end %>
   <% end %>
 <% end %>
