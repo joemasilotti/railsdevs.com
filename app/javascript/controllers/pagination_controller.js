@@ -3,10 +3,15 @@ import { get } from "@rails/request.js"
 
 export default class extends Controller {
   static targets = ["entries", "links"]
+  static classes = ["visibility"]
 
   initialize() {
     const options = {rootMargin: "200px"}
     this.intersectionObserver = new IntersectionObserver((entries) => this.processIntersectionEntries(entries), options)
+  }
+
+  connect() {
+    this.linksTarget.classList.add(this.visibilityClass);
   }
 
   disconnect() {
