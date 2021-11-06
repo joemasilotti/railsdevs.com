@@ -62,7 +62,7 @@
             Website
           </dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to @developer.website, @developer.website, target: "_blank", class: "hover:text-gray-600" %>
+            <%= render ExternalLinkComponent.new(@developer.website, @developer.website, class: "hover:text-gray-600") %>
           </dd>
         </div>
       <% end %>
