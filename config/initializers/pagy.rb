@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require "pagy"
 
 # Pagy initializer file (5.1.3)
