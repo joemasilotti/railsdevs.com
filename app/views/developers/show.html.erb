@@ -44,7 +44,7 @@
           Availability
         </dt>
         <dd class="flex mt-1 text-sm text-gray-900">
-          <%= render "developers/availability", developer: @developer %>
+          <%= render AvailabilityComponent.new(developer: @developer) %>
         </dd>
       </div>
 

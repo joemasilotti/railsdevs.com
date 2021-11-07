@@ -11,7 +11,7 @@
         </h2>
 
         <div class="hidden sm:inline-flex ml-auto flex-row-reverse items-center text-gray-400">
-          <%= render "developers/availability", developer: developer %>
+          <%= render AvailabilityComponent.new(developer: developer) %>
         </div>
       </div>
 

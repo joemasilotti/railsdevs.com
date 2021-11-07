@@ -12,6 +12,10 @@ class Developer < ApplicationRecord
   validates :cover_image, content_type: ["image/png", "image/jpg", "image/jpeg", "image/gif"],
     max_file_size: 10.megabytes
 
+  def available?
+    available_now? || availability_status == :in_future
+  end
+
   def available_now?
     availability_status == :available
   end

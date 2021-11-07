@@ -14,8 +14,7 @@ en:
     errors:
       unauthorized: You don't have access to that.
 
-  developers:
-    availability:
-      available_html: Available now
-      in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
-      unspecified_html: Currently unavailable
+  availability_component:
+    available_html: Available now
+    in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
+    unspecified_html: Currently unavailable

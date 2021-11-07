@@ -1,0 +1,4 @@
+<span class="text-gray-900 text-sm <%= "font-medium" if @developer.available_now? %>">
+  <%= t(".#{@developer.availability_status}_html", date: date, date_in_words: date_in_words) %>
+</span>
+<%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-green-400 mx-2" if @developer.available_now? %>
