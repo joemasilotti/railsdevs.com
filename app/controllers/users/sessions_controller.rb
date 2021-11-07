@@ -1,10 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
-    if resource.developer.present?
-      developer_path resource.developer
-    else
-      root_path
-    end
+    return root_path unless resource.developer
+
+    developer_path resource.developer
   end
 
   def after_sign_out_path_for(resource)
