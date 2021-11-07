@@ -17,7 +17,7 @@
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="mt-6 bg-white sm:rounded-lg">
-        <%= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "space-y-6", data: { turbo: false } } do |f| %>
+        <%= form_for resource, as: resource_name, url: password_path(resource_name), html: {method: :put, class: "space-y-6", data: {turbo: false}} do |f| %>
           <%= f.hidden_field :reset_password_token %>
 
           <div>
