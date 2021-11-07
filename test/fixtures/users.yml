@@ -1,6 +1,7 @@
 with_profile_one:
   email: one@example.com
   confirmed_at: <%= DateTime.current %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 with_profile_two:
   email: two@example.com
@@ -9,6 +10,7 @@ with_profile_two:
 without_profile:
   email: three@example.com
   confirmed_at: <%= DateTime.current %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 admin:
   email: admin@example.com
