@@ -20,7 +20,7 @@ class Users::SessionsTest < ActionDispatch::IntegrationTest
 
   test "it redirects to referrer when logging out if referer is set" do
     sign_in users(:with_profile_one)
-    delete destroy_user_session_path, headers: { "HTTP_REFERER" => developer_path(developers(:one)) }
+    delete destroy_user_session_path, headers: { "HTTP_REFERER":  developer_path(developers(:one)) }
 
     assert_redirected_to developer_path developers(:one)
   end
