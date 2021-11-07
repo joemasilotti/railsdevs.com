@@ -18,7 +18,7 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-
+.DS_Store
 /public/assets
 /storage/
 .byebug_history

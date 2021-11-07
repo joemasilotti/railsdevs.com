@@ -1,0 +1,3 @@
+one: <%= ActiveStorage::FixtureSet.blob(
+  filename: "Lovelace.jpeg"
+) %>

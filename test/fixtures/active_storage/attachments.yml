@@ -1,0 +1,5 @@
+one:
+  name: avatar
+  record_type: Developer
+  record_id: <%= ActiveRecord::FixtureSet.identify(:available) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
