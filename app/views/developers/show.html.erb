@@ -20,13 +20,11 @@
           </h2>
         </div>
 
-        <% if user_signed_in? %>
-          <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-            <%= render ButtonLinkComponent.new("mailto:#{@developer.user.email}", icon: "mail") do %>
-              Message
-            <% end %>
-          </div>
-        <% end %>
+        <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+          <%= render ButtonLinkComponent.new(developer_link_path(@developer, :email), icon: "mail") do %>
+            Message
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -54,7 +52,7 @@
             Website
           </dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <%= render ExternalLinkComponent.new(@developer.website, @developer.website, class: "hover:text-gray-600") %>
+            <%= link_to @developer.website, developer_link_path(@developer, :website), class: "hover:text-gray-600" %>
           </dd>
         </div>
       <% end %>
@@ -65,7 +63,7 @@
             GitHub
           </dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to "@#{@developer.github}", "https://github.com/#{@developer.github}", target: "_blank", class: "hover:text-gray-600" %>
+            <%= link_to "@#{@developer.github}", developer_link_path(@developer, :github), target: "_blank", class: "hover:text-gray-600" %>
           </dd>
         </div>
       <% end %>
@@ -76,7 +74,7 @@
             Twitter
           </dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to "@#{@developer.twitter}", "https://twitter.com/#{@developer.twitter}", target: "_blank", class: "hover:text-gray-600" %>
+            <%= link_to "@#{@developer.twitter}", developer_link_path(@developer, :twitter), target: "_blank", class: "hover:text-gray-600" %>
           </dd>
         </div>
       <% end %>
@@ -87,7 +85,7 @@
             LinkedIn
           </dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to @developer.linkedin , "https://www.linkedin.com/in/#{@developer.linkedin}/", target: "_blank", class: "hover:text-gray-600" %>
+            <%= link_to @developer.linkedin , developer_link_path(@developer, :linkedin), target: "_blank", class: "hover:text-gray-600" %>
           </dd>
         </div>
       <% end %>

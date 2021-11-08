@@ -11,19 +11,10 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
-  test "can see send message button if signed in" do
-    user = users(:with_profile_one)
-    sign_in user
-
-    get developer_path(developers(:one))
-
-    assert_select "a[href=?]", "mailto:#{user.email}"
-  end
-
-  test "send message button is hidden if not signed in" do
+  test "links to developer's user's email" do
     developer = developers(:one)
-    get developer_path(developers(:one))
-    assert_select "a[href=?]", "mailto:#{developer.user.email}", false
+    get developer_path(developer)
+    assert_select "a[href=?]", "/developers/#{developer.id}/links/email"
   end
 
   test "cannot create new proflie if already has one" do
