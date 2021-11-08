@@ -49,7 +49,6 @@ class DevelopersController < ApplicationController
   def developer_params
     params.require(:developer).permit(
       :name,
-      :email,
       :available_on,
       :hero,
       :bio,
