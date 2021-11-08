@@ -3,6 +3,8 @@ module Availability
 
   included do
     enum availability_status: [:unspecified, :now, :in_future], _default: :unspecified, _prefix: :available
+
+    after_initialize :derive_availability_status
   end
 
   def available_on=(date)
