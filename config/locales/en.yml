@@ -13,3 +13,8 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+
+  availability_component:
+    now_html: Available now
+    in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
+    unspecified_html: Currently unavailable

@@ -44,19 +44,7 @@
           Availability
         </dt>
         <dd class="flex mt-1 text-sm text-gray-900">
-          <% if @developer.available_on.blank? %>
-            <span class="text-sm text-gray-900">
-              Currently unavailable
-            </span>
-          <% elsif @developer.available_on <= Date.current %>
-            <span class="text-sm text-gray-900">Available now</span>
-            <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-green-400 ml-2" %>
-          <% else %>
-            <span class="text-sm text-gray-900">
-              Available in
-              <time datetime="<%= @developer.available_on.to_s(:db) %>"><%= time_ago_in_words(@developer.available_on) %></time>
-            </span>
-          <% end %>
+          <%= render AvailabilityComponent.new(developer: @developer) %>
         </dd>
       </div>
 
