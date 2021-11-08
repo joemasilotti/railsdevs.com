@@ -12,18 +12,18 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can see send message button if signed in" do
-    sign_in users(:with_profile_one)
-    developer = developers(:one)
+    user = users(:with_profile_one)
+    sign_in user
 
     get developer_path(developers(:one))
 
-    assert_select "a[href=?]", "mailto:#{developer.email}"
+    assert_select "a[href=?]", "mailto:#{user.email}"
   end
 
   test "send message button is hidden if not signed in" do
     developer = developers(:one)
     get developer_path(developers(:one))
-    assert_select "a[href=?]", "mailto:#{developer.email}", false
+    assert_select "a[href=?]", "mailto:#{developer.user.email}", false
   end
 
   test "cannot create new proflie if already has one" do
@@ -33,7 +33,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       post developers_path, params: {
         developer: {
           name: "Developer",
-          email: "dev@example.com",
           available_on: Date.yesterday,
           hero: "A developer",
           bio: "I develop."
@@ -125,7 +124,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     {
       developer: {
         name: "Developer",
-        email: "dev@example.com",
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop."

@@ -21,10 +21,13 @@
         </div>
 
         <div class="sm:col-start-1 sm:col-end-4">
-          <%= form.label :email, "Email address", class: "block text-sm font-medium text-gray-700" %>
+          <%= label_tag :email, "Email address", class: "block text-sm font-medium text-gray-700" %>
           <div class="mt-1">
-            <%= form.email_field :email, autocomplete: "email", class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+            <%= email_field_tag "email", :email, autocomplete: "email", value: developer.user.email, disabled: true, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
+          <p class="mt-2 text-sm text-gray-500">
+            Your verified account is used.
+          </p>
         </div>
 
         <div class="sm:col-span-6">
