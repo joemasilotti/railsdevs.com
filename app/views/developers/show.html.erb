@@ -1,3 +1,7 @@
+<% content_for :social_meta do %>
+  <%= render DeveloperSocialMetaTagsComponent.new(developer: @developer) %>
+<% end %>
+
 <div class="pb-8">
   <div class="w-full aspect-w-4 aspect-h-1">
     <% if @developer.cover_image.attached? %>
