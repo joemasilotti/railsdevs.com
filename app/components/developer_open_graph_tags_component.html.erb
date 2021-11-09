@@ -1,15 +1,13 @@
-<% content_for :open_graph_tags do %>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="<%= @developer.hero %>">
-  <meta property="og:description" content="<%= @developer.bio %>">
-  <meta property="og:url" content="<%= developer_url(@developer) %>">
+<%= tag.meta property: "og:type", content: "website" %>
+<%= tag.meta property: "og:title", content: @developer.hero %>
+<%= tag.meta property: "og:description", content: @developer.bio %>
+<%= tag.meta property: "og:url", content: developer_url(@developer) %>
 
-  <% if @developer.avatar.present? %>
-    <meta property="og:image" content="<%= rails_blob_url(@developer.avatar) %>">
-  <% end %>
+<% if @developer.avatar.attached? %>
+  <%= tag.meta property: "og:image", content: rails_blob_url(@developer.avatar) %>
+<% end %>
 
-  <meta name="twitter:card" content="summary">
-  <% if @developer.twitter.present? %>
-    <meta name="twitter:site" content="@<%= @developer.twitter %>">
-  <% end %>
+<%= tag.meta property: "twitter:card", content: "summary" %>
+<% if twitter.present? %>
+  <%= tag.meta property: "twitter:site", content: twitter %>
 <% end %>
