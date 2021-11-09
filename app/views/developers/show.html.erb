@@ -1,5 +1,5 @@
-<% content_for :social_meta do %>
-  <%= render DeveloperSocialMetaTagsComponent.new(developer: @developer) %>
+<% content_for :open_graph_tags do %>
+  <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
 <div class="pb-8">
