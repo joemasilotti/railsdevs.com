@@ -1,0 +1,13 @@
+<%= tag.meta property: "og:type", content: "website" %>
+<%= tag.meta property: "og:title", content: title %>
+<%= tag.meta property: "og:description", content: description %>
+<%= tag.meta property: "og:url", content: url %>
+
+<% if image.present? %>
+  <%= tag.meta property: "og:image", content: image %>
+<% end %>
+
+<%= tag.meta property: "twitter:card", content: "summary" %>
+<% if twitter.present? %>
+  <%= tag.meta property: "twitter:site", content: twitter %>
+<% end %>

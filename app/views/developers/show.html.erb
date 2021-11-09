@@ -1,3 +1,7 @@
+<% content_for :open_graph_tags do %>
+  <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
+<% end %>
+
 <div class="pb-8">
   <div class="w-full aspect-w-4 aspect-h-1">
     <% if @developer.cover_image.attached? %>
