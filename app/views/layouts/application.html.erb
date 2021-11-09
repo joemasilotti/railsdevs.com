@@ -8,14 +8,13 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= open_graph_tags %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= analytics_tag %>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-
-    <%= content_for :social_meta %>
   </head>
 
   <body class="h-full">
