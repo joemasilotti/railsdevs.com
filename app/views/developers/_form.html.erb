@@ -18,15 +18,8 @@
           <div class="mt-1">
             <%= form.text_field :name, autocomplete: "name", class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           </div>
-        </div>
-
-        <div class="sm:col-start-1 sm:col-end-4">
-          <%= label_tag :email, "Email address", class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1">
-            <%= email_field_tag "email", :email, autocomplete: "email", value: developer.user.email, disabled: true, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-          </div>
           <p class="mt-2 text-sm text-gray-500">
-            Your verified account is used.
+            Your name will <i>not</i> be displayed on your public profile.
           </p>
         </div>
 
@@ -50,11 +43,16 @@
           </p>
         </div>
 
-        <div class="sm:col-span-1">
-          <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-          <div class="mt-1">
-            <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+        <div class="grid grid-cols-1 sm:grid-cols-6 sm:col-span-6">
+          <div class="sm:col-span-1">
+            <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
+            <div class="mt-1">
+              <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+            </div>
           </div>
+          <p class="sm:col-span-6 mt-2 text-sm text-gray-500">
+            Leave blank if you won't be available for a while.
+          </p>
         </div>
 
         <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
