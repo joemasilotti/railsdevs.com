@@ -1,0 +1,26 @@
+<footer class="bg-white">
+  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+    <div class="flex justify-center space-x-6 md:order-2">
+      <%= link_to "https://twitter.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
+        <span class="sr-only">Twitter</span>
+        <%= inline_svg_tag "icons/brands/twitter.svg", class: "h-6 w-6" %>
+      <% end %>
+
+      <%= link_to "https://github.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
+        <span class="sr-only">GitHub</span>
+        <%= inline_svg_tag "icons/brands/github.svg", class: "h-6 w-6" %>
+      <% end %>
+
+      <%= link_to "mailto:joe@masilotti.com", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
+        <span class="sr-only">Email</span>
+        <%= inline_svg_tag "icons/outline/mail.svg", class: "h-6 w-6" %>
+      <% end %>
+    </div>
+
+    <div class="mt-8 md:mt-0 md:order-1">
+      <p class="text-center text-base text-gray-400">
+        &copy; <%= Date.today.year %> <%= link_to "Masilotti.com", "https://masilotti.com", target: "_blank", class: "hover:text-gray-500" %>. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

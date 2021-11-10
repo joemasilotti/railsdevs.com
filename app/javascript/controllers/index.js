@@ -8,3 +8,6 @@ application.register("file-upload", FileUploadController)
 
 import PaginationController from "./pagination_controller.js"
 application.register("pagination", PaginationController)
+
+import ToggleController from "./toggle_controller.js"
+application.register("toggle", ToggleController)

@@ -1,57 +1,55 @@
 <%= render "shared/error_messages", resource: resource %>
 
-<div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-  <div class="mx-auto w-full max-w-sm lg:w-96">
-    <div>
-      <h2 class="text-3xl font-extrabold text-gray-900">
-        Sign in to your account
-      </h2>
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Sign in to your account
+    </h2>
 
-      <%- if devise_mapping.registerable? %>
-        <p class="mt-2 text-sm text-gray-600">
-          Or
-          <%= link_to "create an account", new_registration_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
-        </p>
+    <% if devise_mapping.registerable? %>
+      <p class="mt-2 text-center text-sm text-gray-600">
+        Or
+        <%= link_to "create an account", new_registration_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white p-4 pb-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "space-y-6", data: {turbo: false}} do |form| %>
+        <div>
+          <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.email_field :email, autocomplete: "email", required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.password_field :password, autocomplete: "current-password", required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <% if devise_mapping.rememberable? %>
+          <div class="flex items-center">
+            <%= form.check_box :remember_me, class: "h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded" %>
+            <%= form.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+          </div>
+          <% end %>
+
+          <% if devise_mapping.recoverable? %>
+            <div class="text-sm">
+              <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
+            </div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= form.submit "Sign in", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+        </div>
       <% end %>
-    </div>
-
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="mt-6 bg-white sm:rounded-lg">
-        <%= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "space-y-6", data: {turbo: false}} do |form| %>
-          <div>
-            <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
-            </div>
-          </div>
-
-          <div>
-            <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= form.password_field :password, autocomplete: "current-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <% if devise_mapping.rememberable? %>
-              <div class="flex items-center">
-                <%= form.check_box :remember_me, class: "h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded" %>
-                <%= form.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
-              </div>
-            <% end %>
-
-            <%- if devise_mapping.recoverable? %>
-              <div class="text-sm">
-                <%= link_to "Forgot your password?", new_password_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
-              </div>
-            <% end %>
-          </div>
-
-          <div>
-            <%= form.button "Sign in", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
