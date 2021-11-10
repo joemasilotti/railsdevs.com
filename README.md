@@ -2,7 +2,7 @@
 
 Find Rails developers looking for freelance and contract work.
 
-<img width="1265" alt="image" src="https://user-images.githubusercontent.com/2092156/139750554-defc667b-ffdf-413f-995c-f1ec0436c451.png">
+<img width="1764" alt="image" src="https://user-images.githubusercontent.com/2092156/141209840-fea16afa-541b-4129-a8b0-8d2d544f7b4a.png">
 
 ### Getting started
 
