@@ -37,6 +37,7 @@ module Railsdevs
 
     # Load custom configuration.
     config.fathom = config_for(:fathom)
+    config.goals = config_for(:goals)
     config.support_email = "joe@masilotti.com"
 
     # Run background jobs asynchronously in an in-process thread pool.

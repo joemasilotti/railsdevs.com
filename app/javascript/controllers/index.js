@@ -6,5 +6,8 @@ import { application } from "./application"
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
+import GoalsController from "./goals_controller.js"
+application.register("goals", GoalsController)
+
 import PaginationController from "./pagination_controller.js"
 application.register("pagination", PaginationController)

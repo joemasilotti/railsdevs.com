@@ -1,7 +1,8 @@
 class ButtonLinkComponent < ViewComponent::Base
-  def initialize(href, icon: nil)
+  def initialize(href, icon: nil, data: {})
     @href = href
     @icon = icon
+    @data = data
   end
 
   def icon_path
