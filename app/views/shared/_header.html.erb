@@ -20,9 +20,8 @@
           </div>
 
           <div class="hidden space-x-10 md:flex">
-            <!-- Links to go here. Example:
-              <a href="#" class="font-medium text-white hover:text-gray-300">Product</a>
-            -->
+            <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.io/", class: "font-medium text-white hover:text-gray-300" %>
+            <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.io", class: "font-medium text-white hover:text-gray-300" %>
           </div>
 
           <div class="hidden space-x-4 md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
@@ -58,9 +57,8 @@
         </div>
       </div>
       <div class="px-2 pt-2 pb-6">
-        <!-- Mobile links to go here. Example:
-          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
-        -->
+        <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.io/", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
+        <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.io", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
 
         <% unless signed_in? %>
           <div class="mt-6 px-5">
