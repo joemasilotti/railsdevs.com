@@ -23,14 +23,6 @@
             <%= @developer.hero %>
           </h2>
         </div>
-
-        <% if user_signed_in? %>
-          <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-            <%= render ButtonLinkComponent.new("mailto:#{@developer.user.email}", icon: "mail") do %>
-              Message
-            <% end %>
-          </div>
-        <% end %>
       </div>
     </div>
 
