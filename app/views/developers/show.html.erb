@@ -2,7 +2,7 @@
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
-<div class="pb-8">
+<div class="mt-0 lg:mt-16 pb-8 bg-white shadow lg:rounded-lg overflow-hidden">
   <div class="w-full aspect-w-4 aspect-h-1">
     <% if @developer.cover_image.attached? %>
       <%= image_tag @developer.cover_image, class: "w-full h-full object-cover" %>
