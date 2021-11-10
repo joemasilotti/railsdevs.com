@@ -1,49 +1,45 @@
 <%= render "shared/error_messages", resource: resource %>
 
-<div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
-  <div class="mx-auto w-full max-w-sm lg:w-96">
-    <div>
-      <h2 class="text-3xl font-extrabold text-gray-900">
-        Create an account
-      </h2>
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      Create your account
+    </h2>
 
-      <%- if devise_mapping.registerable? %>
-        <p class="mt-2 text-sm text-gray-600">
-          Or
-          <%= link_to "sign in to your account", new_session_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
-        </p>
+    <p class="mt-2 text-center text-sm text-gray-600">
+      Or
+      <%= link_to "sign in to your account", new_user_session_path, class: "font-medium text-gray-600 hover:text-gray-500" %>
+    </p>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white p-4 pb-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-6", data: {turbo: false}} do |form| %>
+        <div>
+          <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.email_field :email, autocomplete: "email", required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.password_field :password, autocomplete: "new-password", required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", required: true, class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.submit "Register", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+        </div>
       <% end %>
-    </div>
-
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="mt-6 bg-white sm:rounded-lg">
-        <%= form_with model: resource, as: resource_name, url: registration_path(resource_name), html: {class: "space-y-6", data: {turbo: false}} do |form| %>
-          <div>
-            <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= form.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
-            </div>
-          </div>
-
-          <div>
-            <%= form.label :password, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= form.password_field :password, autocomplete: "new-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
-            </div>
-          </div>
-
-          <div>
-            <%= form.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm" %>
-            </div>
-          </div>
-
-          <div>
-            <%= form.button "Sign up", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
