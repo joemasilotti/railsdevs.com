@@ -4,7 +4,7 @@ class OpenGraphTagsComponent < ViewComponent::Base
   end
 
   def description
-    "Find Ruby on Rails developers looking for freelance and full-time work."
+    "Find Ruby on Rails developers looking for freelance, contract, and full-time work."
   end
 
   def url
