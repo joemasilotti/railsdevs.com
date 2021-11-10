@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   </head>
 
-  <body class="h-full">
-    <div class="min-h-full">
+  <body class="min-h-full flex flex-col">
+    <div class="flex-1">
       <%= render "shared/header" %>
       <%= render "shared/main" do %>
         <%= yield %>
       <% end %>
     </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
