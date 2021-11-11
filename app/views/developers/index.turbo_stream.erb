@@ -1,9 +1,0 @@
-<%= turbo_stream.append "developers" do %>
-  <%= render @developers %>
-<% end %>
-
-<%= turbo_stream.replace "pagy-links" do %>
-  <%= pagy_links do %>
-    <%== pagy_nav @pagy %>
-  <% end %>
-<% end %>
