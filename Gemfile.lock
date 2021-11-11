@@ -300,14 +300,14 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1)
-  capybara
-  cssbundling-rails
+  capybara (~> 3.36)
+  cssbundling-rails (~> 0.2)
   devise!
   honeybadger (~> 4.0)
-  hotwire-rails (~> 0.1.3)
+  hotwire-rails (~> 0.1)
   inline_svg (~> 1.7)
-  jsbundling-rails
-  lefthook
+  jsbundling-rails (~> 0.1)
+  lefthook (~> 0.7)
   letter_opener_web
   listen (~> 3.3)
   mailgun-ruby (~> 1.2)
@@ -319,7 +319,7 @@ DEPENDENCIES
   pundit (~> 2.1)
   rails!
   redcarpet (~> 2.3)
-  sprockets-rails
+  sprockets-rails (~> 3.3)
   standard
   tzinfo-data
   view_component (~> 2.42)
