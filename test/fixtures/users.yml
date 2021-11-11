@@ -1,8 +1,8 @@
-with_profile_one:
+with_available_profile:
   email: one@example.com
   confirmed_at: <%= DateTime.current %>
 
-with_profile_two:
+with_unavailable_profile:
   email: two@example.com
   confirmed_at: <%= DateTime.current %>
 
