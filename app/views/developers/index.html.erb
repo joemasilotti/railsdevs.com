@@ -23,14 +23,14 @@
     <% end %>
   </div>
 
-  <%=turbo_frame_tag "developers-#{@pagy.page}" do %>
-    <%=turbo_stream.append "developers" do %>
+  <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
+    <%= turbo_stream.append "developers" do %>
       <%= render @developers %>
       <% if @pagy.next %>
-        <%=turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
+        <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
       <% end %>
     <% end %>
-    <%=turbo_stream.remove "developers-#{@pagy.page}" %>
+    <%= turbo_stream.remove "developers-#{@pagy.page}" %>
   <% end %>
 
 </div>
