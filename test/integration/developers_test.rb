@@ -2,17 +2,17 @@ require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
   test "can view developer profiles" do
-    one = developers :one
-    two = developers :two
+    one = developers :available
+    two = developers :unavailable
 
-    get root_path
+    get developers_path
 
     assert_select "h2", one.hero
     assert_select "h2", two.hero
   end
 
   test "cannot create new proflie if already has one" do
-    sign_in users(:with_profile_one)
+    sign_in users(:with_available_profile)
 
     assert_no_difference "Developer.count" do
       post developers_path, params: {
@@ -43,8 +43,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit to profile" do
-    sign_in users(:with_profile_one)
-    developer = developers(:one)
+    sign_in users(:with_available_profile)
+    developer = developers :available
 
     get edit_developer_path(developer)
     assert_select "form"
@@ -73,8 +73,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can edit own profile" do
-    sign_in users(:with_profile_one)
-    developer = developers(:one)
+    sign_in users(:with_available_profile)
+    developer = developers :available
 
     get edit_developer_path(developer)
     assert_select "form"
@@ -89,8 +89,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "cannot edit another developer's profile" do
-    sign_in users(:with_profile_one)
-    developer = developers(:two)
+    sign_in users(:with_available_profile)
+    developer = developers :unavailable
 
     get edit_developer_path(developer)
     assert_redirected_to root_path

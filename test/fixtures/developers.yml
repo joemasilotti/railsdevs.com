@@ -1,13 +1,13 @@
-one:
-  user: with_profile_one
+available:
+  user: with_available_profile
   name: Developer One
   available_on: <%= Date.new(2021, 1, 1) %>
   hero: First developer
   bio: I am the first developer
 
-two:
-  user: with_profile_two
+unavailable:
+  user: with_unavailable_profile
   name: Developer Two
-  available_on: <%= Date.new(2022, 2, 2) %>
+  available_on: <%= Date.new(2222, 2, 2) %>
   hero: Second developer
   bio: I am the second developer

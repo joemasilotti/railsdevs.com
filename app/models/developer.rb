@@ -12,4 +12,6 @@ class Developer < ApplicationRecord
     max_file_size: 2.megabytes
   validates :cover_image, content_type: ["image/png", "image/jpg", "image/jpeg", "image/gif"],
     max_file_size: 10.megabytes
+
+  scope :available, -> { where("available_on <= ?", Date.today) }
 end
