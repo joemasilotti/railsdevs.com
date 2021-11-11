@@ -43,11 +43,11 @@ module Railsdevs
     config.active_job.queue_adapter = :async
 
     # Add error span to form fields with errors
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
-      if html_tag =~ /\<label/
+    config.action_view.field_error_proc = proc { |html_tag, instance|
+      if /<label/.match?(html_tag)
         html_tag
       else
-        errors = Array(instance.error_message).join(',')
+        errors = Array(instance.error_message).join(",")
         %(#{html_tag}<span class="mt-2 text-sm text-red-600">&nbsp;#{errors}</span>).html_safe
       end
     }
