@@ -30,3 +30,8 @@
 !/app/assets/builds/.keep
 
 /node_modules
+
+# Ignore local docker config
+.dockerdev/*
+dip.yml
+docker-compose.yml
