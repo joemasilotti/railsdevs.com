@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
-    @pagy, @developers = pagy(Developer.order(created_at: :desc).with_attached_avatar)
+    @pagy, @developers = pagy(Developer.most_recently_added.with_attached_avatar)
   end
 
   def new
