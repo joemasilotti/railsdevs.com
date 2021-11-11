@@ -12,7 +12,7 @@ railsdevs.io is [open source](https://github.com/joemasilotti/railsdevs.io/), th
 
 On top of that, I'm making all of my decisions in public. I post questions and ideas when I'm looking for feedback on [GitHub Discussions](https://github.com/joemasilotti/railsdevs.io/discussions). And I tweet about work in progress (and sneak previews) [on Twitter](https://twitter.com/joemasilotti).
 
-### Building a safe, inclusive environment
+### Creating a safe, inclusive environment
 
 The site is open to all Ruby on Rails developers, regardless of race, color, national origin, religion, sex, age, disability, or skill level.
 
