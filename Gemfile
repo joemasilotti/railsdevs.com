@@ -12,6 +12,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
 gem "view_component", "~> 2.42"
+gem "classy-yaml", "~> 0.5"
 
 group :development, :test do
   gem "letter_opener_web"
