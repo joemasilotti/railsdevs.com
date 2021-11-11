@@ -141,6 +141,7 @@ GEM
       rake
     globalid (0.5.2)
       activesupport (>= 5.0)
+    honeybadger (4.9.0)
     hotwire-rails (0.1.3)
       rails (>= 6.0.0)
       stimulus-rails
@@ -312,6 +313,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   devise!
+  honeybadger (~> 4.0)
   hotwire-rails (~> 0.1.3)
   inline_svg (~> 1.7)
   jsbundling-rails
