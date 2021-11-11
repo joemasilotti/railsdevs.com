@@ -10,7 +10,7 @@ gem "hotwire-rails", "~> 0.1.3"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "sass-rails", ">= 6"
+gem "sprockets-rails", require: "sprockets/railtie"
 gem "view_component", "~> 2.42"
 
 group :development, :test do
