@@ -71,6 +71,12 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_not_nil developer.errors[:bio]
   end
 
-  test "available scope"
-  test "unavailable scope"
+  test "available scope is only available developers" do
+    travel_to Time.zone.local(2021, 5, 4)
+
+    developers = Developer.available
+
+    assert_includes developers, developers(:available)
+    refute_includes developers, developers(:unavailable)
+  end
 end
