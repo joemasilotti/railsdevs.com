@@ -2,7 +2,7 @@ require "test_helper"
 
 class DeveloperTest < ActiveSupport::TestCase
   setup do
-    @developer = developers(:one)
+    @developer = developers :available
   end
 
   test "unspecified availability" do
@@ -34,7 +34,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "is valid" do
-    user = users(:with_profile_one)
+    user = users(:with_available_profile)
     developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar")
 
     assert developer.valid?
@@ -48,7 +48,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without name" do
-    user = users(:with_profile_one)
+    user = users(:with_available_profile)
     developer = Developer.new(user: user, name: nil)
 
     refute developer.valid?
@@ -56,7 +56,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without hero" do
-    user = users(:with_profile_one)
+    user = users(:with_available_profile)
     developer = Developer.new(user: user, hero: nil)
 
     refute developer.valid?
@@ -64,10 +64,19 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without bio" do
-    user = users(:with_profile_one)
+    user = users(:with_available_profile)
     developer = Developer.new(user: user, bio: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:bio]
+  end
+
+  test "available scope is only available developers" do
+    travel_to Time.zone.local(2021, 5, 4)
+
+    developers = Developer.available
+
+    assert_includes developers, developers(:available)
+    refute_includes developers, developers(:unavailable)
   end
 end

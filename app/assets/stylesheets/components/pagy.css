@@ -1,5 +1,5 @@
 .pagy-nav {
-  @apply flex space-x-2;
+  @apply flex space-x-2 mb-8 justify-center;
 }
 
 .pagy-nav .page a,
