@@ -12,14 +12,24 @@
   </p>
 </div>
 
-<div data-controller="pagination" data-pagination-visibility-class="invisible" class="mt-16 mx-auto sm:mt-24">
-  <ul id="developers" data-pagination-target="entries" role="list" class="space-y-8 bg-gray-100">
+<div class="mt-16 mx-auto sm:mt-24">
+  <ul id="developers" role="list" class="space-y-8 bg-gray-100">
     <%= render @developers %>
   </ul>
 
-  <div class="bg-gray-100 pt-8">
+  <div class="mt-8">
     <%= pagy_links do %>
       <%== pagy_nav @pagy %>
     <% end %>
   </div>
+
+  <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
+    <%= turbo_stream.append "developers" do %>
+      <%= render @developers unless @pagy.page == 1%>
+      <% if @pagy.next %>
+        <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
+      <% end %>
+    <% end %>
+    <%= turbo_stream.remove "developers-#{@pagy.page}" %>
+  <% end %>
 </div>
