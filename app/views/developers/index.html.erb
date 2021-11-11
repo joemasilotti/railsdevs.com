@@ -23,10 +23,9 @@
 
 <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
   <%= turbo_stream.append "developers" do %>
-    <%= render @developers %>
+    <%= render @developers unless @pagy.page == 1%>
     <% if @pagy.next %>
       <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
     <% end %>
   <% end %>
-  <%= turbo_stream.remove "developers-#{@pagy.page}" %>
 <% end %>
