@@ -14,7 +14,7 @@ module.exports = {
     "./app/components/**/*.{rb,html,html.erb,yml}",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
-    "./config/application.rb",
+    "./config/initializers/form_errors.rb",
     "./config/utility_classes.yml"
   ],
 
