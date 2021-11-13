@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient
 
   scope :admin, -> { where(admin: true) }
+
+  def has_developer_profile?
+    developer&.persisted?
+  end
 end

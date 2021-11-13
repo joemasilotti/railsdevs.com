@@ -31,7 +31,7 @@
               <%= link_to "Sign in", new_user_session_path, class: "text-base font-medium text-white hover:text-gray-300" %>
             <% end %>
 
-            <% if current_user&.developer&.persisted? %>
+            <% if current_user&.has_developer_profile? %>
               <%= link_to "Edit your profile", edit_developer_path(current_user.developer), class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
             <% else %>
               <%= link_to "Add your profile", new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
@@ -66,7 +66,7 @@
           </div>
         <% end %>
 
-        <% if current_user&.developer&.persisted? %>
+        <% if current_user&.has_developer_profile? %>
           <div class="mt-6 px-5">
             <%= link_to "Edit your profile", edit_developer_path(current_user.developer), class: "block text-center w-full py-3 px-4 rounded-md shadow bg-gray-600 text-white font-medium hover:bg-gray-700" %>
           </div>
