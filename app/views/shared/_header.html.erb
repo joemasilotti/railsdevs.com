@@ -6,8 +6,8 @@
           <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
             <div class="flex items-center justify-between w-full md:w-auto">
               <%= link_to root_path do %>
-                <span class="sr-only">railsdevs.io</span>
-                <%= inline_svg_tag "logo.svg", class: "h-6 w-auto md:h-8 text-white fill-current", alt: "railsdevs.io logo" %>
+                <span class="sr-only">railsdevs</span>
+                <%= inline_svg_tag "logo.svg", class: "h-6 w-auto md:h-8 text-white fill-current", alt: "railsdevs logo" %>
               <% end %>
 
               <div class="-mr-2 flex items-center md:hidden">
@@ -20,6 +20,7 @@
           </div>
 
           <div class="hidden space-x-10 md:flex">
+            <%= link_to "About", about_path, class: "font-medium text-white hover:text-gray-300" %>
             <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.io/", class: "font-medium text-white hover:text-gray-300" %>
             <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.io", class: "font-medium text-white hover:text-gray-300" %>
           </div>
@@ -46,7 +47,7 @@
     <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
       <div class="px-5 pt-4 flex items-center justify-between">
         <div>
-          <%= inline_svg_tag "logo.svg", class: "h-4 w-auto text-gray-600 fill-current", alt: "railsdevs.io logo" %>
+          <%= inline_svg_tag "logo.svg", class: "h-4 w-auto text-gray-600 fill-current", alt: "railsdevs logo" %>
         </div>
 
         <div class="-mr-2">
@@ -57,6 +58,7 @@
         </div>
       </div>
       <div class="px-2 pt-2 pb-6">
+        <%= link_to "About", about_path, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
         <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.io/", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
         <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.io", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
 

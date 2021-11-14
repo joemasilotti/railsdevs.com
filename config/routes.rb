@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resource :home, only: %i[show]
-  resources :developers, except: %i[destroy]
+  resource :about, only: :show, controller: :about
+  resource :home, only: :show
+  resources :developers, except: :destroy
 
   root to: "home#show"
 end
