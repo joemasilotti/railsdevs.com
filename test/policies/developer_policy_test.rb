@@ -28,4 +28,12 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
 
     refute DeveloperPolicy.new(user, developer).create?
   end
+
+  test "raises exception when they tried to instantiate new developer object, when they already have one" do
+    user = users(:with_available_profile)
+
+    assert_raises(ProfileAlreadyExists) do
+      DeveloperPolicy.new(user, Developer.new).new?
+    end
+  end
 end

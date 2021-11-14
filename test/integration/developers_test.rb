@@ -26,6 +26,14 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "redirect to the edit profile when they try to enter developers/new, if they already have a profile" do
+    sign_in users(:with_available_profile)
+
+    get new_developer_path
+
+    assert_redirected_to edit_developer_path(users(:with_available_profile).developer)
+  end
+
   test "successful profile creation" do
     sign_in users(:without_profile)
 

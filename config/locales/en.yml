@@ -13,6 +13,7 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+      profile_already_exists: Developer Profile already exists
 
   availability_component:
     now_html: Available now
