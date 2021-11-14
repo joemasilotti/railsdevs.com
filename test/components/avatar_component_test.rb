@@ -15,6 +15,13 @@ class AvatarComponentTest < ViewComponent::TestCase
     @developer = developers(:unavailable)
     render_inline(AvatarComponent.new(developer: @developer))
 
-    assert_selector("img[src*='avatar']")
+    assert_selector("img[src*='#{strip_file_type(filename: AvatarComponent::DEFAULT_AVATAR)}']")
+  end
+
+  test "should assign data attributes" do
+    @developer = developers(:available)
+    render_inline(AvatarComponent.new(developer: @developer, data: {controller: "test", action: "test->click#action"}))
+
+    assert_selector("img[data-controller='test'][data-action='test->click#action']")
   end
 end

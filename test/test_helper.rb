@@ -28,6 +28,7 @@ class ActionDispatch::IntegrationTest
 end
 
 class ViewComponent::TestCase
+  include FileTagsHelper
   include MetaTagsHelper
 end
 
