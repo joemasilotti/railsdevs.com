@@ -14,6 +14,6 @@ On top of that, I'm making all my decisions in public. I'm posting questions and
 
 ### Creating a safe, inclusive environment
 
-The site is open to all developers, regardless of race, color, national origin, religion, sex, age, disability, or skill level.
+The site is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level.
 
 If something doesn't feel right, or you ever feel uncomfortable, please [send me an email](mailto:joe@masilotti.com) right away.
