@@ -1,6 +1,6 @@
 class OpenGraphTagsComponent < ViewComponent::Base
   def title
-    "railsdevs.io"
+    "railsdevs"
   end
 
   def description
