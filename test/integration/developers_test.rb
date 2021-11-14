@@ -32,6 +32,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     get new_developer_path
 
     assert_redirected_to edit_developer_path(users(:with_available_profile).developer)
+    assert_equal I18n.t("pundit.errors.profile_already_exists"), flash[:alert]
   end
 
   test "successful profile creation" do
