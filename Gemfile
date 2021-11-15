@@ -6,6 +6,7 @@ ruby "3.0.2"
 gem "rails", github: "rails/rails", branch: "main"
 
 gem "cssbundling-rails", "~> 0.2"
+gem "friendly_id", "~> 5.4.0"
 gem "hotwire-rails", "~> 0.1"
 gem "jsbundling-rails", "~> 0.1"
 gem "pg", "~> 1.1"

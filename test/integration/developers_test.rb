@@ -62,7 +62,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         name: "New Name"
       }
     }
-    assert_redirected_to developer_path(developer)
+    assert_redirected_to developer_path(developer.reload.slug)
     follow_redirect!
 
     assert_equal "New Name", developer.reload.name
@@ -92,7 +92,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         name: "New Name"
       }
     }
-    assert_redirected_to developer_path(developer)
+    assert_redirected_to developer_path(developer.reload.slug)
     assert_equal "New Name", developer.reload.name
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_230111) do
+ActiveRecord::Schema.define(version: 2021_11_15_233646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_11_08_230111) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "linkedin"
+    t.string "slug"
+    t.index ["slug"], name: "index_developers_on_slug", unique: true
   end
 
   create_table "notifications", force: :cascade do |t|

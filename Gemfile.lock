@@ -141,6 +141,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
     honeybadger (4.9.0)
@@ -305,6 +307,7 @@ DEPENDENCIES
   classy-yaml (~> 0.6)
   cssbundling-rails (~> 0.2)
   devise!
+  friendly_id (~> 5.4.0)
   honeybadger (~> 4.0)
   hotwire-rails (~> 0.1)
   inline_svg (~> 1.7)
