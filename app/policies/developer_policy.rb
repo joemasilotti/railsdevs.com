@@ -1,6 +1,6 @@
 class DeveloperPolicy < ApplicationPolicy
   def new?
-    raise ProfileAlreadyExists, I18n.t("pundit.errors.profile_already_exists") unless create?
+    raise ProfileAlreadyExists unless create?
 
     true
   end
