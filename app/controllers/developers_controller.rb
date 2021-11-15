@@ -10,6 +10,8 @@ class DevelopersController < ApplicationController
   def new
     authorize current_user.developer, policy_class: DeveloperPolicy
     @developer = current_user.build_developer
+  rescue ProfileAlreadyExists
+    redirect_to edit_developer_path(current_user.developer)
   end
 
   def create
