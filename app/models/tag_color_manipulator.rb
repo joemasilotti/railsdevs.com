@@ -12,5 +12,4 @@ class TagColorManipulator
   def text_color_regex
     @text_color_regex ||= %r{text-\w*-\d*[^\s"]}
   end
-
 end

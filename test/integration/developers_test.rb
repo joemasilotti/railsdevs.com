@@ -109,7 +109,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:without_profile)
 
     post developers_path, params: {
-      developer: { 
+      developer: {
         name: ""
       }
     }
