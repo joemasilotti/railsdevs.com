@@ -113,6 +113,19 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "invalid form changes label color" do
+    sign_in users(:without_profile)
+
+    post developers_path, params: {
+      developer: {
+        name: ""
+      }
+    }
+    assert_select %(div.text-red-600 label[for="developer_name"])
+    assert_select %(div.text-red-600 label[for="developer_hero"])
+    assert_select %(div.text-red-600 label[for="developer_bio"])
+  end
+
   def valid_developer_params
     {
       developer: {

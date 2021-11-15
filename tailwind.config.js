@@ -11,11 +11,12 @@ module.exports = {
   ],
 
   purge: [
-    "./app/views/**/*.html.erb",
-    "./app/components/**/*.rb",
-    "./app/components/**/*.html.erb",
+    "./app/components/**/*.{rb,html,html.erb,yml}",
     "./app/helpers/**/*.rb",
-    "./app/javascript/**/*.js"
+    "./app/javascript/**/*.js",
+    "./app/models/field_error_tag_builder.rb",
+    "./app/views/**/*.html.erb",
+    "./config/utility_classes.yml"
   ],
 
   theme: {
