@@ -1,4 +1,4 @@
-class OpenGraphTagsComponent < ViewComponent::Base
+class OpenGraphTagsComponent < ApplicationComponent
   def initialize(title: nil, description: nil)
     @title = title
     @description = description

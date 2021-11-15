@@ -1,4 +1,4 @@
-class AvailabilityComponent < ViewComponent::Base
+class AvailabilityComponent < ApplicationComponent
   def initialize(developer:)
     @developer = developer
   end
