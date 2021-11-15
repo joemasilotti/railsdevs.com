@@ -71,6 +71,13 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_not_nil developer.errors[:bio]
   end
 
+  test "invalid if hero is too long" do
+    @developer.hero = "This is hero text is entirely too long for this field and will be invalid"
+
+    refute @developer.valid?
+    assert_equal @developer.errors[:hero], ["is too long (maximum is 65 characters)"]
+  end
+
   test "available scope is only available developers" do
     travel_to Time.zone.local(2021, 5, 4)
 
