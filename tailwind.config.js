@@ -6,16 +6,17 @@ module.exports = {
 
   plugins: [
     require("@tailwindcss/forms"),
-    require('@tailwindcss/aspect-ratio'),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
   ],
 
   purge: [
     "./app/components/**/*.{rb,html,html.erb,yml}",
     "./app/helpers/**/*.rb",
-    "./config/initializers/form_errors.rb",
     "./app/javascript/**/*.js",
-    "./config/utility_classes.yml",
     "./app/views/**/*.html.erb",
+    "./config/initializers/form_errors.rb",
+    "./config/utility_classes.yml"
   ],
 
   theme: {

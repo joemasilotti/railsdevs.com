@@ -1,10 +1,15 @@
 class OpenGraphTagsComponent < ViewComponent::Base
+  def initialize(title: nil, description: nil)
+    @title = title
+    @description = description
+  end
+
   def title
-    "railsdevs.io"
+    @title || "railsdevs"
   end
 
   def description
-    "Find Ruby on Rails developers looking for freelance, contract, and full-time work."
+    @description || "Find Ruby on Rails developers looking for freelance, contract, and full-time work."
   end
 
   def url
