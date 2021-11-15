@@ -1,0 +1,12 @@
+bg:
+  blue: "bg-blue-50"
+  red: "bg-red-50"
+icon:
+  blue: "text-blue-400"
+  red: "text-red-400"
+title:
+  blue: "text-blue-800"
+  red: "text-red-800"
+message: 
+  blue: "text-blue-700"
+  red: "text-red-700"
