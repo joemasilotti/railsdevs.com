@@ -31,7 +31,14 @@
 
 /node_modules
 
+<<<<<<< Updated upstream
 # Ignore local docker config
 .dockerdev/*
 dip.yml
 docker-compose.yml
+=======
+# Local Docker Development
+.dockerdev/*
+docker-compose.yml
+dip.yml
+>>>>>>> Stashed changes
