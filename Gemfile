@@ -33,6 +33,7 @@ gem "devise", github: "heartcombo/devise"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk-s3", "~> 1", require: false
+gem "classy-yaml", "~> 0.6"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"

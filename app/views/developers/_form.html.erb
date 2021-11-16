@@ -14,7 +14,7 @@
             <div class="sm:col-span-3">
               <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_field :name, autocomplete: "name", class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+                <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Your name will <i>not</i> be displayed on your public profile.</p>
             </div>
@@ -22,7 +22,7 @@
             <div class="sm:col-span-6">
               <%= form.label :hero, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_field :hero, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+                <%= form.text_field :hero, class: field_classes(form, :hero) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Summarize yourself as a developer in a few words.</p>
             </div>
@@ -30,7 +30,7 @@
             <div class="sm:col-span-6">
               <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_area :bio, rows: 3, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border border-gray-300 rounded-md" %>
+                <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
             </div>

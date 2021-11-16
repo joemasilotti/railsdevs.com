@@ -31,7 +31,7 @@
 
 /node_modules
 
-# Ignore local docker config
+# Local Docker Development
 .dockerdev/*
-dip.yml
 docker-compose.yml
+dip.yml

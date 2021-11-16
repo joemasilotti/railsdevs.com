@@ -1,4 +1,4 @@
-class ExternalLinkComponent < ViewComponent::Base
+class ExternalLinkComponent < ApplicationComponent
   def initialize(title, href, options = {})
     @title = title
     @href = href

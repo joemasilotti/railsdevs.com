@@ -2,6 +2,7 @@
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
+
 <div class="mt-0 lg:mt-16 pb-8 bg-white shadow lg:rounded-lg overflow-hidden">
   <%= render CoverImageComponent.new(developer: @developer, classes: "rounded-md") %>
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,7 +87,7 @@
           Bio
         </dt>
         <dd class="mt-1 text-sm text-gray-900 space-y-5">
-          <p><%= @developer.bio %></p>
+          <%= simple_format @developer.bio %>
         </dd>
       </div>
     </dl>
