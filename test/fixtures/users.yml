@@ -10,6 +10,14 @@ without_profile:
   email: three@example.com
   confirmed_at: <%= DateTime.current %>
 
+client:
+  email: four@example.com
+  confirmed_at: <%= DateTime.current %>
+
+client_with_conversation:
+  email: five@example.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>

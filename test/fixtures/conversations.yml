@@ -1,9 +1,4 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  developer: one
-  client: one
-
-two:
-  developer: two
-  client: two
+  developer: with_available_profile
+  client: client_with_conversation
