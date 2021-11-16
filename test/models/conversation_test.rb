@@ -49,4 +49,5 @@ class ConversationTest < ActiveSupport::TestCase
     assert_equal conversation.client, client
     assert_equal conversation.developer, @developer
   end
+  # Test
 end
