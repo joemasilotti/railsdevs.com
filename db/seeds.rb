@@ -7,6 +7,19 @@ def create_user!(name)
   )
 end
 
+20.times do |n|
+  Developer.create!(
+    user: create_user!("TestUser#{n}"),
+    name: "Test User #{n}",
+    available_on: Date.new(2021, 1, 1),
+    hero: "I am used to test pagination",
+    bio: "I am test user #{n}. " * 20,
+    website: "https://example.com/testuser#{n}",
+    github: "testuser#{n}",
+    twitter: "testuser#{n}"
+  )
+end
+
 Developer.create!(
   user: create_user!("Dennis"),
   name: "Dennis Ritchie",
