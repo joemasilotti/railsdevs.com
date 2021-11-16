@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class AvatarComponent < ViewComponent::Base
   DEFAULT_AVATAR = "avatar.png"
 

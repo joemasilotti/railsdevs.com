@@ -12,8 +12,6 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Required to prevent errors when testing ActiveStorage uploads. Pulled from
-  # the test_helper in Rails/ActiveStorage
   setup do
     ActiveStorage::Current.url_options = {protocol: "https://", host: "example.com", port: nil}
   end

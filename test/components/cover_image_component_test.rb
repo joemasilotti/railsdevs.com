@@ -1,7 +1,7 @@
 require "test_helper"
 
 class CoverImageComponentTest < ViewComponent::TestCase
-  test "should allow user cover_images" do
+  test "should render user cover_images" do
     @developer = developers(:available)
     @blob = active_storage_blobs(:two)
     render_inline(CoverImageComponent.new(developer: @developer))
@@ -13,7 +13,7 @@ class CoverImageComponentTest < ViewComponent::TestCase
     @developer = developers(:unavailable)
     render_inline(CoverImageComponent.new(developer: @developer))
 
-    assert_selector("img[src*='#{strip_file_type(filename: CoverImageComponent::DEFAULT_COVER)}']")
+    assert_tag_source(filename: CoverImageComponent::DEFAULT_COVER)
   end
 
   test "should assign data atrributes" do

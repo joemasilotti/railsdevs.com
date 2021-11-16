@@ -3,7 +3,7 @@ require "test_helper"
 class AvatarComponentTest < ViewComponent::TestCase
   include ActionView::Helpers::AssetUrlHelper
 
-  test "should allow user avatars" do
+  test "should render user avatars" do
     @developer = developers(:available)
     @blob = active_storage_blobs(:one)
     render_inline(AvatarComponent.new(developer: @developer))
@@ -15,7 +15,7 @@ class AvatarComponentTest < ViewComponent::TestCase
     @developer = developers(:unavailable)
     render_inline(AvatarComponent.new(developer: @developer))
 
-    assert_selector("img[src*='#{strip_file_type(filename: AvatarComponent::DEFAULT_AVATAR)}']")
+    assert_tag_source(filename: AvatarComponent::DEFAULT_AVATAR)
   end
 
   test "should assign data attributes" do
