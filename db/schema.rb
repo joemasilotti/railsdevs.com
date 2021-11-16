@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_230111) do
+ActiveRecord::Schema.define(version: 2021_11_16_034314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2021_11_08_230111) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "developer_id", null: false
+    t.bigint "client_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id", "developer_id"], name: "index_conversations_on_client_id_and_developer_id", unique: true
+    t.index ["client_id"], name: "index_conversations_on_client_id"
+    t.index ["developer_id"], name: "index_conversations_on_developer_id"
   end
 
   create_table "developers", force: :cascade do |t|
@@ -90,4 +100,6 @@ ActiveRecord::Schema.define(version: 2021_11_08_230111) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "conversations", "users", column: "client_id"
+  add_foreign_key "conversations", "users", column: "developer_id"
 end
