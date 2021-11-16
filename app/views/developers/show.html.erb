@@ -2,19 +2,13 @@
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
-<div class="mt-0 mb-16 lg:mt-16 pb-8 bg-white shadow lg:rounded-lg overflow-hidden">
-  <div class="w-full aspect-w-4 aspect-h-1">
-    <% if @developer.cover_image.attached? %>
-      <%= image_tag @developer.cover_image, class: "w-full h-full object-cover" %>
-    <% else %>
-      <%= image_tag "default_splash.jpg", class: "w-full h-full object-cover" %>
-    <% end %>
-  </div>
 
+<div class="mt-0 lg:mt-16 pb-8 bg-white shadow lg:rounded-lg overflow-hidden">
+  <%= render CoverImageComponent.new(developer: @developer, classes: "rounded-md") %>
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
       <div class="flex">
-        <%= render "developers/avatar", developer: @developer %>
+        <%= render AvatarComponent.new(developer: @developer) %>
       </div>
 
       <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">

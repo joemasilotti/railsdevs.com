@@ -39,16 +39,14 @@
               <span class="block text-sm font-medium text-gray-700">Avatar</span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
-                  <%= render "developers/avatar", developer: developer, data: {"file-upload-target": "image"} %>
+                  <%= render AvatarComponent.new(developer: @developer, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>
                 </div>
-
                 <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
                 <%= form.label :avatar, "Change", class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
               </div>
-
               <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
                 <div class="ml-3">
                   <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
@@ -60,20 +58,14 @@
               <span class="block text-sm font-medium text-gray-700">Cover image</span>
               <div class="relative">
                 <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
-                <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+                <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
 
-                <div class="mb-4 w-full aspect-w-4 aspect-h-1">
-                  <% unless developer.cover_image.attached? %>
-                    <%= image_tag "default_splash.jpg", alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md" %>
-                  <% else %>
-                    <%= image_tag developer.cover_image, alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md"%>
-                  <% end %>
-                </div>
+                <%= render CoverImageComponent.new(developer: @developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
                 <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                 </div>
               </div>
-              <div class="flex text-sm text-gray-600">
+              <div class="flex mt-2 text-sm text-gray-600">
                 <p class="">Upload a file</p>
               </div>
               <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
