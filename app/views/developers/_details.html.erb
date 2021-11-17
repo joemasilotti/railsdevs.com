@@ -1,0 +1,80 @@
+<h2 class="sr-only">Details</h2>
+<div class="space-y-5">
+  <div class="flex items-center space-x-2">
+    <%= render AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
+  </div>
+
+  <% if developer.actively_looking? %>
+    <div class="flex items-center space-x-2">
+      <%= inline_svg_tag "icons/solid/search_circle", class: "h-5 w-5 text-green-500" %>
+      <span class="text-green-700 text-sm font-medium">Actively looking for work</span>
+    </div>
+  <% elsif developer.open? %>
+    <div class="flex items-center space-x-2">
+      <%= inline_svg_tag "icons/solid/search_circle", class: "h-5 w-5 text-gray-400" %>
+      <span class="text-gray-900 text-sm font-medium">Open, but not actively looking for work</span>
+    </div>
+  <% elsif developer.not_interested? %>
+    <div class="flex items-center space-x-2">
+      <%= inline_svg_tag "icons/solid/x_circle", class: "h-5 w-5 text-gray-400" %>
+      <span class="text-gray-900 text-sm font-medium">Not interested in work right now</span>
+    </div>
+  <% end %>
+
+  <% if developer.role_type? %>
+    <div class="mt-6 border-t border-gray-200 pt-6 space-y-8">
+      <div>
+        <h2 class="text-sm font-medium text-gray-500">Interested in roles</h2>
+        <ul role="list" class="mt-3 space-y-3">
+          <% Developer.role_types.each do |role| %>
+            <% if developer.send("#{role}?") %>
+              <li class="flex items-center space-x-2">
+                <%= inline_svg_tag "icons/solid/check_circle", class: "h-5 w-5 text-gray-400" %>
+                <span class="text-gray-900 text-sm font-medium"><%= role.to_s.humanize %></span>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mt-6 border-t border-gray-200 py-6 space-y-8">
+    <div>
+      <ul role="list" class="space-y-3">
+        <% if developer.website.present? %>
+          <li>
+            <%= render ExternalLinkComponent.new(developer.website) %>
+          </li>
+        <% end %>
+
+        <% if developer.github.present? %>
+          <li>
+            <%= link_to "https://github.com/#{sanitize developer.github}", target: "_blank", class: "flex items-center space-x-2" do %>
+              <%= inline_svg_tag "icons/brands/github", class: "h-5 w-5 text-gray-400" %>
+              <span class="text-gray-900 text-sm font-medium"><%= developer.github %></span>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% if developer.twitter.present? %>
+          <li>
+            <%= link_to "https://twitter.com/#{sanitize developer.twitter}", target: "_blank", class: "flex items-center space-x-2" do %>
+              <%= inline_svg_tag "icons/brands/twitter", class: "h-5 w-5 text-gray-400" %>
+              <span class="text-gray-900 text-sm font-medium"><%= developer.twitter %></span>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% if developer.linkedin.present? %>
+          <li>
+            <%= link_to "https://www.linkedin.com/in/#{sanitize developer.linkedin}", target: "_blank", class: "flex items-center space-x-2" do %>
+              <%= inline_svg_tag "icons/brands/linkedin", class: "h-5 w-5 text-gray-400" %>
+              <span class="text-gray-900 text-sm font-medium"><%= developer.linkedin %></span>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

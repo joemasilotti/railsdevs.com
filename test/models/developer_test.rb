@@ -79,4 +79,12 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes developers, developers(:available)
     refute_includes developers, developers(:unavailable)
   end
+
+  test "role type without any selected is false" do
+    refute developers(:unavailable).role_type?
+  end
+
+  test "role type with any selected is true" do
+    assert developers(:available).role_type?
+  end
 end

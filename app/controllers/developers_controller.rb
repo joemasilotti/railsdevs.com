@@ -59,7 +59,11 @@ class DevelopersController < ApplicationController
       :twitter,
       :linkedin,
       :avatar,
-      :cover_image
+      :cover_image,
+      :search_status,
+      :part_time_contract,
+      :full_time_contract,
+      :full_time_employment
     )
   end
 end

@@ -1,6 +1,15 @@
 class AvailabilityComponent < ApplicationComponent
-  def initialize(developer:)
+  def initialize(developer:, show_unavailable_icon: false)
     @developer = developer
+    @show_unavailable_icon = show_unavailable_icon
+  end
+
+  def show_unavailable_icon?
+    !!@show_unavailable_icon
+  end
+
+  def available?
+    @developer.available_now?
   end
 
   def date

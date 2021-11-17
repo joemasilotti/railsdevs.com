@@ -1,6 +1,12 @@
 class Developer < ApplicationRecord
   include Availability
 
+  enum search_status: {
+    actively_looking: 1,
+    open: 2,
+    not_interested: 3
+  }
+
   belongs_to :user
   has_one_attached :avatar
   has_one_attached :cover_image
@@ -15,4 +21,14 @@ class Developer < ApplicationRecord
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
+
+  def self.role_types
+    %i[part_time_contract full_time_contract full_time_employment]
+  end
+
+  def role_type?
+    self.class.role_types.any? do |role|
+      send("#{role}?")
+    end
+  end
 end
