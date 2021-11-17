@@ -8,6 +8,6 @@ class DevCardComponent < ApplicationComponent
   end
 
   def bio
-    truncate(@developer.bio, length: 300)
+    @developer.bio
   end
 end
