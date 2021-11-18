@@ -22,9 +22,9 @@
     </div>
   </div>
 
-  <ul role="list" class="space-y-8 bg-gray-100">
-    <%= render @developers %>
-  </ul>
+  <div class="space-y-8 bg-gray-100">
+    <%= render DeveloperCardComponent.with_collection(@developers) %>
+  </div>
 
   <div class="mt-8 mb-16 text-right mr-2 lg:mr-0">
     <%= link_to developers_path, class: "inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>

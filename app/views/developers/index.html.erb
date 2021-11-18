@@ -11,9 +11,9 @@
   </div>
 </div>
 
-<ul id="developers" role="list" class="space-y-8 bg-gray-100">
-  <%= render @developers %>
-</ul>
+<div class="space-y-8 bg-gray-100">
+  <%= render DeveloperCardComponent.with_collection(@developers) %>
+</div>
 
 <div class="mt-8">
   <%= pagy_links do %>
@@ -23,7 +23,9 @@
 
 <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
   <%= turbo_stream.append "developers" do %>
-    <%= render @developers unless @pagy.page == 1%>
+    <% unless @pagy.page == 1 %>
+      <%= render DeveloperCardComponent.with_collection(@developers) %>
+    <% end %>
     <% if @pagy.next %>
       <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
     <% end %>
