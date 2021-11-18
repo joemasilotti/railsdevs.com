@@ -6,22 +6,20 @@ class RoleTypeComponent < ApplicationComponent
   end
 
   def render?
-    any_role_types?
+    developer_role_types.any?
   end
 
   def role_types
     %i[part_time_contract full_time_contract full_time_employment]
   end
 
-  def humanize(attribute)
-    Developer.human_attribute_name(attribute)
+  def developer_role_types
+    role_types.select do |role|
+      developer.public_send("#{role}?")
+    end
   end
 
-  private
-
-  def any_role_types?
-    role_types.any? do |role|
-      developer.send("#{role}?")
-    end
+  def humanize(attribute)
+    Developer.human_attribute_name(attribute)
   end
 end
