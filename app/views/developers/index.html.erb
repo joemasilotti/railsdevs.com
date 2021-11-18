@@ -11,9 +11,9 @@
   </div>
 </div>
 
-<ul id="developers" role="list" class="space-y-8 bg-gray-100">
+<div class="space-y-8 bg-gray-100">
   <%= render DeveloperCardComponent.with_collection(@developers) %>
-</ul>
+</div>
 
 <div class="mt-8">
   <%= pagy_links do %>
