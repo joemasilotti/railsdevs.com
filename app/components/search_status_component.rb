@@ -5,6 +5,10 @@ class SearchStatusComponent < ApplicationComponent
     @developer = developer
   end
 
+  def render?
+    developer.actively_looking? || developer.open? || developer.not_interested?
+  end
+
   def icon_tag
     inline_svg_tag "icons/solid/#{icon}.svg", class: icon_classes.join(" ")
   end

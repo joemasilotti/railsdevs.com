@@ -22,4 +22,10 @@ class SearchStatusComponentTest < ViewComponent::TestCase
     render_inline SearchStatusComponent.new(@developer)
     assert_text /not interested/i
   end
+
+  test "none" do
+    @developer.search_status = nil
+    render_inline SearchStatusComponent.new(@developer)
+    assert_no_selector "*"
+  end
 end
