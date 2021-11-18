@@ -6,7 +6,7 @@ class SearchStatusComponent < ApplicationComponent
   end
 
   def render?
-    developer.actively_looking? || developer.open? || developer.not_interested?
+    developer.search_status.present?
   end
 
   def icon_tag
@@ -16,7 +16,7 @@ class SearchStatusComponent < ApplicationComponent
   def text_classes
     if developer.actively_looking?
       "text-green-700"
-    elsif developer.open? || developer.not_interested?
+    else
       "text-gray-900"
     end
   end
@@ -30,17 +30,17 @@ class SearchStatusComponent < ApplicationComponent
   def icon
     if developer.actively_looking? || developer.open?
       "search_circle"
-    elsif developer.not_interested?
+    else
       "x_circle"
     end
   end
 
   def icon_classes
     %w[h-5 w-5].tap do |classes|
-      if developer.actively_looking?
-        classes << "text-green-500"
-      elsif developer.open? || developer.not_interested?
-        classes << "text-gray-400"
+      classes << if developer.actively_looking?
+        "text-green-500"
+      else
+        "text-gray-400"
       end
     end
   end
