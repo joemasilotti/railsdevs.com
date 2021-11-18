@@ -61,9 +61,11 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
-      :part_time_contract,
-      :full_time_contract,
-      :full_time_employment
+      role_type_attributes: [
+        :part_time_contract,
+        :full_time_contract,
+        :full_time_employment
+      ]
     )
   end
 end

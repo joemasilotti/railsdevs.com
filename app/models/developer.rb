@@ -8,8 +8,11 @@ class Developer < ApplicationRecord
   }
 
   belongs_to :user
+  has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :avatar
   has_one_attached :cover_image
+
+  accepts_nested_attributes_for :role_type
 
   validates :name, presence: true
   validates :hero, presence: true
@@ -21,4 +24,6 @@ class Developer < ApplicationRecord
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
+
+  after_initialize :build_role_type, if: -> { role_type.blank? }
 end

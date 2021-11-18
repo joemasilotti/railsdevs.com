@@ -6,14 +6,14 @@ en:
 
   activerecord:
     attributes:
-      developer:
-        full_time_contract: Full-time contract
-        full_time_employment: Full-time employment
-        part_time_contract: Part-time contract
       developer/search_status:
         actively_looking: Actively looking for work
         not_interested: Not interested in work right now
         open: Open, but not actively looking
+      role_type:
+        full_time_contract: Full-time contract
+        full_time_employment: Full-time employment
+        part_time_contract: Part-time contract
 
   availability_component:
     now_html: Available now

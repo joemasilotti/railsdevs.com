@@ -122,26 +122,28 @@
               </div>
             </fieldset>
 
-            <fieldset>
-              <div>
-                <legend class="text-base font-medium text-gray-900">Role type</legend>
-                <p class="text-sm text-gray-500">Select all roles that you would consider taking.</p>
-              </div>
-              <div class="mt-4 space-y-4">
-                <div class="flex items-center">
-                  <%= form.check_box :part_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
-                  <%= form.label :part_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+            <%= form.fields_for :role_type do |role_type| %>
+              <fieldset>
+                <div>
+                  <legend class="text-base font-medium text-gray-900">Role type</legend>
+                  <p class="text-sm text-gray-500">Select all roles that you would consider taking.</p>
                 </div>
-                <div class="flex items-center">
-                  <%= form.check_box :full_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
-                  <%= form.label :full_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center">
+                    <%= role_type.check_box :part_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :part_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_employment, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_employment, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
                 </div>
-                <div class="flex items-center">
-                  <%= form.check_box :full_time_employment, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
-                  <%= form.label :full_time_employment, class: "ml-3 block text-sm font-medium text-gray-700" %>
-                </div>
-              </div>
-            </fieldset>
+              </fieldset>
+            <% end %>
 
             <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
               <div>
