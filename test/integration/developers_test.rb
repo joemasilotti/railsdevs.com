@@ -42,7 +42,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "nested attributes" do
+  test "create with nested attributes" do
     user = users(:without_profile)
     sign_in user
 
@@ -53,6 +53,21 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
 
     assert user.developer.role_type.part_time_contract?
+  end
+
+  test "edit with nested attributes" do
+    user = users(:with_available_profile)
+    sign_in user
+
+    patch developer_path(user.developer), params: {
+      developer: {
+        role_type_attributes: {
+          part_time_contract: true
+        }
+      }
+    }
+
+    assert user.developer.reload.role_type.part_time_contract?
   end
 
   test "successful profile creation sends a notification to the admin" do
