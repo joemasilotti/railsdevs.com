@@ -52,7 +52,7 @@
             Hourly rate
           </dt>
           <dd class="flex mt-1 text-sm text-gray-900">
-            <%= humanized_money_with_symbol @developer.expected_hourly_rate %>
+            <%= number_to_currency @developer.expected_hourly_rate %>
           </dd>
         </div>
       <% end %>
@@ -63,7 +63,7 @@
             Yearly salary
           </dt>
           <dd class="flex mt-1 text-sm text-gray-900">
-            <%= humanized_money_with_symbol @developer.expected_salary %>
+            <%= number_to_currency @developer.expected_salary %>
           </dd>
         </div>
       <% end %>

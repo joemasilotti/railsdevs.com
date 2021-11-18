@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_171626) do
     t.string "expected_salary_currency", default: "USD", null: false
     t.integer "expected_hourly_rate_cents"
     t.string "expected_hourly_rate_currency", default: "USD", null: false
+    t.integer "expected_salary"
+    t.integer "expected_hourly_rate"
   end
 
   create_table "notifications", force: :cascade do |t|
