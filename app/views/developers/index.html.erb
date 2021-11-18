@@ -12,9 +12,7 @@
 </div>
 
 <ul id="developers" role="list" class="space-y-8 bg-gray-100">
-  <% @developers.each do |developer| %>
-    <%= render DevCardComponent.new(developer: developer) %>
-  <% end %>
+  <%= render DeveloperCardComponent.with_collection(@developers) %>
 </ul>
 
 <div class="mt-8">
@@ -26,9 +24,7 @@
 <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
   <%= turbo_stream.append "developers" do %>
     <% unless @pagy.page == 1 %>
-      <% @developers.each do |developer| %>
-        <%= render DevCardComponent.new(developer: developer) %>
-      <% end %>
+      <%= render DeveloperCardComponent.with_collection(@developers) %>
     <% end %>
     <% if @pagy.next %>
       <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>

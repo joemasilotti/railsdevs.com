@@ -23,9 +23,7 @@
   </div>
 
   <ul role="list" class="space-y-8 bg-gray-100">
-    <% @developers.each do |developer| %>
-      <%= render DevCardComponent.new(developer: developer) %>
-    <% end %>
+    <%= render DeveloperCardComponent.with_collection(@developers) %>
   </ul>
 
   <div class="mt-8 mb-16 text-right mr-2 lg:mr-0">
