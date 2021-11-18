@@ -14,4 +14,8 @@ class User < ApplicationRecord
   validates :company, presence: true, inclusion: {in: [true, false]}
 
   scope :admin, -> { where(admin: true) }
+
+  def company?
+    company
+  end
 end

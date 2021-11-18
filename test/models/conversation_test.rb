@@ -43,10 +43,24 @@ class ConversationTest < ActiveSupport::TestCase
   end
 
   test "should have access to user parents" do
-    conversation = conversations(:one)
+    conversation = conversations(:with_no_messages)
     client = users(:client_with_conversation)
 
     assert_equal conversation.client, client
     assert_equal conversation.developer, @developer
+  end
+
+  test "should give a company's converations" do
+    conversation = conversations(:with_no_messages)
+    client = users(:client_with_conversation)
+
+    assert_equal client.hiring_leads.where(client_id: client.id), Conversation.of_company(client)
+  end
+
+  test "should give a developer's conversations" do
+    conversation = conversations(:with_no_messages)
+    developer = users(:with_available_profile)
+
+    assert_equal developer.work_leads.where(developer_id: developer.id), Conversation.of_developer(developer)
   end
 end

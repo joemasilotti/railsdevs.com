@@ -1,4 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-one:
+with_no_messages:
   developer: with_available_profile
+  client: client_with_conversation
+
+not_with_available_developer:
+  developer: with_unavailable_profile
   client: client_with_conversation

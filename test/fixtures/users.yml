@@ -17,6 +17,7 @@ client:
 client_with_conversation:
   email: five@example.com
   confirmed_at: <%= DateTime.current %>
+  company: true
 
 admin:
   email: admin@example.com
