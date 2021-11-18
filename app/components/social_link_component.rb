@@ -26,6 +26,6 @@ class SocialLinkComponent < ApplicationComponent
   end
 
   def icon
-    "icons/brands/#{network}"
+    "icons/brands/#{network}.svg"
   end
 end

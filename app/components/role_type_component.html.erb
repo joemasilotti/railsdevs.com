@@ -5,7 +5,7 @@
       <% role_types.each do |role| %>
         <% if role_type.send("#{role}?") %>
           <li class="flex items-center space-x-2">
-            <%= inline_svg_tag "icons/solid/check_circle", class: "h-5 w-5 text-gray-400" %>
+            <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-gray-400" %>
             <span class="text-gray-900 text-sm font-medium"><%= humanize(role) %></span>
           </li>
         <% end %>
