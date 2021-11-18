@@ -70,21 +70,21 @@ MoneyRails.configure do |config|
   #
   # set to BigDecimal::ROUND_HALF_EVEN by default
   #
-  # config.rounding_mode = BigDecimal::ROUND_HALF_UP
+  config.rounding_mode = BigDecimal::ROUND_HALF_UP
 
   # Set default money format globally.
   # Default value is nil meaning "ignore this option".
   # Example:
   #
-  # config.default_format = {
-  #   no_cents_if_whole: nil,
-  #   symbol: nil,
-  #   sign_before_symbol: nil
-  # }
+  config.default_format = {
+    no_cents_if_whole: true,
+    symbol: nil,
+    sign_before_symbol: nil
+  }
 
   # If you would like to use I18n localization (formatting depends on the
   # locale):
-  # config.locale_backend = :i18n
+  config.locale_backend = :i18n
   #
   # Example (using default localization from rails-i18n):
   #
