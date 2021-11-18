@@ -11,6 +11,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <div class="flex-1">
     <div class="pt-6 pb-8 xl:pb-10">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-5xl lg:grid lg:grid-cols-3">
@@ -33,6 +34,49 @@
               </div>
             </div>
           </div>
+=======
+  <div class="mt-8 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <dl class="max-w-prose grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+      <div class="sm:col-span-1">
+        <dt class="text-sm font-medium text-gray-500">
+          Availability
+        </dt>
+        <dd class="flex mt-1 text-sm text-gray-900">
+          <%= render AvailabilityComponent.new(developer: @developer) %>
+        </dd>
+      </div>
+
+      <% if @developer.expected_hourly_rate.present? %>
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">
+            Hourly rate
+          </dt>
+          <dd class="flex mt-1 text-sm text-gray-900">
+            <%= humanized_money_with_symbol @developer.expected_hourly_rate %>
+          </dd>
+        </div>
+      <% end %>
+
+      <% if @developer.expected_salary.present? %>
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">
+            Yearly salary
+          </dt>
+          <dd class="flex mt-1 text-sm text-gray-900">
+            <%= humanized_money_with_symbol @developer.expected_salary %>
+          </dd>
+        </div>
+      <% end %>
+
+      <% if @developer.website.present? %>
+        <div class="sm:col-span-1">
+          <dt class="text-sm font-medium text-gray-500">
+            Website
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900">
+            <%= render ExternalLinkComponent.new(@developer.website, @developer.website, class: "hover:text-gray-600") %>
+          </dd>
+>>>>>>> 54bd724 (Show salary and hourly rate if present.)
         </div>
 
         <aside class="hidden lg:block lg:pl-8">
