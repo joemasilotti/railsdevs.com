@@ -66,6 +66,8 @@ class DevelopersController < ApplicationController
         :full_time_contract,
         :full_time_employment
       ]
+      :expected_hourly_rate,
+      :expected_salary
     )
   end
 end
