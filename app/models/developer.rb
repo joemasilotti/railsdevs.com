@@ -26,4 +26,6 @@ class Developer < ApplicationRecord
   scope :most_recently_added, -> { order(created_at: :desc) }
 
   after_initialize :build_role_type, if: -> { role_type.blank? }
+  monetize :expected_salary_cents, allow_nil: true
+  monetize :expected_hourly_rate_cents, allow_nil: true
 end
