@@ -4,7 +4,7 @@ class ConversationTest < ActiveSupport::TestCase
   def setup
     @developer = users(:with_available_profile)
     @client = users(:client)
-    @conversation = @client.developer_conversations.build(developer_id: @developer.id)
+    @conversation = @client.hiring_leads.build(developer_id: @developer.id)
   end
 
   test "should be valid" do
@@ -26,20 +26,20 @@ class ConversationTest < ActiveSupport::TestCase
   test "should allow one conversation per set of users" do
     @conversation.save
 
-    new_conversation = @client.developer_conversations.build(developer_id: @developer.id)
+    new_conversation = @client.hiring_leads.build(developer_id: @developer.id)
     assert_not new_conversation.valid?
   end
 
   test "should be accessible from client" do
     user = users(:with_available_profile)
 
-    assert_not user.client_conversations.empty?
+    assert_not user.work_leads.empty?
   end
 
   test "should be accessible from developer" do
     user = users(:client_with_conversation)
 
-    assert_not user.developer_conversations.empty?
+    assert_not user.hiring_leads.empty?
   end
 
   test "should have access to user parents" do
