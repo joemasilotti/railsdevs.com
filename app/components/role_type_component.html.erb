@@ -1,0 +1,15 @@
+<div class="mt-6 border-t border-gray-200 pt-6 space-y-8">
+  <div>
+    <h2 class="text-sm font-medium text-gray-500">Interested in roles</h2>
+    <ul role="list" class="mt-3 space-y-3">
+      <% role_types.each do |role| %>
+        <% if role_type.send("#{role}?") %>
+          <li class="flex items-center space-x-2">
+            <%= inline_svg_tag "icons/solid/check_circle", class: "h-5 w-5 text-gray-400" %>
+            <span class="text-gray-900 text-sm font-medium"><%= humanize(role) %></span>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

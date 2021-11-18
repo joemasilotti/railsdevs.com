@@ -2,94 +2,50 @@
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
+<div class="mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
+  <%= render CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 
-<div class="mt-0 lg:mt-16 pb-8 bg-white shadow lg:rounded-lg overflow-hidden">
-  <%= render CoverImageComponent.new(developer: @developer, classes: "rounded-md") %>
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
-      <div class="flex">
-        <%= render AvatarComponent.new(developer: @developer) %>
-      </div>
-
-      <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
-        <div class="sm:hidden 2xl:block mt-6 min-w-0 flex-1">
-          <h2 class="text-2xl font-bold text-gray-900 truncate">
-            <%= @developer.hero %>
-          </h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
-      <h2 class="text-2xl font-bold text-gray-900 truncate">
-        <%= @developer.hero %>
-      </h2>
+      <%= render AvatarComponent.new(developer: @developer) %>
     </div>
   </div>
 
-  <div class="mt-8 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <dl class="max-w-prose grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-      <div class="sm:col-span-1">
-        <dt class="text-sm font-medium text-gray-500">
-          Availability
-        </dt>
-        <dd class="flex mt-1 text-sm text-gray-900">
-          <%= render AvailabilityComponent.new(developer: @developer) %>
-        </dd>
+  <div class="flex-1">
+    <div class="pt-6 pb-8 xl:pb-10">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-5xl lg:grid lg:grid-cols-3">
+        <div class="lg:col-span-2 lg:pr-8 lg:border-r lg:border-gray-200">
+          <div>
+            <div>
+              <div class="md:flex md:items-center md:justify-between md:space-x-4 lg:border-b lg:pb-6">
+                <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
+
+                <div class="mt-4 flex space-x-3 md:mt-0">
+                  <button type="button" class="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                    <%= inline_svg_tag "icons/solid/mail", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
+                    <span>Message</span>
+                  </button>
+                </div>
+              </div>
+
+              <aside class="mt-8 lg:hidden">
+                <%= render "details", developer: @developer %>
+              </aside>
+
+              <div class="py-3 lg:pt-6 lg:pb-0">
+                <h2 class="sr-only">Description</h2>
+                <div class="prose max-w-prose">
+                  <%= simple_format @developer.bio %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hidden lg:block lg:pl-8">
+          <%= render "details", developer: @developer %>
+        </aside>
       </div>
-
-      <% if @developer.website.present? %>
-        <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">
-            Website
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900">
-            <%= render ExternalLinkComponent.new(@developer.website, @developer.website, class: "hover:text-gray-600") %>
-          </dd>
-        </div>
-      <% end %>
-
-      <% if @developer.github.present? %>
-        <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">
-            GitHub
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to "@#{@developer.github}", "https://github.com/#{sanitize @developer.github}", target: "_blank", class: "hover:text-gray-600" %>
-          </dd>
-        </div>
-      <% end %>
-
-      <% if @developer.twitter.present? %>
-        <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">
-            Twitter
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to "@#{@developer.twitter}", "https://twitter.com/#{sanitize @developer.twitter}", target: "_blank", class: "hover:text-gray-600" %>
-          </dd>
-        </div>
-      <% end %>
-
-      <% if @developer.linkedin.present? %>
-        <div class="sm:col-span-1">
-          <dt class="text-sm font-medium text-gray-500">
-            LinkedIn
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900">
-            <%= link_to @developer.linkedin , "https://www.linkedin.com/in/#{sanitize @developer.linkedin}/", target: "_blank", class: "hover:text-gray-600" %>
-          </dd>
-        </div>
-      <% end %>
-
-      <div class="sm:col-span-2">
-        <dt class="text-sm font-medium text-gray-500">
-          Bio
-        </dt>
-        <dd class="mt-1 text-sm text-gray-900 space-y-5">
-          <%= simple_format @developer.bio %>
-        </dd>
-      </div>
-    </dl>
+    </div>
   </div>
 </div>

@@ -3,22 +3,34 @@ en:
     show:
       title: About railsdevs
       description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
-  helpers:
-    submit:
-      developer:
-        create: Add my profile
-        update: Update my profile
+
+  activerecord:
+    attributes:
+      developer/search_status:
+        actively_looking: Actively looking for work
+        not_interested: Not interested in work right now
+        open: Open, but not actively looking
+      role_type:
+        full_time_contract: Full-time contract
+        full_time_employment: Full-time employment
+        part_time_contract: Part-time contract
+
+  availability_component:
+    now_html: Available now
+    in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
+    unspecified_html: Currently unavailable
 
   errors:
     messages:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
 
+  helpers:
+    submit:
+      developer:
+        create: Add my profile
+        update: Update my profile
+
   pundit:
     errors:
       unauthorized: You don't have access to that.
-
-  availability_component:
-    now_html: Available now
-    in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
-    unspecified_html: Currently unavailable

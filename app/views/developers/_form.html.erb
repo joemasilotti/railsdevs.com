@@ -83,22 +83,81 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Availability</h3>
-          <p class="mt-1 text-sm text-gray-500">If you're currently looking for work, how soon can you start?</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Work preferences</h3>
+          <p class="mt-1 text-sm text-gray-500">What kind of work are you looking for next?</p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
-          <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
-            <div class="sm:col-span-2">
-              <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+          <div class="space-y-6">
+            <fieldset>
+              <legend class="text-base font-medium text-gray-900">Search status</legend>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="h-5 flex items-center">
+                    <%= form.radio_button :search_status, :actively_looking, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :actively_looking, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Your profile can get featured on the homepage.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :search_status, :open, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :open, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Companies can still find you, but you won't appear on the homepage.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :search_status, :not_interested, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :not_interested, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Your profile will be clearly marked that you aren't looking for work.</p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <%= form.fields_for :role_type do |role_type| %>
+              <fieldset>
+                <div>
+                  <legend class="text-base font-medium text-gray-900">Role type</legend>
+                  <p class="text-sm text-gray-500">Select all roles that you would consider taking.</p>
+                </div>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center">
+                    <%= role_type.check_box :part_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :part_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_employment, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_employment, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                </div>
+              </fieldset>
+            <% end %>
+
+            <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
+              <div>
+                <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
+                  <div class="sm:col-span-2">
+                    <%= form.label :available_on, "Available to start on", class: "block text-sm font-medium text-gray-700" %>
+                    <div class="mt-1">
+                      <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <p class="sm:col-span-6 mt-2 text-sm text-gray-500">
-          Leave blank if you won't be available for a while.
-          </p>
         </div>
       </div>
     </div>
