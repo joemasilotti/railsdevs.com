@@ -1,16 +1,7 @@
-<% if @developer.actively_looking? %>
-  <div class="flex items-center space-x-2">
-    <%= inline_svg_tag "icons/solid/search_circle", class: "h-5 w-5 text-green-500" %>
-    <span class="text-green-700 text-sm font-medium"><%= humanize :actively_looking %></span>
-  </div>
-<% elsif @developer.open? %>
-  <div class="flex items-center space-x-2">
-    <%= inline_svg_tag "icons/solid/search_circle", class: "h-5 w-5 text-gray-400" %>
-    <span class="text-gray-900 text-sm font-medium"><%= humanize :open %></span>
-  </div>
-<% elsif @developer.not_interested? %>
-  <div class="flex items-center space-x-2">
-    <%= inline_svg_tag "icons/solid/x_circle", class: "h-5 w-5 text-gray-400" %>
-    <span class="text-gray-900 text-sm font-medium"><%= humanize :not_interested %></span>
-  </div>
-<% end %>
+<div class="flex items-center space-x-2">
+  <%= icon_tag %>
+
+  <%= tag.span class: "text-sm font-medium #{text_classes}" do %>
+    <%= humanize developer.search_status %>
+  <% end %>
+</div>
