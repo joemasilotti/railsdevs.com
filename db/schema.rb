@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 2021_11_18_171626) do
     t.integer "user_id"
     t.string "linkedin"
     t.integer "search_status"
+    t.integer "expected_salary_cents"
+    t.string "expected_salary_currency", default: "USD", null: false
+    t.integer "expected_hourly_rate_cents"
+    t.string "expected_hourly_rate_currency", default: "USD", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
