@@ -21,14 +21,4 @@ class Developer < ApplicationRecord
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
-
-  def self.role_types
-    %i[part_time_contract full_time_contract full_time_employment]
-  end
-
-  def role_type?
-    self.class.role_types.any? do |role|
-      send("#{role}?")
-    end
-  end
 end
