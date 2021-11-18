@@ -1,0 +1,10 @@
+none: {}
+
+all:
+  part_time_contract: true
+  full_time_contract: true
+  full_time_employment: true
+
+some:
+  part_time_contract: true
+  full_time_contract: true

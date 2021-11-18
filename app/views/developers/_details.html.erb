@@ -1,0 +1,20 @@
+<h2 class="sr-only">Details</h2>
+<div class="space-y-5">
+  <div class="flex items-center space-x-2">
+    <%= render AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
+  </div>
+
+  <%= render SearchStatusComponent.new(developer) %>
+  <%= render RoleTypeComponent.new(developer.role_type) %>
+
+  <div class="mt-6 border-t border-gray-200 py-6 space-y-8">
+    <div>
+      <div class="space-y-3">
+        <%= render ExternalLinkComponent.new(developer.website) %>
+        <%= render SocialLinkComponent.new(developer.github, :github) %>
+        <%= render SocialLinkComponent.new(developer.twitter, :twitter) %>
+        <%= render SocialLinkComponent.new(developer.linkedin, :linkedin) %>
+      </div>
+    </div>
+  </div>
+</div>

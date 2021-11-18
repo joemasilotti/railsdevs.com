@@ -26,12 +26,48 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "redirect to the edit profile when they try to enter developers/new, if they already have a profile" do
+    sign_in users(:with_available_profile)
+
+    get new_developer_path
+
+    assert_redirected_to edit_developer_path(users(:with_available_profile).developer)
+  end
+
   test "successful profile creation" do
     sign_in users(:without_profile)
 
     assert_difference "Developer.count", 1 do
       post developers_path, params: valid_developer_params
     end
+  end
+
+  test "create with nested attributes" do
+    user = users(:without_profile)
+    sign_in user
+
+    assert_difference "Developer.count", 1 do
+      params = valid_developer_params
+      params[:developer][:role_type_attributes] = {part_time_contract: true}
+      post developers_path, params: params
+    end
+
+    assert user.developer.role_type.part_time_contract?
+  end
+
+  test "edit with nested attributes" do
+    user = users(:with_available_profile)
+    sign_in user
+
+    patch developer_path(user.developer), params: {
+      developer: {
+        role_type_attributes: {
+          part_time_contract: true
+        }
+      }
+    }
+
+    assert user.developer.reload.role_type.part_time_contract?
   end
 
   test "successful profile creation sends a notification to the admin" do
@@ -103,6 +139,19 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       }
     end
     assert_redirected_to root_path
+  end
+
+  test "invalid form changes label color" do
+    sign_in users(:without_profile)
+
+    post developers_path, params: {
+      developer: {
+        name: ""
+      }
+    }
+    assert_select %(div.text-red-600 label[for="developer_name"])
+    assert_select %(div.text-red-600 label[for="developer_hero"])
+    assert_select %(div.text-red-600 label[for="developer_bio"])
   end
 
   def valid_developer_params

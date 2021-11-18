@@ -14,7 +14,7 @@
             <div class="sm:col-span-3">
               <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_field :name, autocomplete: "name", class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+                <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Your name will <i>not</i> be displayed on your public profile.</p>
             </div>
@@ -22,7 +22,7 @@
             <div class="sm:col-span-6">
               <%= form.label :hero, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_field :hero, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+                <%= form.text_field :hero, class: field_classes(form, :hero) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Summarize yourself as a developer in a few words.</p>
             </div>
@@ -30,7 +30,7 @@
             <div class="sm:col-span-6">
               <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
-                <%= form.text_area :bio, rows: 3, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border border-gray-300 rounded-md" %>
+                <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
               </div>
               <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
             </div>
@@ -39,16 +39,14 @@
               <span class="block text-sm font-medium text-gray-700">Avatar</span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
-                  <%= render "developers/avatar", developer: developer, data: {"file-upload-target": "image"} %>
+                  <%= render AvatarComponent.new(developer: @developer, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>
                 </div>
-
                 <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
                 <%= form.label :avatar, "Change", class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
               </div>
-
               <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
                 <div class="ml-3">
                   <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
@@ -60,20 +58,14 @@
               <span class="block text-sm font-medium text-gray-700">Cover image</span>
               <div class="relative">
                 <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
-                <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+                <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
 
-                <div class="mb-4 w-full aspect-w-4 aspect-h-1">
-                  <% unless developer.cover_image.attached? %>
-                    <%= image_tag "default_splash.jpg", alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md" %>
-                  <% else %>
-                    <%= image_tag developer.cover_image, alt: "Developer's cover image", "data-file-upload-target": "image", class: "object-cover w-full h-full rounded-md"%>
-                  <% end %>
-                </div>
+                <%= render CoverImageComponent.new(developer: @developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
                 <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                 </div>
               </div>
-              <div class="flex text-sm text-gray-600">
+              <div class="flex mt-2 text-sm text-gray-600">
                 <p class="">Upload a file</p>
               </div>
               <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
@@ -91,22 +83,81 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Availability</h3>
-          <p class="mt-1 text-sm text-gray-500">If you're currently looking for work, how soon can you start?</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Work preferences</h3>
+          <p class="mt-1 text-sm text-gray-500">What kind of work are you looking for next?</p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
-          <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
-            <div class="sm:col-span-2">
-              <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+          <div class="space-y-6">
+            <fieldset>
+              <legend class="text-base font-medium text-gray-900">Search status</legend>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="h-5 flex items-center">
+                    <%= form.radio_button :search_status, :actively_looking, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :actively_looking, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Your profile can get featured on the homepage.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :search_status, :open, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :open, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Companies can still find you, but you won't appear on the homepage.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :search_status, :not_interested, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :not_interested, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500">Your profile will be clearly marked that you aren't looking for work.</p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <%= form.fields_for :role_type do |role_type| %>
+              <fieldset>
+                <div>
+                  <legend class="text-base font-medium text-gray-900">Role type</legend>
+                  <p class="text-sm text-gray-500">Select all roles that you would consider taking.</p>
+                </div>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center">
+                    <%= role_type.check_box :part_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :part_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_contract, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_contract, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_type.check_box :full_time_employment, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_type.label :full_time_employment, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                </div>
+              </fieldset>
+            <% end %>
+
+            <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
+              <div>
+                <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
+                  <div class="sm:col-span-2">
+                    <%= form.label :available_on, "Available to start on", class: "block text-sm font-medium text-gray-700" %>
+                    <div class="mt-1">
+                      <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <p class="sm:col-span-6 mt-2 text-sm text-gray-500">
-          Leave blank if you won't be available for a while.
-          </p>
         </div>
       </div>
     </div>

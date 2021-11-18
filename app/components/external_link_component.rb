@@ -1,12 +1,14 @@
-class ExternalLinkComponent < ViewComponent::Base
-  def initialize(title, href, options = {})
-    @title = title
+class ExternalLinkComponent < ApplicationComponent
+  def initialize(href)
     @href = href
-    @options = options
   end
 
   def render?
     @href.present?
+  end
+
+  def title
+    @href
   end
 
   def href
@@ -15,9 +17,5 @@ class ExternalLinkComponent < ViewComponent::Base
     else
       "https://#{@href}"
     end
-  end
-
-  def options
-    @options.merge(target: "_blank")
   end
 end

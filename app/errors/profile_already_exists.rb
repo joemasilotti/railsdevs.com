@@ -1,0 +1,2 @@
+class ProfileAlreadyExists < StandardError
+end

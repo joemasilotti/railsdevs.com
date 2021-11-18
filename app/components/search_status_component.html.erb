@@ -1,0 +1,7 @@
+<div class="flex items-center space-x-2">
+  <%= icon_tag %>
+
+  <%= tag.span class: "text-sm font-medium #{text_classes}" do %>
+    <%= humanize developer.search_status %>
+  <% end %>
+</div>

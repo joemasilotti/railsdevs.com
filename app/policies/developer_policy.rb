@@ -1,4 +1,10 @@
 class DeveloperPolicy < ApplicationPolicy
+  def new?
+    raise ProfileAlreadyExists unless create?
+
+    true
+  end
+
   def create?
     record.nil?
   end
