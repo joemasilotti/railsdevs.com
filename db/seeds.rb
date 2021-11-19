@@ -39,3 +39,18 @@ Developer.create!(
   github: "ada",
   twitter: "lovelace"
 )
+
+User.create!(
+  email: "company@example.com",
+  password: "password",
+  password_confirmation: "password",
+  company: true,
+  confirmed_at: DateTime.current
+)
+
+3.times do |n|
+  Conversation.create!(
+    developer_id: n + 1,
+    client_id: 4
+  )
+end

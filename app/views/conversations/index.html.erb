@@ -9,7 +9,7 @@
 -->
 <div class="min-h-screen flex items-stretch lg:py-8">
   <!-- Primary column -->
-  <section aria-labelledby="primary-heading" class="min-w-0 relative flex-1 bg-white rounded-r-xl shadow lg:order-last">
+  <section aria-labelledby="primary-heading" class="min-w-0 relative bg-white rounded-r-xl flex-1 shadow lg:order-last">
     <h1 id="primary-heading" class="sr-only">Messages</h1>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
@@ -79,7 +79,7 @@
 
           <div class="absolute bottom-0 inset-x-0 pl-3 pr-2 py-2 flex justify-end">
             <div class="flex-shrink-0">
-              <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <button type="submit" class="inline-flex py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 Post
               </button>
             </div>
@@ -90,33 +90,11 @@
   </section>
 
   <!-- Secondary column (hidden on smaller screens) -->
-  <aside class="hidden rounded-l-xl shadow lg:block lg:flex-shrink-0 lg:order-first">
-    <div class="relative flex flex-col w-80 h-full px-4 pt-4 bg-white border-r border-gray-200 rounded-l-xl overflow-y-auto">
+  <aside class="hidden max-w-2xl rounded-l-xl shadow lg:block lg:flex-shrink-0 lg:order-first">
+    <div class="relative flex flex-col w-80 h-full px-5 pt-4 bg-white border-r border-gray-200 rounded-l-xl overflow-y-auto">
       <!-- This example requires Tailwind CSS v2.0+ -->
       <ul role="list" class="divide-y divide-gray-200">
-        <li class="py-6 flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-900">Calvin Hawkins</p>
-            <p class="text-sm text-gray-500">calvin.hawkins@example.com</p>
-          </div>
-        </li>
-
-        <li class="py-6 flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-900">Kristen Ramos</p>
-            <p class="text-sm text-gray-500">kristen.ramos@example.com</p>
-          </div>
-        </li>
-
-        <li class="py-6 flex">
-          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-          <div class="ml-3">
-            <p class="text-sm font-medium text-gray-900">Ted Fox</p>
-            <p class="text-sm text-gray-500">ted.fox@example.com</p>
-          </div>
-        </li>
+        <%= render ConversationComponent.with_collection(@conversations, user: current_user) %>
       </ul>
     </div>
   </aside>
