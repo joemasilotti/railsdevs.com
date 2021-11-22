@@ -61,13 +61,13 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
+      :expected_hourly_rate,
+      :expected_salary,
       role_type_attributes: [
         :part_time_contract,
         :full_time_contract,
         :full_time_employment
       ]
-      :expected_hourly_rate,
-      :expected_salary
     )
   end
 end
