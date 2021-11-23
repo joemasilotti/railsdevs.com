@@ -14,13 +14,13 @@ gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
 gem "view_component", "~> 2.42"
 
 group :development, :test do
+  gem "erb_lint", require: false
   gem "letter_opener_web"
   gem "pry-rails"
   gem "standard"
 end
 
 group :development do
-  gem "erb_lint", require: false
   gem "listen", "~> 3.3"
 end
 
