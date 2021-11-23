@@ -12,7 +12,7 @@
 
               <div class="-mr-2 flex items-center md:hidden">
                 <button type="button" data-action="toggle#toggle" class="bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white" aria-expanded="false">
-                  <span class="sr-only">Open main menu</span>
+                  <span class="sr-only"><%= t('.open_main_menu') %></span>
                   <%= inline_svg_tag "icons/outline/menu.svg", class: "h-6 w-6" %>
                 </button>
               </div>
@@ -20,22 +20,22 @@
           </div>
 
           <div class="hidden space-x-10 md:flex">
-            <%= link_to "About", about_path, class: "font-medium text-white hover:text-gray-300" %>
-            <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.com/", class: "font-medium text-white hover:text-gray-300" %>
-            <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.com", class: "font-medium text-white hover:text-gray-300" %>
+            <%= link_to t('.about'), about_path, class: "font-medium text-white hover:text-gray-300" %>
+            <%= link_to t('.open_source'), "https://github.com/joemasilotti/railsdevs.com/", class: "font-medium text-white hover:text-gray-300" %>
+            <%= link_to t('.open_analytics'), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", class: "font-medium text-white hover:text-gray-300" %>
           </div>
 
           <div class="hidden space-x-4 md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
             <% if signed_in? %>
-              <%= button_to "Sign out", destroy_user_session_path, method: :delete, title: "Sign out", data: { turbo: false }, class: "bg-transparent text-base font-medium text-white hover:text-gray-300 cursor-pointer" %>
+              <%= button_to t('.sign_out'), destroy_user_session_path, method: :delete, title: "Sign out", data: { turbo: false }, class: "bg-transparent text-base font-medium text-white hover:text-gray-300 cursor-pointer" %>
             <% else %>
-              <%= link_to "Sign in", new_user_session_path, class: "text-base font-medium text-white hover:text-gray-300" %>
+              <%= link_to t('.sign_in'), new_user_session_path, class: "text-base font-medium text-white hover:text-gray-300" %>
             <% end %>
 
             <% if current_user&.developer&.persisted? %>
-              <%= link_to "Edit your profile", edit_developer_path(current_user.developer), class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
+              <%= link_to t('.edit_profile'), edit_developer_path(current_user.developer), class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
             <% else %>
-              <%= link_to "Add your profile", new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
+              <%= link_to t('.add_your_profile'), new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700" %>
             <% end %>
           </div>
         </nav>
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div data-toggle-target="element" class="hidden absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-20">
+  <div data-toggle-target="element" class="hidden absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-20">
     <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
       <div class="px-5 pt-4 flex items-center justify-between">
         <div>
@@ -52,35 +52,35 @@
 
         <div class="-mr-2">
           <button type="button" data-action="toggle#toggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
-            <span class="sr-only">Close menu</span>
+            <span class="sr-only"><%= t('.close_menu') %></span>
             <%= inline_svg_tag "icons/outline/x.svg", class: "h-6 w-6" %>
           </button>
         </div>
       </div>
       <div class="px-2 pt-2 pb-6">
-        <%= link_to "About", about_path, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
-        <%= link_to "Open source", "https://github.com/joemasilotti/railsdevs.com/", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
-        <%= link_to "Open analytics", "https://app.usefathom.com/share/cacnfaan/railsdevs.com", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
+        <%= link_to t('.about'), about_path, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
+        <%= link_to t('.open_source'), "https://github.com/joemasilotti/railsdevs.com/", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
+        <%= link_to t('.open_analytics'), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", class: "block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" %>
 
         <% unless signed_in? %>
           <div class="mt-6 px-5">
-            <p class="text-center text-base font-medium text-gray-500">Have an account? <%= link_to "Sign in", new_user_session_path, class: "text-gray-900 hover:underline" %></p>
+            <p class="text-center text-base font-medium text-gray-500"><%= t ".have_an_account_html", link: link_to(t('devise.sessions.sign_in'), new_user_session_path, class: "text-gray-900 hover:underline") %></p>
           </div>
         <% end %>
 
         <% if current_user&.developer&.persisted? %>
           <div class="mt-6 px-5">
-            <%= link_to "Edit your profile", edit_developer_path(current_user.developer), class: "block text-center w-full py-3 px-4 rounded-md shadow bg-gray-600 text-white font-medium hover:bg-gray-700" %>
+            <%= link_to t('.edit_profile'), edit_developer_path(current_user.developer), class: "block text-center w-full py-3 px-4 rounded-md shadow bg-gray-600 text-white font-medium hover:bg-gray-700" %>
           </div>
         <% else %>
           <div class="mt-6 px-5">
-            <%= link_to "Add your profile", new_developer_path, class: "block text-center w-full py-3 px-4 rounded-md shadow bg-gray-600 text-white font-medium hover:bg-gray-700" %>
+            <%= link_to t('.add_your_profile'), new_developer_path, class: "block text-center w-full py-3 px-4 rounded-md shadow bg-gray-600 text-white font-medium hover:bg-gray-700" %>
           </div>
         <% end %>
 
         <% if signed_in? %>
           <div class="mt-6 px-5 text-center">
-            <%= button_to "Sign out", destroy_user_session_path, method: :delete, title: "Sign out", data: { turbo: false }, class: "bg-transparent text-gray-900 hover:underline cursor-pointer" %>
+            <%= button_to t('.sign_out'), destroy_user_session_path, method: :delete, title: t('.sign_out'), data: { turbo: false }, class: "bg-transparent text-gray-900 hover:underline cursor-pointer" %>
           </div>
         <% end %>
       </div>

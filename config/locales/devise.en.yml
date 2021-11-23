@@ -3,6 +3,10 @@
 en:
   devise:
     confirmations:
+      link: "Didn't receive confirmation instructions?"
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+        resend: "Resend confirmation instructions"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -31,12 +35,21 @@ en:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      change_your_password: "Change your password"
+      change: "Change my password"
+      forgot_your_password_hero: "Forgot your password?"
+      forgot_your_password_link: "Forgot your password?"
+      send_reset_password_instructions: "Send reset password instructions"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      sign_up_hero: "Create your account"
+      sign_up_html: "Or %{link}"
+      create_account: "create an account"
+      register: "Register"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -46,6 +59,10 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
     sessions:
+      sign_in_hero: "Sign in to your account"
+      sign_in_link_html: "Or %{link}"
+      sign_in_link: "sign in to your account"
+      sign_in: "Sign in"
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."

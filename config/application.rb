@@ -41,5 +41,17 @@ module Railsdevs
 
     # Run background jobs asynchronously in an in-process thread pool.
     config.active_job.queue_adapter = :async
+
+    # Search nested folders in config/locales for better organization
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+
+    # Permitted locales available for the application
+    config.i18n.available_locales = [:en]
+
+    # Set default locale
+    config.i18n.default_locale = :en
+
+    # Use default language as fallback if translation is missing
+    config.i18n.fallbacks = true
   end
 end
