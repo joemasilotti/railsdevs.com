@@ -1,121 +1,121 @@
 en:
   about:
     show:
-      title: "About railsdevs"
-      description: "I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig."
+      title: About railsdevs
+      description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
   home:
     show:
-      find_ror_developers: "Find Rails developers looking for work"
+      find_ror_developers: Find Rails developers looking for work
       find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
-      available_developers: "Developers available now"
-      add_your_profile: "Add your profile"
-      view_more_developers: "View more developers"
+      available_developers: Developers available now
+      add_your_profile: Add your profile
+      view_more_developers: View more developers
   developers:
-    created: "Your profile was added!"
-    updated: "Your profile was updated!"
+    created: Your profile was added!
+    updated: Your profile was updated!
     details:
-      title: "Details"
+      title: Details
     index:
-      ror_developers: "Ruby on Rails developers"
-      add_your_profile: "Add your profile"
+      ror_developers: Ruby on Rails developers
+      add_your_profile: Add your profile
     show:
-      description: "Description"
+      description: Description
     form:
-      profile: "Profile"
-      profile_help_text_html: "This information will be displayed publicly so be careful what you share."
+      profile: Profile
+      profile_help_text_html: This information will be displayed publicly so be careful what you share.
       name_help_text_html: "Your name will <i>not</i> be displayed on your public profile."
-      hero_help_text_html: "Summarize yourself as a developer in a few words."
-      bio_help_text_html: "Write a few sentences about yourself."
-      avatar: "Avatar"
-      change: "Change"
-      avatar_error_text_html: "Something went wrong uploading your image, please try again."
-      cover_image: "Cover image"
-      upload_file: "Upload a file"
-      upload_help_text_html: "PNG, JPG, GIF up to 10MB"
-      upload_error_text_html: "Something went wrong uploading your image, please try again."
-      work_preferences: "Work preferences"
-      work_preferences_help_text_html: "What kind of work are you looking for next?"
-      search_status: "Search status"
-      search_status_actively_looking_help_text_html: "Your profile can get featured on the homepage."
-      search_status_open_help_text_html: "Companies can still find you, but you won't appear on the homepage."
-      search_status_not_interested_help_text_html: "Your profile will be clearly marked that you aren't looking for work."
-      role_type: "Role type"
-      role_type_help_text_html: "Select all roles that you would consider taking."
-      online_presence: "Online presence"
-      online_presence_help_text_html: "Where can people learn more about you and your work?"
-      save: "Save"
+      hero_help_text_html: Summarize yourself as a developer in a few words.
+      bio_help_text_html: Write a few sentences about yourself.
+      avatar: Avatar
+      change: Change
+      avatar_error_text_html: Something went wrong uploading your image, please try again.
+      cover_image: Cover image
+      upload_file: Upload a file
+      upload_help_text_html: PNG, JPG, GIF up to 10MB
+      upload_error_text_html: Something went wrong uploading your image, please try again.
+      work_preferences: Work preferences
+      work_preferences_help_text_html: What kind of work are you looking for next?
+      search_status: Search status
+      search_status_actively_looking_help_text_html: Your profile can get featured on the homepage.
+      search_status_open_help_text_html: Companies can still find you, but you won't appear on the homepage.
+      search_status_not_interested_help_text_html: Your profile will be clearly marked that you aren't looking for work.
+      role_type: Role type
+      role_type_help_text_html: Select all roles that you would consider taking.
+      online_presence: Online presence
+      online_presence_help_text_html: Where can people learn more about you and your work?
+      save: Save
 
   shared:
     header:
-      about: "About"
-      open_source: "Open source"
-      open_analytics: "Open analytics"
-      open_main_menu: "Open main menu"
-      close_menu: "Close menu"
-      sign_out: "Sign out"
-      sign_in: "Sign in"
-      edit_profile: "Edit your profile"
-      add_your_profile: "Add your profile"
+      about: About
+      open_source: Open source
+      open_analytics: Open analytics
+      open_main_menu: Open main menu
+      close_menu: Close menu
+      sign_out: Sign out
+      sign_in: Sign in
+      edit_profile: Edit your profile
+      add_your_profile: Add your profile
       have_an_account_html: "Have an account? %{link}"
   # Components
   avatar_component:
-    alt: "Developer's avatar"
+    alt: Developer's avatar
   cover_image_component:
-    alt: "Developer's cover image"
+    alt: Developer's cover image
   open_graph_tags_component:
-    default_description: "Find Ruby on Rails developers looking for freelance, contract, and full-time work."
+    default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   role_type_component:
-    interested_in_roles: "Interested in roles"
+    interested_in_roles: Interested in roles
   activerecord:
     models:
       user:
-        one: "User"
-        other: "Users"
+        one: User
+        other: Users
       developer:
-        one: "Developer"
-        other: "Developers"
+        one: Developer
+        other: Developers
 
     attributes:
       user:
-        email: "E-mail"
-        password: "Password"
-        password_confirmation: "Password Confirmation"
-        remember_me: "Remember me"
+        email: E-mail
+        password: Password
+        password_confirmation: Password Confirmation
+        remember_me: Remember me
       developer:
-        name: "Name"
-        email: "E-mail"
-        available_on: "Available to start on"
-        hero: "Hero"
-        bio: "Bio"
-        website: "Website"
-        github: "Github"
-        twitter: "Twitter"
-        linkedin: "Linkedin"
+        name: Name
+        email: E-mail
+        available_on: Available to start on
+        hero: Hero
+        bio: Bio
+        website: Website
+        github: Github
+        twitter: Twitter
+        linkedin: Linkedin
       developer/search_status:
-        actively_looking: "Actively looking for work"
-        not_interested: "Not interested in work right now"
-        open: "Open, but not actively looking"
+        actively_looking: Actively looking for work
+        not_interested: Not interested in work right now
+        open: Open, but not actively looking
       role_type:
-        full_time_contract: "Full-time contract"
-        full_time_employment: "Full-time employment"
-        part_time_contract: "Part-time contract"
+        full_time_contract: Full-time contract
+        full_time_employment: Full-time employment
+        part_time_contract: Part-time contract
 
   availability_component:
-    now_html: "Available now"
+    now_html: Available now
     in_future_html: "Available in <time datetime=\"%{date}\">%{date_in_words}</time>"
-    unspecified_html: "Currently unavailable"
+    unspecified_html: Currently unavailable
 
   errors:
     messages:
-      content_type_invalid: "image format not supported"
+      content_type_invalid: image format not supported
       max_file_size_invalid: "image over %{size}"
 
   helpers:
     submit:
       developer:
-        create: "Add my profile"
-        update: "Update my profile"
+        create: Add my profile
+        update: Update my profile
 
   pundit:
     errors:
-      unauthorized: "You don't have access to that."
+      unauthorized: You don't have access to that.
