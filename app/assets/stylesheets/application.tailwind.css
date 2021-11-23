@@ -2,5 +2,4 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "components/buttons.css";
 @import "components/pagy";
