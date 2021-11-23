@@ -96,7 +96,7 @@ jobs:
         run: bundle exec standardrb
 
       - name: erb-lint
-        run: bundle exec erblint
+        run: bundle exec erblint --lint-all
 
       - name: Run tests
         env:
