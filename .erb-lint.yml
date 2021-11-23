@@ -3,6 +3,7 @@ EnableDefaultLinters: true
 
 exclude:
 - "app/views/*_mailer/*"
+- "vendor/bundle/**/*"
 
 linters:
   ErbSafety:
