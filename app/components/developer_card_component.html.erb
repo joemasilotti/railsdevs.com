@@ -1,16 +1,16 @@
-<%= link_to @developer, class: "bg-white hover:bg-gray-50 border-1 border-white hover:border-gray-900 px-4 py-6 shadow sm:p-6 lg:rounded-lg flex space-x-4 sm:space-x-8" do %>
+<%= link_to developer, class: "bg-white hover:bg-gray-50 border-1 border-white hover:border-gray-900 px-4 py-6 shadow sm:p-6 lg:rounded-lg flex space-x-4 sm:space-x-8" do %>
   <div class="flex-shrink-0">
-    <%= render AvatarComponent.new(developer: @developer) %>
+    <%= render AvatarComponent.new(developer: developer) %>
   </div>
 
   <div class="self-start flex-1">
     <div class="flex items-baseline break-all">
-      <h2 class="text-lg sm:text-xl font-medium text-gray-900" >
+      <h2 class="text-lg sm:text-xl font-medium text-gray-900">
         <%= hero %>
       </h2>
 
       <div class="hidden sm:inline-flex ml-auto flex-row-reverse items-center text-gray-400">
-        <%= render AvailabilityComponent.new(developer: @developer) %>
+        <%= render AvailabilityComponent.new(developer: developer) %>
       </div>
     </div>
 

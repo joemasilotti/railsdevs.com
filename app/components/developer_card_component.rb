@@ -1,6 +1,8 @@
 class DeveloperCardComponent < ApplicationComponent
   with_collection_parameter :developer
 
+  attr_reader :developer
+
   def initialize(developer:)
     @developer = developer
   end
