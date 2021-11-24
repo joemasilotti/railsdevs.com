@@ -1,8 +1,5 @@
 <% content_for :open_graph_tags do %>
-  <%= render OpenGraphTagsComponent.new(
-    title: t(".title"),
-    description: t(".description")
-  ) %>
+  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
 <% end %>
 
 <div class="overflow-hidden bg-white">
@@ -30,11 +27,11 @@
 
       <div class="mt-8 lg:mt-0 lg:col-span-3">
         <div class="prose prose-lg prose-gray text-gray-500 max-w-prose mx-auto lg:max-w-none">
-          <%= @hero.html_safe %>
+          <%= @hero %>
         </div>
 
         <div class="mt-8 prose prose-gray text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-          <%= @body.html_safe %>
+          <%= @body %>
         </div>
       </div>
     </div>

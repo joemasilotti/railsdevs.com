@@ -4,6 +4,8 @@ class ToastMessageComponent < ApplicationComponent
   renders_one :title
   renders_many :messages
 
+  attr_reader :icon, :color, :messages_tag
+
   def initialize(icon:, color: :blue, messages_tag: :div)
     @icon = icon
     @color = color
