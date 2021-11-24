@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_171626) do
+ActiveRecord::Schema.define(version: 2021_11_24_225026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_11_18_171626) do
     t.integer "user_id"
     t.string "linkedin"
     t.integer "search_status"
+    t.boolean "remote", default: false, null: false
+    t.text "location"
   end
 
   create_table "notifications", force: :cascade do |t|

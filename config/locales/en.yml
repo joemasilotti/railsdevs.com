@@ -6,6 +6,8 @@ en:
 
   activerecord:
     attributes:
+      developer:
+        remote: Remote roles only
       developer/search_status:
         actively_looking: Actively looking for work
         not_interested: Not interested in work right now
@@ -17,7 +19,11 @@ en:
 
   availability_component:
     now_html: Available now
+    now_remote_html: Available remotely now
+    now_location_html: Available in %{location} now
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
+    in_future_remote_html: Available remotely in <time datetime="%{date}">%{date_in_words}</time>
+    in_future_location_html: Available in %{location} in <time datetime="%{date}">%{date_in_words}</time>
     unspecified_html: Currently unavailable
 
   errors:

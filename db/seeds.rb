@@ -15,7 +15,8 @@ Developer.create!(
   bio: "An American computer scientist. Created the C programming language and, with long-time colleague Ken Thompson, the Unix operating system and B programming language.",
   website: "https://example.com/dennis",
   github: "dennis",
-  twitter: "ritchie"
+  twitter: "ritchie",
+  location: "Chicago",
 )
 
 Developer.create!(
@@ -26,7 +27,8 @@ Developer.create!(
   bio: "A Danish computer scientist, most notable for the creation and development of the C++ programming language. A visiting professor at Columbia University, and works at Morgan Stanley as a Managing Director in New York.",
   website: "https://example.com/bjarne",
   github: "bjarne",
-  twitter: "stroustrup"
+  twitter: "stroustrup",
+  remote: true
 )
 
 Developer.create!(

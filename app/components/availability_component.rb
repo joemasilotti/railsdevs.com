@@ -17,12 +17,16 @@ class AvailabilityComponent < ApplicationComponent
     inline_svg_tag "icons/solid/#{icon}.svg", class: css.join(" ")
   end
 
+  def location
+    developer.location
+  end
+
   def date
     developer.available_on&.to_s(:db)
   end
 
   def date_in_words
-    return unless developer.available_in_future?
+    return unless developer.available_future?
 
     time_ago_in_words(developer.available_on)
   end
@@ -34,6 +38,6 @@ class AvailabilityComponent < ApplicationComponent
   end
 
   def available?
-    developer.available_now?
+    developer.available?
   end
 end
