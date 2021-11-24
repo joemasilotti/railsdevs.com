@@ -1,0 +1,23 @@
+---
+EnableDefaultLinters: true
+
+exclude:
+- "app/views/*_mailer/*"
+- "vendor/bundle/**/*"
+
+linters:
+  ErbSafety:
+    enabled: true
+  PartialInstanceVariable:
+    enabled: true
+
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      require: standard
+      inherit_gem:
+        standard: config/base.yml
+      Layout/InitialIndentation:
+        Enabled: false
+      Layout/TrailingEmptyLines:
+        Enabled: false

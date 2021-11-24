@@ -1,7 +1,7 @@
 class AboutController < ApplicationController
   def show
-    @hero = renderer.render(File.read(file("hero")))
-    @body = renderer.render(File.read(file("body")))
+    @hero = renderer.render(File.read(file("hero"))).html_safe
+    @body = renderer.render(File.read(file("body"))).html_safe
   end
 
   private
