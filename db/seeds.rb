@@ -16,7 +16,7 @@ Developer.create!(
   website: "https://example.com/dennis",
   github: "dennis",
   twitter: "ritchie",
-  location: "Chicago",
+  location: "Chicago"
 )
 
 Developer.create!(

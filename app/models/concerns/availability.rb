@@ -33,14 +33,12 @@ module Availability
       else
         :in_future
       end
+    elsif location?
+      :now_location
+    elsif remote?
+      :now_remote
     else
-      if location?
-        :now_location
-      elsif remote?
-        :now_remote
-      else
-        :now
-      end
+      :now
     end
 
     self.availability_status = status
