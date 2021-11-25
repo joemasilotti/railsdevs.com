@@ -11,14 +11,14 @@ class ExpectedCompensationComponentTest < ViewComponent::TestCase
   end
 
   test "renders hourly rate if provided" do
-    @developer.expected_hourly_rate = 150
+    @developer.preferred_min_hourly_rate = 150
     render_inline(ExpectedCompensationComponent.new(@developer))
     assert_text "Hourly"
     assert_text "$150.00"
   end
 
   test "renders yearly salary if provided" do
-    @developer.expected_salary = 250000
+    @developer.preferred_min_salary = 250000
     render_inline(ExpectedCompensationComponent.new(@developer))
     assert_text "Yearly salary"
     assert_text "$250,000.00"
