@@ -1,2 +1,2 @@
-<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_hourly_rate, max_amount: developer.preferred_max_hourly_rate, title: "Hourly rate") %>
-<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_salary, max_amount: developer.preferred_max_salary ,title: "Yearly salary") %>
+<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_hourly_rate, max_amount: developer.preferred_max_hourly_rate, suffix: "hr", title: "Hourly rate") %>
+<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_salary, max_amount: developer.preferred_max_salary, suffix: "annual", title: "Yearly salary") %>
