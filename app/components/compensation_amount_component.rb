@@ -1,12 +1,13 @@
 class CompensationAmountComponent < ApplicationComponent
   attr_reader :amount, :title
 
-  def initialize(amount:, title:)
-    @amount = amount
+  def initialize(min_amount:, max_amount:, title:)
+    @min_amount = min_amount
+    @max_amount = max_amount
     @title = title
   end
 
   def render?
-    @amount.present?
+    @min_amount.present?
   end
 end

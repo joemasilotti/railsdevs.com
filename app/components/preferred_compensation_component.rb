@@ -1,4 +1,4 @@
-class ExpectedCompensationComponent < ApplicationComponent
+class PreferredCompensationComponent < ApplicationComponent
   attr_reader :developer
 
   def initialize(developer)
