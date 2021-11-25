@@ -1,5 +1,5 @@
 class CompensationAmountComponent < ApplicationComponent
-  attr_reader :amount, :title
+  attr_reader :min_amount, :max_amount, :suffix, :title
 
   def initialize(min_amount:, max_amount:, suffix:, title:)
     @min_amount = min_amount
