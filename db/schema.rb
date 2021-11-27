@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_083446) do
+ActiveRecord::Schema.define(version: 2021_11_18_171626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,11 +56,11 @@ ActiveRecord::Schema.define(version: 2021_11_23_083446) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.string "linkedin"
-    t.integer "preferred_min_salary"
-    t.integer "preferred_min_hourly_rate"
     t.integer "search_status"
-    t.integer "preferred_max_salary"
+    t.integer "preferred_min_hourly_rate"
     t.integer "preferred_max_hourly_rate"
+    t.integer "preferred_min_salary"
+    t.integer "preferred_max_salary"
   end
 
   create_table "notifications", force: :cascade do |t|
