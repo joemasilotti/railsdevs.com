@@ -3,9 +3,7 @@ require "test_helper"
 class DeveloperPolicyTest < ActiveSupport::TestCase
   test "update their own developer profile" do
     user = users(:with_available_profile)
-    developer = developers(:available)
-
-    assert DeveloperPolicy.new(user, developer).update?
+    assert DeveloperPolicy.new(user, user.developer).update?
   end
 
   test "cannot update another's developer profile" do
@@ -15,24 +13,24 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
     refute DeveloperPolicy.new(user, developer).update?
   end
 
-  test "can create developer profile if they do not already have one" do
+  test "can create a developer profile if they do not already have one" do
     user = users(:without_profile)
     developer = user.developer
 
     assert DeveloperPolicy.new(user, developer).create?
   end
 
-  test "cannot create developer profile for self if they already have one" do
+  test "cannot create a developer profile if they already have one" do
     user = users(:with_available_profile)
     developer = user.developer
 
     refute DeveloperPolicy.new(user, developer).create?
   end
 
-  test "raises exception when they tried to instantiate new developer object, when they already have one" do
+  test "raises when instantiating a new developer when one exists" do
     user = users(:with_available_profile)
 
-    assert_raises(ProfileAlreadyExists) do
+    assert_raises(DeveloperPolicy::AlreadyExists) do
       DeveloperPolicy.new(user, Developer.new).new?
     end
   end

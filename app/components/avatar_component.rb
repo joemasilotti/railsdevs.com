@@ -1,3 +1,4 @@
+# TODO: Refactor to work with Developer and Business.
 class AvatarComponent < ViewComponent::Base
   DEFAULT_AVATAR = "avatar.png"
 

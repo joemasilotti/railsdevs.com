@@ -1,4 +1,4 @@
-class DeveloperPolicy < ApplicationPolicy
+class BusinessPolicy < ApplicationPolicy
   class AlreadyExists < StandardError; end
 
   def new?

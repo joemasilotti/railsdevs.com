@@ -1,3 +1,7 @@
+empty:
+  email: user@example.com
+  confirmed_at: <%= DateTime.current %>
+
 with_available_profile:
   email: one@example.com
   confirmed_at: <%= DateTime.current %>
@@ -8,6 +12,10 @@ with_unavailable_profile:
 
 without_profile:
   email: three@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_business:
+  email: business@example.com
   confirmed_at: <%= DateTime.current %>
 
 admin:
