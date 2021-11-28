@@ -165,6 +165,57 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Preferred compensation</h3>
+          <p class="mt-1 text-sm text-gray-500">What is your preferred annual salary and/or hourly rate?</p>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <%= form.label :preferred_min_salary, "Salary (min)", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  $
+                </span>
+                <%= form.number_field :preferred_min_salary, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <%= form.label :preferred_max_salary, "Salary (max)", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  $
+                </span>
+                <%= form.number_field :preferred_max_salary, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+
+            <div class="col-span-6 sm:col-span-3">
+              <%= form.label :preferred_min_hourly_rate, "Hourly rate (min)", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  $
+                </span>
+                <%= form.number_field :preferred_min_hourly_rate, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+            <div class="col-span-6 sm:col-span-3">
+              <%= form.label :preferred_max_hourly_rate, "Hourly rate (max)", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  $
+                </span>
+                <%= form.number_field :preferred_max_hourly_rate, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Online presence</h3>
           <p class="mt-1 text-sm text-gray-500">Where can people learn more about you and your work?</p>
         </div>

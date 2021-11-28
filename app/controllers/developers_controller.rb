@@ -61,6 +61,10 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
+      :preferred_min_hourly_rate,
+      :preferred_max_hourly_rate,
+      :preferred_min_salary,
+      :preferred_max_salary,
       role_type_attributes: [
         :part_time_contract,
         :full_time_contract,

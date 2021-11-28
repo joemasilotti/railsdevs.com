@@ -79,4 +79,22 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes developers, developers(:available)
     refute_includes developers, developers(:unavailable)
   end
+
+  test "max rate must be higher than min" do
+    developer = developers(:available)
+
+    developer.preferred_min_hourly_rate = 100
+    developer.preferred_max_hourly_rate = 50
+
+    refute developer.valid?
+  end
+
+  test "max salary must be higher than min" do
+    developer = developers(:available)
+
+    developer.preferred_min_salary = 100_000
+    developer.preferred_max_salary = 50_000
+
+    refute developer.valid?
+  end
 end
