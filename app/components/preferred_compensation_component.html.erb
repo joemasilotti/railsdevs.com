@@ -1,2 +1,7 @@
-<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_hourly_rate, max_amount: developer.preferred_max_hourly_rate, suffix: "hr", title: "Hourly rate") %>
-<%= render CompensationAmountComponent.new(min_amount: developer.preferred_min_salary, max_amount: developer.preferred_max_salary, suffix: "annual", title: "Yearly salary") %>
+<div class="sm:col-span-1">
+  <dt class="text-sm font-medium text-gray-500">
+    Preferred compensation
+  </dt>
+  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_hourly_rate_range, suffix: "hr") %>
+  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_salary_range, suffix: "annual") %>
+</div>

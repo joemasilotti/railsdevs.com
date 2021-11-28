@@ -6,6 +6,6 @@ class PreferredCompensationComponent < ApplicationComponent
   end
 
   def render?
-    @developer.preferred_min_hourly_rate.present? || @developer.preferred_min_salary.present?
+    developer.preferred_hourly_rate_range.present? || developer.preferred_salary_range.present?
   end
 end

@@ -1,9 +1,3 @@
-<div class="sm:col-span-1">
-  <dt class="text-sm font-medium text-gray-500">
-    <%= title %>
-  </dt>
-  <dd class="flex mt-1 text-sm text-gray-900">
-    $<%= number_to_human(min_amount, format: "%n%u", units: {thousand: "K"}) %> -
-    $<%= number_to_human(max_amount, format: "%n%u", units: {thousand: "K"}) %> /<%= suffix %>
-  </dd>
-</div>
+<dd class="flex mt-1 text-sm text-gray-900">
+  <%= amounts.join(" - ") %> /<%= suffix -%>
+</dd>
