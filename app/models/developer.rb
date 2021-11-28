@@ -21,11 +21,8 @@ class Developer < ApplicationRecord
     max_file_size: 2.megabytes
   validates :cover_image, content_type: ["image/png", "image/jpg", "image/jpeg", "image/gif"],
     max_file_size: 10.megabytes
-
-  validates_numericality_of :preferred_min_hourly_rate, allow_nil: true
-  validates_numericality_of :preferred_max_hourly_rate, allow_nil: true
-  validates_numericality_of :preferred_min_salary, allow_nil: true
-  validates_numericality_of :preferred_max_salary, allow_nil: true
+  validates :preferred_max_hourly_rate, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
+  validates :preferred_max_salary, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
