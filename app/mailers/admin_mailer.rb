@@ -5,9 +5,9 @@ class AdminMailer < ApplicationMailer
     mail(to: @user.email, subject: "New developer profile added")
   end
 
-  def new_business_profile
+  def new_business
     @user = params[:recipient]
     @business = params[:business]
-    mail(to: @user.email, subject: "New business profile added")
+    mail(to: @user.email, subject: "New business added")
   end
 end

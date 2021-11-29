@@ -3,7 +3,7 @@ class AdminMailerPreview < ActionMailer::Preview
     AdminMailer.with(developer: Developer.first, recipient: User.first).new_developer_profile
   end
 
-  def new_business_profile
-    AdminMailer.with(business: Business.first, recipient: User.first).new_business_profile
+  def new_business
+    AdminMailer.with(business: Business.first, recipient: User.first).new_business
   end
 end

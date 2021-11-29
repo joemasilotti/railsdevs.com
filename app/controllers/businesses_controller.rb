@@ -13,8 +13,8 @@ class BusinessesController < ApplicationController
     @business = current_user.build_business(business_params)
 
     if @business.save
-      NewBusinessProfileNotification.with(business: @business).deliver_later(User.admin)
-      redirect_to @business, notice: "Your profile was added!"
+      NewBusinessNotification.with(business: @business).deliver_later(User.admin)
+      redirect_to @business, notice: "Your business was added!"
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class BusinessesController < ApplicationController
     authorize @business
 
     if @business.update(business_params)
-      redirect_to @business, notice: "Your profile was updated!"
+      redirect_to @business, notice: "Your business was updated!"
     else
       render :edit, status: :unprocessable_entity
     end
