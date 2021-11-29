@@ -6,6 +6,6 @@ class UserMenu::SignedInComponent < ApplicationComponent
   end
 
   def business?
-    user.business.present?
+    user.business.persisted?
   end
 end
