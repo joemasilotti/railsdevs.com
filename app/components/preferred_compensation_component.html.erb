@@ -1,0 +1,7 @@
+<div class="sm:col-span-1">
+  <dt class="text-sm font-medium text-gray-500">
+    Preferred compensation
+  </dt>
+  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_hourly_rate_range, suffix: "hr") %>
+  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_salary_range, suffix: "year") %>
+</div>
