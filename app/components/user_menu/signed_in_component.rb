@@ -5,13 +5,21 @@ class UserMenu::SignedInComponent < ApplicationComponent
     @user = user
   end
 
-  def profile_path
-    developer? ? helpers.edit_developer_path(user.developer) : helpers.new_developer_path
+  def developer_link?
+    (developer? && !business?) | (!developer? && !business?) || (developer? && business?)
+  end
+
+  def business_link?
+    (business? && !developer?) || (developer? && business?)
   end
 
   private
 
   def developer?
-    user.developer&.persisted?
+    user.developer.present?
+  end
+
+  def business?
+    user.business.present?
   end
 end

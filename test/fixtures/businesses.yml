@@ -2,3 +2,8 @@ one:
   user: with_business
   name: Business Owner One
   company: Company One
+
+two:
+  user: with_profile_and_business
+  name: Business Owner Two
+  company: Company Two
