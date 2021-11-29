@@ -1,4 +1,4 @@
-# TODO: Refactor to work with Developer and Business.
+# TODO: Refactor naming to be generic to Developer and Business.
 class AvatarComponent < ViewComponent::Base
   DEFAULT_AVATAR = "avatar.png"
 
