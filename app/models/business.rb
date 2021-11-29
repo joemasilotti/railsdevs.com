@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
-  belongs_to :user
+  include Avatarable
 
-  has_one_attached :avatar
+  belongs_to :user
 
   validates :name, presence: true
   validates :company, presence: true
