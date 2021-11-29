@@ -11,9 +11,3 @@ unavailable:
   available_on: <%= Date.new(2222, 2, 2) %>
   hero: Second developer
   bio: I am the second developer
-
-three:
-  user: with_profile_and_business
-  name: Developer Three
-  hero: Third developer
-  bio: I am the third developer

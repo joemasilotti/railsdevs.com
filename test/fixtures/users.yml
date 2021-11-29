@@ -18,10 +18,6 @@ with_business:
   email: business@example.com
   confirmed_at: <%= DateTime.current %>
 
-with_profile_and_business:
-  email: both@example.com
-  confirmed_at: <%= DateTime.current %>
-
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>
