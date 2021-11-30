@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     if user.developer.present? || user.business.present?
       super
-    else
+    elsif Feature.enabled?(:messaging)
       new_role_path
+    else
+      super
     end
   end
 
