@@ -6,6 +6,7 @@ class User < ApplicationRecord
     :rememberable,
     :validatable
 
+  has_one :business
   has_one :developer
   has_many :notifications, as: :recipient
 

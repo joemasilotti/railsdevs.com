@@ -1,5 +1,6 @@
 class Developer < ApplicationRecord
   include Availability
+  include Avatarable
 
   enum search_status: {
     actively_looking: 1,
@@ -9,7 +10,6 @@ class Developer < ApplicationRecord
 
   belongs_to :user
   has_one :role_type, dependent: :destroy, autosave: true
-  has_one_attached :avatar
   has_one_attached :cover_image
 
   accepts_nested_attributes_for :role_type

@@ -1,0 +1,51 @@
+<div class="mt-16 sm:mx-8 lg:mx-0">
+  <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-8 sm:mx-0">
+    What brings you to railsdevs?
+  </h1>
+
+  <div class="sm:grid sm:grid-cols-2 sm:gap-8 mt-8">
+    <div class="sm:rounded-lg shadow hover:shadow-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-500">
+      <div>
+        <span class="inline-flex rounded p-3 bg-gray-100 text-gray-700 ring-4 ring-white">
+          <%= inline_svg_tag "icons/outline/user_group.svg", class: "h-6 w-6" %>
+        </span>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-lg font-medium">
+          <%= link_to new_business_path, class: "focus:outline-none" do %>
+            <span class="absolute inset-0" aria-hidden="true"></span>
+            I'm hiring developers
+          <% end %>
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+          You're a business looking to hire a freelance, part-time, or full-time Ruby on Rails developer.
+        </p>
+      </div>
+      <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+        <%= inline_svg_tag "icons/outline/arrow_right.svg", class: "h-6 w-6" %>
+      </span>
+    </div>
+
+    <div class="sm:rounded-lg shadow hover:shadow-lg relative group bg-white p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-500">
+      <div>
+        <span class="inline-flex rounded p-3 bg-gray-100 text-gray-700 ring-4 ring-white">
+          <%= inline_svg_tag "icons/outline/briefcase.svg", class: "h-6 w-6" %>
+        </span>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-lg font-medium">
+          <%= link_to new_developer_path, class: "focus:outline-none" do %>
+            <span class="absolute inset-0" aria-hidden="true"></span>
+            I'm looking for work
+          <% end %>
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+          You're a Ruby on Rails developer looking for your next gig.
+        </p>
+      </div>
+      <span class="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400" aria-hidden="true">
+        <%= inline_svg_tag "icons/outline/arrow_right.svg", class: "h-6 w-6" %>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,0 @@
-class ProfileAlreadyExists < StandardError
-end
