@@ -7,3 +7,8 @@ two:
   user: with_business_two
   name: Business Owner Two
   company: Company Two
+
+with_conversation:
+  user: with_business_conversation
+  name: Business Owner with Conversation
+  company: Conversation Business
