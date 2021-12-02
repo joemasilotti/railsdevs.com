@@ -16,11 +16,11 @@
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
-    <div class="flex items-start space-x-4">
-      <div class="flex-shrink-0">
+    <div class="flex items-start sm:space-x-4">
+      <div class="hidden sm:block flex-shrink-0">
         <%= render AvatarComponent.new(avatarable: @message.conversation.business, classes: "inline-block h-10 w-10 rounded-full") %>
       </div>
-      <div class="min-w-0 flex-1">
+      <div class="min-w-0 flex-1 px-4 sm:px-0">
         <%= form_with model: [@message.conversation.developer, @message], class: "relative" do |form| %>
           <div class="border border-gray-300 rounded-lg shadow-sm overflow-hidden focus-within:border-gray-500 focus-within:ring-1 focus-within:ring-gray-500">
             <%= form.label :body, "Add your message", class: "sr-only" %>
