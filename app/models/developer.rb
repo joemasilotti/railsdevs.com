@@ -28,6 +28,7 @@ class Developer < ApplicationRecord
   scope :most_recently_added, -> { order(created_at: :desc) }
 
   after_initialize :build_role_type, if: -> { role_type.blank? }
+  after_create :send_admin_notification
 
   def preferred_salary_range
     [preferred_min_salary, preferred_max_salary].compact
@@ -35,5 +36,9 @@ class Developer < ApplicationRecord
 
   def preferred_hourly_rate_range
     [preferred_min_hourly_rate, preferred_max_hourly_rate].compact
+  end
+
+  def send_admin_notification
+    NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
   end
 end

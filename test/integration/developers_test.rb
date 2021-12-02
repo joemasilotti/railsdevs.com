@@ -64,14 +64,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert user.developer.reload.role_type.part_time_contract?
   end
 
-  test "successful profile creation sends a notification to the admin" do
-    sign_in users(:without_profile)
-
-    assert_changes "Notification.count", 1 do
-      post developers_path, params: valid_developer_params
-    end
-  end
-
   test "successful edit to profile" do
     sign_in users(:with_available_profile)
     developer = developers :available

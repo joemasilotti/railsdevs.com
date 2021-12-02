@@ -97,4 +97,11 @@ class DeveloperTest < ActiveSupport::TestCase
 
     refute developer.valid?
   end
+
+  test "successful profile creation sends a notification to the admin" do
+    user = users(:without_profile)
+    assert_changes "Notification.count", 1 do
+      Developer.create!(name: "name", hero: "hero", bio: "bio", user: user)
+    end
+  end
 end

@@ -10,7 +10,6 @@ class BusinessesController < ApplicationController
     @business = current_user.build_business(business_params)
 
     if @business.save
-      NewBusinessNotification.with(business: @business).deliver_later(User.admin)
       redirect_to developers_path, notice: "Your business was added!"
     else
       render :new, status: :unprocessable_entity
