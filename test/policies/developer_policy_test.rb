@@ -30,7 +30,7 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
   test "raises when instantiating a new developer when one exists" do
     user = users(:with_available_profile)
 
-    assert_raises(DeveloperPolicy::AlreadyExists) do
+    assert_raises(ApplicationPolicy::AlreadyExists) do
       DeveloperPolicy.new(user, Developer.new).new?
     end
   end

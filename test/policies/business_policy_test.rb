@@ -30,7 +30,7 @@ class BusinessPolicyTest < ActiveSupport::TestCase
   test "raises when instantiating a new business when one exists" do
     user = users(:with_business)
 
-    assert_raises(BusinessPolicy::AlreadyExists) do
+    assert_raises(ApplicationPolicy::AlreadyExists) do
       BusinessPolicy.new(user, Business.new).new?
     end
   end

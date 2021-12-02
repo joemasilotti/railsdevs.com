@@ -4,7 +4,7 @@ class BusinessesController < ApplicationController
   def new
     authorize current_user.business, policy_class: BusinessPolicy
     @business = current_user.build_business
-  rescue BusinessPolicy::AlreadyExists
+  rescue ApplicationPolicy::AlreadyExists
     redirect_to edit_business_path(current_user.business)
   end
 

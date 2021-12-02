@@ -1,4 +1,6 @@
 class ApplicationPolicy
+  class AlreadyExists < StandardError; end
+
   attr_reader :user, :record
 
   def initialize(user, record)
