@@ -1,0 +1,18 @@
+<li class="max-w-prose mx-auto bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6">
+  <div class="sm:flex sm:justify-between sm:items-baseline">
+    <h3 class="text-base font-medium">
+      <span class="text-gray-900">You</span>
+      <span class="text-gray-600">wrote</span>
+    </h3>
+
+    <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
+    <%= time_tag message.created_at do %>
+      <%= time_ago_in_words message.created_at %> ago
+    <% end %>
+    </p>
+  </div>
+
+  <div class="mt-4 space-y-6 text-sm text-gray-800">
+    <p><%= message.body %></p>
+  </div>
+</li>

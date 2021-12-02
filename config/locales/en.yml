@@ -24,6 +24,8 @@ en:
     messages:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
+    conversation_policy:
+      missing_business: Fill out your business profile to message developers.
 
   helpers:
     submit:
