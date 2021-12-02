@@ -1,6 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :redirect_to_edit_if_already_exists, only: %i[new create]
+  before_action :require_new_business!, only: %i[new create]
 
   def new
     @business = current_user.build_business
@@ -34,7 +34,7 @@ class BusinessesController < ApplicationController
 
   private
 
-  def redirect_to_edit_if_already_exists
+  def require_new_business!
     if current_user.business.present?
       redirect_to edit_business_path(current_user.business)
     end

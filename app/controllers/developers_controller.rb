@@ -2,7 +2,7 @@ class DevelopersController < ApplicationController
   include Pagy::Backend
 
   before_action :authenticate_user!, only: %i[new create edit update]
-  before_action :redirect_to_edit_if_already_exists, only: %i[new create]
+  before_action :require_new_developer!, only: %i[new create]
 
   def index
     @pagy, @developers = pagy(Developer.most_recently_added.with_attached_avatar)
@@ -44,7 +44,7 @@ class DevelopersController < ApplicationController
 
   private
 
-  def redirect_to_edit_if_already_exists
+  def require_new_developer!
     if current_user.developer.present?
       redirect_to edit_developer_path(current_user.developer)
     end
