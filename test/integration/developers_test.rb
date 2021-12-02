@@ -154,6 +154,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select %(div.text-red-600 label[for="developer_bio"])
   end
 
+  test "pagination" do
+    get developers_path
+    assert_select "#developers"
+  end
+
   def valid_developer_params
     {
       developer: {
