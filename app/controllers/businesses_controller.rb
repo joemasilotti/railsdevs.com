@@ -1,15 +1,12 @@
 class BusinessesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :redirect_to_edit_if_already_exists, only: %i[new create]
 
   def new
-    authorize current_user.business, policy_class: BusinessPolicy
     @business = current_user.build_business
-  rescue ApplicationPolicy::AlreadyExists
-    redirect_to edit_business_path(current_user.business)
   end
 
   def create
-    authorize current_user.business, policy_class: BusinessPolicy
     @business = current_user.build_business(business_params)
 
     if @business.save
@@ -37,6 +34,12 @@ class BusinessesController < ApplicationController
   end
 
   private
+
+  def redirect_to_edit_if_already_exists
+    if current_user.business.present?
+      redirect_to edit_business_path(current_user.business)
+    end
+  end
 
   def business_params
     params.require(:business).permit(
