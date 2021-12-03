@@ -8,7 +8,7 @@
 
     <div class="flex items-center justify-center space-x-2 mt-2 text-center text-sm text-gray-600">
       <div class="block">with</div>
-      <%= link_to @message.conversation.developer, class: "flex items-center space-x-2 group" do %>
+      <%= link_to developer_path(@message.conversation.developer), class: "flex items-center space-x-2 group" do %>
         <%= render AvatarComponent.new(avatarable: @message.conversation.developer, classes: "h-8 w-8") %>
         <span class="font-medium text-gray-600 group-hover:text-gray-500"><%= @message.conversation.developer.hero %></span>
       <% end %>
