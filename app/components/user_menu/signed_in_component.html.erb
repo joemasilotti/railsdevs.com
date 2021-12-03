@@ -10,7 +10,6 @@
 
       <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 z-10 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="business-menu-button" tabindex="-1">
         <%= link_to "My business profile", new_business_path, role: "menuitem", tabindex: "-1", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
-
         <% if Feature.enabled?(:messaging) %>
           <%= link_to "My conversations", conversations_path, role: "menuitem", tabindex: "-1", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
         <% end %>
@@ -28,6 +27,9 @@
 
     <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 z-10 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
       <%= link_to "My developer profile", new_developer_path, role: "menuitem", tabindex: "-1", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+      <% if Feature.enabled?(:messaging) %>
+        <%= link_to "My conversations", conversations_path, role: "menuitem", tabindex: "-1", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" %>
+      <% end %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {turbo: false}, class: "bg-transparent block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer w-full text-left" %>
     </div>
   </div>

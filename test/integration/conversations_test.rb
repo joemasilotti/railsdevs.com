@@ -6,6 +6,18 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_registration_path
   end
 
+  test "viewing your business' conversations" do
+    sign_in users(:with_business_conversation)
+    get conversations_path
+    assert_select "h2", "Third developer"
+  end
+
+  test "viewing your developer's conversations" do
+    sign_in users(:with_developer_conversation)
+    get conversations_path
+    assert_select "h2", "Conversation Business"
+  end
+
   test "viewing your business' conversation" do
     conversation = conversations(:one)
     sign_in conversation.business.user
