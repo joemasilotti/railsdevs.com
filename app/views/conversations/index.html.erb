@@ -15,9 +15,7 @@
                 <div class="min-w-0 flex-1">
                   <p class="text-sm font-medium text-gray-900"><%= conversation.developer.hero %></p>
                   <p class="text-sm text-gray-500">
-                    <%= time_tag conversation.messages.last.created_at do %>
-                      <%= time_ago_in_words conversation.messages.last.created_at %> ago
-                    <% end %>
+                    <%= render TimeComponent.new(conversation.messages.last.created_at) %>
                   </p>
                 </div>
               </div>

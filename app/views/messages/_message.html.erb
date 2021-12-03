@@ -6,9 +6,7 @@
     </h3>
 
     <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
-      <%= time_tag message.created_at do %>
-        <%= time_ago_in_words message.created_at %> ago
-      <% end %>
+      <%= render TimeComponent.new(message.created_at) %>
     </p>
   </div>
 
