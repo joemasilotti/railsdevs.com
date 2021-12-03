@@ -165,7 +165,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         name: "Developer",
         available_on: Date.yesterday,
         hero: "A developer",
-        bio: "I develop."
+        bio: "I develop.",
+        time_zone: "Eastern Time (US & Canada)"
       }
     }
   end

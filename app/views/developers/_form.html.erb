@@ -39,6 +39,13 @@
               <p class="mt-2 text-sm text-gray-500"><%= t(".profile.bio_help_text") %></p>
             </div>
 
+            <div class="sm:col-span-6">
+              <%= form.label :time_zone, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {include_blank: true}, {class: field_classes(form, :time_zone)}) %>
+              </div>
+            </div>
+
             <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.avatar") %></span>
               <div class="mt-1 flex items-center">

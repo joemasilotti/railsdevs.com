@@ -65,6 +65,7 @@ class DevelopersController < ApplicationController
       :preferred_max_hourly_rate,
       :preferred_min_salary,
       :preferred_max_salary,
+      :time_zone,
       role_type_attributes: [
         :part_time_contract,
         :full_time_contract,
