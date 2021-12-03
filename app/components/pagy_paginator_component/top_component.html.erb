@@ -1,27 +1,27 @@
-<div id="<%= @id %>" class="<%= @container_classes %>">
+<div id="<%= id %>" class="<%= container_classes %>">
   <%= content %>
   <div data-controller="scroller"></div>
 </div>
 
 <div class="mt-8">
   <%= pagy_links do %>
-    <%== pagy_nav @pagy %>
+    <%== pagy_nav pagy %>
   <% end %>
 </div>
 
-<%= tag.turbo_frame id: "#{@id}-#{@pagy.page}" do %>
-  <%= tag.turbo_stream target: @id, action: turbo_stream_action do %>
+<%= tag.turbo_frame id: "#{id}-#{pagy.page}" do %>
+  <%= tag.turbo_stream target: id, action: turbo_stream_action do %>
     <%= tag.template do %>
-      <% if @pagy.next %>
-        <%= tag.turbo_frame id: "#{@id}-#{@pagy.page + 1}", src: url_for(@url_array), loading: :lazy do %>
+      <% if pagy.next %>
+        <%= tag.turbo_frame id: "#{id}-#{pagy.page + 1}", src: url_for(url_array), loading: :lazy do %>
           <%= loading_icon %>
         <% end %>
       <% end %>
-      <% unless @pagy.page == 1 %>
+      <% unless pagy.page == 1 %>
         <%= content %>
         <div data-controller="scroller"></div>
       <% end %>
-      <%= tag.turbo_stream target: "#{@id}-#{@pagy.page}", action: "remove" %>
+      <%= tag.turbo_stream target: "#{id}-#{pagy.page}", action: "remove" %>
     <% end %>
   <% end %>
 <% end %>
