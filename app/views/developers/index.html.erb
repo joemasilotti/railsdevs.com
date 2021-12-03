@@ -12,6 +12,9 @@
       pagy: @pagy,
       url_array: [:developers],
       container_classes: "space-y-8",
-      direction: :bottom) do %>
+      direction: :bottom) do |component| %>
+  <% component.loading_icon do %>
+    <%= render LoadingComponent.new %>
+  <% end %>
   <%= render DeveloperCardComponent.with_collection(@developers) %>
 <% end %>

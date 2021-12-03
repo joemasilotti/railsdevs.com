@@ -4,7 +4,7 @@ class PagyPaginatorComponent < ApplicationComponent
   include PagyHelper
   renders_one :loading_icon
 
-  attr_reader :id, :pagy, :url_array, :container_classes
+  attr_reader :id, :pagy, :url_array, :container_classes, :view_component
 
   def initialize(id:, pagy:, url_array:, container_classes:, direction: :bottom)
     @id = id

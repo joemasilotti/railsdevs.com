@@ -1,3 +1,6 @@
-<%= render @view_component.new(id: @id, pagy: @pagy, url_array: @url_array, container_classes: @container_classes) do %>
+<%= render view_component.new(id: id, pagy: pagy, url_array: url_array, container_classes: container_classes) do |component| %>
+  <% component.loading_icon do %>
+    <%= loading_icon %>
+  <% end %>
   <%= content %>
 <% end %>
