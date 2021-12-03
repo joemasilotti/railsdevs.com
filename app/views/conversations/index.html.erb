@@ -3,29 +3,7 @@
 
   <div class="mt-8">
     <ul role="list" class="space-y-4">
-      <% @conversations.each do |conversation| %>
-        <li>
-          <%= link_to developer_conversation_path(conversation.developer), class: "block max-w-prose mx-auto bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg hover:bg-gray-50 hover:shadow-lg" do %>
-            <div>
-              <div class="flex space-x-3">
-                <div class="flex-shrink-0">
-                  <%= render AvatarComponent.new(avatarable: conversation.developer, classes: "h-10 w-10") %>
-                </div>
-
-                <div class="min-w-0 flex-1">
-                  <p class="text-sm font-medium text-gray-900"><%= conversation.developer.hero %></p>
-                  <p class="text-sm text-gray-500">
-                    <%= render TimeComponent.new(conversation.messages.last.created_at) %>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 text-sm text-gray-700 space-y-4">
-              <%= conversation.messages.last.body %>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
+      <%= render @conversations %>
     </ul>
   </div>
 </div>
