@@ -8,7 +8,6 @@ en:
       find_ror_developers: Find Rails developers looking for work
       find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
       available_developers: Developers available now
-      add_your_profile: Add your profile
       view_more_developers: View more developers
   developers:
     created: Your profile was added!
@@ -17,10 +16,10 @@ en:
       title: Details
     index:
       ror_developers: Ruby on Rails developers
-      add_your_profile: Add your profile
     show:
       description: Description
     form:
+      your_developer_profile: Your developer profile
       profile: Profile
       profile_help_text_html: This information will be displayed publicly so be careful what you share.
       name_help_text_html: "Your name will <i>not</i> be displayed on your public profile."
@@ -42,22 +41,28 @@ en:
       role_type: Role type
       role_type_help_text_html: Select all roles that you would consider taking.
       online_presence: Online presence
-      online_presence_help_text_html: Where can people learn more about you and your work?
+      online_presence_help_text: Where can people learn more about you and your work?
+      preferred_compensation: Preferred compensation
+      preferred_compensation_help_text: What is your preferred annual salary and/or hourly rate?
       save: Save
 
   shared:
-    header:
+    nav_links:
       about: About
       open_source: Open source
       open_analytics: Open analytics
+    header:
       open_main_menu: Open main menu
-      close_menu: Close menu
-      sign_out: Sign out
-      sign_in: Sign in
-      edit_profile: Edit your profile
-      add_your_profile: Add your profile
-      have_an_account_html: "Have an account? %{link}"
   # Components
+  user_menu:
+    signed_in_component:
+      edit_business: Edit business
+      open_user_menu: Open user menu
+      my_developer_profile: My developer profile
+      sign_out: Sign out
+    signed_out_component:
+      sign_in: Sign in
+      register: Register
   avatar_component:
     alt: Developer's avatar
   cover_image_component:

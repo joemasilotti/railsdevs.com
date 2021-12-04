@@ -1,6 +1,8 @@
 class DeveloperPolicy < ApplicationPolicy
+  class AlreadyExists < StandardError; end
+
   def new?
-    raise ProfileAlreadyExists unless create?
+    raise AlreadyExists unless create?
 
     true
   end

@@ -95,6 +95,9 @@ jobs:
       - name: Standardize
         run: bundle exec standardrb
 
+      - name: erb-lint
+        run: bundle exec erblint --lint-all
+
       - name: Run tests
         env:
           RAILS_ENV: test

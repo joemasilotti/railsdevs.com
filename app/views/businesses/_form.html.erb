@@ -1,0 +1,61 @@
+<%= render "shared/error_messages", resource: business %>
+
+<div class="mt-8 lg:mt-16 flex flex-col space-y-6">
+  <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
+    Your business profile
+  </h1>
+
+  <%= form_with model: business do |form| %>
+    <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
+          <p class="mt-1 text-sm text-gray-500">This information will be shared with any developers that you contact.</p>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="space-y-6">
+            <div class="sm:col-span-3">
+              <%= form.label :name, "Your name", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-6">
+              <%= form.label :company, "Company name", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :company, class: field_classes(form, :company) %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
+              <span class="block text-sm font-medium text-gray-700">Avatar</span>
+              <div class="mt-1 flex items-center">
+                <div class="relative">
+                  <%= render AvatarComponent.new(avatarable: business, data: {"file-upload-target": "image"}) %>
+                  <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+                  </div>
+                </div>
+                <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
+                <%= form.label :avatar, "Change", class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+              </div>
+              <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
+                <div class="ml-3">
+                  <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
+      <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        Save
+      </button>
+    </div>
+  <% end %>
+</div>

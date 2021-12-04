@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_171626) do
+ActiveRecord::Schema.define(version: 2021_11_28_095707) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +43,15 @@ ActiveRecord::Schema.define(version: 2021_11_18_171626) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "businesses", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name", null: false
+    t.string "company", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
   create_table "developers", force: :cascade do |t|
     t.string "name", null: false
     t.string "email"
@@ -56,6 +66,10 @@ ActiveRecord::Schema.define(version: 2021_11_18_171626) do
     t.integer "user_id"
     t.string "linkedin"
     t.integer "search_status"
+    t.integer "preferred_min_hourly_rate"
+    t.integer "preferred_max_hourly_rate"
+    t.integer "preferred_min_salary"
+    t.integer "preferred_max_salary"
   end
 
   create_table "notifications", force: :cascade do |t|
