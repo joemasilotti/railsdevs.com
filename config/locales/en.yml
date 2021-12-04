@@ -9,9 +9,24 @@ en:
       find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
       available_developers: Developers available now
       view_more_developers: View more developers
+  businesses:
+    create:
+      created: Your business was added!
+    update:
+      updated: Your business was updated!
+    form:
+      your_business_profile: Your business profile
+      profile: Profile
+      profile_help_text: This information will be shared with any developers that you contact.
+      avatar: Avatar
+      change_avatar: Change
+      something_went_wrong: Something went wrong uploading your image, please try again.
+      save: Save
   developers:
-    created: Your profile was added!
-    updated: Your profile was updated!
+    create:
+      created: Your profile was added!
+    update:
+      updated: Your profile was updated!
     details:
       title: Details
     index:
@@ -21,31 +36,37 @@ en:
     form:
       your_developer_profile: Your developer profile
       profile: Profile
-      profile_help_text_html: This information will be displayed publicly so be careful what you share.
+      profile_help_text: This information will be displayed publicly so be careful what you share.
       name_help_text_html: "Your name will <i>not</i> be displayed on your public profile."
-      hero_help_text_html: Summarize yourself as a developer in a few words.
-      bio_help_text_html: Write a few sentences about yourself.
+      hero_help_text: Summarize yourself as a developer in a few words.
+      bio_help_text: Write a few sentences about yourself.
       avatar: Avatar
       change: Change
-      avatar_error_text_html: Something went wrong uploading your image, please try again.
+      avatar_error_text: Something went wrong uploading your image, please try again.
       cover_image: Cover image
       upload_file: Upload a file
-      upload_help_text_html: PNG, JPG, GIF up to 10MB
-      upload_error_text_html: Something went wrong uploading your image, please try again.
+      upload_help_text: PNG, JPG, GIF up to 10MB
+      upload_error_text: Something went wrong uploading your image, please try again.
       work_preferences: Work preferences
-      work_preferences_help_text_html: What kind of work are you looking for next?
+      work_preferences_help_text: What kind of work are you looking for next?
       search_status: Search status
-      search_status_actively_looking_help_text_html: Your profile can get featured on the homepage.
-      search_status_open_help_text_html: Companies can still find you, but you won't appear on the homepage.
-      search_status_not_interested_help_text_html: Your profile will be clearly marked that you aren't looking for work.
+      search_status_actively_looking_help_text: Your profile can get featured on the homepage.
+      search_status_open_help_text: Companies can still find you, but you won't appear on the homepage.
+      search_status_not_interested_help_text: Your profile will be clearly marked that you aren't looking for work.
       role_type: Role type
-      role_type_help_text_html: Select all roles that you would consider taking.
+      role_type_help_text: Select all roles that you would consider taking.
       online_presence: Online presence
       online_presence_help_text: Where can people learn more about you and your work?
       preferred_compensation: Preferred compensation
       preferred_compensation_help_text: What is your preferred annual salary and/or hourly rate?
       save: Save
-
+  roles:
+    new:
+      what_brings_you_here: What brings you to railsdevs?
+      hiring_developers: I'm hiring developers
+      hiring_developers_help_text: You're a business looking to hire a freelance, part-time, or full-time Ruby on Rails developer.
+      looking_for_work: I'm looking for work
+      looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
   shared:
     nav_links:
       about: About
@@ -69,6 +90,8 @@ en:
     alt: Developer's cover image
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  preferred_compensation_component:
+    preferred_compensation: Preferred compensation
   role_type_component:
     interested_in_roles: Interested in roles
   activerecord:
@@ -76,6 +99,9 @@ en:
       user:
         one: User
         other: Users
+      business:
+        one: Business
+        other: Businesses
       developer:
         one: Developer
         other: Developers
@@ -86,6 +112,9 @@ en:
         password: Password
         password_confirmation: Password Confirmation
         remember_me: Remember me
+      business:
+        name: Your name
+        company: Company name
       developer:
         name: Name
         email: E-mail

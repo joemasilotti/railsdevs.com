@@ -22,6 +22,7 @@ end
 group :development do
   gem "erb_lint", require: false
   gem "listen", "~> 3.3"
+  gem "i18n-tasks", "~> 0.9.35"
 end
 
 group :test do
