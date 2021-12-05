@@ -15,6 +15,8 @@ data:
 
   # Locale files or `File.find` patterns where translations are read from:
   read:
+    - 'config/locales/devise.%{locale}.yml'
+    - 'config/locales/%{locale}.yml'
     ## Default:
     # - config/locales/%{locale}.yml
     ## More files:
@@ -22,12 +24,14 @@ data:
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
-  write:
+  # write:
     ## For example, write devise and simple form keys to their respective files:
     # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
     ## Catch-all default:
     # - config/locales/%{locale}.yml
-
+  write:
+    - ['devise.*', 'config/locales/devise.%{locale}.yml']
+    - 'config/locales/%{locale}.yml'
   # External locale data (e.g. gems).
   # This data is not considered unused and is never written to.
   external:
@@ -107,8 +111,12 @@ search:
 # - '{devise,simple_form}.*'
 
 ## Consider these keys used:
-# ignore_unused:
-# - 'activerecord.attributes.*'
+ignore_unused:
+- 'activerecord.models.*'
+- 'activerecord.attributes.*'
+- '{devise}.*'
+- 'availability_component.*'
+- 'errors.messages.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

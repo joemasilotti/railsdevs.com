@@ -1,7 +1,6 @@
 require "test_helper"
 
 class AvailabilityComponentTest < ViewComponent::TestCase
-  include ActionView::Helpers::DateHelper
   setup do
     @developer = developers(:available)
   end
