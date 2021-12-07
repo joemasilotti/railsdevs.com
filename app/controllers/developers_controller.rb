@@ -16,7 +16,7 @@ class DevelopersController < ApplicationController
     @developer = current_user.build_developer(developer_params)
 
     if @developer.save
-      redirect_to @developer, notice: "Your profile was added!"
+      redirect_to @developer, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class DevelopersController < ApplicationController
     authorize @developer
 
     if @developer.update(developer_params)
-      redirect_to @developer, notice: "Your profile was updated!"
+      redirect_to @developer, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end

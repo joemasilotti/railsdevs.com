@@ -98,6 +98,9 @@ jobs:
       - name: erb-lint
         run: bundle exec erblint --lint-all
 
+      - name: i18n-tasks
+        run: bundle exec i18n-tasks health
+
       - name: Run tests
         env:
           RAILS_ENV: test
