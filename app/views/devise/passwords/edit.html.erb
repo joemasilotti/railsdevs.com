@@ -4,15 +4,10 @@
   <div class="mx-auto w-full max-w-sm lg:w-96">
     <div>
       <h2 class="text-3xl font-extrabold text-gray-900">
-        Change your password
+        <%= t("devise.passwords.change_your_password") %>
       </h2>
 
-      <%- if devise_mapping.registerable? %>
-        <p class="mt-2 text-sm text-gray-600">
-          Or
-          <%= link_to "create an account", new_registration_path(resource_name), class: "font-medium text-gray-600 hover:text-gray-500" %>
-        </p>
-      <% end %>
+      <%= render "devise/shared/signup_link" if devise_mapping.registerable? %>
     </div>
 
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -35,7 +30,7 @@
           </div>
 
           <div>
-            <%= f.submit "Change my password", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+            <%= f.submit t("devise.passwords.change"), class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
           </div>
         <% end %>
       </div>

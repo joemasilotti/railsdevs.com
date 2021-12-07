@@ -14,7 +14,7 @@ class BusinessesController < ApplicationController
 
     if @business.save
       NewBusinessNotification.with(business: @business).deliver_later(User.admin)
-      redirect_to developers_path, notice: "Your business was added!"
+      redirect_to developers_path, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class BusinessesController < ApplicationController
     authorize @business
 
     if @business.update(business_params)
-      redirect_to developers_path, notice: "Your business was updated!"
+      redirect_to developers_path, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end

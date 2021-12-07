@@ -14,6 +14,7 @@ gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
 gem "view_component", "~> 2.42"
 
 group :development, :test do
+  gem "i18n-tasks", "~> 0.9.35"
   gem "letter_opener_web"
   gem "pry-rails"
   gem "standard"

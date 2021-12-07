@@ -1,11 +1,28 @@
+---
 en:
   about:
     show:
-      title: About railsdevs
       description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
-
+      title: About railsdevs
   activerecord:
     attributes:
+      business:
+        company: Company name
+        name: Your name
+      developer:
+        available_on: Available to start on
+        bio: Bio
+        email: E-mail
+        github: Github
+        hero: Hero
+        linkedin: Linkedin
+        name: Name
+        preferred_max_hourly_rate: Hourly rate (max)
+        preferred_max_salary: Salary (max)
+        preferred_min_hourly_rate: Hourly rate (min)
+        preferred_min_salary: Salary (min)
+        twitter: Twitter
+        website: Website
       developer/search_status:
         actively_looking: Actively looking for work
         not_interested: Not interested in work right now
@@ -14,23 +31,123 @@ en:
         full_time_contract: Full-time contract
         full_time_employment: Full-time employment
         part_time_contract: Part-time contract
-
+      user:
+        email: E-mail
+        password: Password
+        password_confirmation: Password Confirmation
+        remember_me: Remember me
+    models:
+      business:
+        one: Business
+        other: Businesses
+      developer:
+        one: Developer
+        other: Developers
+      user:
+        one: User
+        other: Users
   availability_component:
-    now_html: Available now
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
+    now_html: Available now
     unspecified_html: Currently unavailable
-
+  businesses:
+    create:
+      created: Your business was added!
+    form:
+      avatar: Avatar
+      change_avatar: Change
+      profile: Profile
+      profile_help_text: This information will be shared with any developers that you contact.
+      save: Save
+      something_went_wrong: Something went wrong uploading your image, please try again.
+      your_business_profile: Your business profile
+    update:
+      updated: Your business was updated!
+  cover_image_component:
+    alt: Developer's cover image
+  developers:
+    create:
+      created: Your profile was added!
+    details:
+      title: Details
+    form:
+      online_presence:
+        help_text: Where can people learn more about you and your work?
+        title: Online presence
+      preferred_compensation:
+        help_text: What is your preferred annual salary and/or hourly rate?
+        title: Preferred compensation
+      profile:
+        avatar: Avatar
+        avatar_error_text: Something went wrong uploading your image, please try again.
+        bio_help_text: Write a few sentences about yourself.
+        change: Change
+        cover_image: Cover image
+        help_text: This information will be displayed publicly so be careful what you share.
+        hero_help_text: Summarize yourself as a developer in a few words.
+        name_help_text_html: Your name will <i>not</i> be displayed on your public profile.
+        title: Profile
+        upload_error_text: Something went wrong uploading your image, please try again.
+        upload_file: Upload a file
+        upload_help_text: PNG, JPG, GIF up to 10MB
+      role_type:
+        help_text: Select all roles that you would consider taking.
+        title: Role type
+      save: Save
+      search_status:
+        actively_looking_help_text: Your profile can get featured on the homepage.
+        not_interested_help_text: Your profile will be clearly marked that you aren't looking for work.
+        open_help_text: Companies can still find you, but you won't appear on the homepage.
+        title: Search status
+      title: Your developer profile
+      work_preferences:
+        help_text: What kind of work are you looking for next?
+        title: Work preferences
+    index:
+      ror_developers: Ruby on Rails developers
+    show:
+      description: Description
+    update:
+      updated: Your profile was updated!
   errors:
     messages:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
-
-  helpers:
-    submit:
-      developer:
-        create: Add my profile
-        update: Update my profile
-
+  home:
+    show:
+      available_developers: Developers available now
+      find_ror_developers: Find Rails developers looking for work
+      find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
+      view_more_developers: View more developers
+  open_graph_tags_component:
+    default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  preferred_compensation_component:
+    preferred_compensation: Preferred compensation
   pundit:
     errors:
       unauthorized: You don't have access to that.
+  role_type_component:
+    interested_in_roles: Interested in roles
+  roles:
+    new:
+      hiring_developers: I'm hiring developers
+      hiring_developers_help_text: You're a business looking to hire a freelance, part-time, or full-time Ruby on Rails developer.
+      looking_for_work: I'm looking for work
+      looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
+      what_brings_you_here: What brings you to railsdevs?
+  shared:
+    header:
+      open_main_menu: Open main menu
+    nav_links:
+      about: About
+      open_analytics: Open analytics
+      open_source: Open source
+  user_menu:
+    signed_in_component:
+      edit_business: Edit business
+      my_developer_profile: My developer profile
+      open_user_menu: Open user menu
+      sign_out: Sign out
+    signed_out_component:
+      register: Register
+      sign_in: Sign in

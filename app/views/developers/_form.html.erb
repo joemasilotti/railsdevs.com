@@ -2,15 +2,15 @@
 
 <div class="mt-8 lg:mt-16 flex flex-col space-y-6">
   <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
-    Your developer profile
+    <%= t(".title") %>
   </h1>
 
   <%= form_with model: developer do |form| %>
     <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
-          <p class="mt-1 text-sm text-gray-500">This information will be displayed publicly so be careful what you share.</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".profile.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -20,7 +20,7 @@
               <div class="mt-1">
                 <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
               </div>
-              <p class="mt-2 text-sm text-gray-500">Your name will <i>not</i> be displayed on your public profile.</p>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.name_help_text_html") %></p>
             </div>
 
             <div class="sm:col-span-6">
@@ -28,7 +28,7 @@
               <div class="mt-1">
                 <%= form.text_field :hero, class: field_classes(form, :hero) %>
               </div>
-              <p class="mt-2 text-sm text-gray-500">Summarize yourself as a developer in a few words.</p>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.hero_help_text") %></p>
             </div>
 
             <div class="sm:col-span-6">
@@ -36,11 +36,11 @@
               <div class="mt-1">
                 <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
               </div>
-              <p class="mt-2 text-sm text-gray-500">Write a few sentences about yourself.</p>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.bio_help_text") %></p>
             </div>
 
             <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
-              <span class="block text-sm font-medium text-gray-700">Avatar</span>
+              <span class="block text-sm font-medium text-gray-700"><%= t(".profile.avatar") %></span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
                   <%= render AvatarComponent.new(avatarable: developer, data: {"file-upload-target": "image"}) %>
@@ -49,20 +49,20 @@
                   </div>
                 </div>
                 <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
-                <%= form.label :avatar, "Change", class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+                <%= form.label :avatar, t(".profile.change"), class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
               </div>
               <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
                 <div class="ml-3">
-                  <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
+                  <p class="text-sm text-red-700"><%= t(".profile.avatar_error_text") %></p>
                 </div>
               </div>
             </div>
 
             <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50" class="sm:col-span-6">
-              <span class="block text-sm font-medium text-gray-700">Cover image</span>
+              <span class="block text-sm font-medium text-gray-700"><%= t(".profile.cover_image") %></span>
               <div class="relative">
                 <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
-                <%= form.label :cover_image, "Change", class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+                <%= form.label :cover_image, t(".profile.change"), class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
 
                 <%= render CoverImageComponent.new(developer: developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
                 <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -70,12 +70,12 @@
                 </div>
               </div>
               <div class="flex mt-2 text-sm text-gray-600">
-                <p class="">Upload a file</p>
+                <p class=""><%= t(".profile.upload_file") %></p>
               </div>
-              <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+              <p class="text-xs text-gray-500"><%= t(".profile.upload_help_text") %></p>
               <div data-file-upload-target="error" class="hidden bg-red-50 border-l-4 border-red-400 p-4 mt-4">
                 <div class="ml-3">
-                  <p class="text-sm text-red-700">Something went wrong uploading your image, please try again.</p>
+                  <p class="text-sm text-red-700"><%= t(".profile.upload_error_text") %></p>
                 </div>
               </div>
             </div>
@@ -87,14 +87,14 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Work preferences</h3>
-          <p class="mt-1 text-sm text-gray-500">What kind of work are you looking for next?</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".work_preferences.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
             <fieldset>
-              <legend class="text-base font-medium text-gray-900">Search status</legend>
+              <legend class="text-base font-medium text-gray-900"><%= t(".search_status.title") %></legend>
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="h-5 flex items-center">
@@ -102,7 +102,7 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :search_status, value: :actively_looking, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500">Your profile can get featured on the homepage.</p>
+                    <p class="text-gray-500"><%= t(".search_status.actively_looking_help_text") %></p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -111,7 +111,7 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :search_status, value: :open, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500">Companies can still find you, but you won't appear on the homepage.</p>
+                    <p class="text-gray-500"><%= t(".search_status.open_help_text") %></p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -120,7 +120,7 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :search_status, value: :not_interested, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500">Your profile will be clearly marked that you aren't looking for work.</p>
+                    <p class="text-gray-500"><%= t(".search_status.not_interested_help_text") %></p>
                   </div>
                 </div>
               </div>
@@ -129,8 +129,8 @@
             <%= form.fields_for :role_type do |role_type| %>
               <fieldset>
                 <div>
-                  <legend class="text-base font-medium text-gray-900">Role type</legend>
-                  <p class="text-sm text-gray-500">Select all roles that you would consider taking.</p>
+                  <legend class="text-base font-medium text-gray-900"><%= t(".role_type.title") %></legend>
+                  <p class="text-sm text-gray-500"><%= t(".role_type.help_text") %></p>
                 </div>
                 <div class="mt-4 space-y-4">
                   <div class="flex items-center">
@@ -153,7 +153,7 @@
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
                   <div class="sm:col-span-2">
-                    <%= form.label :available_on, "Available to start on", class: "block text-sm font-medium text-gray-700" %>
+                    <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
                     <div class="mt-1">
                       <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
                     </div>
@@ -169,14 +169,14 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Preferred compensation</h3>
-          <p class="mt-1 text-sm text-gray-500">What is your preferred annual salary and/or hourly rate?</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".preferred_compensation.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".preferred_compensation.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
-              <%= form.label :preferred_min_salary, "Salary (min)", class: "block text-sm font-medium text-gray-700" %>
+              <%= form.label :preferred_min_salary, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   $
@@ -185,7 +185,7 @@
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <%= form.label :preferred_max_salary, "Salary (max)", class: "block text-sm font-medium text-gray-700" %>
+              <%= form.label :preferred_max_salary, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   $
@@ -195,7 +195,7 @@
             </div>
 
             <div class="col-span-6 sm:col-span-3">
-              <%= form.label :preferred_min_hourly_rate, "Hourly rate (min)", class: "block text-sm font-medium text-gray-700" %>
+              <%= form.label :preferred_min_hourly_rate, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   $
@@ -204,7 +204,7 @@
               </div>
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <%= form.label :preferred_max_hourly_rate, "Hourly rate (max)", class: "block text-sm font-medium text-gray-700" %>
+              <%= form.label :preferred_max_hourly_rate, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                   $
@@ -220,8 +220,8 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Online presence</h3>
-          <p class="mt-1 text-sm text-gray-500">Where can people learn more about you and your work?</p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".online_presence.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
@@ -270,9 +270,7 @@
     </div>
 
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
-      <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-        Save
-      </button>
+      <%= form.submit t(".save"), class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
     </div>
   <% end %>
 </div>
