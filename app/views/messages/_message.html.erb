@@ -1,7 +1,13 @@
+<% if message.sender?(current_user) %>
+  <% from = "You" %>
+<% else %>
+  <% from = message.sender.hero %>
+<% end %>
+
 <li class="max-w-prose mx-auto bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6">
   <div class="sm:flex sm:justify-between sm:items-baseline">
     <h3 class="text-base font-medium">
-      <span class="text-gray-900">You</span>
+      <span class="text-gray-900"><%= from %></span>
       <span class="text-gray-600">wrote</span>
     </h3>
 

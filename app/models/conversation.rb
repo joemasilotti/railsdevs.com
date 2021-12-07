@@ -7,4 +7,8 @@ class Conversation < ApplicationRecord
   validates :developer_id, uniqueness: {scope: :business_id}
 
   accepts_nested_attributes_for :messages
+
+  def other_recipient(user)
+    developer == user.developer ? business : developer
+  end
 end

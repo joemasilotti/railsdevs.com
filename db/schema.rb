@@ -83,10 +83,13 @@ ActiveRecord::Schema.define(version: 2021_12_01_185033) do
 
   create_table "messages", force: :cascade do |t|
     t.bigint "conversation_id"
+    t.string "sender_type"
+    t.bigint "sender_id"
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["sender_type", "sender_id"], name: "index_messages_on_sender"
   end
 
   create_table "notifications", force: :cascade do |t|

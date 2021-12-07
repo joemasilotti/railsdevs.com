@@ -1,13 +1,13 @@
 <li>
-  <%= link_to developer_conversation_path(conversation.developer), class: "block max-w-prose mx-auto bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg hover:bg-gray-50 hover:shadow-lg" do %>
+  <%= link_to conversation_path(conversation), class: "block max-w-prose mx-auto bg-white px-4 py-6 shadow sm:p-6 sm:rounded-lg hover:bg-gray-50 hover:shadow-lg" do %>
     <div>
       <div class="flex space-x-3">
         <div class="flex-shrink-0">
-          <%= render AvatarComponent.new(avatarable: conversation.developer, classes: "h-10 w-10") %>
+          <%= render AvatarComponent.new(avatarable: conversation.other_recipient(current_user), classes: "h-10 w-10") %>
         </div>
 
         <div class="min-w-0 flex-1">
-          <h2 class="text-sm font-medium text-gray-900"><%= conversation.developer.hero %></h2>
+          <h2 class="text-sm font-medium text-gray-900"><%= conversation.other_recipient(current_user).hero %></h2>
           <p class="text-sm text-gray-500">
             <%= render TimeComponent.new(conversation.messages.last.created_at) %>
           </p>

@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resource :home, only: :show
   resource :role, only: :new
   resources :businesses, only: %i[new create edit update]
-  resources :conversations, only: :index
+  resources :conversations, only: %i[index show] do
+    resources :messages, only: :create
+  end
 
   resources :developers, except: :destroy do
-    resource :conversation, only: :show
     resources :messages, only: %i[new create]
   end
 

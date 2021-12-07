@@ -9,6 +9,7 @@ class CreateConversationsAndMessages < ActiveRecord::Migration[7.0]
 
     create_table :messages do |t|
       t.belongs_to :conversation
+      t.references :sender, polymorphic: true
       t.text :body, null: false
 
       t.timestamps
