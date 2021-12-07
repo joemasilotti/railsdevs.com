@@ -6,6 +6,7 @@ class Business < ApplicationRecord
 
   validates :name, presence: true
   validates :company, presence: true
+  validates :bio, presence: true
 
   after_create :send_admin_notification
 

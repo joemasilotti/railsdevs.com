@@ -16,6 +16,10 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def show
+    @business = Business.find(params[:id])
+  end
+
   def edit
     @business = Business.find(params[:id])
     authorize @business
@@ -44,6 +48,7 @@ class BusinessesController < ApplicationController
     params.require(:business).permit(
       :name,
       :company,
+      :bio,
       :avatar
     )
   end

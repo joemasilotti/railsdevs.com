@@ -1,0 +1,26 @@
+<div class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
+  <div class="relative lg:flex lg:items-center">
+    <div class="hidden lg:block lg:flex-shrink-0">
+      <%= render AvatarComponent.new(avatarable: @business, classes: "h-64 w-64 rounded-full xl:h-80 xl:w-80") %>
+    </div>
+
+    <div class="relative lg:ml-10">
+      <blockquote class="relative">
+        <div class="text-2xl leading-9 font-medium text-gray-900">
+          <p><%= @business.bio %></p>
+        </div>
+        <footer class="mt-8">
+          <div class="flex">
+            <div class="flex-shrink-0 lg:hidden">
+              <%= render AvatarComponent.new(avatarable: @business, classes: "h-12 w-12 rounded-full") %>
+            </div>
+            <div class="ml-4 lg:ml-0">
+              <div class="text-base font-medium text-gray-900"><%= @business.company %></div>
+              <div class="text-base font-medium text-indigo-600"><%= @business.name %></div>
+            </div>
+          </div>
+        </footer>
+      </blockquote>
+    </div>
+  </div>
+</div>

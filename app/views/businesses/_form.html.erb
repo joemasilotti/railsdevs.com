@@ -29,6 +29,13 @@
               </div>
             </div>
 
+            <div class="sm:col-span-6">
+              <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
+              </div>
+            </div>
+
             <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
               <span class="block text-sm font-medium text-gray-700"><%= t(".avatar") %></span>
               <div class="mt-1 flex items-center">
