@@ -29,10 +29,7 @@ class ColdMessagesController < ApplicationController
   end
 
   def conversation
-    @conversation ||= Conversation.find_or_initialize_by(
-      developer: developer,
-      business: business
-    )
+    @conversation ||= Conversation.find_or_initialize_by(developer: developer, business: business)
   end
 
   def developer
