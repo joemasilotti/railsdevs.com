@@ -63,9 +63,19 @@ en:
       your_business_profile: Your business profile
     update:
       updated: Your business was updated!
+  cold_messages:
+    new:
+      title: Start a conversation
+      with: with
   conversations:
+    empty_state:
+      body: Get started by finding a developer to message.
+      cta: Find a developer
+      title: No conversations
     index:
       title: Your conversations
+    show:
+      title: Conversations
   cover_image_component:
     alt: Developer's cover image
   developers:
@@ -110,6 +120,7 @@ en:
       ror_developers: Ruby on Rails developers
     show:
       description: Description
+      messages: Messages
     update:
       updated: Your profile was updated!
   errors:
@@ -123,6 +134,14 @@ en:
       find_ror_developers: Find Rails developers looking for work
       find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
       view_more_developers: View more developers
+  messages:
+    form:
+      help: Add your message
+      placeholder: Add your message...
+      submit: Send
+    message:
+      wrote: wrote
+      you: You
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
