@@ -116,11 +116,11 @@ en:
   home:
     show:
       available_developers: Developers available now
-      subtitle_html: "<b>railsdevs</b> gives power back to the independent developer – a reverse job board for companies looking for freelance Rails developers. All built in the open."
+      get_started: Get started
       learn_more: Learn more
+      subtitle_html: "<b>railsdevs</b> gives power back to the independent developer – a reverse job board for companies looking for freelance Rails developers. All built in the open."
       title: Hire freelance Rails developers
       view_more_developers: View more developers
-      get_started: Get started
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
