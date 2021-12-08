@@ -116,9 +116,11 @@ en:
   home:
     show:
       available_developers: Developers available now
-      find_ror_developers: Find Rails developers looking for work
-      find_ror_developers_hero_html: "<b>railsdevs</b> is a place for companies to find Ruby on Rails developers who are looking for freelance, contract, and full-time work."
+      subtitle_html: "<b>railsdevs</b> gives power back to the independent developer – a reverse job board for companies looking for freelance Rails developers. All built in the open."
+      learn_more: Learn more
+      title: Hire freelance Rails developers
       view_more_developers: View more developers
+      get_started: Get started
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
