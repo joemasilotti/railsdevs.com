@@ -63,6 +63,9 @@ en:
       your_business_profile: Your business profile
     update:
       updated: Your business was updated!
+  conversations:
+    index:
+      title: Your conversations
   cover_image_component:
     alt: Developer's cover image
   developers:
@@ -145,7 +148,7 @@ en:
       open_source: Open source
   user_menu:
     signed_in_component:
-      edit_business: Edit business
+      get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile

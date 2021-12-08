@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :developers, except: :destroy do
-    resources :messages, only: %i[new create]
+    resources :messages, only: %i[new create], controller: :cold_messages
   end
 
   root to: "home#show"

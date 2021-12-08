@@ -7,6 +7,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    authorize @conversation
+    @message = Message.new
+    authorize @conversation, policy_class: MessagingPolicy
   end
 end

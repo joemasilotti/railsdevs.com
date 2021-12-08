@@ -4,66 +4,64 @@ class MessagesTest < ActionDispatch::IntegrationTest
   setup do
     @developer = developers(:available)
     @business = businesses(:one)
+    @conversation = Conversation.create!(developer: @developer, business: @business)
   end
 
   test "must be signed in" do
-    get new_developer_message_path(@developer)
-    assert_redirected_to new_user_registration_path
-
     post developer_messages_path(@developer)
     assert_redirected_to new_user_registration_path
   end
 
-  test "must have a business profile" do
-    sign_in users(:empty)
+  test "the developer in the conversation can continue the conversation" do
+    sign_in @developer.user
 
-    get new_developer_message_path(@developer)
-    assert_redirected_to new_business_path
+    assert_difference "Message.count", 1 do
+      assert_no_difference "Conversation.count" do
+        post conversation_messages_path(@conversation), params: message_params
+      end
+    end
+    assert_equal Message.last.sender, @developer
 
-    post developer_messages_path(@developer)
-    assert_redirected_to new_business_path
+    assert_redirected_to conversation_path(@conversation)
+    follow_redirect!
+    assert_select "p", text: "Hello!"
   end
 
-  test "starting a new conversation" do
-    sign_in @business.user
-    get new_developer_message_path(@developer)
-    assert_select "form[action=?]", developer_messages_path(@developer)
-  end
-
-  test "creating a new conversation" do
+  test "the business in the conversation can continue the conversation" do
     sign_in @business.user
 
     assert_difference "Message.count", 1 do
-      assert_difference "Conversation.count", 1 do
-        post developer_messages_path(@developer), params: message_params
+      assert_no_difference "Conversation.count" do
+        post conversation_messages_path(@conversation), params: message_params
       end
     end
+    assert_equal Message.last.sender, @business
 
-    assert_redirected_to developer_conversation_path(@developer)
+    assert_redirected_to conversation_path(@conversation)
     follow_redirect!
-    assert_select "h1", text: /^Conversation/
+    assert_select "p", text: "Hello!"
   end
 
-  test "trying to start an existing conversation" do
-    sign_in @business.user
-    Conversation.create!(developer: @developer, business: @business)
+  test "no one else can contribute to the conversation" do
+    sign_in users(:empty)
 
-    get new_developer_message_path(@developer)
+    assert_no_difference "Message.count" do
+      post conversation_messages_path(@conversation), params: message_params
+    end
 
-    assert_redirected_to developer_conversation_path(@developer)
+    assert_redirected_to root_path
   end
 
-  test "trying to continue an existing conversation" do
+  test "an invalid message re-renders the form" do
     sign_in @business.user
-    Conversation.create!(developer: @developer, business: @business)
 
     assert_no_difference "Message.count" do
       assert_no_difference "Conversation.count" do
-        post developer_messages_path(@developer), params: message_params
+        post conversation_messages_path(@conversation), params: {message: {body: nil}}
       end
     end
 
-    assert_redirected_to developer_conversation_path(@developer)
+    assert_response :unprocessable_entity
   end
 
   def message_params

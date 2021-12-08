@@ -108,7 +108,8 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     {
       business: {
         name: "Business Owner",
-        company: "Business, LLC"
+        company: "Business, LLC",
+        bio: "We're in the business for business."
       }
     }
   end

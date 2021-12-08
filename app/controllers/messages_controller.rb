@@ -1,41 +1,30 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_business!
-
-  def new
-    @message = Message.new(conversation: conversation)
-  end
 
   def create
-    @message = Message.new(message_params.merge(conversation: conversation, sender: business))
+    @message = Message.new(message_params.merge(conversation: conversation, sender: sender))
+    authorize @message, policy_class: MessagingPolicy
+
     if @message.save
-      redirect_to @message.conversation
+      redirect_to conversation
     else
-      render :new, status: :unprocessable_entity
+      @conversation = conversation
+      render "conversations/show", status: :unprocessable_entity
     end
   end
 
   private
 
-  def require_business!
-    unless business.present?
-      redirect_to new_business_path, notice: I18n.t("errors.business_blank")
-    end
-  end
-
   def conversation
-    Conversation.find_or_initialize_by(
-      developer: developer,
-      business: business
-    )
+    Conversation.find(params[:conversation_id])
   end
 
-  def developer
-    Developer.find(params[:developer_id])
-  end
-
-  def business
-    current_user.business
+  def sender
+    if conversation.business == current_user.business
+      current_user.business
+    elsif conversation.developer == current_user.developer
+      current_user.developer
+    end
   end
 
   def message_params
