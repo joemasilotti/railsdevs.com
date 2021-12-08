@@ -44,6 +44,12 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     assert_no_link_to conversations_path
   end
 
+  test "links to conversations if user has a business profile" do
+    user = users(:with_business)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to conversations_path
+  end
+
   def assert_link_to(path)
     assert_selector "a[href='#{path}']"
   end
