@@ -11,7 +11,7 @@ gem "jsbundling-rails", "~> 0.1"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
-gem "view_component", "~> 2.42", require: "view_component/engine"
+gem "view_component", "~> 2.46"
 
 group :development, :test do
   gem "i18n-tasks", "~> 0.9.35"

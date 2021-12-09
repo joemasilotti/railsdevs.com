@@ -316,7 +316,7 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (2.1.0)
-    view_component (2.42.0)
+    view_component (2.46.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
     warden (1.2.9)
@@ -359,7 +359,7 @@ DEPENDENCIES
   sprockets-rails (~> 3.3)
   standard
   tzinfo-data
-  view_component (~> 2.42)
+  view_component (~> 2.46)
 
 RUBY VERSION
    ruby 3.0.2p107
