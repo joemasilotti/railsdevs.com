@@ -2,29 +2,31 @@
   <%= render OpenGraphTagsComponent.new %>
 <% end %>
 
-<div class="pb-5 px-4 lg:px-0 mt-12 sm:mt-24 sm:flex sm:items-center sm:justify-between">
-  <h3 class="text-lg leading-6 font-medium text-gray-900">
-    <%= t(".ror_developers") %>
-  </h3>
-</div>
+<div class="max-w-5xl mx-auto">
+  <div class="pb-5 px-4 lg:px-0 mt-12 sm:mt-24 sm:flex sm:items-center">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      <%= t(".ror_developers") %>
+    </h3>
+  </div>
 
-<div id="developers" class="space-y-8">
-  <%= render DeveloperCardComponent.with_collection(@developers) %>
-</div>
+  <div id="developers" class="space-y-8">
+    <%= render DeveloperCardComponent.with_collection(@developers) %>
+  </div>
 
-<div class="mt-8">
-  <%= pagy_links do %>
-    <%== pagy_nav @pagy %>
+  <div class="mt-8">
+    <%= pagy_links do %>
+      <%== pagy_nav @pagy %>
+    <% end %>
+  </div>
+
+  <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
+    <%= turbo_stream.append "developers" do %>
+      <% unless @pagy.page == 1 %>
+        <%= render DeveloperCardComponent.with_collection(@developers) %>
+      <% end %>
+      <% if @pagy.next %>
+        <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
-
-<%= turbo_frame_tag "developers-#{@pagy.page}" do %>
-  <%= turbo_stream.append "developers" do %>
-    <% unless @pagy.page == 1 %>
-      <%= render DeveloperCardComponent.with_collection(@developers) %>
-    <% end %>
-    <% if @pagy.next %>
-      <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
-    <% end %>
-  <% end %>
-<% end %>

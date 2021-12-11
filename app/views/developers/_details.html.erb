@@ -1,21 +1,21 @@
 <h2 class="sr-only"><%= t(".title") %></h2>
-<div class="space-y-5">
-  <div class="flex items-center space-x-2">
-    <%= render AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
+<div class="space-y-5 divide-y divide-gray-200">
+  <div class="space-y-3">
+    <div class="flex items-center space-x-2">
+      <%= render AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
+    </div>
+    <%= render SearchStatusComponent.new(developer) %>
   </div>
 
-  <%= render SearchStatusComponent.new(developer) %>
-  <%= render RoleTypeComponent.new(developer.role_type) %>
-  <%= render PreferredCompensationComponent.new(developer) %>
+  <div class="space-y-5 pt-4">
+    <%= render RoleTypeComponent.new(developer.role_type) %>
+    <%= render PreferredCompensationComponent.new(developer) %>
+  </div>
 
-  <div class="mt-6 border-t border-gray-200 py-6 space-y-8">
-    <div>
-      <div class="space-y-3">
-        <%= render ExternalLinkComponent.new(developer.website) %>
-        <%= render SocialLinkComponent.new(developer.github, :github) %>
-        <%= render SocialLinkComponent.new(developer.twitter, :twitter) %>
-        <%= render SocialLinkComponent.new(developer.linkedin, :linkedin) %>
-      </div>
-    </div>
+  <div class="space-y-3 pt-4">
+    <%= render ExternalLinkComponent.new(developer.website) %>
+    <%= render SocialLinkComponent.new(developer.github, :github) %>
+    <%= render SocialLinkComponent.new(developer.twitter, :twitter) %>
+    <%= render SocialLinkComponent.new(developer.linkedin, :linkedin) %>
   </div>
 </div>
