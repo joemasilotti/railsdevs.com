@@ -1,6 +1,6 @@
-Hi! 👋 I'm [Joe Masilotti](https://masilotti.com). I'm building **railsdevs** to make it easier for Ruby on Rails developers to find their next gig.
+Hi! 👋 I'm [Joe Masilotti](https://masilotti.com). I'm building `railsdevs` to make it easier for Ruby on Rails developers to find their next gig.
 
-**railsdevs** is being built around three core values:
+`railsdevs` is being built around three core values:
 
 1. Empowering the developer
 1. Doing everything in public

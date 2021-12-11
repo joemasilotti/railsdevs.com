@@ -2,6 +2,8 @@
   <dt class="text-sm font-medium text-gray-500">
     <%= t(".preferred_compensation") %>
   </dt>
-  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_hourly_rate_range, suffix: "hr") %>
-  <%= render CompensationAmountComponent.new(amount_range: developer.preferred_salary_range, suffix: "year") %>
+  <div class="mt-3">
+    <%= render CompensationAmountComponent.new(amount_range: developer.preferred_hourly_rate_range, suffix: "hr") %>
+    <%= render CompensationAmountComponent.new(amount_range: developer.preferred_salary_range, suffix: "year") %>
+  </div>
 </div>
