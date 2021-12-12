@@ -345,7 +345,7 @@ DEPENDENCIES
   devise!
   erb_lint
   honeybadger (~> 4.0)
-  hotwire-livereload (~> 0.2.0)
+  hotwire-livereload
   hotwire-rails (~> 0.1)
   i18n-tasks (~> 0.9.35)
   inline_svg (~> 1.7)

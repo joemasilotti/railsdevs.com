@@ -22,6 +22,7 @@ end
 
 group :development do
   gem "erb_lint", require: false
+  gem "hotwire-livereload"
   gem "listen", "~> 3.3"
   gem "redis"
 end
@@ -38,7 +39,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.6"
 gem "honeybadger", "~> 4.0"
-gem "hotwire-livereload", "~> 0.2.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "noticed", "~> 1.4"
