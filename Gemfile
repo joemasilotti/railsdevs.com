@@ -22,7 +22,9 @@ end
 
 group :development do
   gem "erb_lint", require: false
+  gem "hotwire-livereload"
   gem "listen", "~> 3.3"
+  gem "redis"
 end
 
 group :test do
