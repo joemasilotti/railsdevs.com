@@ -12,6 +12,7 @@ You need the following installed:
 
 * Ruby 3.0 or higher
 * [bundler](https://bundler.io) - `gem install bundler`
+* [Redis](https://redis.io) - `brew install redis`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
 

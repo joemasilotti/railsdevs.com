@@ -14,6 +14,7 @@ gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
+  gem "hotwire-livereload"
   gem "i18n-tasks", "~> 0.9.35"
   gem "letter_opener_web"
   gem "pry-rails"
@@ -23,6 +24,7 @@ end
 group :development do
   gem "erb_lint", require: false
   gem "listen", "~> 3.3"
+  gem "redis"
 end
 
 group :test do
