@@ -14,7 +14,6 @@ gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
-  gem "hotwire-livereload"
   gem "i18n-tasks", "~> 0.9.35"
   gem "letter_opener_web"
   gem "pry-rails"
@@ -39,6 +38,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.6"
 gem "honeybadger", "~> 4.0"
+gem "hotwire-livereload", "~> 0.2.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "noticed", "~> 1.4"
