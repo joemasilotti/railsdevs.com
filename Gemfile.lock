@@ -166,6 +166,9 @@ GEM
       activesupport (>= 5.0)
     highline (2.0.3)
     honeybadger (4.9.0)
+    hotwire-livereload (0.2.0)
+      listen (>= 3.0.0)
+      rails (>= 6.0.0)
     hotwire-rails (0.1.3)
       rails (>= 6.0.0)
       stimulus-rails
@@ -272,6 +275,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
+    redis (4.5.1)
     regexp_parser (2.1.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -321,7 +325,7 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (2.1.0)
-    view_component (2.42.0)
+    view_component (2.46.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
     warden (1.2.9)
@@ -346,6 +350,7 @@ DEPENDENCIES
   devise!
   erb_lint!
   honeybadger (~> 4.0)
+  hotwire-livereload
   hotwire-rails (~> 0.1)
   i18n-tasks (~> 0.9.35)
   inline_svg (~> 1.7)
@@ -361,10 +366,11 @@ DEPENDENCIES
   pundit (~> 2.1)
   rails!
   redcarpet (~> 3.5)
+  redis
   sprockets-rails (~> 3.3)
   standard
   tzinfo-data
-  view_component (~> 2.42)
+  view_component (~> 2.46)
 
 RUBY VERSION
    ruby 3.0.2p107

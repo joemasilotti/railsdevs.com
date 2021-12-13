@@ -3,19 +3,19 @@
     <%= render AvatarComponent.new(avatarable: developer) %>
   </div>
 
-  <div class="self-start flex-1">
-    <div class="flex items-baseline break-all">
-      <h2 class="text-lg sm:text-xl font-medium text-gray-900">
+  <div class="self-start flex-1 min-w-0">
+    <div class="flex items-baseline">
+      <h2 class="text-lg sm:text-xl font-medium text-gray-900 line-clamp-2 break-word" title="<%= hero %>">
         <%= hero %>
       </h2>
 
-      <div class="hidden sm:inline-flex ml-auto flex-row-reverse items-center text-gray-400">
+      <div class="hidden sm:inline-flex ml-auto flex-row-reverse flex-shrink-0 items-center text-gray-400">
         <%= render AvailabilityComponent.new(developer: developer) %>
       </div>
     </div>
 
-    <div class="mt-2 text-sm line-clamp-2 sm:text-base sm:line-clamp-1 text-gray-700 space-y-4">
-      <p><%= bio %></p>
+    <div class="mt-2 text-sm sm:text-base text-gray-700 space-y-4">
+      <p class="line-clamp-3 break-words"><%= bio %></p>
     </div>
   </div>
 <% end %>
