@@ -12,26 +12,4 @@ class BusinessPolicyTest < ActiveSupport::TestCase
 
     refute BusinessPolicy.new(user, business).update?
   end
-
-  test "can create a business profile if they do not already have one" do
-    user = users(:empty)
-    business = user.business
-
-    assert BusinessPolicy.new(user, business).create?
-  end
-
-  test "cannot create a business profile if they already have one" do
-    user = users(:with_business)
-    business = user.business
-
-    refute BusinessPolicy.new(user, business).create?
-  end
-
-  test "raises when instantiating a new business when one exists" do
-    user = users(:with_business)
-
-    assert_raises(BusinessPolicy::AlreadyExists) do
-      BusinessPolicy.new(user, Business.new).new?
-    end
-  end
 end

@@ -1,4 +1,17 @@
 GIT
+  remote: https://github.com/Shopify/erb-lint.git
+  revision: 02fb0e948d57fca7eed050ca7713436ebb8ff4f9
+  specs:
+    erb_lint (0.1.1)
+      activesupport
+      better_html (~> 1.0.7)
+      html_tokenizer
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
+
+GIT
   remote: https://github.com/heartcombo/devise.git
   revision: 8593801130f2df94a50863b5db535c272b00efe1
   specs:
@@ -144,14 +157,6 @@ GEM
       railties (>= 6.0.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
-    erb_lint (0.1.1)
-      activesupport
-      better_html (~> 1.0.7)
-      html_tokenizer
-      parser (>= 2.7.1.4)
-      rainbow
-      rubocop
-      smart_properties
     erubi (1.10.0)
     ffi (1.15.4)
     ffi-compiler (1.0.1)
@@ -343,7 +348,7 @@ DEPENDENCIES
   classy-yaml (~> 0.6)
   cssbundling-rails (~> 0.2)
   devise!
-  erb_lint
+  erb_lint!
   honeybadger (~> 4.0)
   hotwire-livereload
   hotwire-rails (~> 0.1)

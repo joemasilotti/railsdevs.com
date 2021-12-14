@@ -15,23 +15,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:with_available_profile)
 
     assert_no_difference "Developer.count" do
-      post developers_path, params: {
-        developer: {
-          name: "Developer",
-          available_on: Date.yesterday,
-          hero: "A developer",
-          bio: "I develop."
-        }
-      }
+      post developers_path, params: valid_developer_params
     end
   end
 
   test "redirect to the edit profile when they try to enter developers/new, if they already have a profile" do
-    sign_in users(:with_available_profile)
+    user = users(:with_available_profile)
+    sign_in user
 
     get new_developer_path
 
-    assert_redirected_to edit_developer_path(users(:with_available_profile).developer)
+    assert_redirected_to edit_developer_path(user.developer)
   end
 
   test "successful profile creation" do
@@ -68,14 +62,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     }
 
     assert user.developer.reload.role_type.part_time_contract?
-  end
-
-  test "successful profile creation sends a notification to the admin" do
-    sign_in users(:without_profile)
-
-    assert_changes "Notification.count", 1 do
-      post developers_path, params: valid_developer_params
-    end
   end
 
   test "successful edit to profile" do

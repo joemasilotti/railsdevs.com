@@ -63,6 +63,19 @@ en:
       your_business_profile: Your business profile
     update:
       updated: Your business was updated!
+  cold_messages:
+    new:
+      title: Start a conversation
+      with: with
+  conversations:
+    empty_state:
+      body: Get started by finding a developer to message.
+      cta: Find a developer
+      title: No conversations
+    index:
+      title: Your conversations
+    show:
+      title: Conversations
   cover_image_component:
     alt: Developer's cover image
   developers:
@@ -107,9 +120,11 @@ en:
       ror_developers: Ruby on Rails developers
     show:
       description: Description
+      messages: Messages
     update:
       updated: Your profile was updated!
   errors:
+    business_blank: Fill out your business profile to message developers.
     messages:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
@@ -124,6 +139,14 @@ en:
       title_1: The reverse job board for
       title_2: Rails developers
       view_more_developers: View more developers
+  messages:
+    form:
+      help: Add your message
+      placeholder: Add your message...
+      submit: Send
+    message:
+      wrote: wrote
+      you: You
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
@@ -149,7 +172,9 @@ en:
       open_source: Open source
   user_menu:
     signed_in_component:
-      edit_business: Edit business
+      get_started: Get started
+      my_business_profile: My business profile
+      my_conversations: My conversations
       my_developer_profile: My developer profile
       open_user_menu: Open user menu
       sign_out: Sign out

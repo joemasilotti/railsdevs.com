@@ -1,23 +1,23 @@
 class BusinessesController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
+  before_action :require_new_business!, only: %i[new create]
 
   def new
-    authorize current_user.business, policy_class: BusinessPolicy
     @business = current_user.build_business
-  rescue BusinessPolicy::AlreadyExists
-    redirect_to edit_business_path(current_user.business)
   end
 
   def create
-    authorize current_user.business, policy_class: BusinessPolicy
     @business = current_user.build_business(business_params)
 
     if @business.save
-      NewBusinessNotification.with(business: @business).deliver_later(User.admin)
       redirect_to developers_path, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @business = Business.find(params[:id])
   end
 
   def edit
@@ -38,10 +38,17 @@ class BusinessesController < ApplicationController
 
   private
 
+  def require_new_business!
+    if current_user.business.present?
+      redirect_to edit_business_path(current_user.business)
+    end
+  end
+
   def business_params
     params.require(:business).permit(
       :name,
       :company,
+      :bio,
       :avatar
     )
   end

@@ -1,0 +1,9 @@
+from_business:
+  conversation: one
+  body: One message.
+  sender: with_conversation (Business)
+
+from_developer:
+  conversation: one
+  body: Two message.
+  sender: with_conversation (Developer)

@@ -1,0 +1,25 @@
+<%= render "shared/error_messages", resource: @message %>
+
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <h1 class="mt-6 text-center text-3xl">
+    <span class="font-extrabold"><%= t(".title") %></span>
+
+    <div class="flex items-center justify-center space-x-2 mt-2 text-center text-sm text-gray-600">
+      <div class="block">with</div>
+      <%= link_to polymorphic_path(@conversation.other_recipient(current_user)), class: "flex items-center space-x-2 group" do %>
+        <%= render AvatarComponent.new(avatarable: @conversation.other_recipient(current_user), classes: "h-8 w-8") %>
+        <span class="font-medium text-gray-600 group-hover:text-gray-500"><%= @conversation.other_recipient(current_user).hero %></span>
+      <% end %>
+    </div>
+  </h1>
+
+  <ul role="list" class="max-w-prose w-full mx-auto mt-8 space-y-2 sm:px-6 sm:space-y-4 lg:px-8">
+    <%= render @conversation.messages %>
+  </ul>
+
+  <div class="mt-8 max-w-prose w-full mx-auto sm:px-6 lg:px-8">
+    <%= form_with model: [@conversation, @message], class: "relative" do |form| %>
+      <%= render "messages/form", form: form %>
+    <% end %>
+  </div>
+</div>

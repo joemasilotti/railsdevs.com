@@ -1,0 +1,18 @@
+<li class="relative bg-white py-5 px-6 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600">
+  <div class="flex justify-between space-x-3">
+    <div class="min-w-0 flex-1">
+      <%= link_to conversation_path(conversation), class: "block focus:outline-none" do %>
+        <span class="absolute inset-0" aria-hidden="true"></span>
+        <h2 class="text-sm font-medium text-gray-900 truncate">
+          <%= conversation.other_recipient(current_user).hero %>
+        </h2>
+      <% end %>
+    </div>
+    <span class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">
+      <%= render TimeComponent.new(conversation.messages.last.created_at) %>
+    </span>
+  </div>
+  <div class="mt-1">
+    <p class="line-clamp-2 text-sm text-gray-600"><%= conversation.messages.last.body %></p>
+  </div>
+</li>
