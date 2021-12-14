@@ -2,19 +2,11 @@
 name: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: enhancement
+labels: ''
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+Please [start a new Discussion](https://github.com/joemasilotti/railsdevs.com/discussions/new?category=Ideas) for feature requests. Keeping conversations there makes it easier for folks to contribute to the conversation.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+Issues are reserved for bug reports and in-progress work.
