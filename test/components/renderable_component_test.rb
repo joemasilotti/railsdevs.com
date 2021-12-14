@@ -16,7 +16,7 @@ class RenderableComponentTest < ViewComponent::TestCase
 
   test "renders the given CSS classes" do
     render_inline RenderableComponent.new("wrapper") do
-      "<h1>Hi1</h1>".html_safe
+      "<h1>Hi</h1>".html_safe
     end
     assert_selector "div.wrapper > h1"
   end
