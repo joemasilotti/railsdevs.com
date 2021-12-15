@@ -7,3 +7,8 @@ from_developer:
   conversation: one
   body: Two message.
   sender: with_conversation (Developer)
+
+blocked:
+  conversation: blocked
+  body: This message caused a block.
+  sender: with_conversation (Business)

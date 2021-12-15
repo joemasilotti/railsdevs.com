@@ -50,6 +50,16 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     assert_link_to conversations_path
   end
 
+  test "links to blocked conversations if user is an admin" do
+    user = users(:admin)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to admin_conversations_path
+
+    user = users(:with_business)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_no_link_to admin_conversations_path
+  end
+
   def assert_link_to(path)
     assert_selector "a[href='#{path}']"
   end

@@ -20,4 +20,8 @@ class UserMenu::SignedInComponent < ApplicationComponent
   def conversations?
     (user.conversations.any? || business?) && Feature.enabled?(:messaging)
   end
+
+  def admin?
+    user.admin?
+  end
 end
