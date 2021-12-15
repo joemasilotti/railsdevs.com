@@ -14,7 +14,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "can't view blocked conversations" do
     sign_in @developer.user
-    @conversation.touch(:blocked_by_developer_at)
+    @conversation.touch(:developer_blocked_at)
 
     assert_raises ActiveRecord::RecordNotFound do
       post conversation_messages_path(@conversation), params: message_params

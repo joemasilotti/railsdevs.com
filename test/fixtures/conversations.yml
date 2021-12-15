@@ -5,4 +5,4 @@ one:
 blocked:
   developer: with_blocked_conversation
   business: with_conversation
-  blocked_by_developer_at: <%= Time.now %>
+  developer_blocked_at: <%= Time.now %>

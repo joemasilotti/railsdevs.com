@@ -6,7 +6,7 @@ class Conversation < ApplicationRecord
 
   validates :developer_id, uniqueness: {scope: :business_id}
 
-  scope :visible, -> { where(blocked_by_developer_at: nil, blocked_by_business_at: nil) }
+  scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
 
   def other_recipient(user)
     developer == user.developer ? business : developer
@@ -21,6 +21,6 @@ class Conversation < ApplicationRecord
   end
 
   def blocked?
-    blocked_by_developer_at.present? || blocked_by_business_at.present?
+    developer_blocked_at.present? || business_blocked_at.present?
   end
 end

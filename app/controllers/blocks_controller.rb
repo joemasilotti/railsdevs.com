@@ -20,9 +20,9 @@ class BlocksController < ApplicationController
 
   def blocked_by_column
     if conversation.business?(current_user)
-      :blocked_by_business_at
+      :business_blocked_at
     elsif conversation.developer?(current_user)
-      :blocked_by_developer_at
+      :developer_blocked_at
     end
   end
 

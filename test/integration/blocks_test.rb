@@ -17,7 +17,7 @@ class BlocksTest < ActionDispatch::IntegrationTest
 
     post conversation_block_path(@conversation)
 
-    assert_not_nil @conversation.reload.blocked_by_developer_at
+    assert_not_nil @conversation.reload.developer_blocked_at
     assert_redirected_to root_path
   end
 
@@ -26,7 +26,7 @@ class BlocksTest < ActionDispatch::IntegrationTest
 
     post conversation_block_path(@conversation)
 
-    assert_not_nil @conversation.reload.blocked_by_business_at
+    assert_not_nil @conversation.reload.business_blocked_at
     assert_redirected_to root_path
   end
 
@@ -35,8 +35,8 @@ class BlocksTest < ActionDispatch::IntegrationTest
 
     post conversation_block_path(@conversation)
 
-    assert_nil @conversation.reload.blocked_by_developer_at
-    assert_nil @conversation.reload.blocked_by_business_at
+    assert_nil @conversation.reload.developer_blocked_at
+    assert_nil @conversation.reload.business_blocked_at
     assert_redirected_to root_path
   end
 end

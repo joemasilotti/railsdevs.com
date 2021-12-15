@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 2021_12_15_034919) do
     t.bigint "business_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "blocked_by_developer_at", precision: 6
-    t.datetime "blocked_by_business_at", precision: 6
+    t.datetime "developer_blocked_at", precision: 6
+    t.datetime "business_blocked_at", precision: 6
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
   end

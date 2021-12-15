@@ -49,7 +49,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = developers(:available)
     business = user.business
 
-    conversation = Conversation.create!(developer: developer, business: business, blocked_by_developer_at: Time.now)
+    conversation = Conversation.create!(developer: developer, business: business, developer_blocked_at: Time.now)
 
     refute MessagingPolicy.new(user, conversation).show?
     refute MessagingPolicy.new(user, conversation).create?
