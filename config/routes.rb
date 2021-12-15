@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resource :about, only: :show, controller: :about
   resource :home, only: :show
+  resource :about, only: :show, controller: :about
+  resource :conduct, only: :show
   resource :role, only: :new
   resources :businesses, except: :destroy
   resources :conversations, only: %i[index show] do
