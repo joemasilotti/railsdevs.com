@@ -2,14 +2,23 @@ require "test_helper"
 
 class MessagesTest < ActionDispatch::IntegrationTest
   setup do
-    @developer = developers(:available)
-    @business = businesses(:one)
-    @conversation = Conversation.create!(developer: @developer, business: @business)
+    @developer = developers(:with_conversation)
+    @business = businesses(:with_conversation)
+    @conversation = conversations(:one)
   end
 
   test "must be signed in" do
-    post developer_messages_path(@developer)
+    post conversation_messages_path(@conversation)
     assert_redirected_to new_user_registration_path
+  end
+
+  test "can't view blocked conversations" do
+    sign_in @developer.user
+    @conversation.touch(:developer_blocked_at)
+
+    assert_raises ActiveRecord::RecordNotFound do
+      post conversation_messages_path(@conversation), params: message_params
+    end
   end
 
   test "the developer in the conversation can continue the conversation" do

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :businesses, except: :destroy
   resources :conversations, only: %i[index show] do
     resources :messages, only: :create
+    resource :block, only: %i[new create]
   end
 
   resources :developers, except: :destroy do

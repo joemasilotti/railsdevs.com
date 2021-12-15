@@ -14,6 +14,7 @@ class User < ApplicationRecord
     unscope(where: :user_id)
       .left_joins(:business, :developer)
       .where("businesses.user_id = ? OR developers.user_id = ?", user.id, user.id)
+      .visible
   }
 
   scope :admin, -> { where(admin: true) }

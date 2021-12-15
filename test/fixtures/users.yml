@@ -30,6 +30,10 @@ with_business_conversation:
   email: business_conversation@example.com
   confirmed_at: <%= DateTime.current %>
 
+with_blocked_conversation:
+  email: blocked_conversation@example.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>

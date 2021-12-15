@@ -39,3 +39,10 @@ Developer.create!(
   github: "ada",
   twitter: "lovelace"
 )
+
+Business.create!(
+  user: create_user!("Business"),
+  name: "Thomas Dohmke",
+  company: "GitHub",
+  bio: "GitHub is where over 73 million developers shape the future of software, together."
+)

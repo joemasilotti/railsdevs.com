@@ -7,4 +7,11 @@ class BusinessTest < ActiveSupport::TestCase
       Business.create!(name: "name", company: "company", bio: "bio", user: user)
     end
   end
+
+  test "conversations relationship doesn't include blocked ones" do
+    business = businesses(:with_conversation)
+
+    assert business.conversations.include?(conversations(:one))
+    refute business.conversations.include?(conversations(:blocked))
+  end
 end

@@ -43,4 +43,24 @@ class MessagingPolicyTest < ActiveSupport::TestCase
 
     refute MessagingPolicy.new(user, conversation).show?
   end
+
+  test "no one can show or create a blocked conversation" do
+    user = users(:with_business)
+    developer = developers(:available)
+    business = user.business
+
+    conversation = Conversation.create!(developer: developer, business: business, developer_blocked_at: Time.now)
+
+    refute MessagingPolicy.new(user, conversation).show?
+    refute MessagingPolicy.new(user, conversation).create?
+  end
+
+  test "messages are never blocked" do
+    user = users(:with_business_conversation)
+
+    message = Message.create!(conversation: conversations(:one), sender: user.business, body: "Hi!")
+
+    assert MessagingPolicy.new(user, message).show?
+    assert MessagingPolicy.new(user, message).create?
+  end
 end

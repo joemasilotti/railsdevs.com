@@ -50,6 +50,14 @@ en:
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
     now_html: Available now
     unspecified_html: Currently unavailable
+  blocks:
+    create:
+      notice: "%{other_recipient} was blocked."
+    new:
+      block: Block
+      cancel: Cancel
+      message: Are you sure you want to flag this conversation and block the sender? This will hide the converation and they won't be able to contact you again.
+      title: Block sender
   businesses:
     create:
       created: Your business was added!
@@ -75,7 +83,9 @@ en:
     index:
       title: Your conversations
     show:
-      title: Conversations
+      flag: Flag this conversation
+      title: Conversation
+      with: with
   cover_image_component:
     alt: Developer's cover image
   developers:

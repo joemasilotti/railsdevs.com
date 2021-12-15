@@ -1,3 +1,8 @@
 one:
   developer: with_conversation
   business: with_conversation
+
+blocked:
+  developer: with_blocked_conversation
+  business: with_conversation
+  developer_blocked_at: <%= Time.now %>
