@@ -16,13 +16,13 @@ class MessagesController < ApplicationController
   private
 
   def conversation
-    Conversation.find(params[:conversation_id])
+    Conversation.visible.find(params[:conversation_id])
   end
 
   def sender
-    if conversation.business == current_user.business
+    if conversation.business?(current_user)
       current_user.business
-    elsif conversation.developer == current_user.developer
+    elsif conversation.developer?(current_user)
       current_user.developer
     end
   end

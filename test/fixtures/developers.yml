@@ -17,3 +17,9 @@ with_conversation:
   name: Developer Three
   hero: Third developer
   bio: I am the third developer
+
+with_blocked_conversation:
+  user: with_blocked_conversation
+  name: Developer Four
+  hero: Fourth developer
+  bio: I am the fourth developer

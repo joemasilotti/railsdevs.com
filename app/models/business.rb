@@ -2,7 +2,7 @@ class Business < ApplicationRecord
   include Avatarable
 
   belongs_to :user
-  has_many :conversations
+  has_many :conversations, -> { visible }
 
   validates :name, presence: true
   validates :company, presence: true

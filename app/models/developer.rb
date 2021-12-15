@@ -9,7 +9,7 @@ class Developer < ApplicationRecord
   }
 
   belongs_to :user
-  has_many :conversations
+  has_many :conversations, -> { visible }
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
