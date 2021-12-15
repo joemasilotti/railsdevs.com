@@ -46,6 +46,14 @@ en:
       user:
         one: User
         other: Users
+  admin:
+    conversations:
+      conversation:
+        blocked: Blocked
+      empty_state:
+        title: No blocked conversations
+      index:
+        title: Blocked conversations
   availability_component:
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
     now_html: Available now
@@ -182,6 +190,7 @@ en:
       open_source: Open source
   user_menu:
     signed_in_component:
+      admin: Admin
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
