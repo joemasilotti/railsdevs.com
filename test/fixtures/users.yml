@@ -1,9 +1,11 @@
 empty:
   email: user@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
 with_available_profile:
   email: one@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
 with_unavailable_profile:
@@ -16,6 +18,7 @@ without_profile:
 
 with_business:
   email: business@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
 with_business_two:
