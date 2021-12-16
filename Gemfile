@@ -14,10 +14,8 @@ gem "stimulus-rails", "~> 0.7"
 gem "turbo-rails", "~> 0.9"
 gem "view_component", "~> 2.46"
 
-# TODO: Wait until PR #5 is merged. https://github.com/Tonksthebear/classy-yaml/pull/5
-gem "classy-yaml", github: "joemasilotti/classy-yaml", branch: "jam/exists-deprecated"
-
 gem "aws-sdk-s3", "~> 1", require: false
+gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
