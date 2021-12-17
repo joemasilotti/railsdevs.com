@@ -169,6 +169,35 @@ en:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
     preferred_compensation: Preferred compensation
+  pricing:
+    show:
+      cta: Get started today
+      faq:
+        '1':
+          a: No. $99 a month grants you business access to railsdevs. You have to externally pay the developers for the work they do.
+          q: Does $99 a month include the developer rate, too?
+        '2':
+          a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
+          q: So what does $99 a month get me?
+        '3':
+          a: No. railsdevs is free for developers.
+          q: Does railsdevs cost anything for developers?
+        '4':
+          a_html: Email me, Joe, with any questions. You can reach me at <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
+          q: Who can I contact for more specific questions?
+        title: Frequently asked questions
+      feature:
+        '1': Support independent developers.
+        '2': Browse highly targeted profiles.
+        '3': Skip job descriptions and formal postings.
+        '4': Talk directly to candidates.
+        '5': Hire as much or as little as you need.
+        '6': Cancel anytime with no obligations.
+        subtitle: Browse developer profiles who can start working ASAP or when you need help. Save time by reaching out the perfect candidates.
+        title: Hire at your own pace
+      subtitle: Connect with independent, freelance Ruby on Rails developers who are available for work now.
+      title_1: Hire Rails developers for
+      title_2: "$99 a month"
   pundit:
     errors:
       unauthorized: You don't have access to that.
@@ -188,6 +217,7 @@ en:
       about: About
       open_analytics: Open analytics
       open_source: Open source
+      pricing: Pricing
   user_menu:
     signed_in_component:
       admin: Admin

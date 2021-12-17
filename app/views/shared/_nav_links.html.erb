@@ -1,3 +1,6 @@
 <%= link_to t(".about"), about_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block sm:inline px-3 py-2 rounded-md text-base sm:text-sm font-medium" %>
+<% if Feature.enabled?(:pricing) %>
+  <%= link_to t(".pricing"), pricing_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block sm:inline px-3 py-2 rounded-md text-base sm:text-sm font-medium" %>
+<% end %>
 <%= link_to t(".open_source"), "https://github.com/joemasilotti/railsdevs.com/", class: "text-gray-300 hover:bg-gray-700 hover:text-white block sm:inline px-3 py-2 rounded-md text-base sm:text-sm font-medium" %>
 <%= link_to t(".open_analytics"), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", class: "text-gray-300 hover:bg-gray-700 hover:text-white block sm:inline px-3 py-2 rounded-md text-base sm:text-sm font-medium" %>
