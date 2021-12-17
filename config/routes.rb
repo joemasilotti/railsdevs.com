@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :home, only: :show
   resource :about, only: :show, controller: :about
   resource :conduct, only: :show
+  resource :pricing, only: :show, controller: :pricing
   resource :role, only: :new
   resources :businesses, except: :destroy
   resources :conversations, only: %i[index show] do
