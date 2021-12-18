@@ -5,6 +5,7 @@ class User < ApplicationRecord
     :registerable,
     :rememberable,
     :validatable
+  pay_customer
 
   has_many :notifications, as: :recipient
   has_one :business
@@ -18,4 +19,8 @@ class User < ApplicationRecord
   }
 
   scope :admin, -> { where(admin: true) }
+
+  def active_business_subscription?
+    subscriptions.any?(&:active?)
+  end
 end

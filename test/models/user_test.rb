@@ -16,4 +16,13 @@ class UserTest < ActiveSupport::TestCase
     assert user.conversations.include?(conversations(:one))
     refute user.conversations.include?(conversations(:blocked))
   end
+
+  test "active business subscription" do
+    user = users(:with_business)
+    refute user.active_business_subscription?
+
+    user.set_payment_processor(:fake_processor, allow_fake: true)
+    user.payment_processor.subscribe(plan: "fake")
+    assert user.reload.active_business_subscription?
+  end
 end
