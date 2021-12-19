@@ -39,6 +39,20 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert_difference "Business.count", 1 do
       post businesses_path, params: valid_business_params
     end
+    assert_redirected_to developers_path
+  end
+
+  test "successful business creation with a stored location" do
+    developer = developers(:available)
+
+    sign_in users(:empty)
+    post developer_messages_path(developer)
+    assert_redirected_to new_business_path
+
+    assert_difference "Business.count", 1 do
+      post businesses_path, params: valid_business_params
+    end
+    assert_redirected_to developer_messages_path(developer)
   end
 
   test "successful edit to business" do

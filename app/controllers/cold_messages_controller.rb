@@ -20,6 +20,7 @@ class ColdMessagesController < ApplicationController
 
   def require_business!
     unless business.present?
+      store_location!
       redirect_to new_business_path, notice: I18n.t("errors.business_blank")
     end
   end
