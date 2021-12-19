@@ -51,11 +51,12 @@ If you are working on anything related to payments then you will need to configu
     1. Generate your credentials file via `bin/rails credentials:edit --environment development`
     1. [Create a Stripe secret key for test mode](https://dashboard.stripe.com/test/apikeys)
     1. [Create a product](https://dashboard.stripe.com/test/products/create) with a recurring, monthly price
-    1. Add the secret key and price to your development credentials in the following format
+    1. Add the secret key, the price, and your webhook signing secret to your development credentials in the following format:
 
 ```
 stripe:
   private_key: sk_test_YOUR_TEST_STRIPE_KEY
+  signing_secret: whsec_YOUR_SIGNING_SECRET
   price_id: price_YOUR_PRICE_ID
 ```
 
