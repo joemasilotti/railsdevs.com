@@ -4,7 +4,7 @@
       <p class="text-sm font-medium text-gray-900 truncate"><%= conversation.developer.hero %></p>
       <p class="text-sm font-medium text-gray-900 truncate mt-2"><%= conversation.business.hero %></p>
     </div>
-    <span class="flex-shrink-0 whitespace-nowrap text-sm text-gray-500">
+    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500">
       <%= t(".blocked") %> <%= render TimeComponent.new(conversation.developer_blocked_at || conversation.business_blocked_at) %>
     </span>
   </div>
