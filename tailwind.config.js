@@ -21,7 +21,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: colors.coolGray,
         red: colors.rose,
       },
       fontFamily: {
