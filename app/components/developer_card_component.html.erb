@@ -1,5 +1,5 @@
 <%= link_to developer, class: "bg-white hover:bg-gray-50 border-1 border-white hover:border-gray-900 px-4 py-6 shadow sm:p-6 lg:rounded-lg flex space-x-4 sm:space-x-8" do %>
-  <div class="flex-shrink-0">
+  <div class="shrink-0">
     <%= render AvatarComponent.new(avatarable: developer) %>
   </div>
 
@@ -9,7 +9,7 @@
         <%= hero %>
       </h2>
 
-      <div class="hidden sm:inline-flex ml-auto flex-row-reverse flex-shrink-0 items-center text-gray-400">
+      <div class="hidden sm:inline-flex ml-auto flex-row-reverse shrink-0 items-center text-gray-400">
         <%= render AvailabilityComponent.new(developer: developer) %>
       </div>
     </div>
