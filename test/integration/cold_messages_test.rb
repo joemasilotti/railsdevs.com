@@ -3,7 +3,7 @@ require "test_helper"
 class ColdMessagesTest < ActionDispatch::IntegrationTest
   setup do
     @developer = developers(:available)
-    @business = businesses(:one)
+    @business = businesses(:with_conversation)
   end
 
   test "must be signed in" do
@@ -19,6 +19,20 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     post developer_messages_path(@developer)
     assert_redirected_to new_business_path
+  end
+
+  test "must have an active business subscription" do
+    # TODO: Mock Stripe or Pay, not part of the system.
+    mock = Minitest::Mock.new
+    def mock.url
+      "checkout.stripe.com"
+    end
+
+    sign_in businesses(:one).user
+    BusinessSubscriptionCheckout.stub :new, mock do
+      get new_developer_message_path(@developer)
+      assert_redirected_to "checkout.stripe.com"
+    end
   end
 
   test "a business can start a new conversation" do

@@ -51,6 +51,24 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_select "p", text: "Hello!"
   end
 
+  test "a business without an active subscription can no longer continue the conversation" do
+    pay_subscriptions(:business).update!(status: :incomplete)
+    sign_in @business.user
+
+    # TODO: Mock Stripe or Pay, not part of the system.
+    mock = Minitest::Mock.new
+    def mock.url
+      "checkout.stripe.com"
+    end
+
+    BusinessSubscriptionCheckout.stub :new, mock do
+      assert_no_difference "Message.count" do
+        post conversation_messages_path(@conversation), params: message_params
+      end
+      assert_redirected_to "checkout.stripe.com"
+    end
+  end
+
   test "no one else can contribute to the conversation" do
     sign_in users(:empty)
 

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     resources :messages, only: %i[new create], controller: :cold_messages
   end
 
+  namespace :stripe do
+    resource :checkout, only: :show
+  end
+
   namespace :admin do
     resources :conversations, only: :index
   end

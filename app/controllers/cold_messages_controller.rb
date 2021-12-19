@@ -2,6 +2,7 @@ class ColdMessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_business!
   before_action :require_new_conversation!
+  before_action :require_active_subscription!
 
   def new
     @message = Message.new(conversation: conversation)
@@ -27,6 +28,12 @@ class ColdMessagesController < ApplicationController
 
   def require_new_conversation!
     redirect_to conversation unless conversation.new_record?
+  end
+
+  def require_active_subscription!
+    unless current_user.active_business_subscription?
+      redirect_to BusinessSubscriptionCheckout.new(current_user, developer: developer).url
+    end
   end
 
   def conversation

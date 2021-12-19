@@ -37,6 +37,12 @@ Run the following (requires `foreman` or `overmind`) to start the server and aut
 bin/dev
 ```
 
+#### Stripe
+
+If you are working on anything related to payments then you will need to configure Stripe.
+
+TODO: Add instructions on creating a Stripe account and adding the private keys.
+
 ### Testing
 
 Run `rails test` to run unit/integration tests.
