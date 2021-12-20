@@ -1,6 +1,8 @@
 require "test_helper"
 
 class MessagesTest < ActionDispatch::IntegrationTest
+  include PayHelper
+
   setup do
     @developer = developers(:with_conversation)
     @business = businesses(:with_conversation)
@@ -55,13 +57,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
     pay_subscriptions(:business).update!(status: :incomplete)
     sign_in @business.user
 
-    # TODO: Mock Stripe or Pay, not part of the system.
-    mock = Minitest::Mock.new
-    def mock.url
-      "checkout.stripe.com"
-    end
-
-    BusinessSubscriptionCheckout.stub :new, mock do
+    stub_pay(@business.user, expected_success_url: new_developer_message_url(@developer)) do
       assert_no_difference "Message.count" do
         post conversation_messages_path(@conversation), params: message_params
       end
