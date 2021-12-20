@@ -5,12 +5,12 @@ ruby "3.0.2"
 
 gem "rails", github: "rails/rails", branch: "main"
 
-gem "cssbundling-rails", "~> 0.2"
+gem "cssbundling-rails", "~> 1.0"
 gem "hotwire-rails", "~> 0.1"
-gem "jsbundling-rails", "~> 0.1"
+gem "jsbundling-rails", "~> 1.0"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
+gem "sprockets-rails", "~> 3.4.0", require: "sprockets/railtie"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
