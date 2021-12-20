@@ -18,17 +18,26 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
+# System noise.
 .DS_Store
-/public/assets
+
+# Active Storage local storage.
 /storage/
-.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Credentials
+/config/credentials/production.key
+/config/credentials/development.key
+/config/credentials/development.yml.enc
+
+# Assets
+/public/assets
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+# Node
 /node_modules
 
 # Local Docker Development
