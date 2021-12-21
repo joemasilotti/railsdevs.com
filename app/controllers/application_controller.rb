@@ -9,10 +9,8 @@ class ApplicationController < ActionController::Base
       stored_location
     elsif user.developer.present? || user.business.present?
       super
-    elsif Feature.enabled?(:messaging)
-      new_role_path
     else
-      super
+      new_role_path
     end
   end
 
