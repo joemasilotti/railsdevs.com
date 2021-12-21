@@ -27,6 +27,6 @@ class BlocksController < ApplicationController
   end
 
   def other_recipient
-    conversation.other_recipient(current_user).hero
+    conversation.other_recipient(current_user).name
   end
 end

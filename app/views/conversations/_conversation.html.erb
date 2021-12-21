@@ -4,7 +4,7 @@
       <%= link_to conversation_path(conversation), class: "block focus:outline-none" do %>
         <span class="absolute inset-0" aria-hidden="true"></span>
         <h2 class="text-sm font-medium text-gray-900 truncate">
-          <%= conversation.other_recipient(current_user).hero %>
+          <%= conversation.other_recipient(current_user).name %>
         </h2>
       <% end %>
     </div>

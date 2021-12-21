@@ -11,10 +11,6 @@ class Business < ApplicationRecord
 
   after_create :send_admin_notification
 
-  def hero
-    "#{name} @ #{company}"
-  end
-
   private
 
   def send_admin_notification
