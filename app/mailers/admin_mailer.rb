@@ -10,4 +10,10 @@ class AdminMailer < ApplicationMailer
     @business = params[:business]
     mail(to: @user.email, subject: "New business added")
   end
+
+  def new_conversation
+    @user = params[:recipient]
+    @conversation = params[:conversation]
+    mail(to: @user.email, subject: "New conversation started")
+  end
 end

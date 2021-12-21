@@ -40,6 +40,8 @@ class Developer < ApplicationRecord
     [preferred_min_hourly_rate, preferred_max_hourly_rate].compact
   end
 
+  private
+
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
   end
