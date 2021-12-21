@@ -15,6 +15,7 @@ You need the following installed:
 * [Redis](https://redis.io) - `brew install redis`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
+* [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 
 Optional:
 
@@ -31,10 +32,32 @@ bin/setup
 
 ### Development
 
-Run the following (requires `foreman` or `overmind`) to start the server and automatically build assets.
+Run the following to start the server and automatically build assets.
+
+* Requires `foreman` or `overmind`
+* Requires `stripe`
 
 ```bash
 bin/dev
+```
+
+#### Stripe
+
+If you are working on anything related to payments then you will need to configure Stripe.
+
+1. [Register for Stripe](https://dashboard.stripe.com/register) and add an account
+1. Login to the Stripe CLI via `stripe login`
+1. Configure your development credentials
+    1. Generate your credentials file via `bin/rails credentials:edit --environment development`
+    1. [Create a Stripe secret key for test mode](https://dashboard.stripe.com/test/apikeys)
+    1. [Create a product](https://dashboard.stripe.com/test/products/create) with a recurring, monthly price
+    1. Add the secret key, the price, and your webhook signing secret to your development credentials in the following format:
+
+```
+stripe:
+  private_key: sk_test_YOUR_TEST_STRIPE_KEY
+  signing_secret: whsec_YOUR_SIGNING_SECRET
+  price_id: price_YOUR_PRICE_ID
 ```
 
 ### Testing

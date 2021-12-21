@@ -1,6 +1,8 @@
 require "test_helper"
 
 class MessagesTest < ActionDispatch::IntegrationTest
+  include PayHelper
+
   setup do
     @developer = developers(:with_conversation)
     @business = businesses(:with_conversation)
@@ -49,6 +51,18 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to conversation_path(@conversation)
     follow_redirect!
     assert_select "p", text: "Hello!"
+  end
+
+  test "a business without an active subscription can no longer continue the conversation" do
+    pay_subscriptions(:business).update!(status: :incomplete)
+    sign_in @business.user
+
+    stub_pay(@business.user, expected_success_url: new_developer_message_url(@developer)) do
+      assert_no_difference "Message.count" do
+        post conversation_messages_path(@conversation), params: message_params
+      end
+      assert_redirected_to "checkout.stripe.com"
+    end
   end
 
   test "no one else can contribute to the conversation" do

@@ -74,6 +74,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
+  # Configure host for URL helpers.
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
+
   # Watch additional directories for live reloading (outside of app/views, app/helpers, and app/javascript).
   directories = %w[app/assets/stylesheets app/assets/images app/components config/locales]
   config.hotwire_livereload.listen_paths += directories.map { |p| Rails.root.join(p) }

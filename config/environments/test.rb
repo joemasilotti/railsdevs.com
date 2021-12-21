@@ -53,6 +53,9 @@ Rails.application.configure do
   # Devise mailer.
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
+  # Configure host for URL helpers.
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
+
   # Store sent emails in queue.
   config.action_mailer.delivery_method = :test
 end
