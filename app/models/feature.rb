@@ -4,7 +4,7 @@ class Feature
     when :messaging
       true
     when :pricing
-      !Rails.env.production?
+      true
     else
       true
     end
