@@ -6,7 +6,23 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
 
+  after_create :send_recipient_notification
+
   def sender?(user)
     [user.developer, user.business].include?(sender)
+  end
+
+  def recipient
+    if sender == developer
+      business
+    elsif sender == business
+      developer
+    end
+  end
+
+  private
+
+  def send_recipient_notification
+    NewMessageNotification.with(message: self).deliver_later(recipient)
   end
 end
