@@ -44,3 +44,6 @@
 .dockerdev/*
 docker-compose.yml
 dip.yml
+
+# Ignore RubyMine settings files
+.idea/
