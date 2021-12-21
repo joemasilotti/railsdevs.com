@@ -45,7 +45,7 @@ bin/dev
 
 If you are working on anything related to payments then you will need to configure Stripe.
 
-1. [Create a Stripe account](https://dashboard.stripe.com/register) and add an account
+1. [Register for Stripe](https://dashboard.stripe.com/register) and add an account
 1. Login to the Stripe CLI via `stripe login`
 1. Configure your development credentials
     1. Generate your credentials file via `bin/rails credentials:edit --environment development`
