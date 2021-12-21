@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "minitest/pride"
+require "minitest/mock"
 require "rails/test_help"
 require "capybara"
 

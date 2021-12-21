@@ -1,5 +1,4 @@
 require "test_helper"
-require "minitest/mock"
 
 class DeveloperTest < ActiveSupport::TestCase
   setup do
@@ -121,19 +120,19 @@ class DeveloperTest < ActiveSupport::TestCase
 
     invalid_formats.each do |file_format|
       @developer.avatar.stub :content_type, file_format do
-        assert_not @developer.valid?, "#{file_format} should be an invalid format"
+        refute @developer.valid?, "#{file_format} should be an invalid format"
       end
     end
   end
 
   test "should enforce a maximum avatar file size" do
     @developer.avatar.blob.stub :byte_size, 3.megabytes do
-      assert_not @developer.valid?
+      refute @developer.valid?
     end
   end
 
   test "should accept cover images of valid file formats" do
-    valid_formats = %w[image/png image/jpeg image/jpg image/gif]
+    valid_formats = %w[image/png image/jpeg image/jpg]
 
     valid_formats.each do |file_format|
       @developer.cover_image.stub :content_type, file_format do
@@ -147,14 +146,14 @@ class DeveloperTest < ActiveSupport::TestCase
 
     invalid_formats.each do |file_format|
       @developer.cover_image.stub :content_type, file_format do
-        assert_not @developer.valid?, "#{file_format} should be an invalid format"
+        refute @developer.valid?, "#{file_format} should be an invalid format"
       end
     end
   end
 
   test "should enforce a maximum cover image file size" do
     @developer.cover_image.blob.stub :byte_size, 11.megabytes do
-      assert_not @developer.valid?
+      refute @developer.valid?
     end
   end
 end
