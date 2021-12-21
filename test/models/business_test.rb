@@ -14,12 +14,4 @@ class BusinessTest < ActiveSupport::TestCase
     assert business.conversations.include?(conversations(:one))
     refute business.conversations.include?(conversations(:blocked))
   end
-
-  test "should validate file size of avatar" do
-
-  end
-
-  test "should validate format of avatar" do
-
-  end
 end
