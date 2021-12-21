@@ -1,7 +1,9 @@
 class Feature
   def self.enabled?(feature_name)
     case feature_name.to_sym
-    when :messaging, :pricing
+    when :messaging
+      true
+    when :pricing
       !Rails.env.production?
     else
       true
