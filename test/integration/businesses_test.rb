@@ -34,11 +34,13 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "successful business creation" do
-    sign_in users(:empty)
+    user = users(:empty)
+    sign_in user
 
     assert_difference "Business.count", 1 do
       post businesses_path, params: valid_business_params
     end
+    assert_equal "basecamp.png", user.business.avatar.filename.to_s
     assert_redirected_to developers_path
   end
 
@@ -123,7 +125,8 @@ class BusinessesTest < ActionDispatch::IntegrationTest
       business: {
         name: "Business Owner",
         company: "Business, LLC",
-        bio: "We're in the business for business."
+        bio: "We're in the business for business.",
+        avatar: fixture_file_upload("basecamp.png", "image/png")
       }
     }
   end

@@ -9,3 +9,9 @@ two:
   record_type: Developer
   record_id: <%= ActiveRecord::FixtureSet.identify(:available) %>
   blob_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+
+three:
+  name: avatar
+  record_type: Business
+  record_id: <%= ActiveRecord::FixtureSet.identify(:with_conversation) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
