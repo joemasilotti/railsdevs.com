@@ -108,4 +108,56 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_equal Notification.last.type, NewDeveloperProfileNotification.name
     assert_equal Notification.last.recipient, users(:admin)
   end
+
+  test "should accept avatars of valid file formats" do
+    valid_formats = %w[image/png image/jpeg image/jpg]
+
+    valid_formats.each do |file_format|
+      @developer.avatar.stub :content_type, file_format do
+        assert @developer.valid?, "#{file_format} should be a valid"
+      end
+    end
+  end
+
+  test "should reject avatars of invalid file formats" do
+    invalid_formats = %w[image/bmp image/gif video/mp4]
+
+    invalid_formats.each do |file_format|
+      @developer.avatar.stub :content_type, file_format do
+        refute @developer.valid?, "#{file_format} should be an invalid format"
+      end
+    end
+  end
+
+  test "should enforce a maximum avatar file size" do
+    @developer.avatar.blob.stub :byte_size, 3.megabytes do
+      refute @developer.valid?
+    end
+  end
+
+  test "should accept cover images of valid file formats" do
+    valid_formats = %w[image/png image/jpeg image/jpg]
+
+    valid_formats.each do |file_format|
+      @developer.cover_image.stub :content_type, file_format do
+        assert @developer.valid?, "#{@developer.errors.full_messages} should be a valid"
+      end
+    end
+  end
+
+  test "should reject cover images of invalid file formats" do
+    invalid_formats = %w[image/bmp video/mp4]
+
+    invalid_formats.each do |file_format|
+      @developer.cover_image.stub :content_type, file_format do
+        refute @developer.valid?, "#{file_format} should be an invalid format"
+      end
+    end
+  end
+
+  test "should enforce a maximum cover image file size" do
+    @developer.cover_image.blob.stub :byte_size, 11.megabytes do
+      refute @developer.valid?
+    end
+  end
 end
