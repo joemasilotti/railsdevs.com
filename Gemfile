@@ -45,6 +45,7 @@ gem "pagy", "~> 5.2"
 gem "pay", "~> 3.0"
 gem "pundit", "~> 2.1"
 gem "redcarpet", "~> 3.5"
+gem "sidekiq", "~> 6.3"
 gem "stripe", ">= 2.8", "< 6.0"
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
