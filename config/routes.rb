@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -24,4 +26,8 @@ Rails.application.routes.draw do
   end
 
   root to: "home#show"
+
+  authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
+    mount Sidekiq::Web => "/sidekiq"
+  end
 end
