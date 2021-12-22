@@ -1,12 +1,20 @@
 # Rails Devs
 
-Find Rails developers looking for freelance and contract work.
+The reverse job board for Rails developers.
 
-<img width="1764" alt="image" src="https://user-images.githubusercontent.com/2092156/141209840-fea16afa-541b-4129-a8b0-8d2d544f7b4a.png">
+![railsdevs homepage](https://user-images.githubusercontent.com/2092156/147028085-eea40303-c572-48c0-b107-0be93cce067c.png)
 
-### Getting started
+`railsdevs` empowers independent developers available for their next gig. It is being built around [three core values](https://railsdevs.com/about):
 
-#### Requirements
+1. Empowering the independent developer
+1. Doing everything in public
+1. Creating a safe, inclusive environment
+
+---
+
+## Getting started
+
+### Requirements
 
 You need the following installed:
 
@@ -22,7 +30,7 @@ Optional:
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 * [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
 
-#### Initial setup
+### Initial setup
 
 An installation script is included with the repository that will automatically get the application setup.
 
@@ -30,7 +38,7 @@ An installation script is included with the repository that will automatically g
 bin/setup
 ```
 
-### Development
+## Development
 
 Run the following to start the server and automatically build assets.
 
@@ -41,7 +49,7 @@ Run the following to start the server and automatically build assets.
 bin/dev
 ```
 
-#### Stripe
+### Stripe
 
 If you are working on anything related to payments then you will need to configure Stripe.
 
@@ -60,6 +68,6 @@ stripe:
   price_id: price_YOUR_PRICE_ID
 ```
 
-### Testing
+## Testing
 
 Run `rails test` to run unit/integration tests.
