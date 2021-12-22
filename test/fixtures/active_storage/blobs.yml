@@ -5,3 +5,7 @@ one: <%= ActiveStorage::FixtureSet.blob(
 two: <%= ActiveStorage::FixtureSet.blob(
   filename: "mountains.jpg"
 ) %>
+
+three: <%= ActiveStorage::FixtureSet.blob(
+  filename: "basecamp.png"
+) %>
