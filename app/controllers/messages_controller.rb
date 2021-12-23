@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
+  before_action :require_active_subscription!
 
   def create
     @message = Message.new(message_params.merge(conversation: conversation, sender: sender))
@@ -15,8 +16,18 @@ class MessagesController < ApplicationController
 
   private
 
+  def require_active_subscription!
+    if conversation.business?(current_user) && !current_user.active_business_subscription?
+      redirect_to BusinessSubscriptionCheckout.new(current_user, developer: developer).url
+    end
+  end
+
   def conversation
     Conversation.visible.find(params[:conversation_id])
+  end
+
+  def developer
+    conversation.developer
   end
 
   def sender

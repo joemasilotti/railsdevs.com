@@ -6,4 +6,8 @@ class AdminMailerPreview < ActionMailer::Preview
   def new_business
     AdminMailer.with(business: Business.first, recipient: User.first).new_business
   end
+
+  def new_conversation
+    AdminMailer.with(conversation: Conversation.first, recipient: User.first).new_conversation
+  end
 end

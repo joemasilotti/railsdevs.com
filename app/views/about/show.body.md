@@ -8,7 +8,12 @@ And job boards are rarely helpful for freelance and contract work. They're focus
 
 ### Doing everything in public
 
-`railsdevs` is [open source](https://github.com/joemasilotti/railsdevs.com/) with public [analytics](https://app.usefathom.com/share/cacnfaan/railsdevs.com) and [bug reports](https://app.honeybadger.io/project/EKRGgkQdR0).
+`railsdevs` is an Open Startup *and* open source. It operates fully transparent and shares its metrics, like revenue and traffic.
+
+* [Source code](https://github.com/joemasilotti/railsdevs.com/)
+* [Public analytics](https://app.usefathom.com/share/cacnfaan/railsdevs.com)
+* [Revenue and expenses](https://github.com/joemasilotti/railsdevs.com/wiki/Monies)
+* [Bug reports](https://app.honeybadger.io/project/EKRGgkQdR0)
 
 On top of that, I'm making all my decisions in public. I'm posting questions and ideas when I'm looking for feedback on [GitHub Discussions](https://github.com/joemasilotti/railsdevs.com/discussions). And I'm tweeting about work in progress (and sneak previews) [on Twitter](https://twitter.com/joemasilotti).
 

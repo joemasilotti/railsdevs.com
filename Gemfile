@@ -5,12 +5,12 @@ ruby "3.0.2"
 
 gem "rails", github: "rails/rails", branch: "main"
 
-gem "cssbundling-rails", "~> 0.2"
+gem "cssbundling-rails", "~> 1.0"
 gem "hotwire-rails", "~> 0.1"
-gem "jsbundling-rails", "~> 0.1"
+gem "jsbundling-rails", "~> 1.0"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "sprockets-rails", "~> 3.3", require: "sprockets/railtie"
+gem "sprockets-rails", "~> 3.4.0", require: "sprockets/railtie"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
@@ -35,8 +35,6 @@ end
 # Point at main until Rails 7 changes are released.
 gem "devise", github: "heartcombo/devise"
 
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.6"
 gem "honeybadger", "~> 4.0"
@@ -44,5 +42,10 @@ gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "noticed", "~> 1.4"
 gem "pagy", "~> 5.2"
+gem "pay", "~> 3.0"
 gem "pundit", "~> 2.1"
 gem "redcarpet", "~> 3.5"
+gem "sidekiq", "~> 6.3"
+gem "stripe", ">= 2.8", "< 6.0"
+
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
