@@ -3,16 +3,13 @@ class Business < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_many :notifications, as: :recipient
 
   validates :name, presence: true
   validates :company, presence: true
   validates :bio, presence: true
 
   after_create :send_admin_notification
-
-  def hero
-    "#{name} @ #{company}"
-  end
 
   private
 

@@ -44,4 +44,13 @@ class ConversationTest < ActiveSupport::TestCase
     conversation.touch(:business_blocked_at)
     assert conversation.blocked?
   end
+
+  test "creating a conversation sends a notification to the admin" do
+    assert_changes "Notification.count", 1 do
+      Conversation.create!(developer: developers(:available), business: businesses(:one))
+    end
+
+    assert_equal Notification.last.type, NewConversationNotification.name
+    assert_equal Notification.last.recipient, users(:admin)
+  end
 end

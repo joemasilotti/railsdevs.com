@@ -48,11 +48,6 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
-  # Debug mode disables concatenation and preprocessing of assets.
-  # This option may cause significant delays in view rendering with a large
-  # number of complex assets.
-  config.assets.debug = true
-
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
@@ -72,9 +67,15 @@ Rails.application.configure do
   # Devise mailer.
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
 
+  # Configure host for URL helpers.
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
+
   # "Send" emails to preview with letter opener.
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  # Configure host for URL helpers.
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
 
   # Watch additional directories for live reloading (outside of app/views, app/helpers, and app/javascript).
   directories = %w[app/assets/stylesheets app/assets/images app/components config/locales]

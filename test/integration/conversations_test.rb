@@ -12,13 +12,13 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   test "you can view your conversations (as a business)" do
     sign_in users(:with_business_conversation)
     get conversations_path
-    assert_select "h2", developers(:with_conversation).hero
+    assert_select "h2", developers(:with_conversation).name
   end
 
   test "you can view your conversations (as a developer)" do
     sign_in users(:with_developer_conversation)
     get conversations_path
-    assert_select "h2", businesses(:with_conversation).hero
+    assert_select "h2", businesses(:with_conversation).name
   end
 
   test "you can view your own conversation (as a business)" do

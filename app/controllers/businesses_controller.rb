@@ -10,7 +10,8 @@ class BusinessesController < ApplicationController
     @business = current_user.build_business(business_params)
 
     if @business.save
-      redirect_to developers_path, notice: t(".created")
+      path = stored_location_for(:user) || developers_path
+      redirect_to path, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end

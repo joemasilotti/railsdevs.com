@@ -17,7 +17,7 @@ class Admin::BlockedConversationsTest < ActionDispatch::IntegrationTest
 
     get admin_conversations_path
 
-    assert_select "p", text: developers(:with_blocked_conversation).hero
-    assert_select "p", text: developers(:with_conversation).hero, count: 0
+    assert_select "p", text: developers(:with_blocked_conversation).name
+    assert_select "p", text: developers(:with_conversation).name, count: 0
   end
 end

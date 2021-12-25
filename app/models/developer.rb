@@ -10,6 +10,7 @@ class Developer < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_many :notifications, as: :recipient
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
@@ -18,9 +19,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :hero, presence: true
   validates :bio, presence: true
-  validates :avatar, content_type: ["image/png", "image/jpg", "image/jpeg"],
-    max_file_size: 2.megabytes
-  validates :cover_image, content_type: ["image/png", "image/jpg", "image/jpeg", "image/gif"],
+  validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes
   validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
   validates :preferred_max_salary, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
@@ -38,6 +37,8 @@ class Developer < ApplicationRecord
   def preferred_hourly_rate_range
     [preferred_min_hourly_rate, preferred_max_hourly_rate].compact
   end
+
+  private
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)

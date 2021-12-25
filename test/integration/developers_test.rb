@@ -47,6 +47,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
 
     assert user.developer.role_type.part_time_contract?
+    assert_equal "lovelace.jpg", user.developer.avatar.filename.to_s
   end
 
   test "edit with nested attributes" do
@@ -152,7 +153,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        time_zone: "Eastern Time (US & Canada)"
+        time_zone: "Eastern Time (US & Canada)",
+        avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
       }
     }
   end

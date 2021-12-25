@@ -39,8 +39,8 @@ module Railsdevs
     config.fathom = config_for(:fathom)
     config.support_email = "joe@masilotti.com"
 
-    # Run background jobs asynchronously in an in-process thread pool.
-    config.active_job.queue_adapter = :async
+    # Run background jobs via sidekiq.
+    config.active_job.queue_adapter = :sidekiq
 
     # Search nested folders in config/locales for better organization
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]

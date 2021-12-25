@@ -40,9 +40,12 @@ Developer.create!(
   twitter: "lovelace"
 )
 
-Business.create!(
+business = Business.create!(
   user: create_user!("Business"),
   name: "Thomas Dohmke",
   company: "GitHub",
   bio: "GitHub is where over 73 million developers shape the future of software, together."
 )
+
+business.user.set_payment_processor(:fake_processor, allow_fake: true)
+business.user.payment_processor.subscribe(plan: "railsdevs")
