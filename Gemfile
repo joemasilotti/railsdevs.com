@@ -3,18 +3,20 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.2"
 
-gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.0"
 
 gem "cssbundling-rails", "~> 1.0"
 gem "hotwire-rails", "~> 0.1"
 gem "jsbundling-rails", "~> 1.0"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-gem "sprockets-rails", "~> 3.4.0", require: "sprockets/railtie"
+gem "sprockets-rails", "~> 3.4"
+gem "stimulus-rails", "~> 0.7"
+gem "turbo-rails", "~> 0.9"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
-  gem "i18n-tasks", "~> 0.9.35"
+  gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
   gem "standard"
@@ -32,11 +34,9 @@ group :test do
   gem "capybara", "~> 3.36"
 end
 
-# Point at main until Rails 7 changes are released.
-gem "devise", github: "heartcombo/devise"
-
 gem "aws-sdk-s3", "~> 1", require: false
-gem "classy-yaml", "~> 0.6"
+gem "classy-yaml", "~> 0.7"
+gem "devise", "~> 4.8.1"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"

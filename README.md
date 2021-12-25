@@ -30,6 +30,12 @@ Optional:
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 * [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
 
+These are listed in `Brewfile`, which you can install via:
+
+```bash
+brew bundle install --no-upgrade
+```
+
 ### Initial setup
 
 An installation script is included with the repository that will automatically get the application setup.
@@ -49,9 +55,19 @@ Run the following to start the server and automatically build assets.
 bin/dev
 ```
 
+### Seeds
+
+Seeding the database, either via `rails db:seed` or during `bin/setup`, creates a few accounts with developer profiles. Sign in to these with the following email addresses; all the passwords are `password`.
+
+* `ada@example.com`
+* `bjarne@example.com`
+* `dennis@example.com`
+
+There is also a single business account, `business@example.com`, that has an active subscription. Use this to test anything related to messaging.
+
 ### Stripe
 
-You may need to configure Stripe or do a mock configuration (ie set dummy values for the last step listed below) in order to get the development server to launch. If you are working on anything related to payments then you will need to fully configure Stripe.
+You will need to configure Stripe or do a mock configuration (ie set dummy values for the last step listed below) if you are working on anything related to payments.
 
 1. [Register for Stripe](https://dashboard.stripe.com/register) and add an account
 1. Download the Stripe CLI via `brew install stripe/stripe-cli/stripe`
