@@ -16,12 +16,10 @@ gem "turbo-rails", "~> 0.9"
 gem "view_component", "~> 2.46"
 
 group :development, :test do
+  gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
   gem "standard"
-
-  # TODO: Wait until PR #958 is merged. https://github.com/svenfuchs/rails-i18n/pull/958
-  # gem "i18n-tasks", "~> 0.9.35"
 end
 
 group :development do
