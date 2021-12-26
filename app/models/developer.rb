@@ -29,9 +29,9 @@ class Developer < ApplicationRecord
 
   @skills_regex = /^[-\w\s]+(?:,[-\w\s]*)*$/i
 
-  validates :technical_skills, format: { with: @skills_regex, multiline: true }
+  validates :technical_skills, format: {with: @skills_regex, multiline: true}
 
-  validates :pivot_skills, format: { with: @skills_regex, multiline: true }
+  validates :pivot_skills, format: {with: @skills_regex, multiline: true}
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
