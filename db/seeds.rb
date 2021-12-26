@@ -48,4 +48,4 @@ business = Business.create!(
 )
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)
-business.user.payment_processor.subscribe(plan: "railsdevs")
+business.user.payment_processor.subscribe(plan: "hirethepivot")
