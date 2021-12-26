@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Rails Devs</title>
+    <title>hirethePIVOT</title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= open_graph_tags %>
+
+    <!-- Favicon from Smashicons -->
+    <%= favicon_link_tag asset_path("favicon.png"), rel: "icon", type: "image/x-icon" %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>

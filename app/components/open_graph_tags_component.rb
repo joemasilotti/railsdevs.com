@@ -5,7 +5,7 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def title
-    @title || "railsdevs"
+    @title || "hirethePIVOT"
   end
 
   def description
@@ -21,6 +21,6 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def twitter
-    "@joemasilotti"
+    "@rabbigreenberg"
   end
 end

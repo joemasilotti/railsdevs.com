@@ -5,7 +5,7 @@ class OpenGraphTagsComponentTest < ViewComponent::TestCase
     render_inline OpenGraphTagsComponent.new
 
     assert_meta property: "og:type"
-    assert_meta property: "og:title", content: "railsdevs"
+    assert_meta property: "og:title", content: "hirethePIVOT"
     assert_meta property: "og:description", content_begin_with: "Find Ruby"
     assert_meta property: "og:url"
     assert_meta property: "twitter:card"

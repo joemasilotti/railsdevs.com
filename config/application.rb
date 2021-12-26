@@ -37,7 +37,7 @@ module Railsdevs
 
     # Load custom configuration.
     config.fathom = config_for(:fathom)
-    config.support_email = "joe@masilotti.com"
+    config.support_email = "ben@hirethepivot.com"
 
     # Run background jobs via sidekiq.
     config.active_job.queue_adapter = :sidekiq
