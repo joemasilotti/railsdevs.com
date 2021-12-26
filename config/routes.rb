@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resource :pricing, only: :show, controller: :pricing
   resource :role, only: :new
   resources :businesses, except: :destroy
+  resources :notifications, only: [:index, :update], controller: :notifications
+  resources :read_notifications, path: "notifications/read", only: :index, controller: :read_notifications
   resources :conversations, only: %i[index show] do
     resources :messages, only: :create
     resource :block, only: %i[new create]
