@@ -116,8 +116,8 @@ en:
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
-        pivot_skills_help_text: Summarize your pivot skills in a few words.
         name_help_text_html: Your full name will <i>not</i> be displayed on your public profile.
+        pivot_skills_help_text: Summarize your pivot skills in a few words.
         title: Profile
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
@@ -154,8 +154,8 @@ en:
       learn_more: Learn more
       subtitle_1: hirethePIVOT
       subtitle_2: empowers second career developers to find work.
-      subtitle_3: "Second career developers have a superpower:"
-      subtitle_4: pivot skills. 
+      subtitle_3: 'Second career developers have a superpower:'
+      subtitle_4: pivot skills.
       subtitle_5: Find and hire these superheroes for your company.
       title_1: The reverse job board for
       title_2: Second Career Developers
