@@ -4,6 +4,6 @@ class PricingTest < ActionDispatch::IntegrationTest
   test "sees the pricing page" do
     get pricing_path
 
-    assert_select "h1", text: /^Hire Rails developers/
+    assert_select "h1", text: /^Get busy hiring/
   end
 end
