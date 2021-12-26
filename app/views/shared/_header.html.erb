@@ -1,8 +1,8 @@
-<nav data-controller="toggle" data-toggle-close-class="hidden" class="bg-gray-800">
+<nav data-controller="toggle" data-toggle-close-class="hidden" class="bg-gradient-to-t from-orange-300 via-orange-300 to-yellow-300">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center h-16">
       <div class="flex items-center sm:hidden">
-        <button type="button" data-action="toggle#toggle" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+        <button type="button" data-action="toggle#toggle" class="inline-flex items-center justify-center p-2 rounded-md text-white-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
           <span class="sr-only"><%= t(".open_main_menu") %></span>
           <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6" %>
           <%= inline_svg_tag "icons/outline/x.svg", class: "hidden h-6 w-6" %>
@@ -10,10 +10,10 @@
       </div>
 
       <div class="flex-1 flex items-center items-stretch justify-start ml-2 md:ml-0">
-        <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current" do %>
-          <span class="sr-only">railsdevs</span>
-          <%= inline_svg_tag "logo.svg", class: "block lg:hidden h-10 w-auto", alt: "railsdevs logo" %>
-          <%= inline_svg_tag "logo.svg", class: "hidden lg:block h-10 w-auto", alt: "railsdevs logo" %>
+        <%= link_to root_path, class: "shrink-0 flex items-center text-neutral-50 fill-current" do %>
+          <span class="sr-only">hirethepivot</span>
+          <%= inline_svg_tag "logo.svg", class: "block lg:hidden h-10 w-auto", alt: "hirethepivot logo" %>
+          <%= inline_svg_tag "logo.svg", class: "hidden lg:block h-10 w-auto", alt: "hirethepivot logo" %>
         <% end %>
 
         <div class="hidden sm:block sm:ml-6">

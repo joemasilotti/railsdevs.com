@@ -28,7 +28,7 @@ You need the following installed:
 Optional:
 
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
-* [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
+* [overmind](https://github.com/DarthSim/overmind) - `brew install overmind`
 
 ### Initial setup
 

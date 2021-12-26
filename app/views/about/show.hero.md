@@ -1,7 +1,9 @@
-Hi! 👋 I'm [Joe Masilotti](https://masilotti.com). I'm building `railsdevs` to make it easier for Ruby on Rails developers to find their next gig.
+We are in the midst of the [great resignation](https://hbr.org/2021/09/who-is-driving-the-great-resignation) with people around the world changing their careers, many of them into software.
 
-`railsdevs` is being built around three core values:
+The people who pivot bring with them life and professional experience that can be invaluable in their new work as software developers. I call those experiences **pivot skills**.
 
-1. Empowering the independent developer
-1. Doing everything in public
-1. Creating a safe, inclusive environment
+Pivot skills can be project management, customer relations, team leadership, and so much more. Second career developers can provide a super boost of experience and proficiencies to your team that complement their technical skills.
+
+I created <code class="text-gray-900 font-semibold">hirethePIVOT</code> to connect employers with second career developers for work opportunities. If you want to hire someone who can bring both **pivot skills** and **technical skills** then this is the place for you.
+
+Thank you to Joe Masilotti whose open source <code class="text-gray-900 font-semibold"><a href="https://railsdevs.com">railsdevs</a></code> project makes this site possible.

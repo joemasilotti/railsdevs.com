@@ -6,16 +6,19 @@
   <div class="text-center">
     <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
       <span class="block text-gray-600"><%= t(".title_1") %></span>
-      <span class="block text-gray-800"><%= t(".title_2") %></span>
+      <span class="block text-orange-300"><%= t(".title_2") %></span>
     </h1>
     <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
       <code class="text-gray-900 font-semibold"><%= t(".subtitle_1") %></code>
       <span><%= t(".subtitle_2") %></span>
-      <span class="md:block"><%= t(".subtitle_3") %></span>
+      <br />
+      <span><%= t(".subtitle_3") %></span>
+      <code class="text-gray-900 font-semibold"><%= t(".subtitle_4") %></code>
+      <span class="md:block"><%= t(".subtitle_5") %></span>
     </p>
     <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
       <div class="rounded-md shadow">
-        <%= link_to t(".get_started"), new_role_path, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg md:px-10" %>
+        <%= link_to t(".get_started"), new_role_path, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-t from-orange-300 via-orange-300 to-yellow-300 hover:bg-gray-700 md:py-4 md:text-lg md:px-10" %>
       </div>
       <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
         <%= link_to t(".learn_more"), about_path, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10" %>
@@ -36,7 +39,7 @@
   </div>
 
   <div class="mt-8 mb-16 text-right mr-2 lg:mr-0">
-    <%= link_to developers_path, class: "inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+    <%= link_to developers_path, class: "inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-gradient-to-t from-orange-300 via-orange-300 to-yellow-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
       <%= t(".view_more_developers") %>
       <%= inline_svg_tag "icons/outline/arrow_right_circle.svg", class: "ml-3 -mr-1 h-5 2-5" %>
     <% end %>
