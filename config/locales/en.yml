@@ -165,6 +165,13 @@ en:
     message:
       wrote: wrote
       you: You
+  notifications:
+    empty_state:
+      body: You have no new notifications available to display.
+      title: No new notifications
+    index:
+      cta: View history
+      title: New notifications
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
@@ -201,6 +208,12 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+  read_notifications:
+    empty_state:
+      body: You have no past notifications available to display.
+      title: No past notifications
+    index:
+      title: Past notifications
   role_type_component:
     interested_in_roles: Interested in roles
   roles:
