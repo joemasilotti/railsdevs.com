@@ -155,7 +155,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         bio: "I develop.",
         time_zone: "Eastern Time (US & Canada)",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
-        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg"),
+        technical_skills: "Ruby, Rails, JavaScript",
+        pivot_skills: "project management, writing"
       }
     }
   end

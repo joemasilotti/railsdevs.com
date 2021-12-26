@@ -15,7 +15,9 @@ Developer.create!(
   bio: "An American computer scientist. Created the C programming language and, with long-time colleague Ken Thompson, the Unix operating system and B programming language.",
   website: "https://example.com/dennis",
   github: "dennis",
-  twitter: "ritchie"
+  twitter: "ritchie",
+  pivot_skills: ["project management", "customer relations"],
+  technical_skills: ["Ruby", "Rails", "HTML"]
 )
 
 Developer.create!(
@@ -26,7 +28,9 @@ Developer.create!(
   bio: "A Danish computer scientist, most notable for the creation and development of the C++ programming language. A visiting professor at Columbia University, and works at Morgan Stanley as a Managing Director in New York.",
   website: "https://example.com/bjarne",
   github: "bjarne",
-  twitter: "stroustrup"
+  twitter: "stroustrup",
+  pivot_skills: ["customer relations"],
+  technical_skills: ["JavaScript", "C++", "Yarn"]
 )
 
 Developer.create!(
@@ -37,7 +41,9 @@ Developer.create!(
   bio: "An English mathematician and writer, chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine.",
   website: "https://example.com/ada",
   github: "ada",
-  twitter: "lovelace"
+  twitter: "lovelace",
+  pivot_skills: ["mentorship", "writing"],
+  technical_skills: ["Ruby", "Rails", "Python"]
 )
 
 business = Business.create!(

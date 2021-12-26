@@ -8,6 +8,9 @@ class Developer < ApplicationRecord
     not_interested: 3
   }
 
+  serialize :pivot_skills
+  serialize :technical_skills
+
   belongs_to :user
   has_many :conversations, -> { visible }
   has_many :notifications, as: :recipient
@@ -23,6 +26,12 @@ class Developer < ApplicationRecord
     max_file_size: 10.megabytes
   validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
   validates :preferred_max_salary, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
+
+  @skills_regex = /^[-\w\s]+(?:,[-\w\s]*)*$/i
+
+  validates :technical_skills, format: {with: @skills_regex, multiline: true}
+
+  validates :pivot_skills, format: {with: @skills_regex, multiline: true}
 
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
