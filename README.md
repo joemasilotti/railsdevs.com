@@ -1,14 +1,10 @@
-# Rails Devs
+# Hire The Pivot
 
-The reverse job board for Rails developers.
+The reverse job board for second career developers.
 
-![railsdevs homepage](https://user-images.githubusercontent.com/2092156/147028085-eea40303-c572-48c0-b107-0be93cce067c.png)
+`hirethePIVOT` empowers second career developers to find their next work. It is built on the idea that developers from previous careers bring **pivot skills** to their work, that is experiences and proficiencies that complement their technical skills.
 
-`railsdevs` empowers independent developers available for their next gig. It is being built around [three core values](https://railsdevs.com/about):
-
-1. Empowering the independent developer
-1. Doing everything in public
-1. Creating a safe, inclusive environment
+This initiative is built with the work of Joe Masilotti from [railsdevs.com](https://railsdevs.com). I am grateful for his work, building in open source, and his support.
 
 ---
 
