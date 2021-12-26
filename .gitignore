@@ -47,3 +47,5 @@ dip.yml
 
 # Ignore RubyMine settings files
 .idea/
+
+.env
