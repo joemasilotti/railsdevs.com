@@ -35,7 +35,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "is valid" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar")
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", technical_skills: "Ruby, Rails", pivot_skills: "writing, project management")
 
     assert developer.valid?
   end
@@ -71,6 +71,13 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_not_nil developer.errors[:bio]
   end
 
+  test "is valid with pivot skills and technical skills" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, writing", technical_skills: "Ruby, Rails")
+
+    assert developer.valid?
+  end
+
   test "available scope is only available developers" do
     travel_to Time.zone.local(2021, 5, 4)
 
@@ -102,7 +109,7 @@ class DeveloperTest < ActiveSupport::TestCase
     user = users(:without_profile)
 
     assert_changes "Notification.count", 1 do
-      Developer.create!(name: "name", hero: "hero", bio: "bio", user: user)
+      Developer.create!(name: "name", hero: "hero", bio: "bio", technical_skills: "Ruby, Rails", pivot_skills: "writing, project management", user: user)
     end
 
     assert_equal Notification.last.type, NewDeveloperProfileNotification.name

@@ -19,6 +19,7 @@ group :development, :test do
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
+  gem "byebug"
   gem "standard"
 end
 
