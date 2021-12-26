@@ -3,7 +3,7 @@
   <h3 class="mt-2 text-sm font-medium text-gray-900"><%= t(".title") %></h3>
   <p class="mt-1 text-sm text-gray-500"><%= t(".body") %></p>
   <div class="mt-6">
-    <%= link_to developers_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+    <%= link_to developers_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gradient-to-t from-orange-300 via-orange-300 to-yellow-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
       <%= inline_svg_tag "icons/solid/search", class: "-ml-1 mr-2 h-5 w-5" %>
       <%= t(".cta") %>
     <% end %>
