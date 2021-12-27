@@ -1,1 +1,0 @@
-Sitemap: https://rails-devs-sitemaps.s3.us-west-2.amazonaws.com/sitemaps/sitemap.xml.gz
