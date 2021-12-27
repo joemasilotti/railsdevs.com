@@ -2,6 +2,8 @@
 
 The reverse job board for second career developers.
 
+![hirethePIVOT homepage](https://raw.githubusercontent.com/bencgreenberg/hirethepivot.com/main/screenshot_27_12_2021.png)
+
 `hirethePIVOT` empowers second career developers to find their next work. It is built on the idea that developers from previous careers bring **pivot skills** to their work, that is experiences and proficiencies that complement their technical skills.
 
 This initiative is built with the work of Joe Masilotti from [railsdevs.com](https://railsdevs.com). I am grateful for his work, building in open source, and his support.
