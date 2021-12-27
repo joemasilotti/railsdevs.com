@@ -112,6 +112,8 @@ en:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
         bio_help_text: Write a few sentences about yourself.
+        technical_skills_help_text: List a few of your technical skills, comma (,) separated
+        pivot_skills_help_text: List a few of your pivot skills, comma (,) separated
         change: Change
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
