@@ -117,6 +117,8 @@ en:
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
         name_help_text_html: Your full name will <i>not</i> be displayed on your public profile.
+        pivot_skills_help_text: List a few of your pivot skills, comma (,) separated
+        technical_skills_help_text: List a few of your technical skills, comma (,) separated
         title: Profile
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file

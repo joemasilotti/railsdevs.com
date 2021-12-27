@@ -40,6 +40,22 @@
             </div>
 
             <div class="sm:col-span-6">
+              <%= form.label :technical_skills, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :technical_skills, class: field_classes(form, :technical_skills) %>
+              </div>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.technical_skills_help_text") %></p>
+            </div>
+
+            <div class="sm:col-span-6">
+              <%= form.label :pivot_skills, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :pivot_skills, class: field_classes(form, :pivot_skills) %>
+              </div>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.pivot_skills_help_text") %></p>
+            </div>
+
+            <div class="sm:col-span-6">
               <%= form.label :time_zone, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
                 <%= form.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {include_blank: true}, {class: field_classes(form, :time_zone)}) %>

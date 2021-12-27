@@ -14,4 +14,12 @@ class DeveloperCardComponent < ApplicationComponent
   def bio
     @developer.bio
   end
+
+  def technical_skills
+    @developer.technical_skills
+  end
+
+  def pivot_skills
+    @developer.pivot_skills
+  end
 end
