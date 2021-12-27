@@ -137,7 +137,7 @@ en:
         help_text: What kind of work are you looking for next?
         title: Work preferences
     index:
-      ror_developers: Ruby on Rails developers
+      ror_developers: Second career developers
     show:
       description: Description
       hire: Hire me
@@ -210,9 +210,9 @@ en:
   roles:
     new:
       hiring_developers: I'm hiring developers
-      hiring_developers_help_text: You're a business looking to hire a freelance, part-time, or full-time Ruby on Rails developer.
+      hiring_developers_help_text: You're a business looking to hire a freelance, part-time, or full-time second career developers.
       looking_for_work: I'm looking for work
-      looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
+      looking_for_work_help_text: You're a second career developer looking for your next gig.
       what_brings_you_here: What brings you to hirethePIVOT?
   shared:
     header:
