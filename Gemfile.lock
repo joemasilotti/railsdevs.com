@@ -237,8 +237,6 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
-      racc (~> 1.4)
     noticed (1.4.1)
       http (>= 4.0.0)
       rails (>= 5.2.0)
@@ -379,7 +377,7 @@ DEPENDENCIES
   redcarpet (~> 3.5)
   redis
   sidekiq (~> 6.3)
-  sitemap_generator
+  sitemap_generator (~> 6.1)
   sprockets-rails (~> 3.4.0)
   standard
   stripe (>= 2.8, < 6.0)
