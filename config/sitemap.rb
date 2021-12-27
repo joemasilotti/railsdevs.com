@@ -1,16 +1,19 @@
 require "aws-sdk-s3"
 
+bucket = Rails.application.credentials.dig(:aws, :sitemaps_bucket)
+region = Rails.application.credentials.dig(:aws, :region)
+
 SitemapGenerator::Sitemap.default_host = "https://railsdevs.com"
 SitemapGenerator::Sitemap.public_path = "tmp"
-SitemapGenerator::Sitemap.sitemaps_host = "https://rails-devs-sitemaps.s3.us-west-2.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "https://#{bucket}.s3.#{region}.amazonaws.com/"
 SitemapGenerator::Sitemap.sitemaps_path = "sitemaps/"
 
 if Rails.configuration.upload_sitemap
   SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
-    Rails.application.credentials.dig(:aws, :sitemaps_bucket),
+    bucket,
     aws_access_key_id: Rails.application.credentials.dig(:aws, :access_key_id),
     aws_secret_access_key: Rails.application.credentials.dig(:aws, :secret_access_key),
-    aws_region: Rails.application.credentials.dig(:aws, :region)
+    aws_region: region
   )
 end
 
