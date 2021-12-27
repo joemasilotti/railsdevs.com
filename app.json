@@ -1,0 +1,18 @@
+{
+    "buildpacks": [
+      { "url": "heroku/ruby" }
+    ],
+    "env": {
+      "GIT_REPO_URL": { "required": true },
+      "GIT_SSH_KEY": { "required": true },
+      "RACK_ENV": { "required": true },
+      "RAILS_ENV": { "required": true }
+    },
+    "stack": "heroku-18",
+    "formation": {
+      "web": {
+        "quantity": 1,
+        "size": "free"
+      }
+    }
+  }
