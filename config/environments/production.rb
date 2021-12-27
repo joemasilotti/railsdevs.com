@@ -93,7 +93,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => "smtp.office365.com", :port => 587 }
+  config.action_mailer.default_url_options = { :host => "hirethepivot.com" }
 
   # Configure host for URL helpers.
   Rails.application.routes.default_url_options[:host] = ENV["HOST"]
