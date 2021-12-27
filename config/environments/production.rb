@@ -88,6 +88,7 @@ Rails.application.configure do
     port: 587,
     domain: "hirethepivot.com",
     user_name: "ben@hirethepivot.com",
+    host: "damp-brushlands-27021.herokuapp.com",
     password: Rails.application.credentials.dig(:outlook, :password),
     authentication: :login,
     enable_starttls_auto: true
