@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   root to: "home#show"
 
+  get "robots.:format" => "robots#index"
+  get "/sitemap.xml.gz", to: redirect(Rails.configuration.sitemaps_host), as: :sitemap
+
   authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
     mount Sidekiq::Web => "/sidekiq"
   end
