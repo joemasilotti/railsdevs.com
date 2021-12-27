@@ -82,12 +82,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Use mailgun to send email.
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: Rails.application.credentials.dig(:mailgun, :api_key),
-    domain: Rails.application.credentials.dig(:mailgun, :domain)
+  # Use outlook to send email
+  config.action_mailer.smtp_settings = {
+    address: "smtp.office365.com",
+    port: 587,
+    domain: "hirethepivot.com",
+    user_name: "ben@hirethepivot.com",
+    password: Rails.application.credentials.dig(:outlook, :password),
+    authentication: :login,
+    enable_starttls_auto: true
   }
+  config.action_mailer.delivery_method = :smtp
 
   # Configure host for URL helpers.
   Rails.application.routes.default_url_options[:host] = ENV["HOST"]
