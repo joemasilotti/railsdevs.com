@@ -16,7 +16,6 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
 
     render_inline DeveloperOpenGraphTagsComponent.new(developer: developer)
 
-    assert_meta property: "og:image", count: 0
     assert_meta property: "twitter:site", count: 0
   end
 
