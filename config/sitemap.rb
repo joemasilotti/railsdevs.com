@@ -15,6 +15,7 @@ if Rails.configuration.upload_sitemap
 end
 
 SitemapGenerator::Sitemap.create do
+  add root_path, changefreq: "always", priority: 1, lastmod: Developer.maximum(:updated_at)
   add developers_path, changefreq: "always", priority: 1, lastmod: Developer.maximum(:updated_at)
   add about_path, changefreq: "weekly", priority: 0.9
 
