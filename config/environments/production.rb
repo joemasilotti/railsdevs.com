@@ -84,10 +84,11 @@ Rails.application.configure do
 
   # Use outlook to send email
   config.action_mailer.smtp_settings = {
-    address: "hirethepivot.com",
-    # port: 587,
+    address: "smtp.office365.com",
+    port: 587,
     domain: "hirethepivot.com",
     user_name: "ben@hirethepivot.com",
+    host: "hirethepivot.com",
     password: Rails.application.credentials.dig(:outlook, :password),
     authentication: :login,
     enable_starttls_auto: true
