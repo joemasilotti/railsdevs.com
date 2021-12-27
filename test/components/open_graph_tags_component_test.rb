@@ -6,7 +6,7 @@ class OpenGraphTagsComponentTest < ViewComponent::TestCase
 
     assert_meta property: "og:type"
     assert_meta property: "og:title", content: "hirethePIVOT"
-    assert_meta property: "og:description", content_begin_with: "Find Ruby"
+    assert_meta property: "og:description", content_begin_with: "Find second career developers"
     assert_meta property: "og:url"
     assert_meta property: "twitter:card"
   end

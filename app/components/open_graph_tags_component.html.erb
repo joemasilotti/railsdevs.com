@@ -5,6 +5,8 @@
 
 <% if image.present? %>
   <%= tag.meta property: "og:image", content: image %>
+<% else %>
+  <%= tag.meta property: "og:image", content: asset_path("favicon.png") %>
 <% end %>
 
 <%= tag.meta property: "twitter:card", content: "summary" %>
