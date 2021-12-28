@@ -36,7 +36,6 @@ module Railsdevs
     config.generators.system_tests = nil
 
     # Load custom configuration.
-    config.fathom = config_for(:fathom)
     config.support_email = "ben@hirethepivot.com"
 
     # Run background jobs via sidekiq.
