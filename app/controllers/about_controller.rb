@@ -4,6 +4,12 @@ class AboutController < ApplicationController
     @body = renderer.render(File.read(file("body"))).html_safe
   end
 
+  def terms
+  end
+
+  def privacy
+  end
+
   private
 
   def renderer
