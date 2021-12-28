@@ -78,6 +78,20 @@ class DeveloperTest < ActiveSupport::TestCase
     assert developer.valid?
   end
 
+  test "removes blank entries for pivot skills" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, ,writing, ", technical_skills: "Ruby, Rails")
+
+    assert developer.pivot_skills = ["customer relations", "writing"]
+  end
+
+  test "removes blank entries for technical skills" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, writing", technical_skills: "Ruby, ,Rails, Python, ")
+
+    assert developer.technical_skills = ["Ruby", "Rails", "Python"]
+  end
+
   test "available scope is only available developers" do
     travel_to Time.zone.local(2021, 5, 4)
 
