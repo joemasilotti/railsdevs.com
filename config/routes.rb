@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :stripe do
     resource :checkout, only: :show
+    resource :portal, only: :show
   end
 
   namespace :admin do
@@ -26,6 +27,9 @@ Rails.application.routes.draw do
   end
 
   root to: "home#show"
+
+  get "robots.:format" => "robots#index"
+  get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
 
   authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
     mount Sidekiq::Web => "/sidekiq"

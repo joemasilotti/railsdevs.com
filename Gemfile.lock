@@ -208,8 +208,6 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
-      racc (~> 1.4)
     noticed (1.4.1)
       http (>= 4.0.0)
       rails (>= 5.2.0)
@@ -300,6 +298,8 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sitemap_generator (6.1.2)
+      builder (~> 3.0)
     smart_properties (1.16.3)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -370,6 +370,7 @@ DEPENDENCIES
   redcarpet (~> 3.5)
   redis
   sidekiq (~> 6.3)
+  sitemap_generator (~> 6.1)
   sprockets-rails (~> 3.4)
   standard
   stimulus-rails (~> 0.7)
@@ -382,4 +383,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.31
+   2.3.2
