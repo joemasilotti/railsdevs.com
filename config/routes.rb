@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :conversations, only: :index
   end
 
+  get "/privacy", to: "about#privacy", as: :privacy_page
+
+  get "/terms", to: "about#terms", as: :terms_page
+
   root to: "home#show"
 
   authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
