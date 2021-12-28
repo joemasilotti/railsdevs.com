@@ -1,6 +1,6 @@
 
 <div role="list" class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-3">
-  <%= button_to notification_path(notification), params: {id: notification.id, redirect: conversation_path(notification.conversation)}, method: :patch, class: "w-full" do %>
+  <%= button_to notification_path(notification), method: :patch, class: "w-full" do %>
   <div class="relative bg-white py-5 px-6 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600">
     <div class="flex justify-between space-x-3">
       <span class="shrink-0 whitespace-nowrap text-sm text-gray-500">

@@ -14,7 +14,9 @@ class NotificationsController < ApplicationController
       @notification.mark_as_read!
     end
 
-    redirect_to params[:redirect]
+    if @notification.conversation
+      redirect_to conversation_path(@notification.conversation)
+    end
   end
 
   def read_notifications?

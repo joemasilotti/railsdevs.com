@@ -4,7 +4,7 @@ class Notification < ApplicationRecord
   belongs_to :recipient, polymorphic: true
 
   def conversation
-    message.conversation_id
+    message.conversation
   end
 
   def message
