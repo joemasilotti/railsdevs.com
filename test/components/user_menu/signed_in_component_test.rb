@@ -10,8 +10,8 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     render_inline UserMenu::SignedInComponent.new(user)
 
     assert_link_to new_business_path
-    assert_no_link_to new_developer_path
-    assert_no_link_to new_role_path
+    refute_link_to new_developer_path
+    refute_link_to new_role_path
   end
 
   test "links to developer if persisted" do
@@ -20,8 +20,8 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     render_inline UserMenu::SignedInComponent.new(user)
 
     assert_link_to new_developer_path
-    assert_no_link_to new_business_path
-    assert_no_link_to new_role_path
+    refute_link_to new_business_path
+    refute_link_to new_role_path
   end
 
   test "links to role if neither are persisted" do
@@ -30,8 +30,8 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     render_inline UserMenu::SignedInComponent.new(user)
 
     assert_link_to new_role_path
-    assert_no_link_to new_developer_path
-    assert_no_link_to new_business_path
+    refute_link_to new_developer_path
+    refute_link_to new_business_path
   end
 
   test "links to conversations if user has any" do
@@ -41,7 +41,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
 
     user = users(:with_available_profile)
     render_inline UserMenu::SignedInComponent.new(user)
-    assert_no_link_to conversations_path
+    refute_link_to conversations_path
   end
 
   test "links to conversations if user has a business profile" do
@@ -57,14 +57,24 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
 
     user = users(:with_business)
     render_inline UserMenu::SignedInComponent.new(user)
-    assert_no_link_to admin_conversations_path
+    refute_link_to admin_conversations_path
+  end
+
+  test "links to Stripe Customer Portal if the user is a customer" do
+    user = users(:with_business_conversation)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to stripe_portal_path
+
+    user = users(:empty)
+    render_inline UserMenu::SignedInComponent.new(user)
+    refute_link_to stripe_portal_path
   end
 
   def assert_link_to(path)
     assert_selector "a[href='#{path}']"
   end
 
-  def assert_no_link_to(path)
+  def refute_link_to(path)
     assert_no_selector "a[href='#{path}']"
   end
 end
