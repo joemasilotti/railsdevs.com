@@ -221,6 +221,7 @@ en:
   user_menu:
     signed_in_component:
       admin: Admin
+      billing: Billing
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations

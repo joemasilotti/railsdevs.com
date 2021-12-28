@@ -21,6 +21,10 @@ class UserMenu::SignedInComponent < ApplicationComponent
     user.conversations.any? || business?
   end
 
+  def customer?
+    user.payment_processor.present?
+  end
+
   def admin?
     user.admin?
   end

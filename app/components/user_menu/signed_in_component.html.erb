@@ -12,6 +12,7 @@
       <%= render UserMenu::MenuItemComponent.new(t(".my_business_profile"), new_business_path, condition: business?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".my_developer_profile"), new_developer_path, condition: developer?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".my_conversations"), conversations_path, condition: conversations?) %>
+      <%= render UserMenu::MenuItemComponent.new(t(".billing"), stripe_portal_path, condition: customer?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".admin"), admin_conversations_path, condition: admin?) %>
 
       <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {turbo: false}, class: "bg-transparent block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer w-full text-left" %>
