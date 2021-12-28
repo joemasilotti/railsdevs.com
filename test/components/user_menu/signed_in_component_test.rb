@@ -60,6 +60,46 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     assert_no_link_to admin_conversations_path
   end
 
+  test "links to new notifications view when no new notifications exist" do
+    user = users(:with_business)
+
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to notifications_path
+  end
+
+  test "links to new notifications view when new notifications exist" do
+    user = users(:with_business)
+    developer = developers(:available)
+    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to notifications_path
+  end
+
+  test "shows red alert dot when new notifications exist" do
+    user = users(:with_business)
+    developer = developers(:available)
+    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_element "notification-alert"
+  end
+
+  test "does not show red alert dot when no new notifications exist" do
+    user = users(:with_business)
+
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_no_element "notification-alert"
+  end
+
+  def assert_element(id)
+    assert_selector "##{id}"
+  end
+
+  def assert_no_element(id)
+    assert_no_selector "##{id}"
+  end
+
   def assert_link_to(path)
     assert_selector "a[href='#{path}']"
   end
