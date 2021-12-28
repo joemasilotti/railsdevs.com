@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :stripe do
     resource :checkout, only: :show
+    resource :portal, only: :show
   end
 
   namespace :admin do

@@ -60,6 +60,16 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     assert_no_link_to admin_conversations_path
   end
 
+  test "links to Stripe Customer Portal if the user is a customer" do
+    user = users(:with_business_conversation)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_link_to stripe_portal_path
+
+    user = users(:empty)
+    render_inline UserMenu::SignedInComponent.new(user)
+    assert_no_link_to stripe_portal_path
+  end
+
   def assert_link_to(path)
     assert_selector "a[href='#{path}']"
   end
