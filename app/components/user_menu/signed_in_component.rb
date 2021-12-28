@@ -24,4 +24,16 @@ class UserMenu::SignedInComponent < ApplicationComponent
   def admin?
     user.admin?
   end
+
+  def unread_notifications
+    unread_dev_notifications + unread_biz_notifications
+  end
+
+  def unread_dev_notifications
+    user.developer&.notifications&.unread || []
+  end
+
+  def unread_biz_notifications
+    user.business&.notifications&.unread || []
+  end
 end
