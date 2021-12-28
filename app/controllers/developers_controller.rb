@@ -14,6 +14,7 @@ class DevelopersController < ApplicationController
 
   def create
     @developer = current_user.build_developer(developer_params)
+
     if @developer.save
       redirect_to @developer, notice: t(".created")
     else
@@ -50,6 +51,9 @@ class DevelopersController < ApplicationController
   end
 
   def developer_params
+    params[:developer][:technical_skills] = DevelopersHelper.sanitize_skills(params[:developer][:technical_skills]) if params[:developer][:technical_skills]
+    params[:developer][:pivot_skills] = DevelopersHelper.sanitize_skills(params[:developer][:pivot_skills]) if params[:developer][:pivot_skills]
+
     params.require(:developer).permit(
       :name,
       :available_on,
