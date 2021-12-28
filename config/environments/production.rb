@@ -100,7 +100,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = ENV["HOST"]
 
   # Upload sitemap to S3.
-  config.upload_sitemap = true
+  # config.upload_sitemap = true
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
