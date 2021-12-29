@@ -87,6 +87,16 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
+  test "messages are formatted" do
+    sign_in @business.user
+    @conversation.messages.last.update!(body: "Line 1\n\nLine 2")
+
+    get conversation_path(@conversation)
+
+    assert_select "p", text: "Line 1"
+    assert_select "p", text: "Line 2"
+  end
+
   def message_params
     {
       message: {
