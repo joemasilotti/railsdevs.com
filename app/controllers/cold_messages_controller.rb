@@ -41,7 +41,7 @@ class ColdMessagesController < ApplicationController
   end
 
   def developer
-    @developer ||= Developer.find(params[:developer_id])
+    @developer ||= Developer.friendly.find(params[:developer_id])
   end
 
   def business

@@ -23,12 +23,12 @@ class DevelopersController < ApplicationController
   end
 
   def edit
-    @developer = Developer.find(params[:id])
+    @developer = Developer.friendly.find(params[:id])
     authorize @developer
   end
 
   def update
-    @developer = Developer.find(params[:id])
+    @developer = Developer.friendly.find(params[:id])
     authorize @developer
 
     if @developer.update(developer_params)
@@ -39,7 +39,7 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = Developer.find(params[:id])
+    @developer = Developer.friendly.find(params[:id])
   end
 
   private

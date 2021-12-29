@@ -1,6 +1,8 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  extend FriendlyId
+  friendly_id :randomizer, use: [:slugged, :history]
 
   enum search_status: {
     actively_looking: 1,
@@ -51,5 +53,9 @@ class Developer < ApplicationRecord
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+  end
+
+  def randomizer
+    Digest::SHA1.hexdigest("#{name} #{id}")[0..8]
   end
 end
