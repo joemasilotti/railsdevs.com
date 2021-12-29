@@ -6,6 +6,7 @@ available:
   bio: I am the first developer
   technical_skills: Ruby, Rails
   pivot_skills: customer relations, writing
+  slug: 12345
 
 unavailable:
   user: with_unavailable_profile
