@@ -8,7 +8,7 @@ class CompensationAmountComponent < ApplicationComponent
 
   def amounts
     amount_range.map do |amount|
-      helpers.number_to_currency(helpers.number_to_human(amount, format: "%n%u", units: {thousand: "K"}), precision: 0)
+      helpers.number_to_currency(helpers.number_to_human(amount, format: "%n%u", units: {thousand: "K", million: "M"}), precision: 0)
     end
   end
 
