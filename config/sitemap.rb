@@ -29,7 +29,5 @@ SitemapGenerator::Sitemap.create do
   add new_user_confirmation_path, changefreq: "monthly", priority: 0.7
 
   add new_role_path, changefreq: "weekly", priority: 0.6
-  add new_developer_path, changefreq: "weekly", priority: 0.6
-  add new_business_path, changefreq: "weekly", priority: 0.6
   add pricing_path, changefreq: "weekly", priority: 0.5
 end
