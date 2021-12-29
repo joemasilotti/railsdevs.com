@@ -4,7 +4,7 @@ class PaywallComponent < ApplicationComponent
     @paywalled = paywalled
   end
 
-  def paywalled?
+  def render?
     customer? || owner?
   end
 
@@ -15,10 +15,8 @@ class PaywallComponent < ApplicationComponent
   end
 
   def owner?
-    begin
-      @paywalled.user == @user
-    rescue
-      false
-    end
+    @paywalled.user == @user
+  rescue
+    false
   end
 end
