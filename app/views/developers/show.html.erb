@@ -20,9 +20,11 @@
               <div class="md:flex md:items-center md:justify-between md:space-x-4 lg:border-b lg:pb-6">
                 <div>
                   <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
-                  <%= render PaywallComponent.new(user: current_user, paywalled: @developer) do %>
-                    <%= inline_svg_tag "icons/solid/user.svg", class: "inline text-gray-400 mr-1 -mt-1.5 h-4.5 w-4.5" %>
-                    <h2 class="inline text-gray-500"><%= @developer.name %></h2>
+                  <%= render PaywalledComponent.new(user: current_user, paywalled: @developer) do %>
+                    <div class="mt-2 text-sm text-gray-500">
+                      <%= inline_svg_tag "icons/solid/user.svg", class: "inline text-gray-400 mr-0.5 -mt-1.5 h-4.5 w-4.5" %>
+                      <h2 class="inline font-medium text-gray-600"><%= @developer.name %></h2>
+                    </div>
                   <% end %>
                 </div>
 

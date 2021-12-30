@@ -1,4 +1,4 @@
-class PaywallComponent < ApplicationComponent
+class PaywalledComponent < ApplicationComponent
   def initialize(user:, paywalled:)
     @user = user
     @paywalled = paywalled
@@ -11,11 +11,11 @@ class PaywallComponent < ApplicationComponent
   private
 
   def customer?
-    @user.active_business_subscription?
+    @user&.active_business_subscription?
   end
 
   def owner?
-    @paywalled.user == @user
+    @paywalled.user == @user && !@user.nil?
   rescue
     false
   end
