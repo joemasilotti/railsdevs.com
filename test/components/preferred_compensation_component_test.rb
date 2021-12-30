@@ -21,4 +21,10 @@ class PreferredCompensationComponentTest < ViewComponent::TestCase
     render_inline(PreferredCompensationComponent.new(@developer))
     assert_text "$250K"
   end
+
+  test "renders yearly salary in seven digits" do
+    @developer.preferred_min_salary = 2500000
+    render_inline(PreferredCompensationComponent.new(@developer))
+    assert_text "$2.5M"
+  end
 end
