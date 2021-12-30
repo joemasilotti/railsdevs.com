@@ -1,6 +1,15 @@
 require "test_helper"
 
 class ConversationTest < ActiveSupport::TestCase
+  test "messages are sorted oldest first" do
+    conversation = conversations(:one)
+    assert_equal conversation.messages.pluck(:body), [
+      "Earlier message.",
+      "One message.",
+      "Two message."
+    ]
+  end
+
   test "visible does not include ones blocked by the developer" do
     conversation = conversations(:one)
     assert Conversation.visible.include?(conversation)

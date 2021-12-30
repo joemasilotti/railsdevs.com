@@ -3,6 +3,12 @@ from_business:
   body: One message.
   sender: with_conversation (Business)
 
+from_business_earlier:
+  conversation: one
+  body: Earlier message.
+  sender: with_conversation (Business)
+  created_at: <%= Time.current - 1.day %>
+
 from_developer:
   conversation: one
   body: Two message.

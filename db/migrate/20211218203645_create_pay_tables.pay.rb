@@ -1,5 +1,5 @@
 # This migration comes from pay (originally 1)
-class CreatePayTables < ActiveRecord::Migration[6.0]
+class CreatePayTables < ActiveRecord::Migration[7.0]
   def change
     create_table :pay_customers do |t|
       t.belongs_to :owner, polymorphic: true, index: false
