@@ -2,7 +2,7 @@ class Developer < ApplicationRecord
   include Availability
   include Avatarable
   extend FriendlyId
-  friendly_id :randomizer, use: [:slugged, :history]
+  friendly_id :randomizer, use: :slugged
 
   enum search_status: {
     actively_looking: 1,
