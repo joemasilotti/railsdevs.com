@@ -25,15 +25,7 @@ class UserMenu::SignedInComponent < ApplicationComponent
     user.admin?
   end
 
-  def unread_notifications
-    unread_dev_notifications + unread_biz_notifications
-  end
-
-  def unread_dev_notifications
-    user.developer&.notifications&.unread || []
-  end
-
-  def unread_biz_notifications
-    user.business&.notifications&.unread || []
+  def unread_notifications?
+    user.message_notifications&.unread&.any?
   end
 end

@@ -23,4 +23,24 @@ class User < ApplicationRecord
   def active_business_subscription?
     subscriptions.any?(&:active?)
   end
+
+  def message_notifications
+    if developer.present? && business.present?
+      developer_notifications.or(business_notifications).order(created_at: :desc)
+    elsif developer.present?
+      developer_notifications.order(created_at: :desc)
+    elsif business.present?
+      business_notifications.order(created_at: :desc)
+    end
+  end
+
+  private
+
+  def developer_notifications
+    Notification.where(recipient_type: "Developer", recipient: developer)
+  end
+
+  def business_notifications
+    Notification.where(recipient_type: "Business", recipient: business)
+  end
 end

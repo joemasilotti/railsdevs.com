@@ -10,7 +10,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
     sign_in users(:with_business)
 
     get read_notifications_path
-    assert_select "h3", "No past notifications"
+    assert_select "h3", "No read notifications"
   end
 
   test "you can view your past notifications if you have past (read) notifications" do
@@ -23,6 +23,6 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
     patch notification_path(notification), params: {id: notification.id, redirect: conversation_path(notification.conversation)}
 
     get read_notifications_path
-    assert_select "h1", "Past notifications"
+    assert_select "h1", "Read notifications"
   end
 end

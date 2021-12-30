@@ -2,9 +2,11 @@
   <div class="text-white px-2" style="position:relative">
   <%= link_to notifications_path do %>
     <%= inline_svg_tag "icons/outline/notification.svg", class: "mx-auto h-6 w-6 text-gray-400" %>
-        <% if unread_notifications.any? %>
-        <div id="notification-alert" class="absolute rounded-full bg-red-600 border-2 border-white w-3 h-3 top-1 right-2"></div>
-        <% end %>
+      <span class="sr-only"><%= t(".notifications_icon") %></span>
+      <% if unread_notifications? %>
+        <div class="absolute rounded-full bg-red-600 border-2 border-white w-3 h-3 top-1 right-2"></div>
+        <span class="sr-only"><%= t(".new_notifications") %></span>
+      <% end %>
     <% end %>
   </div>
   <div data-controller="toggle" data-toggle-close-class="hidden" class="ml-3 relative">
