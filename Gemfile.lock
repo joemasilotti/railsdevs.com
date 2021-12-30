@@ -135,6 +135,8 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     highline (2.0.3)
@@ -351,6 +353,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.0)
   devise (~> 4.8.1)
   erb_lint!
+  friendly_id (~> 5.4)
   hotwire-livereload
   hotwire-rails (~> 0.1)
   i18n-tasks
@@ -382,4 +385,4 @@ RUBY VERSION
    ruby 3.0.2p107
 
 BUNDLED WITH
-   2.2.31
+   2.3.2

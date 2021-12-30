@@ -38,6 +38,7 @@ end
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
+gem "friendly_id", "~> 5.4"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "noticed", "~> 1.4"
