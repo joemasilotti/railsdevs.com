@@ -167,7 +167,7 @@ en:
       you: You
   notifications:
     empty_state:
-      body: You have no new notifications available to display.
+      body: You have no unread notifications.
       title: No new notifications
     index:
       cta: View history
@@ -210,10 +210,10 @@ en:
       unauthorized: You don't have access to that.
   read_notifications:
     empty_state:
-      body: You have no past notifications available to display.
-      title: No past notifications
+      body: You have no read notifications.
+      title: No read notifications
     index:
-      title: Past notifications
+      title: Read notifications
   role_type_component:
     interested_in_roles: Interested in roles
   roles:
@@ -238,6 +238,8 @@ en:
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
+      new_notifications: You have a new notification
+      notifications_icon: Open new notifications page
       open_user_menu: Open user menu
       sign_out: Sign out
     signed_out_component:
