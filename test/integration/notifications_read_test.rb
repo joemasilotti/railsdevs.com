@@ -2,14 +2,14 @@ require "test_helper"
 
 class ReadNotificationsTest < ActionDispatch::IntegrationTest
   test "you must be signed in" do
-    get read_notifications_path
+    get notifications_read_index_path
     assert_redirected_to new_user_registration_path
   end
 
   test "you can view the history page even if no read notifications exist" do
     sign_in users(:with_business)
 
-    get read_notifications_path
+    get notifications_read_index_path
     assert_select "h3", "No read notifications"
   end
 
@@ -22,7 +22,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
     patch notification_path(notification), params: {id: notification.id, redirect: conversation_path(notification.conversation)}
 
-    get read_notifications_path
+    get notifications_read_index_path
     assert_select "h1", "Read notifications"
   end
 end

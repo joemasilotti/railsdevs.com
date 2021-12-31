@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resource :role, only: :new
   resources :businesses, except: :destroy
   resources :notifications, only: %i[index update], controller: :notifications
-  resources :read_notifications, path: "notifications/read", only: :index, controller: :read_notifications
+  namespace :notifications do
+    resources :read, only: :index
+  end
   resources :conversations, only: %i[index show] do
     resources :messages, only: :create
     resource :block, only: %i[new create]
