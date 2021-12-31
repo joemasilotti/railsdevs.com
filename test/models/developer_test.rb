@@ -181,4 +181,49 @@ class DeveloperTest < ActiveSupport::TestCase
       refute @developer.valid?
     end
   end
+
+  test "invalid with twitter full URL" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, twitter: "https://twitter.com/hirethepivot")
+
+    refute developer.valid?
+    assert_not_nil developer.errors[:twitter]
+  end
+
+  test "invalid with linkedin full URL" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, twitter: "https://www.linkedin.com")
+
+    refute developer.valid?
+    assert_not_nil developer.errors[:linkedin]
+  end
+
+  test "invalid with github full URL" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, twitter: "github.com")
+
+    refute developer.valid?
+    assert_not_nil developer.errors[:github]
+  end
+
+  test "is valid with github username" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, writing", technical_skills: "Ruby, Rails", github: "rails")
+
+    assert developer.valid?
+  end
+
+  test "is valid with linkedin username" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, writing", technical_skills: "Ruby, Rails", linkedin: "ruby")
+
+    assert developer.valid?
+  end
+
+  test "is valid with twitter username" do
+    user = users(:with_available_profile)
+    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar", pivot_skills: "customer relations, writing", technical_skills: "Ruby, Rails", twitter: "hirethepivot")
+
+    assert developer.valid?
+  end
 end
