@@ -28,6 +28,9 @@ class Developer < ApplicationRecord
     max_file_size: 10.megabytes
   validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
   validates :preferred_max_salary, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
+  validates :github, {not_url: true}
+  validates :twitter, {not_url: true}
+  validates :linkedin, {not_url: true}
 
   @skills_regex = /^[-\w\s]+(?:,[-\w\s]*)*$/i
 
