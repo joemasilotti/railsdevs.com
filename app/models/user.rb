@@ -31,7 +31,13 @@ class User < ApplicationRecord
       developer_notifications.order(created_at: :desc)
     elsif business.present?
       business_notifications.order(created_at: :desc)
+    else
+      Notification.none
     end
+  end
+
+  def conversation_notifications(conversation)
+    message_notifications.select { |n| n.conversation == conversation && n.unread? }
   end
 
   private

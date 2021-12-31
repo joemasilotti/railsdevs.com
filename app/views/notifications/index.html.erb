@@ -1,5 +1,5 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <% if @notifications.any? %>
+  <% if @has_unread_notifications %>
     <h1 class="mt-6 text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
     <%= render @notifications %>
   <% else %>
