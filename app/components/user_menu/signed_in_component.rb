@@ -30,6 +30,6 @@ class UserMenu::SignedInComponent < ApplicationComponent
   end
 
   def unread_notifications?
-    user.message_notifications.unread&.any? && Feature.enabled?(:notifications)
+    user.message_notifications.unread&.any?
   end
 end

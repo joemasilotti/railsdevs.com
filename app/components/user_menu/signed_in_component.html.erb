@@ -1,14 +1,17 @@
 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
   <div class="text-white px-2" style="position:relative">
-  <%= link_to notifications_path do %>
-    <%= inline_svg_tag "icons/outline/notification.svg", class: "mx-auto h-6 w-6 text-gray-400" %>
-      <span class="sr-only"><%= t(".notifications_icon") %></span>
-      <% if unread_notifications? %>
-        <div class="absolute rounded-full bg-red-600 border-2 border-white w-3 h-3 top-1 right-2"></div>
-        <span class="sr-only"><%= t(".new_notifications") %></span>
+    <% if Feature.enabled?(:notifications) %>
+      <%= link_to notifications_path do %>
+        <%= inline_svg_tag "icons/outline/notification.svg", class: "mx-auto h-6 w-6 text-gray-400" %>
+        <span class="sr-only"><%= t(".notifications_icon") %></span>
+        <% if unread_notifications? %>
+          <div class="absolute rounded-full bg-red-600 border-2 border-white w-3 h-3 top-1 right-2"></div>
+          <span class="sr-only"><%= t(".new_notifications") %></span>
+        <% end %>
       <% end %>
     <% end %>
   </div>
+
   <div data-controller="toggle" data-toggle-close-class="hidden" class="ml-3 relative">
     <div>
       <button type="button" data-action="toggle#toggle" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
