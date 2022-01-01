@@ -28,4 +28,8 @@ class UserMenu::SignedInComponent < ApplicationComponent
   def admin?
     user.admin?
   end
+
+  def unread_notifications?
+    user.message_notifications.unread&.any? && Feature.enabled?(:notifications)
+  end
 end

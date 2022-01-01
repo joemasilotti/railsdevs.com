@@ -22,7 +22,7 @@ class AvailabilityComponentTest < ViewComponent::TestCase
   end
 
   test "will show Available in with time to availability" do
-    @developer.available_on = Date.today + 2.months
+    @developer.available_on = Date.today + 61.days
     render_inline(AvailabilityComponent.new(developer: @developer))
 
     assert_no_selector("svg")
