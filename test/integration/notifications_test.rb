@@ -30,29 +30,9 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
     notification = Notification.last
 
-    patch notification_path(notification.id), params: {id: notification.id, redirect: conversation_path(notification.conversation)}
+    get conversation_path(notification.conversation)
 
     get notifications_path
     assert_select "h3", "No new notifications"
-  end
-
-  test "you cannot mark notifications as read if you are not their recipient" do
-    user = users(:with_business)
-    developer = developers(:available)
-    sign_in user
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
-    notification1 = Notification.last
-    get notifications_path
-    assert_select "h1", "New notifications"
-
-    patch notification_path(notification1)
-    get notifications_path
-    assert_select "h3", "No new notifications"
-
-    Message.create!(developer: developer, business: user.business, sender: user.business, body: "Hello!")
-    notification2_before = Notification.last
-    patch notification_path(notification2_before)
-    notification2_after = Notification.last
-    assert notification2_after.read_at.nil?
   end
 end

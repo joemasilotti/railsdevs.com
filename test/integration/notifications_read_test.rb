@@ -20,7 +20,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
     Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
     notification = Notification.last
 
-    patch notification_path(notification), params: {id: notification.id, redirect: conversation_path(notification.conversation)}
+    get conversation_path(notification.conversation)
 
     get notifications_read_index_path
     assert_select "h1", "Read notifications"
