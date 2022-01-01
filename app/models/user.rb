@@ -18,6 +18,8 @@ class User < ApplicationRecord
       .visible
   }
 
+  has_noticed_notifications
+
   scope :admin, -> { where(admin: true) }
 
   def active_business_subscription?
