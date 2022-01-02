@@ -172,12 +172,6 @@ en:
     index:
       cta: View history
       title: New notifications
-    read:
-      empty_state:
-        body: You have no read notifications.
-        title: No read notifications
-      index:
-        title: Read notifications
     new_message: "%{sender} sent you a message."
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
@@ -215,6 +209,12 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+  read_notifications:
+    empty_state:
+      body: You have no read notifications.
+      title: No read notifications
+    index:
+      title: Read notifications
   role_type_component:
     interested_in_roles: Interested in roles
   roles:

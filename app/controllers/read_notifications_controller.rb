@@ -1,4 +1,4 @@
-class Notifications::ReadController < ApplicationController
+class ReadNotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
