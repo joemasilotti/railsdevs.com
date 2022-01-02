@@ -4,7 +4,7 @@
     <%= render @notifications %>
   <% else %>
     <div class="mt-8">
-      <%= render "empty_state" %>
+      <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), icon: "icons/outline/bell.svg") %>
     </div>
   <% end %>
   <div class="mt-6 mx-auto">
