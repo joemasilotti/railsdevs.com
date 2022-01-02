@@ -1,0 +1,25 @@
+<%= tag.div id: id, class: container_classes do %>
+  <%= content %>
+<% end %>
+
+<div class="mt-8">
+  <%= pagy_links do %>
+    <%== pagy_nav pagy %>
+  <% end %>
+</div>
+
+<%= tag.turbo_frame id: "#{id}-#{pagy.page}" do %>
+  <%= tag.turbo_stream target: id, action: "append" do %>
+    <%= tag.template do %>
+      <% unless pagy.page == 1 %>
+        <%= content %>
+      <% end %>
+      <% if pagy.next %>
+        <%= tag.turbo_frame id: "#{id}-#{pagy.page + 1}", src: url_for(url_array), loading: :lazy do %>
+          <%= loading_icon %>
+        <% end %>
+      <% end %>
+      <%= tag.turbo_stream target: "#{id}-#{pagy.page}", action: "remove" %>
+    <% end %>
+  <% end %>
+<% end %>
