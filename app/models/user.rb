@@ -27,19 +27,7 @@ class User < ApplicationRecord
   end
 
   def message_notifications
-    if developer.present? && business.present?
-      developer_notifications.or(business_notifications).order(created_at: :desc)
-    elsif developer.present?
-      developer_notifications.order(created_at: :desc)
-    elsif business.present?
-      business_notifications.order(created_at: :desc)
-    else
-      Notification.none
-    end
-  end
-
-  def conversation_notifications(conversation)
-    message_notifications.select { |n| n.conversation == conversation && n.unread? }
+    developer_notifications.or(business_notifications).order(created_at: :desc)
   end
 
   private
