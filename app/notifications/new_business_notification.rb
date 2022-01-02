@@ -4,6 +4,14 @@ class NewBusinessNotification < Noticed::Base
 
   param :business
 
+  def title
+    t "notifications.new_business", business: business.name
+  end
+
+  def url
+    business_path(business)
+  end
+
   def business
     params[:business]
   end

@@ -3,9 +3,6 @@ class Business < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
-  has_many :notifications, as: :recipient
-
-  has_noticed_notifications
 
   validates :name, presence: true
   validates :company, presence: true

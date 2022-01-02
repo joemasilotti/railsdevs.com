@@ -27,6 +27,6 @@ class MessageTest < ActiveSupport::TestCase
     end
 
     assert_equal Notification.last.type, NewMessageNotification.name
-    assert_equal Notification.last.recipient, developer
+    assert_equal Notification.last.recipient, developer.user
   end
 end
