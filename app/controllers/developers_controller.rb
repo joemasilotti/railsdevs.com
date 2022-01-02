@@ -5,7 +5,10 @@ class DevelopersController < ApplicationController
   before_action :require_new_developer!, only: %i[new create]
 
   def index
-    @pagy, @developers = pagy(Developer.most_recently_added.with_attached_avatar)
+    developers = Developer
+      .includes(:role_type).with_attached_avatar
+      .most_recently_added
+    @pagy, @developers = pagy(developers)
   end
 
   def new
