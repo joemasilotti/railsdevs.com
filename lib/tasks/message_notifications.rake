@@ -16,6 +16,6 @@ namespace :message_notifications do
   end
 
   task mark_as_read: :environment do
-    Notification.where(type: "NewMessageNotification").mark_as_read!
+    Notification.mark_as_read!
   end
 end
