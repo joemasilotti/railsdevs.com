@@ -178,6 +178,7 @@ en:
         title: No read notifications
       index:
         title: Read notifications
+    new_message: "%{sender} sent you a message."
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
