@@ -1,5 +1,5 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <% if @has_unread_notifications %>
+  <% if @notifications.any? %>
     <h1 class="mt-6 text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
     <%= render @notifications %>
   <% else %>
@@ -8,8 +8,8 @@
     </div>
   <% end %>
   <div class="mt-6 mx-auto">
-    <% if @has_read_notifications %>
-      <%= link_to notifications_read_index_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+    <% if @read_notifications.any? %>
+      <%= link_to read_notifications_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
         <%= inline_svg_tag "icons/solid/search", class: "-ml-1 mr-2 h-5 w-5" %>
         <%= t(".cta") %>
       <% end %>

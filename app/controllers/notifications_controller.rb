@@ -3,7 +3,12 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = current_user.message_notifications.unread
-    @has_unread_notifications = current_user.message_notifications.unread&.any?
-    @has_read_notifications = current_user.message_notifications.read&.any?
+    @read_notifications = current_user.message_notifications.read
+  end
+
+  def show
+    notification = current_user.message_notifications.find(params[:id])
+    notification.mark_as_read!
+    redirect_to notification.to_notification.url
   end
 end

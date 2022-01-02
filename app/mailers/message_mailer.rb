@@ -1,7 +1,9 @@
 class MessageMailer < ApplicationMailer
   def new_message
-    @message = params[:message]
-    @sender = @message.sender
-    mail(to: @message.recipient.user.email, subject: "#{@sender.name} sent you a message on railsdevs")
+    @notification = params[:record]
+    instance = @notification.to_notification
+    email = instance.message.recipient.user.email
+    @sender = instance.message.sender.name
+    mail(to: email, subject: "#{@sender} sent you a message on railsdevs")
   end
 end
