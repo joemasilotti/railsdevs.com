@@ -92,14 +92,14 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
 
     render_inline UserMenu::SignedInComponent.new(user)
-    assert_css "bg-red-600"
+    assert_css "bg-red-400"
   end
 
   test "does not show red alert dot when no new notifications exist" do
     user = users(:with_business)
 
     render_inline UserMenu::SignedInComponent.new(user)
-    assert_no_css "bg-red-600"
+    assert_no_css "bg-red-400"
   end
 
   def assert_css(class_name)
