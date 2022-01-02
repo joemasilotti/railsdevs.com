@@ -166,11 +166,11 @@ en:
       wrote: wrote
       you: You
   notifications:
-    empty_state:
-      body: You have no unread notifications.
-      title: No new notifications
     index:
       cta: View history
+      empty_state:
+        body: You have no unread notifications.
+        title: No new notifications
       title: New notifications
     new_business: "%{business} added their business."
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
