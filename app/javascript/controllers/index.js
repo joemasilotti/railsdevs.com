@@ -8,6 +8,3 @@ application.register("file-upload", FileUploadController)
 
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
-
-import ScrollerController from "./scroller_controller.js"
-application.register("scroller", ScrollerController)
