@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  after_action :mark_notifications_as_read, only: :show, if: -> { Feature.enabled?(:notifications) }
+  after_action :mark_notifications_as_read, only: :show
 
   def index
     @conversations = current_user.conversations
