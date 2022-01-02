@@ -7,7 +7,10 @@ def create_user!(name)
   )
 end
 
-Developer.create!(
+admin = create_user!("admin")
+admin.update!(admin: true)
+
+developer = Developer.create!(
   user: create_user!("Dennis"),
   name: "Dennis Ritchie",
   available_on: Date.new(2021, 1, 1),
@@ -49,3 +52,6 @@ business = Business.create!(
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)
 business.user.payment_processor.subscribe(plan: "railsdevs")
+
+conversation = Conversation.create!(developer: developer, business: business)
+Message.create!(conversation: conversation, sender: business, body: "Let's work together, Dennis!")
