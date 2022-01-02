@@ -38,8 +38,22 @@ module Railsdevs
     # Load custom configuration.
     config.fathom = config_for(:fathom)
     config.support_email = "joe@masilotti.com"
+    config.upload_sitemap = false
+    config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
 
-    # Run background jobs asynchronously in an in-process thread pool.
-    config.active_job.queue_adapter = :async
+    # Run background jobs via sidekiq.
+    config.active_job.queue_adapter = :sidekiq
+
+    # Search nested folders in config/locales for better organization
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+
+    # Permitted locales available for the application
+    config.i18n.available_locales = [:en]
+
+    # Set default locale
+    config.i18n.default_locale = :en
+
+    # Use default language as fallback if translation is missing
+    config.i18n.fallbacks = true
   end
 end

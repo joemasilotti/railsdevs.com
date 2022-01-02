@@ -2,3 +2,16 @@ one:
   user: with_business
   name: Business Owner One
   company: Company One
+  bio: We are Company One.
+
+two:
+  user: with_business_two
+  name: Business Owner Two
+  company: Company Two
+  bio: We are Company Two.
+
+with_conversation:
+  user: with_business_conversation
+  name: Business Owner with Conversation
+  company: Conversation Business
+  bio: We are Conversation Business.

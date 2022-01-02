@@ -9,7 +9,7 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def description
-    @description || "Find Ruby on Rails developers looking for freelance, contract, and full-time work."
+    @description || t("open_graph_tags_component.default_description")
   end
 
   def url

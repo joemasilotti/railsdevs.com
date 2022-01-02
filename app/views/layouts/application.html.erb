@@ -9,12 +9,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= open_graph_tags %>
+    <%= render "shared/favicon_tags" %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-    <%= analytics_tag %>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <%= analytics_tag %>
+    <%= hotwire_livereload_tags %>
   </head>
 
   <body class="min-h-full flex flex-col">
@@ -25,5 +28,6 @@
       <% end %>
     </div>
     <%= render "shared/footer" %>
+    <%= turbo_frame_tag "modal" %>
   </body>
 </html>

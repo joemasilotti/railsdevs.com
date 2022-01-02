@@ -10,7 +10,7 @@ class AvailabilityComponentTest < ViewComponent::TestCase
     render_inline(AvailabilityComponent.new(developer: @developer))
 
     assert_no_selector("svg")
-    assert_selector("span", text: "Currently unavailable")
+    assert_selector("span", text: I18n.t("availability_component.unspecified_html"))
   end
 
   test "will show Available now" do
@@ -18,11 +18,11 @@ class AvailabilityComponentTest < ViewComponent::TestCase
     render_inline(AvailabilityComponent.new(developer: @developer))
 
     assert_selector("svg")
-    assert_selector("span.text-green-700", text: "Available now")
+    assert_selector("span.text-green-700", text: I18n.t("availability_component.now_html"))
   end
 
   test "will show Available in with time to availability" do
-    @developer.available_on = Date.today + 2.months
+    @developer.available_on = Date.today + 61.days
     render_inline(AvailabilityComponent.new(developer: @developer))
 
     assert_no_selector("svg")
@@ -34,6 +34,6 @@ class AvailabilityComponentTest < ViewComponent::TestCase
     render_inline(AvailabilityComponent.new(developer: @developer, show_unavailable_icon: true))
 
     assert_selector("svg")
-    assert_selector("span", text: "Currently unavailable")
+    assert_selector("span", text: I18n.t("availability_component.unspecified_html"))
   end
 end

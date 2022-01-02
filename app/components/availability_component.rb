@@ -18,7 +18,7 @@ class AvailabilityComponent < ApplicationComponent
   end
 
   def date
-    developer.available_on&.to_s(:db)
+    developer.available_on&.to_formatted_s(:db)
   end
 
   def date_in_words

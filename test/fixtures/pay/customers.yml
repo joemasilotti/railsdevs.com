@@ -1,0 +1,5 @@
+stripe:
+  owner: with_business_conversation (User)
+  processor: stripe
+  processor_id: cus_1234
+  default: true

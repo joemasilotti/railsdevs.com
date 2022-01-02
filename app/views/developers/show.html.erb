@@ -2,7 +2,7 @@
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
 
-<div class="mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
+<div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
   <%= render CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,6 +19,11 @@
             <div>
               <div class="md:flex md:items-center md:justify-between md:space-x-4 lg:border-b lg:pb-6">
                 <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
+
+                <%= link_to new_developer_message_path(@developer), rel: "nofollow", class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+                  <%= inline_svg_tag "icons/solid/briefcase.svg", class: "-ml-1 mr-3 h-5 w-5" %>
+                  <%= t(".hire") %>
+                <% end %>
               </div>
 
               <aside class="mt-8 lg:hidden">
@@ -26,7 +31,7 @@
               </aside>
 
               <div class="py-3 lg:pt-6 lg:pb-0">
-                <h2 class="sr-only">Description</h2>
+                <h2 class="sr-only"><%= t(".description") %></h2>
                 <div class="prose max-w-prose">
                   <%= simple_format @developer.bio %>
                 </div>

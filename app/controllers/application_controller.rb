@@ -1,15 +1,16 @@
 class ApplicationController < ActionController::Base
   include Pundit
+  include StoredLocation
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def after_sign_in_path_for(user)
-    if user.developer.present? || user.business.present?
+    if (stored_location = stored_location_for(:user)).present?
+      stored_location
+    elsif user.developer.present? || user.business.present?
       super
-    elsif Feature.enabled?(:messaging)
-      new_role_path
     else
-      super
+      new_role_path
     end
   end
 
