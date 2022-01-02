@@ -17,22 +17,38 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     user = users(:with_business)
     developer = developers(:available)
     sign_in user
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+    create_message!(developer: developer, business: user.business)
 
     get notifications_path
     assert_select "h1", "New notifications"
   end
 
-  test "you can mark new notifications as read, and they will no longer appear on the page" do
+  test "viewing a notification marks it as read and redirects" do
     user = users(:with_business)
     developer = developers(:available)
     sign_in user
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+    message = create_message!(developer: developer, business: user.business)
     notification = Notification.last
 
-    get conversation_path(notification.conversation)
+    refute notification.reload.read?
+    get notification_path(notification)
 
-    get notifications_path
-    assert_select "h3", "No new notifications"
+    assert_redirected_to conversation_path(message.conversation)
+    assert notification.reload.read?
+  end
+
+  test "redirects to your notifications if the notification doesn't have a URL" do
+    user = users(:admin)
+    sign_in user
+    Conversation.create!(developer: developers(:available), business: businesses(:one))
+    notification = Notification.last
+
+    get notification_path(notification)
+
+    assert_redirected_to notifications_path
+  end
+
+  def create_message!(developer:, business:)
+    Message.create!(developer: developer, business: business, sender: developer, body: "Hello!")
   end
 end

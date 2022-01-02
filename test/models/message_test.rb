@@ -26,7 +26,10 @@ class MessageTest < ActiveSupport::TestCase
       Message.create!(developer: developer, business: business, sender: business, body: "Hello!")
     end
 
-    assert_equal Notification.last.type, NewMessageNotification.name
-    assert_equal Notification.last.recipient, developer
+    notification = Notification.last
+    assert_equal notification.type, NewMessageNotification.name
+    assert_equal notification.recipient, developer.user
+    assert_equal notification.to_notification.message, Message.last
+    assert_equal notification.to_notification.conversation, Message.last.conversation
   end
 end

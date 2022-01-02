@@ -172,12 +172,12 @@ en:
     index:
       cta: View history
       title: New notifications
-    read:
-      empty_state:
-        body: You have no read notifications.
-        title: No read notifications
-      index:
-        title: Read notifications
+    new_business: "%{business} added their business."
+    new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
+    new_developer_profile: "%{developer} added their developer profile."
+    new_message: "%{sender} sent you a message."
+    show:
+      notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
@@ -214,6 +214,12 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+  read_notifications:
+    empty_state:
+      body: You have no read notifications.
+      title: No read notifications
+    index:
+      title: Read notifications
   role_type_component:
     interested_in_roles: Interested in roles
   roles:
@@ -240,9 +246,9 @@ en:
       my_conversations: My conversations
       my_developer_profile: My developer profile
       new_notifications: You have a new notification
-      notifications_icon: View notifications
       open_user_menu: Open user menu
       sign_out: Sign out
+      view_notifications: View notifications
     signed_out_component:
       register: Register
       sign_in: Sign in

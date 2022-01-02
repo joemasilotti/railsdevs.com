@@ -1,1 +1,1 @@
-<p><b><%= @conversation.business.name %> (<%= @conversation.business.company %>)</b> started a conversation with <%= @conversation.developer.name %>.</p>
+<p><b><%= @name %> (<%= @company %>)</b> started <%= link_to "a conversation with #{@developer}", notification_url(@notification) %>.</p>

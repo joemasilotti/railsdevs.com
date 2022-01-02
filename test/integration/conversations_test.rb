@@ -47,4 +47,18 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
+
+  test "unread notifictions are marked as read" do
+    user = users(:with_developer_conversation)
+    developer = user.developer
+    business = businesses(:with_conversation)
+    conversation = conversations(:one)
+    Message.create!(developer: developer, business: business, body: "Hi!", sender: business, conversation: conversation)
+    refute Notification.last.read?
+
+    sign_in user
+    get conversation_path(conversation)
+
+    assert Notification.last.read?
+  end
 end
