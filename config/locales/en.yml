@@ -138,6 +138,7 @@ en:
       ror_developers: Ruby on Rails developers
     show:
       description: Description
+      edit: Edit
       hire: Hire me
     update:
       updated: Your profile was updated!
