@@ -4,6 +4,8 @@ class Conversation < ApplicationRecord
 
   has_many :messages, -> { order(:created_at) }, dependent: :destroy
 
+  has_noticed_notifications
+
   validates :developer_id, uniqueness: {scope: :business_id}
 
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }

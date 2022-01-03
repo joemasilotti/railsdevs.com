@@ -62,6 +62,7 @@ search:
     - app/controllers
     - app/helpers
     - app/mailers
+    - app/notifications
     - app/presenters
     - app/views
 

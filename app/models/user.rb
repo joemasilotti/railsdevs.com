@@ -7,7 +7,7 @@ class User < ApplicationRecord
     :validatable
   pay_customer
 
-  has_many :notifications, as: :recipient
+  has_many :notifications, as: :recipient, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
 
