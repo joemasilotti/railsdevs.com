@@ -10,6 +10,7 @@ module.exports = {
   ],
 
   content: [
+    "./app/assets/**/*.svg",
     "./app/components/**/*.{rb,html,html.erb,yml}",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",

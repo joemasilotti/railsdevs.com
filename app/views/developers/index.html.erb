@@ -8,25 +8,13 @@
       <%= t(".ror_developers") %>
     </h3>
   </div>
-
-  <div id="developers" class="space-y-8">
+  <%= render PagyPaginatorComponent.new(id: "developers",
+        pagy: @pagy,
+        url_array: [:developers],
+        container_classes: "space-y-8") do |component| %>
+    <% component.loading_icon do %>
+      <%= render LoadingComponent.new %>
+    <% end %>
     <%= render DeveloperCardComponent.with_collection(@developers) %>
-  </div>
-
-  <div class="mt-8">
-    <%= pagy_links do %>
-      <%== pagy_nav @pagy %>
-    <% end %>
-  </div>
-
-  <%= turbo_frame_tag "developers-#{@pagy.page}" do %>
-    <%= turbo_stream.append "developers" do %>
-      <% unless @pagy.page == 1 %>
-        <%= render DeveloperCardComponent.with_collection(@developers) %>
-      <% end %>
-      <% if @pagy.next %>
-        <%= turbo_frame_tag "developers-#{@pagy.page + 1}", src: [:developers, page: @pagy.next], loading: :lazy %>
-      <% end %>
-    <% end %>
   <% end %>
 </div>
