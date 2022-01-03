@@ -1,8 +1,10 @@
 class NotificationsController < ApplicationController
+  include Pagy::Backend
+
   before_action :authenticate_user!
 
   def index
-    @notifications = current_user.notifications.unread.newest_first
+    @pagy, @notifications = pagy(current_user.notifications.unread.newest_first)
     @read_notifications = current_user.notifications.read
   end
 
