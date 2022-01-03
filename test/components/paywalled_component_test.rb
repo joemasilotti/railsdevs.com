@@ -15,7 +15,7 @@ class PaywalledComponentTest < ViewComponent::TestCase
     assert_no_text "Test text"
   end
 
-  test "should should show paywall content to customers" do
+  test "should show paywall content to customers" do
     user = users(:with_business_conversation)
     developer = developers(:available)
     render_inline(PaywalledComponent.new(user: user, paywalled: developer)) { "Test text" }
@@ -29,5 +29,23 @@ class PaywalledComponentTest < ViewComponent::TestCase
     render_inline(PaywalledComponent.new(user: user, paywalled: developer)) { "Test text" }
 
     assert_text "Test text"
+  end
+
+  test "should show small CTA if paywalled" do
+    user = users(:with_business)
+    developer = developers(:available)
+
+    render_inline(PaywalledComponent.new(user: user, paywalled: developer, size: :small)) { "Test text" }
+    assert_text I18n.t("paywalled_component.title")
+    assert_no_text I18n.t("paywalled_component.description")
+  end
+
+  test "should show large CTA if paywalled" do
+    user = users(:with_business)
+    developer = developers(:available)
+
+    render_inline(PaywalledComponent.new(user: user, paywalled: developer, size: :large)) { "Test text" }
+    assert_text I18n.t("paywalled_component.title")
+    assert_text I18n.t("paywalled_component.description")
   end
 end

@@ -180,6 +180,9 @@ en:
       notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  paywalled_component:
+    description: Information that is only visible with a business subscription.
+    title: Private information
   preferred_compensation_component:
     preferred_compensation: Preferred compensation
   pricing:
