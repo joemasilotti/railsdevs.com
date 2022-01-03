@@ -180,6 +180,9 @@ en:
       notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  paywalled_component:
+    description: Information that is only visible with a business subscription.
+    title: Private information
   preferred_compensation_component:
     preferred_compensation: Preferred compensation
   pricing:
@@ -200,12 +203,14 @@ en:
           q: Who can I contact for more specific questions?
         title: Frequently asked questions
       feature:
-        '1': Support independent developers.
-        '2': Browse highly targeted profiles.
+        '1': Browse highly targeted profiles.
+        '2': Support independent developers.
         '3': Skip job descriptions and formal postings.
         '4': Talk directly to candidates.
-        '5': Hire as much or as little as you need.
-        '6': Cancel anytime with no obligations.
+        '5': Unlock private developer information.
+        '6': Hire as much or as little as you need.
+        '7': Cancel anytime with no obligations.
+        '8': Support open source development.
         subtitle: Browse developer profiles who can start working ASAP or when you need help. Save time by reaching out the perfect candidates.
         title: Hire at your own pace
       subtitle: Connect with independent, freelance Ruby on Rails developers who are available for work now.

@@ -17,10 +17,10 @@
         <div class="lg:col-span-2 lg:pr-8 lg:border-r lg:border-gray-200">
           <div>
             <div>
-              <div class="md:flex md:items-center md:justify-between md:space-x-4 lg:border-b lg:pb-6">
-                <div>
+              <div class="md:flex md:items-start md:justify-between md:space-x-4 lg:border-b lg:pb-6">
+                <div class="w-full">
                   <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
-                  <%= render PaywalledComponent.new(user: current_user, paywalled: @developer) do %>
+                  <%= render PaywalledComponent.new(user: current_user, paywalled: @developer, size: :small) do %>
                     <div class="mt-2 flex items-center text-sm font-medium text-gray-500">
                       <%= inline_svg_tag "icons/solid/user.svg", class: "flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" %>
                       <%= @developer.name %>
@@ -28,7 +28,7 @@
                   <% end %>
                 </div>
 
-                <%= link_to new_developer_message_path(@developer), rel: "nofollow", class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+                <%= link_to new_developer_message_path(@developer), rel: "nofollow", class: "shrink-0 mt-8 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
                   <%= inline_svg_tag "icons/solid/briefcase.svg", class: "-ml-1 mr-3 h-5 w-5" %>
                   <%= t(".hire") %>
                 <% end %>
