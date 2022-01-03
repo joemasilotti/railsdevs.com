@@ -15,8 +15,6 @@ class PaywalledComponent < ApplicationComponent
   end
 
   def owner?
-    @paywalled.user == @user && !@user.nil?
-  rescue
-    false
+    @paywalled&.user == @user && !@user.nil?
   end
 end

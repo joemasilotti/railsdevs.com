@@ -30,12 +30,4 @@ class PaywalledComponentTest < ViewComponent::TestCase
 
     assert_text "Test text"
   end
-
-  test "paywalls content when detecting ownership on bad target" do
-    user = users(:with_available_profile)
-    developer = "Bad input"
-    render_inline(PaywalledComponent.new(user: user, paywalled: developer)) { "Test text" }
-
-    assert_no_text "Test text"
-  end
 end
