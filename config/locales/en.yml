@@ -169,6 +169,19 @@ en:
     message:
       wrote: wrote
       you: You
+  notifications:
+    index:
+      cta: View history
+      empty_state:
+        body: You have no unread notifications.
+        title: No new notifications
+      title: New notifications
+    new_business: "%{business} added their business."
+    new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
+    new_developer_profile: "%{developer} added their developer profile."
+    new_message: "%{sender} sent you a message."
+    show:
+      notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find second career developers looking for freelance, contract, and full-time work.
   preferred_compensation_component:
@@ -205,6 +218,12 @@ en:
   pundit:
     errors:
       unauthorized: You don't have access to that.
+  read_notifications:
+    empty_state:
+      body: You have no read notifications.
+      title: No read notifications
+    index:
+      title: Read notifications
   role_type_component:
     interested_in_roles: Interested in roles
   roles:
@@ -229,8 +248,10 @@ en:
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
+      new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      view_notifications: View notifications
     signed_out_component:
       register: Register
       sign_in: Sign in

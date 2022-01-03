@@ -29,3 +29,7 @@ class UserMenu::SignedInComponent < ApplicationComponent
     user.admin?
   end
 end
+
+def unread_notifications?
+  user.notifications.unread.any?
+end

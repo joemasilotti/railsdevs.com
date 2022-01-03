@@ -7,7 +7,10 @@ def create_user!(name)
   )
 end
 
-Developer.create!(
+admin = create_user!("admin")
+admin.update!(admin: true)
+
+developer = Developer.create!(
   user: create_user!("Dennis"),
   name: "Dennis Ritchie",
   available_on: Date.new(2021, 1, 1),
@@ -16,8 +19,8 @@ Developer.create!(
   website: "https://example.com/dennis",
   github: "dennis",
   twitter: "ritchie",
-  pivot_skills: ["project management", "customer relations"],
-  technical_skills: ["Ruby", "Rails", "HTML"]
+  pivot_skills: "project management, customer relations",
+  technical_skills: "Ruby, Rails, HTML"
 )
 
 Developer.create!(
@@ -29,8 +32,8 @@ Developer.create!(
   website: "https://example.com/bjarne",
   github: "bjarne",
   twitter: "stroustrup",
-  pivot_skills: ["customer relations"],
-  technical_skills: ["JavaScript", "C++", "Yarn"]
+  pivot_skills: "customer relations",
+  technical_skills: "JavaScript, C, Yarn"
 )
 
 Developer.create!(
@@ -42,8 +45,8 @@ Developer.create!(
   website: "https://example.com/ada",
   github: "ada",
   twitter: "lovelace",
-  pivot_skills: ["mentorship", "writing"],
-  technical_skills: ["Ruby", "Rails", "Python"]
+  pivot_skills: "mentorship, writing",
+  technical_skills: "Ruby, Rails, Python"
 )
 
 business = Business.create!(
@@ -55,3 +58,6 @@ business = Business.create!(
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)
 business.user.payment_processor.subscribe(plan: "hirethepivot")
+
+conversation = Conversation.create!(developer: developer, business: business)
+Message.create!(conversation: conversation, sender: business, body: "Let's work together, Dennis!")
