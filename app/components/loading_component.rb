@@ -1,0 +1,2 @@
+class LoadingComponent < ApplicationComponent
+end
