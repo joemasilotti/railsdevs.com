@@ -7,7 +7,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   test "creates a Pay::Customer for Stripe for the user" do
     user = users(:with_business)
     stub_pay(user) do
-      assert_changes "Pay::Customer.count", 1 do
+      assert_difference "Pay::Customer.count", 1 do
         BusinessSubscriptionCheckout.new(user).url
       end
     end

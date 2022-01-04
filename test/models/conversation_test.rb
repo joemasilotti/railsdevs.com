@@ -55,7 +55,7 @@ class ConversationTest < ActiveSupport::TestCase
   end
 
   test "creating a conversation sends a notification to the admin" do
-    assert_changes "Notification.count", 1 do
+    assert_difference "Notification.count", 1 do
       Conversation.create!(developer: developers(:available), business: businesses(:one))
     end
 
