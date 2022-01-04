@@ -11,7 +11,7 @@ class Conversation < ApplicationRecord
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
 
-  after_create :send_admin_notification
+  after_create_commit :send_admin_notification
 
   def other_recipient(user)
     developer == user.developer ? business : developer

@@ -8,7 +8,7 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
 
-  after_create :send_recipient_notification
+  after_create_commit :send_recipient_notification
 
   def sender?(user)
     [user.developer, user.business].include?(sender)

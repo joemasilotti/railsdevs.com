@@ -1,6 +1,8 @@
 require "test_helper"
 
 class NotificationsTest < ActionDispatch::IntegrationTest
+  include NotificationsHelper
+
   test "you must be signed in" do
     get notifications_path
     assert_redirected_to new_user_registration_path
@@ -28,7 +30,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     developer = developers(:available)
     sign_in user
     message = create_message!(developer: developer, business: user.business)
-    notification = Notification.last
+    notification = last_message_notification
 
     refute notification.reload.read?
     get notification_path(notification)

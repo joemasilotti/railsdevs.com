@@ -26,7 +26,7 @@ class Developer < ApplicationRecord
   scope :available, -> { where("available_on <= ?", Date.today) }
   scope :most_recently_added, -> { order(created_at: :desc) }
 
-  after_create :send_admin_notification
+  after_create_commit :send_admin_notification
 
   def role_type
     super || build_role_type
