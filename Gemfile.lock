@@ -208,6 +208,8 @@ GEM
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
     noticed (1.4.1)
       http (>= 4.0.0)
       rails (>= 5.2.0)
@@ -294,6 +296,8 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
+    scout_apm (5.1.1)
+      parser
     sidekiq (6.3.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -369,6 +373,7 @@ DEPENDENCIES
   rails (~> 7.0)
   redcarpet (~> 3.5)
   redis
+  scout_apm (~> 5.1)
   sidekiq (~> 6.3)
   sitemap_generator (~> 6.1)
   sprockets-rails (~> 3.4)

@@ -1,0 +1,13 @@
+common: &defaults
+  key: <%= Rails.application.credentials.dig(:scout, :key) %>
+  monitor: false
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  monitor: true
