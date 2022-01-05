@@ -8,7 +8,7 @@ class DeveloperPrimaryActionComponentTest < ViewComponent::TestCase
   test "should show nothing by default" do
     render_inline DeveloperPrimaryActionComponent.new(user: nil, developer: @developer)
 
-    refute_text "Hire me"
+    assert_text "Hire me"
     refute_text "Edit"
   end
 

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class DeveloperPrimaryActionComponent < ApplicationComponent
   def initialize(user:, developer:)
     @user = user
@@ -7,10 +5,6 @@ class DeveloperPrimaryActionComponent < ApplicationComponent
   end
 
   def owner?
-    @user&.developer == @developer && !@developer.nil?
-  end
-
-  def business?
-    @user&.business&.persisted?
+    @user&.developer == @developer
   end
 end
