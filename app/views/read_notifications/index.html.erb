@@ -1,10 +1,7 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <% if @notifications.any? %>
     <h1 class="mt-6 text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
-    <%= render partial: "notifications/notification", collection: @notifications %>
-    <%= render PagyPaginatorComponent.new(id: "read_notifications",
-          pagy: @pagy,
-          url_array: [:read_notifications]) do |component| %>
+    <%= render PagyPaginatorComponent.new(id: "read_notifications", pagy: @pagy, url_array: [:read_notifications]) do |component| %>
       <% component.loading_icon do %>
         <%= render LoadingComponent.new %>
       <% end %>
