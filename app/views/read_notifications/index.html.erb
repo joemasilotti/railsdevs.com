@@ -4,8 +4,7 @@
     <%= render partial: "notifications/notification", collection: @notifications %>
     <%= render PagyPaginatorComponent.new(id: "read_notifications",
           pagy: @pagy,
-          url_array: [:read_notifications],
-          container_classes: "space-y-8") do |component| %>
+          url_array: [:read_notifications]) do |component| %>
       <% component.loading_icon do %>
         <%= render LoadingComponent.new %>
       <% end %>

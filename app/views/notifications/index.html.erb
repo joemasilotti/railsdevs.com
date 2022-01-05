@@ -10,8 +10,7 @@
 
   <%= render PagyPaginatorComponent.new(id: "notifications",
         pagy: @pagy,
-        url_array: [:notifications],
-        container_classes: "space-y-8") do |component| %>
+        url_array: [:notifications]) do |component| %>
     <% component.loading_icon do %>
       <%= render LoadingComponent.new %>
     <% end %>
