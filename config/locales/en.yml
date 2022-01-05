@@ -69,6 +69,12 @@ en:
       avatar: Avatar
       change_avatar: Change
       creating: Creating...
+      new_developer_notifications:
+        help_text: How often would you like notifications of new developers?
+        legend: New developer notifications
+      notifications:
+        help_text: How often would you like to receive notifications?
+        title: Notifications
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
       save: Save

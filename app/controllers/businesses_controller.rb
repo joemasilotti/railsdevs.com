@@ -50,7 +50,8 @@ class BusinessesController < ApplicationController
       :name,
       :company,
       :bio,
-      :avatar
+      :avatar,
+      :new_developer_notifications
     )
   end
 end
