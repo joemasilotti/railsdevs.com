@@ -86,6 +86,10 @@ stripe:
   price_id: price_YOUR_PRODUCT_PRICE_ID
 ```
 
+## Monitoring
+
+Application monitoring is powered by [Scout APM](https://scoutapm.com). This helps identify N+1 queries, slow queries, memory bloats, and more. Scout APM is free for open source.
+
 ## Testing
 
 Run `rails test` to run unit/integration tests.
