@@ -72,6 +72,7 @@ en:
     form:
       avatar: Avatar
       change_avatar: Change
+      processing: Processing
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
       save: Save
@@ -124,6 +125,7 @@ en:
       preferred_compensation:
         help_text: What is your preferred annual salary and/or hourly rate?
         title: Preferred compensation
+      processing: Processing
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
@@ -180,6 +182,7 @@ en:
     form:
       help: Add your message
       placeholder: Add your message...
+      sending: Sending
       submit: Send
     message:
       wrote: wrote
