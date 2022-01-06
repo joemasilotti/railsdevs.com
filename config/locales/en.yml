@@ -135,7 +135,7 @@ en:
         help_text: What kind of work are you looking for next?
         title: Work preferences
     index:
-      ror_developers: Ruby on Rails developers
+      title: Ruby on Rails developers
     show:
       description: Description
       hire: Hire me
@@ -156,7 +156,7 @@ en:
       subtitle_3: Stop scouring job boards and sit back as companies reach out to you first.
       title_1: The reverse job board for
       title_2: Rails developers
-      view_more_developers: View more developers
+      more: See more developers
   messages:
     form:
       help: Add your message

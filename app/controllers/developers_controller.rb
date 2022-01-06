@@ -1,14 +1,9 @@
 class DevelopersController < ApplicationController
-  include Pagy::Backend
-
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :require_new_developer!, only: %i[new create]
 
   def index
-    developers = Developer
-      .includes(:role_type).with_attached_avatar
-      .most_recently_added
-    @pagy, @developers = pagy(developers)
+    @query = DeveloperQuery.new(params)
   end
 
   def new
