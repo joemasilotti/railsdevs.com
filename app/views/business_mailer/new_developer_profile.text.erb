@@ -1,0 +1,14 @@
+New developers at Railsdevs.com!
+
+<%= @business.name %>,
+
+Here's your digest of new developers available for hire at Railsdevs.com:
+
+<%= "-" * 20 %>
+
+<% @developers.each do |dev| %>
+<%= dev.name %>: <%= dev.hero %>
+
+<%= "-" * 20 %>
+
+<% end %>
