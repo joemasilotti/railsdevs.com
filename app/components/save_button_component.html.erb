@@ -1,0 +1,7 @@
+<span class="show-when-enabled"><%= text %></span>
+
+<%= inline_svg_tag "icons/loading.svg", class: "show-when-disabled inline" %>
+
+<% if disable_with %>
+  <span class="show-when-disabled"><%= disable_with %></span>
+<% end %>
