@@ -92,4 +92,6 @@ Application monitoring is powered by [Scout APM](https://scoutapm.com). This hel
 
 ## Testing
 
-Run `rails test` to run unit/integration tests.
+* Run `rails test` to run unit/integration tests.
+* Run `rails test:system` to run system tests, using `headless_chrome`.
+* Run `HEADFUL=1 rails test:system` to run system tests, using `headful_chrome`.

@@ -32,6 +32,8 @@ end
 
 group :test do
   gem "capybara", "~> 3.36"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
 
 gem "aws-sdk-s3", "~> 1", require: false
