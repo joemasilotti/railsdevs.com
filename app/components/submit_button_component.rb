@@ -1,4 +1,4 @@
-class SaveButtonComponent < ApplicationComponent
+class SubmitButtonComponent < ApplicationComponent
   attr_reader :text, :disable_with
 
   def initialize(text:, disable_with: nil)
