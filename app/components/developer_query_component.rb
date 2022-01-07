@@ -8,8 +8,4 @@ class DeveloperQueryComponent < ApplicationComponent
   def sort
     query.sort
   end
-
-  def time_zones
-    Developer.where.not(time_zone: [nil, ""]).map { |d| ActiveSupport::TimeZone.new(d.time_zone).utc_offset / 3600 }.uniq.sort
-  end
 end
