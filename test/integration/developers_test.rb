@@ -11,6 +11,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
+  test "developers are sorted newest first" do
+    one = developers :available
+    two = developers :unavailable
+
+    get developers_path
+
+    assert_select "button.font-medium[value=newest]"
+    assert response.body.index(one.hero) < response.body.index(two.hero)
+  end
+
+  test "developers can be sorted by availability" do
+    get developers_path(sort: :availability)
+
+    assert_select "button.font-medium[value=availability]"
+    assert_select "h2", developers(:available).hero
+    assert_select "h2", text: developers(:with_conversation).hero, count: 0
+  end
+
   test "cannot create new proflie if already has one" do
     sign_in users(:with_available_profile)
 

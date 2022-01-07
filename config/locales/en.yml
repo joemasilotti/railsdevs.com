@@ -96,6 +96,12 @@ en:
       with: with
   cover_image_component:
     alt: Developer's cover image
+  developer_query_component:
+    sort:
+      availability: Availability
+      newest: Newest
+      title: Sort
+    title: Developer filters
   developers:
     create:
       created: Your profile was added!
@@ -151,12 +157,12 @@ en:
       available_developers: Developers available now
       get_started: Get started
       learn_more: Learn more
+      more: See more developers
       subtitle_1: railsdevs
       subtitle_2: empowers independent developers available for their next gig.
       subtitle_3: Stop scouring job boards and sit back as companies reach out to you first.
       title_1: The reverse job board for
       title_2: Rails developers
-      more: See more developers
   messages:
     form:
       help: Add your message

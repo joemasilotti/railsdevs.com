@@ -7,11 +7,7 @@ class DeveloperQuery
 
   def initialize(options = {})
     @options = options
-    @available = ActiveModel::Type::Boolean.new.cast(options[:available])
-  end
-
-  def available?
-    @available
+    @sort = options.delete(:sort)
   end
 
   def pagy
@@ -22,15 +18,25 @@ class DeveloperQuery
     @records ||= initialize_pagy.last
   end
 
+  def sort
+    @sort = @sort.to_s.downcase.to_sym
+    @sort == :availability ? :availability : :newest
+  end
+
   private
 
   def initialize_pagy
-    records = Developer
-      .includes(:role_type).with_attached_avatar
-      .most_recently_added
-    records = records.available if available?
-
+    records = Developer.includes(:role_type).with_attached_avatar
+    records = sorted(records)
     @pagy, @records = build_pagy(records)
+  end
+
+  def sorted(records)
+    if sort == :availability
+      records.merge(Developer.available_first)
+    else
+      records.merge(Developer.newest_first)
+    end
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.

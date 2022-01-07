@@ -5,8 +5,8 @@ class DeveloperQueryComponent < ApplicationComponent
     @query = query
   end
 
-  def available?
-    query.available?
+  def sort
+    query.sort
   end
 
   def time_zones
