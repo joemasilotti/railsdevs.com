@@ -1,7 +1,7 @@
 <h1>New developers at Railsdevs.com!</h1>
 
 <p><%= @business.name %>,</p>
-<p>Here's your digest of new developers available for hire at Railsdevs.com:</p>
+<p>Here's your digest of new developer profiles on railsdevs:</p>
 <hr />
 <% @developers.each do |dev| %>
   <p><%= link_to dev.name, dev %>: <%= dev.hero %></p>
