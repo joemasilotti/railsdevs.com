@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2021_12_18_203645) do
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
-    t.string "time_zone"
+    t.string "primary_time_zone"
   end
 
   create_table "messages", force: :cascade do |t|
