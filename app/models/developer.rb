@@ -18,7 +18,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :hero, presence: true
   validates :bio, presence: true
-  validates :search_status, inclusion: { in: search_statuses.keys}, on: :create
+  validates :search_status, inclusion: {in: search_statuses.keys}, on: :create
   validates :primary_time_zone, presence: true, on: :create
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes

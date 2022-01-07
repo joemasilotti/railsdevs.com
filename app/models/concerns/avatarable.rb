@@ -13,7 +13,7 @@ module Avatarable
 
     def avatar_validation
       if avatar.attached? == false
-        errors.add(:avatar, 'required')
+        errors.add(:avatar, "required")
       end
     end
   end
