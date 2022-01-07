@@ -18,6 +18,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :hero, presence: true
   validates :bio, presence: true
+  validates :search_status, inclusion: { in: search_statuses.keys}, on: :create
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes
   validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
