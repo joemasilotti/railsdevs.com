@@ -2,11 +2,9 @@
   <%= content %>
 <% end %>
 
-<div class="mt-8">
-  <%= pagy_links do %>
-    <%== pagy_nav pagy %>
-  <% end %>
-</div>
+<%= pagy_links do %>
+  <%== pagy_nav pagy %>
+<% end %>
 
 <%= tag.turbo_frame id: "#{id}-#{pagy.page}" do %>
   <%= tag.turbo_stream target: id, action: "append" do %>
