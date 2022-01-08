@@ -97,10 +97,20 @@ en:
   cover_image_component:
     alt: Developer's cover image
   developer_query_component:
+    apply: Apply
+    budget:
+      currency: USD
+      hourly: Max. hourly rate
+      per_hour: "/hr"
+      salary: Max. salary
+      title: Budget
+    gmt: GMT
     sort:
       availability: Availability
       newest: Newest
       title: Sort
+    timezone:
+      title: Timezone
     title: Developer filters
   developers:
     create:

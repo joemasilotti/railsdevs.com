@@ -19,6 +19,91 @@
             </div>
           </div>
         </div>
+
+        <div class="hidden sm:flex sm:items-baseline sm:space-x-8">
+          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+            <div>
+              <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
+                <span><%= t(".budget.title") %></span>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+              </button>
+            </div>
+
+            <div data-toggle-target="element" class="w-44 origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div class="space-y-4">
+                <div>
+                  <%= form.label :hourly_rate, t(".budget.hourly"), class: "block text-sm font-medium text-gray-700" %>
+                  <div class="mt-1 relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-gray-500 sm:text-sm">
+                        $
+                      </span>
+                    </div>
+                    <%= form.text_field :hourly_rate, value: hourly_rate, autocomplete: "off", placeholder: "0", class: "focus:ring-gray-500 focus:border-gray-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" %>
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <span class="text-gray-500 sm:text-sm" id="price-currency">
+                        <%= t(".budget.per_hour") %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <%= form.label :salary, t(".budget.salary"), class: "block text-sm font-medium text-gray-700" %>
+                  <div class="mt-1 relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <span class="text-gray-500 sm:text-sm">
+                        $
+                      </span>
+                    </div>
+                    <%= form.text_field :salary, value: salary, autocomplete: "off", placeholder: "0", class: "focus:ring-gray-500 focus:border-gray-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" %>
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <span class="text-gray-500 sm:text-sm" id="price-currency">
+                        <%= t(".budget.currency") %>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-5">
+                <div class="flex justify-end">
+                  <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <%= t(".apply") %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+            <div>
+              <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
+                <span><%= t(".timezone.title") %></span>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+              </button>
+            </div>
+
+            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div class="space-y-4">
+                <%= form.collection_check_boxes(:time_zones, time_zones, :first, :last) do |b| %>
+                  <div class="flex items-center">
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: selected?(b.object) %>
+                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="pt-5">
+                <div class="flex justify-end">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <%= t(".apply") %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

@@ -4,6 +4,12 @@ available:
   available_on: <%= Date.new(2021, 1, 1) %>
   hero: First developer
   bio: I am the first developer
+  preferred_min_hourly_rate: 100
+  preferred_max_hourly_rate: 150
+  preferred_min_salary: 100_000
+  preferred_max_salary: 150_000
+  time_zone: Eastern Time (US & Canada)
+  utc_offset: -18_000
 
 unavailable:
   user: with_unavailable_profile
@@ -11,6 +17,12 @@ unavailable:
   available_on: <%= Date.new(2222, 2, 2) %>
   hero: Second developer
   bio: I am the second developer
+  time_zone: Pacific Time (US & Canada)
+  utc_offset: -28_800
+  preferred_min_hourly_rate: 200
+  preferred_max_hourly_rate: 250
+  preferred_min_salary: 200_000
+  preferred_max_salary: 250_000
 
 with_conversation:
   user: with_developer_conversation

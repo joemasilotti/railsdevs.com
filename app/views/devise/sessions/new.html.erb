@@ -28,10 +28,10 @@
 
         <div class="flex items-center justify-between">
           <% if devise_mapping.rememberable? %>
-          <div class="flex items-center">
-            <%= form.check_box :remember_me, class: "h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded" %>
-            <%= form.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
-          </div>
+            <div class="flex items-center">
+              <%= form.check_box :remember_me, class: "h-4 w-4 text-gray-600 focus:ring-gray-500 border-gray-300 rounded" %>
+              <%= form.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+            </div>
           <% end %>
 
           <%= render "devise/shared/forgot_link" if devise_mapping.recoverable? %>
