@@ -2,7 +2,7 @@
   <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
 <% end %>
 
-<div class="bg-white max-w-5xl mx-auto lg:mt-16 shadow overflow-hidden sm:rounded-md">
+<div class="bg-white max-w-5xl mx-auto lg:mt-16 mb-16 shadow overflow-auto sm:rounded-md">
   <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">
     <div>
       <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
@@ -21,7 +21,9 @@
 
   <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200") do |component| %>
     <% component.loading_icon do %>
-      <%= render LoadingComponent.new %>
+      <div class="py-4">
+        <%= render LoadingComponent.new %>
+      </div>
     <% end %>
     <%= render DeveloperCardComponent.with_collection(@query.records) %>
   <% end %>

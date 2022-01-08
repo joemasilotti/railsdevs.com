@@ -23,7 +23,11 @@ class Developer < ApplicationRecord
   validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
   validates :preferred_max_salary, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
 
-  scope :available, -> { where("available_on <= ?", Date.today) }
+  scope :filter_by_utc_offset, ->(utc_offset) { where(utc_offset: utc_offset) }
+  scope :filter_by_hourly_rate, ->(hourly_rate) { where(preferred_min_hourly_rate: ..hourly_rate) }
+  scope :filter_by_salary, ->(salary) { where(preferred_min_salary: ..salary) }
+
+  scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
 
