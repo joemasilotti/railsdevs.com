@@ -1,20 +1,28 @@
 <% content_for :open_graph_tags do %>
-  <%= render OpenGraphTagsComponent.new %>
+  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
 <% end %>
 
-<div class="max-w-5xl mx-auto">
-  <div class="pb-5 px-4 lg:px-0 mt-12 sm:mt-24 sm:flex sm:items-center">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
-      <%= t(".ror_developers") %>
-    </h3>
+<div class="bg-white max-w-5xl mx-auto lg:mt-16 shadow overflow-hidden sm:rounded-md">
+  <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">
+    <div>
+      <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
+      <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description") %></p>
+    </div>
+
+    <div class="mt-4 flex space-x-3 md:mt-0">
+      <%= link_to new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+        <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
+        <%= t(".cta") %>
+      <% end %>
+    </div>
   </div>
-  <%= render PagyPaginatorComponent.new(id: "developers",
-        pagy: @pagy,
-        url_array: [:developers],
-        container_classes: "space-y-8") do |component| %>
+
+  <%= render DeveloperQueryComponent.new(@query) %>
+
+  <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200") do |component| %>
     <% component.loading_icon do %>
       <%= render LoadingComponent.new %>
     <% end %>
-    <%= render DeveloperCardComponent.with_collection(@developers) %>
+    <%= render DeveloperCardComponent.with_collection(@query.records) %>
   <% end %>
 </div>
