@@ -42,43 +42,37 @@ class DeveloperQuery
   private
 
   def initialize_pagy
-    records = Developer.includes(:role_type).with_attached_avatar
-    records = sorted(records)
-    records = time_zone_filtered(records)
-    records = hourly_rate_filtered(records)
-    records = salary_filtered(records)
-    @pagy, @records = build_pagy(records)
+    @_records = Developer.includes(:role_type).with_attached_avatar
+    sort_records
+    time_zone_filter_records
+    hourly_rate_filter_records
+    salary_filter_records
+    @pagy, @records = build_pagy(@_records)
   end
 
-  def sorted(records)
+  def sort_records
     if sort == :availability
-      records.merge(Developer.available_first)
+      @_records.merge!(Developer.available_first)
     else
-      records.merge(Developer.newest_first)
+      @_records.merge!(Developer.newest_first)
     end
   end
 
-  def time_zone_filtered(records)
+  def time_zone_filter_records
     if utc_offsets.any?
-      records.merge(Developer.filter_by_utc_offset(utc_offsets))
-    else
-      records
+      @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
     end
   end
 
-  def hourly_rate_filtered(records)
+  def hourly_rate_filter_records
     if hourly_rate.present?
-      records.merge(Developer.filter_by_hourly_rate(hourly_rate))
-    else
-      records
+      @_records.merge!(Developer.filter_by_hourly_rate(hourly_rate))
     end
   end
 
-  def salary_filtered(records)
+  def salary_filter_records
     if salary.present?
-      records.merge(Developer.filter_by_salary(salary))
-    else
-      records
+      @_records.merge!(Developer.filter_by_salary(salary))
     end
   end
 
