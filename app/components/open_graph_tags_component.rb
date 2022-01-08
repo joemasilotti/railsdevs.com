@@ -12,7 +12,7 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def description
-    @description || t(".default_description")
+    @description || t("open_graph_tags_component.default_description")
   end
 
   def url
