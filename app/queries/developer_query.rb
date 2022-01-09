@@ -8,8 +8,6 @@ class DeveloperQuery
   def initialize(options = {})
     @options = options
     @sort = options.delete(:sort)
-    @hourly_rate = options.delete(:hourly_rate)
-    @salary = options.delete(:salary)
     @time_zones = options.delete(:time_zones)
   end
 
@@ -25,16 +23,6 @@ class DeveloperQuery
     @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
   end
 
-  def hourly_rate
-    hourly_rate = @hourly_rate.to_i
-    hourly_rate > 0 ? hourly_rate : nil
-  end
-
-  def salary
-    salary = @salary.to_i
-    salary > 0 ? salary : nil
-  end
-
   def time_zones
     @time_zones.to_a.reject(&:blank?)
   end
@@ -45,8 +33,6 @@ class DeveloperQuery
     @_records = Developer.includes(:role_type).with_attached_avatar
     sort_records
     time_zone_filter_records
-    hourly_rate_filter_records
-    salary_filter_records
     @pagy, @records = build_pagy(@_records)
   end
 
@@ -61,18 +47,6 @@ class DeveloperQuery
   def time_zone_filter_records
     if utc_offsets.any?
       @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
-    end
-  end
-
-  def hourly_rate_filter_records
-    if hourly_rate.present?
-      @_records.merge!(Developer.filter_by_hourly_rate(hourly_rate))
-    end
-  end
-
-  def salary_filter_records
-    if salary.present?
-      @_records.merge!(Developer.filter_by_salary(salary))
     end
   end
 

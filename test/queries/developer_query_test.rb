@@ -28,27 +28,6 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     ]
   end
 
-  test "filtering by hourly rate" do
-    records = DeveloperQuery.new(hourly_rate: 125).records
-    assert_equal records, [developers(:available)]
-  end
-
-  test "filtering by salary" do
-    records = DeveloperQuery.new(salary: 125_000).records
-    assert_equal records, [developers(:available)]
-  end
-
-  test "hourly rate and salary are nil if not greater than zero" do
-    assert_nil DeveloperQuery.new(hourly_rate: -1).hourly_rate
-    assert_nil DeveloperQuery.new(salary: -1).salary
-
-    assert_nil DeveloperQuery.new(hourly_rate: 0).hourly_rate
-    assert_nil DeveloperQuery.new(salary: 0).salary
-
-    assert_nil DeveloperQuery.new.hourly_rate
-    assert_nil DeveloperQuery.new.salary
-  end
-
   test "filtering by time zones" do
     records = DeveloperQuery.new(time_zones: ["-8"]).records
     assert_equal records, [developers(:unavailable)]

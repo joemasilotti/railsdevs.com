@@ -8,13 +8,6 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_selector "button.text-gray-900", text: "Availability"
   end
 
-  test "populates budget input fields from query" do
-    query = DeveloperQuery.new(hourly_rate: 100, salary: 100_000)
-    render_inline DeveloperQueryComponent.new(query)
-    assert_selector "input[name=hourly_rate][value=100]"
-    assert_selector "input[name=salary][value=100000]"
-  end
-
   test "renders unique UTC offset pairs for developers" do
     query = DeveloperQuery.new({})
     render_inline DeveloperQueryComponent.new(query)

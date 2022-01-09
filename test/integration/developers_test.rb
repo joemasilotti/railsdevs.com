@@ -29,22 +29,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_conversation).hero, count: 0
   end
 
-  test "developers can be filtered by max. hourly rate" do
-    get developers_path(hourly_rate: 125)
-
-    assert_select "input[type=text][value=125][name=hourly_rate]"
-    assert_select "h2", developers(:available).hero
-    assert_select "h2", text: developers(:unavailable).hero, count: 0
-  end
-
-  test "developers can be filtered by max. salary" do
-    get developers_path(salary: 125_000)
-
-    assert_select "input[type=text][value=125000][name=salary]"
-    assert_select "h2", developers(:available).hero
-    assert_select "h2", text: developers(:unavailable).hero, count: 0
-  end
-
   test "developers can be filtered by time zone" do
     get developers_path(time_zones: ["-8"])
 

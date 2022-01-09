@@ -17,10 +17,6 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
-        preferred_max_hourly_rate: Hourly rate (max)
-        preferred_max_salary: Salary (max)
-        preferred_min_hourly_rate: Hourly rate (min)
-        preferred_min_salary: Salary (min)
         twitter: Twitter
         website: Website
       developer/search_status:
@@ -98,12 +94,6 @@ en:
     alt: Developer's cover image
   developer_query_component:
     apply: Apply
-    budget:
-      currency: USD
-      hourly: Max. hourly rate
-      per_hour: "/hr"
-      salary: Max. salary
-      title: Budget
     gmt: GMT
     sort:
       availability: Availability
@@ -122,7 +112,9 @@ en:
         help_text: Where can people learn more about you and your work?
         title: Online presence
       preferred_compensation:
-        help_text: What is your preferred annual salary and/or hourly rate?
+        description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
+        more_info: More info on this decision
+        subtitle: Preferred compensation removed from railsdevs
         title: Preferred compensation
       profile:
         avatar: Avatar
@@ -202,8 +194,6 @@ en:
   paywalled_component:
     description: Information that is only visible with a business subscription.
     title: Private information
-  preferred_compensation_component:
-    preferred_compensation: Preferred compensation
   pricing:
     show:
       cta: Get started today
