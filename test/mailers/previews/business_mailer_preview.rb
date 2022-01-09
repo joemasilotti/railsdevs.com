@@ -1,8 +1,8 @@
 class BusinessMailerPreview < ActionMailer::Preview
-  def new_developer_profile
+  def developer_profiles
     business = Business.first
     developers = Developer.limit(3)
 
-    BusinessMailer.with(business:, developers:).new_developer_profile
+    BusinessMailer.with(business:, developers:).developer_profiles
   end
 end
