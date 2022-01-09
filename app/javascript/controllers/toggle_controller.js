@@ -18,15 +18,15 @@ export default class extends Controller {
 
   toggleOpen() {
     this.elementTargets.forEach(element => {
-      this.hasCloseClass && element.classList.remove(this.closeClasses)
-      this.hasOpenClass && element.classList.add(this.openClasses)
+      this.hasCloseClass && element.classList.remove(...(this.closeClasses))
+      this.hasOpenClass && element.classList.add(...(this.openClasses))
     })
   }
 
   toggleClose() {
     this.elementTargets.forEach(element => {
-      this.hasOpenClass && element.classList.remove(this.openClasses)
-      this.hasCloseClass && element.classList.add(this.closeClasses)
+      this.hasOpenClass && element.classList.remove(...(this.openClasses))
+      this.hasCloseClass && element.classList.add(...(this.closeClasses))
     })
   }
 }
