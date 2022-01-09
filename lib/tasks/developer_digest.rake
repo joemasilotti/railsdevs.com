@@ -17,7 +17,7 @@ namespace :developer_digest do
     end
   end
 
-  desc "Email subscribed businesses about new developer s in the last week"
+  desc "Email subscribed businesses about new developers in the last week"
   task weekly: :environment do
     businesses = Business.weekly_developer_notifications
     developers = Developer.where(created_at: (Date.current.to_date - 7.days)..Date.current.to_date)
