@@ -9,7 +9,7 @@ class BusinessTest < ActiveSupport::TestCase
     user = users(:empty)
 
     assert_difference "Notification.count", 1 do
-      Business.create!(name: "name", company: "company", bio: "bio", user:, developer_notifications: 0)
+      Business.create!(name: "name", company: "company", bio: "bio", user:, developer_notifications: :no)
     end
 
     assert_equal Notification.last.type, NewBusinessNotification.name
@@ -49,11 +49,10 @@ class BusinessTest < ActiveSupport::TestCase
 
   test "should require new developer notifications" do
     @business.developer_notifications = nil
-
     refute @business.valid?
   end
 
-  test "should require new developer notifications in the given enum and not nil" do
+  test "should require new developer notifications in the given enum" do
     invalid_values = [-1, 3, 4]
 
     invalid_values.each do |value|
@@ -69,9 +68,6 @@ class BusinessTest < ActiveSupport::TestCase
 
       assert @business.valid?, "#{value} should be valid"
     end
-
-    @business.developer_notifications = nil
-    refute @business.valid?
   end
 
   test "should respond to expected states for new developer notifications" do
