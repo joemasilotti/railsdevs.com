@@ -5,7 +5,8 @@
       <span class="sr-only"><%= t(".view_notifications") %></span>
 
       <% if unread_notifications? %>
-        <span class="absolute top-1 right-2 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
+        <span class="absolute top-1 right-2 block h-2 w-2 rounded-full group-hover:ring-white bg-red-400"></span>
+        <span class="animate-ping absolute top-1 right-2 block h-2 w-2 rounded-full group-hover:ring-white bg-red-400"></span>
         <span class="sr-only"><%= t(".new_notifications") %></span>
       <% end %>
     <% end %>
