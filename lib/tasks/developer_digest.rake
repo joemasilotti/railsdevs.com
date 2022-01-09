@@ -2,7 +2,7 @@ namespace :developer_digest do
   desc "Email subscribed businesses about new developers in the last day"
   task daily: :environment do
     businesses = Business.daily_developer_notifications
-    developers = Developer.where("created_at > '#{1.day.ago}'")
+    developers = Developer.where(created_at: Date.yesterday..)
 
     if developers.empty?
       puts "There are no new developers to mention at this time."
@@ -20,7 +20,7 @@ namespace :developer_digest do
   desc "Email subscribed businesses about new developer s in the last week"
   task weekly: :environment do
     businesses = Business.weekly_developer_notifications
-    developers = Developer.where("created_at > '#{1.week.ago}'")
+    developers = Developer.where(created_at: (Date.current - 7.days)..)
 
     if developers.empty?
       puts "There are no new developers to mention at this time."
