@@ -51,7 +51,7 @@ class BusinessesController < ApplicationController
       :company,
       :bio,
       :avatar,
-      :new_developer_notifications
+      :developer_notifications
     )
   end
 end

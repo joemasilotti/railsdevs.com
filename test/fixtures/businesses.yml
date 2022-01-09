@@ -3,18 +3,18 @@ one:
   name: Business Owner One
   company: Company One
   bio: We are Company One.
-  new_developer_notifications: 0
+  developer_notifications: 0
 
 two:
   user: with_business_two
   name: Business Owner Two
   company: Company Two
   bio: We are Company Two.
-  new_developer_notifications: 0
+  developer_notifications: 0
 
 with_conversation:
   user: with_business_conversation
   name: Business Owner with Conversation
   company: Conversation Business
   bio: We are Conversation Business.
-  new_developer_notifications: 0
+  developer_notifications: 0

@@ -9,7 +9,7 @@ class BusinessTest < ActiveSupport::TestCase
     user = users(:empty)
 
     assert_difference "Notification.count", 1 do
-      Business.create!(name: "name", company: "company", bio: "bio", user: user, new_developer_notifications: 0)
+      Business.create!(name: "name", company: "company", bio: "bio", user:, developer_notifications: 0)
     end
 
     assert_equal Notification.last.type, NewBusinessNotification.name
@@ -48,7 +48,7 @@ class BusinessTest < ActiveSupport::TestCase
   end
 
   test "should require new developer notifications" do
-    @business.new_developer_notifications = nil
+    @business.developer_notifications = nil
 
     refute @business.valid?
   end
@@ -58,27 +58,27 @@ class BusinessTest < ActiveSupport::TestCase
 
     invalid_values.each do |value|
       assert_raises ArgumentError, "#{value} should be an invalid argument to the enum" do
-        @business.new_developer_notifications = value
+        @business.developer_notifications = value
       end
     end
 
     valid_values = [0, 1, 2]
 
     valid_values.each do |value|
-      @business.new_developer_notifications = value
+      @business.developer_notifications = value
 
       assert @business.valid?, "#{value} should be valid"
     end
   end
 
   test "should respond to expected states for new developer notifications" do
-    @business.new_developer_notifications = 0
+    @business.developer_notifications = 0
     assert @business.no_developer_notifications?
 
-    @business.new_developer_notifications = 1
+    @business.developer_notifications = 1
     assert @business.daily_developer_notifications?
 
-    @business.new_developer_notifications = 2
+    @business.developer_notifications = 2
     assert @business.weekly_developer_notifications?
   end
 

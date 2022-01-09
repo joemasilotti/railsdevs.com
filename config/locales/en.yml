@@ -69,7 +69,7 @@ en:
       avatar: Avatar
       change_avatar: Change
       creating: Creating...
-      new_developer_notifications:
+      developer_notifications:
         help_text: How often would you like notifications of new developers?
         legend: New developer notifications
       notifications:

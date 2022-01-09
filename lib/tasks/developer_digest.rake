@@ -12,7 +12,7 @@ namespace :developer_digest do
 
       businesses.each_with_index do |business, i|
         puts "Progress - #{((i + 1.0) / total_emails) * 100}%"
-        BusinessMailer.with(business: business, developers: developers).new_developer_profile.deliver_now
+        BusinessMailer.with(business:, developers:).new_developer_profile.deliver_now
       end
     end
   end
@@ -30,7 +30,7 @@ namespace :developer_digest do
 
       businesses.each_with_index do |business, i|
         puts "Progress - #{((i + 1.0) / total_emails) * 100}%"
-        BusinessMailer.with(business: business, developers: developers).new_developer_profile.deliver_now
+        BusinessMailer.with(business:, developers:).new_developer_profile.deliver_now
       end
     end
   end
