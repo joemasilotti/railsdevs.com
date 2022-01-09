@@ -16,7 +16,7 @@ module MetaTagsHelper
           ""
         end
 
-      assert_selector selector, visible: false, count: count
+      assert_selector selector, visible: false, count:
     end
   end
 end

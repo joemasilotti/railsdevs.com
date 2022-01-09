@@ -12,14 +12,14 @@ class DeveloperPrimaryActionComponentTest < ViewComponent::TestCase
     refute_text "Edit"
 
     user = users(:with_business)
-    render_inline DeveloperPrimaryActionComponent.new(user: user, developer: @developer)
+    render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
 
     assert_text "Hire me"
   end
 
   test "should show edit to owner of profile" do
     user = users(:with_available_profile)
-    render_inline DeveloperPrimaryActionComponent.new(user: user, developer: @developer)
+    render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
 
     assert_text "Edit"
   end

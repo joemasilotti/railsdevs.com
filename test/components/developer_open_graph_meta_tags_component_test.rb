@@ -4,7 +4,7 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
   test "always includes basic tags" do
     developer = Developer.new(id: 123, hero: "hero text", bio: "bio text")
 
-    render_inline DeveloperOpenGraphTagsComponent.new(developer: developer)
+    render_inline DeveloperOpenGraphTagsComponent.new(developer:)
 
     assert_meta property: "og:title", content: "hero text"
     assert_meta property: "og:description", content: "bio text"
@@ -14,7 +14,7 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
   test "excludes special tags when not present" do
     developer = Developer.new(id: 123)
 
-    render_inline DeveloperOpenGraphTagsComponent.new(developer: developer)
+    render_inline DeveloperOpenGraphTagsComponent.new(developer:)
 
     assert_meta property: "og:image", count: 0
     assert_meta property: "twitter:site", count: 0
@@ -24,7 +24,7 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
     developer = Developer.new(id: 123)
     developer.build_avatar_blob(filename: "avatar.jpg")
 
-    render_inline DeveloperOpenGraphTagsComponent.new(developer: developer)
+    render_inline DeveloperOpenGraphTagsComponent.new(developer:)
 
     assert_meta property: "og:image", content_end_with: "/avatar.jpg"
   end
@@ -32,7 +32,7 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
   test "includes twitter when present" do
     developer = Developer.new(id: 123, twitter: "me")
 
-    render_inline DeveloperOpenGraphTagsComponent.new(developer: developer)
+    render_inline DeveloperOpenGraphTagsComponent.new(developer:)
 
     assert_meta property: "twitter:site", content: "@me"
   end

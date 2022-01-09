@@ -80,7 +80,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   test "links to new notifications view when new notifications exist" do
     user = users(:with_business)
     developer = developers(:available)
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
 
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to notifications_path
@@ -89,7 +89,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   test "shows red alert dot when new notifications exist" do
     user = users(:with_business)
     developer = developers(:available)
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
 
     render_inline UserMenu::SignedInComponent.new(user)
     assert_css "bg-red-400"
