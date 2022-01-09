@@ -194,6 +194,7 @@ en:
   notifications:
     index:
       cta: View history
+      full: Full view
       empty_state:
         body: You have no unread notifications.
         title: No new notifications

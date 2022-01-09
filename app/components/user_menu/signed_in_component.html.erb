@@ -1,6 +1,6 @@
 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-  <div class="text-white px-2" style="position:relative">
-    <%= link_to notifications_path, class: "flex-shrink-0 text-gray-300 rounded-full hover:text-white group" do %>
+  <div class="relative text-white px-2">
+    <%= link_to notifications_path, data: {action: "toggle#toggle"}, class: "flex-shrink-0 text-gray-300 rounded-full hover:text-white group" do %>
       <%= inline_svg_tag "icons/outline/bell.svg", class: "mx-auto h-6 w-6" %>
       <span class="sr-only"><%= t(".view_notifications") %></span>
 
