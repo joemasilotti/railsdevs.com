@@ -70,11 +70,14 @@ en:
       change_avatar: Change
       creating: Creating...
       developer_notifications:
-        help_text: How often would you like notifications of new developers?
-        legend: New developer notifications
+        help_text: How often do you want to be emailed about new developers?
+        legend: Developer notifications
+        values:
+          daily: Daily
+          'no': Never
+          weekly: Weekly
       notifications:
-        help_text: How often would you like to receive notifications?
-        title: Notifications
+        title: Email notifications
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
       save: Save
@@ -228,7 +231,7 @@ en:
         '3': Skip job descriptions and formal postings.
         '4': Talk directly to candidates.
         '5': Unlock private developer information.
-        '6': Receive email digests of new candidates.
+        '6': Receive email updates of new candidates.
         '7': Cancel anytime with no obligations.
         '8': Support open source development.
         subtitle: Browse developer profiles who can start working ASAP or when you need help. Save time by reaching out the perfect candidates.

@@ -1,5 +1,5 @@
 namespace :developer_digest do
-  desc "email subscribed businesses about new developers in the last day"
+  desc "Email subscribed businesses about new developers in the last day"
   task daily: :environment do
     businesses = Business.daily_developer_notifications
     developers = Developer.where("created_at > '#{1.day.ago}'")
@@ -17,7 +17,7 @@ namespace :developer_digest do
     end
   end
 
-  desc "email subscribed businesses about new developer s in the last week"
+  desc "Email subscribed businesses about new developer s in the last week"
   task weekly: :environment do
     businesses = Business.weekly_developer_notifications
     developers = Developer.where("created_at > '#{1.week.ago}'")
