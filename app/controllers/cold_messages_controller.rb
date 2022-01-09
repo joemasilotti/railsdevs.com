@@ -2,6 +2,7 @@ class ColdMessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :require_business!
   before_action :require_new_conversation!
+  before_action :require_pricing_visit!
   before_action :require_active_subscription!
 
   def new
@@ -28,6 +29,10 @@ class ColdMessagesController < ApplicationController
 
   def require_new_conversation!
     redirect_to conversation unless conversation.new_record?
+  end
+
+  def require_pricing_visit!
+    redirect_to pricing_path(developer:) unless PricingVisit.new(session).visited?
   end
 
   def require_active_subscription!

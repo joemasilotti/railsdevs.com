@@ -23,8 +23,16 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_business_path
   end
 
+  test "must have visited /pricing this session" do
+    sign_in businesses(:one).user
+    get new_developer_message_path(@developer)
+    assert_redirected_to pricing_path(developer: @developer)
+  end
+
   test "must have an active business subscription" do
     sign_in businesses(:one).user
+    get pricing_path
+
     stub_pay(businesses(:one).user, expected_success_url: new_developer_message_url(@developer)) do
       get new_developer_message_path(@developer)
       assert_redirected_to "checkout.stripe.com"
@@ -33,12 +41,16 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "a business can start a new conversation" do
     sign_in @business.user
+    get pricing_path
+
     get new_developer_message_path(@developer)
+
     assert_select "form[action=?]", developer_messages_path(@developer)
   end
 
   test "a business can create a new conversation" do
     sign_in @business.user
+    get pricing_path
 
     assert_difference "Message.count", 1 do
       assert_difference "Conversation.count", 1 do
@@ -62,6 +74,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "an invalid message re-renders the form" do
     sign_in @business.user
+    get pricing_path
 
     assert_no_difference "Message.count" do
       assert_no_difference "Conversation.count" do

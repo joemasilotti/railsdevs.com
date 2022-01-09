@@ -3,7 +3,8 @@ module Stripe
     before_action :authenticate_user!
 
     def show
-      redirect_to BusinessSubscriptionCheckout.new(current_user).url
+      developer = Developer.find_by(id: params[:developer])
+      redirect_to BusinessSubscriptionCheckout.new(current_user, developer:).url
     end
   end
 end

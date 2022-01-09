@@ -6,4 +6,8 @@ class PricingTest < ActionDispatch::IntegrationTest
 
     assert_select "h1", text: /^Hire Rails developers/
   end
+
+  test "TODO: developer params test" do
+    assert false
+  end
 end
