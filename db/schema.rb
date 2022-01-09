@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_07_183815) do
+ActiveRecord::Schema.define(version: 2021_12_18_203645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_183815) do
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
-    t.string "primary_time_zone"
+    t.string "time_zone"
   end
 
   create_table "messages", force: :cascade do |t|
