@@ -53,7 +53,7 @@ class BusinessTest < ActiveSupport::TestCase
     refute @business.valid?
   end
 
-  test "should require new developer notifications in the given enum" do
+  test "should require new developer notifications in the given enum and not nil" do
     invalid_values = [-1, 3, 4]
 
     invalid_values.each do |value|
@@ -69,6 +69,9 @@ class BusinessTest < ActiveSupport::TestCase
 
       assert @business.valid?, "#{value} should be valid"
     end
+
+    @business.developer_notifications = nil
+    refute @business.valid?
   end
 
   test "should respond to expected states for new developer notifications" do
