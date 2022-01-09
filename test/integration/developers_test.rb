@@ -85,7 +85,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_difference "Developer.count", 1 do
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
-      post developers_path, params: params
+      post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?

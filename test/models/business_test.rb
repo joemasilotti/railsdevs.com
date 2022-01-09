@@ -9,7 +9,7 @@ class BusinessTest < ActiveSupport::TestCase
     user = users(:empty)
 
     assert_difference "Notification.count", 1 do
-      Business.create!(name: "name", company: "company", bio: "bio", user: user)
+      Business.create!(name: "name", company: "company", bio: "bio", user:)
     end
 
     assert_equal Notification.last.type, NewBusinessNotification.name

@@ -6,7 +6,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = developers(:available)
     business = user.business
 
-    conversation = Conversation.create!(developer: developer, business: business)
+    conversation = Conversation.create!(developer:, business:)
 
     assert MessagingPolicy.new(user, conversation).show?
     assert MessagingPolicy.new(user, conversation).create?
@@ -17,7 +17,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = developers(:available)
     business = businesses(:two)
 
-    conversation = Conversation.create!(developer: developer, business: business)
+    conversation = Conversation.create!(developer:, business:)
 
     refute MessagingPolicy.new(user, conversation).show?
     refute MessagingPolicy.new(user, conversation).create?
@@ -28,7 +28,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = user.developer
     business = businesses(:one)
 
-    conversation = Conversation.create!(developer: developer, business: business)
+    conversation = Conversation.create!(developer:, business:)
 
     assert MessagingPolicy.new(user, conversation).show?
     assert MessagingPolicy.new(user, conversation).create?
@@ -39,7 +39,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = developers(:unavailable)
     business = businesses(:one)
 
-    conversation = Conversation.create!(developer: developer, business: business)
+    conversation = Conversation.create!(developer:, business:)
 
     refute MessagingPolicy.new(user, conversation).show?
   end
@@ -49,7 +49,7 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     developer = developers(:available)
     business = user.business
 
-    conversation = Conversation.create!(developer: developer, business: business, developer_blocked_at: Time.now)
+    conversation = Conversation.create!(developer:, business:, developer_blocked_at: Time.now)
 
     refute MessagingPolicy.new(user, conversation).show?
     refute MessagingPolicy.new(user, conversation).create?

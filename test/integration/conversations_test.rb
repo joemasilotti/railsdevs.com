@@ -53,7 +53,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     developer = user.developer
     business = businesses(:with_conversation)
     conversation = conversations(:one)
-    Message.create!(developer: developer, business: business, body: "Hi!", sender: business, conversation: conversation)
+    Message.create!(developer:, business:, body: "Hi!", sender: business, conversation:)
     refute Notification.last.read?
 
     sign_in user

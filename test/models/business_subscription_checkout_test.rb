@@ -20,7 +20,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     developer = developers(:available)
 
     stub_pay(user, expected_success_url: new_developer_message_url(developer)) do
-      BusinessSubscriptionCheckout.new(user, developer: developer).url
+      BusinessSubscriptionCheckout.new(user, developer:).url
     end
   end
 

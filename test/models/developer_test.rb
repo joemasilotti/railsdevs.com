@@ -35,7 +35,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "is valid" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, name: "Foo", hero: "Bar", bio: "FooBar")
+    developer = Developer.new(user:, name: "Foo", hero: "Bar", bio: "FooBar")
 
     assert developer.valid?
   end
@@ -49,7 +49,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without name" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, name: nil)
+    developer = Developer.new(user:, name: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:name]
@@ -57,7 +57,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without hero" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, hero: nil)
+    developer = Developer.new(user:, hero: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:hero]
@@ -65,7 +65,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without bio" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, bio: nil)
+    developer = Developer.new(user:, bio: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:bio]
@@ -102,7 +102,7 @@ class DeveloperTest < ActiveSupport::TestCase
     user = users(:without_profile)
 
     assert_difference "Notification.count", 1 do
-      Developer.create!(name: "name", hero: "hero", bio: "bio", user: user)
+      Developer.create!(name: "name", hero: "hero", bio: "bio", user:)
     end
 
     assert_equal Notification.last.type, NewDeveloperProfileNotification.name

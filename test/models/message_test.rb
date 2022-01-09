@@ -25,7 +25,7 @@ class MessageTest < ActiveSupport::TestCase
     business = businesses(:one)
 
     assert_difference "Notification.count", 2 do
-      Message.create!(developer: developer, business: business, sender: business, body: "Hello!")
+      Message.create!(developer:, business:, sender: business, body: "Hello!")
     end
 
     notification = last_message_notification
