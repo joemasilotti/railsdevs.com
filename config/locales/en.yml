@@ -146,6 +146,7 @@ en:
     messages:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
+      attached: is not attached
   home:
     show:
       available_developers: Developers available now
