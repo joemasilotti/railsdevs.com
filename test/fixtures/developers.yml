@@ -6,6 +6,7 @@ available:
   bio: I am the first developer
   time_zone: Eastern Time (US & Canada)
   utc_offset: -18_000
+  created_at: <%= 3.hours.ago %>
 
 unavailable:
   user: with_unavailable_profile
@@ -21,9 +22,11 @@ with_conversation:
   name: Developer Three
   hero: Third developer
   bio: I am the third developer
+  created_at: <%= 4.days.ago %>
 
 with_blocked_conversation:
   user: with_blocked_conversation
   name: Developer Four
   hero: Fourth developer
   bio: I am the fourth developer
+  created_at: <%= 4.days.ago %>
