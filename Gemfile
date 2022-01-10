@@ -12,7 +12,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
-gem "turbo-rails", "~> 0.9"
+gem "turbo-rails", "~> 1.0"
 gem "view_component", "~> 2.46"
 
 group :development, :test do

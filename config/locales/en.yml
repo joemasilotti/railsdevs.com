@@ -68,10 +68,12 @@ en:
     form:
       avatar: Avatar
       change_avatar: Change
+      creating: Creating...
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
+      updating: Updating...
       your_business_profile: Your business profile
     update:
       updated: Your business was updated!
@@ -108,6 +110,7 @@ en:
     details:
       title: Details
     form:
+      creating: Creating...
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
@@ -139,6 +142,7 @@ en:
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
       title: Your developer profile
+      updating: Updating...
       work_preferences:
         help_text: What kind of work are you looking for next?
         title: Work preferences
@@ -172,6 +176,7 @@ en:
     form:
       help: Add your message
       placeholder: Add your message...
+      sending: Sending...
       submit: Send
     message:
       wrote: wrote

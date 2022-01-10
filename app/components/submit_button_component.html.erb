@@ -1,0 +1,9 @@
+<%= button_tag type: :submit, class: "group inline-flex justify-center align-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 cursor-pointer hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 #{button_classes}" do %>
+  <span class="show group-disabled:hidden"><%= text %></span>
+
+  <%= inline_svg_tag "icons/loading.svg", class: "hidden group-disabled:inline" %>
+
+  <% if disable_with %>
+    <span class="hidden group-disabled:inline"><%= disable_with %></span>
+  <% end %>
+<% end %>
