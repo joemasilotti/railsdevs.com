@@ -13,4 +13,4 @@ bundle exec erblint --lint-all
 bundle exec i18n-tasks health
 
 # Run the test suite
-bundle exec rails test
+bundle exec rails test:all
