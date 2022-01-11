@@ -71,7 +71,7 @@ en:
       created: Your business was added!
     form:
       avatar: Avatar
-      change_avatar: Change
+      change_avatar: Upload
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
       save: Save
@@ -112,7 +112,7 @@ en:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
         bio_help_text: Write a few sentences about yourself.
-        change: Change
+        change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
