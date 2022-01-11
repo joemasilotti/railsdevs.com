@@ -67,7 +67,7 @@ en:
       created: Your business was added!
     form:
       avatar: Avatar
-      change_avatar: Change
+      change_avatar: Upload
       creating: Creating...
       profile: Profile
       profile_help_text: This information will be shared with any developers that you contact.
@@ -123,7 +123,7 @@ en:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
         bio_help_text: Write a few sentences about yourself.
-        change: Change
+        change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
@@ -159,6 +159,7 @@ en:
   errors:
     business_blank: Fill out your business profile to message developers.
     messages:
+      attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
   home:

@@ -34,10 +34,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "is valid" do
-    user = users(:with_available_profile)
-    developer = Developer.new(user:, name: "Foo", hero: "Bar", bio: "FooBar")
-
-    assert developer.valid?
+    assert Developer.new(valid_developer_attributes).valid?
   end
 
   test "invalid without user" do
@@ -81,10 +78,8 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "successful profile creation sends a notification to the admins" do
-    user = users(:without_profile)
-
     assert_difference "Notification.count", 1 do
-      Developer.create!(name: "name", hero: "hero", bio: "bio", user:)
+      Developer.create!(valid_developer_attributes)
     end
 
     assert_equal Notification.last.type, NewDeveloperProfileNotification.name
@@ -141,5 +136,24 @@ class DeveloperTest < ActiveSupport::TestCase
     @developer.cover_image.blob.stub :byte_size, 11.megabytes do
       refute @developer.valid?
     end
+  end
+
+  test "updating a profile doesn't require search status nor time zone" do
+    developer = developers(:with_conversation)
+    assert_nil developer.search_status
+    assert_nil developer.time_zone
+
+    assert developer.valid?
+  end
+
+  def valid_developer_attributes
+    {
+      user: users(:empty),
+      name: "Name",
+      hero: "Hero",
+      bio: "Bio",
+      avatar: active_storage_blobs(:one),
+      time_zone: "Pacific Time (US & Canada)"
+    }
   end
 end

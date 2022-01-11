@@ -6,10 +6,8 @@ class BusinessTest < ActiveSupport::TestCase
   end
 
   test "successful business creation sends a notification to the admin" do
-    user = users(:empty)
-
     assert_difference "Notification.count", 1 do
-      Business.create!(name: "name", company: "company", bio: "bio", user:)
+      Business.create!(valid_business_attributes)
     end
 
     assert_equal Notification.last.type, NewBusinessNotification.name
@@ -45,5 +43,15 @@ class BusinessTest < ActiveSupport::TestCase
     @business.avatar.blob.stub :byte_size, 3.megabytes do
       refute @business.valid?
     end
+  end
+
+  def valid_business_attributes
+    {
+      user: users(:empty),
+      name: "Name",
+      company: "Company",
+      bio: "Bio",
+      avatar: active_storage_blobs(:one)
+    }
   end
 end
