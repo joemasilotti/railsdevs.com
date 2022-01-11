@@ -3,8 +3,8 @@ class Business::DeveloperDigest
 
   def initialize(timeframe:)
     @timeframe = timeframe
-    @developers = new_developers(timeframe: timeframe)
-    @businesses = recipients(timeframe: timeframe)
+    @developers = new_developers(timeframe:)
+    @businesses = recipients(timeframe:)
   end
 
   def digest

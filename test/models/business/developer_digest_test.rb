@@ -2,7 +2,7 @@ require "test_helper"
 
 class DeveloperDigestTest < ActionMailer::TestCase
   test "should send daily email digests to appropriate businesses" do
-    developers = Developer.where(created_at: 1.day.ago..Time.now )
+    developers = Developer.where(created_at: 1.day.ago..Time.now)
     businesses = Business.daily_developer_notifications
     mailer = Business::DeveloperDigest.new(timeframe: :daily)
 
