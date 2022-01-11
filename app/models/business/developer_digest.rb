@@ -1,4 +1,6 @@
 class Business::DeveloperDigest
+  attr_reader :developers
+
   def initialize(timeframe:)
     @timeframe = timeframe
     @developers = new_developers(timeframe: timeframe)
