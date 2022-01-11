@@ -1,5 +1,6 @@
 class Business::DeveloperDigest
   def initialize(timeframe:)
+    @timeframe = timeframe
     @developers = new_developers(timeframe: timeframe)
     @businesses = recipients(timeframe: timeframe)
   end
@@ -9,11 +10,11 @@ class Business::DeveloperDigest
       puts "There are no new developers to mention at this time." unless Rails.env.test?
     else
       total_emails = @businesses.length
-      puts "Sending daily digests to #{total_emails} businesses:" unless Rails.env.test?
+      puts "Sending #{@timeframe} digests to #{total_emails} businesses:" unless Rails.env.test?
 
       @businesses.each_with_index do |business, i|
         BusinessMailer.with(business:, developers: @developers).developer_profiles.deliver_now
-        puts "Progress - #{((i + 1.0) / total_emails) * 100}%"
+        puts "Progress - #{((i + 1.0) / total_emails) * 100}%" unless Rails.env.test?
       end
     end
   end
@@ -21,7 +22,14 @@ class Business::DeveloperDigest
   private
 
   def new_developers(timeframe:)
-    query_range = timeframe == :daily ? (Date.yesterday..Date.current.to_date) : ((Date.current.to_date - 7.days)..Date.current.to_date)
+    query_range = case timeframe
+    when :daily
+      1.day.ago..Time.now
+    when :weekly
+      1.week.ago..Time.now
+    else
+      raise ArgumentError.new("#{timeframe} is not a valid range for digests.")
+    end
 
     Developer.where(created_at: query_range)
   end
