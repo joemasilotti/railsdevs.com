@@ -6,7 +6,7 @@ class NotificationTest < ActiveSupport::TestCase
   test "conversation resolves correctly" do
     developer = developers(:available)
     business = businesses(:one)
-    message = Message.create!(developer: developer, business: business, sender: developer, body: "Hello!")
+    message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
 
     assert last_message_notification.to_notification.conversation == message.conversation
   end
@@ -14,7 +14,7 @@ class NotificationTest < ActiveSupport::TestCase
   test "message resolves correctly" do
     developer = developers(:available)
     business = businesses(:one)
-    message = Message.create!(developer: developer, business: business, sender: developer, body: "Hello!")
+    message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
 
     assert last_message_notification.to_notification.message == message
   end

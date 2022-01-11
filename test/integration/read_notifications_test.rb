@@ -19,7 +19,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
     user = users(:with_business)
     developer = developers(:available)
     sign_in user
-    Message.create!(developer: developer, business: user.business, sender: developer, body: "Hello!")
+    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
     last_message_notification.mark_as_read!
 
     get read_notifications_path

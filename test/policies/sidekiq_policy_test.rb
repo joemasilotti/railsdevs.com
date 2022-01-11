@@ -8,7 +8,7 @@ class SidekiqPolicyTest < ActiveSupport::TestCase
 
   test "everyone can see the route in development" do
     environment = ActiveSupport::EnvironmentInquirer.new("development")
-    assert SidekiqPolicy.new(users(:admin), environment: environment).visible?
-    assert SidekiqPolicy.new(users(:empty), environment: environment).visible?
+    assert SidekiqPolicy.new(users(:admin), environment:).visible?
+    assert SidekiqPolicy.new(users(:empty), environment:).visible?
   end
 end

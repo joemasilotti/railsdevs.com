@@ -46,7 +46,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without name" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, name: nil)
+    developer = Developer.new(user:, name: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:name]
@@ -54,7 +54,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without hero" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, hero: nil)
+    developer = Developer.new(user:, hero: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:hero]
@@ -62,7 +62,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "invalid without bio" do
     user = users(:with_available_profile)
-    developer = Developer.new(user: user, bio: nil)
+    developer = Developer.new(user:, bio: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:bio]
@@ -75,24 +75,6 @@ class DeveloperTest < ActiveSupport::TestCase
 
     assert_includes developers, developers(:available)
     refute_includes developers, developers(:unavailable)
-  end
-
-  test "max rate must be higher than min" do
-    developer = developers(:available)
-
-    developer.preferred_min_hourly_rate = 100
-    developer.preferred_max_hourly_rate = 50
-
-    refute developer.valid?
-  end
-
-  test "max salary must be higher than min" do
-    developer = developers(:available)
-
-    developer.preferred_min_salary = 100_000
-    developer.preferred_max_salary = 50_000
-
-    refute developer.valid?
   end
 
   test "successful profile creation sends a notification to the admins" do

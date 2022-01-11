@@ -1,14 +1,9 @@
 class DevelopersController < ApplicationController
-  include Pagy::Backend
-
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :require_new_developer!, only: %i[new create]
 
   def index
-    developers = Developer
-      .includes(:role_type).with_attached_avatar
-      .most_recently_added
-    @pagy, @developers = pagy(developers)
+    @query = DeveloperQuery.new(params)
   end
 
   def new
@@ -66,10 +61,6 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
-      :preferred_min_hourly_rate,
-      :preferred_max_hourly_rate,
-      :preferred_min_salary,
-      :preferred_max_salary,
       :time_zone,
       role_type_attributes: [
         :part_time_contract,

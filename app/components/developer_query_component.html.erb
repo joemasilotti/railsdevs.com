@@ -1,0 +1,55 @@
+<div class="bg-gray-50">
+  <div class="px-4 text-center sm:px-6 lg:max-w-7xl lg:px-6 border-y border-gray-200">
+    <%= form_with url: developers_path, method: :get, html: {class: "py-6"} do |form| %>
+      <h3 class="sr-only"><%= t(".title") %></h3>
+
+      <div class="flex items-center justify-between">
+        <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+          <div>
+            <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
+              <%= t(".sort.title") %>
+              <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+            </button>
+          </div>
+
+          <div data-toggle-target="element" class="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
+              <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="hidden sm:flex sm:items-baseline sm:space-x-8">
+          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+            <div>
+              <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
+                <span><%= t(".timezone.title") %></span>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+              </button>
+            </div>
+
+            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div class="space-y-4">
+                <%= form.collection_check_boxes(:time_zones, time_zones, :first, :last) do |b| %>
+                  <div class="flex items-center">
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: selected?(b.object) %>
+                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="pt-5">
+                <div class="flex justify-end">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <%= t(".apply") %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

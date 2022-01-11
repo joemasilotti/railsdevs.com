@@ -5,11 +5,11 @@ class ColdMessagesController < ApplicationController
   before_action :require_active_subscription!
 
   def new
-    @message = Message.new(conversation: conversation)
+    @message = Message.new(conversation:)
   end
 
   def create
-    @message = Message.new(message_params.merge(conversation: conversation, sender: business))
+    @message = Message.new(message_params.merge(conversation:, sender: business))
     if @message.save
       redirect_to @message.conversation
     else
@@ -32,12 +32,12 @@ class ColdMessagesController < ApplicationController
 
   def require_active_subscription!
     unless current_user.active_business_subscription?
-      redirect_to BusinessSubscriptionCheckout.new(current_user, developer: developer).url
+      redirect_to BusinessSubscriptionCheckout.new(current_user, developer:).url
     end
   end
 
   def conversation
-    @conversation ||= Conversation.find_or_initialize_by(developer: developer, business: business)
+    @conversation ||= Conversation.find_or_initialize_by(developer:, business:)
   end
 
   def developer

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :require_active_subscription!
 
   def create
-    @message = Message.new(message_params.merge(conversation: conversation, sender: sender))
+    @message = Message.new(message_params.merge(conversation:, sender:))
     authorize @message, policy_class: MessagingPolicy
 
     if @message.save
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.active_business_subscription?
-      redirect_to BusinessSubscriptionCheckout.new(current_user, developer: developer).url
+      redirect_to BusinessSubscriptionCheckout.new(current_user, developer:).url
     end
   end
 

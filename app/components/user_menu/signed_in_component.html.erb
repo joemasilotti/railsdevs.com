@@ -22,7 +22,9 @@
     <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 z-10 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
       <%= render UserMenu::MenuItemComponent.new(t(".get_started"), new_role_path, condition: neither?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".my_business_profile"), new_business_path, condition: business?) %>
-      <%= render UserMenu::MenuItemComponent.new(t(".my_developer_profile"), new_developer_path, condition: developer?) %>
+      <% if developer? %>
+        <%= render UserMenu::MenuItemComponent.new(t(".my_developer_profile"), developer_path(user.developer), condition: developer?) %>
+      <% end %>
       <%= render UserMenu::MenuItemComponent.new(t(".my_conversations"), conversations_path, condition: conversations?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".billing"), stripe_portal_path, condition: customer?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".admin"), admin_conversations_path, condition: admin?) %>

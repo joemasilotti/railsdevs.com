@@ -21,24 +21,17 @@ class Developer < ApplicationRecord
   validates :time_zone, presence: true, on: :create
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes
-  validates :preferred_max_hourly_rate, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_hourly_rate}, if: -> { preferred_min_hourly_rate.present? }
-  validates :preferred_max_salary, allow_nil: true, numericality: {greater_than_or_equal_to: :preferred_min_salary}, if: -> { preferred_min_salary.present? }
 
-  scope :available, -> { where("available_on <= ?", Date.today) }
-  scope :most_recently_added, -> { order(created_at: :desc) }
+  scope :filter_by_utc_offset, ->(utc_offset) { where(utc_offset:) }
+
+  scope :available, -> { where(available_on: ..Time.current.to_date) }
+  scope :newest_first, -> { order(created_at: :desc) }
+  scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
 
   after_create_commit :send_admin_notification
 
   def role_type
     super || build_role_type
-  end
-
-  def preferred_salary_range
-    [preferred_min_salary, preferred_max_salary].compact
-  end
-
-  def preferred_hourly_rate_range
-    [preferred_min_hourly_rate, preferred_max_hourly_rate].compact
   end
 
   private

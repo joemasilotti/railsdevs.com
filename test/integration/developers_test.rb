@@ -11,6 +11,32 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
+  test "developers are sorted newest first" do
+    one = developers :available
+    two = developers :unavailable
+
+    get developers_path
+
+    assert_select "button.font-medium[value=newest]"
+    assert response.body.index(one.hero) < response.body.index(two.hero)
+  end
+
+  test "developers can be sorted by availability" do
+    get developers_path(sort: :availability)
+
+    assert_select "button.font-medium[value=availability]"
+    assert_select "h2", developers(:available).hero
+    assert_select "h2", text: developers(:with_conversation).hero, count: 0
+  end
+
+  test "developers can be filtered by time zone" do
+    get developers_path(time_zones: ["-8"])
+
+    assert_select "input[checked][type=checkbox][value=-8][name='time_zones[]']"
+    assert_select "h2", developers(:unavailable).hero
+    assert_select "h2", text: developers(:available).hero, count: 0
+  end
+
   test "cannot create new proflie if already has one" do
     sign_in users(:with_available_profile)
 
@@ -43,7 +69,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_difference "Developer.count", 1 do
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
-      post developers_path, params: params
+      post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?
