@@ -117,6 +117,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    childprocess (4.1.0)
     classy-yaml (0.7.0)
       actionpack (>= 6)
       activesupport (>= 6)
@@ -319,8 +320,13 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
+    rubyzip (2.3.2)
     scout_apm (5.1.1)
       parser
+    selenium-webdriver (4.1.0)
+      childprocess (>= 0.5, < 5.0)
+      rexml (~> 3.2, >= 3.2.5)
+      rubyzip (>= 1.2.2)
     sidekiq (6.3.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -360,6 +366,10 @@ GEM
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
+    webdrivers (5.0.0)
+      nokogiri (~> 1.6)
+      rubyzip (>= 1.3.0)
+      selenium-webdriver (~> 4.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -399,6 +409,7 @@ DEPENDENCIES
   redcarpet (~> 3.5)
   redis
   scout_apm (~> 5.1)
+  selenium-webdriver
   sidekiq (~> 6.3)
   sitemap_generator (~> 6.1)
   sprockets-rails (~> 3.4)
@@ -408,9 +419,10 @@ DEPENDENCIES
   turbo-rails (~> 1.0)
   tzinfo-data
   view_component (~> 2.46)
+  webdrivers
 
 RUBY VERSION
    ruby 3.1.0p0
 
 BUNDLED WITH
-   2.3.2
+   2.3.4
