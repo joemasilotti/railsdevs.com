@@ -265,6 +265,9 @@ en:
       open_analytics: Open analytics
       open_source: Open source
       pricing: Pricing
+  upgrade_account_component:
+    cta: Upgrade your account
+    title: Requires an active business subscription.
   user_menu:
     signed_in_component:
       admin: Admin
