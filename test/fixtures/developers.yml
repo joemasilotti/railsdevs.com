@@ -6,7 +6,7 @@ available:
   bio: I am the first developer
   time_zone: Eastern Time (US & Canada)
   utc_offset: -18_000
-  created_at: <%= 3.hours.ago %>
+  created_at: <%= 1.minute.ago %>
 
 unavailable:
   user: with_unavailable_profile
