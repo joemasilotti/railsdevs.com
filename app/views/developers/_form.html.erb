@@ -40,7 +40,7 @@
             </div>
 
             <div class="sm:col-span-6">
-              <%= form.label :time_zone, class: "block text-sm font-medium text-gray-700" %>
+              <%= form.label :time_zone, "Primary time zone", class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
                 <%= form.time_zone_select(:time_zone, ActiveSupport::TimeZone.us_zones, {include_blank: true}, {class: field_classes(form, :time_zone)}) %>
               </div>

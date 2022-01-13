@@ -40,7 +40,9 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
       user: users(:empty),
       name: "Name",
       hero: "Hero",
-      bio: "Bio"
+      bio: "Bio",
+      avatar: active_storage_blobs(:one),
+      time_zone: "Pacific Time (US & Canada)"
     }
   end
 end
