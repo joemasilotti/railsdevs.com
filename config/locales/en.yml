@@ -70,7 +70,7 @@ en:
       change_avatar: Change
       creating: Creating...
       developer_notifications:
-        help_text: How often do you want to be emailed about new developers?
+        help_text: Receive daily or weekly email notifications when new developers add their profile to railsdevs.
         legend: Developer notifications
         values:
           daily: Daily
