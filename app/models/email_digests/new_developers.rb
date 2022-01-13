@@ -25,8 +25,9 @@ class EmailDigests::NewDevelopers
   end
 
   def send_emails(developers:, businesses:)
+    developers = developers.to_a
     businesses.find_each do |business|
-      BusinessMailer.with(business:, developers: developers.to_a).developer_profiles.deliver_later
+      BusinessMailer.with(business:, developers:).developer_profiles.deliver_later
     end
   end
 end
