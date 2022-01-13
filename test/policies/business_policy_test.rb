@@ -12,4 +12,14 @@ class BusinessPolicyTest < ActiveSupport::TestCase
 
     refute BusinessPolicy.new(user, business).update?
   end
+
+  test "developer notifications are permitted for active business subscriptions" do
+    user = users(:with_business)
+    policy = BusinessPolicy.new(user, user.business)
+    refute_includes policy.permitted_attributes, :developer_notifications
+
+    user = users(:with_business_conversation)
+    policy = BusinessPolicy.new(user, user.business)
+    assert_includes policy.permitted_attributes, :developer_notifications
+  end
 end

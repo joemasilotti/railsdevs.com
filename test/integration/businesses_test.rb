@@ -120,6 +120,32 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "can update email notification preferences with an active business subscription" do
+    user = users(:with_business_conversation)
+    business = user.business
+    sign_in user
+
+    patch business_path(business), params: {
+      business: {
+        developer_notifications: :daily
+      }
+    }
+    assert business.reload.daily_developer_notifications?
+  end
+
+  test "cannot update email notification preferences without a subscription" do
+    user = users(:with_business)
+    business = user.business
+    sign_in user
+
+    patch business_path(business), params: {
+      business: {
+        developer_notifications: :daily
+      }
+    }
+    assert business.reload.no_developer_notifications?
+  end
+
   def valid_business_params
     {
       business: {
