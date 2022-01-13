@@ -2,10 +2,10 @@ require "test_helper"
 require "rake"
 
 class DeveloperDigestTaskTest < ActionMailer::TestCase
+  include RakeTaskHelper
+
   test "sends appropriate emails for developer digests" do
-    # When the conditional is excluded, the tests will fail when ran with the entire suite
-    # but not when run in isolation. I think it has to do with double-loading rake tasks.
-    Railsdevs::Application.load_tasks if Rake::Task.tasks.empty?
+    load_rake_tasks_once
 
     assert_emails Business.daily_developer_notifications.length do
       Rake::Task["developer_digest:daily"].invoke
