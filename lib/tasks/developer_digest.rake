@@ -4,7 +4,7 @@ namespace :developer_digest do
     EmailDigests::NewDevelopers.new.send_daily_digest
   end
 
-  desc "Email subscribed businesses about new developers in the last week"
+  desc "Email subscribed businesses about new developers in the last seven days"
   task weekly: :environment do
     EmailDigests::NewDevelopers.new.send_weekly_digest
   end

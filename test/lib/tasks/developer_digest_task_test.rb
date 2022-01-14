@@ -1,5 +1,4 @@
 require "test_helper"
-require "rake"
 
 class DeveloperDigestTaskTest < ActionMailer::TestCase
   include RakeTaskHelper
