@@ -1,7 +1,15 @@
-business:
-  customer: stripe
+one:
+  customer: one
   name: default
   processor_id: sub_1
+  processor_plan: default
+  quantity: 1
+  status: active
+
+two:
+  customer: two
+  name: default
+  processor_id: sub_2
   processor_plan: default
   quantity: 1
   status: active

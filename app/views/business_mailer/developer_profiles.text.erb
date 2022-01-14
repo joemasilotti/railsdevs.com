@@ -1,0 +1,12 @@
+<%= @business.name %>,
+
+Here are the newest developer profiles on railsdevs:
+
+<% @developers.each do |developer| %>
+<%= developer.hero %>
+  <%= developer.bio %>
+  <%= developer_url(developer) %>
+
+<% end %>
+Update my email notification settings:
+  <%= edit_business_url(@business) %>

@@ -59,6 +59,36 @@
       </div>
     </div>
 
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></h3>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div>
+            <%= form.label :developer_notifications, class: "text-base font-medium text-gray-900" %>
+            <p class="text-sm leading-5 text-gray-500"><%= t(".developer_notifications.help_text") %></p>
+            <div class="mt-4">
+              <%= render UpgradeAccountComponent.new(current_user) do %>
+                <fieldset>
+                  <legend class="sr-only"><%= t(".developer_notifications.legend") %></legend>
+                  <div class="space-y-4">
+                    <% Business.developer_notifications.keys.each do |value| %>
+                      <div class="flex items-center">
+                        <%= form.radio_button :developer_notifications, value, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                        <%= form.label :developer_notifications, t(".developer_notifications.values.#{value}"), value: value, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </fieldset>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
       <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: business.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
     </div>

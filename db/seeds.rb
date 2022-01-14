@@ -47,7 +47,8 @@ business = Business.create!(
   user: create_user!("Business"),
   name: "Thomas Dohmke",
   company: "GitHub",
-  bio: "GitHub is where over 73 million developers shape the future of software, together."
+  bio: "GitHub is where over 73 million developers shape the future of software, together.",
+  developer_notifications: :no
 )
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)

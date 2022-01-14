@@ -54,7 +54,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a business without an active subscription can no longer continue the conversation" do
-    pay_subscriptions(:business).update!(status: :incomplete)
+    pay_subscriptions(:two).update!(status: :incomplete)
     sign_in @business.user
 
     stub_pay(@business.user, expected_success_url: new_developer_message_url(@developer)) do

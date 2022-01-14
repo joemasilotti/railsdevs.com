@@ -1,10 +1,10 @@
 require "test_helper"
-require "rake"
 
 class SitemapGeneratorTaskTest < ActiveSupport::TestCase
-  Rails.application.load_tasks
+  include RakeTaskHelper
 
   test "sitemap is generated without any errors" do
+    load_rake_tasks_once
     disable_sitemap_generator_output
     Rake::Task["sitemap:create"].invoke
   end

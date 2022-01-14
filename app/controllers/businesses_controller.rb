@@ -7,7 +7,8 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = current_user.build_business(business_params)
+    @business = current_user.build_business
+    @business.assign_attributes(permitted_attributes(@business))
 
     if @business.save
       path = stored_location_for(:user) || developers_path
@@ -30,7 +31,7 @@ class BusinessesController < ApplicationController
     @business = Business.find(params[:id])
     authorize @business
 
-    if @business.update(business_params)
+    if @business.update(permitted_attributes(@business))
       redirect_to developers_path, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
@@ -43,14 +44,5 @@ class BusinessesController < ApplicationController
     if current_user.business.present?
       redirect_to edit_business_path(current_user.business)
     end
-  end
-
-  def business_params
-    params.require(:business).permit(
-      :name,
-      :company,
-      :bio,
-      :avatar
-    )
   end
 end

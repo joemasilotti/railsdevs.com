@@ -1,8 +1,10 @@
 require "test_helper"
 
 class DevelopersUtcOffsetTaskTest < ActiveSupport::TestCase
+  include RakeTaskHelper
+
   test "sets developers.utc_offset for records with a time zone" do
-    Railsdevs::Application.load_tasks
+    load_rake_tasks_once
     Rake::Task["developers:utc_offset"].invoke
 
     assert_equal(-18_000, developers(:available).utc_offset)

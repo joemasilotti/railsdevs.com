@@ -1,0 +1,18 @@
+<% if render_content? %>
+  <%= content %>
+<% else %>
+  <div class="mb-5 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <%= inline_svg_tag "icons/solid/exclamation.svg", class: "h-5 w-5 text-yellow-400" %>
+      </div>
+
+      <div class="ml-3">
+        <p class="text-sm text-yellow-700">
+          <%= t(".title") %>
+          <%= link_to t(".cta"), pricing_path, class: "font-medium underline text-yellow-700 hover:text-yellow-600" %>.
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>

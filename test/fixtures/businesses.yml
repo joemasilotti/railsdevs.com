@@ -3,15 +3,18 @@ one:
   name: Business Owner One
   company: Company One
   bio: We are Company One.
+  developer_notifications: no
 
 two:
   user: with_business_two
   name: Business Owner Two
   company: Company Two
   bio: We are Company Two.
+  developer_notifications: daily
 
 with_conversation:
   user: with_business_conversation
   name: Business Owner with Conversation
   company: Conversation Business
   bio: We are Conversation Business.
+  developer_notifications: weekly
