@@ -250,6 +250,12 @@ en:
       looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
       what_brings_you_here: What brings you to railsdevs?
   shared:
+    footer:
+      copyright: All rights reserved.
+      email: Email
+      github: GitHub
+      masilotti_com: Masilotti.com
+      twitter: Twitter
     header:
       open_main_menu: Open main menu
     nav_links:
