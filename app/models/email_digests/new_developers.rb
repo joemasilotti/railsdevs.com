@@ -9,6 +9,8 @@ class EmailDigests::NewDevelopers
   end
 
   def send_weekly_digest
+    return unless Time.current.monday?
+
     prev_7_days = 7.days.ago.beginning_of_day..1.day.ago.end_of_day
     developers = Developer.where(created_at: prev_7_days)
     businesses = Business.weekly_developer_notifications
