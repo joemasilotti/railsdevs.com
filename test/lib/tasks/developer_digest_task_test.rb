@@ -6,11 +6,11 @@ class DeveloperDigestTaskTest < ActionMailer::TestCase
   test "sends appropriate emails for developer digests" do
     load_rake_tasks_once
 
-    assert_emails Business.daily_developer_notifications.length do
+    assert_emails 1 do
       Rake::Task["developer_digest:daily"].invoke
     end
 
-    assert_emails Business.weekly_developer_notifications.length do
+    assert_emails 1 do
       Rake::Task["developer_digest:weekly"].invoke
     end
   end
