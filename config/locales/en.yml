@@ -254,8 +254,7 @@ en:
       open_main_menu: Open main menu
     nav_links:
       about: About
-      open_analytics: Open analytics
-      open_source: Open source
+      developers: Developers
       pricing: Pricing
   user_menu:
     signed_in_component:
