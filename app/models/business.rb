@@ -1,8 +1,7 @@
 class Business < ApplicationRecord
   include Avatarable
 
-  enum :developer_notifications, %i[no daily weekly], default: :no,
-    suffix: :developer_notifications
+  enum :developer_notifications, %i[no daily weekly], default: :no, suffix: true
 
   belongs_to :user
   has_many :conversations, -> { visible }
