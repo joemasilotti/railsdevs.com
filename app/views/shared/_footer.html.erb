@@ -1,26 +1,46 @@
-<footer class="bg-white">
-  <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
-    <div class="flex justify-center space-x-6 md:order-2">
+<footer>
+  <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
+      <div class="px-5 py-2">
+        <%= link_to t(".about"), about_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+
+      <div class="px-5 py-2">
+        <%= link_to t(".support"), "mailto:joe@masilotti.com", class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+
+      <div class="px-5 py-2">
+        <%= link_to t(".open_source"), "https://github.com/joemasilotti/railsdevs.com", target: "_blank", class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+
+      <div class="px-5 py-2">
+        <%= link_to t(".analytics"), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", target: "_blank", class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+
+      <div class="px-5 py-2">
+        <%= link_to t(".income_report"), "https://same-legend-a38.notion.site/railsdevs-income-report-c28706a1b3a846d4a058e4fef135aa67", target: "_blank", class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+    </nav>
+
+    <div class="mt-8 flex justify-center space-x-6">
       <%= link_to "https://twitter.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
-        <span class="sr-only">Twitter</span>
+        <span class="sr-only"><%= t(".twitter") %></span>
         <%= inline_svg_tag "icons/brands/twitter.svg", class: "h-6 w-6" %>
       <% end %>
 
       <%= link_to "https://github.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
-        <span class="sr-only">GitHub</span>
+        <span class="sr-only"><%= t(".github") %></span>
         <%= inline_svg_tag "icons/brands/github.svg", class: "h-6 w-6" %>
       <% end %>
 
-      <%= link_to "mailto:joe@masilotti.com", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
-        <span class="sr-only">Email</span>
+      <%= link_to "mailto:joe@masilotti.com", class: "text-gray-400 hover:text-gray-500" do %>
+        <span class="sr-only"><%= t(".email") %></span>
         <%= inline_svg_tag "icons/outline/mail.svg", class: "h-6 w-6" %>
       <% end %>
     </div>
 
-    <div class="mt-8 md:mt-0 md:order-1">
-      <p class="text-center text-base text-gray-400">
-        &copy; <%= Date.today.year %> <%= link_to "Masilotti.com", "https://masilotti.com", target: "_blank", class: "hover:text-gray-500" %>. All rights reserved.
-      </p>
-    </div>
+    <p class="mt-8 text-center text-base text-gray-400">
+      &copy; <%= Date.today.year %> <%= link_to t(".masilotti_com"), "https://masilotti.com", target: "_blank", class: "hover:text-gray-500" %>. <%= t(".copyright") %>
+    </p>
   </div>
 </footer>

@@ -250,12 +250,22 @@ en:
       looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
       what_brings_you_here: What brings you to railsdevs?
   shared:
+    footer:
+      about: About
+      analytics: Analytics
+      copyright: All rights reserved.
+      email: Email
+      github: GitHub
+      income_report: Income report
+      masilotti_com: Masilotti.com
+      open_source: Open source
+      support: Support
+      twitter: Twitter
     header:
       open_main_menu: Open main menu
     nav_links:
       about: About
-      open_analytics: Open analytics
-      open_source: Open source
+      developers: Developers
       pricing: Pricing
   user_menu:
     signed_in_component:
