@@ -251,10 +251,15 @@ en:
       what_brings_you_here: What brings you to railsdevs?
   shared:
     footer:
+      about: About
+      analytics: Analytics
       copyright: All rights reserved.
       email: Email
       github: GitHub
+      income_report: Income report
       masilotti_com: Masilotti.com
+      open_source: Open source
+      support: Support
       twitter: Twitter
     header:
       open_main_menu: Open main menu
