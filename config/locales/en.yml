@@ -4,6 +4,48 @@ en:
     show:
       description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
       title: About railsdevs
+  expenses:
+    show:
+      title: "Income Report"
+      description_html: "<p class='mb-8'>This page documents all monetary transactions associated with railsdevs.com to further instill value #2, <a href='/about' class='underline'>doing everything in public</a>.</p>"
+      sum: "SUM"
+      overview:
+        title: "Overview"
+        table: 
+          header: ["Month", "Revenue", "Expenses", "Net Profit"]
+          body: [
+            { date: "01-10-2021", revenue: 0, expenses: 49, total: -49 },
+            { date: "01-11-2021", revenue: 0, expenses: 269, total: -269 },
+            { date: "01-12-2021", revenue: 188.70, expenses: 20.59, total: 168.11 },
+            { date: "01-01-2022", revenue: 471.75, expenses: 226.09, total: 245.66 }
+          ]
+      revenue:
+        title: "Revenue"
+        table: 
+          header: ["Date", "Source", "Revenue", "Stripe Fees", "Climate Contribution", "Net Revenue"]
+          body: [
+            { date: "December 21, 2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "December 23, 2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "January 5, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "January 12, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 }
+          ]
+      expenses:
+        title: "Expenses"
+        table: 
+          header: ["Date", "Description", "Total"]
+          body: [
+            { date: "October 21, 2021", description:	"Purchase railsdevs.io, railsdevs.org, and railsdevs.online", total: 49 },
+            { date: "November 9, 2021", description:	"Custom font for logo", total: 19 },
+            { date: "November 12, 2021", description:	"Purchase railsdevs.com", total: 250 },
+            { date: "December 1, 2021", description:	"Heroku bill (prorated)", total: 6.59 },
+            { date: "December 12, 2021", description:	"Fathom analytics", total: 14 },
+            { date: "January 1, 2022", description:	"Heroku bill", total: 12.09 },
+            { date: "January 13, 2022", description:	"Fathom analytics", total: 14 },
+            { date: "January 14, 2022", description:	"Ruby Radar newsletter sponsorship", total: 200 }
+          ]
   activerecord:
     attributes:
       business:
