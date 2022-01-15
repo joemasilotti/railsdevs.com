@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include StoredLocation
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  around_action :switch_locale
 
   def after_sign_in_path_for(user)
     if (stored_location = stored_location_for(:user)).present?
@@ -15,6 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
+  end
 
   def user_not_authorized
     flash[:alert] = I18n.t("pundit.errors.unauthorized")
