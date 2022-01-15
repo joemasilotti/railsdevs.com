@@ -31,6 +31,7 @@ with_developer_conversation:
 
 with_business_conversation:
   email: business_conversation@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
 with_blocked_conversation:

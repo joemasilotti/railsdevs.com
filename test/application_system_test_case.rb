@@ -16,4 +16,14 @@ Capybara.javascript_driver = :headless_chrome
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   driven_by :headless_chrome
+
+  private
+
+  def login_as(user)
+    visit new_user_session_path
+    fill_in "E-mail", with: user.email
+    fill_in "Password", with: "password"
+
+    click_button "Sign in"
+  end
 end
