@@ -1,42 +1,33 @@
 <section class="overflow-hidden max-w-5xl mx-auto">
   <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-    <h1 class="py-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"><%= t('.title') %></h1>
-    <%= t('.description_html') %>
+    <h1 class="py-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"><%= t(".title") %></h1>
+    <%= t(".description_html") %>
 
     <div class="w-full overflow-x-auto mt-8">
-      <h2 class="text-lg mb-2"><%= t('.overview.title') %></h2>
+      <h2 class="text-lg mb-2"><%= t(".overview.title") %></h2>
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-              <% t('.overview.table.header').each do |item| %>
+              <% t(".overview.table.header").each do |item| %>
                 <th class="px-4 py-3"><%= item %></th>
               <% end %>
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% revenue = 0 %>
-            <% expenses = 0 %>
-            <% total = 0 %>
-            <% t('.overview.table.body').each do |item| %>
-              <% item_total = item[:revenue] - item[:expenses] %>
-              <% revenue += item[:revenue] %>
-              <% expenses += item[:expenses] %>
-              <% total += item_total %>
-              <% color = "text-#{(item_total >= 0 ? 'green' : 'red')}-700" %>
+            <% t(".overview.table.body").each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= l(item[:date].to_date, format: "%B, ‘%Y") %></th>
                 <td class="px-4 py-3 border"><%= number_to_currency(item[:revenue]) %></th>
                 <td class="px-4 py-3 border"><%= number_to_currency(item[:expenses]) %></th>
-                <td class="px-4 py-3 border <%= color %>"><%= number_to_currency(item_total) %></th>
+                <td class="px-4 py-3 border <%= "text-#{item[:total] >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(item[:total]) %></th>
               </tr>
             <% end %>
-            <% color = "text-#{(total >= 0 ? 'green' : 'red')}-700" %>
             <tr class="text-xs font-bold">
               <td class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border"><%= number_to_currency(revenue) %></td>
-              <td class="px-4 py-3 border"><%= number_to_currency(expenses) %></td>
-              <td class="px-4 py-3 border <%= color %>"><%= number_to_currency(total) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(t(".overview.table.totals")[:revenue]) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(t(".overview.table.totals")[:expenses]) %></td>
+              <td class="px-4 py-3 border <%= "text-#{t(".overview.table.totals")[:total] >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(t(".overview.table.totals")[:total]) %></td>
             </tr>
           </tbody>
         </table>
@@ -44,21 +35,19 @@
     </div>
 
     <div class="w-full overflow-x-auto">
-      <h2 class="text-lg mb-2"><%= t('.revenue.title') %></h2>
+      <h2 class="text-lg mb-2"><%= t(".revenue.title") %></h2>
 
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-              <% t('.revenue.table.header').each do |item| %>
+              <% t(".revenue.table.header").each do |item| %>
                 <th class="px-4 py-3"><%= item %></th>
               <% end %>
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% total = 0 %>
-            <% t('.revenue.table.body').each do |item| %>
-              <% total += item[:total] %>
+            <% t(".revenue.table.body").each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= l(item[:date].to_date, format: "%B %d, %Y") %></th>
                 <td class="px-4 py-3 border"><%= item[:source] %></th>
@@ -70,7 +59,7 @@
             <% end %>
             <tr class="text-xs font-bold">
               <td colspan="5" class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border font-bold"><%= number_to_currency(total) %></td>
+              <td class="px-4 py-3 border font-bold"><%= number_to_currency(t(".revenue.table.totals")[:total]) %></td>
             </tr>
           </tbody>
         </table>
@@ -78,20 +67,18 @@
     </div>
 
     <div class="w-full overflow-x-auto">
-      <h2 class="text-lg mb-2"><%= t('.expenses.title') %></h2>
+      <h2 class="text-lg mb-2"><%= t(".expenses.title") %></h2>
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-              <% t('.expenses.table.header').each do |item| %>
+              <% t(".expenses.table.header").each do |item| %>
                 <th class="px-4 py-3"><%= item %></th>
               <% end %>
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% total = 0 %>
-            <% t('.expenses.table.body').each do |item| %>
-              <% total += item[:total] %>
+            <% t(".expenses.table.body").each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= l(item[:date].to_date, format: "%B %d, %Y") %></th>
                 <td class="px-4 py-3 border"><%= item[:description] %></th>
@@ -100,7 +87,7 @@
             <% end %>
             <tr class="text-xs font-bold">
               <td colspan="2" class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border font-bold"><%= number_to_currency(total) %></td>
+              <td class="px-4 py-3 border font-bold"><%= number_to_currency(t(".expenses.table.totals")[:total]) %></td>
             </tr>
           </tbody>
         </table>

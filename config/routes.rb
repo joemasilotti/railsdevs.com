@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resource :home, only: :show
   resource :about, only: :show, controller: :about
-  resource :expenses, only: :show, path: 'income-report'
+  resource :expenses, only: :show, path: "income-report"
   resource :conduct, only: :show
   resource :pricing, only: :show, controller: :pricing
   resource :role, only: :new

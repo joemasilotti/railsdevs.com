@@ -8,7 +8,6 @@ en:
     show:
       title: "Income Report"
       description_html: "<p class='mb-8'>This page documents all monetary transactions associated with railsdevs.com to further instill value #2, <a href='/about' class='underline'>doing everything in public</a>.</p>"
-      sum: "SUM"
       overview:
         title: "Overview"
         table: 
@@ -19,6 +18,7 @@ en:
             { date: "01-12-2021", revenue: 188.70, expenses: 20.59, total: 168.11 },
             { date: "01-01-2022", revenue: 471.75, expenses: 226.09, total: 245.66 }
           ]
+          totals: { revenue: 660.45, expenses: 564.68, total: 95.77 }
       revenue:
         title: "Revenue"
         table: 
@@ -32,6 +32,7 @@ en:
             { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
             { date: "January 12, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 }
           ]
+          totals: { total: 660.45 }
       expenses:
         title: "Expenses"
         table: 
@@ -46,6 +47,7 @@ en:
             { date: "January 13, 2022", description:	"Fathom analytics", total: 14 },
             { date: "January 14, 2022", description:	"Ruby Radar newsletter sponsorship", total: 200 }
           ]
+          totals: { total: 564.68 }
   activerecord:
     attributes:
       business:
