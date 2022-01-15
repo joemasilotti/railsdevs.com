@@ -24,13 +24,13 @@ en:
         table: 
           header: ["Date", "Source", "Revenue", "Stripe Fees", "Climate Contribution", "Net Revenue"]
           body: [
-            { date: "December 21, 2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "December 23, 2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "January 5, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "January 11, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
-            { date: "January 12, 2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 }
+            { date: "21-12-2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "23-12-2021", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "05-01-2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "11-01-2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "11-01-2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "11-01-2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 },
+            { date: "12-01-2022", source: "Business subscription (new)", revenue: 99, fees: 3.17, contribution: 1.48, total: 94.35 }
           ]
           totals: { total: 660.45 }
       expenses:
@@ -39,13 +39,13 @@ en:
           header: ["Date", "Description", "Total"]
           body: [
             { date: "October 21, 2021", description:	"Purchase railsdevs.io, railsdevs.org, and railsdevs.online", total: 49 },
-            { date: "November 9, 2021", description:	"Custom font for logo", total: 19 },
-            { date: "November 12, 2021", description:	"Purchase railsdevs.com", total: 250 },
-            { date: "December 1, 2021", description:	"Heroku bill (prorated)", total: 6.59 },
-            { date: "December 12, 2021", description:	"Fathom analytics", total: 14 },
-            { date: "January 1, 2022", description:	"Heroku bill", total: 12.09 },
-            { date: "January 13, 2022", description:	"Fathom analytics", total: 14 },
-            { date: "January 14, 2022", description:	"Ruby Radar newsletter sponsorship", total: 200 }
+            { date: "09-11-2021", description:	"Custom font for logo", total: 19 },
+            { date: "12-11-2021", description:	"Purchase railsdevs.com", total: 250 },
+            { date: "01-12-2021", description:	"Heroku bill (prorated)", total: 6.59 },
+            { date: "12-12-2021", description:	"Fathom analytics", total: 14 },
+            { date: "01-01-2022", description:	"Heroku bill", total: 12.09 },
+            { date: "13-01-2022", description:	"Fathom analytics", total: 14 },
+            { date: "14-01-2022", description:	"Ruby Radar newsletter sponsorship", total: 200 }
           ]
           totals: { total: 564.68 }
   activerecord:
