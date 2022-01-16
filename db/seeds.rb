@@ -10,7 +10,7 @@ def create_user!(name)
       password_confirmation: "password",
       confirmed_at: DateTime.current
     )
-  rescue StandardError
+  rescue
     raise ActiveRecord::Rollback
   end
 end
@@ -18,13 +18,13 @@ end
 ApplicationRecord.transaction requires_new: true do
   time_zones = ["Eastern Time (US & Canada)", "Pacific Time (US & Canada)"]
   avatars = [
-    ActiveStorage::Blob.create_and_upload!(io: File.open('test/fixtures/files/ritchie.jpg'), filename: 'ritchie.jpg'),
-    ActiveStorage::Blob.create_and_upload!(io: File.open('test/fixtures/files/stroustrup.jpg'), filename: 'stroustrup.jpg'),
-    ActiveStorage::Blob.create_and_upload!(io: File.open('test/fixtures/files/lovelace.jpg'), filename: 'lovelace.jpg')
+    ActiveStorage::Blob.create_and_upload!(io: File.open("test/fixtures/files/ritchie.jpg"), filename: "ritchie.jpg"),
+    ActiveStorage::Blob.create_and_upload!(io: File.open("test/fixtures/files/stroustrup.jpg"), filename: "stroustrup.jpg"),
+    ActiveStorage::Blob.create_and_upload!(io: File.open("test/fixtures/files/lovelace.jpg"), filename: "lovelace.jpg")
   ]
   developer = nil
-  10.times.with_index do |num|
-    name_num = num > 0 ? num : ''
+  10.times do |num|
+    name_num = num > 0 ? num : ""
     dev = Developer.create!(
       user: create_user!("Dennis#{name_num}"),
       name: "Dennis#{name_num} Ritchie",
@@ -75,18 +75,18 @@ ApplicationRecord.transaction requires_new: true do
     company: "GitHub",
     bio: "GitHub is where over 73 million developers shape the future of software, together.",
     developer_notifications: :no,
-    avatar: ActiveStorage::Blob.create_and_upload!(io: File.open('test/fixtures/files/basecamp.png'), filename: 'basecamp.png')
+    avatar: ActiveStorage::Blob.create_and_upload!(io: File.open("test/fixtures/files/basecamp.png"), filename: "basecamp.png")
   )
 
   business.user.set_payment_processor(:fake_processor, allow_fake: true)
   business.user.payment_processor.subscribe(plan: "railsdevs")
 
-  conversation = Conversation.create!(developer: developer, business: business)
-  Message.create!(conversation: conversation, sender: business, body: "Let's work together, Dennis!")
+  conversation = Conversation.create!(developer:, business:)
+  Message.create!(conversation:, sender: business, body: "Let's work together, Dennis!")
 
   puts "Seeding data success!"
 
-rescue StandardError => error
+rescue => error
   puts "Seeding data fail!"
   puts error.message
   puts error.backtrace.first(20).join("\n")
