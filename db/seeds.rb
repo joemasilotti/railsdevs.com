@@ -32,8 +32,9 @@ developer = create_developer!(
   },
   avatar_name: "dennis.png"
 )
+developer.create_role_type!(part_time_contract: true, full_time_contract: true)
 
-create_developer!(
+bjarne_developer = create_developer!(
   {
     user: create_user!("Bjarne"),
     name: "Bjarne Stroustrup",
@@ -47,6 +48,7 @@ create_developer!(
   },
   avatar_name: "bjarne.png"
 )
+bjarne_developer.create_role_type!(full_time_employment: true)
 
 create_developer!(
   {
