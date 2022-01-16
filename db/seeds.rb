@@ -69,7 +69,7 @@ business = Business.new(
   bio: "GitHub is where over 73 million developers shape the future of software, together.",
   developer_notifications: :no
 )
-attach("business.png", to: business.avatar)
+attach("mountains.jpg", to: business.avatar)
 business.save!
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)
