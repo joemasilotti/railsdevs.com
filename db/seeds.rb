@@ -14,6 +14,10 @@ def create_developer!(attributes)
   end
 end
 
+def attach(filename, to:)
+  to.attach(io: File.open(Rails.root.join("test/fixtures/files", filename)), filename:)
+end
+
 admin = create_user!("admin")
 admin.update!(admin: true)
 
@@ -65,7 +69,7 @@ business = Business.new(
   bio: "GitHub is where over 73 million developers shape the future of software, together.",
   developer_notifications: :no
 )
-business.avatar.attach(io: File.open(Rails.root.join("test/fixtures/files/basecamp.png")), filename: "basecamp.png")
+attach("business.png", to: business.avatar)
 business.save!
 
 business.user.set_payment_processor(:fake_processor, allow_fake: true)
