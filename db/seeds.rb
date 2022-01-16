@@ -35,7 +35,8 @@ ApplicationRecord.transaction requires_new: true do
       github: [nil, "dennis#{name_num}"].sample,
       twitter: [nil, "ritchie#{name_num}"].sample,
       time_zone: time_zones.sample,
-      avatar: avatars.sample
+      avatar: avatars.sample,
+      role_type: RoleType.new(part_time_contract: true, full_time_contract: true)
     )
     developer ||= dev
 
@@ -49,7 +50,8 @@ ApplicationRecord.transaction requires_new: true do
       github: [nil, "bjarne#{name_num}"].sample,
       twitter: [nil, "stroustrup#{name_num}"].sample,
       time_zone: time_zones.sample,
-      avatar: avatars.sample
+      avatar: avatars.sample,
+      role_type: RoleType.new(full_time_employment: true)
     )
 
     Developer.create!(
