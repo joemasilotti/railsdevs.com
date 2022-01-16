@@ -31,7 +31,7 @@ developer = create_developer!(
   github: "dennis",
   twitter: "ritchie",
   time_zone: "Eastern Time (US & Canada)",
-  avatar_name: "lovelace.jpg"
+  avatar_name: "dennis.png"
 )
 developer.create_role_type!(part_time_contract: true, full_time_contract: true)
 
@@ -45,7 +45,7 @@ bjarne_developer = create_developer!(
   github: "bjarne",
   twitter: "stroustrup",
   time_zone: "Eastern Time (US & Canada)",
-  avatar_name: "lovelace.jpg"
+  avatar_name: "bjarne.png"
 )
 bjarne_developer.create_role_type!(full_time_employment: true)
 
