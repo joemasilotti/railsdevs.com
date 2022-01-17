@@ -103,7 +103,7 @@ ApplicationRecord.transaction requires_new: true do
   conversation = Conversation.create!(developer:, business:)
   Message.create!(conversation:, sender: business, body: "Let's work together, Dennis!")
 
-  puts colorize("\nSeeding data success!", code: 32)
+  puts colorize("Seeding data success!", code: 32)
 
   puts "You may use the following credentials to sign in:"
   [admin, developer, business].each_with_index do |account, idx|
