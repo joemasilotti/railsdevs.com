@@ -33,10 +33,11 @@ def create_developer!(attributes)
   end
 end
 
+puts "Starting to seed data..."
 ApplicationRecord.transaction requires_new: true do
   time_zones = ["Eastern Time (US & Canada)", "Pacific Time (US & Canada)"]
   developer = nil
-  puts "Creating developers..."
+  puts " Creating developers..."
   10.times do |num|
     name_num = num > 0 ? num : ""
     dev = create_developer!(
@@ -82,11 +83,11 @@ ApplicationRecord.transaction requires_new: true do
     )
   end
 
-  puts "Creating admin..."
+  puts " Creating admin..."
   admin = create_user!("admin")
   admin.update!(admin: true)
 
-  puts "Creating business..."
+  puts " Creating business..."
   business = Business.new(
     user: create_user!("Business"),
     name: "Thomas Dohmke",
@@ -99,18 +100,19 @@ ApplicationRecord.transaction requires_new: true do
   business.user.set_payment_processor(:fake_processor, allow_fake: true)
   business.user.payment_processor.subscribe(plan: "railsdevs")
 
-  puts "Creating conversation..."
+  puts " Creating conversation..."
   conversation = Conversation.create!(developer:, business:)
   Message.create!(conversation:, sender: business, body: "Let's work together, Dennis!")
 
   puts colorize("Seeding data success!", code: 32)
 
   puts "You may use the following credentials to sign in:"
-  [admin, developer, business].each_with_index do |account, idx|
-    admin = account&.try(:admin?)
-    text = "#{idx + 1}) #{admin ? "Admin" : account.class.name}" \
-           "\n\t #{admin ? account.email : account.user.email}" \
-           "\n\t #{DEFAULT_PASSWORD}"
+
+  puts colorize("1) Admin: #{admin.email}, #{DEFAULT_PASSWORD}", code: 33)
+
+  [developer, business].each_with_index do |account, idx|
+    text = "#{idx + 2}) #{account.class.name}: "\
+           "#{account.user.email}, #{DEFAULT_PASSWORD}"
     puts colorize(text, code: 33)
   end
 
