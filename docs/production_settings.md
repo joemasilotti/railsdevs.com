@@ -1,10 +1,10 @@
 # Production settings
 
-This wiki documents all of the configuration for the production environment.
+This documents all of the configuration for the production environment.
 
 ## Environment variables
 
-* `HOST` - Set to the production URL for route helpers, like `root_url`. 
+* `HOST` - Set to the production URL for route helpers, like `root_url`. railsdevs uses `railsdevs.com`.
 
 ## Credentials
 
