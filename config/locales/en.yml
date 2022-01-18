@@ -171,128 +171,20 @@ en:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
-  expenses:
+  financials:
     show:
-      description_html: "<p class='mb-8'>This page documents all monetary transactions associated with railsdevs.com to further instill value #2, <a href='/about' class='underline'>doing everything in public</a>.</p>"
-      expenses:
-        table:
-          body:
-          - date: October 21, 2021
-            description: Purchase railsdevs.io, railsdevs.org, and railsdevs.online
-            total: 49
-          - date: '09-11-2021'
-            description: Custom font for logo
-            total: 19
-          - date: 12-11-2021
-            description: Purchase railsdevs.com
-            total: 250
-          - date: 01-12-2021
-            description: Heroku bill (prorated)
-            total: 6.59
-          - date: 12-12-2021
-            description: Fathom analytics
-            total: 14
-          - date: 01-01-2022
-            description: Heroku bill
-            total: 12.09
-          - date: 13-01-2022
-            description: Fathom analytics
-            total: 14
-          - date: 14-01-2022
-            description: Ruby Radar newsletter sponsorship
-            total: 200
-          header:
-          - Date
-          - Description
-          - Total
-          totals:
-            total: 564.68
-        title: Expenses
-      overview:
-        table:
-          body:
-          - date: 01-10-2021
-            revenue: 0
-            expenses: 49
-            total: -49
-          - date: 01-11-2021
-            revenue: 0
-            expenses: 269
-            total: -269
-          - date: 01-12-2021
-            revenue: 188.7
-            expenses: 20.59
-            total: 168.11
-          - date: 01-01-2022
-            revenue: 471.75
-            expenses: 226.09
-            total: 245.66
-          header:
-          - Month
-          - Revenue
-          - Expenses
-          - Net Profit
-          totals:
-            expenses: 564.68
-            revenue: 660.45
-            total: 95.77
-        title: Overview
-      revenue:
-        table:
-          body:
-          - date: 21-12-2021
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 23-12-2021
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 05-01-2022
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 11-01-2022
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 11-01-2022
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 11-01-2022
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          - date: 12-01-2022
-            source: Business subscription (new)
-            revenue: 99
-            fees: 3.17
-            contribution: 1.48
-            total: 94.35
-          header:
-          - Date
-          - Source
-          - Revenue
-          - Stripe Fees
-          - Climate Contribution
-          - Net Revenue
-          totals:
-            total: 660.45
-        title: Revenue
+      climate_contribution: Climate Contribution
+      date: Date
+      description: Description
+      description_html: 'This page documents all monetary transactions associated with railsdevs.com to further instill value #2, <a href=''/about'' class=''underline''>doing everything in public</a>.'
+      expenses: Expenses
+      net_revenue: Net Revenue
+      overview: Overview
+      revenue: Revenue
+      source: Source
+      stripe_fees: Stripe Fees
       title: Income Report
+      total: Total
   home:
     show:
       available_developers: Developers available now

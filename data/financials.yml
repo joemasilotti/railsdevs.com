@@ -1,0 +1,84 @@
+financials:
+  expenses:
+    headers:
+    - date
+    - description
+    - total
+    data:
+    - date: October 21, 2021
+      description: Purchase railsdevs.io, railsdevs.org, and railsdevs.online
+      total: 49
+    - date: '09-11-2021'
+      description: Custom font for logo
+      total: 19
+    - date: 12-11-2021
+      description: Purchase railsdevs.com
+      total: 250
+    - date: 01-12-2021
+      description: Heroku bill (prorated)
+      total: 6.59
+    - date: 12-12-2021
+      description: "<a href='https://usefathom.com/ref/HBTNVR' target='_blank' class='underline'>Fathom analytics</a>"
+      total: 14
+    - date: 01-01-2022
+      description: Heroku bill
+      total: 12.09
+    - date: 13-01-2022
+      description: "<a href='https://usefathom.com/ref/HBTNVR' target='_blank' class='underline'>Fathom analytics</a>"
+      total: 14
+    - date: 14-01-2022
+      description: "<a href='https://rubyradar.dev/' target='_blank' class='underline'>Ruby Radar newsletter sponsorship</a>"
+      total: 200
+  
+  revenue:
+    headers:
+    - date
+    - source
+    - revenue
+    - stripe_fees
+    - climate_contribution
+    - net_revenue
+    data:
+    - date: 21-12-2021
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 23-12-2021
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 05-01-2022
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 11-01-2022
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 11-01-2022
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 11-01-2022
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+    - date: 12-01-2022
+      source: Business subscription (new)
+      revenue: 99
+      fees: 3.17
+      contribution: 1.48
+      total: 94.35
+

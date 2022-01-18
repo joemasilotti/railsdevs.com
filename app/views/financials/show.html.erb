@@ -1,0 +1,98 @@
+<section class="overflow-hidden max-w-5xl mx-auto">
+  <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <h1 class="py-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"><%= t(".title") %></h1>
+    <p class='mb-8'><%= t(".description_html") %></p>
+
+    <div class="w-full overflow-x-auto mt-8">
+      <h2 class="text-lg mb-2"><%= t(".overview") %></h2>
+      <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
+        <table class="w-full">
+          <thead>
+            <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+              <th class="px-4 py-3"><%= t(".date") %></th>
+              <th class="px-4 py-3"><%= t(".revenue") %></th>
+              <th class="px-4 py-3"><%= t(".expenses") %></th>
+              <th class="px-4 py-3"><%= t(".total") %></th>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <% @overview.each do |item| %>
+              <tr class="text-xs">
+                <td class="px-4 py-3 border"><%= item[:month] %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item[:revenue_total]) %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item[:expense_total]) %></th>
+                <td class="px-4 py-3 border <%= "text-#{item[:total] >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(item[:total]) %></th>
+              </tr>
+            <% end %>
+            <tr class="text-xs font-bold">
+              <td class="px-4 py-3 border"></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@total_revenue) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@total_expenses) %></td>
+              <td class="px-4 py-3 border <%= "text-#{@total >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(@total) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="w-full overflow-x-auto mt-8">
+      <h2 class="text-lg mb-2"><%= t(".expenses") %></h2>
+      <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
+        <table class="w-full">
+          <thead>
+            <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+              <% @expenses["headers"].each do |item| %>
+                <th class="px-4 py-3"><%= t(".#{item}") %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <% @expenses["data"].each do |item| %>
+              <tr class="text-xs">
+                <td class="px-4 py-3 border"><%= l(item["date"].to_date, format: "%B %d, %Y") %></th>
+                <td class="px-4 py-3 border"><%== item["description"] %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item["total"]) %></th>
+              </tr>
+            <% end %>
+            <tr class="text-xs font-bold">
+              <td colspan="2" class="px-4 py-3 border"></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@total_expenses) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="w-full overflow-x-auto">
+      <h2 class="text-lg mb-2"><%= t(".revenue") %></h2>
+
+      <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
+        <table class="w-full">
+          <thead>
+            <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+              <% @revenue["headers"].each do |item| %>
+                <th class="px-4 py-3"><%= t(".#{item}") %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <% @revenue["data"].each do |item| %>
+              <tr class="text-xs">
+                <td class="px-4 py-3 border"><%= l(item["date"].to_date, format: "%B %d, %Y") %></th>
+                <td class="px-4 py-3 border"><%= item["source"] %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item["revenue"]) %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item["fees"]) %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item["contribution"]) %></th>
+                <td class="px-4 py-3 border"><%= number_to_currency(item["total"]) %></th>
+              </tr>
+            <% end %>
+            <tr class="text-xs font-bold">
+              <td colspan="5" class="px-4 py-3 border"></td>
+              <td class="px-4 py-3 border font-bold"><%= number_to_currency(@total_revenue) %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
