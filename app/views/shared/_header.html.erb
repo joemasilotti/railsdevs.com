@@ -24,26 +24,7 @@
 
       <div data-controller="toggle" data-toggle-close-class="hidden">
         <%= render UserMenu::BaseComponent.new(current_user) %>
-        <div data-toggle-target="element" class="hidden absolute z-10 top-0 inset-x-0 p-2 md:w-screen md:max-w-sm md:right-9 md:top-11 md:left-auto">
-          <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div class="px-5 py-2 flex items-center justify-between border-b border-gray-200">
-              <span class="text-2xl font-bold ml-0.5 mt-1.5"><%= t("notifications.index.title") %></span>
-              <button data-action="toggle#toggle" class="bg-white rounded-md p-2 inline-flex items-center justify-content text-gray-600 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-700">
-                <span class="sr-only"><%= t("notifications.index.close") %></span>
-                <%= inline_svg_tag "icons/outline/x.svg", class: "h-6 w-6" %>
-              </button>
-            </div>
-            <div class="max-h-[50vh] p-2 pb-4 bg-gray-100 overflow-y-auto shadow-inner">
-              <%= turbo_frame_tag "notifications", loading: :lazy, src: notifications_path, target: "_top" do %>
-                <%= render LoadingComponent.new %>
-              <% end %>
-            </div>
-            <div class="flex items-center justify-between w-full px-5 py-3 text-center text-gray-500 bg-white border-t border-gray-200">
-              <%= link_to t("notifications.index.full"), notifications_path, class: "hover:text-gray-700 hover:underline" %>
-              <%= link_to t("notifications.index.cta"), read_notifications_path, class: "text-right hover:text-gray-700 hover:underline" %>
-            </div>
-          </div>
-        </div>
+        <%= render "shared/notifications_dropdown" %>
       </div>
     </div>
   </div>
