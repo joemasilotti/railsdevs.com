@@ -1,16 +1,18 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <%= turbo_frame_tag "notifications" do %>
-    <% if @notifications.any? %>
-      <div class="my-6">
-        <h1 class="text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
+  <% if @notifications.any? %>
+    <div class="my-6">
+      <h1 class="text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
+      <%= turbo_frame_tag "notifications" do %>
         <%= render PagyPaginatorComponent.new(id: "notifications", pagy: @pagy, url_array: [:notifications]) do |component| %>
           <% component.loading_icon do %>
             <%= render LoadingComponent.new %>
           <% end %>
           <%= render @notifications %>
         <% end %>
-      </div>
-    <% else %>
+      <% end %>
+    </div>
+  <% else %>
+    <%= turbo_frame_tag "notifications" do %>
       <div class="my-6">
         <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), icon: "icons/outline/bell.svg") %>
       </div>

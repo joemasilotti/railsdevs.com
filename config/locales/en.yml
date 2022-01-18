@@ -199,6 +199,7 @@ en:
         title: No new notifications
       full: Full view
       title: New notifications
+      close: Close menu
     new_business: "%{business} added their business."
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
     new_developer_profile: "%{developer} added their developer profile."
