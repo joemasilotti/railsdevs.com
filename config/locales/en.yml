@@ -192,8 +192,10 @@ en:
       wrote: wrote
       you: You
   notifications:
+    dropdown:
+      all: All notifications
+      close: Close
     index:
-      close: Close menu
       cta: View history
       empty_state:
         body: You have no unread notifications.
