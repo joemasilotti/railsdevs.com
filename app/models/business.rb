@@ -6,6 +6,8 @@ class Business < ApplicationRecord
   belongs_to :user
   has_many :conversations, -> { visible }
 
+  has_noticed_notifications
+
   validates :name, presence: true
   validates :company, presence: true
   validates :bio, presence: true

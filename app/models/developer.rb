@@ -13,6 +13,8 @@ class Developer < ApplicationRecord
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
+  has_noticed_notifications
+
   accepts_nested_attributes_for :role_type
 
   validates :name, presence: true
