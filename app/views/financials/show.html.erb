@@ -16,7 +16,7 @@
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% @overview.each do |item| %>
+            <% @report.overview.each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= item[:month] %></th>
                 <td class="px-4 py-3 border"><%= number_to_currency(item[:revenue_total]) %></th>
@@ -26,9 +26,9 @@
             <% end %>
             <tr class="text-xs font-bold">
               <td class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border"><%= number_to_currency(@total_revenue) %></td>
-              <td class="px-4 py-3 border"><%= number_to_currency(@total_expenses) %></td>
-              <td class="px-4 py-3 border <%= "text-#{@total >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(@total) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@report.total_revenue) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@report.total_expenses) %></td>
+              <td class="px-4 py-3 border <%= "text-#{@report.total >= 0 ? "green" : "red"}-700" %>"><%= number_to_currency(@report.total) %></td>
             </tr>
           </tbody>
         </table>
@@ -41,13 +41,13 @@
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-              <% @expenses["headers"].each do |item| %>
+              <% @report.expenses["headers"].each do |item| %>
                 <th class="px-4 py-3"><%= t(".#{item}") %></th>
               <% end %>
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% @expenses["data"].each do |item| %>
+            <% @report.expenses["data"].each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= l(item["date"].to_date, format: "%B %d, %Y") %></th>
                 <td class="px-4 py-3 border"><%== item["description"] %></th>
@@ -56,7 +56,7 @@
             <% end %>
             <tr class="text-xs font-bold">
               <td colspan="2" class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border"><%= number_to_currency(@total_expenses) %></td>
+              <td class="px-4 py-3 border"><%= number_to_currency(@report.total_expenses) %></td>
             </tr>
           </tbody>
         </table>
@@ -70,13 +70,13 @@
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-              <% @revenue["headers"].each do |item| %>
+              <% @report.revenue["headers"].each do |item| %>
                 <th class="px-4 py-3"><%= t(".#{item}") %></th>
               <% end %>
             </tr>
           </thead>
           <tbody class="bg-white">
-            <% @revenue["data"].each do |item| %>
+            <% @report.revenue["data"].each do |item| %>
               <tr class="text-xs">
                 <td class="px-4 py-3 border"><%= l(item["date"].to_date, format: "%B %d, %Y") %></th>
                 <td class="px-4 py-3 border"><%= item["source"] %></th>
@@ -88,7 +88,7 @@
             <% end %>
             <tr class="text-xs font-bold">
               <td colspan="5" class="px-4 py-3 border"></td>
-              <td class="px-4 py-3 border font-bold"><%= number_to_currency(@total_revenue) %></td>
+              <td class="px-4 py-3 border font-bold"><%= number_to_currency(@report.total_revenue) %></td>
             </tr>
           </tbody>
         </table>
