@@ -1,6 +1,4 @@
-if Rails.env.production?
-  raise "You're in Production! Seeding data is prohibited!"
-end
+raise "You're in Production! Seeding data is prohibited!" if Rails.env.production?
 
 DEFAULT_PASSWORD = "password"
 
