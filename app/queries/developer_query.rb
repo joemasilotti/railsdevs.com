@@ -9,6 +9,7 @@ class DeveloperQuery
     @options = options
     @sort = options.delete(:sort)
     @time_zones = options.delete(:time_zones)
+    @role_types = options.delete(:role_types)
   end
 
   def pagy
@@ -27,13 +28,22 @@ class DeveloperQuery
     @time_zones.to_a.reject(&:blank?)
   end
 
+  def role_types
+    @role_types.to_a.reject(&:blank?).map(&:to_sym)
+  end
+
   private
 
   def initialize_pagy
     @_records = Developer.includes(:role_type).with_attached_avatar
     sort_records
     time_zone_filter_records
+    role_type_filter_records
     @pagy, @records = build_pagy(@_records)
+  end
+
+  def role_type_filter_records
+    @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
   end
 
   def sort_records

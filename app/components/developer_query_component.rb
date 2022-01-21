@@ -18,6 +18,15 @@ class DeveloperQueryComponent < ApplicationComponent
       .map { |offset| [offset, "#{offset} #{t("developer_query_component.gmt")}"] }
   end
 
+  def role_types
+    %i[part_time_contract full_time_contract full_time_employment]
+      .map { |role| [role, RoleType.human_attribute_name(role)] }
+  end
+
+  def role_selected?(role_pair)
+    query.role_types.include?(role_pair.first)
+  end
+
   private
 
   def formatted_time_zone(time_zone)
