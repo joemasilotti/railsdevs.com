@@ -266,6 +266,7 @@ en:
       email: Email
       github: GitHub
       income_report: Income report
+      # Please use the language name of this locale as the translation.
       language: English
       masilotti_com: Masilotti.com
       open_source: Open source

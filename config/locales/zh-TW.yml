@@ -266,6 +266,7 @@ zh-TW:
       email: Email
       github: GitHub
       income_report: Income report
+      # Please use the language name of this locale as the translation.
       language: 繁體中文
       masilotti_com: Masilotti.com
       open_source: Open source
