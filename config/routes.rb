@@ -1,9 +1,8 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  devise_for :users
-
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users
     resource :home, only: :show
     resource :about, only: :show, controller: :about
     resource :conduct, only: :show
