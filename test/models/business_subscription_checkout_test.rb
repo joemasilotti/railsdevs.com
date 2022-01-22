@@ -19,7 +19,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     user = users(:with_business)
     developer = developers(:available)
 
-    stub_pay(user, expected_success_url: new_developer_message_url(developer)) do
+    stub_pay(user, expected_success_url: new_developer_message_url(developer_id: developer)) do
       BusinessSubscriptionCheckout.new(user, developer:).url
     end
   end

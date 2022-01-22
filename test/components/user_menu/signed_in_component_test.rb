@@ -19,7 +19,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
 
     render_inline UserMenu::SignedInComponent.new(user)
 
-    assert_link_to developer_path(user.developer)
+    assert_link_to developer_path(id: user.developer)
     refute_link_to new_business_path
     refute_link_to new_role_path
   end
