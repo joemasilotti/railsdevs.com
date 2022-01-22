@@ -1,0 +1,4 @@
+<% I18n.available_locales.each do |locale| %>
+      <% hreflang = locale == I18n.locale ? "x-default" : locale %>
+      <link rel="alternate" href="<%= request.base_url + url_for(locale: locale) %>" hreflang="<%= hreflang %>" />
+<% end %>
