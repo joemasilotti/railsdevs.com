@@ -17,6 +17,14 @@ class UserTest < ActiveSupport::TestCase
     refute user.conversations.include?(conversations(:blocked))
   end
 
+  test "customer name for Pay" do
+    user = users(:with_business)
+    assert_equal user.pay_customer_name, businesses(:one).name
+
+    user = users(:empty)
+    assert_nil user.pay_customer_name
+  end
+
   test "active business subscription" do
     user = users(:with_business)
     refute user.active_business_subscription?
