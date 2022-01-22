@@ -21,6 +21,11 @@ class ApplicationController < ActionController::Base
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
   end
+
+  def default_url_options(options = {})
+    options.merge({locale: I18n.locale})
+  end
+
   def user_not_authorized
     flash[:alert] = I18n.t("pundit.errors.unauthorized")
     redirect_to(request.referrer || root_path)
