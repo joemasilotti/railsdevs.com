@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include StoredLocation
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-  around_action :switch_locale
+  before_action :set_locale
 
   def after_sign_in_path_for(user)
     if (stored_location = stored_location_for(:user)).present?
@@ -17,9 +17,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def switch_locale(&action)
-    locale = params[:locale] || I18n.default_locale
-    I18n.with_locale(locale, &action)
+  def set_locale
+    I18n.locale = if params[:locale]&.to_sym.in? I18n.available_locales
+      params[:locale]
+    else
+      I18n.default_locale
+    end
   end
 
   def default_url_options(options = {})
