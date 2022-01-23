@@ -8,10 +8,10 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "Visit urls with an unavailable locale will fallback to English" do
+  test "Visit urls with an unavailable locale will return 404" do
     assert_raises ActionController::RoutingError do
       get root_path(locale: "Klingon")
     end
-    assert I18n.locale == :en
+  end
   end
 end
