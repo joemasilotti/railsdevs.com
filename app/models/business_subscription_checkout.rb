@@ -29,7 +29,7 @@ class BusinessSubscriptionCheckout
 
   def success_url
     if developer.present?
-      new_developer_message_url(developer_id: developer.id)
+      new_developer_message_url(developer)
     elsif user.business.present?
       conversations_url
     else
