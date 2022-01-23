@@ -2,7 +2,7 @@
 zh-TW:
   shared:
     footer:
-      language: 繁體中文
+      language_name_of_locale: 繁體中文
     nav_links:
       about: 關於
       developers: 開發者們
