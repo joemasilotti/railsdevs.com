@@ -13,5 +13,24 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
       get root_path(locale: "Klingon")
     end
   end
+
+  test "links to all locales will show, except the current locale" do
+    current_locale = :"zh-TW"
+    get root_path(locale: current_locale)
+    assert I18n.locale == current_locale
+
+    other_locales = I18n.available_locales - [current_locale]
+    other_locales.each do |locale|
+      if locale == I18n.default_locale
+        assert_select "a[href='/']", text: language_name_of(locale)
+      else
+        assert_select "a[href='/#{locale}']", text: language_name_of(locale)
+      end
+    end
+    assert_select "a[href='/#{current_locale}']", count: 0, text: language_name_of(current_locale)
+  end
+
+  def language_name_of(locale)
+    I18n.t("shared.footer.language_name_of_locale", locale:)
   end
 end
