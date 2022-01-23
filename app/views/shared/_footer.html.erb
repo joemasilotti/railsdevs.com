@@ -4,7 +4,7 @@
       <% I18n.available_locales.each do |locale| %>
         <% unless locale == I18n.locale %>
           <div class="px-5 py-2">
-            <%= link_to params.permit(:locale).merge(locale: locale), class: "text-base text-gray-500 hover:text-gray-900", "aria-label": t(".language", locale: locale) do %>
+            <%= link_to request.params.merge(locale: locale), class: "text-base text-gray-500 hover:text-gray-900", "aria-label": t(".language", locale: locale) do %>
               <span><%= t(".language", locale: locale) %></span>
             <% end %>
           </div>
