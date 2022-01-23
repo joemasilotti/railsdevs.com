@@ -10,7 +10,7 @@ class NewMessageNotification < Noticed::Base
   end
 
   def url
-    conversation_path(conversation)
+    conversation_path(id: conversation)
   end
 
   def message
