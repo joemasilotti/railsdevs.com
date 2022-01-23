@@ -18,17 +18,16 @@ Rails.application.routes.draw do
     resources :developers, except: :destroy do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
-
-    namespace :stripe do
-      resource :checkout, only: :show
-      resource :portal, only: :show
-    end
-
-    namespace :admin do
-      resources :conversations, only: :index
-    end
-
     root to: "home#show"
+  end
+
+  namespace :stripe do
+    resource :checkout, only: :show
+    resource :portal, only: :show
+  end
+
+  namespace :admin do
+    resources :conversations, only: :index
   end
 
   get "robots.:format" => "robots#index"
