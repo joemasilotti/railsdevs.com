@@ -107,7 +107,7 @@ en:
     apply: Apply
     gmt: GMT
     role_type:
-      title: Role Type
+      title: Role type
     sort:
       availability: Availability
       newest: Newest
