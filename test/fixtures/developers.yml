@@ -3,7 +3,7 @@ available:
   name: Developer One
   available_on: <%= Date.new(2021, 1, 1) %>
   hero: First developer
-  bio: I am the first developer
+  bio: I am the first developer.
   time_zone: Eastern Time (US & Canada)
   utc_offset: -18_000
 
@@ -12,7 +12,7 @@ unavailable:
   name: Developer Two
   available_on: <%= Date.new(2222, 2, 2) %>
   hero: Second developer
-  bio: I am the second developer
+  bio: I am the second developer.
   time_zone: Pacific Time (US & Canada)
   utc_offset: -28_800
 
@@ -20,10 +20,28 @@ with_conversation:
   user: with_developer_conversation
   name: Developer Three
   hero: Third developer
-  bio: I am the third developer
+  bio: I am the third developer.
 
 with_blocked_conversation:
   user: with_blocked_conversation
   name: Developer Four
   hero: Fourth developer
-  bio: I am the fourth developer
+  bio: I am the fourth developer.
+
+with_part_time_contract:
+  user: with_part_time_contract
+  name: Part-time Contractor
+  hero: A part-time contractor
+  bio: I am a developer available for part time contract.
+
+with_full_time_contract:
+  user: with_full_time_contract
+  name: Full-time Contractor
+  hero: A full-time contractor
+  bio: I am a developer available for full-time contract.
+
+with_full_time_employment:
+  user: with_full_time_employment
+  name: Full-time Employee
+  hero: A full-time employee
+  bio: I am a developer available for full-time employment.

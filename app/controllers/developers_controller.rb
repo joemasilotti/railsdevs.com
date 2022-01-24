@@ -62,11 +62,7 @@ class DevelopersController < ApplicationController
       :cover_image,
       :search_status,
       :time_zone,
-      role_type_attributes: [
-        :part_time_contract,
-        :full_time_contract,
-        :full_time_employment
-      ]
+      role_type_attributes: RoleType::TYPES
     )
   end
 end

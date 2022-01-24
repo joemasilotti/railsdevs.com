@@ -7,7 +7,7 @@ class DeveloperQueryComponent < ApplicationComponent
     @query = query
   end
 
-  def selected?(time_zone_pair)
+  def time_zone_selected?(time_zone_pair)
     query.time_zones.include?(time_zone_pair.first)
   end
 
@@ -16,6 +16,14 @@ class DeveloperQueryComponent < ApplicationComponent
       .map { |d| formatted_time_zone(d.time_zone) }
       .uniq.sort
       .map { |offset| [offset, "#{offset} #{t("developer_query_component.gmt")}"] }
+  end
+
+  def role_selected?(role_pair)
+    query.role_types.include?(role_pair.first)
+  end
+
+  def role_types
+    RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
 
   private
