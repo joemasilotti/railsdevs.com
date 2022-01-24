@@ -1,0 +1,513 @@
+---
+ru:
+  about:
+    show:
+      description: Я Джо Масилотти. Я создаю railsdevs, чтобы разработчикам Ruby on Rails было проще найти свою следующую работу.
+      title: О railsdevs
+  activerecord:
+    attributes:
+      business:
+        company: Название компании
+        name: Ваше имя
+      developer:
+        available_on: Для начала
+        bio: О вас
+        email: E-mail
+        github: Github
+        hero: Hero
+        linkedin: Linkedin
+        name: Имя
+        twitter: Twitter
+        website: Website
+      developer/search_status:
+        actively_looking: Активно ищу работу
+        not_interested: Не заинтересован в работе прямо сейчас
+        open: Рассматриваю предложения, но не ищу
+      role_type:
+        full_time_contract: Контракт на полный рабочий день
+        full_time_employment: Трудоустройство на полный рабочий день
+        part_time_contract: Контракт на частичную занятость
+      user:
+        email: E-mail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+    models:
+      business:
+        one: Компания
+        other: Компании
+      developer:
+        one: Разработчик
+        other: Разработчики
+      user:
+        one: Пользователь
+        other: Пользователи
+  admin:
+    conversations:
+      conversation:
+        blocked: Заблокировано
+      empty_state:
+        title: Нет заблокированых диалогов
+      index:
+        title: Заблокированые диалоги
+  availability_component:
+    in_future_html: Будет доступен <time datetime="%{date}">%{date_in_words}</time>
+    now_html: Доступен
+    unspecified_html: В настоящее время недоступен
+  blocks:
+    create:
+      notice: "%{other_recipient} были заблокированы."
+    new:
+      block: Блокировать
+      cancel: Отмена
+      message: Вы уверены, что хотите пометить диалог и заблокировать отправителя? Диалог будет скрыт и отправитель не сможет отправлять сообщения
+      title: Заблокировать отправителя
+  businesses:
+    create:
+      created: Ваша компания была добавлена!
+    form:
+      avatar: Аватар
+      change_avatar: Загрузить
+      creating: Создание...
+      developer_notifications:
+        help_text: Получайте ежедневные или еженедельные уведомления по электронной почте, когда новые разработчики добавляют свой профиль на railsdevs.
+        legend: Увидомление разработчика
+        values:
+          daily: Ежедневно
+          'no': Никогда
+          weekly: Еженедельно
+      notifications:
+        title: Почта для увидомлении
+      profile: Профиль
+      profile_help_text: Эта информация будет передана всем разработчикам, с которыми вы свяжетесь.
+      save: Сохранить
+      something_went_wrong: Что-то пошло не так при загрузке изображения, попробуйте еще раз.
+      updating: Загрузка...
+      your_business_profile: Профиль вашей компании
+    update:
+      updated: Данные о компании были обновлены!
+  cold_messages:
+    new:
+      title: Начать диалог
+      with: с участием
+  conversations:
+    empty_state:
+      body: Начните с поиска разработчика для общения.
+      cta: Найти разработчика
+      title: Нет диалогов
+    index:
+      title: Ваши диалоги
+    show:
+      flag: Пометить диалог
+      title: Диалог
+      with: с участием
+  cover_image_component:
+    alt: Изображение разработчика
+  developer_query_component:
+    apply: Применить
+    gmt: GMT
+    sort:
+      availability: Доступность
+      newest: Новейшии
+      title: Сортировать
+    timezone:
+      title: Временая зона
+    title: Фильтрация разрабочиков
+  developers:
+    create:
+      created: Ваш профиль был добавлен!
+    details:
+      title: Детали
+    form:
+      creating: Создание...
+      online_presence:
+        help_text: Где люди могут больше узнать о вас и вашей работе?
+        title: Сейчас онлайн
+      preferred_compensation:
+        description: Исходя из моего опыта работы фрилансером, компенсацию следует обсуждать только после того, как станут известны детали проекта или работы.
+        more_info: Больше информации по этому решению
+        subtitle: Предпочтительная компенсация удалена с railsdevs
+        title: Предпочтительная компенсация
+      profile:
+        avatar: Аватар
+        avatar_error_text: Что-то пошло не так при загрузке изображения, попробуйте еще раз.
+        bio_help_text: Напишите несколько предложений о себе.
+        change: Загрузить
+        cover_image: Cover image
+        help_text: Эта информация будет отображаться публично, поэтому будьте осторожны.
+        hero_help_text: Опишите себя как разработчика в нескольких словах.
+        name_help_text_html: Ваше имя <i>не</i> будет отображено в вашем публичном профиле.
+        title: Прифиль
+        upload_error_text: Что-то пошло не так при загрузке изображения, попробуйте еще раз.
+        upload_file: Загрузить файл
+        upload_help_text: PNG, JPG, GIF до 10MB
+      role_type:
+        help_text: Выбирете все позиции, которые вы хотели бы использовать при поиске.
+        title: Укажите позиции 
+      save: Сохранить
+      search_status:
+        actively_looking_help_text: Ваш профиль может появиться на главной странице.
+        not_interested_help_text: В вашем профиле будет четко указано, что вы не ищете работу.
+        open_help_text: Компании по-прежнему могут найти вас, но вы не будете отображаться на главной странице.
+        title: Статус поиска
+      title: Ваш профиль разработчика
+      updating: Обновление...
+      work_preferences:
+        help_text: Какую работу вы ищете дальше?
+        title: Предпочтения в работе
+    index:
+      cta: Добавить мой профиль
+      description: Более 100 разработчиков Ruby on Rails ищут новую работу. От уровня junior до senior и всех остальных, вы найдете здесь.
+      title: Ruby on Rails разработчик
+    show:
+      description: Описание
+      edit: Редактировать
+      hire: Найми меня
+    update:
+      updated: Ваш профиль был обновлен!
+  errors:
+    business_blank: Заполните свой профиль компании для общения с разработчиками.
+    messages:
+      attached: не прикреплено
+      content_type_invalid: формат изображение не поддерживается
+      max_file_size_invalid: Размер изображения больше %{size}
+  home:
+    show:
+      available_developers: Разработчики доступные сейчас
+      get_started: Начать
+      learn_more: Узнать больше
+      more: Найти больше разработчиков
+      subtitle_1: railsdevs
+      subtitle_2: расширяет возможности разработчиков, для их следующей работы.
+      subtitle_3: Перестаньте рыскать по доскам объявлений о вакансиях и откиньтесь на спинку кресла, поскольку компании первыми обратятся к вам.
+      title_1: Доска объявлений для
+      title_2: Rails разработчиков
+  messages:
+    form:
+      help: Добавьте свое сообщение
+      placeholder: Добавьте свое сообщение...
+      sending: Отправление...
+      submit: Отправить
+    message:
+      wrote: написать
+      you: Вы
+  notifications:
+    index:
+      cta: Показать историю
+      empty_state:
+        body: У вас есть не прочитанные уведомления.
+        title: Нет новых уведомлении
+      title: Новые уведомления
+    new_business: "%{business} добавил эти компании."
+    new_conversation: "%{name} (%{company}) начала диалог с %{developer}."
+    new_developer_profile: "%{developer} добавил профили этих разработчиков."
+    new_message: "%{sender} отправил вам сообщение."
+    show:
+      notice: Уведомление помечено как прочитанное.
+  open_graph_tags_component:
+    default_description: Найти Ruby on Rails разработчиков ищущих работу фриланс, частичная занятость и полный рабочий день.
+  paywalled_component:
+    description: Информация, которая видна только с подпиской.
+    title: Приватная информация
+  pricing:
+    show:
+      cta: Начните сегодня
+      faq:
+        '1':
+          a: Нет. $99 в месяц предоставляют вам бизнес-доступ к railsdevs. Вы должны платить разработчикам за работу, которую они делают.
+          q: Включает ли $99 в месяц тариф разработчика?
+        '2':
+          a: Подписка позволяет вам напрямую обращаться к разработчикам на railsdevs. Она также показывает информацию, которая скрыта, например, настоящие имена разработчиков и ссылки на их портфолио.
+          q: Так что же мне дают $99 в месяц?
+        '3':
+          a: Railsdevs бесплатен для разработчиков.
+          q: Стоит ли railsdevs что-нибудь для разработчиков?
+        '4':
+          a_html: Напишите мне, Джо, с любыми вопросами. Вы можете связаться со мной по почте <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
+          q: К кому я могу обратиться по более конкретным вопросам?
+        title: Часто задаваемые вопросы
+      feature:
+        '1': Ищите узконаправленых специалистов.
+        '2': Поддерживает независимых разработчиков.
+        '3': Пропустите описания вакансий и официальные сообщения.
+        '4': Говорите напрямую с кандидатами.
+        '5': Разблокируйте частном информацию о разработчике.
+        '6': Получайте уведомления о новых кандидатах по электронной почте.
+        '7': Отказывайте в любое время без каких-либо обязательств.
+        '8': Поддержка разработки с открытым исходным кодом.
+        subtitle: Просмотрите профили разработчиков, которые могут приступить к работе как можно скорее или когда вам понадобится помощь. Экономьте время, связавшись с идеальными кандидатами.
+        title: Нанимайте в своем собственном темпе
+      subtitle: Свяжитесь со свободными разработчиками Ruby on Rails, которые готовы работать прямо сейчас.
+      title_1: Наймите Rails разработчика за
+      title_2: "$99 в месяц"
+  pundit:
+    errors:
+      unauthorized: У вас нет к этому доступа.
+  read_notifications:
+    empty_state:
+      body: У вас нет не прочитаных увидомлении.
+      title: Нет не прочитаных увидомлении
+    index:
+      title: Прочитать уведомления
+  role_type_component:
+    interested_in_roles: Заинтересованы в ролях
+  roles:
+    new:
+      hiring_developers: Я ищу разработчиков
+      hiring_developers_help_text: Вы компания, которая ищет работников для фриланса, частичной занятости или разработчика на полный день.
+      looking_for_work: Я ищу работу
+      looking_for_work_help_text: Вы Ruby on Rails разработчик ищущий новую работу.
+      what_brings_you_here: Что привело вас в railsdevs?
+  shared:
+    footer:
+      about: О нас
+      analytics: Аналитика
+      copyright: Все права защищены.
+      email: Email
+      github: GitHub
+      income_report: Income report
+      masilotti_com: Masilotti.com
+      open_source: Open source
+      support: Поддержка
+      twitter: Twitter
+    header:
+      open_main_menu: Открыть главное меню
+    nav_links:
+      about: О нас
+      developers: Разработчики
+      pricing: Цены
+  upgrade_account_component:
+    cta: Обновить ваш аккаунт
+    title: Требуется активная подписка.
+  user_menu:
+    signed_in_component:
+      admin: Администратор
+      billing: Выставление счетов
+      get_started: Начать
+      my_business_profile: Профиль моей компании
+      my_conversations: Мои диалоги
+      my_developer_profile: Мой профиль разработчика
+      new_notifications: У вас есть нове увидомление
+      open_user_menu: Открыть мени пользователя
+      sign_out: Выйти
+      view_notifications: Показать оповещения
+    signed_out_component:
+      register: Зарегистрироваться
+      sign_in: Войти
+
+# Date time format
+  date:
+    abbr_day_names:
+    - Вс
+    - Пн
+    - Вт
+    - Ср
+    - Чт
+    - Пт
+    - Сб
+    abbr_month_names:
+    - 
+    - янв.
+    - февр.
+    - марта
+    - апр.
+    - мая
+    - июня
+    - июля
+    - авг.
+    - сент.
+    - окт.
+    - нояб.
+    - дек.
+    day_names:
+    - воскресенье
+    - понедельник
+    - вторник
+    - среда
+    - четверг
+    - пятница
+    - суббота
+    formats:
+      default: "%d.%m.%Y"
+      long: "%-d %B %Y"
+      short: "%-d %b"
+    month_names:
+    - 
+    - января
+    - февраля
+    - марта
+    - апреля
+    - мая
+    - июня
+    - июля
+    - августа
+    - сентября
+    - октября
+    - ноября
+    - декабря
+    order:
+    - :day
+    - :month
+    - :year
+# Time_ago_in_words
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около %{count} часа
+        few: около %{count} часов
+        many: около %{count} часов
+        other: около %{count} часа
+      about_x_months:
+        one: около %{count} месяца
+        few: около %{count} месяцев
+        many: около %{count} месяцев
+        other: около %{count} месяца
+      about_x_years:
+        one: около %{count} года
+        few: около %{count} лет
+        many: около %{count} лет
+        other: около %{count} лет
+      almost_x_years:
+        one: почти 1 год
+        few: почти %{count} года
+        many: почти %{count} лет
+        other: почти %{count} лет
+      half_a_minute: полминуты
+      less_than_x_seconds:
+        one: меньше %{count} секунды
+        few: меньше %{count} секунд
+        many: меньше %{count} секунд
+        other: меньше %{count} секунды
+      less_than_x_minutes:
+        one: меньше %{count} минуты
+        few: меньше %{count} минут
+        many: меньше %{count} минут
+        other: меньше %{count} минуты
+      over_x_years:
+        one: больше %{count} года
+        few: больше %{count} лет
+        many: больше %{count} лет
+        other: больше %{count} лет
+      x_seconds:
+        one: "%{count} секунду"
+        few: "%{count} секунды"
+        many: "%{count} секунд"
+        other: "%{count} секунды"
+      x_minutes:
+        one: "%{count} минуту"
+        few: "%{count} минуты"
+        many: "%{count} минут"
+        other: "%{count} минуты"
+      x_days:
+        one: "%{count} день"
+        few: "%{count} дня"
+        many: "%{count} дней"
+        other: "%{count} дня"
+      x_months:
+        one: "%{count} месяц"
+        few: "%{count} месяца"
+        many: "%{count} месяцев"
+        other: "%{count} месяца"
+      x_years:
+        one: "%{count} год"
+        few: "%{count} года"
+        many: "%{count} лет"
+        other: "%{count} года"
+    prompts:
+      second: Секунд
+      minute: Минут
+      hour: Часов
+      day: День
+      month: Месяц
+      year: Год
+  helpers:
+    select:
+      prompt: 'Выберите: '
+    submit:
+      create: Создать %{model}
+      submit: Сохранить %{model}
+      update: Сохранить %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: руб.
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: миллиард
+            few: миллиардов
+            many: миллиардов
+            other: миллиардов
+          million:
+            one: миллион
+            few: миллионов
+            many: миллионов
+            other: миллионов
+          quadrillion:
+            one: квадриллион
+            few: квадриллионов
+            many: квадриллионов
+            other: квадриллионов
+          thousand:
+            one: тысяча
+            few: тысяч
+            many: тысяч
+            other: тысяч
+          trillion:
+            one: триллион
+            few: триллионов
+            many: триллионов
+            other: триллионов
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: байт
+            few: байта
+            many: байт
+            other: байта
+          eb: ЭБ
+          gb: ГБ
+          kb: КБ
+          mb: МБ
+          pb: ПБ
+          tb: ТБ
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " и "
+      two_words_connector: " и "
+      words_connector: ", "
+  time:
+    am: утра
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: вечера
