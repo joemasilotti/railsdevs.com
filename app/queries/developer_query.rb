@@ -13,11 +13,11 @@ class DeveloperQuery
   end
 
   def pagy
-    @pagy ||= initialize_pagy.first
+    @pagy ||= initialize_pagy_and_developers.first
   end
 
   def records
-    @records ||= initialize_pagy.last
+    @records ||= initialize_pagy_and_developers.last
   end
 
   def sort
@@ -34,7 +34,7 @@ class DeveloperQuery
 
   private
 
-  def initialize_pagy
+  def initialize_pagy_and_developers
     @_records = Developer.includes(:role_type).with_attached_avatar
     sort_records
     time_zone_filter_records
