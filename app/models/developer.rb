@@ -25,7 +25,11 @@ class Developer < ApplicationRecord
     max_file_size: 10.megabytes
 
   scope :filter_by_utc_offset, ->(utc_offset) { where(utc_offset:) }
-  scope :filter_by_role_types, ->(role_types) { joins(:role_type).where("part_time_contract=? or full_time_contract=? or full_time_employment=?", role_types.include?(:part_time_contract), role_types.include?(:full_time_contract), role_types.include?(:full_time_employment)) }
+  scope :filter_by_role_types, ->(role_types) do
+    RoleType::TYPES.filter_map { |type|
+      where(role_type: {type => true}) if role_types.include?(type)
+    }.reduce(:or).joins(:role_type)
+  end
 
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :newest_first, -> { order(created_at: :desc) }

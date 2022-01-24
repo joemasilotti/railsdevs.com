@@ -10,7 +10,7 @@ class RoleTypeComponent < ApplicationComponent
   end
 
   def role_types
-    %i[part_time_contract full_time_contract full_time_employment]
+    RoleType::TYPES
   end
 
   def selected_role_types

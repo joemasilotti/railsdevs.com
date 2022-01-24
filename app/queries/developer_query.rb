@@ -42,10 +42,6 @@ class DeveloperQuery
     @pagy, @records = build_pagy(@_records)
   end
 
-  def role_type_filter_records
-    @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
-  end
-
   def sort_records
     if sort == :availability
       @_records.merge!(Developer.available_first)
@@ -58,6 +54,10 @@ class DeveloperQuery
     if utc_offsets.any?
       @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
     end
+  end
+
+  def role_type_filter_records
+    @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
   end
 
   def utc_offsets

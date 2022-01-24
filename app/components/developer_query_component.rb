@@ -7,7 +7,7 @@ class DeveloperQueryComponent < ApplicationComponent
     @query = query
   end
 
-  def selected?(time_zone_pair)
+  def time_zone_selected?(time_zone_pair)
     query.time_zones.include?(time_zone_pair.first)
   end
 
@@ -19,8 +19,7 @@ class DeveloperQueryComponent < ApplicationComponent
   end
 
   def role_types
-    %i[part_time_contract full_time_contract full_time_employment]
-      .map { |role| [role, RoleType.human_attribute_name(role)] }
+    RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
 
   def role_selected?(role_pair)
