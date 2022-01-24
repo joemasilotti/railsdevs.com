@@ -5,7 +5,7 @@ financials:
     - description
     - total
     data:
-    - date: October 21, 2021
+    - date: '21-10-2021'
       description: Purchase railsdevs.io, railsdevs.org, and railsdevs.online
       total: 49
     - date: '09-11-2021'

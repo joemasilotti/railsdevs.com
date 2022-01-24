@@ -6,7 +6,7 @@
     <div class="w-full overflow-x-auto mt-8">
       <h2 class="text-lg mb-2"><%= t(".overview") %></h2>
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
-        <table class="w-full">
+        <table class="w-full" id="financials-overview">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
               <th class="px-4 py-3"><%= t(".date") %></th>
@@ -38,7 +38,7 @@
     <div class="w-full overflow-x-auto mt-8">
       <h2 class="text-lg mb-2"><%= t(".expenses") %></h2>
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
-        <table class="w-full">
+        <table class="w-full" id="financials-expenses">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
               <% @report.expenses["headers"].each do |item| %>
@@ -67,7 +67,7 @@
       <h2 class="text-lg mb-2"><%= t(".revenue") %></h2>
 
       <div class="shadow-lg overflow-hidden rounded-lg mb-8 ">
-        <table class="w-full">
+        <table class="w-full" id="financials-revenue">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
               <% @report.revenue["headers"].each do |item| %>
