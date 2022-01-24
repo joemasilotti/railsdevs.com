@@ -82,6 +82,10 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
+    auto_html (2.1.0)
+      gemoji (~> 4.0.0.rc2)
+      redcarpet (~> 3.5)
+      rinku (~> 2.0)
     aws-eventstream (1.2.0)
     aws-partitions (1.519.0)
     aws-sdk-core (3.121.3)
@@ -142,6 +146,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    gemoji (4.0.0.rc3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     highline (2.0.3)
@@ -384,6 +389,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  auto_html
   aws-sdk-s3 (~> 1)
   capybara (~> 3.36)
   classy-yaml (~> 0.7)
@@ -409,7 +415,6 @@ DEPENDENCIES
   rails (~> 7.0)
   redcarpet (~> 3.5)
   redis
-  rinku
   scout_apm (~> 5.1)
   selenium-webdriver
   sidekiq (~> 6.3)

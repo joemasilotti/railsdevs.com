@@ -1,6 +1,7 @@
 module MessageHelper
   def smart_format(string, **options)
-    with_links = Rinku.auto_link(string)
+    link_filter = AutoHtml::Link.new
+    with_links = link_filter.call(string)
 
     simple_format(with_links, options)
   end

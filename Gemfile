@@ -52,4 +52,4 @@ gem "sidekiq", "~> 6.3"
 gem "sitemap_generator", "~> 6.1"
 gem "stripe", ">= 2.8", "< 6.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "rinku"
+gem "auto_html"
