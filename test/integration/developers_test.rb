@@ -37,6 +37,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:available).hero, count: 0
   end
 
+  test "developers can be filtered by role type" do
+    get developers_path(role_types: ["part_time_contract", "full_time_contract"])
+
+    assert_select "input[checked][type=checkbox][value=part_time_contract][name='role_types[]']"
+    assert_select "input[checked][type=checkbox][value=full_time_contract][name='role_types[]']"
+    assert_select "h2", developers(:with_full_time_contract).hero
+    assert_select "h2", developers(:with_part_time_contract).hero
+    assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
+  end
+
   test "cannot create new proflie if already has one" do
     sign_in users(:with_available_profile)
 

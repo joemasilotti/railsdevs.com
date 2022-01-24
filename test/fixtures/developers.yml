@@ -27,3 +27,21 @@ with_blocked_conversation:
   name: Developer Four
   hero: Fourth developer
   bio: I am the fourth developer
+
+with_part_time_contract:
+  user: with_part_time_contract
+  name: Part Time Contractor
+  hero: part time contractor
+  bio: I am developer available for part time contract
+
+with_full_time_contract:
+  user: with_full_time_contract
+  name: Full Time Contractor
+  hero: full time contractor
+  bio: I am developer available for full time contract
+  
+with_full_time_employment:
+  user: with_full_time_employment
+  name: Full Time Employee
+  hero: full time employee
+  bio: I am developer available for full time employment
