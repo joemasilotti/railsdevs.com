@@ -36,6 +36,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem "auto_html", "~> 2.1"
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
@@ -52,4 +53,3 @@ gem "sidekiq", "~> 6.3"
 gem "sitemap_generator", "~> 6.1"
 gem "stripe", ">= 2.8", "< 6.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "auto_html"
