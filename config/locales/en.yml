@@ -185,6 +185,7 @@ en:
       stripe_fees: Stripe Fees
       title: Income Report
       total: Total
+      profit: Profit
   home:
     show:
       available_developers: Developers available now
