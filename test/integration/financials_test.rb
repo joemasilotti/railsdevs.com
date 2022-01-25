@@ -19,7 +19,7 @@ class FinancialsTest < ActionDispatch::IntegrationTest
           assert_select "th:nth-child(1)", I18n.t("financials.show.date")
           assert_select "th:nth-child(2)", I18n.t("financials.show.revenue")
           assert_select "th:nth-child(3)", I18n.t("financials.show.expenses")
-          assert_select "th:nth-child(4)", I18n.t("financials.show.total")
+          assert_select "th:nth-child(4)", I18n.t("financials.show.profit")
         end
       end
 

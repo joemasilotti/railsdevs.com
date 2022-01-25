@@ -180,12 +180,12 @@ en:
       expenses: Expenses
       net_revenue: Net Revenue
       overview: Overview
+      profit: Profit
       revenue: Revenue
       source: Source
       stripe_fees: Stripe Fees
       title: Income Report
       total: Total
-      profit: Profit
   home:
     show:
       available_developers: Developers available now
