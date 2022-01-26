@@ -1,3 +1,9 @@
+module Noticed
+  class Base
+    self.default_url_options = Rails.application.routes.default_url_options
+  end
+end
+
 class NewMessageNotification < Noticed::Base
   deliver_by :database
   deliver_by :email, mailer: "MessageMailer", method: :new_message

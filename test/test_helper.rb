@@ -22,6 +22,10 @@ class ActiveSupport::TestCase
   teardown do
     ActiveStorage::Current.reset
   end
+
+  def default_url_options
+    Rails.application.routes.default_url_options
+  end
 end
 
 class ActionDispatch::IntegrationTest
