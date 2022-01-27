@@ -333,7 +333,7 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
-    sidekiq (6.3.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -418,7 +418,7 @@ DEPENDENCIES
   rexml (~> 3.2, >= 3.2.5)
   scout_apm (~> 5.1)
   selenium-webdriver
-  sidekiq (~> 6.3)
+  sidekiq (~> 6.4)
   sitemap_generator (~> 6.1)
   sprockets-rails (~> 3.4)
   standard

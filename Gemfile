@@ -50,7 +50,7 @@ gem "pundit", "~> 2.1"
 gem "redcarpet", "~> 3.5"
 gem "rexml", "~> 3.2", ">= 3.2.5"
 gem "scout_apm", "~> 5.1"
-gem "sidekiq", "~> 6.3"
+gem "sidekiq", "~> 6.4"
 gem "sitemap_generator", "~> 6.1"
 gem "stripe", ">= 2.8", "< 6.0"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
