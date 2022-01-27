@@ -36,6 +36,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem "auto_html", "~> 2.1"
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"

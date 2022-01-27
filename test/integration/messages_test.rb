@@ -97,6 +97,17 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_select "p", text: "Line 2"
   end
 
+  test "links are clickable" do
+    skip "Until data migration has finished"
+
+    sign_in @business.user
+    @conversation.messages.last.update!(body: "Check out https://railsdevs.com/!")
+
+    get conversation_path(@conversation)
+
+    assert_select "p", html: 'Check out <a href="https://railsdevs.com/">https://railsdevs.com/</a>!'
+  end
+
   def message_params
     {
       message: {
