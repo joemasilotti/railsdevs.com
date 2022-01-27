@@ -415,6 +415,7 @@ DEPENDENCIES
   rails (~> 7.0)
   redcarpet (~> 3.5)
   redis
+  rexml (~> 3.2, >= 3.2.5)
   scout_apm (~> 5.1)
   selenium-webdriver
   sidekiq (~> 6.3)
