@@ -10,16 +10,18 @@ class RoleTypeComponent < ApplicationComponent
   end
 
   def role_types
-    %i[part_time_contract full_time_contract full_time_employment]
+    RoleType::TYPES
   end
+
+  def humanize(attribute)
+    RoleType.human_attribute_name(attribute)
+  end
+
+  private
 
   def selected_role_types
     role_types.select do |rt|
       role_type.public_send("#{rt}?")
     end
-  end
-
-  def humanize(attribute)
-    RoleType.human_attribute_name(attribute)
   end
 end

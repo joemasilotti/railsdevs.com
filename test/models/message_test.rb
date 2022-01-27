@@ -38,6 +38,6 @@ class MessageTest < ActiveSupport::TestCase
   test "body_html is filled with rendered html version of body" do
     message = Message.new(body: "Check out https://railsdevs.com/!")
 
-    assert_equal '<p>Check out <a href="https://railsdevs.com/">https://railsdevs.com/</a>!</p>', message.body_html
+    assert_equal '<p>Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!</p>', message.body_html
   end
 end

@@ -106,6 +106,8 @@ en:
   developer_query_component:
     apply: Apply
     gmt: GMT
+    role_type:
+      title: Role type
     sort:
       availability: Availability
       newest: Newest

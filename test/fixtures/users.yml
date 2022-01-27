@@ -37,6 +37,18 @@ with_blocked_conversation:
   email: blocked_conversation@example.com
   confirmed_at: <%= DateTime.current %>
 
+with_part_time_contract:
+  email: part-time-contract@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_full_time_contract:
+  email: full-time-contract@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_full_time_employment:
+  email: full-time-employment@exmaple.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>

@@ -26,4 +26,13 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_no_selector "input[checked][type=checkbox][name='time_zones[]'][value=-5]"
     assert_selector "input[checked][type=checkbox][name='time_zones[]'][value=-8]"
   end
+
+  test "checks selected role types" do
+    query = DeveloperQuery.new(role_types: ["part_time_contract", "full_time_contract"])
+    render_inline DeveloperQueryComponent.new(query)
+
+    assert_no_selector "input[checked][type=checkbox][name='role_types[]'][value=full_time_employment]"
+    assert_selector "input[checked][type=checkbox][name='role_types[]'][value=part_time_contract]"
+    assert_selector "input[checked][type=checkbox][name='role_types[]'][value=full_time_contract]"
+  end
 end
