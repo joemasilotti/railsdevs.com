@@ -98,8 +98,6 @@ class MessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "links are clickable" do
-    skip "Until data migration has finished"
-
     sign_in @business.user
     @conversation.messages.last.update!(body: "Check out https://railsdevs.com/!")
 
