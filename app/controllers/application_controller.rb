@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include StoredLocation
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   before_action :set_locale
   helper_method :resolve_locale
 
