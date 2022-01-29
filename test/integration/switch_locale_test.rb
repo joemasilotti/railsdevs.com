@@ -20,7 +20,7 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
     [:en, :"zh-TW"].each do |locale|
       I18n.with_locale(locale) do
         get root_path
-        
+
         assert_select "a[href='/']", text: language_name_of(I18n.default_locale)
 
         locales_except_default = I18n.available_locales - [I18n.default_locale]
