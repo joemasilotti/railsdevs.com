@@ -10,7 +10,7 @@ bundle exec standardrb --fix
 bundle exec erblint --lint-all
 
 # Check i18n health
-bundle exec i18n-tasks health
+bundle exec i18n-tasks health en
 
 # Run the test suite
 bundle exec rails test:all

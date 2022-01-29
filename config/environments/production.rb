@@ -89,8 +89,11 @@ Rails.application.configure do
     domain: Rails.application.credentials.dig(:mailgun, :domain)
   }
 
+  # Devise mailer.
+  config.action_mailer.default_url_options = {host: ENV["HOST"], locale: nil}
+
   # Configure host for URL helpers.
-  Rails.application.routes.default_url_options[:host] = ENV["HOST"]
+  Rails.application.routes.default_url_options = {host: ENV["HOST"], locale: nil}
 
   # Upload sitemap to S3.
   config.upload_sitemap = true
