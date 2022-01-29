@@ -63,6 +63,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     get edit_business_path(business)
     assert_select "form"
+    assert_select "#business_avatar_hidden"
 
     patch business_path(business), params: {
       business: {
@@ -93,6 +94,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     get edit_business_path(business)
     assert_select "form"
+    assert_select "#business_avatar_hidden"
 
     patch business_path(business), params: {
       business: {
