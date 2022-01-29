@@ -3,8 +3,10 @@ require "test_helper"
 class SwitchLocaleTest < ActionDispatch::IntegrationTest
   test "I18n.locale will depends on the locale of urls" do
     [:en, :"zh-TW"].each do |locale|
-      get root_path(locale:)
-      assert I18n.locale.to_s == locale.to_s
+      I18n.with_locale(locale) do
+        get root_path
+        assert I18n.locale.to_s == locale.to_s
+      end
     end
   end
 
@@ -14,17 +16,17 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "links to all locales will show" do
-    current_locale = :es
-    get root_path(locale: current_locale)
-    assert I18n.locale == current_locale
+  test "Links to all available locales will show" do
+    [:en, :"zh-TW"].each do |locale|
+      I18n.with_locale(locale) do
+        get root_path
+        
+        assert_select "a[href='/']", text: language_name_of(I18n.default_locale)
 
-    other_locales = I18n.available_locales - [current_locale]
-    other_locales.each do |locale|
-      if locale == I18n.default_locale
-        assert_select "a[href='/']", text: language_name_of(locale)
-      else
-        assert_select "a[href='/#{locale}']", text: language_name_of(locale)
+        locales_except_default = I18n.available_locales - [I18n.default_locale]
+        locales_except_default.each do |locale|
+          assert_select "a[href='/#{locale}']", text: language_name_of(locale)
+        end
       end
     end
   end
