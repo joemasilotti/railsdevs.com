@@ -2,7 +2,7 @@ require "test_helper"
 
 class SwitchLocaleTest < ActionDispatch::IntegrationTest
   test "I18n.locale will depends on the locale of urls" do
-    [:en, :"zh-TW"].each do |locale|
+    I18n.available_locales.each do |locale|
       I18n.with_locale(locale) do
         get root_path
         assert I18n.locale.to_s == locale.to_s
