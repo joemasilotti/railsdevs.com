@@ -1,0 +1,3 @@
+<% locales.each do |locale| %>
+  <%= tag.link rel: :alternate, href: href_for(locale), hreflang: hreflang_for(locale) %>
+<% end %>
