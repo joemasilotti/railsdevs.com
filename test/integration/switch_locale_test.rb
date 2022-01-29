@@ -14,8 +14,8 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "links to all locales will show, except the current locale" do
-    current_locale = :"zh-TW"
+  test "links to all locales will show" do
+    current_locale = :es
     get root_path(locale: current_locale)
     assert I18n.locale == current_locale
 
@@ -27,7 +27,6 @@ class SwitchLocaleTest < ActionDispatch::IntegrationTest
         assert_select "a[href='/#{locale}']", text: language_name_of(locale)
       end
     end
-    assert_select "a[href='/#{current_locale}']", count: 0, text: language_name_of(current_locale)
   end
 
   def language_name_of(locale)
