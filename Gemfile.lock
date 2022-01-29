@@ -138,6 +138,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.1)
+      devise (>= 4.8.0)
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -395,6 +397,7 @@ DEPENDENCIES
   classy-yaml (~> 0.7)
   cssbundling-rails (~> 1.0)
   devise (~> 4.8.1)
+  devise-i18n (~> 1.10.1)
   erb_lint!
   honeybadger (~> 4.0)
   hotwire-livereload
