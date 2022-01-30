@@ -51,10 +51,10 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Devise mailer.
-  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000, locale: nil}
 
   # Configure host for URL helpers.
-  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000, locale: nil}
 
   # Store sent emails in queue.
   config.action_mailer.delivery_method = :test

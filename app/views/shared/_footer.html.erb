@@ -1,5 +1,15 @@
 <footer>
   <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <nav class="mb-6 -mx-5 -mt-2 flex flex-wrap justify-center" aria-label="Language links">
+      <% I18n.available_locales.each do |locale| %>
+        <div class="px-5 py-2">
+          <%= link_to request.params.merge(locale: resolve_locale(locale)), class: "text-base text-gray-500 hover:text-gray-900", "aria-label": t(".language_name_of_locale", locale: locale) do %>
+            <span><%= t(".language_name_of_locale", locale: locale) %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </nav>
+
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
         <%= link_to t(".about"), about_path, class: "text-base text-gray-500 hover:text-gray-900" %>

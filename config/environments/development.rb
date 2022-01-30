@@ -65,17 +65,14 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   # Devise mailer.
-  config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+  config.action_mailer.default_url_options = {host: "localhost", port: 3000, locale: nil}
 
   # Configure host for URL helpers.
-  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
+  Rails.application.routes.default_url_options = {host: "localhost", port: 3000, locale: nil}
 
   # "Send" emails to preview with letter opener.
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-
-  # Configure host for URL helpers.
-  Rails.application.routes.default_url_options = {host: "localhost", port: 3000}
 
   # Watch additional directories for live reloading (outside of app/views, app/helpers, and app/javascript).
   directories = %w[app/assets/stylesheets app/assets/images app/components config/locales]

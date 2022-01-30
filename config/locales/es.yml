@@ -1,0 +1,297 @@
+---
+es:
+  about:
+    show:
+      description: Soy Joe Masilotti. Estoy desarrollando railsdevs para que desarrollaodres de Ruby on Rails puedan encontrar su próximo trabajo.
+      title: Acerca de railsdevs
+  activerecord:
+    attributes:
+      business:
+        company: Nombre de la empresa
+        name: Tu nombre
+      developer:
+        available_on: Disponible para empezar el
+        bio: Bio
+        email: E-mail
+        github: Github
+        hero: Hero
+        linkedin: Linkedin
+        name: Nombre
+        twitter: Twitter
+        website: Sitio web
+      developer/search_status:
+        actively_looking: Activamente buscando trabajo
+        not_interested: No interesado en trabajar por ahora
+        open: Abierto, pero no buscando activamente
+      role_type:
+        full_time_contract: Contrato de tiempo completo
+        full_time_employment: Trabajo de tiempo completo
+        part_time_contract: Contrato de medio tiempo
+      user:
+        email: E-mail
+        password: Contraseña
+        password_confirmation: Confirmación de contraseña
+        remember_me: Recuérdame
+    models:
+      business:
+        one: Empresa
+        other: Empresas
+      developer:
+        one: Desarrollador
+        other: Desarrolladres
+      user:
+        one: Usuario
+        other: Usuarios
+  admin:
+    conversations:
+      conversation:
+        blocked: Bloqueada
+      empty_state:
+        title: Ninguna conversación bloqueada
+      index:
+        title: Conversaciones bloqueadas
+  availability_component:
+    in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
+    now_html: Disponible ahora
+    unspecified_html: No disponible actualmente
+  blocks:
+    create:
+      notice: "%{other_recipient} fue bloqueado."
+    new:
+      block: Bloquear
+      cancel: Cancelar
+      message: "¿Está seguro de que deseas marcar esta conversación y bloquear al remitente? Esto ocultará la conversación y no podrán volver a ponerse en contacto contigo."
+      title: Bloquear al remitente
+  businesses:
+    create:
+      created: "¡Tu empresa fue creada!"
+    form:
+      avatar: Avatar
+      change_avatar: Subir
+      creating: Creando...
+      developer_notifications:
+        help_text: Recibe notificaciones por e-mail cuando nuevos desarrolladores agreguen su perfil a railsdevs.
+        legend: Notificaciones de desarrolladores
+        values:
+          daily: Diario
+          'no': Nunca
+          weekly: Semanal
+      notifications:
+        title: Notificaciones por e-mail
+      profile: Perfil
+      profile_help_text: Esta información se compartirá con cualquier desarrollador con el que te comuniques.
+      save: Guardar
+      something_went_wrong: Algo falló al subir tu imagen. Por favor intenta de nuevo.
+      updating: Actualizando...
+      your_business_profile: Perfil de tu empresa
+    update:
+      updated: "¡Tu empresa fue actualizada!"
+  cold_messages:
+    new:
+      title: Empieza una conversación
+      with: con
+  conversations:
+    empty_state:
+      body: Comienza encontrando a desarrolladores para contactar.
+      cta: Encuentra a algún desarrollador
+      title: Sin conversaciones
+    index:
+      title: Tus conversaciones
+    show:
+      flag: Marcar esta conversación
+      title: Conversación
+      with: con
+  cover_image_component:
+    alt: Imagen de portada del desarrollador
+  developer_query_component:
+    apply: Aplicar
+    gmt: GMT
+    sort:
+      availability: Disponibilidad
+      newest: Más reciente
+      title: Ordernar
+    timezone:
+      title: Zona horaria
+    title: Filtros del desarrollador
+  developers:
+    create:
+      created: "¡Tu perfil fue creado!"
+    details:
+      title: Detalles
+    form:
+      creating: Creando...
+      online_presence:
+        help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
+        title: Presencia en línea
+      preferred_compensation:
+        description: Desde mi experiencia como freelancer, la renumeración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
+        more_info: Más información sobre esta decisión
+        subtitle: Renumeración preferida eliminada de railsdevs
+        title: Renumeración preferida
+      profile:
+        avatar: Avatar
+        avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
+        bio_help_text: Escribe algunas oraciones sobre ti.
+        change: Subir
+        cover_image: Imagen de portada
+        help_text: Esta información será pública, así que ten cuidado con lo que compartas.
+        hero_help_text: Algunas palabras como desarrollador que te describan.
+        name_help_text_html: Tu nombre no va a aparecer en tu perfil público.
+        title: Perfil
+        upload_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
+        upload_file: Sube un archivo
+        upload_help_text: PNG, JPG, GIF hasta 10MB de tamaño
+      role_type:
+        help_text: Selecciona todos los roles que considerarías aceptar.
+        title: Tipo de rol
+      save: Guardar
+      search_status:
+        actively_looking_help_text: Tu perfil puede aparecer como destacado en la página de inicio.
+        not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
+        open_help_text: Las empresas aún pueden encontrarte, pero no aparecerás en la página de inicio.
+        title: Estado de búsqueda
+      title: Tu perfil de desarrollador
+      updating: Subiendo...
+      work_preferences:
+        help_text: "¿Qué tipo de trabajo estás buscando?"
+        title: Preferencias de trabajo
+    index:
+      cta: Agregar a mi perfil
+      description: Más de 100 desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
+      title: Desarrolladores Ruby on Rails
+    show:
+      description: Descripción
+      edit: Editar
+      hire: Contrátame
+    update:
+      updated: "¡Tu perfil fue actualizado!"
+  errors:
+    business_blank: Completa tu perfil de empresa para poder contactar a desarrolladores.
+    messages:
+      attached: no esta adjunto
+      content_type_invalid: formato de la imagén no soprotado
+      max_file_size_invalid: imagén superior a %{size}
+  home:
+    show:
+      available_developers: Desarrolladores disponibles ahora
+      get_started: Empezar
+      learn_more: Aprender más
+      more: Ver más desarrolladores
+      subtitle_1: railsdevs
+      subtitle_2: empodera a los desarrolladores independientes disponibles para su próximo trabajo.
+      subtitle_3: Deja de buscar en las bolsas de trabajo y relájate mientras las empresas se comunican contigo.
+      title_1: La bolsa de trabajo invertida para
+      title_2: desarrolladores de Rails
+  messages:
+    form:
+      help: Agrega tu mensaje
+      placeholder: Agrega tu mensaje...
+      sending: Enviando...
+      submit: Enviar
+    message:
+      wrote: escrito
+      you: Tu
+  notifications:
+    index:
+      cta: Ver historia
+      empty_state:
+        body: No tienes notificaciones no leídas.
+        title: No hay nuevas notificaciones
+      title: Nuevas notificaciones
+    new_business: "%{business} agregó su empresa."
+    new_conversation: "%{name} (%{company}) empezó una conversación con %{developer}."
+    new_developer_profile: "%{developer} agregó su perfil de desarrollador."
+    new_message: "%{sender} te envió un mensaje."
+    show:
+      notice: Notificaciones marcadas como leídas.
+  open_graph_tags_component:
+    default_description: Encuentra desarrolladores Ruby on Rails buscando freelance, trabajo por contrato y tiempo completo.
+  paywalled_component:
+    description: Información que solo es visible con una suscripción comercial.
+    title: Información provada
+  pricing:
+    show:
+      cta: Empieza hoy mismo
+      faq:
+        '1':
+          a: No. Los $99 dólares al mes te da la licencia empresarial para railsdevs. Tienes que pagar externamente por el trabajo que hacen.
+          q: "¿Los $99 dólares al mes incluyen la tarifa del desarrollador?"
+        '2':
+          a: Una suscripción comercial te permite comunicarse directamente con los desarrolladores en railsdevs. También te revela información que está oculta al público en general, como los nombres reales de los desarrolladores y los links en su portafolio.
+          q: Entonces, ¿los $99 dólares al mes que me otorgan?
+        '3':
+          a: No. railsdevs es gratis para desarrolladores.
+          q: "¿Railsdevs cuesta algo para desarrolladores?"
+        '4':
+          a_html: Evíame un e-mail a mí, Joe, con cualquier pregunta que tengas. Me puedes encontrar en <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
+          q: "¿A quién puedo contactar para preguntas más específicas?"
+        title: Preguntas frecuentes
+      feature:
+        '1': Explora perfiles altamente específicos.
+        '2': Apoya a desarrolladores independientes.
+        '3': Evita descripciones de trabajo y publicaciones formales.
+        '4': Habla directamente con candidatos.
+        '5': Desbloquea la información privada del desarrollador.
+        '6': Contrata tanto o tan poco como necesites.
+        '7': Cancela cuando quieras, sin ningún compromiso.
+        '8': Apoya el desarrollo con código abierto.
+        subtitle: Busca perfiles de desarrolladores que pueden comenzar a trabajar de inmediato o cuando necesites ayuda. Ahorra tiempo contactando a los candidatos perfectos.
+        title: Contrara a tu propio ritmo
+      subtitle: Conecta con desarrolladfores independientes de Ruby on Rails que estén disponibles a trabjar ahora.
+      title_1: Contrara desarrolladores de Ruby on Rails por
+      title_2: "$99 dólares al mes"
+  pundit:
+    errors:
+      unauthorized: No tienes permiso para eso.
+  read_notifications:
+    empty_state:
+      body: No tienes notificaciones leídas.
+      title: Sin noticaciones leídas
+    index:
+      title: Ver notificaciones
+  role_type_component:
+    interested_in_roles: Interesado en roles
+  roles:
+    new:
+      hiring_developers: Estoy contratando desarrolladores
+      hiring_developers_help_text: Eres una empresa en búsqueda de desarrolladores freelance, medio tiempo o tiempo completo de Ruby on Rails.
+      looking_for_work: Estoy en búsqueda de trabajo
+      looking_for_work_help_text: Eres un desarrollador de Ruby on Rails en búsqueda de tu próximo trabajo.
+      what_brings_you_here: "¿Qué te trae a railsdevs?"
+  shared:
+    footer:
+      about: Acerca de
+      analytics: Analítica
+      copyright: Todos los derechos reservados.
+      email: E-mail
+      github: GitHub
+      income_report: Informe de ingresos
+      language_name_of_locale: Español
+      masilotti_com: Masilotti.com
+      open_source: Código abierto
+      support: Soporte
+      twitter: Twitter
+    header:
+      open_main_menu: Abrir el menú principal
+    nav_links:
+      about: Acerca de
+      developers: Desarrolladores
+      pricing: Precios
+  upgrade_account_component:
+    cta: Adquiere la suscripción
+    title: Requiere de una suscripción empresarial activa.
+  user_menu:
+    signed_in_component:
+      admin: Admin
+      billing: Facturación
+      get_started: Empezar
+      my_business_profile: Mi perfil de empresa
+      my_conversations: Mis conversaciones
+      my_developer_profile: Mi perfil de desarrollador
+      new_notifications: Tienes una nueva notificación
+      open_user_menu: Abrir el menú del usuario
+      sign_out: Cerrar sesión
+      view_notifications: Ver notificaciones
+    signed_out_component:
+      register: Registrarse
+      sign_in: Iniciar sesión

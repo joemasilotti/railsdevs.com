@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full bg-gray-50">
+<html lang="<%= I18n.locale %>" class="h-full bg-gray-50">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,6 +10,7 @@
     <%= csp_meta_tag %>
     <%= open_graph_tags %>
     <%= render "shared/favicon_tags" %>
+    <%= render AlternateLinksComponent.new %>
 
     <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
