@@ -1,6 +1,4 @@
-class NewMessageNotification < Noticed::Base
-  include UrlHelpersWithDefaultUrlOptions
-
+class NewMessageNotification < ApplicationNotification
   deliver_by :database
   deliver_by :email, mailer: "MessageMailer", method: :new_message
 

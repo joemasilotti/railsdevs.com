@@ -1,4 +1,4 @@
-class NewBusinessNotification < Noticed::Base
+class NewBusinessNotification < ApplicationNotification
   deliver_by :database
   deliver_by :email, mailer: "AdminMailer", method: :new_business
 
