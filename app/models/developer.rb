@@ -30,6 +30,7 @@ class Developer < ApplicationRecord
       where(role_type: {type => true}) if role_types.include?(type)
     }.reduce(:or).joins(:role_type)
   end
+  scope :filter_by_search_statuses, ->(search_statuses) { where(search_status: search_statuses) }
 
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :newest_first, -> { order(created_at: :desc) }

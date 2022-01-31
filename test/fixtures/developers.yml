@@ -45,3 +45,24 @@ with_full_time_employment:
   name: Full-time Employee
   hero: A full-time employee
   bio: I am a developer available for full-time employment.
+
+with_actively_looking_search_status:
+  user: with_actively_looking_status
+  name: Actively Looking
+  hero: A developer with actively looking search status
+  bio: I am a developer with actively looking search status.
+  search_status: actively_looking
+
+with_open_search_status:
+  user: with_open_search_status
+  name: Open
+  hero: A developer with open search status
+  bio: I am a developer with open search status.
+  search_status: open
+  
+with_not_interested_search_status:
+  user: with_not_interested_search_status
+  name: Not Interested
+  hero: A developer with not interested search status
+  bio: I am a developer with not interested search status
+  search_status: not_interested

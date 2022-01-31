@@ -27,7 +27,10 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       developers(:with_blocked_conversation),
       developers(:with_part_time_contract),
       developers(:with_full_time_contract),
-      developers(:with_full_time_employment)
+      developers(:with_full_time_employment),
+      developers(:with_actively_looking_search_status),
+      developers(:with_open_search_status),
+      developers(:with_not_interested_search_status)
     ]
   end
 
@@ -49,6 +52,21 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "filtering by full-time employment" do
     records = DeveloperQuery.new(role_types: ["full_time_employment"]).records
     assert_equal records, [developers(:with_full_time_employment)]
+  end
+
+  test "filtering by actively looking search status" do
+    records = DeveloperQuery.new(search_statuses: ["actively_looking"]).records
+    assert_equal records, [developers(:with_actively_looking_search_status)]
+  end
+
+  test "filtering by open search status" do
+    records = DeveloperQuery.new(search_statuses: ["open"]).records
+    assert_equal records, [developers(:with_open_search_status)]
+  end
+
+  test "filtering by not interested search status" do
+    records = DeveloperQuery.new(search_statuses: ["not_interested"]).records
+    assert_equal records, [developers(:with_not_interested_search_status)]
   end
 
   test "pagy is initialized without errors" do

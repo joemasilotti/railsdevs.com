@@ -108,6 +108,8 @@ en:
     gmt: GMT
     role_type:
       title: Role type
+    search_status:
+      title: Search status
     sort:
       availability: Availability
       newest: Newest

@@ -47,6 +47,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
   end
 
+  test "developers can be filtered by search status" do
+    get developers_path(search_statuses: ["open", "actively_looking"])
+
+    assert_select "input[checked][type=checkbox][value=open][name='search_statuses[]']"
+    assert_select "input[checked][type=checkbox][value=actively_looking][name='search_statuses[]']"
+    assert_select "h2", developers(:with_open_search_status).hero
+    assert_select "h2", developers(:with_actively_looking_search_status).hero
+    assert_select "h2", text: developers(:with_not_interested_search_status).hero, count: 0
+  end
+
   test "cannot create new proflie if already has one" do
     sign_in users(:with_available_profile)
 
