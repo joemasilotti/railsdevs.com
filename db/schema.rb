@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_141658) do
+ActiveRecord::Schema.define(version: 2022_01_31_031819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,70 @@ ActiveRecord::Schema.define(version: 2022_01_27_141658) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
+  create_table "open_startup_contributions", force: :cascade do |t|
+    t.date "occurred_on", null: false
+    t.string "description", null: false
+    t.string "url"
+    t.decimal "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_startup_expenses", force: :cascade do |t|
+    t.date "occurred_on", null: false
+    t.string "description", null: false
+    t.string "url"
+    t.decimal "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_startup_metrics", force: :cascade do |t|
+    t.jsonb "data", default: {}, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_startup_monthly_balances", force: :cascade do |t|
+    t.date "occurred_on", null: false
+    t.decimal "revenue", null: false
+    t.decimal "expenses", null: false
+    t.decimal "contributions", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_startup_revenue", force: :cascade do |t|
+    t.date "occurred_on", null: false
+    t.string "description", null: false
+    t.decimal "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "open_startup_stripe_transactions", force: :cascade do |t|
+    t.string "stripe_id", null: false
+    t.decimal "amount", null: false
+    t.datetime "created", precision: 6, null: false
+    t.string "description", null: false
+    t.decimal "fee", null: false
+    t.string "transaction_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["stripe_id"], name: "index_open_startup_stripe_transactions_on_stripe_id"
+    t.index ["transaction_type"], name: "index_open_startup_stripe_transactions_on_transaction_type"
+  end
+
+  create_table "open_startup_transactions", force: :cascade do |t|
+    t.date "occurred_on", null: false
+    t.string "description", null: false
+    t.string "url"
+    t.decimal "amount", null: false
+    t.integer "transaction_type", default: 1, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pay_charges", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "subscription_id"
@@ -134,7 +198,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_141658) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at", precision: 6
+    t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -171,8 +235,8 @@ ActiveRecord::Schema.define(version: 2022_01_27_141658) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at", precision: 6
-    t.datetime "ends_at", precision: 6
+    t.datetime "trial_ends_at"
+    t.datetime "ends_at"
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"

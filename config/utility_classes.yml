@@ -7,3 +7,7 @@ input:
     base: "shadow-sm block w-full sm:text-sm border rounded-md"
     clean: "focus:ring-gray-500 focus:border-gray-500 border-gray-300"
     error: "focus:ring-red-500 focus:border-red-500 border-red-300"
+  text_field_leading:
+    base: "block w-full pl-7 sm:text-sm rounded-md"
+    clean: "focus:ring-gray-500 focus:border-gray-500 border-gray-300"
+    error: "focus:ring-red-500 focus:border-red-500 border-red-300"

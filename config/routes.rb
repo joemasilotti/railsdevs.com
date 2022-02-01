@@ -25,11 +25,20 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
+    namespace :open_startup, path: "/open" do
+      resources :contributions, only: :index
+      resources :expenses, only: :index
+      resources :revenue, only: :index
+
+      root to: "dashboard#show"
+    end
+
     root to: "home#show"
   end
 
   namespace :admin do
     resources :conversations, only: :index
+    resources :transactions, except: :show
   end
 
   namespace :stripe do

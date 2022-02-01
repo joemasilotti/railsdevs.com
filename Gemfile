@@ -41,6 +41,8 @@ gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
 gem "devise-i18n", "~> 1.10.1"
+gem "fathom_api", "~> 0.1.2"
+gem "groupdate", "~> 6.0.1"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
