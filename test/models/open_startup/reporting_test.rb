@@ -4,16 +4,14 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
   include StripeHelper
 
   test "refreshes Revenue records (grouped by month and description)" do
-    balance_transactions = [
+    @balance_transactions = [
       charge(amount: 1000, created: january, description: "New subscription"),
       charge(amount: 2000, created: january, description: "New subscription"),
       charge(amount: 4000, created: february, description: "New subscription"),
       charge(amount: 5000, created: february, description: "Update subscription")
     ]
 
-    OpenStartup::Stripe.stub(:balance_transactions, balance_transactions) do
-      OpenStartup::Reporting.refresh
-    end
+    refresh_metrics
 
     assert_equal OpenStartup::Revenue.pluck(:occurred_on, :description, :amount), [
       [Date.new(2022, 1, 1), "New subscriptions", 30],
@@ -23,7 +21,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
   end
 
   test "refreshes Expense records (grouped by month and merged with additional fees) and adds manual expenses" do
-    balance_transactions = [
+    @balance_transactions = [
       charge(created: january, fee: -100),
       charge(created: january, fee: -200),
       charge(created: february, fee: -400),
@@ -33,9 +31,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
       fee(created: february, amount: -40)
     ]
 
-    OpenStartup::Stripe.stub(:balance_transactions, balance_transactions) do
-      OpenStartup::Reporting.refresh
-    end
+    refresh_metrics
 
     assert_equal OpenStartup::Expense.pluck(:occurred_on, :description, :amount), [
       [Date.new(2022, 1, 1), "Stripe fees", 3.30],
@@ -45,15 +41,13 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
   end
 
   test "refreshes Contribution records (grouped by month) and adds manual expenses" do
-    balance_transactions = [
+    @balance_transactions = [
       contribution(created: january, amount: 10),
       contribution(created: january, amount: 20),
       contribution(created: february, amount: 40)
     ]
 
-    OpenStartup::Stripe.stub(:balance_transactions, balance_transactions) do
-      OpenStartup::Reporting.refresh
-    end
+    refresh_metrics
 
     assert_equal OpenStartup::Contribution.pluck(:occurred_on, :description, :amount), [
       [Date.new(2022, 1, 1), "Climate contribution", 5.30], # 5.00 from stripe_transactions fixtures
@@ -63,7 +57,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
   end
 
   test "refreshes MonthlyBalance records" do
-    balance_transactions = [
+    @balance_transactions = [
       charge(amount: 1000, created: january),
       fee(created: january, amount: -10),
       contribution(created: january, amount: 10),
@@ -73,14 +67,50 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
       contribution(created: february, amount: 20)
     ]
 
-    OpenStartup::Stripe.stub(:balance_transactions, balance_transactions) do
-      OpenStartup::Reporting.refresh
-    end
+    refresh_metrics
 
     assert_equal OpenStartup::MonthlyBalance.pluck(:occurred_on, :revenue, :expenses, :contributions), [
       [Date.new(2022, 1, 1), 10, 0.10, 105.10], # 100.00 from transactions and 5.00 from stripe_transactions fixtures
       [Date.new(2022, 2, 1), 20, 0.20, 2.20] # 2.00 from stripe_transactions fixtures
     ]
+  end
+
+  test "creates a Metric record for today with MRR and visitors" do
+    @subscriptions = [
+      Subscription.new(amount: 9900),
+      Subscription.new(amount: 9900),
+      Subscription.new(amount: 9900, cancelled: true)
+    ]
+    @visitors = 2500
+
+    refresh_metrics
+
+    assert_equal OpenStartup::Metric.most_recent.data, {
+      "mrr" => 198,
+      "visitors" => 2500
+    }
+  end
+
+  def refresh_metrics
+    OpenStartup::Stripe.stub(:balance_transactions, balance_transactions) do
+      OpenStartup::Stripe.stub(:subscriptions, subscriptions) do
+        OpenStartup::Visitors.stub(:fetch, visitors) do
+          OpenStartup::Reporting.refresh
+        end
+      end
+    end
+  end
+
+  def balance_transactions
+    @balance_transactions || []
+  end
+
+  def subscriptions
+    @subscriptions || []
+  end
+
+  def visitors
+    @visitors || 0
   end
 
   def january
