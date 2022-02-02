@@ -1,6 +1,4 @@
 class OpenGraphTagsComponent < ApplicationComponent
-  attr_reader :image
-
   def initialize(title: nil, description: nil, image: nil)
     @title = title
     @description = description
@@ -17,6 +15,10 @@ class OpenGraphTagsComponent < ApplicationComponent
 
   def url
     root_url
+  end
+
+  def image
+    @image || helpers.image_url("logo.png")
   end
 
   def twitter
