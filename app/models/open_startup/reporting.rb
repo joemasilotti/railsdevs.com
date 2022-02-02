@@ -4,12 +4,13 @@ module OpenStartup
       metrics = new
       metrics.persist
       metrics.normalize
+      metrics.calculate
       nil
     end
 
     def persist
-      transactions = Stripe::BalanceTransaction.list({limit: 100}, {api_key: reporting_api_key})
-      transactions.auto_paging_each do |transaction|
+      log "Fetching and persisting Stripe::BalanceTransaction records..."
+      Stripe.balance_transactions.each do |transaction|
         next unless StripeTransaction.transaction_types.key?(transaction.type)
         create_or_update_transaction(transaction)
       end
@@ -19,7 +20,10 @@ module OpenStartup
       normalize_revenue
       normalize_expenses
       normalize_contributions
-      normalize_balances
+      normalize_monthly_balances
+    end
+
+    def calculate
       calculate_mrr
       fetch_visitors
     end
@@ -38,23 +42,26 @@ module OpenStartup
     end
 
     def normalize_revenue
+      log "Normalizing revenue..."
       Revenue.transaction do
         Revenue.delete_all
 
         StripeTransaction.charge.group_by_month(:created).group(:description).sum(:amount).each do |group, amount|
+          next if amount.zero?
           Revenue.create!(occurred_on: group.first, description: group.last.pluralize, amount:)
         end
       end
     end
 
     def normalize_expenses
+      log "Normalizing expenses..."
       Expense.transaction do
         Expense.delete_all
 
         charge_fees = StripeTransaction.charge.group_by_month(:created).sum(:fee)
         stripe_fees = StripeTransaction.stripe_fee.group_by_month(:created).sum(:amount)
         charge_fees.each do |created, amount|
-          amount += stripe_fees[created]
+          amount += (stripe_fees[created] || 0)
           Expense.create!(occurred_on: created, description: "Stripe fees", amount:)
         end
 
@@ -66,6 +73,7 @@ module OpenStartup
     end
 
     def normalize_contributions
+      log "Normalizing contributions..."
       Contribution.transaction do
         Contribution.delete_all
 
@@ -80,7 +88,8 @@ module OpenStartup
       end
     end
 
-    def normalize_balances
+    def normalize_monthly_balances
+      log "Normalizing monthly balances..."
       MonthlyBalance.transaction do
         MonthlyBalance.delete_all
 
@@ -100,9 +109,9 @@ module OpenStartup
     end
 
     def calculate_mrr
-      subscriptions = Stripe::Subscription.list({limit: 100}, {api_key: reporting_api_key})
+      log "Calculating MRR..."
       mrr = 0
-      subscriptions.auto_paging_each do |subscription|
+      Stripe.subscriptions.each do |subscription|
         next if subscription.cancel_at_period_end?
         mrr += subscription.items.first.price.unit_amount.fdiv(100)
       end
@@ -111,12 +120,13 @@ module OpenStartup
     end
 
     def fetch_visitors
+      log "Fetching visitors..."
       visitors = Visitors.fetch
       Metric.find_or_initialize_by({}).update!(visitors:)
     end
 
-    def reporting_api_key
-      Rails.application.credentials.stripe[:reporting_key]
+    def log(message)
+      Rails.logger.info(message)
     end
   end
 end
