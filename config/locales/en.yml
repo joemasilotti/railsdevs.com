@@ -339,6 +339,7 @@ en:
     signed_in_component:
       admin: Admin
       billing: Billing
+      blocked_conversations: Blocked conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -346,6 +347,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      transactions: Transactions
       view_notifications: View notifications
     signed_out_component:
       register: Register
