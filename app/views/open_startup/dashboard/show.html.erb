@@ -76,16 +76,16 @@
                     <%= monthly_balance.occurred_on.to_formatted_s(:month_year) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-500">
-                    <%= number_to_currency(monthly_balance.revenue) %>
+                    <%= number_to_currency(monthly_balance.revenue, precision: 0) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-500">
-                    <%= number_to_currency(monthly_balance.expenses) %>
+                    <%= number_to_currency(monthly_balance.expenses, precision: 0) %>
                   </td>
                   <td class="py-4 whitespace-nowrap text-sm text-right text-gray-500">
-                    <%= number_to_currency(monthly_balance.contributions) %>
+                    <%= number_to_currency(monthly_balance.contributions, precision: 0) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-500">
-                    <%= number_to_currency(monthly_balance.profit) %>
+                    <%= number_to_currency(monthly_balance.profit, precision: 0) %>
                   </td>
                 </tr>
               <% end %>

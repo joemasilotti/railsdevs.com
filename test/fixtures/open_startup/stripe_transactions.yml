@@ -1,0 +1,15 @@
+contribution_one:
+  stripe_id: cn_1
+  amount: 2
+  created: <%= Date.today %>
+  description: Stripe contribution
+  fee: 0
+  transaction_type: contribution
+
+contribution_two:
+  stripe_id: cn_2
+  amount: 5
+  created: <%= Date.yesterday %>
+  description: Stripe contribution
+  fee: 0
+  transaction_type: contribution
