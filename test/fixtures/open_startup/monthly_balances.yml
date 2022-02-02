@@ -1,0 +1,11 @@
+january:
+  occurred_on: <%= Date.new(2022, 1) %>
+  revenue: 100
+  expenses: 10
+  contributions: 1
+
+february:
+  occurred_on: <%= Date.new(2022, 2) %>
+  revenue: 200
+  expenses: 20
+  contributions: 2

@@ -114,6 +114,7 @@ ignore_unused:
 - '{devise}.*'
 - 'availability_component.*'
 - 'errors.messages.*'
+- 'size.{billion,million,thousand,unit}'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'

@@ -50,6 +50,13 @@ en:
         title: No blocked conversations
       index:
         title: Blocked conversations
+    transactions:
+      create:
+        created: Transaction created
+      destroy:
+        destroyed: Transaction deleted
+      update:
+        updated: Transaction updated
   availability_component:
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
     now_html: Available now
@@ -208,6 +215,44 @@ en:
       notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  open_startup:
+    contributions:
+      index:
+        amount: Amount
+        contributions: Contributions
+        date: Date
+        description: railsdevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
+        open_startup: Open startup
+        recipient: Recipient
+        to_co2_removal: to CO₂ removal
+        to_communities: to communities
+    dashboard:
+      show:
+        contributions: Contributions
+        date: Date
+        description: railsdevs is an open startup with public metrics.
+        expenses: Expenses
+        mrr: MRR
+        profit: Profit
+        revenue: Revenue
+        title: Open startup
+        visitors: Visitors (last 30 days)
+    expenses:
+      index:
+        amount: Amount
+        date: Date
+        description: All monetary transactions associated with railsdevs, like hosting, fees, and purchases.
+        expenses: Expenses
+        open_startup: Open startup
+        source: Source
+    revenue:
+      index:
+        amount: Amount
+        date: Date
+        description: All revenue railsdevs has generated since launching in November, 2021.
+        open_startup: Open startup
+        revenue: Revenue
+        source: Source
   paywalled_component:
     description: Information that is only visible with a business subscription.
     title: Private information
@@ -277,10 +322,10 @@ en:
       copyright: All rights reserved.
       email: Email
       github: GitHub
-      income_report: Income report
       language_name_of_locale: English
       masilotti_com: Masilotti.com
       open_source: Open source
+      open_startup: Open startup
       support: Support
       twitter: Twitter
     header:
@@ -289,6 +334,11 @@ en:
       about: About
       developers: Developers
       pricing: Pricing
+  size:
+    billion: B
+    million: M
+    thousand: K
+    unit: ''
   upgrade_account_component:
     cta: Upgrade your account
     title: Requires an active business subscription.
@@ -296,6 +346,7 @@ en:
     signed_in_component:
       admin: Admin
       billing: Billing
+      blocked_conversations: Blocked conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -303,6 +354,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      transactions: Transactions
       view_notifications: View notifications
     signed_out_component:
       register: Register

@@ -1,0 +1,63 @@
+<div class="bg-gray-50 max-w-5xl mx-auto pt-12 sm:pt-16">
+  <div class="text-center px-4 sm:px-6 lg:px-8">
+    <h2 class="flex mx-auto justify-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+      Expenses and contributions
+    </h2>
+  </div>
+
+  <div class="flex flex-col mt-10">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Type
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Description
+                </th>
+                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Amount
+                </th>
+                <th scope="col" class="relative px-6 py-2 text-right">
+                  <span class="sr-only">Actions</span>
+                  <%= link_to new_admin_transaction_path, class: "inline-flex items-center p-0.5 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+                    <%= inline_svg_tag "icons/solid/plus_sm.svg", class: "h-5 w-5" %>
+                    <span class="sr-only">Add expense</span>
+                  <% end %>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <% @transactions.each do |transaction| %>
+                <tr>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%= transaction.occurred_on.to_formatted_s(:long) %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <%= transaction.transaction_type.humanize %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <%= render LinkableTextComponent.new(transaction.description, url: transaction.url, target: "_blank", class: "underline") %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right text-sm text-gray-500">
+                    <%= number_to_currency(transaction.amount) %>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-4">
+                    <%= link_to "Edit", edit_admin_transaction_path(transaction), class: "text-gray-600 hover:text-gray-900" %>
+                    <%= link_to "Delete", admin_transaction_path(transaction), data: {turbo_method: :delete}, class: "text-gray-600 hover:text-gray-900" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

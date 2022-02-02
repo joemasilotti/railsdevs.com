@@ -1,0 +1,4 @@
+one:
+  occurred_on: <%= Date.today %>
+  description: New subscriptions
+  amount: 198
