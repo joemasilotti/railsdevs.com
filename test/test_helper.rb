@@ -1,12 +1,15 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "minitest/autorun"
-require "minitest/pride"
 require "minitest/mock"
 require "rails/test_help"
 require "capybara"
+require "minitest/reporters"
+require "minitest/reporters/pride_reporter"
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
+
+Minitest::Reporters.use! [Minitest::Reporters::PrideReporter.new(fast_fail: true, slow_count: 5)]
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers

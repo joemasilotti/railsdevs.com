@@ -32,6 +32,8 @@ end
 
 group :test do
   gem "capybara", "~> 3.36"
+  gem "minitest-reporters", "~> 1.5", require: false
+  gem "minitest-reporters-pride_reporter", "~> 0.0.2", require: false
   gem "selenium-webdriver"
   gem "webdrivers"
 end
