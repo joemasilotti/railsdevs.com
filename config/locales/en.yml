@@ -50,6 +50,13 @@ en:
         title: No blocked conversations
       index:
         title: Blocked conversations
+    transactions:
+      create:
+        created: Transaction created
+      destroy:
+        destroyed: Transaction deleted
+      update:
+        updated: Transaction updated
   availability_component:
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
     now_html: Available now
