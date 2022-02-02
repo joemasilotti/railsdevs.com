@@ -1,3 +1,7 @@
+<% content_for :open_graph_tags do %>
+  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
+<% end %>
+
 <div class="bg-gray-50 max-w-5xl mx-auto pt-12 sm:pt-16">
   <div class="text-center px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl"><%= t(".title") %></h2>

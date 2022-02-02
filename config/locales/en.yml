@@ -224,6 +224,7 @@ en:
         description: railsdevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
         open_startup: Open startup
         recipient: Recipient
+        title: railsdevs contributions
         to_co2_removal: to CO₂ removal
         to_communities: to communities
     dashboard:
@@ -245,6 +246,7 @@ en:
         expenses: Expenses
         open_startup: Open startup
         source: Source
+        title: railsdevs expenses
     revenue:
       index:
         amount: Amount
@@ -253,6 +255,7 @@ en:
         open_startup: Open startup
         revenue: Revenue
         source: Source
+        title: railsdevs revenue
   paywalled_component:
     description: Information that is only visible with a business subscription.
     title: Private information
