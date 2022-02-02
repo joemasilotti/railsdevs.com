@@ -71,7 +71,8 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
 
     assert_equal OpenStartup::MonthlyBalance.pluck(:occurred_on, :revenue, :expenses, :contributions), [
       [Date.new(2022, 1, 1), 10, 0.10, 105.10], # 100.00 from transactions and 5.00 from stripe_transactions fixtures
-      [Date.new(2022, 2, 1), 20, 0.20, 2.20] # 2.00 from stripe_transactions fixtures
+      [Date.new(2022, 2, 1), 20, 0.20, 2.20], # 2.00 from stripe_transactions fixtures
+      [Date.new(2021, 12, 1), 0, 9.99, 0] # 9.99 from transactions fixtures
     ]
   end
 

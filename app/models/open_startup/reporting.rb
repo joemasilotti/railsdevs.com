@@ -97,12 +97,13 @@ module OpenStartup
         expenses = OpenStartup::Expense.group_by_month(:occurred_on).sum(:amount)
         contributions = OpenStartup::Contribution.group_by_month(:occurred_on).sum(:amount)
 
-        revenue.each do |month, amount|
+        months = revenue.keys | expenses.keys | contributions.keys
+        months.each do |month|
           MonthlyBalance.create!(
             occurred_on: month,
-            revenue: amount,
-            expenses: expenses[month],
-            contributions: contributions[month]
+            revenue: revenue[month] || 0,
+            expenses: expenses[month] || 0,
+            contributions: contributions[month] || 0
           )
         end
       end
