@@ -14,13 +14,5 @@ module OpenStartup
     validates :description, presence: true
     validates :fee, numericality: {greater_than_or_equal_to: 0}
     validates :transaction_type, inclusion: {in: transaction_types.keys}
-
-    def occurred_on
-      created.to_date
-    end
-
-    def url
-      nil
-    end
   end
 end
