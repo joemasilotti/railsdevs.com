@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_031819) do
   end
 
   create_table "open_startup_metrics", force: :cascade do |t|
+    t.date "occurred_on", null: false
     t.jsonb "data", default: {}, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

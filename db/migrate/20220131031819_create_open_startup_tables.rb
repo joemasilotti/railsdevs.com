@@ -57,6 +57,7 @@ class CreateOpenStartupTables < ActiveRecord::Migration[7.0]
     end
 
     create_table :open_startup_metrics do |t|
+      t.date :occurred_on, null: false
       t.jsonb :data, null: false, default: {}
 
       t.timestamps

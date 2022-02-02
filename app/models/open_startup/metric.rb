@@ -3,5 +3,11 @@ module OpenStartup
     self.table_name = "open_startup_metrics"
 
     store :data, accessors: %i[mrr visitors]
+
+    validates :occurred_on, presence: true
+
+    def self.most_recent
+      order(occurred_on: :desc).first
+    end
   end
 end

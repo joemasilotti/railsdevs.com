@@ -116,13 +116,17 @@ module OpenStartup
         mrr += subscription.items.first.price.unit_amount.fdiv(100)
       end
 
-      Metric.find_or_initialize_by({}).update!(mrr: mrr.round)
+      metric.update!(mrr: mrr.round)
     end
 
     def fetch_visitors
       log "Fetching visitors..."
       visitors = Visitors.fetch
-      Metric.find_or_initialize_by({}).update!(visitors:)
+      metric.update!(visitors:)
+    end
+
+    def metric
+      Metric.find_or_initialize_by(occurred_on: Time.zone.today)
     end
 
     def log(message)
