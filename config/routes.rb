@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :businesses, except: :destroy
 
-    # Read notifications must come before notifications.
+    # /notifications/read must come before /notifications/:id.
     resources :read_notifications, only: :index, path: "/notifications/read"
     resources :notifications, only: %i[index show]
 
