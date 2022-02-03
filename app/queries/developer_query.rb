@@ -12,6 +12,14 @@ class DeveloperQuery
     @role_types = options.delete(:role_types)
   end
 
+  def filters
+    @filters = {
+      sort: @sort || "",
+      time_zones: @time_zones || [],
+      role_types: @role_types || []
+    }
+  end
+
   def pagy
     @pagy ||= initialize_pagy_and_developers.first
   end
