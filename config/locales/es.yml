@@ -2,7 +2,7 @@
 es:
   about:
     show:
-      description: Soy Joe Masilotti. Estoy desarrollando railsdevs para que desarrollaodres de Ruby on Rails puedan encontrar su próximo trabajo.
+      description: Soy Joe Masilotti. Estoy creando railsdevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
       title: Acerca de railsdevs
   activerecord:
     attributes:
@@ -12,7 +12,7 @@ es:
       developer:
         available_on: Disponible para empezar el
         bio: Bio
-        email: E-mail
+        email: Correo Electrónico
         github: Github
         hero: Hero
         linkedin: Linkedin
@@ -28,7 +28,7 @@ es:
         full_time_employment: Trabajo de tiempo completo
         part_time_contract: Contrato de medio tiempo
       user:
-        email: E-mail
+        email: Correo Electrónico
         password: Contraseña
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
@@ -38,7 +38,7 @@ es:
         other: Empresas
       developer:
         one: Desarrollador
-        other: Desarrolladres
+        other: Desarrolladores
       user:
         one: Usuario
         other: Usuarios
@@ -70,14 +70,14 @@ es:
       change_avatar: Subir
       creating: Creando...
       developer_notifications:
-        help_text: Recibe notificaciones por e-mail cuando nuevos desarrolladores agreguen su perfil a railsdevs.
+        help_text: Recibe notificaciones por correo electrónico cuando nuevos desarrolladores agreguen su perfil a railsdevs.
         legend: Notificaciones de desarrolladores
         values:
           daily: Diario
           'no': Nunca
           weekly: Semanal
       notifications:
-        title: Notificaciones por e-mail
+        title: Notificaciones por correo electrónico
       profile: Perfil
       profile_help_text: Esta información se compartirá con cualquier desarrollador con el que te comuniques.
       save: Guardar
@@ -109,7 +109,7 @@ es:
     sort:
       availability: Disponibilidad
       newest: Más reciente
-      title: Ordernar
+      title: Ordenar
     timezone:
       title: Zona horaria
     title: Filtros del desarrollador
@@ -124,10 +124,10 @@ es:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
         title: Presencia en línea
       preferred_compensation:
-        description: Desde mi experiencia como freelancer, la renumeración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
+        description: Desde mi experiencia como freelancer, la remuneración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
         more_info: Más información sobre esta decisión
-        subtitle: Renumeración preferida eliminada de railsdevs
-        title: Renumeración preferida
+        subtitle: Remuneración preferida eliminada de railsdevs
+        title: Remuneración preferida
       profile:
         avatar: Avatar
         avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
@@ -223,7 +223,7 @@ es:
           a: No. railsdevs es gratis para desarrolladores.
           q: "¿Railsdevs cuesta algo para desarrolladores?"
         '4':
-          a_html: Evíame un e-mail a mí, Joe, con cualquier pregunta que tengas. Me puedes encontrar en <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
+          a_html: Envíame un correo electrónico a mí, Joe, con cualquier pregunta que tengas. Me puedes encontrar en <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
           q: "¿A quién puedo contactar para preguntas más específicas?"
         title: Preguntas frecuentes
       feature:
@@ -236,9 +236,9 @@ es:
         '7': Cancela cuando quieras, sin ningún compromiso.
         '8': Apoya el desarrollo con código abierto.
         subtitle: Busca perfiles de desarrolladores que pueden comenzar a trabajar de inmediato o cuando necesites ayuda. Ahorra tiempo contactando a los candidatos perfectos.
-        title: Contrara a tu propio ritmo
-      subtitle: Conecta con desarrolladfores independientes de Ruby on Rails que estén disponibles a trabjar ahora.
-      title_1: Contrara desarrolladores de Ruby on Rails por
+        title: Contrata a tu propio ritmo
+      subtitle: Conecta con desarrolladfores independientes de Ruby on Rails que estén disponibles a trabajar ahora.
+      title_1: Contrata a desarrolladores de Ruby on Rails por
       title_2: "$99 dólares al mes"
   pundit:
     errors:
@@ -263,7 +263,7 @@ es:
       about: Acerca de
       analytics: Analítica
       copyright: Todos los derechos reservados.
-      email: E-mail
+      email: Correo Electrónico
       github: GitHub
       language_name_of_locale: Español
       masilotti_com: Masilotti.com
