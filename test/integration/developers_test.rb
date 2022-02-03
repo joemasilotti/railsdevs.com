@@ -119,6 +119,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_equal "New Name", developer.reload.name
   end
 
+  test "successful edit to relative availability" do
+    sign_in users(:with_available_profile)
+    developer = developers :available
+
+    get edit_developer_path(developer)
+    assert_select "form"
+
+    patch developer_path(developer), params: {
+      developer: {
+        available_in_days: 14
+      }
+    }
+    assert_redirected_to developer_path(developer)
+    follow_redirect!
+
+    assert_equal 14.days, developer.reload.available_in_days
+  end
+
   test "invalid profile creation" do
     sign_in users(:without_profile)
 

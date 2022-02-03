@@ -8,7 +8,7 @@ module Availability
   end
 
   def available_in_days=(days)
-    super(days&.clamp(0..))
+    super(days&.to_i&.clamp(0..))
     derive_availability_status
   end
 

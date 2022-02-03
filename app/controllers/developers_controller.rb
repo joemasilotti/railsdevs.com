@@ -52,6 +52,7 @@ class DevelopersController < ApplicationController
     params.require(:developer).permit(
       :name,
       :available_on,
+      :available_in_days,
       :hero,
       :bio,
       :website,
