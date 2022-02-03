@@ -1,0 +1,12 @@
+expense:
+  occurred_on: 2021-12-30
+  description: Expense
+  transaction_type: expense
+  amount: 9.99
+
+donation:
+  occurred_on: 2022-01-30
+  description: Donation
+  url: https://example.com
+  transaction_type: contribution
+  amount: 100
