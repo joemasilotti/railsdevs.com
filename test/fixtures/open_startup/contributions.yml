@@ -1,0 +1,10 @@
+with_url:
+  occurred_on: <%= Date.today %>
+  description: Today's contribution
+  amount: 10
+  url: https://google.com
+
+without_url:
+  occurred_on: <%= Date.yesterday %>
+  description: Yesterday's contribution
+  amount: 5
