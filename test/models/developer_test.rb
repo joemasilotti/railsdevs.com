@@ -33,6 +33,42 @@ class DeveloperTest < ActiveSupport::TestCase
     assert @developer.available_now?
   end
 
+  test "unspecified relative availability" do
+    @developer.available_on = nil
+    @developer.available_in_days = nil
+
+    assert_equal "unspecified", @developer.availability_status
+    assert @developer.available_unspecified?
+  end
+
+  test "available in some time" do
+    @developer.available_on = nil
+    @developer.available_in_days = 14
+
+    assert_equal "in_future", @developer.availability_status
+    assert @developer.available_in_future?
+    assert_equal @developer.available_on, Date.current + 2.weeks
+  end
+
+  test "available from today with relative availability" do
+    @developer.available_on = nil
+    @developer.available_in_days = 0
+
+    assert_equal "now", @developer.availability_status
+    assert @developer.available_now?
+    assert_equal @developer.available_on, Date.current
+  end
+
+  test "negative availability should clamp to 0" do
+    @developer.available_on = nil
+    @developer.available_in_days = -1
+
+    assert_equal 0, @developer.available_in_days
+    assert_equal "now", @developer.availability_status
+    assert @developer.available_now?
+    assert_equal @developer.available_on, Date.current
+  end
+
   test "is valid" do
     assert Developer.new(valid_developer_attributes).valid?
   end
