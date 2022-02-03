@@ -9,7 +9,8 @@ require "minitest/reporters/pride_reporter"
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
-Minitest::Reporters.use! [Minitest::Reporters::PrideReporter.new(fast_fail: true, slow_count: 5)]
+options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count: 5} : {}
+Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
