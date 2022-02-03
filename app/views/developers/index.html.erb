@@ -6,7 +6,7 @@
   <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">
     <div>
       <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
-      <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description") %></p>
+      <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
     </div>
 
     <div class="mt-4 flex space-x-3 md:mt-0">

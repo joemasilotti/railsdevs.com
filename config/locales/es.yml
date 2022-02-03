@@ -157,7 +157,7 @@ es:
         title: Preferencias de trabajo
     index:
       cta: Agregar a mi perfil
-      description: Más de 100 desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
+      description: "Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí."
       title: Desarrolladores Ruby on Rails
     show:
       description: Descripción
