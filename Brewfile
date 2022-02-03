@@ -1,3 +1,7 @@
+# Postgres
+brew "libpq" # M1 macs need libpq for pg gem
+brew "postgresql"
+
 # Redis
 brew "redis"
 
@@ -9,6 +13,7 @@ brew "tmux"
 brew "overmind"
 
 # Yarn
+brew "node"
 brew "yarn"
 
 # Stripe CLI
