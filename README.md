@@ -35,6 +35,8 @@ brew bundle install --no-upgrade
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 
+You will also need Google Chrome installed to run the system tests.
+
 ### Initial setup
 
 An installation script is included with the repository that will automatically get the application setup.
