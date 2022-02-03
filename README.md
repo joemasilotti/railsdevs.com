@@ -22,13 +22,19 @@ You need the following installed:
 * [bundler](https://bundler.io) - `gem install bundler`
 * [Redis](https://redis.io) - `brew install redis`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
+* [node](https://nodejs.org/en/) - `brew install node`
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 
-Optional:
+M1 macs:
 
-* [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
+* [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
+    * `libpg` is needed to use the native `pg` gem without Rosetta.
+
+Optional (choose one, I recommend overmind):
+
 * [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
+* [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 
 These are listed in `Brewfile`, which you can install via:
 
