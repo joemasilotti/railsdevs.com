@@ -41,10 +41,6 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
-  def available_in_days=(days)
-    super(days&.clamp(0..))
-  end
-
   private
 
   def send_admin_notification
