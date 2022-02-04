@@ -134,7 +134,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to developer_path(developer)
     follow_redirect!
 
-    assert_equal 14.days, developer.reload.available_in_days
+    assert_equal 14, developer.reload.available_in_days
   end
 
   test "invalid profile creation" do
