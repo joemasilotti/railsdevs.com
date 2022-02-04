@@ -7,13 +7,13 @@ module Availability
     after_initialize :derive_availability_status
   end
 
+  def available_in
+    available_in_days.days
+  end
+
   def available_in_days=(days)
     super(days&.to_i&.clamp(0..))
     derive_availability_status
-  end
-
-  def available_in_days
-    super&.days
   end
 
   def available_on

@@ -162,7 +162,23 @@
                   <div class="sm:col-span-1">
                     <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
                     <div class="mt-1">
-                      <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+                      <%= form.date_field :available_on, value: developer.available_on_in_database, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
+              <div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">
+                  <div class="sm:col-span-1">
+                    <%= form.label :available_in_days, class: "block text-sm font-medium text-gray-700" %>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                      <%= form.number_field :available_in_days, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 border-r-0" %>
+                      <span class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                        days
+                      </span>
                     </div>
                   </div>
                 </div>
