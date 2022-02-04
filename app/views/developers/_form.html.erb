@@ -161,8 +161,24 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">
                   <div class="sm:col-span-1">
                     <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-                    <div class="mt-1">
-                      <%= form.date_field :available_on, value: developer.available_on_in_database, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
+                    <div class="mt-1 flex items-center w-full">
+                      <%= form.date_field :available_on, value: developer.available_on_in_database || '', class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center",
+                          data: {
+                            controller: 'clear-field',
+                            clear_field_target_value: 'input[name="developer[available_in_days]"]',
+                            action: 'input->clear-field#clear'
+                          }
+                      %>
+                      <%= button_tag 'Clear',
+                          name: 'clear_available_on',
+                          type: :button,
+                          class: "inline-flex justify-center align-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 cursor-pointer hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-3",
+                          data: {
+                            controller: 'clear-field',
+                            clear_field_target_value: 'input[name="developer[available_on]"]',
+                            action: 'click->clear-field#clear'
+                          }
+                          %>
                     </div>
                   </div>
                 </div>
@@ -175,7 +191,13 @@
                   <div class="sm:col-span-1">
                     <%= form.label :available_in_days, class: "block text-sm font-medium text-gray-700" %>
                     <div class="mt-1 flex rounded-md shadow-sm">
-                      <%= form.number_field :available_in_days, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 border-r-0" %>
+                      <%= form.number_field :available_in_days, value: developer.available_on_in_database.present? ? nil : developer.available_in_days_in_database, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-l-md sm:text-sm border-gray-300 border-r-0",
+                          data: {
+                            controller: 'clear-field',
+                            clear_field_target_value: 'input[name="developer[available_on]"]',
+                            action: 'input->clear-field#clear'
+                          }
+                      %>
                       <span class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
                         days
                       </span>

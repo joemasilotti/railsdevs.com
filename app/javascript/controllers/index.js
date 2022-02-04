@@ -3,6 +3,9 @@
 
 import { application } from "./application"
 
+import ClearFieldController from "./clear_field_controller.js"
+application.register("clear-field", ClearFieldController)
+
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
