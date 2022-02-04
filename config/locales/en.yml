@@ -10,8 +10,8 @@ en:
         company: Company name
         name: Your name
       developer:
-        available_on: Available to start on
         available_in_days: Available in
+        available_on: Available to start on
         bio: Bio
         email: E-mail
         github: Github
