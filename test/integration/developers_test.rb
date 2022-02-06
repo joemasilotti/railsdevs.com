@@ -64,6 +64,22 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to edit_developer_path(user.developer)
   end
 
+  test "add my profile button is shown if the user doesn't have a developer profile" do
+    user = users(:empty)
+    sign_in user
+    get developers_path
+
+    assert_select "a", text: "Add my profile"
+  end
+
+  test "edit my profile button is shown if the user has a developer profile" do
+    user = users(:with_available_profile)
+    sign_in user
+    get developers_path
+
+    assert_select "a", text: "Edit my profile"
+  end
+
   test "successful profile creation" do
     sign_in users(:without_profile)
 

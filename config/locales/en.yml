@@ -167,6 +167,7 @@ en:
     index:
       cta: Add my profile
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
+      edit_profile: Edit my profile
       title: Ruby on Rails developers
     show:
       description: Description
