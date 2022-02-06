@@ -10,6 +10,14 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     end
   end
 
+  test "do not send daily emails if no new developers signed up yesterday" do
+    create_developer(2.days.ago)
+
+    assert_no_emails do
+      EmailDigests::NewDevelopers.new.send_daily_digest
+    end
+  end
+
   test "weekly emails for developers who signed up last week" do
     travel_to monday do
       create_developers

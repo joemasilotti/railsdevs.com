@@ -5,6 +5,7 @@ class DeveloperDigestTaskTest < ActionMailer::TestCase
 
   test "sends appropriate emails for developer digests" do
     load_rake_tasks_once
+    Developer.create!(valid_developer_attributes.merge(created_at: 1.day.ago))
 
     assert_emails 1 do
       Rake::Task["developer_digest:daily"].invoke
