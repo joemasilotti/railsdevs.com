@@ -30,6 +30,17 @@ class ActiveSupport::TestCase
   def default_url_options
     Rails.application.routes.default_url_options
   end
+
+  def valid_developer_attributes
+    {
+      user: users(:empty),
+      name: "Name",
+      hero: "Hero",
+      bio: "Bio",
+      avatar: active_storage_blobs(:one),
+      time_zone: "Pacific Time (US & Canada)"
+    }
+  end
 end
 
 class ActionDispatch::IntegrationTest
