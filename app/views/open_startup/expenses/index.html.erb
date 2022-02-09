@@ -36,7 +36,7 @@
               <% @expenses.each do |expense| %>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    <%= expense.occurred_on.to_formatted_s(:month_year) %>
+                    <%= l(expense.occurred_on, format: :month_year) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     <%= render LinkableTextComponent.new(expense.description, url: expense.url, target: "_blank", class: "underline") %>
