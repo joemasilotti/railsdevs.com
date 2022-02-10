@@ -19,7 +19,7 @@
 
   <%= render DeveloperQueryComponent.new(@query) %>
 
-  <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200") do |component| %>
+  <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
     <% component.loading_icon do %>
       <div class="py-4">
         <%= render LoadingComponent.new %>

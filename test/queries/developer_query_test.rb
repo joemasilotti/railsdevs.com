@@ -54,4 +54,9 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "pagy is initialized without errors" do
     assert_not_nil DeveloperQuery.new.pagy
   end
+
+  test "returns hash with filters" do
+    filters = {sort: :availability, time_zones: ["-8, -5"], role_types: [:part_time_contract]}
+    assert_equal DeveloperQuery.new(filters.dup).filters, filters
+  end
 end

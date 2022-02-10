@@ -5,10 +5,10 @@ class PagyPaginatorComponent < ApplicationComponent
 
   attr_reader :id, :pagy, :url_array, :container_classes, :view_component
 
-  def initialize(id:, pagy:, url_array:, container_classes: nil)
+  def initialize(id:, pagy:, url_array:, container_classes: nil, options: {})
     @id = id
     @pagy = pagy
-    @url_array = url_array
+    @url_array = url_array << options
     @container_classes = container_classes
   end
 
