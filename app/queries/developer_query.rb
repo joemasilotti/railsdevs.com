@@ -13,11 +13,7 @@ class DeveloperQuery
   end
 
   def filters
-    @filters = {
-      sort: @sort || "",
-      time_zones: @time_zones || [],
-      role_types: @role_types || []
-    }
+    @filters = {sort:, time_zones:, role_types:}
   end
 
   def pagy

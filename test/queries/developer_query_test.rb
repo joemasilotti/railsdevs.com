@@ -56,19 +56,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "returns hash with filters" do
-    assert_equal DeveloperQuery.new(time_zones: ["-8"]).filters[:time_zones], filter_values[:time_zones]
-    assert_equal DeveloperQuery.new(role_types: ["part_time_contract"]).filters[:role_types], filter_values[:role_types]
-    assert_equal DeveloperQuery.new(sort: "availability").filters[:sort], filter_values[:sort]
-    assert_equal DeveloperQuery.new(
-      sort: "availability", time_zones: ["-8"], role_types: ["part_time_contract"]
-    ).filters, filter_values
-  end
-
-  def filter_values
-    {
-      sort: "availability",
-      time_zones: ["-8"],
-      role_types: ["part_time_contract"]
-    }
+    filters = {sort: :availability, time_zones: ["-8, -5"], role_types: [:part_time_contract]}
+    assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end
 end
