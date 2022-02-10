@@ -1,13 +1,13 @@
 <% content_for :open_graph_tags do %>
-  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
+  <%= render OpenGraphTagsComponent.new(title: t(".title_og"), description: t(".description")) %>
 <% end %>
 
 <div class="overflow-hidden max-w-5xl mx-auto">
   <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
     <div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
       <div>
-        <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">About</h2>
-        <p class="text-base text-gray-400 font-semibold tracking-wide uppercase">1 minute read</p>
+        <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"><%= t(".title") %></h2>
+        <p class="text-base text-gray-400 font-semibold tracking-wide uppercase"><%= t(".readtime") %></p>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
               <%= image_tag "joe.jpg", class: "rounded-lg shadow-lg object-cover object-top", alt: "Photo of Joe Masilotti" %>
             </div>
             <figcaption class="mt-3 text-center text-sm text-gray-500">
-              <a href="https://masilotti.com" class="underline">Joe Masilotti</a>, founder of <code class="text-gray-900 font-semibold">railsdevs</code>
+              <a href="https://masilotti.com" class="underline">Joe Masilotti</a>, <%= t(".caption_html") %>
             </figcaption>
           </figure>
         </div>
