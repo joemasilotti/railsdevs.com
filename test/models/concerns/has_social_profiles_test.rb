@@ -25,67 +25,57 @@ class HasSocialProfilesTest < ActiveSupport::TestCase
 
   test "normalizes GitHub handle" do
     @model.github = "joemasilotti"
-    @model.save
-    assert_equal @model.github, "joemasilotti"
+    save_and_assert_normalized_handle(:github)
 
     @model.github = "http://github.com/joemasilotti"
-    @model.save
-    assert_equal @model.github, "joemasilotti"
+    save_and_assert_normalized_handle(:github)
 
     @model.github = "https://github.com/joemasilotti"
-    @model.save
-    assert_equal @model.github, "joemasilotti"
+    save_and_assert_normalized_handle(:github)
 
     @model.github = "http://www.github.com/joemasilotti"
-    @model.save
-    assert_equal @model.github, "joemasilotti"
+    save_and_assert_normalized_handle(:github)
 
     @model.github = "https://www.github.com/joemasilotti"
-    @model.save
-    assert_equal @model.github, "joemasilotti"
+    save_and_assert_normalized_handle(:github)
   end
 
   test "normalizes Twitter handle" do
     @model.twitter = "joemasilotti"
-    @model.save
-    assert_equal @model.twitter, "joemasilotti"
+    save_and_assert_normalized_handle(:twitter)
 
     @model.twitter = "http://twitter.com/joemasilotti"
-    @model.save
-    assert_equal @model.twitter, "joemasilotti"
+    save_and_assert_normalized_handle(:twitter)
 
     @model.twitter = "https://twitter.com/joemasilotti"
-    @model.save
-    assert_equal @model.twitter, "joemasilotti"
+    save_and_assert_normalized_handle(:twitter)
 
     @model.twitter = "http://www.twitter.com/joemasilotti"
-    @model.save
-    assert_equal @model.twitter, "joemasilotti"
+    save_and_assert_normalized_handle(:twitter)
 
     @model.twitter = "https://www.twitter.com/joemasilotti"
-    @model.save
-    assert_equal @model.twitter, "joemasilotti"
+    save_and_assert_normalized_handle(:twitter)
   end
 
   test "normalizes LinkedIn handle" do
     @model.linkedin = "joemasilotti"
-    @model.save
-    assert_equal @model.linkedin, "joemasilotti"
+    save_and_assert_normalized_handle(:linkedin)
 
     @model.linkedin = "http://linkedin.com/in/joemasilotti"
-    @model.save
-    assert_equal @model.linkedin, "joemasilotti"
+    save_and_assert_normalized_handle(:linkedin)
 
     @model.linkedin = "https://linkedin.com/in/joemasilotti"
-    @model.save
-    assert_equal @model.linkedin, "joemasilotti"
+    save_and_assert_normalized_handle(:linkedin)
 
     @model.linkedin = "http://www.linkedin.com/in/joemasilotti"
-    @model.save
-    assert_equal @model.linkedin, "joemasilotti"
+    save_and_assert_normalized_handle(:linkedin)
 
     @model.linkedin = "https://www.linkedin.com/in/joemasilotti"
+    save_and_assert_normalized_handle(:linkedin)
+  end
+
+  def save_and_assert_normalized_handle(platform)
     @model.save
-    assert_equal @model.linkedin, "joemasilotti"
+    assert_equal @model.send(platform), "joemasilotti"
   end
 end
