@@ -75,7 +75,7 @@
               <% @monthly_balances.each do |monthly_balance| %>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    <%= monthly_balance.occurred_on.to_formatted_s(:month_year) %>
+                    <%= l(monthly_balance.occurred_on, format: :month_year) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-right text-gray-500">
                     <%= number_to_currency(monthly_balance.revenue, precision: 0) %>

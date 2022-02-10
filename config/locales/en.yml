@@ -2,8 +2,11 @@
 en:
   about:
     show:
+      caption_html: founder of <code class="text-gray-900 font-semibold">railsdevs</code>
       description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
-      title: About railsdevs
+      readtime: 1 minute read
+      title: About
+      title_og: About railsdevs
   activerecord:
     attributes:
       business:
@@ -110,6 +113,9 @@ en:
       with: with
   cover_image_component:
     alt: Developer's cover image
+  date:
+    formats:
+      month_year: "%B %Y"
   developer_query_component:
     apply: Apply
     gmt: GMT
@@ -174,6 +180,7 @@ en:
       hire: Hire me
     update:
       updated: Your profile was updated!
+  dir: ltr
   errors:
     business_blank: Fill out your business profile to message developers.
     messages:

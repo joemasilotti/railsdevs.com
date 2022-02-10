@@ -103,7 +103,8 @@ search:
 #   # deepl_version: "v2"
 
 ## Do not consider these keys missing:
-# ignore_missing:
+ignore_missing:
+- 'number.currency.*' # rails i18n
 # - 'errors.messages.{accepted,blank,invalid,too_short,too_long}'
 # - '{devise,simple_form}.*'
 
@@ -115,6 +116,7 @@ ignore_unused:
 - 'availability_component.*'
 - 'errors.messages.*'
 - 'size.{billion,million,thousand,unit}'
+- 'date.formats.month_year' # l helper is not captured
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
