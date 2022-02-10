@@ -145,4 +145,11 @@ class DeveloperTest < ActiveSupport::TestCase
 
     assert developer.valid?
   end
+
+  test "normalizes social media profile input" do
+    developer = Developer.new(valid_developer_attributes)
+    developer.github = "https://github.com/joemasilotti"
+    developer.save!
+    assert_equal developer.github, "joemasilotti"
+  end
 end
