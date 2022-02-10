@@ -15,15 +15,14 @@ class SocialLinkComponent < ApplicationComponent
   end
 
   def url
-    prefix = case network
+    case network
     when :github
-      "https://github.com/"
+      "https://github.com/#{handle}"
     when :twitter
-      "https://twitter.com/"
+      "https://twitter.com/#{handle}"
     when :linkedin
-      "https://www.linkedin.com/in/"
+      "https://www.linkedin.com/in/#{handle}"
     end
-    "#{prefix}#{handle.delete_prefix(prefix)}"
   end
 
   def icon
