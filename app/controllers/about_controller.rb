@@ -11,6 +11,10 @@ class AboutController < ApplicationController
   end
 
   def file(name)
-    Rails.root.join("app/views/about/show.#{name}.md")
+    if File.exist?("app/views/about/#{I18n.locale}/show.#{name}.md")
+      "app/views/about/#{I18n.locale}/show.#{name}.md"
+    else
+      "app/views/about/#{I18n.default_locale}/show.#{name}.md"
+    end
   end
 end

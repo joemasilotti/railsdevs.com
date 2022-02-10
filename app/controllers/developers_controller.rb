@@ -3,6 +3,7 @@ class DevelopersController < ApplicationController
   before_action :require_new_developer!, only: %i[new create]
 
   def index
+    @developers_count = Developer.count.round(-1)
     @query = DeveloperQuery.new(params)
   end
 
@@ -62,11 +63,7 @@ class DevelopersController < ApplicationController
       :cover_image,
       :search_status,
       :time_zone,
-      role_type_attributes: [
-        :part_time_contract,
-        :full_time_contract,
-        :full_time_employment
-      ]
+      role_type_attributes: RoleType::TYPES
     )
   end
 end

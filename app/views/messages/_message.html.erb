@@ -10,7 +10,7 @@
     </p>
   </div>
 
-  <div class="mt-4 text-sm text-gray-800">
-    <%= simple_format message.body, class: "mt-4" %>
+  <div class="mt-4 text-sm text-gray-800 prose">
+    <%== message.body_html %>
   </div>
 </li>

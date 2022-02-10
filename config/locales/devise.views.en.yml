@@ -1,11 +1,31 @@
 ---
 en:
+  activerecord:
+    attributes:
+      user:
+        confirmation_sent_at: Confirmation sent at
+        confirmation_token: Confirmation token
+        confirmed_at: Confirmed at
+        created_at: Created at
+        current_password: Current password
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in IP
+        encrypted_password: Encrypted password
+        failed_attempts: Failed attempts
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in IP
+        locked_at: Locked at
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+        sign_in_count: Sign in count
+        unconfirmed_email: Unconfirmed email
+        unlock_token: Unlock token
+        updated_at: Updated at
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
-      link: Didn't receive confirmation instructions?
       new:
-        resend: Resend confirmation instructions
         resend_confirmation_instructions: Resend confirmation instructions
       send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
@@ -17,39 +37,66 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please sign in again to continue.
-      unauthenticated: You need to sign in or create an account before continuing.
+      unauthenticated: You need to sign in or sign up before continuing.
       unconfirmed: You have to confirm your email address before continuing.
     mailer:
       confirmation_instructions:
+        action: Confirm my account
+        greeting: Welcome %{recipient}!
+        instruction: 'You can confirm your account email through the link below:'
         subject: Confirmation instructions
       email_changed:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your email has been changed to %{email}.
+        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       password_change:
+        greeting: Hello %{recipient}!
+        message: We're contacting you to notify you that your password has been changed.
         subject: Password Changed
       reset_password_instructions:
+        action: Change my password
+        greeting: Hello %{recipient}!
+        instruction: Someone has requested a link to change your password. You can do this through the link below.
+        instruction_2: If you didn't request this, please ignore this email.
+        instruction_3: Your password won't change until you access the link above and create a new one.
         subject: Reset password instructions
       unlock_instructions:
+        action: Unlock my account
+        greeting: Hello %{recipient}!
+        instruction: 'Click the link below to unlock your account:'
+        message: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.
     passwords:
-      change: Change my password
-      change_your_password: Change your password
-      forgot_your_password_hero: Forgot your password?
-      forgot_your_password_link: Forgot your password?
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password?
+        send_me_reset_password_instructions: Send me reset password instructions
       no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
       send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
-      send_reset_password_instructions: Send reset password instructions
       updated: Your password has been changed successfully. You are now signed in.
       updated_not_active: Your password has been changed successfully.
     registrations:
-      create_account: create an account
       destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
-      register: Register
-      sign_up_hero: Create your account
-      sign_up_html: Or %{link}
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
+        title: Edit %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+      new:
+        sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
       signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
       signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
@@ -59,13 +106,25 @@ en:
       updated_but_not_signed_in: Your account has been updated successfully, but since your password was changed, you need to sign in again.
     sessions:
       already_signed_out: Signed out successfully.
-      sign_in: Sign in
-      sign_in_hero: Sign in to your account
-      sign_in_link: sign in to your account
-      sign_in_link_html: Or %{link}
+      new:
+        sign_in: Log in
       signed_in: Signed in successfully.
       signed_out: Signed out successfully.
+    shared:
+      links:
+        back: Back
+        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        forgot_your_password: Forgot your password?
+        sign_in: Log in
+        sign_in_with_provider: Sign in with %{provider}
+        sign_up: Sign up
+      minimum_password_length:
+        one: "(%{count} character minimum)"
+        other: "(%{count} characters minimum)"
     unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
       send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
       send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
       unlocked: Your account has been unlocked successfully. Please sign in to continue.

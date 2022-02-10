@@ -2,8 +2,11 @@
 en:
   about:
     show:
+      caption_html: founder of <code class="text-gray-900 font-semibold">railsdevs</code>
       description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
-      title: About railsdevs
+      readtime: 1 minute read
+      title: About
+      title_og: About railsdevs
   activerecord:
     attributes:
       business:
@@ -50,6 +53,13 @@ en:
         title: No blocked conversations
       index:
         title: Blocked conversations
+    transactions:
+      create:
+        created: Transaction created
+      destroy:
+        destroyed: Transaction deleted
+      update:
+        updated: Transaction updated
   availability_component:
     in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
     now_html: Available now
@@ -60,7 +70,7 @@ en:
     new:
       block: Block
       cancel: Cancel
-      message: Are you sure you want to flag this conversation and block the sender? This will hide the converation and they won't be able to contact you again.
+      message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   businesses:
     create:
@@ -103,9 +113,14 @@ en:
       with: with
   cover_image_component:
     alt: Developer's cover image
+  date:
+    formats:
+      month_year: "%B %Y"
   developer_query_component:
     apply: Apply
     gmt: GMT
+    role_type:
+      title: Role type
     sort:
       availability: Availability
       newest: Newest
@@ -157,7 +172,7 @@ en:
         title: Work preferences
     index:
       cta: Add my profile
-      description: 100+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here.
+      description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
     show:
       description: Description
@@ -165,6 +180,7 @@ en:
       hire: Hire me
     update:
       updated: Your profile was updated!
+  dir: ltr
   errors:
     business_blank: Fill out your business profile to message developers.
     messages:
@@ -206,6 +222,47 @@ en:
       notice: Notification marked as read.
   open_graph_tags_component:
     default_description: Find Ruby on Rails developers looking for freelance, contract, and full-time work.
+  open_startup:
+    contributions:
+      index:
+        amount: Amount
+        contributions: Contributions
+        date: Date
+        description: railsdevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
+        open_startup: Open startup
+        recipient: Recipient
+        title: railsdevs contributions
+        to_co2_removal: to CO₂ removal
+        to_communities: to communities
+    dashboard:
+      show:
+        contributions: Contributions
+        date: Date
+        description: railsdevs is an open startup with public metrics.
+        expenses: Expenses
+        mrr: MRR
+        profit: Profit
+        revenue: Revenue
+        title: Open startup
+        visitors: Visitors (last 30 days)
+    expenses:
+      index:
+        amount: Amount
+        date: Date
+        description: All monetary transactions associated with railsdevs, like hosting, fees, and purchases.
+        expenses: Expenses
+        open_startup: Open startup
+        source: Source
+        title: railsdevs expenses
+    revenue:
+      index:
+        amount: Amount
+        date: Date
+        description: All revenue railsdevs has generated since launching in November, 2021.
+        open_startup: Open startup
+        revenue: Revenue
+        source: Source
+        title: railsdevs revenue
   paywalled_component:
     description: Information that is only visible with a business subscription.
     title: Private information
@@ -249,6 +306,11 @@ en:
       title: No read notifications
     index:
       title: Read notifications
+  registrations:
+    create_account: create an account
+    register: Register
+    sign_up_hero: Create your account
+    sign_up_html: Or %{link}
   role_type_component:
     interested_in_roles: Interested in roles
   roles:
@@ -258,6 +320,11 @@ en:
       looking_for_work: I'm looking for work
       looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
       what_brings_you_here: What brings you to railsdevs?
+  sessions:
+    sign_in: Sign in
+    sign_in_hero: Sign in to your account
+    sign_in_link: sign in to your account
+    sign_in_link_html: Or %{link}
   shared:
     footer:
       about: About
@@ -265,9 +332,10 @@ en:
       copyright: All rights reserved.
       email: Email
       github: GitHub
-      income_report: Income report
+      language_name_of_locale: English
       masilotti_com: Masilotti.com
       open_source: Open source
+      open_startup: Open startup
       support: Support
       twitter: Twitter
     header:
@@ -276,6 +344,11 @@ en:
       about: About
       developers: Developers
       pricing: Pricing
+  size:
+    billion: B
+    million: M
+    thousand: K
+    unit: ''
   upgrade_account_component:
     cta: Upgrade your account
     title: Requires an active business subscription.
@@ -283,6 +356,7 @@ en:
     signed_in_component:
       admin: Admin
       billing: Billing
+      blocked_conversations: Blocked conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -290,6 +364,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      transactions: Transactions
       view_notifications: View notifications
     signed_out_component:
       register: Register

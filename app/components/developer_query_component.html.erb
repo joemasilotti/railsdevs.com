@@ -24,6 +24,34 @@
           <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
+                <span><%= t(".role_type.title") %></span>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+              </button>
+            </div>
+
+            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div class="space-y-4">
+                <%= form.collection_check_boxes(:role_types, role_types, :first, :last) do |b| %>
+                  <div class="flex items-center">
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_selected?(b.object) %>
+                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div class="pt-5">
+                <div class="flex justify-end">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                    <%= t(".apply") %>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+            <div>
+              <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
                 <span><%= t(".timezone.title") %></span>
                 <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
               </button>
@@ -33,7 +61,7 @@
               <div class="space-y-4">
                 <%= form.collection_check_boxes(:time_zones, time_zones, :first, :last) do |b| %>
                   <div class="flex items-center">
-                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: selected?(b.object) %>
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: time_zone_selected?(b.object) %>
                     <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
                   </div>
                 <% end %>

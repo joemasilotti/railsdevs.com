@@ -1,5 +1,5 @@
 class BusinessSubscriptionCheckout
-  include Rails.application.routes.url_helpers
+  include UrlHelpersWithDefaultUrlOptions
 
   attr_reader :user, :developer
 

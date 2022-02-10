@@ -1,4 +1,9 @@
 class Message < ApplicationRecord
+  FORMAT = AutoHtml::Pipeline.new(
+    AutoHtml::Link.new(target: "_blank"),
+    AutoHtml::SimpleFormat.new
+  )
+
   belongs_to :conversation
   belongs_to :sender, polymorphic: true
   has_one :developer, through: :conversation
@@ -20,6 +25,11 @@ class Message < ApplicationRecord
     elsif sender == business
       developer
     end
+  end
+
+  def body=(text)
+    super(text)
+    self[:body_html] = FORMAT.call(text)
   end
 
   private

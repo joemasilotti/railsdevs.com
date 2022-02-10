@@ -1,6 +1,8 @@
 require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
+  include PagyHelper
+
   test "can view developer profiles" do
     one = developers :available
     two = developers :unavailable
@@ -35,6 +37,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "input[checked][type=checkbox][value=-8][name='time_zones[]']"
     assert_select "h2", developers(:unavailable).hero
     assert_select "h2", text: developers(:available).hero, count: 0
+  end
+
+  test "developers can be filtered by role type" do
+    get developers_path(role_types: ["part_time_contract", "full_time_contract"])
+
+    assert_select "input[checked][type=checkbox][value=part_time_contract][name='role_types[]']"
+    assert_select "input[checked][type=checkbox][value=full_time_contract][name='role_types[]']"
+    assert_select "h2", developers(:with_full_time_contract).hero
+    assert_select "h2", developers(:with_part_time_contract).hero
+    assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
+  end
+
+  test "paginating filtered developers respects the filters" do
+    with_pagy_default_items(1) do
+      get developers_path(sort: :availability)
+      assert_select "h2", count: 1
+      assert_select "a[href=?]", "/developers?sort=availability&page=2"
+    end
   end
 
   test "cannot create new proflie if already has one" do
