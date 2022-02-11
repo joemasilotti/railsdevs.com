@@ -42,6 +42,16 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     end
   end
 
+  test "do not send weekly emails if no new developers signed up this week" do
+    travel_to monday do
+      create_developer(8.days.ago)
+
+      assert_no_emails do
+        EmailDigests::NewDevelopers.new.send_weekly_digest
+      end
+    end
+  end
+
   test "businesses without an active subscription don't receive emails, even if subscribed" do
     create_developers
     businesses(:two).user.payment_processor.destroy

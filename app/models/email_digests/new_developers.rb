@@ -15,6 +15,8 @@ class EmailDigests::NewDevelopers
 
     prev_7_days = 7.days.ago.beginning_of_day..1.day.ago.end_of_day
     developers = Developer.where(created_at: prev_7_days)
+    return if developers.empty?
+
     businesses = Business.weekly_developer_notifications
 
     log :weekly, businesses: businesses.count, developers: developers.count
