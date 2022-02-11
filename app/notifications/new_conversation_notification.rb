@@ -1,4 +1,4 @@
-class NewConversationNotification < Noticed::Base
+class NewConversationNotification < ApplicationNotification
   deliver_by :database
   deliver_by :email, mailer: "AdminMailer", method: :new_conversation
 

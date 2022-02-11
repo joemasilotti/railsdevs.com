@@ -32,6 +32,8 @@ end
 
 group :test do
   gem "capybara", "~> 3.36"
+  gem "minitest-reporters", "~> 1.5", require: false
+  gem "minitest-reporters-pride_reporter", "~> 0.0.2", require: false
   gem "selenium-webdriver"
   gem "webdrivers"
 end
@@ -41,6 +43,8 @@ gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
 gem "devise-i18n", "~> 1.10.1"
+gem "fathom_api", "~> 0.1.2"
+gem "groupdate", "~> 6.0.1"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
@@ -48,6 +52,7 @@ gem "noticed", "~> 1.4"
 gem "pagy", "~> 5.2"
 gem "pay", "~> 3.0"
 gem "pundit", "~> 2.1"
+gem "rails-i18n", "~> 7.0"
 gem "redcarpet", "~> 3.5"
 gem "rexml", "~> 3.2", ">= 3.2.5"
 gem "scout_apm", "~> 5.1"

@@ -1,6 +1,7 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  include HasSocialProfiles
 
   enum search_status: {
     actively_looking: 1,

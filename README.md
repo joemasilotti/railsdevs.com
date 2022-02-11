@@ -16,25 +16,26 @@ The reverse job board for Rails developers.
 
 ### Requirements
 
-You need the following installed:
-
-* Ruby 3.0 or higher
-* [bundler](https://bundler.io) - `gem install bundler`
-* [Redis](https://redis.io) - `brew install redis`
-* [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
-* [Yarn](https://yarnpkg.com) - `brew install yarn`
-* [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
-
-Optional:
-
-* [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
-* [overmind](https://github.com/DarthSim/overmind) - `gem install overmind`
-
-These are listed in `Brewfile`, which you can install via:
+You will need a few non-Ruby packages installed. Install these at once via:
 
 ```bash
 brew bundle install --no-upgrade
 ```
+
+...or manually:
+
+* Ruby 3.1.0
+* [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
+    * `libpg` is needed to use the native `pg` gem without Rosetta on M1 macs
+* [postgresql](https://www.postgresql.org) - `brew install postgresql`
+* [node](https://nodejs.org/en/) - `brew install node`
+* [Yarn](https://yarnpkg.com) - `brew install yarn`
+* [Redis](https://redis.io) - `brew install redis`
+* [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
+* [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
+* [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
+
+You will also need Google Chrome installed to run the system tests.
 
 ### Initial setup
 

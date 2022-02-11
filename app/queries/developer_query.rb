@@ -13,6 +13,10 @@ class DeveloperQuery
     @search_statuses = options.delete(:search_statuses)
   end
 
+  def filters
+    @filters = {sort:, time_zones:, role_types:}
+  end
+
   def pagy
     @pagy ||= initialize_pagy_and_developers.first
   end

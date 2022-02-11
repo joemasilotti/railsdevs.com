@@ -105,6 +105,7 @@ It also requires some CORS configuration for direct uploads, copied from the [Ac
 ## Background jobs
 
 1. `bundle exec rake sitemap:refresh` - daily at 12:00 AM UTC
+1. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
 1. `bundle exec rake developers:utc_offset` - daily at 5:00 AM UTC
 1. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
 1. `bundle exec rake developer_digest:weekly ` - daily at 2:00 PM UTC
@@ -159,3 +160,17 @@ A few settings need to be configured in [Stripe](https://stripe.com) for payment
 1. A product - railsdevs names this "Business subscription"
 1. A recurring price for the product - railsdevs sets this to $99/mo to match the copy on `/pricing`
 1. All the [webhooks Pay requires](https://github.com/pay-rails/pay/blob/master/docs/stripe/5_webhooks.md), sent to `/pay/webhooks/stripe`
+
+## Open startup
+
+To generate the data for `/open` you will need to set the following additional credentials:
+
+```
+stripe:
+  reporting_key:
+
+fathom:
+  api_key:
+````
+
+You can point to production to verify data (Stripe doesn't report climate contributions in dev) but make sure you use a read only access key.

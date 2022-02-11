@@ -1,0 +1,15 @@
+contribution_one:
+  stripe_id: cn_1
+  amount: 2
+  created: <%= Date.new(2022, 2, 1) %>
+  description: Stripe contribution
+  fee: 0
+  transaction_type: contribution
+
+contribution_two:
+  stripe_id: cn_2
+  amount: 5
+  created: <%= Date.new(2022, 1, 31) %>
+  description: Stripe contribution
+  fee: 0
+  transaction_type: contribution
