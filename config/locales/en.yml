@@ -106,10 +106,6 @@ en:
   developer_query_component:
     apply: Apply
     gmt: GMT
-    role_type:
-      title: Role type
-    search_status:
-      title: Search status
     sort:
       availability: Availability
       newest: Newest
@@ -117,6 +113,8 @@ en:
     timezone:
       title: Timezone
     title: Developer filters
+    work_preference:
+      title: Work preference
   developers:
     create:
       created: Your profile was added!

@@ -31,7 +31,7 @@ class DeveloperQueryComponent < ApplicationComponent
   end
 
   def search_statuses
-    Developer.search_statuses.keys
+    Developer.search_statuses.keys.reject { |status| status.eql?("not_interested") }
       .map { |status| [status.to_sym, Developer.human_attribute_name("search_status.#{status}")] }
   end
 
