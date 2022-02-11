@@ -2,6 +2,8 @@ class EmailDigests::NewDevelopers
   def send_daily_digest
     yesterday = 1.day.ago.all_day
     developers = Developer.where(created_at: yesterday)
+    return if developers.empty?
+
     businesses = Business.daily_developer_notifications
 
     log :daily, businesses: businesses.count, developers: developers.count
@@ -13,6 +15,8 @@ class EmailDigests::NewDevelopers
 
     prev_7_days = 7.days.ago.beginning_of_day..1.day.ago.end_of_day
     developers = Developer.where(created_at: prev_7_days)
+    return if developers.empty?
+
     businesses = Business.weekly_developer_notifications
 
     log :weekly, businesses: businesses.count, developers: developers.count

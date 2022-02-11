@@ -1,6 +1,8 @@
 require "test_helper"
 
 class DeveloperTest < ActiveSupport::TestCase
+  include DevelopersHelper
+
   setup do
     @developer = developers :available
   end
@@ -34,7 +36,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "is valid" do
-    assert Developer.new(valid_developer_attributes).valid?
+    assert Developer.new(developer_attributes).valid?
   end
 
   test "invalid without user" do
@@ -79,7 +81,7 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "successful profile creation sends a notification to the admins" do
     assert_difference "Notification.count", 1 do
-      Developer.create!(valid_developer_attributes)
+      Developer.create!(developer_attributes)
     end
 
     assert_equal Notification.last.type, NewDeveloperProfileNotification.name
@@ -147,20 +149,9 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "normalizes social media profile input" do
-    developer = Developer.new(valid_developer_attributes)
+    developer = Developer.new(developer_attributes)
     developer.github = "https://github.com/joemasilotti"
     developer.save!
     assert_equal developer.github, "joemasilotti"
-  end
-
-  def valid_developer_attributes
-    {
-      user: users(:empty),
-      name: "Name",
-      hero: "Hero",
-      bio: "Bio",
-      avatar: active_storage_blobs(:one),
-      time_zone: "Pacific Time (US & Canada)"
-    }
   end
 end
