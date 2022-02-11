@@ -1,6 +1,8 @@
 require "test_helper"
 
 class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
+  include DevelopersHelper
+
   test "daily emails for developers who signed up yesterday" do
     create_developers
 
@@ -59,17 +61,6 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
 
   def create_developer(created_at)
     Developer.create!(developer_attributes.merge(created_at:))
-  end
-
-  def developer_attributes
-    {
-      user: users(:empty),
-      name: "Name",
-      hero: "Hero",
-      bio: "Bio",
-      avatar: active_storage_blobs(:one),
-      time_zone: "Pacific Time (US & Canada)"
-    }
   end
 
   def monday
