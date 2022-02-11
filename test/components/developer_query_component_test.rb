@@ -40,7 +40,6 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     query = DeveloperQuery.new(search_statuses: ["actively_looking", "open"])
     render_inline DeveloperQueryComponent.new(query)
 
-    assert_no_selector "input[checked][type=checkbox][name='search_statuses[]'][value=not_interested]"
     assert_selector "input[checked][type=checkbox][name='search_statuses[]'][value=actively_looking]"
     assert_selector "input[checked][type=checkbox][name='search_statuses[]'][value=open]"
   end

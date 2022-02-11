@@ -59,10 +59,3 @@ with_open_search_status:
   hero: A developer with open search status
   bio: I am a developer with open search status.
   search_status: open
-  
-with_not_interested_search_status:
-  user: with_not_interested_search_status
-  name: Not Interested
-  hero: A developer with not interested search status
-  bio: I am a developer with not interested search status
-  search_status: not_interested

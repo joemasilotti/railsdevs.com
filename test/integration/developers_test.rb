@@ -50,13 +50,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by search status" do
-    get developers_path(search_statuses: ["open", "actively_looking"])
+    get developers_path(search_statuses: ["open"])
 
     assert_select "input[checked][type=checkbox][value=open][name='search_statuses[]']"
-    assert_select "input[checked][type=checkbox][value=actively_looking][name='search_statuses[]']"
     assert_select "h2", developers(:with_open_search_status).hero
-    assert_select "h2", developers(:with_actively_looking_search_status).hero
-    assert_select "h2", text: developers(:with_not_interested_search_status).hero, count: 0
+    assert_select "h2", text: developers(:with_actively_looking_search_status).hero, count: 0
   end
 
   test "paginating filtered developers respects the filters" do
