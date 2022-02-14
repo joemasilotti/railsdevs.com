@@ -114,6 +114,7 @@ module OpenStartup
       mrr = 0
       Stripe.subscriptions.each do |subscription|
         next if subscription.cancel_at_period_end?
+        next unless subscription.status == "active"
         mrr += subscription.items.first.price.unit_amount.fdiv(100)
       end
 

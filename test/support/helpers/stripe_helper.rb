@@ -15,13 +15,18 @@ module StripeHelper
   class Subscription
     attr_reader :items
 
-    def initialize(amount:, cancelled: false)
+    def initialize(amount:, cancelled: false, trialing: false)
       @cancel_at_period_end = cancelled ? Date.yesterday : nil
       @items = [SubscriptionItem.new(amount)]
+      @trialing = trialing
     end
 
     def cancel_at_period_end?
       !!@cancel_at_period_end
+    end
+
+    def status
+      @trialing ? "trialing" : "active"
     end
   end
 
