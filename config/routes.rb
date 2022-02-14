@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :read_notifications, only: :index, path: "/notifications/read"
     resources :notifications, only: %i[index show]
 
+    namespace :analytics do
+      resources :events, only: :show
+    end
+
     resources :conversations, only: %i[index show] do
       resources :messages, only: :create
       resource :block, only: %i[new create]

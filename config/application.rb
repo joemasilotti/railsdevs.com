@@ -37,6 +37,7 @@ module Railsdevs
 
     # Load custom configuration.
     config.fathom = config_for(:fathom)
+    config.analytics = config_for(:analytics)
     config.support_email = "joe@masilotti.com"
     config.upload_sitemap = false
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
