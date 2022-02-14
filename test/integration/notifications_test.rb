@@ -5,7 +5,18 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   test "you must be signed in" do
     get notifications_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
+  end
+
+  test "redirects to conversation if already sign in" do
+    user = users(:with_business)
+    developer = developers(:available)
+    sign_in user
+    message = create_message!(developer:, business: user.business)
+    notification = last_message_notification
+
+    get notification_path(notification)
+    assert_redirected_to conversation_path(message.conversation)
   end
 
   test "you can view the new notifications page even if none exist" do
