@@ -37,11 +37,12 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     user = users(:empty)
     sign_in user
 
-    assert_difference "Business.count", 1 do
+    assert_difference ["Business.count", "Analytics::Event.count"], 1 do
       post businesses_path, params: valid_business_params
     end
     assert_equal "basecamp.png", user.business.avatar.filename.to_s
-    assert_redirected_to developers_path
+    assert_redirected_to Analytics::Event.last
+    assert_equal Analytics::Event.last.url, developers_path
   end
 
   test "successful business creation with a stored location" do
@@ -51,10 +52,9 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     post developer_messages_path(developer)
     assert_redirected_to new_business_path
 
-    assert_difference "Business.count", 1 do
-      post businesses_path, params: valid_business_params
-    end
-    assert_redirected_to developer_messages_path(developer)
+    post businesses_path, params: valid_business_params
+    assert_redirected_to Analytics::Event.last
+    assert_equal Analytics::Event.last.url, developer_messages_path(developer)
   end
 
   test "successful edit to business" do

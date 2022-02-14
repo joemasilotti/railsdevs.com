@@ -1,8 +1,11 @@
 development:
   created_developer_profile: ACZJLHEM
+  created_business_profile: EGNOLFJL
 
 test:
   created_developer_profile: TEST_DEV
+  created_business_profile: TEST_BIZ
 
 production:
   created_developer_profile: BDHJV6OB
+  created_business_profile: OYBFYEJK
