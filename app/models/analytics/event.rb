@@ -6,25 +6,20 @@ module Analytics
     validates :goal, presence: true
     validates :value, presence: true, numericality: {greater_than_or_equal_to: 0}
 
-    class << self
-      include UrlHelpersWithDefaultUrlOptions
+    def self.created_developer_profile(url)
+      Analytics::Event.create!(url:, goal: goals.added_developer_profile)
+    end
 
-      def created_developer_profile(developer)
-        url = developer_path(developer)
-        Analytics::Event.create!(url:, goal: goals.added_developer_profile)
-      end
+    def self.created_business_profile(url)
+      Analytics::Event.create!(url:, goal: goals.added_business_profile)
+    end
 
-      def created_business_profile(url)
-        Analytics::Event.create!(url:, goal: goals.added_business_profile)
-      end
+    def self.created_business_subscription(url)
+      Analytics::Event.create!(url:, goal: goals.subscribed_to_busines_plan, value: 9900)
+    end
 
-      def created_business_subscription(url)
-        Analytics::Event.create!(url:, goal: goals.subscribed_to_busines_plan, value: 9900)
-      end
-
-      def goals
-        Rails.configuration.analytics
-      end
+    def self.goals
+      Rails.configuration.analytics
     end
 
     def tracked?

@@ -15,7 +15,8 @@ class DevelopersController < ApplicationController
     @developer = current_user.build_developer(developer_params)
 
     if @developer.save
-      event = Analytics::Event.created_developer_profile(@developer)
+      url = developer_path(@developer)
+      event = Analytics::Event.created_developer_profile(url)
       redirect_to event, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
