@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
+  include DeviseFailureSignIn
   include Pagy::Backend
-  include DeviseConcern
 
   before_action :authenticate_user!
 
