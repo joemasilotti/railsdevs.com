@@ -201,7 +201,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        time_zone: "Eastern Time (US & Canada)",
+        location: "New York, NY",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
         cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
       }

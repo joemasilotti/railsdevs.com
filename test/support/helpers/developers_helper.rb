@@ -9,7 +9,7 @@ module DevelopersHelper
         hero: "Hero",
         bio: "Bio",
         avatar: active_storage_blobs(:one),
-        time_zone: "Pacific Time (US & Canada)"
+        location: "City, ST"
       }
     end
   end
