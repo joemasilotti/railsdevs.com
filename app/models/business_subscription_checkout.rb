@@ -28,7 +28,7 @@ class BusinessSubscriptionCheckout
   end
 
   def event
-    @event ||= Analytics::Event.created_business_subscription(redirect_to)
+    @event ||= Analytics::Event.subscribed_to_busines_plan(redirect_to)
   end
 
   def redirect_to
