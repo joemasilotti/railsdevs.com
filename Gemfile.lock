@@ -184,7 +184,7 @@ GEM
       activesupport (>= 5.2)
     highline (2.0.3)
     honeybadger (4.9.0)
-    hotwire-livereload (0.2.0)
+    hotwire-livereload (1.1.0)
       listen (>= 3.0.0)
       rails (>= 6.0.0)
     hotwire-rails (0.1.3)
