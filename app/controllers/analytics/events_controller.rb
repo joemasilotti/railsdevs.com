@@ -3,8 +3,8 @@ module Analytics
     def show
       event = Analytics::Event.find(params[:id])
 
-      unless event.read?
-        event.mark_as_read!
+      unless event.tracked?
+        event.mark_as_tracked!
         flash[:event] = {goal: event.goal, value: event.value}
       end
 

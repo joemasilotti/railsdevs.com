@@ -27,12 +27,12 @@ module Analytics
       end
     end
 
-    def read?
-      read_at.present?
+    def tracked?
+      tracked_at.present?
     end
 
-    def mark_as_read!
-      touch(:read_at)
+    def mark_as_tracked!
+      touch(:tracked_at)
     end
   end
 end

@@ -4,7 +4,7 @@ class CreateAnalyticsEvents < ActiveRecord::Migration[7.0]
       t.string :url, null: false
       t.string :goal, null: false
       t.integer :value, null: false, default: 0
-      t.timestamp :read_at
+      t.timestamp :tracked_at
 
       t.timestamps
     end

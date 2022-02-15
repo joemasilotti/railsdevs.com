@@ -17,11 +17,11 @@ class Analytics::EventsTest < ActionDispatch::IntegrationTest
 
   test "viewing an event marks it as viewed" do
     get analytics_event_path(@event)
-    assert @event.reload.read?
+    assert @event.reload.tracked?
   end
 
   test "viewing an already viewed event does not render the flash" do
-    @event.mark_as_read!
+    @event.mark_as_tracked!
     get analytics_event_path(@event)
     assert_nil flash[:event]
   end
