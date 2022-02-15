@@ -11,15 +11,15 @@ module Analytics
 
       def created_developer_profile(developer)
         url = developer_path(developer)
-        Analytics::Event.create!(url:, goal: goals.created_developer_profile)
+        Analytics::Event.create!(url:, goal: goals.added_developer_profile)
       end
 
       def created_business_profile(url)
-        Analytics::Event.create!(url:, goal: goals.created_business_profile)
+        Analytics::Event.create!(url:, goal: goals.added_business_profile)
       end
 
       def created_business_subscription(url)
-        Analytics::Event.create!(url:, goal: goals.created_business_subscription, value: 9900)
+        Analytics::Event.create!(url:, goal: goals.subscribed_to_busines_plan, value: 9900)
       end
 
       def goals
