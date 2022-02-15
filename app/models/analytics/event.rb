@@ -18,6 +18,10 @@ module Analytics
         Analytics::Event.create!(url:, goal: goals.created_business_profile)
       end
 
+      def created_business_subscription(url)
+        Analytics::Event.create!(url:, goal: goals.created_business_subscription, value: 9900)
+      end
+
       def goals
         Rails.configuration.analytics
       end

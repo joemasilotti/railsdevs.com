@@ -1,11 +1,14 @@
 development:
   created_developer_profile: ACZJLHEM
   created_business_profile: EGNOLFJL
+  created_business_subscription: IWOCMRQ3
 
 test:
   created_developer_profile: TEST_DEV
   created_business_profile: TEST_BIZ
+  created_business_subscription: TEST_SUB
 
 production:
   created_developer_profile: BDHJV6OB
   created_business_profile: OYBFYEJK
+  created_business_subscription: 3HOXYNYL
