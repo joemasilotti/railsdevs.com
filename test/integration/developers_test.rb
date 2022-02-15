@@ -77,9 +77,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "successful profile creation" do
     sign_in users(:without_profile)
 
-    assert_difference "Developer.count", 1 do
+    assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
       post developers_path, params: valid_developer_params
     end
+    assert_redirected_to analytics_event_path(Analytics::Event.last)
+    assert_equal Analytics::Event.last.url, developer_path(Developer.last)
   end
 
   test "create with nested attributes" do

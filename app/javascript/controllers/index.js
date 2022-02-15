@@ -3,6 +3,9 @@
 
 import { application } from "./application"
 
+import Analytics__EventsController from "./analytics/events_controller.js"
+application.register("analytics--events", Analytics__EventsController)
+
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 

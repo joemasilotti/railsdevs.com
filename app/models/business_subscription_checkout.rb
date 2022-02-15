@@ -19,7 +19,7 @@ class BusinessSubscriptionCheckout
     user.payment_processor.checkout(
       mode: "subscription",
       line_items: business_subscription_price_id,
-      success_url:
+      success_url: analytics_event_url(event)
     )
   end
 
@@ -27,13 +27,17 @@ class BusinessSubscriptionCheckout
     Rails.application.credentials.stripe[:price_id]
   end
 
-  def success_url
+  def event
+    @event ||= Analytics::Event.subscribed_to_busines_plan(redirect_to)
+  end
+
+  def redirect_to
     if developer.present?
-      new_developer_message_url(developer)
+      new_developer_message_path(developer)
     elsif user.business.present?
-      conversations_url
+      conversations_path
     else
-      new_business_url
+      new_business_path
     end
   end
 end
