@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_14_204932) do
     t.string "url", null: false
     t.string "goal", null: false
     t.integer "value", default: 0, null: false
-    t.datetime "read_at", precision: nil
+    t.datetime "tracked_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
