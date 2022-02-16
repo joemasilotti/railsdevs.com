@@ -3,7 +3,7 @@ class AdminMailer < ApplicationMailer
     @notification = params[:record]
     recipient = params[:recipient]
 
-    @developer = @notification.to_notification.developer.name
+    @developer = @notification.to_notification.developer
 
     mail(to: recipient.email, subject: "New developer profile added")
   end
@@ -12,7 +12,7 @@ class AdminMailer < ApplicationMailer
     @notification = params[:record]
     recipient = params[:recipient]
 
-    @business = @notification.to_notification.business.name
+    @business = @notification.to_notification.business
 
     mail(to: recipient.email, subject: "New business added")
   end
