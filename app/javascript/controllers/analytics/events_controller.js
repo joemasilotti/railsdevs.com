@@ -7,8 +7,8 @@ export default class extends Controller {
   }
 
   connect() {
-    window.addEventListener("turbo:load", (event) => {
+    window.addEventListener("turbo:load", () => {
       window.fathom.trackGoal(this.goalValue, this.valueValue)
-    })
+    }, {once: true})
   }
 }
