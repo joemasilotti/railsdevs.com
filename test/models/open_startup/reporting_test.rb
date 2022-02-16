@@ -81,7 +81,8 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
       Subscription.new(amount: 9900),
       Subscription.new(amount: 9900),
       Subscription.new(amount: 9900, cancelled: true),
-      Subscription.new(amount: 9900, trialing: true)
+      Subscription.new(amount: 9900, trialing: true),
+      Subscription.new(amount: 9900, paused: true)
     ]
     @visitors = 2500
 

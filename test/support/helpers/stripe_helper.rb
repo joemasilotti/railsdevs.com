@@ -15,10 +15,11 @@ module StripeHelper
   class Subscription
     attr_reader :items
 
-    def initialize(amount:, cancelled: false, trialing: false)
+    def initialize(amount:, cancelled: false, trialing: false, paused: false)
       @cancel_at_period_end = cancelled ? Date.yesterday : nil
       @items = [SubscriptionItem.new(amount)]
       @trialing = trialing
+      @paused = paused
     end
 
     def cancel_at_period_end?
@@ -27,6 +28,10 @@ module StripeHelper
 
     def status
       @trialing ? "trialing" : "active"
+    end
+
+    def pause_collection
+      @paused ? Stripe::StripeObject.new : nil
     end
   end
 
