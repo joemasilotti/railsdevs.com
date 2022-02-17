@@ -134,7 +134,7 @@
               </div>
             </fieldset>
 
-            <%= form.fields_for :role_type do |role_type| %>
+            <%= form.fields_for :role_type, include_id: false do |role_type| %>
               <fieldset>
                 <div>
                   <legend class="text-base font-medium text-gray-900"><%= t(".role_type.title") %></legend>
