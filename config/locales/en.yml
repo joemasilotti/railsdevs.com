@@ -8,7 +8,13 @@ en:
       title: About
       title_og: About railsdevs
   activerecord:
+    errors:
+      models:
+        location:
+          invalid_coordinates: can't be found
     attributes:
+      location:
+        country_code: Country
       business:
         company: Company name
         name: Your name
@@ -151,7 +157,7 @@ en:
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
-        location_help_text: Providing your location helps you up with local businesses.
+        location_help_text: Providing your location helps local businesses find you.
         name_help_text_html: Your name will <i>not</i> be displayed on your public profile.
         title: Profile
         upload_error_text: Something went wrong uploading your image, please try again.

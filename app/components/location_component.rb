@@ -1,6 +1,4 @@
 class LocationComponent < ApplicationComponent
-  attr_reader :location
-
   def initialize(location)
     @location = location
   end
@@ -11,5 +9,10 @@ class LocationComponent < ApplicationComponent
 
   def icon
     "icons/outline/globe.svg"
+  end
+
+  def location
+    country = @location.country_code.downcase == "us" ? nil : @location.country
+    [@location.city, @location.state, country].select(&:present?).join(", ")
   end
 end

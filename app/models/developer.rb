@@ -11,12 +11,14 @@ class Developer < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_one :location, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
   has_noticed_notifications
 
   accepts_nested_attributes_for :role_type, update_only: true
+  accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
 
   validates :name, presence: true
   validates :hero, presence: true
@@ -40,6 +42,10 @@ class Developer < ApplicationRecord
 
   def role_type
     super || build_role_type
+  end
+
+  def location
+    super || build_location
   end
 
   private

@@ -178,6 +178,7 @@ GEM
       ffi (>= 1.0.0)
       rake
     gemoji (4.0.0.rc3)
+    geocoder (1.7.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     groupdate (6.0.1)
@@ -441,6 +442,7 @@ DEPENDENCIES
   devise-i18n (~> 1.10.1)
   erb_lint!
   fathom_api (~> 0.1.2)
+  geocoder (~> 1.7.3)
   groupdate (~> 6.0.1)
   honeybadger (~> 4.0)
   hotwire-livereload
