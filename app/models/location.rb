@@ -28,6 +28,8 @@ class Location < ApplicationRecord
       self.latitude = result.latitude
       self.longitude = result.longitude
       self.data = result.data
+
+      self.timezone = Timezone.lookup(latitude, longitude).name
     else
       self.latitude = nil
       self.longitude = nil

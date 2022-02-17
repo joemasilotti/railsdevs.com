@@ -4,7 +4,7 @@ class LocationComponent < ApplicationComponent
   end
 
   def render?
-    location.present?
+    @location.persisted?
   end
 
   def icon

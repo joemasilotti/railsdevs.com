@@ -9,6 +9,7 @@ class CreateLocations < ActiveRecord::Migration[7.0]
       t.string :country_code, null: false
       t.decimal :latitude, null: false
       t.decimal :longitude, null: false
+      t.string :timezone, null: false
       t.jsonb :data, null: false
 
       t.timestamps

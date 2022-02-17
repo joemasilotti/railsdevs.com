@@ -60,4 +60,5 @@ gem "scout_apm", "~> 5.1"
 gem "sidekiq", "~> 6.4"
 gem "sitemap_generator", "~> 6.1"
 gem "stripe", ">= 2.8", "< 6.0"
+gem "timezone", "~> 1.3.14"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

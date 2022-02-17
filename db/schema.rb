@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
     t.string "checksum", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
     t.string "country_code", null: false
     t.decimal "latitude", null: false
     t.decimal "longitude", null: false
+    t.string "timezone", null: false
     t.jsonb "data", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
