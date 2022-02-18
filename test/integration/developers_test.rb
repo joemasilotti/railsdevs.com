@@ -201,9 +201,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        location: "New York, NY",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
-        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg"),
+        location_attributes: {
+          city: "City"
+        }
       }
     }
   end

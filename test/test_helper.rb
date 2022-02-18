@@ -13,6 +13,8 @@ options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count
 Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
 
 class ActiveSupport::TestCase
+  include GeocoderHelper
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
