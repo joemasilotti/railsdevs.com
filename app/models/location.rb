@@ -1,9 +1,9 @@
 class Location < ApplicationRecord
   belongs_to :developer
 
-  validates :city, presence: true
-  validates :country, presence: true
-  validate :valid_coordinates
+  validates :time_zone, presence: true
+  validates :utc_offset, presence: true
+  validate :valid_coordinates, unless: -> { validation_context == :backfill }
 
   before_validation :geocode, if: ->(location) do
     location.will_save_change_to_city? ||
@@ -21,7 +21,7 @@ class Location < ApplicationRecord
 
   def geocode
     if (result = Geocoder.search(query).first)
-      self.city = result.city
+      self.city = result.city || result.city_district
       self.state = result.state
       self.country = result.country
       self.country_code = result.country_code
@@ -29,10 +29,10 @@ class Location < ApplicationRecord
       self.longitude = result.longitude
       self.data = result.data
 
-      self.timezone = Timezone.lookup(latitude, longitude).name
+      self.time_zone = TimezoneFinder.create.timezone_at(lat: latitude, lng: longitude)
+      self.utc_offset = ActiveSupport::TimeZone.new(time_zone).utc_offset
     else
-      self.latitude = nil
-      self.longitude = nil
+      self.latitude = nil # Invalidate record via #valid_coordinates.
     end
   end
 

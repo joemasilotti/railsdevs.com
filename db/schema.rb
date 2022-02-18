@@ -97,14 +97,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
 
   create_table "locations", force: :cascade do |t|
     t.bigint "developer_id"
-    t.string "city", null: false
+    t.string "city"
     t.string "state"
-    t.string "country", null: false
-    t.string "country_code", null: false
-    t.decimal "latitude", null: false
-    t.decimal "longitude", null: false
-    t.string "timezone", null: false
-    t.jsonb "data", null: false
+    t.string "country"
+    t.string "country_code"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "time_zone", null: false
+    t.integer "utc_offset", null: false
+    t.jsonb "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_locations_on_developer_id"

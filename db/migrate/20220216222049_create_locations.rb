@@ -3,14 +3,15 @@ class CreateLocations < ActiveRecord::Migration[7.0]
     create_table :locations do |t|
       t.belongs_to :developer
 
-      t.string :city, null: false
+      t.string :city
       t.string :state
-      t.string :country, null: false
-      t.string :country_code, null: false
-      t.decimal :latitude, null: false
-      t.decimal :longitude, null: false
-      t.string :timezone, null: false
-      t.jsonb :data, null: false
+      t.string :country
+      t.string :country_code
+      t.decimal :latitude
+      t.decimal :longitude
+      t.string :time_zone, null: false
+      t.integer :utc_offset, null: false
+      t.jsonb :data
 
       t.timestamps
     end

@@ -1,18 +1,28 @@
 class LocationComponent < ApplicationComponent
   def initialize(location)
-    @location = location
+    @city = location&.city
+    @state = location&.state
+    @country = location&.country
+    @country_code = location&.country_code
   end
 
   def render?
-    @location.persisted?
+    @city.present? || @state.present? || @country.present?
   end
 
   def icon
-    "icons/outline/globe.svg"
+    "icons/solid/globe.svg"
   end
 
   def location
-    country = @location.country_code.downcase == "us" ? nil : @location.country
-    [@location.city, @location.state, country].select(&:present?).join(", ")
+    if us_or_uk?
+      "#{@city}, #{@state}"
+    else
+      "#{@city}, #{@country}"
+    end
+  end
+
+  def us_or_uk?
+    %w[us gb].include?(@country_code&.downcase)
   end
 end
