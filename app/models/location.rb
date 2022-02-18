@@ -37,6 +37,6 @@ class Location < ApplicationRecord
   end
 
   def query
-    [city, state, country].join(" ")
+    [city, state, country].join(" ").squish
   end
 end
