@@ -8,13 +8,7 @@ en:
       title: About
       title_og: About railsdevs
   activerecord:
-    errors:
-      models:
-        location:
-          invalid_coordinates: can't be found
     attributes:
-      location:
-        country_code: Country
       business:
         company: Company name
         name: Your name
@@ -32,6 +26,8 @@ en:
         actively_looking: Actively looking for work
         not_interested: Not interested in work right now
         open: Open, but not actively looking
+      location:
+        country_code: Country
       role_type:
         full_time_contract: Full-time contract
         full_time_employment: Full-time employment
@@ -41,6 +37,10 @@ en:
         password: Password
         password_confirmation: Password Confirmation
         remember_me: Remember me
+    errors:
+      models:
+        location:
+          invalid_coordinates: can't be found
     models:
       business:
         one: Business
