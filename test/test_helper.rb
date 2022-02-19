@@ -15,6 +15,9 @@ Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
 class ActiveSupport::TestCase
   include GeocoderHelper
 
+  EASTERN_UTC_OFFSET = -5 * 60 * 60
+  PACIFIC_UTC_OFFSET = -8 * 60 * 60
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 

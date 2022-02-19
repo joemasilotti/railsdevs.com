@@ -124,7 +124,6 @@ en:
       month_year: "%B %Y"
   developer_query_component:
     apply: Apply
-    gmt: GMT
     role_type:
       title: Role type
     sort:
@@ -376,3 +375,5 @@ en:
     signed_out_component:
       register: Register
       sign_in: Sign in
+  utc_offset_component:
+    gmt: GMT

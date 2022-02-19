@@ -27,7 +27,10 @@ class Developer < ApplicationRecord
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes
 
-  scope :filter_by_utc_offset, ->(utc_offset) { where(utc_offset:) }
+  scope :filter_by_utc_offset, ->(utc_offset) do
+    joins(:location).where(locations: {utc_offset:})
+  end
+
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
       where(role_type: {type => true}) if role_types.include?(type)

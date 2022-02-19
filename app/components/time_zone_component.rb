@@ -13,23 +13,10 @@ class TimeZoneComponent < ApplicationComponent
   end
 
   def time_zone
-    "#{time_zone_name} (#{gmt}#{plus_minus}#{utc_offset})"
+    "#{time_zone_name} (#{render(UTCOffsetComponent.new(@utc_offset)).squish})"
   end
 
   def time_zone_name
     ActiveSupport::TimeZone::MAPPING.key(@time_zone)
-  end
-
-  def plus_minus
-    "+" if @utc_offset > 0
-  end
-
-  def utc_offset
-    utc_offset = @utc_offset.fdiv(SECONDS_IN_AN_HOUR)
-    number_with_precision(utc_offset, precision: 1, strip_insignificant_zeros: true)
-  end
-
-  def gmt
-    t("developer_query_component.gmt")
   end
 end

@@ -26,7 +26,7 @@ class LocationTest < ActiveSupport::TestCase
       location = create_location!(city: "Portlandia")
 
       assert_equal location.time_zone, "America/Los_Angeles"
-      assert_equal location.utc_offset, -28800
+      assert_equal location.utc_offset, PACIFIC_UTC_OFFSET
     end
   end
 
