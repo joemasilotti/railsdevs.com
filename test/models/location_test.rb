@@ -19,6 +19,17 @@ class LocationTest < ActiveSupport::TestCase
     assert_equal location.data, {"city" => "Portland"}
   end
 
+  test "the time zone and UTC offset are populated" do
+    travel_to Time.zone.local(2022, 6, 26) do
+      stub_geocoder("Portlandia")
+
+      location = create_location!(city: "Portlandia")
+
+      assert_equal location.time_zone, "America/Los_Angeles"
+      assert_equal location.utc_offset, -28800
+    end
+  end
+
   test "city district is used if city isn't present" do
     stub_geocoder("Portlandia", city: nil, city_district: "Portland Proper")
     location = create_location!(city: "Portlandia")
@@ -31,11 +42,18 @@ class LocationTest < ActiveSupport::TestCase
 
     location.latitude = nil
     location.longitude = nil
-    assert location.valid?(:backfill)
 
     refute location.valid?
-    assert_equal location.errors.count, 1
-    assert_not_nil location.errors[:city]
+    assert location.valid?(:backfill)
+  end
+
+  test "unknown geocoding results invalidates the object" do
+    location = create_location!(time_zone: "UTC", utc_offset: 0, latitude: 1, longitude: 2)
+
+    Geocoder::Lookup::Test.add_stub("Unknown City", [])
+    location.city = "Unknown City"
+
+    refute location.valid?
   end
 
   def stub_geocoder(query, city: "Portland", city_district: nil, state: "Oregon", country: "United States", country_code: "US", latitude: 45.523064, longitude: -122.676483, data: {"city" => "Portland"})
