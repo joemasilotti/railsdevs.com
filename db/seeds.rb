@@ -9,6 +9,7 @@ end
 
 def create_developer!(attributes)
   avatar_name = attributes.delete(:avatar_name)
+  attributes[:location] = Location.new(city: "New York", state: "NY")
   Developer.create!(attributes) do |developer|
     developer.avatar.attach(io: File.open(Rails.root.join("test/fixtures/files/#{avatar_name}")), filename: avatar_name)
   end
@@ -30,8 +31,7 @@ developer = create_developer!(
   website: "https://example.com/dennis",
   github: "dennis",
   twitter: "ritchie",
-  time_zone: "Eastern Time (US & Canada)",
-  avatar_name: "dennis.png"
+  avatar_name: "dennis.png",
 )
 developer.create_role_type!(part_time_contract: true, full_time_contract: true)
 
@@ -44,8 +44,7 @@ bjarne_developer = create_developer!(
   website: "https://example.com/bjarne",
   github: "bjarne",
   twitter: "stroustrup",
-  time_zone: "Eastern Time (US & Canada)",
-  avatar_name: "bjarne.png"
+  avatar_name: "bjarne.png",
 )
 bjarne_developer.create_role_type!(full_time_employment: true)
 
@@ -58,7 +57,6 @@ create_developer!(
   website: "https://example.com/ada",
   github: "ada",
   twitter: "lovelace",
-  time_zone: "Eastern Time (US & Canada)",
   avatar_name: "lovelace.jpg"
 )
 
