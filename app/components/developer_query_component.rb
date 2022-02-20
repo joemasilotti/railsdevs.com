@@ -28,6 +28,6 @@ class DeveloperQueryComponent < ApplicationComponent
   private
 
   def utc_offsets
-    Location.select(:utc_offset).order(:utc_offset).distinct.pluck(:utc_offset)
+    Location.order(:utc_offset).distinct.pluck(:utc_offset)
   end
 end
