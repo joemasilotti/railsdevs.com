@@ -26,6 +26,8 @@ en:
         actively_looking: Actively looking for work
         not_interested: Not interested in work right now
         open: Open, but not actively looking
+      location:
+        country_code: Country
       role_type:
         full_time_contract: Full-time contract
         full_time_employment: Full-time employment
@@ -35,6 +37,10 @@ en:
         password: Password
         password_confirmation: Password Confirmation
         remember_me: Remember me
+    errors:
+      models:
+        location:
+          invalid_coordinates: can't be found
     models:
       business:
         one: Business
@@ -118,7 +124,6 @@ en:
       month_year: "%B %Y"
   developer_query_component:
     apply: Apply
-    gmt: GMT
     role_type:
       title: Role type
     sort:
@@ -151,6 +156,7 @@ en:
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
         hero_help_text: Summarize yourself as a developer in a few words.
+        location_help_text: Providing your location makes it easier to connect with local business.
         name_help_text_html: Your name will <i>not</i> be displayed on your public profile.
         title: Profile
         upload_error_text: Something went wrong uploading your image, please try again.
@@ -369,3 +375,5 @@ en:
     signed_out_component:
       register: Register
       sign_in: Sign in
+  utc_offset_component:
+    gmt: GMT

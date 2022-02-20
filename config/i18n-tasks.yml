@@ -110,17 +110,14 @@ ignore_missing:
 
 ## Consider these keys used:
 ignore_unused:
-- 'activerecord.models.*'
 - 'activerecord.attributes.*'
-- '{devise}.*'
+- 'activerecord.errors.models.location.invalid_coordinates'
+- 'activerecord.models.*'
 - 'availability_component.*'
+- 'date.formats.month_year' # l helper is not captured
 - 'errors.messages.*'
 - 'size.{billion,million,thousand,unit}'
-- 'date.formats.month_year' # l helper is not captured
-# - '{devise,kaminari,will_paginate}.*'
-# - 'simple_form.{yes,no}'
-# - 'simple_form.{placeholders,hints,labels}.*'
-# - 'simple_form.{error_notification,required}.:'
+- '{devise}.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

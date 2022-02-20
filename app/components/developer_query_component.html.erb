@@ -59,7 +59,7 @@
 
             <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div class="space-y-4">
-                <%= form.collection_check_boxes(:time_zones, time_zones, :first, :last) do |b| %>
+                <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last) do |b| %>
                   <div class="flex items-center">
                     <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: time_zone_selected?(b.object) %>
                     <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>

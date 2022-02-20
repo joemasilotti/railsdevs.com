@@ -178,6 +178,7 @@ GEM
       ffi (>= 1.0.0)
       rake
     gemoji (4.0.0.rc3)
+    geocoder (1.7.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     groupdate (6.0.1)
@@ -401,6 +402,7 @@ GEM
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.2.1)
     timeout (0.2.0)
+    timezone_finder (1.5.7)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -441,6 +443,7 @@ DEPENDENCIES
   devise-i18n (~> 1.10.1)
   erb_lint!
   fathom_api (~> 0.1.2)
+  geocoder (~> 1.7.3)
   groupdate (~> 6.0.1)
   honeybadger (~> 4.0)
   hotwire-livereload
@@ -473,6 +476,7 @@ DEPENDENCIES
   standard
   stimulus-rails (~> 0.7)
   stripe (>= 2.8, < 6.0)
+  timezone_finder (~> 1.5.7)
   turbo-rails (~> 1.0)
   tzinfo-data
   view_component (~> 2.46)

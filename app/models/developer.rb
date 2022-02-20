@@ -11,21 +11,26 @@ class Developer < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_one :location, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
   has_noticed_notifications
 
-  accepts_nested_attributes_for :role_type
+  accepts_nested_attributes_for :role_type, update_only: true
+  accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
 
   validates :name, presence: true
   validates :hero, presence: true
   validates :bio, presence: true
-  validates :time_zone, presence: true, on: :create
+  validates :location, presence: true, on: :create
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"],
     max_file_size: 10.megabytes
 
-  scope :filter_by_utc_offset, ->(utc_offset) { where(utc_offset:) }
+  scope :filter_by_utc_offset, ->(utc_offset) do
+    joins(:location).where(locations: {utc_offset:})
+  end
+
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
       where(role_type: {type => true}) if role_types.include?(type)
@@ -40,6 +45,10 @@ class Developer < ApplicationRecord
 
   def role_type
     super || build_role_type
+  end
+
+  def location
+    super || build_location
   end
 
   private

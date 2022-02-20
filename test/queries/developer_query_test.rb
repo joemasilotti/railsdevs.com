@@ -32,7 +32,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "filtering by time zones" do
-    records = DeveloperQuery.new(time_zones: ["-8"]).records
+    records = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET]).records
     assert_equal records, [developers(:unavailable)]
   end
 
@@ -56,7 +56,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "returns hash with filters" do
-    filters = {sort: :availability, time_zones: ["-8, -5"], role_types: [:part_time_contract]}
+    utc_offsets = [PACIFIC_UTC_OFFSET, EASTERN_UTC_OFFSET]
+    filters = {sort: :availability, utc_offsets:, role_types: [:part_time_contract]}
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end
 end

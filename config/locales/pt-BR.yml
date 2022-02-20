@@ -118,7 +118,6 @@ pt-BR:
       month_year: "%B / %Y"
   developer_query_component:
     apply: Aplicar
-    gmt: GMT
     role_type:
       title: Tipo de função
     sort:

@@ -32,9 +32,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    get developers_path(time_zones: ["-8"])
+    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
-    assert_select "input[checked][type=checkbox][value=-8][name='time_zones[]']"
+    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']"
     assert_select "h2", developers(:unavailable).hero
     assert_select "h2", text: developers(:available).hero, count: 0
   end
@@ -201,9 +201,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        time_zone: "Eastern Time (US & Canada)",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
-        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg"),
+        location_attributes: {
+          city: "City"
+        }
       }
     }
   end
