@@ -10,10 +10,6 @@ class LocationComponent < ApplicationComponent
     @city.present? || @state.present? || @country.present?
   end
 
-  def icon
-    "icons/solid/globe.svg"
-  end
-
   def location
     if us_or_uk?
       "#{@city}, #{@state}"

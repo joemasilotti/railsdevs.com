@@ -8,10 +8,6 @@ class TimeZoneComponent < ApplicationComponent
     @time_zone.present?
   end
 
-  def icon
-    "icons/solid/clock.svg"
-  end
-
   def time_zone
     "#{time_zone_name} (#{render(UTCOffsetComponent.new(@utc_offset)).squish})"
   end
