@@ -27,7 +27,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       developers(:with_blocked_conversation),
       developers(:with_part_time_contract),
       developers(:with_full_time_contract),
-      developers(:with_full_time_employment)
+      developers(:with_full_time_employment),
+      developers(:invisible)
     ]
   end
 

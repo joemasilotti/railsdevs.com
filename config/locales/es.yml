@@ -147,9 +147,9 @@ es:
       save: Guardar
       search_status:
         actively_looking_help_text: Tu perfil puede aparecer como destacado en la página de inicio.
+        invisible_help_text: Tu perfile permanecera invisible en la plataforma. Solo tu tendrás acceso.
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
         open_help_text: Las empresas aún pueden encontrarte, pero no aparecerás en la página de inicio.
-        invisible_help_text: Tu perfile permanecera invisible en la plataforma. Solo tu tendrás acceso.
         title: Estado de búsqueda
       title: Tu perfil de desarrollador
       updating: Subiendo...

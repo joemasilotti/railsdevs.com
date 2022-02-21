@@ -39,7 +39,7 @@ class DeveloperQuery
   private
 
   def initialize_pagy_and_developers
-    @_records = Developer.includes(:role_type).with_attached_avatar
+    @_records = Developer.visible.includes(:role_type).with_attached_avatar
     sort_records
     time_zone_filter_records
     role_type_filter_records
@@ -50,7 +50,7 @@ class DeveloperQuery
     if sort == :availability
       @_records.merge!(Developer.available_first)
     else
-      @_records.merge!(Developer.newest_first.visible)
+      @_records.merge!(Developer.newest_first)
     end
   end
 
