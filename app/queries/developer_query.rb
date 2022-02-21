@@ -50,7 +50,7 @@ class DeveloperQuery
     if sort == :availability
       @_records.merge!(Developer.available_first)
     else
-      @_records.merge!(Developer.newest_first)
+      @_records.merge!(Developer.newest_first.visible)
     end
   end
 

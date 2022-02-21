@@ -79,6 +79,11 @@ class DeveloperTest < ActiveSupport::TestCase
     refute_includes developers, developers(:unavailable)
   end
 
+  test "visible scope filters developers with 'visible' search_status" do
+    developers = Developer.visible
+    assert_includes developers, developers(:invisible)
+  end
+
   test "successful profile creation sends a notification to the admins" do
     assert_difference "Notification.count", 1 do
       Developer.create!(developer_attributes)

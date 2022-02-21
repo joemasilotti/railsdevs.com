@@ -45,3 +45,9 @@ with_full_time_employment:
   name: Full-time Employee
   hero: A full-time employee
   bio: I am a developer available for full-time employment.
+
+invisible:
+  user: with_invisible_profile
+  name: Invisible Developer
+  hero: I'd rather stay invisible for a bit
+  bio: Soon to be visible
