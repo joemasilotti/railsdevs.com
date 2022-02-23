@@ -175,6 +175,8 @@ en:
       cta: Add my profile
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
+    invisible?:
+      invisible: Invisible
     show:
       description: Description
       edit: Edit

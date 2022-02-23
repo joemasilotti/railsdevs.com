@@ -162,6 +162,7 @@ pt-BR:
       save: Salvar
       search_status:
         actively_looking_help_text: Seu perfil pode ser destacado na página principal.
+        invisible_help_text: Your profile will remain invisible to anyone else on the platform.
         not_interested_help_text: Seu perfil será claramente marcado que você não está buscando trabalho.
         open_help_text: Empresas podem achar você, mas você não aparecerá na página principal.
         title: Status de busca
@@ -174,12 +175,15 @@ pt-BR:
       cta: Adicionar meu perfil
       description: "%{developers_count}+ desenvolvedores Ruby on Rails buscando seu próximo trabalho. Aqui você vai encontrar de Juniors a seniors e tudo no meio do caminho."
       title: Desenvolvedores Ruby on Rails
+    invisible?:
+      invisible: Invisible
     show:
       description: Descrição
       edit: Editar
       hire: Me contrate
     update:
       updated: Seu perfil foi atualizado!
+  dir: ltr
   errors:
     business_blank: Preencha seu perfil empresarial para enviar mensagens para os desenvolvedores.
     messages:
