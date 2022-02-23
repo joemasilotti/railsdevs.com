@@ -1,6 +1,7 @@
 class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :require_new_developer!, only: %i[new create]
+  before_action :invisible?, only: %i[show]
 
   def index
     @developers_count = Developer.count.round(-1)
@@ -48,6 +49,15 @@ class DevelopersController < ApplicationController
   def require_new_developer!
     if current_user.developer.present?
       redirect_to edit_developer_path(current_user.developer)
+    end
+  end
+
+  def invisible?
+    @developer = Developer.find(params[:id])
+    if @developer.search_status == "invisible"
+      unless user_signed_in? && current_user == @developer.user
+        redirect_to root_path, notice: t(".invisible")
+      end
     end
   end
 

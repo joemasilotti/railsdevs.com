@@ -49,5 +49,6 @@ with_full_time_employment:
 invisible:
   user: with_invisible_profile
   name: Invisible Developer
-  hero: I'd rather stay invisible for a bit
+  hero: I'd rather stay invisible for now
   bio: Soon to be visible
+  search_status: "invisible"
