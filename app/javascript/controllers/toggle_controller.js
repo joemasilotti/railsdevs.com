@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = ["element"]
   static classes = ["open", "close"]
   static values = {
-    open: { type: Boolean, default: false }
+    open: {type: Boolean, default: false}
   }
 
   openValueChanged() {

@@ -8,13 +8,13 @@ class DeveloperQuery
   def initialize(options = {})
     @options = options
     @sort = options.delete(:sort)
-    @time_zones = options.delete(:time_zones)
+    @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
     @search_statuses = options.delete(:search_statuses)
   end
 
   def filters
-    @filters = {sort:, time_zones:, role_types:}
+    @filters = {sort:, utc_offsets:, role_types:}
   end
 
   def pagy
@@ -29,8 +29,8 @@ class DeveloperQuery
     @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
   end
 
-  def time_zones
-    @time_zones.to_a.reject(&:blank?)
+  def utc_offsets
+    @utc_offsets.to_a.reject(&:blank?).map(&:to_f)
   end
 
   def role_types
@@ -46,7 +46,7 @@ class DeveloperQuery
   def initialize_pagy_and_developers
     @_records = Developer.includes(:role_type).with_attached_avatar
     sort_records
-    time_zone_filter_records
+    utc_offset_filter_records
     role_type_filter_records
     search_status_filter_records
     @pagy, @records = build_pagy(@_records)
@@ -60,7 +60,7 @@ class DeveloperQuery
     end
   end
 
-  def time_zone_filter_records
+  def utc_offset_filter_records
     if utc_offsets.any?
       @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
     end
@@ -72,10 +72,6 @@ class DeveloperQuery
 
   def search_status_filter_records
     @_records.merge!(Developer.filter_by_search_statuses(search_statuses)) if search_statuses.any?
-  end
-
-  def utc_offsets
-    time_zones.map { |tz| tz.to_f * SECONDS_IN_AN_HOUR }
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.

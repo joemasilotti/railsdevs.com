@@ -20,5 +20,8 @@
     <% end %>
   <% end %>
 
-  <%= render TimeZoneComponent.new(developer.time_zone) %>
+  <%= render RenderableComponent.new("space-y-3 pt-4") do %>
+    <%= render LocationComponent.new(developer.location) %>
+    <%= render TimeZoneComponent.new(developer.location) %>
+  <% end %>
 </div>

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_031819) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +40,15 @@ ActiveRecord::Schema.define(version: 2022_01_31_031819) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "analytics_events", force: :cascade do |t|
+    t.string "url", null: false
+    t.string "goal", null: false
+    t.integer "value", default: 0, null: false
+    t.datetime "tracked_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "businesses", force: :cascade do |t|
@@ -85,6 +93,22 @@ ActiveRecord::Schema.define(version: 2022_01_31_031819) do
     t.integer "preferred_max_salary"
     t.string "time_zone"
     t.integer "utc_offset"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "country_code"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "time_zone", null: false
+    t.integer "utc_offset", null: false
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_locations_on_developer_id"
   end
 
   create_table "messages", force: :cascade do |t|

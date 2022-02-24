@@ -15,7 +15,9 @@ class DevelopersController < ApplicationController
     @developer = current_user.build_developer(developer_params)
 
     if @developer.save
-      redirect_to @developer, notice: t(".created")
+      url = developer_path(@developer)
+      event = Analytics::Event.added_developer_profile(url)
+      redirect_to event, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -62,7 +64,7 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
-      :time_zone,
+      location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES
     )
   end

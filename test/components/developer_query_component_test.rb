@@ -12,19 +12,19 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     query = DeveloperQuery.new({})
     render_inline DeveloperQueryComponent.new(query)
 
-    assert_selector "input[type=checkbox][name='time_zones[]'][value=-5]"
-    assert_selector "input[type=checkbox][name='time_zones[]'][value=-8]"
+    assert_selector "input[type=checkbox][name='utc_offsets[]'][value=#{EASTERN_UTC_OFFSET}]"
+    assert_selector "input[type=checkbox][name='utc_offsets[]'][value=#{PACIFIC_UTC_OFFSET}]"
 
-    assert_selector "label[for=time_zones_-5]", text: "-5 GMT"
-    assert_selector "label[for=time_zones_-8]", text: "-8 GMT"
+    assert_selector "label[for=utc_offsets_#{EASTERN_UTC_OFFSET}]", text: "GMT-5"
+    assert_selector "label[for=utc_offsets_#{PACIFIC_UTC_OFFSET}]", text: "GMT-8"
   end
 
   test "checks selected timezones" do
-    query = DeveloperQuery.new(time_zones: ["-8"])
+    query = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET])
     render_inline DeveloperQueryComponent.new(query)
 
-    assert_no_selector "input[checked][type=checkbox][name='time_zones[]'][value=-5]"
-    assert_selector "input[checked][type=checkbox][name='time_zones[]'][value=-8]"
+    assert_no_selector "input[checked][type=checkbox][name='utc_offsets[]'][value=#{EASTERN_UTC_OFFSET}]"
+    assert_selector "input[checked][type=checkbox][name='utc_offsets[]'][value=#{PACIFIC_UTC_OFFSET}]"
   end
 
   test "checks selected role types" do

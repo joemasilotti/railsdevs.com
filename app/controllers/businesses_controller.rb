@@ -11,8 +11,9 @@ class BusinessesController < ApplicationController
     @business.assign_attributes(permitted_attributes(@business))
 
     if @business.save
-      path = stored_location_for(:user) || developers_path
-      redirect_to path, notice: t(".created")
+      url = stored_location_for(:user) || developers_path
+      event = Analytics::Event.added_business_profile(url)
+      redirect_to event, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
     end

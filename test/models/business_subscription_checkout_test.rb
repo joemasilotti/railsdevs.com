@@ -19,22 +19,31 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     user = users(:with_business)
     developer = developers(:available)
 
-    stub_pay(user, expected_success_url: new_developer_message_url(developer)) do
-      BusinessSubscriptionCheckout.new(user, developer:).url
+    stub_pay(user) do
+      assert_difference "Analytics::Event.count", 1 do
+        BusinessSubscriptionCheckout.new(user, developer:).url
+      end
+      assert_equal Analytics::Event.last.url, new_developer_message_path(developer)
     end
   end
 
   test "redirects to conversations if the user has a business profile" do
     user = users(:with_business)
-    stub_pay(user, expected_success_url: conversations_url) do
-      BusinessSubscriptionCheckout.new(user).url
+    stub_pay(user) do
+      assert_difference "Analytics::Event.count", 1 do
+        BusinessSubscriptionCheckout.new(user).url
+      end
+      assert_equal Analytics::Event.last.url, conversations_path
     end
   end
 
   test "redirects to adding a business profile if the user doesn't have one" do
     user = users(:empty)
-    stub_pay(user, expected_success_url: new_business_url) do
-      BusinessSubscriptionCheckout.new(user).url
+    stub_pay(user) do
+      assert_difference "Analytics::Event.count", 1 do
+        BusinessSubscriptionCheckout.new(user).url
+      end
+      assert_equal Analytics::Event.last.url, new_business_path
     end
   end
 

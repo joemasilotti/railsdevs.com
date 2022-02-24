@@ -32,9 +32,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    get developers_path(time_zones: ["-8"])
+    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
-    assert_select "input[checked][type=checkbox][value=-8][name='time_zones[]']"
+    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']"
     assert_select "h2", developers(:unavailable).hero
     assert_select "h2", text: developers(:available).hero, count: 0
   end
@@ -85,9 +85,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "successful profile creation" do
     sign_in users(:without_profile)
 
-    assert_difference "Developer.count", 1 do
+    assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
       post developers_path, params: valid_developer_params
     end
+    assert_redirected_to analytics_event_path(Analytics::Event.last)
+    assert_equal Analytics::Event.last.url, developer_path(Developer.last)
   end
 
   test "create with nested attributes" do
@@ -207,9 +209,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        time_zone: "Eastern Time (US & Canada)",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
-        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg"),
+        location_attributes: {
+          city: "City"
+        }
       }
     }
   end
