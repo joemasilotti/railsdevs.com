@@ -49,6 +49,18 @@ with_full_time_employment:
   email: full-time-employment@exmaple.com
   confirmed_at: <%= DateTime.current %>
 
+with_actively_looking_status:
+  email: actively-looking-status@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_open_search_status:
+  email: open-search-status@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_not_interested_search_status:
+  email: not-interested-status@example.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>

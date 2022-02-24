@@ -124,8 +124,7 @@ en:
       month_year: "%B %Y"
   developer_query_component:
     apply: Apply
-    role_type:
-      title: Role type
+    include_not_interested: Include developers not currently interested
     sort:
       availability: Availability
       newest: Newest
@@ -133,6 +132,8 @@ en:
     timezone:
       title: Timezone
     title: Developer filters
+    work_preference:
+      title: Work preference
   developers:
     create:
       created: Your profile was added!
@@ -168,7 +169,7 @@ en:
       save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
-        not_interested_help_text: Your profile will be clearly marked that you aren't looking for work.
+        not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
       title: Your developer profile

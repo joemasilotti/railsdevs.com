@@ -118,8 +118,6 @@ pt-BR:
       month_year: "%B / %Y"
   developer_query_component:
     apply: Aplicar
-    role_type:
-      title: Tipo de função
     sort:
       availability: Disponibilidade
       newest: Mais novo
@@ -127,6 +125,8 @@ pt-BR:
     timezone:
       title: Fuso Horário
     title: Filtros de desenvolvedores
+    work_preference:
+      title: Preferencia de trabalho
   developers:
     create:
       created: Seu perfil foi adicionado!

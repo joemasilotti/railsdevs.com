@@ -25,6 +25,10 @@ class DeveloperQueryComponent < ApplicationComponent
     RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
 
+  def include_not_interested?
+    query.include_not_interested
+  end
+
   private
 
   def utc_offsets

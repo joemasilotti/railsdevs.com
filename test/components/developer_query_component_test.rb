@@ -35,4 +35,11 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_selector "input[checked][type=checkbox][name='role_types[]'][value=part_time_contract]"
     assert_selector "input[checked][type=checkbox][name='role_types[]'][value=full_time_contract]"
   end
+
+  test "checks option to include developers who aren't interested" do
+    query = DeveloperQuery.new(include_not_interested: true)
+    render_inline DeveloperQueryComponent.new(query)
+
+    assert_selector "input[checked][type=checkbox][name='include_not_interested']"
+  end
 end

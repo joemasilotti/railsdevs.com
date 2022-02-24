@@ -49,6 +49,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
   end
 
+  test "developers not interested in work can be shown" do
+    get developers_path(include_not_interested: true)
+
+    assert_select "input[checked][type=checkbox][name='include_not_interested']"
+    assert_select "h2", developers(:with_not_interested_search_status).hero
+  end
+
   test "paginating filtered developers respects the filters" do
     with_pagy_default_items(1) do
       get developers_path(sort: :availability)
