@@ -2,10 +2,7 @@
 es:
   about:
     show:
-      caption_html: founder of <code class="text-gray-900 font-semibold">railsdevs</code>
       description: Soy Joe Masilotti. Estoy creando railsdevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
-      readtime: 1 minute read
-      title: About
       title_og: Acerca de railsdevs
   activerecord:
     attributes:
@@ -53,13 +50,6 @@ es:
         title: Ninguna conversación bloqueada
       index:
         title: Conversaciones bloqueadas
-    transactions:
-      create:
-        created: Transaction created
-      destroy:
-        destroyed: Transaction deleted
-      update:
-        updated: Transaction updated
   availability_component:
     in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
     now_html: Disponible ahora
@@ -113,14 +103,9 @@ es:
       with: con
   cover_image_component:
     alt: Imagen de portada del desarrollador
-  date:
-    formats:
-      month_year: "%B %Y"
   developer_query_component:
     apply: Aplicar
     gmt: GMT
-    role_type:
-      title: Role type
     sort:
       availability: Disponibilidad
       newest: Más reciente
@@ -162,7 +147,6 @@ es:
       save: Guardar
       search_status:
         actively_looking_help_text: Tu perfil puede aparecer como destacado en la página de inicio.
-        invisible_help_text: Tu perfile permanecera invisible en la plataforma. Solo tu tendrás acceso.
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
         open_help_text: Las empresas aún pueden encontrarte, pero no aparecerás en la página de inicio.
         title: Estado de búsqueda
@@ -175,15 +159,12 @@ es:
       cta: Agregar a mi perfil
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
-    invisible?:
-      invisible: Invisible
     show:
       description: Descripción
       edit: Editar
       hire: Contrátame
     update:
       updated: "¡Tu perfil fue actualizado!"
-  dir: ltr
   errors:
     business_blank: Completa tu perfil de empresa para poder contactar a desarrolladores.
     messages:
@@ -223,49 +204,13 @@ es:
     new_message: "%{sender} te envió un mensaje."
     show:
       notice: Notificaciones marcadas como leídas.
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
   open_graph_tags_component:
     default_description: Encuentra desarrolladores Ruby on Rails buscando freelance, trabajo por contrato y tiempo completo.
-  open_startup:
-    contributions:
-      index:
-        amount: Amount
-        contributions: Contributions
-        date: Date
-        description: railsdevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
-        open_startup: Open startup
-        recipient: Recipient
-        title: railsdevs contributions
-        to_co2_removal: to CO₂ removal
-        to_communities: to communities
-    dashboard:
-      show:
-        contributions: Contributions
-        date: Date
-        description: railsdevs is an open startup with public metrics.
-        expenses: Expenses
-        mrr: MRR
-        profit: Profit
-        revenue: Revenue
-        title: Open startup
-        visitors: Visitors (last 30 days)
-    expenses:
-      index:
-        amount: Amount
-        date: Date
-        description: All monetary transactions associated with railsdevs, like hosting, fees, and purchases.
-        expenses: Expenses
-        open_startup: Open startup
-        source: Source
-        title: railsdevs expenses
-    revenue:
-      index:
-        amount: Amount
-        date: Date
-        description: All revenue railsdevs has generated since launching in November, 2021.
-        open_startup: Open startup
-        revenue: Revenue
-        source: Source
-        title: railsdevs revenue
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
@@ -309,11 +254,6 @@ es:
       title: Sin noticaciones leídas
     index:
       title: Ver notificaciones
-  registrations:
-    create_account: create an account
-    register: Register
-    sign_up_hero: Create your account
-    sign_up_html: Or %{link}
   role_type_component:
     interested_in_roles: Interesado en roles
   roles:
@@ -323,11 +263,6 @@ es:
       looking_for_work: Estoy en búsqueda de trabajo
       looking_for_work_help_text: Eres un desarrollador de Ruby on Rails en búsqueda de tu próximo trabajo.
       what_brings_you_here: "¿Qué te trae a railsdevs?"
-  sessions:
-    sign_in: Sign in
-    sign_in_hero: Sign in to your account
-    sign_in_link: sign in to your account
-    sign_in_link_html: Or %{link}
   shared:
     footer:
       about: Acerca de
@@ -338,7 +273,6 @@ es:
       language_name_of_locale: Español
       masilotti_com: Masilotti.com
       open_source: Código abierto
-      open_startup: Open startup
       support: Soporte
       twitter: Twitter
     header:
@@ -347,11 +281,6 @@ es:
       about: Acerca de
       developers: Desarrolladores
       pricing: Precios
-  size:
-    billion: B
-    million: M
-    thousand: K
-    unit: Unit
   upgrade_account_component:
     cta: Adquiere la suscripción
     title: Requiere de una suscripción empresarial activa.
@@ -359,7 +288,6 @@ es:
     signed_in_component:
       admin: Admin
       billing: Facturación
-      blocked_conversations: Blocked conversations
       get_started: Empezar
       my_business_profile: Mi perfil de empresa
       my_conversations: Mis conversaciones
@@ -367,7 +295,6 @@ es:
       new_notifications: Tienes una nueva notificación
       open_user_menu: Abrir el menú del usuario
       sign_out: Cerrar sesión
-      transactions: Transactions
       view_notifications: Ver notificaciones
     signed_out_component:
       register: Registrarse
