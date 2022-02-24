@@ -124,7 +124,7 @@ en:
       month_year: "%B %Y"
   developer_query_component:
     apply: Apply
-    include_not_interested: Include developers not interested right now
+    include_not_interested: Include developers not currently interested
     sort:
       availability: Availability
       newest: Newest
