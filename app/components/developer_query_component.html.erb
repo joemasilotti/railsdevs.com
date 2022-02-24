@@ -12,7 +12,7 @@
             </button>
           </div>
 
-          <div data-toggle-target="element" class="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
+          <div data-toggle-target="element" class="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
             <div class="py-1" role="none">
               <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
               <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
@@ -29,7 +29,7 @@
               </button>
             </div>
 
-            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
               <div class="space-y-4">
                 <%= form.collection_check_boxes(:role_types, role_types, :first, :last) do |b| %>
                   <div class="flex items-center">
@@ -57,7 +57,7 @@
               </button>
             </div>
 
-            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
               <div class="space-y-4">
                 <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last) do |b| %>
                   <div class="flex items-center">
