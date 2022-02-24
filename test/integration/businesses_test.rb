@@ -40,7 +40,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert_difference ["Business.count", "Analytics::Event.count"], 1 do
       post businesses_path, params: valid_business_params
     end
-    assert_equal "basecamp.png", user.business.avatar.filename.to_s
+    assert user.business.avatar.attached?
     assert_redirected_to Analytics::Event.last
     assert_equal Analytics::Event.last.url, developers_path
   end

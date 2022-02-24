@@ -13,7 +13,9 @@ module Avatarable
     private
 
     def anonymize_avatar_filename
-      avatar.blob.filename = "avatar#{avatar.filename.extension_with_delimiter}"
+      if avatar.attached?
+        avatar.blob.filename = "avatar#{avatar.filename.extension_with_delimiter}"
+      end
     end
   end
 end
