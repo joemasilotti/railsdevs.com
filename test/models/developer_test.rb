@@ -114,6 +114,11 @@ class DeveloperTest < ActiveSupport::TestCase
     end
   end
 
+  test "anonymizes the filename of the avatar" do
+    developer = Developer.create!(developer_attributes)
+    assert_equal developer.avatar.filename, "avatar.jpg"
+  end
+
   test "should accept cover images of valid file formats" do
     valid_formats = %w[image/png image/jpeg image/jpg]
 

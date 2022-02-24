@@ -102,7 +102,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
 
     assert user.developer.role_type.part_time_contract?
-    assert_equal "lovelace.jpg", user.developer.avatar.filename.to_s
+    assert user.developer.avatar.attached?
   end
 
   test "edit with nested attributes" do

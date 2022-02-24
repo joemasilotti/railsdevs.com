@@ -45,6 +45,11 @@ class BusinessTest < ActiveSupport::TestCase
     end
   end
 
+  test "anonymizes the filename of the avatar" do
+    developer = Business.create!(valid_business_attributes)
+    assert_equal developer.avatar.filename, "avatar.jpg"
+  end
+
   test "should require new developer notifications" do
     @business.developer_notifications = nil
     refute @business.valid?
