@@ -10,11 +10,11 @@ class DeveloperQuery
     @sort = options.delete(:sort)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
-    @search_statuses = options.delete(:search_statuses)
+    @include_not_interested = options.delete(:include_not_interested)
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:}
+    @filters = {sort:, utc_offsets:, role_types:, include_not_interested:}
   end
 
   def pagy
@@ -37,8 +37,8 @@ class DeveloperQuery
     @role_types.to_a.reject(&:blank?).map(&:to_sym)
   end
 
-  def search_statuses
-    @search_statuses.to_a.reject(&:blank?).map(&:to_sym)
+  def include_not_interested
+    ActiveModel::Type::Boolean.new.cast(@include_not_interested)
   end
 
   private
@@ -71,7 +71,7 @@ class DeveloperQuery
   end
 
   def search_status_filter_records
-    @_records.merge!(Developer.filter_by_search_statuses(search_statuses)) if search_statuses.any?
+    @_records.merge!(Developer.actively_looking.or(Developer.open)) unless include_not_interested
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.

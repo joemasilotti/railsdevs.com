@@ -25,13 +25,8 @@ class DeveloperQueryComponent < ApplicationComponent
     RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
 
-  def search_status_selected?(status_pair)
-    query.search_statuses.include?(status_pair.first)
-  end
-
-  def search_statuses
-    Developer.search_statuses.keys.reject { |status| status.eql?("not_interested") }
-      .map { |status| [status.to_sym, Developer.human_attribute_name("search_status.#{status}")] }
+  def include_not_interested?
+    query.include_not_interested
   end
 
   private

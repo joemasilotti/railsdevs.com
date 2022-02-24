@@ -30,15 +30,6 @@
             </div>
 
             <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
-              <div class="space-y-4 pb-3 border-b border-gray-300">
-                <%= form.collection_check_boxes(:search_statuses, search_statuses, :first, :last) do |b| %>
-                  <div class="flex items-center">
-                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: search_status_selected?(b.object) %>
-                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
-                  </div>
-                <% end %>
-              </div>
-
               <div class="space-y-4">
                 <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
                   <div class="flex items-center">
@@ -46,6 +37,13 @@
                     <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
                   </div>
                 <% end %>
+
+                <hr>
+
+                <div class="flex items-center">
+                  <%= form.check_box :include_not_interested, class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", include_hidden: false, checked: include_not_interested? %>
+                  <%= form.label :include_not_interested, t(".include_not_interested"), class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                </div>
               </div>
 
               <div class="pt-5">
