@@ -126,6 +126,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get edit_developer_path(developer)
     assert_select "form"
+    assert_select "#developer_avatar_hidden"
+    assert_select "#developer_cover_image_hidden"
 
     patch developer_path(developer), params: {
       developer: {
@@ -156,6 +158,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get edit_developer_path(developer)
     assert_select "form"
+    assert_select "#developer_avatar_hidden"
+    assert_select "#developer_cover_image_hidden"
 
     patch developer_path(developer), params: {
       developer: {

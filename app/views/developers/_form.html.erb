@@ -74,6 +74,7 @@
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>
                 </div>
+                <%= form.hidden_field :avatar, value: form.object.avatar.signed_id, id: "developer_avatar_hidden" if form.object.avatar.attached? %>
                 <%= form.file_field :avatar, direct_upload: true, accept: "image/png, image/jpg, image/jpeg", data: {action: "file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
                 <%= form.label :avatar, t(".profile.change"), class: "cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
               </div>
@@ -87,6 +88,7 @@
             <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50" class="sm:col-span-6">
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.cover_image") %></span>
               <div class="relative">
+                <%= form.hidden_field :cover_image, value: form.object.cover_image.signed_id, id: "developer_cover_image_hidden" if form.object.cover_image.attached? %>
                 <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
                 <%= form.label :cover_image, t(".profile.change"), class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
 
