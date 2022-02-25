@@ -6,7 +6,11 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def title
-    @title || "railsdevs"
+    if @title.present?
+      "#{@title} · railsdevs"
+    else
+      "railsdevs"
+    end
   end
 
   def description
