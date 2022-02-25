@@ -43,9 +43,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    get developers_path(time_zones: ["-8"])
+    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
-    assert_select "input[checked][type=checkbox][value=-8][name='time_zones[]']"
+    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']"
     assert_select "h2", developers(:unavailable).hero
     assert_select "h2", text: developers(:available).hero, count: 0
   end
@@ -58,6 +58,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", developers(:with_full_time_contract).hero
     assert_select "h2", developers(:with_part_time_contract).hero
     assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
+  end
+
+  test "developers not interested in work can be shown" do
+    get developers_path(include_not_interested: true)
+
+    assert_select "input[checked][type=checkbox][name='include_not_interested']"
+    assert_select "h2", developers(:with_not_interested_search_status).hero
   end
 
   test "paginating filtered developers respects the filters" do
@@ -106,7 +113,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
 
     assert user.developer.role_type.part_time_contract?
-    assert_equal "lovelace.jpg", user.developer.avatar.filename.to_s
+    assert user.developer.avatar.attached?
   end
 
   test "edit with nested attributes" do
@@ -212,9 +219,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
         available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
-        time_zone: "Eastern Time (US & Canada)",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),
-        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg")
+        cover_image: fixture_file_upload("mountains.jpg", "image/jpeg"),
+        location_attributes: {
+          city: "City"
+        }
       }
     }
   end
