@@ -166,6 +166,9 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
+      role_level:
+        help_text: Select all the experience levels you would consider taking.
+        title: Role level
       save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
@@ -320,6 +323,8 @@ en:
     sign_up_html: Or %{link}
   role_type_component:
     interested_in_roles: Interested in roles
+  role_level_component:
+    interested_in_role_levels: Interested in role levels
   roles:
     new:
       hiring_developers: I'm hiring developers

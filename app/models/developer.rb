@@ -18,6 +18,7 @@ class Developer < ApplicationRecord
 
   has_noticed_notifications
 
+  accepts_nested_attributes_for :role_level, update_only: true
   accepts_nested_attributes_for :role_type, update_only: true
   accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
 
