@@ -105,7 +105,6 @@ es:
     alt: Imagen de portada del desarrollador
   developer_query_component:
     apply: Aplicar
-    gmt: GMT
     sort:
       availability: Disponibilidad
       newest: Más reciente

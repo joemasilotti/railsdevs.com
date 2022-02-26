@@ -2,15 +2,26 @@ require "test_helper"
 
 class TimeZoneComponentTest < ViewComponent::TestCase
   test "it does not render if time zone is not present" do
+    render_inline TimeZoneComponent.new(Location.new)
+    assert_no_select "*"
+
     render_inline TimeZoneComponent.new(nil)
     assert_no_select "*"
   end
 
-  test "it renders if time zone is present" do
-    developer = Developer.new(id: 123, time_zone: "Eastern Time (US & Canada)")
-    render_inline TimeZoneComponent.new(developer.time_zone)
+  test "it renders the human readable time zone" do
+    render(time_zone: "America/Los_Angeles", utc_offset: PACIFIC_UTC_OFFSET)
+    assert_selector("span", text: "Pacific Time (US & Canada) (GMT-8)")
 
-    assert_selector "svg[title='Clock']"
-    assert_selector("span", text: "Eastern Time (US & Canada)")
+    render(time_zone: "Europe/Paris", utc_offset: 3600)
+    assert_selector("span", text: "Paris (GMT+1)")
+
+    render(time_zone: "Asia/Kolkata", utc_offset: 19800)
+    assert_selector("span", text: "Chennai (GMT+5.5)")
+  end
+
+  def render(time_zone:, utc_offset:)
+    location = Location.new(time_zone:, utc_offset:)
+    render_inline TimeZoneComponent.new(location)
   end
 end

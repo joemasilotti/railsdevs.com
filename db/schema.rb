@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_14_204932) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_14_204932) do
     t.integer "preferred_max_salary"
     t.string "time_zone"
     t.integer "utc_offset"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "country_code"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "time_zone", null: false
+    t.integer "utc_offset", null: false
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_locations_on_developer_id"
   end
 
   create_table "messages", force: :cascade do |t|

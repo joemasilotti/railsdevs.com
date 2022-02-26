@@ -1,7 +1,6 @@
 <% content_for :open_graph_tags do %>
   <%= render DeveloperOpenGraphTagsComponent.new(developer: @developer) %>
 <% end %>
- <%#= current_user.developer? %>
 <div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
   <%= render CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 

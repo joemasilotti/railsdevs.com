@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 z-10 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+    <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 z-20 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
       <%= render UserMenu::MenuItemComponent.new(t(".get_started"), new_role_path, condition: neither?) %>
       <%= render UserMenu::MenuItemComponent.new(t(".my_business_profile"), new_business_path, condition: business?) %>
       <% if developer? %>
