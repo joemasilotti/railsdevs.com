@@ -122,7 +122,7 @@ en:
   date:
     formats:
       month_year: "%B %Y"
-  developer_profile_create_component:
+  developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile
   developer_query_component:

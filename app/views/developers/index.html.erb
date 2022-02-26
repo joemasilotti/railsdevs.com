@@ -9,7 +9,7 @@
       <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
     </div>
 
-    <%= render DeveloperProfileCreateComponent.new(current_user) %>
+    <%= render DeveloperProfileActionComponent.new(current_user) %>
   </div>
 
   <%= render DeveloperQueryComponent.new(@query) %>

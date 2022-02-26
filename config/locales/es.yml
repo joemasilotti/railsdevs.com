@@ -103,7 +103,7 @@ es:
       with: con
   cover_image_component:
     alt: Imagen de portada del desarrollador
-  developer_profile_create_component:
+  developer_profile_action_component:
     add_profile: Agregar mi perfil
     edit_profile: Actualizar mi perfil
   developer_query_component:

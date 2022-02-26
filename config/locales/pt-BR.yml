@@ -116,7 +116,7 @@ pt-BR:
   date:
     formats:
       month_year: "%B / %Y"
-  developer_profile_create_component:
+  developer_profile_action_component:
     add_profile: Adicionar meu perfil
     edit_profile: Atualizar meu perfil
   developer_query_component:
