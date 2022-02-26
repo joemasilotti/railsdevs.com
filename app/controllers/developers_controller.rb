@@ -1,7 +1,7 @@
 class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :require_new_developer!, only: %i[new create]
-  before_action :invisible?, only: %i[show]
+  # before_action :invisible?, only: %i[show]
 
   def index
     @developers_count = Developer.count.round(-1)
@@ -34,7 +34,7 @@ class DevelopersController < ApplicationController
     authorize @developer
 
     if @developer.update(developer_params)
-      redirect_to @developer, notice: t(".updated")
+      redirect_to @developer, notice: ".updated"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,6 +42,7 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find(params[:id])
+    authorize @developer, policy_class: DeveloperPolicy
   end
 
   private
@@ -52,14 +53,14 @@ class DevelopersController < ApplicationController
     end
   end
 
-  def invisible?
-    @developer = Developer.find(params[:id])
-    if @developer.search_status == "invisible"
-      unless user_signed_in? && current_user == @developer.user
-        redirect_to root_path, notice: t(".invisible")
-      end
-    end
-  end
+  # def invisible?
+  #   # @developer = Developer.find(params[:id])
+  #   if @developer.search_status == "invisible"
+  #     unless user_signed_in? && current_user == @developer.user
+  #       redirect_to root_path
+  #     end
+  #   end
+  # end
 
   def developer_params
     params.require(:developer).permit(

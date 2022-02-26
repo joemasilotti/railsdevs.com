@@ -162,7 +162,7 @@ en:
       save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
-        invisible_help_text: Your profile will remain invisible to anyone else on the platform.
+        invisible_help_text: Your profile is hidden and can only be seen by yourself.
         not_interested_help_text: Your profile will be clearly marked that you aren't looking for work.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
@@ -175,14 +175,10 @@ en:
       cta: Add my profile
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
-    invisible?:
-      invisible: Invisible
     show:
       description: Description
       edit: Edit
       hire: Hire me
-    update:
-      updated: Your profile was updated!
   dir: ltr
   errors:
     business_blank: Fill out your business profile to message developers.

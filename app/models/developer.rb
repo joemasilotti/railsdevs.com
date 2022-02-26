@@ -44,6 +44,10 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
+  def visible?
+    search_status == "visible"
+  end
+
   private
 
   def send_admin_notification
