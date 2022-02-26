@@ -52,16 +52,7 @@ class DevelopersController < ApplicationController
       redirect_to edit_developer_path(current_user.developer)
     end
   end
-
-  # def invisible?
-  #   # @developer = Developer.find(params[:id])
-  #   if @developer.search_status == "invisible"
-  #     unless user_signed_in? && current_user == @developer.user
-  #       redirect_to root_path
-  #     end
-  #   end
-  # end
-
+  
   def developer_params
     params.require(:developer).permit(
       :name,
