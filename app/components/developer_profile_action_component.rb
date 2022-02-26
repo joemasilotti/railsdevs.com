@@ -4,4 +4,8 @@ class DeveloperProfileActionComponent < ApplicationComponent
   def initialize(user)
     @user = user
   end
+
+  def update_profile?
+    user&.developer
+  end
 end
