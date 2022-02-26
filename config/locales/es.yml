@@ -24,11 +24,11 @@ es:
         not_interested: No interesado en trabajar por ahora
         open: Abierto, pero no buscando activamente
       role_level:
+        c_type: nivel C
         junior: Júnior
         mid: Medio
-        senior: Mayor
         principal: Director / personal
-        c_type: nivel C
+        senior: Mayor
       role_type:
         full_time_contract: Contrato de tiempo completo
         full_time_employment: Trabajo de tiempo completo

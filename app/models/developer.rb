@@ -49,6 +49,10 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
+  def role_level
+    super || build_role_level
+  end
+
   def location
     super || build_location
   end

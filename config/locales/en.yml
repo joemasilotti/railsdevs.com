@@ -29,11 +29,11 @@ en:
       location:
         country_code: Country
       role_level:
+        c_type: C-level
         junior: Junior
         mid: Mid
-        senior: Senior
         principal: Principal / staff
-        c_type: C-level
+        senior: Senior
       role_type:
         full_time_contract: Full-time contract
         full_time_employment: Full-time employment
