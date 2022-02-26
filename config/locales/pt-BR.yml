@@ -27,7 +27,7 @@ pt-BR:
         not_interested: Não estou interessado em trabalho no momento
         open: Aberto, mas não buscando ativamente
       role_level:
-        c_type: Nível C
+        c_level: Nível C
         junior: Júnior
         mid: Médio
         principal: Diretor / equipe
