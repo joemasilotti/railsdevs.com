@@ -103,6 +103,9 @@ es:
       with: con
   cover_image_component:
     alt: Imagen de portada del desarrollador
+  developer_profile_action_component:
+    add_profile: Agregar mi perfil
+    edit_profile: Actualizar mi perfil
   developer_query_component:
     apply: Aplicar
     sort:
@@ -155,7 +158,6 @@ es:
         help_text: "¿Qué tipo de trabajo estás buscando?"
         title: Preferencias de trabajo
     index:
-      cta: Agregar a mi perfil
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
     show:

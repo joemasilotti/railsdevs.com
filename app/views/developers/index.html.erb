@@ -7,12 +7,7 @@
       <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
     </div>
 
-    <div class="mt-4 flex space-x-3 md:mt-0">
-      <%= link_to new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-        <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
-        <%= t(".cta") %>
-      <% end %>
-    </div>
+    <%= render DeveloperProfileActionComponent.new(current_user) %>
   </div>
 
   <%= render DeveloperQueryComponent.new(@query) %>

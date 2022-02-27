@@ -122,6 +122,9 @@ en:
   date:
     formats:
       month_year: "%B %Y"
+  developer_profile_action_component:
+    add_profile: Add my profile
+    edit_profile: Update my profile
   developer_query_component:
     apply: Apply
     include_not_interested: Include developers not currently interested
@@ -178,7 +181,6 @@ en:
         help_text: What kind of work are you looking for next?
         title: Work preferences
     index:
-      cta: Add my profile
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers

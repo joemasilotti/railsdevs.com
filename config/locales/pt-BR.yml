@@ -116,6 +116,9 @@ pt-BR:
   date:
     formats:
       month_year: "%B / %Y"
+  developer_profile_action_component:
+    add_profile: Adicionar meu perfil
+    edit_profile: Atualizar meu perfil
   developer_query_component:
     apply: Aplicar
     sort:
@@ -170,7 +173,6 @@ pt-BR:
         help_text: Que tipo de trabalho você está buscando?
         title: Preferencias de trabalho
     index:
-      cta: Adicionar meu perfil
       description: "%{developers_count}+ desenvolvedores Ruby on Rails buscando seu próximo trabalho. Aqui você vai encontrar de Juniors a seniors e tudo no meio do caminho."
       title: Desenvolvedores Ruby on Rails
     show:
