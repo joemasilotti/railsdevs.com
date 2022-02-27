@@ -23,6 +23,12 @@ es:
         actively_looking: Activamente buscando trabajo
         not_interested: No interesado en trabajar por ahora
         open: Abierto, pero no buscando activamente
+      role_level:
+        c_level: nivel C
+        junior: Júnior
+        mid: Medio
+        principal: Director / personal
+        senior: Mayor
       role_type:
         full_time_contract: Contrato de tiempo completo
         full_time_employment: Trabajo de tiempo completo
@@ -143,6 +149,9 @@ es:
         upload_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
         upload_file: Sube un archivo
         upload_help_text: PNG, JPG, GIF hasta 10MB de tamaño
+      role_level:
+        help_text: Seleccione todos los niveles de experiencia que consideraría tomar.
+        title: Nivel de rol
       role_type:
         help_text: Selecciona todos los roles que considerarías aceptar.
         title: Tipo de rol
@@ -253,6 +262,8 @@ es:
       title: Sin noticaciones leídas
     index:
       title: Ver notificaciones
+  role_level_component:
+    interested_in_roles: Interesado en roles
   role_type_component:
     interested_in_roles: Interesado en roles
   roles:

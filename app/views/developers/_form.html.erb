@@ -177,6 +177,37 @@
               </fieldset>
             <% end %>
 
+            <%= form.fields_for :role_level, include_id: false do |role_level| %>
+              <fieldset>
+                <div>
+                  <legend class="text-base font-medium text-gray-900"><%= t(".role_level.title") %></legend>
+                  <p class="text-sm text-gray-500"><%= t(".role_level.help_text") %></p>
+                </div>
+                <div class="mt-4 space-y-4">
+                  <div class="flex items-center">
+                    <%= role_level.check_box :junior, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_level.label :junior, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_level.check_box :mid, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_level.label :mid, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_level.check_box :senior, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_level.label :senior, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_level.check_box :principal, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_level.label :principal, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                  <div class="flex items-center">
+                    <%= role_level.check_box :c_level, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <%= role_level.label :c_level, class: "ml-3 block text-sm font-medium text-gray-700" %>
+                  </div>
+                </div>
+              </fieldset>
+            <% end %>
+
             <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">

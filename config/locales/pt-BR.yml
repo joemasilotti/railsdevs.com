@@ -26,6 +26,12 @@ pt-BR:
         actively_looking: Ativamente buscando trabalho
         not_interested: Não estou interessado em trabalho no momento
         open: Aberto, mas não buscando ativamente
+      role_level:
+        c_level: Nível C
+        junior: Júnior
+        mid: Médio
+        principal: Diretor / equipe
+        senior: Senior
       role_type:
         full_time_contract: Contrato integral
         full_time_employment: Emprego integral
@@ -158,6 +164,9 @@ pt-BR:
         upload_error_text: Aconteceu algo de errado ao enviar sua imagem. Por favor, tente novamente.
         upload_file: Enviar uma imagem
         upload_help_text: PNG, JPG, GIF de até 10MB
+      role_level:
+        help_text: Selecione todos os níveis de experiência que você consideraria fazer.
+        title: Nível da função
       role_type:
         help_text: Selecione todas as funções que você consideraria aceitar.
         title: Função
@@ -314,6 +323,8 @@ pt-BR:
     register: Registre-se
     sign_up_hero: Cria sua conta
     sign_up_html: ou %{link}
+  role_level_component:
+    interested_in_roles: Interessado em perfis
   role_type_component:
     interested_in_roles: Interessado em perfis
   roles:

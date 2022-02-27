@@ -28,6 +28,12 @@ en:
         open: Open, but not actively looking
       location:
         country_code: Country
+      role_level:
+        c_level: C-level
+        junior: Junior
+        mid: Mid
+        principal: Principal / staff
+        senior: Senior
       role_type:
         full_time_contract: Full-time contract
         full_time_employment: Full-time employment
@@ -166,6 +172,9 @@ en:
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
         upload_help_text: PNG, JPG, GIF up to 10MB
+      role_level:
+        help_text: Select all the experience levels you would consider taking.
+        title: Role level
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
@@ -322,6 +331,8 @@ en:
     register: Register
     sign_up_hero: Create your account
     sign_up_html: Or %{link}
+  role_level_component:
+    interested_in_roles: Interested in roles
   role_type_component:
     interested_in_roles: Interested in roles
   roles:

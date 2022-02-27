@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_25_172150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -278,6 +278,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "role_levels", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.boolean "junior"
+    t.boolean "mid"
+    t.boolean "senior"
+    t.boolean "principal"
+    t.boolean "c_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["developer_id"], name: "index_role_levels_on_developer_id", unique: true
+  end
+
   create_table "role_types", force: :cascade do |t|
     t.bigint "developer_id"
     t.boolean "part_time_contract"
@@ -312,5 +324,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_222049) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
 end

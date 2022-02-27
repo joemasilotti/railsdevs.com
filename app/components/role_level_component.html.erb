@@ -1,0 +1,13 @@
+<div>
+  <h2 class="text-sm font-medium text-gray-500"><%= t(".interested_in_roles") %></h2>
+  <ul role="list" class="mt-3 space-y-3">
+    <% role_level_types.each do |role_level_type| %>
+      <% if role_level.send("#{role_level_type}?") %>
+        <li class="flex items-center space-x-2">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-gray-400" %>
+          <span class="text-gray-900 text-sm font-medium"><%= humanize(role_level_type) %></span>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

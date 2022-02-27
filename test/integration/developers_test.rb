@@ -105,10 +105,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_difference "Developer.count", 1 do
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
+      params[:developer][:role_level_attributes] = {senior: true}
       post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?
+    assert user.developer.role_level.senior?
     assert user.developer.avatar.attached?
   end
 
@@ -129,11 +131,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       developer: {
         role_type_attributes: {
           part_time_contract: true
+        },
+        role_level_attributes: {
+          junior: true,
+          mid: true
         }
       }
     }
 
     assert user.developer.reload.role_type.part_time_contract?
+    assert user.developer.reload.role_level.junior?
+    assert user.developer.reload.role_level.mid?
   end
 
   test "successful edit to profile" do
