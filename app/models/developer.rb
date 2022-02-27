@@ -52,7 +52,7 @@ class Developer < ApplicationRecord
   def visible?
     search_status == "visible"
   end
-  
+
   def location
     super || build_location
   end

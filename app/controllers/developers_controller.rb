@@ -52,7 +52,7 @@ class DevelopersController < ApplicationController
       redirect_to edit_developer_path(current_user.developer)
     end
   end
-  
+
   def developer_params
     params.require(:developer).permit(
       :name,

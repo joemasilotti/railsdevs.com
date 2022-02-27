@@ -14,14 +14,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can't view developer with invisible profile" do
-    one = developers :available
-    two = developers :unavailable
-    three = developers :invisible
+    one = developers :invisible
+    two = developers :available
+    three = developers :unavailable
 
     get developers_path
-    assert_select "h2", text: three.hero, count: 0
-    assert_select "h2", one.hero
+
+    assert_select "h2", one.hero, count: 0
     assert_select "h2", two.hero
+    assert_select "h2", three.hero
   end
 
   test "developers are sorted newest first" do
