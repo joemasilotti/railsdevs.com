@@ -1,6 +1,4 @@
-<% content_for :open_graph_tags do %>
-  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
-<% end %>
+<%= open_graph_tags title: t(".title_og"), description: t(".description", developers_count: @developers_count) %>
 
 <div class="bg-white max-w-5xl mx-auto lg:mt-16 mb-16 shadow overflow-auto sm:rounded-md">
   <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">

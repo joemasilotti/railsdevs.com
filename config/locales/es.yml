@@ -208,8 +208,6 @@ es:
       format:
         format: "%u%n"
         unit: "$"
-  open_graph_tags_component:
-    default_description: Encuentra desarrolladores Ruby on Rails buscando freelance, trabajo por contrato y tiempo completo.
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
