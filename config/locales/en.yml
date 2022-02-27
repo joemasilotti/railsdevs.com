@@ -328,7 +328,7 @@ en:
     sign_up_hero: Create your account
     sign_up_html: Or %{link}
   role_level_component:
-    interested_in_role_levels: Interested in role levels
+    interested_in_roles: Interested in roles
   role_type_component:
     interested_in_roles: Interested in roles
   roles:

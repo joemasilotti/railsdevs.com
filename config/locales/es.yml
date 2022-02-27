@@ -263,7 +263,7 @@ es:
     index:
       title: Ver notificaciones
   role_level_component:
-    interested_in_role_levels: Interesado en niveles de rol
+    interested_in_roles: Interesado en roles
   role_type_component:
     interested_in_roles: Interesado en roles
   roles:
