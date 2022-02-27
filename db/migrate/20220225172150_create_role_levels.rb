@@ -11,9 +11,5 @@ class CreateRoleLevels < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    Developer.find_each do |developer|
-      developer.create_role_level!
-    end
   end
 end
