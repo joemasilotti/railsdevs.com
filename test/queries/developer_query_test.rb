@@ -35,7 +35,12 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       developers(:with_full_time_contract),
       developers(:with_full_time_employment),
       developers(:with_actively_looking_search_status),
-      developers(:with_open_search_status)
+      developers(:with_open_search_status),
+      developers(:with_junior_role_level),
+      developers(:with_mid_role_level),
+      developers(:with_senior_role_level),
+      developers(:with_principal_role_level),
+      developers(:with_c_type_role_level)
     ]
   end
 
@@ -59,6 +64,31 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert_equal records, [developers(:with_full_time_employment)]
   end
 
+  test "filtering by junior role level" do
+    records = DeveloperQuery.new(role_levels: ["junior"]).records
+    assert_equal records, [developers(:with_junior_role_level)]
+  end
+
+  test "filtering by mid role level" do
+    records = DeveloperQuery.new(role_levels: ["mid"]).records
+    assert_equal records, [developers(:with_mid_role_level)]
+  end
+
+  test "filtering by senior role level" do
+    records = DeveloperQuery.new(role_levels: ["senior"]).records
+    assert_equal records, [developers(:with_senior_role_level)]
+  end
+
+  test "filtering by principal role level" do
+    records = DeveloperQuery.new(role_levels: ["principal"]).records
+    assert_equal records, [developers(:with_principal_role_level)]
+  end
+
+  test "filtering by c_level role level" do
+    records = DeveloperQuery.new(role_levels: ["c_level"]).records
+    assert_equal records, [developers(:with_c_type_role_level)]
+  end
+
   test "filtering by including developers who aren't interested" do
     records = DeveloperQuery.new(include_not_interested: true).records
     assert_includes records, developers(:with_actively_looking_search_status)
@@ -77,6 +107,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       sort: :availability,
       utc_offsets:,
       role_types: [:part_time_contract],
+      role_levels: [:junior],
       include_not_interested: true
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters

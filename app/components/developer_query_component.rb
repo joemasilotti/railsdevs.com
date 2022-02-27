@@ -24,7 +24,7 @@ class DeveloperQueryComponent < ApplicationComponent
   def role_types
     RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
-  
+
   def role_level_selected?(role_level_pair)
     query.role_levels.include?(role_level_pair.first)
   end
@@ -32,7 +32,7 @@ class DeveloperQueryComponent < ApplicationComponent
   def role_levels
     RoleLevel::TYPES.map { |role| [role, RoleLevel.human_attribute_name(role)] }
   end
-  
+
   def include_not_interested?
     query.include_not_interested
   end

@@ -41,7 +41,7 @@ class DeveloperQuery
   def role_levels
     @role_levels.to_a.reject(&:blank?).map(&:to_sym)
   end
-  
+
   def include_not_interested
     ActiveModel::Type::Boolean.new.cast(@include_not_interested)
   end
@@ -77,9 +77,9 @@ class DeveloperQuery
   end
 
   def role_level_filter_records
-    @_records.merge!(Developer.filter_by_role_levels(role_levels)) if role_levels.any? 
+    @_records.merge!(Developer.filter_by_role_levels(role_levels)) if role_levels.any?
   end
-  
+
   def search_status_filter_records
     @_records.merge!(Developer.actively_looking.or(Developer.open)) unless include_not_interested
   end
