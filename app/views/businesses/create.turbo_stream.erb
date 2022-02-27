@@ -1,0 +1,3 @@
+<%= turbo_stream.append "business-form" do %>
+  <%= render partial: "shared/redirecting", locals: {redirect_url: stripe_checkout_url} %>
+<% end %>

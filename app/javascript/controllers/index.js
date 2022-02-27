@@ -9,5 +9,8 @@ application.register("analytics--events", Analytics__EventsController)
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
+import RedirectController from "./redirect_controller.js"
+application.register("redirect", RedirectController)
+
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)

@@ -38,10 +38,9 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference ["Business.count", "Analytics::Event.count"], 1 do
-      post businesses_path, params: valid_business_params
+      post businesses_path, params: valid_business_params, xhr: true
     end
     assert user.business.avatar.attached?
-    assert_redirected_to Analytics::Event.last
     assert_equal Analytics::Event.last.url, developers_path
   end
 
@@ -52,8 +51,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     post developer_messages_path(developer)
     assert_redirected_to new_business_path
 
-    post businesses_path, params: valid_business_params
-    assert_redirected_to Analytics::Event.last
+    post businesses_path, params: valid_business_params, xhr: true
     assert_equal Analytics::Event.last.url, developer_messages_path(developer)
   end
 
