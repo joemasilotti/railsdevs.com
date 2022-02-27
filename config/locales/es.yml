@@ -23,6 +23,12 @@ es:
         actively_looking: Activamente buscando trabajo
         not_interested: No interesado en trabajar por ahora
         open: Abierto, pero no buscando activamente
+      role_level:
+        c_level: nivel C
+        junior: Júnior
+        mid: Medio
+        principal: Director / personal
+        senior: Mayor
       role_type:
         full_time_contract: Contrato de tiempo completo
         full_time_employment: Trabajo de tiempo completo
@@ -103,6 +109,9 @@ es:
       with: con
   cover_image_component:
     alt: Imagen de portada del desarrollador
+  developer_profile_action_component:
+    add_profile: Agregar mi perfil
+    edit_profile: Actualizar mi perfil
   developer_query_component:
     apply: Aplicar
     sort:
@@ -140,6 +149,9 @@ es:
         upload_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
         upload_file: Sube un archivo
         upload_help_text: PNG, JPG, GIF hasta 10MB de tamaño
+      role_level:
+        help_text: Seleccione todos los niveles de experiencia que consideraría tomar.
+        title: Nivel de rol
       role_type:
         help_text: Selecciona todos los roles que considerarías aceptar.
         title: Tipo de rol
@@ -155,7 +167,6 @@ es:
         help_text: "¿Qué tipo de trabajo estás buscando?"
         title: Preferencias de trabajo
     index:
-      cta: Agregar a mi perfil
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
     show:
@@ -208,8 +219,6 @@ es:
       format:
         format: "%u%n"
         unit: "$"
-  open_graph_tags_component:
-    default_description: Encuentra desarrolladores Ruby on Rails buscando freelance, trabajo por contrato y tiempo completo.
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
@@ -253,6 +262,8 @@ es:
       title: Sin noticaciones leídas
     index:
       title: Ver notificaciones
+  role_level_component:
+    interested_in_roles: Interesado en roles
   role_type_component:
     interested_in_roles: Interesado en roles
   roles:

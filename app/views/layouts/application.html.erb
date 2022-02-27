@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Rails Devs</title>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= open_graph_tags %>
+    <%= render_open_graph_tags %>
     <%= render "shared/favicon_tags" %>
     <%= render AlternateLinksComponent.new %>
 

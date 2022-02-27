@@ -4,7 +4,7 @@ class DeveloperOpenGraphTagsComponent < OpenGraphTagsComponent
   end
 
   def title
-    @developer.hero
+    [@developer.hero, "railsdevs"].join(" · ")
   end
 
   def description

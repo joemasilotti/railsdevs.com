@@ -6,11 +6,15 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def title
-    @title || "railsdevs"
+    if @title.present?
+      "#{@title} · railsdevs"
+    else
+      "railsdevs"
+    end
   end
 
   def description
-    @description || t("open_graph_tags_component.default_description")
+    @description || t("home.show.title_og")
   end
 
   def url
