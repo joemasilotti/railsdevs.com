@@ -17,8 +17,8 @@ class DeveloperQueryComponent < ApplicationComponent
     end
   end
 
-  def role_type_selected?(role_pair)
-    query.role_types.include?(role_pair.first)
+  def role_type_selected?(role_type_pair)
+    query.role_types.include?(role_type_pair.first)
   end
 
   def role_types
