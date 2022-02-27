@@ -1,6 +1,7 @@
 require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
+  include MetaTagsHelper
   include PagyHelper
 
   test "can view developer profiles" do
@@ -11,6 +12,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_select "h2", one.hero
     assert_select "h2", two.hero
+  end
+
+  test "custom meta tags are rendered" do
+    get developers_path
+    assert_title_contains "Hire Ruby on Rails developers"
+    assert_description_contains "looking for their"
   end
 
   test "developers are sorted newest first" do
@@ -103,6 +110,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert user.developer.role_type.part_time_contract?
     assert user.developer.avatar.attached?
+  end
+
+  test "custom develper meta tags are rendered" do
+    developer = developers(:available)
+
+    get developer_path(developer)
+
+    assert_title_contains developer.hero
+    assert_description_contains developer.bio
   end
 
   test "edit with nested attributes" do

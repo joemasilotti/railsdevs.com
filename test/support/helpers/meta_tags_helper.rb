@@ -2,6 +2,14 @@ module MetaTagsHelper
   extend ActiveSupport::Concern
 
   included do
+    def assert_title_contains(content)
+      assert_select "title", text: /^#{content}/
+    end
+
+    def assert_description_contains(content)
+      assert_select "meta[property=description][content~=?]", content
+    end
+
     def assert_meta(property:, content: nil, content_begin_with: nil, content_end_with: nil, count: 1)
       selector = "meta[property='#{property}']"
 

@@ -14,7 +14,7 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def description
-    @description || t("open_graph_tags_component.default_description")
+    @description || t("home.show.title_og")
   end
 
   def url

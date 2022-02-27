@@ -17,7 +17,7 @@ class OpenGraphTagsComponentTest < ViewComponent::TestCase
       description: "And a custom description."
     )
 
-    assert_meta property: "og:title", content: "Custom title"
+    assert_meta property: "og:title", content: "Custom title · railsdevs"
     assert_meta property: "og:description", content: "And a custom description."
   end
 end
