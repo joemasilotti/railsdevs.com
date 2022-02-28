@@ -21,7 +21,6 @@
         </div>
 
         <div class="flex items-baseline space-x-8">
-          <%# TODO: Add Filter button on mobile that toggles mobile filter menu. Hide inline filters on mobile. %>
           <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
@@ -109,8 +108,7 @@
                   <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-0" aria-expanded="false">
                     <span class="font-medium text-gray-900"><%= t(".work_preference.title") %></span>
                     <span class="ml-6 flex items-center">
-                      <%# TODO: Add rotate-180 to class list when expanded. %>
-                      <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "rotate-0 h-5 w-5 transform" %>
+                      <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "rotate-0 h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
                     </span>
                   </button>
                 </h3>
@@ -119,13 +117,11 @@
                   <div class="space-y-6">
                     <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
                       <div class="flex items-center">
-                        <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_selected?(b.object) %>
-                        <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                        <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_role_types_#{b.object.first}", checked: role_selected?(b.object) %>
+                        <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_role_types_#{b.object.first}" %>
                       </div>
                     <% end %>
-
                     <hr>
-
                     <div class="flex items-top">
                       <%= form.check_box :include_not_interested, class: "mt-1 h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", include_hidden: false, checked: include_not_interested? %>
                       <%= form.label :include_not_interested, t(".include_not_interested"), class: "ml-3 pr-6 text-sm font-medium text-gray-900" %>
@@ -139,9 +135,8 @@
                   <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-1" aria-expanded="false">
                     <span class="font-medium text-gray-900"><%= t(".timezone.title") %></span>
                     <span class="ml-6 flex items-center">
-                            <%# TODO: Add rotate-180 to class list when expanded. %>
-                      <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "rotate-0 h-5 w-5 transform" %>
-                          </span>
+                      <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "rotate-0 h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
+                    </span>
                   </button>
                 </h3>
 
@@ -149,8 +144,8 @@
                   <div class="space-y-6">
                     <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
                       <div class="flex items-center">
-                        <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: time_zone_selected?(b.object) %>
-                        <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                        <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_timezones_#{b.object.first}", checked: time_zone_selected?(b.object) %>
+                        <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_timezones_#{b.object.first}" %>
                       </div>
                     <% end %>
                   </div>
