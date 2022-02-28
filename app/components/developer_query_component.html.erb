@@ -17,7 +17,6 @@
             <div class="py-1" role="none">
               <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
               <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
-              <%= form.hidden_field :sort, value: @query.sort if @query.sort %>
             </div>
           </div>
         </div>
