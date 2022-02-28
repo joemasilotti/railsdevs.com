@@ -38,13 +38,35 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference ["Business.count", "Analytics::Event.count"], 1 do
-      post businesses_path, params: valid_business_params, xhr: true
+      post businesses_path, params: valid_business_params
     end
     assert user.business.avatar.attached?
     assert_equal Analytics::Event.last.url, developers_path
   end
 
   test "successful business creation with a stored location" do
+    developer = developers(:available)
+
+    sign_in users(:empty)
+    post developer_messages_path(developer)
+    assert_redirected_to new_business_path
+
+    post businesses_path, params: valid_business_params
+    assert_equal Analytics::Event.last.url, developer_messages_path(developer)
+  end
+
+  test "successful business creation with TURBO" do
+    user = users(:empty)
+    sign_in user
+
+    assert_difference ["Business.count", "Analytics::Event.count"], 1 do
+      post businesses_path, params: valid_business_params, xhr: true
+    end
+    assert user.business.avatar.attached?
+    assert_equal Analytics::Event.last.url, developers_path
+  end
+
+  test "successful business creation with a stored location with TURBO" do
     developer = developers(:available)
 
     sign_in users(:empty)

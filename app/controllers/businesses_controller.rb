@@ -10,11 +10,15 @@ class BusinessesController < ApplicationController
     @business = current_user.build_business
     @business.assign_attributes(permitted_attributes(@business))
 
-    if @business.save
-      url = stored_location_for(:user) || developers_path
-      Analytics::Event.added_business_profile(url)
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @business.save
+        url = stored_location_for(:user) || developers_path
+        Analytics::Event.added_business_profile(url)
+        format.html { redirect_to stripe_checkout_path }
+        format.turbo_stream
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
