@@ -66,7 +66,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "paginating filtered developers respects the filters" do
     with_pagy_default_items(1) do
       get developers_path(sort: :availability)
-      assert_select "h2", count: 2
+      assert_select "#developers h2", count: 1
+      assert_select "#mobile-filters h2", count: 1
       assert_select "a[href=?]", "/developers?sort=availability&page=2"
     end
   end
