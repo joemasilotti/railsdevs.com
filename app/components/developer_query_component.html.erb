@@ -4,22 +4,23 @@
     <h3 class="sr-only"><%= t(".title") %></h3>
 
     <div class="flex items-center justify-between py-6">
-      <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
-        <div>
-          <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
-            <%= t(".sort.title") %>
-            <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
-          </button>
-        </div>
+      <%= form_with url: developers_path, method: :get do |form| %>
+        <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left">
+          <div>
+            <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
+              <%= t(".sort.title") %>
+              <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+            </button>
+          </div>
 
-        <div data-toggle-target="element" class="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
-          <div class="py-1" role="none">
-            <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
-            <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
+          <div data-toggle-target="element" class="origin-top-left absolute left-0 z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
+            <div class="py-1" role="none">
+              <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
+              <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
+              <%= form.hidden_field :sort, value: @query.sort if @query.sort %>
+            </div>
           </div>
         </div>
-      </div>
-      <%= form_with url: developers_path, method: :get do |form| %>
         <div class="flex items-baseline space-x-8">
           <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
             <div>
@@ -103,6 +104,7 @@
                 </button>
               </div>
               <%= form_with url: developers_path, method: :get, html: {class: "py-6"} do |form| %>
+                <%= form.hidden_field :sort, value: @query.sort if @query.sort %>
                 <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
                   <h3 class="-mx-2 -my-3 flow-root">
                     <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-0" aria-expanded="false">
