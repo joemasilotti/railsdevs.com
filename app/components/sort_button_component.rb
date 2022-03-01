@@ -1,5 +1,5 @@
 class SortButtonComponent < ApplicationComponent
-  attr_reader :title, :name, :value, :url
+  attr_reader :title, :name, :value
 
   def initialize(title:, name: nil, value: nil, enabled: false)
     @title = title
