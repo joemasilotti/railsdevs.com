@@ -133,6 +133,8 @@ en:
     edit_profile: Update my profile
   developer_query_component:
     apply: Apply
+    close_menu: Close menu
+    filters: Filters
     include_not_interested: Include developers not currently interested
     sort:
       availability: Availability

@@ -66,12 +66,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "paginating filtered developers respects the filters" do
     with_pagy_default_items(1) do
       get developers_path(sort: :availability)
-      assert_select "h2", count: 1
+      assert_select "#developers h2", count: 1
+      assert_select "#mobile-filters h2", count: 1
       assert_select "a[href=?]", "/developers?sort=availability&page=2"
     end
   end
 
-  test "cannot create new proflie if already has one" do
+  test "cannot create new profile if already has one" do
     sign_in users(:with_available_profile)
 
     assert_no_difference "Developer.count" do
