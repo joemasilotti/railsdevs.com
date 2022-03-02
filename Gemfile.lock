@@ -202,7 +202,7 @@ GEM
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-    i18n (1.9.1)
+    i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.36)
       activesupport (>= 4.0.2)
@@ -412,7 +412,7 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (2.1.0)
-    view_component (2.46.0)
+    view_component (2.49.1)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
     warden (1.2.9)
@@ -479,7 +479,7 @@ DEPENDENCIES
   timezone_finder (~> 1.5.7)
   turbo-rails (~> 1.0)
   tzinfo-data
-  view_component (~> 2.46)
+  view_component (~> 2.49)
   webdrivers
 
 RUBY VERSION
