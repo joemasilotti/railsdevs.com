@@ -13,16 +13,30 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", two.hero
   end
 
-  test "can't view developer with invisible profile" do
+  test "can't view developer with invisible profile in index view" do
     one = developers :invisible
     two = developers :available
     three = developers :unavailable
 
     get developers_path
 
-    assert_select "h2", one.hero, count: 0
+    assert_select "h2", text: one.hero, count: 0
     assert_select "h2", two.hero
     assert_select "h2", three.hero
+  end
+
+  test "can't view developer with invisible profile in show view" do
+    dev = developers(:invisible)
+    get developer_path(dev)
+    assert_redirected_to root_path
+  end
+
+  test "can see own developer profile when invisible" do
+    sign_in users(:invisible_developer)
+    one = developers :invisible
+
+    get developer_path(one)
+    assert_response :ok
   end
 
   test "developers are sorted newest first" do

@@ -47,12 +47,11 @@ with_full_time_employment:
   bio: I am a developer available for full-time employment.
 
 invisible:
-  user: with_invisible_profile
+  user: invisible_developer
   name: Invisible Developer
   hero: I'd rather stay invisible for now
   bio: Soon to be visible
   search_status: "invisible"
-  search_status: open
 
 with_actively_looking_search_status:
   user: with_actively_looking_status

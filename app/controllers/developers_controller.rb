@@ -1,7 +1,6 @@
 class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
   before_action :require_new_developer!, only: %i[new create]
-  # before_action :invisible?, only: %i[show]
 
   def index
     @developers_count = Developer.count.round(-1)

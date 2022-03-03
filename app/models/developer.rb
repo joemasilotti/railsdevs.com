@@ -50,7 +50,7 @@ class Developer < ApplicationRecord
   end
 
   def visible?
-    search_status == "visible"
+    search_status == "visible" || search_status == "actively_looking" || search_status == "not_interested" || search_status == "open" || search_status.nil?
   end
 
   def location

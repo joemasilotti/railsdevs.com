@@ -65,3 +65,8 @@ admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>
   admin: true
+
+invisible_developer:
+  email: developer_invisible@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>

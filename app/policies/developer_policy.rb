@@ -4,13 +4,13 @@ class DeveloperPolicy < ApplicationPolicy
   end
 
   def show?
-    profile_owner? || record.visible?
+    profile_owner? || record.try(:visible?)
   end
 
   private
 
-  def invisible?
-    record.try(:invisible?)
+  def visible?
+    record.try(:visible?)
   end
 
   def profile_owner?
