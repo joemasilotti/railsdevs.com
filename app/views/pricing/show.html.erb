@@ -11,7 +11,8 @@
     </div>
     <%= link_to t(".cta"), stripe_checkout_path, rel: "nofollow", class: "mt-8 w-full bg-gray-600 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 sm:mt-10 sm:w-auto xl:mt-0" %>
   </div>
-  <div class="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
+
+  <section class="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
     <div>
       <p class="mt-2 text-3xl font-extrabold text-gray-900"><%= t(".feature.title") %></p>
       <p class="mt-4 text-lg text-gray-500"><%= t(".feature.subtitle") %></p>
@@ -63,11 +64,10 @@
         </li>
       </ul>
     </div>
-  </div>
-</div>
+  </section>
 </div>
 
-<div class="bg-gray-900">
+<section class="bg-gray-900">
   <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
     <h2 class="text-3xl font-extrabold text-white"><%= t(".faq.title") %></h2>
     <div class="mt-6 border-t border-gray-400 border-opacity-25 pt-10">
@@ -94,4 +94,35 @@
       </dl>
     </div>
   </div>
-</div>
+</section>
+
+<section class="overflow-hidden">
+  <div class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
+    <div class="relative lg:flex lg:items-center">
+      <div class="hidden lg:block lg:flex-shrink-0">
+        <%= image_tag "stefan.png", class: "h-64 w-64 rounded-full xl:h-80 xl:w-80", alt: "Stefan Manku, founder of Dietary Menu" %>
+      </div>
+      <div class="relative lg:ml-10">
+        <svg class="absolute top-0 left-0 transform -translate-x-10 lg:-translate-x-8 -translate-y-16 lg:-translate-y-24 h-36 w-36 text-blue-200 opacity-50" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
+          <path stroke-width="2" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
+        </svg>
+        <blockquote class="relative">
+          <div class="text-2xl leading-9 font-medium text-gray-900">
+            <p>With railsdevs I'm able to focus on getting my product to market instead of spending hours finding developers.</p>
+          </div>
+          <div class="mt-8">
+            <div class="flex">
+              <div class="flex-shrink-0 lg:hidden">
+                <%= image_tag "stefan.png", class: "h-12 w-12 rounded-full", alt: "Stefan Manku, founder of Dietary Menu" %>
+              </div>
+              <div class="ml-4 lg:ml-0">
+                <div class="text-base font-medium text-gray-900">Stefan Manku</div>
+                <a href="https://dietarymenu.com" class="text-base font-medium text-blue-600 hover:text-blue-500">Founder, Dietary Menu</a>
+              </div>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
