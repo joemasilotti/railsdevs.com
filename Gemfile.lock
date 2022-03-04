@@ -112,7 +112,6 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bindex (0.8.1)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -418,11 +417,6 @@ GEM
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.2.0)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webdrivers (5.0.0)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
@@ -486,7 +480,6 @@ DEPENDENCIES
   turbo-rails (~> 1.0)
   tzinfo-data
   view_component (~> 2.46)
-  web-console
   webdrivers
 
 RUBY VERSION
