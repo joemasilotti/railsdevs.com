@@ -15,3 +15,9 @@ three:
   record_type: Business
   record_id: <%= ActiveRecord::FixtureSet.identify(:with_conversation) %>
   blob_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
+
+four:
+  name: avatar
+  record_type: Business
+  record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:three) %>

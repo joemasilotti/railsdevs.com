@@ -1,6 +1,7 @@
 require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
+  include MetaTagsHelper
   include PagyHelper
 
   test "can view developer profiles" do
@@ -23,6 +24,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: one.hero, count: 0
     assert_select "h2", two.hero
     assert_select "h2", three.hero
+
+  test "custom meta tags are rendered" do
+    get developers_path
+    assert_title_contains "Hire Ruby on Rails developers"
+    assert_description_contains "looking for their"
   end
 
   test "can't view developer with invisible profile in show view" do
@@ -124,11 +130,22 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_difference "Developer.count", 1 do
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
+      params[:developer][:role_level_attributes] = {senior: true}
       post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?
+    assert user.developer.role_level.senior?
     assert user.developer.avatar.attached?
+  end
+
+  test "custom develper meta tags are rendered" do
+    developer = developers(:available)
+
+    get developer_path(developer)
+
+    assert_title_contains developer.hero
+    assert_description_contains developer.bio
   end
 
   test "edit with nested attributes" do
@@ -139,11 +156,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       developer: {
         role_type_attributes: {
           part_time_contract: true
+        },
+        role_level_attributes: {
+          junior: true,
+          mid: true
         }
       }
     }
 
     assert user.developer.reload.role_type.part_time_contract?
+    assert user.developer.reload.role_level.junior?
+    assert user.developer.reload.role_level.mid?
   end
 
   test "successful edit to profile" do
@@ -152,6 +175,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get edit_developer_path(developer)
     assert_select "form"
+    assert_select "#developer_avatar_hidden"
+    assert_select "#developer_cover_image_hidden"
 
     patch developer_path(developer), params: {
       developer: {
@@ -182,6 +207,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get edit_developer_path(developer)
     assert_select "form"
+    assert_select "#developer_avatar_hidden"
+    assert_select "#developer_cover_image_hidden"
 
     patch developer_path(developer), params: {
       developer: {

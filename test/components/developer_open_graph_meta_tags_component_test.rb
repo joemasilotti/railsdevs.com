@@ -6,7 +6,7 @@ class DeveloperOpenGraphTagsComponentTest < ViewComponent::TestCase
 
     render_inline DeveloperOpenGraphTagsComponent.new(developer:)
 
-    assert_meta property: "og:title", content: "hero text"
+    assert_meta property: "og:title", content: "hero text · railsdevs"
     assert_meta property: "og:description", content: "bio text"
     assert_meta property: "og:url", content: "http://test.host/developers/123"
   end

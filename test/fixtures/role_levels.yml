@@ -1,0 +1,6 @@
+none: {}
+
+some:
+  junior: true
+  senior: true
+  principal: true
