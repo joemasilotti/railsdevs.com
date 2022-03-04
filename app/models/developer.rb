@@ -54,10 +54,6 @@ class Developer < ApplicationRecord
 
   after_create_commit :send_admin_notification
 
-  def role_type
-    super || build_role_type
-  end
-
   def visible?
     search_status == "visible" || search_status == "actively_looking" || search_status == "not_interested" || search_status == "open" || search_status.nil?
   end
@@ -68,6 +64,19 @@ class Developer < ApplicationRecord
 
   def role_level
     super || build_role_level
+  end
+
+  def role_type
+    super || build_role_type
+  end
+
+  # If a check is added make sure to add a NewDeveloperFieldComponent to the developer form.
+  def missing_fields?
+    search_status.blank? ||
+      location.missing_fields? ||
+      role_level.missing_fields? ||
+      role_type.missing_fields? ||
+      available_on.blank?
   end
 
   private

@@ -24,7 +24,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: one.hero, count: 0
     assert_select "h2", two.hero
     assert_select "h2", three.hero
-
+  end
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
