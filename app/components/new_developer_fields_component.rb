@@ -3,11 +3,18 @@ class NewDeveloperFieldsComponent < ApplicationComponent
 
   attr_reader :user
 
-  def initialize(user)
+  def initialize(user, enabled: true)
     @user = user
+    @enabled = enabled
   end
 
   def render?
-    user&.developer&.persisted? && user.developer.missing_fields?
+    enabled? && user&.developer&.persisted? && user.developer.missing_fields?
+  end
+
+  private
+
+  def enabled?
+    !!@enabled
   end
 end

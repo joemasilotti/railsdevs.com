@@ -26,4 +26,9 @@ class NewDeveloperFieldsComponentTest < ViewComponent::TestCase
     render_inline NewDeveloperFieldsComponent.new(nil)
     assert_no_selector "*"
   end
+
+  test "doesn't render if disabled" do
+    render_inline NewDeveloperFieldsComponent.new(users(:with_unavailable_profile), enabled: false)
+    assert_no_selector "*"
+  end
 end
