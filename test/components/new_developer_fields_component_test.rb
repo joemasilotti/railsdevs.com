@@ -7,7 +7,7 @@ class NewDeveloperFieldsComponentTest < ViewComponent::TestCase
   end
 
   test "doesn't render if the developer profile is filled in" do
-    render_inline NewDeveloperFieldsComponent.new(users(:with_available_profile))
+    render_inline NewDeveloperFieldsComponent.new(users(:with_complete_profile))
     assert_no_selector "*"
   end
 

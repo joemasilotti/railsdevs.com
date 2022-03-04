@@ -5,6 +5,10 @@ some:
   senior: true
   principal: true
 
-available:
-  developer: available
+all:
+  developer: complete
+  junior: true
   mid: true
+  senior: true
+  principal: true
+  c_level: true

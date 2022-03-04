@@ -1,6 +1,7 @@
 none: {}
 
 all:
+  developer: complete
   part_time_contract: true
   full_time_contract: true
   full_time_employment: true
@@ -20,7 +21,3 @@ full_time_contract:
 full_time_employment:
   full_time_employment: true
   developer: with_full_time_employment
-
-available:
-  developer: available
-  part_time_contract: true
