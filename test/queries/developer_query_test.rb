@@ -46,7 +46,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
 
   test "filtering by part-time contract" do
     records = DeveloperQuery.new(role_types: ["part_time_contract"]).records
-    assert_equal records, [developers(:with_part_time_contract)]
+    assert_equal records, [developers(:with_part_time_contract), developers(:available)]
   end
 
   test "filtering by full-time contract" do

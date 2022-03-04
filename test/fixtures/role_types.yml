@@ -12,7 +12,7 @@ some:
 part_time_contract:
   part_time_contract: true
   developer: with_part_time_contract
-  
+
 full_time_contract:
   full_time_contract: true
   developer: with_full_time_contract
@@ -20,3 +20,7 @@ full_time_contract:
 full_time_employment:
   full_time_employment: true
   developer: with_full_time_employment
+
+available:
+  developer: available
+  part_time_contract: true

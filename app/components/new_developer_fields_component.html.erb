@@ -1,0 +1,16 @@
+<div class="max-w-3xl mx-auto sm:rounded-lg sm:shadow-sm p-4 sm:mt-8 sm:mb-4 bg-blue-50">
+  <div class="flex">
+    <div class="shrink-0">
+      <%= inline_svg_tag "icons/solid/information_circle.svg", class: "h-5 w-5 text-blue-400" %>
+    </div>
+
+    <div class="ml-3 flex-1 md:flex md:justify-between">
+      <p class="text-sm text-blue-700"><%= t("new_developer_fields_component.title") %></p>
+      <p class="mt-3 text-sm md:mt-0 md:ml-6">
+        <%= link_to edit_developer_path(user.developer), class: "whitespace-nowrap font-medium text-blue-700 hover:text-blue-600" do %>
+          <%= t("new_developer_fields_component.cta") %> <span aria-hidden="true">&rarr;</span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

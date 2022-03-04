@@ -4,3 +4,7 @@ some:
   junior: true
   senior: true
   principal: true
+
+available:
+  developer: available
+  mid: true
