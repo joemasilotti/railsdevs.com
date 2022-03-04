@@ -33,7 +33,7 @@ class DevelopersController < ApplicationController
     authorize @developer
 
     if @developer.update(developer_params)
-      redirect_to @developer, notice: ".updated"
+      redirect_to @developer, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end

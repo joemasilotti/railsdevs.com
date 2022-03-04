@@ -198,6 +198,8 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+    update:
+      updated: Your profile was updated!
   dir: ltr
   errors:
     business_blank: Fill out your business profile to message developers.
