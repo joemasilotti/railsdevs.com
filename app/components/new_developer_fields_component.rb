@@ -9,12 +9,20 @@ class NewDeveloperFieldsComponent < ApplicationComponent
   end
 
   def render?
-    enabled? && user&.developer&.persisted? && user.developer.missing_fields?
+    enabled? && editing? && missing_fields?
   end
 
   private
 
   def enabled?
     !!@enabled
+  end
+
+  def editing?
+    user&.developer&.persisted?
+  end
+
+  def missing_fields?
+    user.developer.missing_fields?
   end
 end
