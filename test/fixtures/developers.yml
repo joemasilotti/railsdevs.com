@@ -1,30 +1,38 @@
+complete:
+  user: with_complete_profile
+  name: Complete Profile
+  available_on: <%= Date.new(2021, 1, 1) %>
+  hero: Complete profile
+  bio: I have a complete profile.
+  search_status: actively_looking
+
 available:
   user: with_available_profile
-  name: Developer One
+  name: Available Developer
   available_on: <%= Date.new(2021, 1, 1) %>
-  hero: First developer
-  bio: I am the first developer.
+  hero: Available developer
+  bio: I am available.
   search_status: actively_looking
 
 unavailable:
   user: with_unavailable_profile
-  name: Developer Two
+  name: Unavailable Developer
   available_on: <%= Date.new(2222, 2, 2) %>
-  hero: Second developer
-  bio: I am the second developer.
+  hero: Unavailable developer
+  bio: I am unavailable.
   search_status: open
 
 with_conversation:
   user: with_developer_conversation
-  name: Developer Three
-  hero: Third developer
-  bio: I am the third developer.
+  name: Conversating Developer
+  hero: Conversating developer
+  bio: I am conversating.
 
 with_blocked_conversation:
   user: with_blocked_conversation
-  name: Developer Four
-  hero: Fourth developer
-  bio: I am the fourth developer.
+  name: Blocked Developer
+  hero: Blocked developer
+  bio: I am blocked.
 
 with_part_time_contract:
   user: with_part_time_contract

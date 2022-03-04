@@ -230,6 +230,11 @@ en:
     message:
       wrote: wrote
       you: You
+  new_developer_field_component:
+    new: New!
+  new_developer_fields_component:
+    cta: Complete my profile
+    title: New fields were added to developer profiles!
   notifications:
     index:
       cta: View history

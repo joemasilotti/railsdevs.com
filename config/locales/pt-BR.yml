@@ -127,8 +127,8 @@ pt-BR:
     edit_profile: Atualizar meu perfil
   developer_query_component:
     apply: Aplicar
-    filters: Filtros
     close_menu: Fechar menu
+    filters: Filtros
     sort:
       availability: Disponibilidade
       newest: Mais novo

@@ -56,6 +56,15 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
+  # If a check is added make sure to add a NewDeveloperFieldComponent to the developer form.
+  def missing_fields?
+    search_status.blank? ||
+      location.missing_fields? ||
+      role_level.missing_fields? ||
+      role_type.missing_fields? ||
+      available_on.blank?
+  end
+
   private
 
   def send_admin_notification

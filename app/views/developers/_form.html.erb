@@ -41,27 +41,30 @@
 
             <%= form.fields_for :location, include_id: false do |location| %>
               <div>
-              <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 md:gap-6">
-                <div class="sm:col-span-2">
-                  <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>
-                  <div class="mt-1">
-                    <%= location.text_field :city, class: field_classes(location, :city) %>
+                <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 md:gap-6">
+                  <div class="sm:col-span-2">
+                    <div class="flex items-center">
+                      <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>
+                      <%= render NewDeveloperFieldComponent.new(form.object, :location, size: :small) %>
+                    </div>
+                    <div class="mt-1">
+                      <%= location.text_field :city, class: field_classes(location, :city) %>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-1">
+                    <%= location.label :state, class: "block text-sm font-medium text-gray-700" %>
+                    <div class="mt-1">
+                      <%= location.text_field :state, class: field_classes(location, :state) %>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <%= location.label :country, class: "block text-sm font-medium text-gray-700" %>
+                    <div class="mt-2">
+                      <%= location.text_field :country, class: field_classes(location, :country) %>
+                    </div>
                   </div>
                 </div>
-                <div class="sm:col-span-1">
-                  <%= location.label :state, class: "block text-sm font-medium text-gray-700" %>
-                  <div class="mt-1">
-                    <%= location.text_field :state, class: field_classes(location, :state) %>
-                  </div>
-                </div>
-                <div class="sm:col-span-2">
-                  <%= location.label :country, class: "block text-sm font-medium text-gray-700" %>
-                  <div class="mt-2">
-                    <%= location.text_field :country, class: field_classes(location, :country) %>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.location_help_text") %></p>
+                <p class="mt-2 text-sm text-gray-500"><%= t(".profile.location_help_text") %></p>
               </div>
             <% end %>
 
@@ -122,7 +125,12 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
             <fieldset>
-              <legend class="text-base font-medium text-gray-900"><%= t(".search_status.title") %></legend>
+              <legend class="text-base font-medium text-gray-900">
+                <div class="flex">
+                  <%= t(".search_status.title") %>
+                  <%= render NewDeveloperFieldComponent.new(form.object, :search_status) %>
+                </div>
+              </legend>
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="h-5 flex items-center">
@@ -157,7 +165,12 @@
             <%= form.fields_for :role_type, include_id: false do |role_type| %>
               <fieldset>
                 <div>
-                  <legend class="text-base font-medium text-gray-900"><%= t(".role_type.title") %></legend>
+                  <legend class="text-base font-medium text-gray-900 w-full">
+                    <div class="flex">
+                      <%= t(".role_type.title") %>
+                      <%= render NewDeveloperFieldComponent.new(form.object, :role_type) %>
+                    </div>
+                  </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_type.help_text") %></p>
                 </div>
                 <div class="mt-4 space-y-4">
@@ -180,7 +193,12 @@
             <%= form.fields_for :role_level, include_id: false do |role_level| %>
               <fieldset>
                 <div>
-                  <legend class="text-base font-medium text-gray-900"><%= t(".role_level.title") %></legend>
+                  <legend class="text-base font-medium text-gray-900 w-full">
+                    <div class="flex">
+                      <%= t(".role_level.title") %>
+                      <%= render NewDeveloperFieldComponent.new(form.object, :role_level) %>
+                    </div>
+                  </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_level.help_text") %></p>
                 </div>
                 <div class="mt-4 space-y-4">
@@ -212,7 +230,10 @@
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">
                   <div class="sm:col-span-1">
-                    <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
+                    <div class="flex">
+                      <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
+                      <%= render NewDeveloperFieldComponent.new(form.object, :available_on, size: :small) %>
+                    </div>
                     <div class="mt-1">
                       <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
                     </div>

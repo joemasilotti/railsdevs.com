@@ -4,3 +4,11 @@ some:
   junior: true
   senior: true
   principal: true
+
+all:
+  developer: complete
+  junior: true
+  mid: true
+  senior: true
+  principal: true
+  c_level: true
