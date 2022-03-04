@@ -33,16 +33,14 @@ class Developer < ApplicationRecord
   scope :filter_by_utc_offset, ->(utc_offset) do
     joins(:location).where(locations: {utc_offset:})
   end
-  
-  validates :name, presence: true
 
+  validates :name, presence: true
 
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
       where(role_type: {type => true}) if role_types.include?(type)
     }.reduce(:or).joins(:role_type)
   end
-
 
   scope :visible, -> { where(search_status: [:open, :actively_looking, :not_interested, nil]) }
 
@@ -70,10 +68,6 @@ class Developer < ApplicationRecord
 
   def role_level
     super || build_role_level
-  end
-
-  def role_type
-    super || build_role_type
   end
 
   private
