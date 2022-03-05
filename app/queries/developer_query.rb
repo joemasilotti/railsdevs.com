@@ -44,7 +44,7 @@ class DeveloperQuery
   private
 
   def initialize_pagy_and_developers
-    @_records = Developer.includes(:role_type).with_attached_avatar
+    @_records = Developer.includes(:role_type).with_attached_avatar.visible
     sort_records
     utc_offset_filter_records
     role_type_filter_records
@@ -54,24 +54,24 @@ class DeveloperQuery
 
   def sort_records
     if sort == :availability
-      @_records.merge!(Developer.visible.available_first)
+      @_records.merge!(Developer.available_first)
     else
-      @_records.merge!(Developer.visible.newest_first)
+      @_records.merge!(Developer.newest_first)
     end
   end
 
   def utc_offset_filter_records
     if utc_offsets.any?
-      @_records.merge!(Developer.visible.filter_by_utc_offset(utc_offsets))
+      @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
     end
   end
 
   def role_type_filter_records
-    @_records.merge!(Developer.visible.filter_by_role_types(role_types)) if role_types.any?
+    @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
   end
 
   def search_status_filter_records
-    @_records.merge!(Developer.visible.actively_looking.or(Developer.open)) unless include_not_interested
+    @_records.merge!(Developer.actively_looking.or(Developer.open)) unless include_not_interested
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.
