@@ -60,6 +60,7 @@ with_full_time_employment:
   name: Full-time Employee
   hero: A full-time employee
   bio: I am a developer available for full-time employment.
+  search_status: open
 
 with_actively_looking_search_status:
   user: with_actively_looking_status
