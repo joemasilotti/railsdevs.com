@@ -67,9 +67,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert_includes records, developers(:complete)
   end
 
-  test "filtering by including developers who aren't interested" do
+  test "filtering with developers who aren't interested" do
     records = DeveloperQuery.new(include_not_interested: true).records
-    assert_equal 4, records.count
     assert_includes records, developers(:with_actively_looking_search_status)
     assert_includes records, developers(:with_open_search_status)
     assert_includes records, developers(:with_not_interested_search_status)
