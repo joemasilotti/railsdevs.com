@@ -11,11 +11,17 @@ class LocationComponent < ApplicationComponent
   end
 
   def location
-    if us_or_uk?
+    if country_only?
+      @country
+    elsif us_or_uk?
       "#{@city}, #{@state}"
     else
       "#{@city}, #{@country}"
     end
+  end
+
+  def country_only?
+    @city.blank? && @state.blank?
   end
 
   def us_or_uk?

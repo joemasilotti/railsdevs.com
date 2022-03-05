@@ -36,6 +36,11 @@ class LocationComponentTest < ViewComponent::TestCase
     assert_text "Berlin, Germany"
   end
 
+  test "renders country name if only country is set" do
+    render(city: "", state: "", country: "United States")
+    assert_text "United States"
+  end
+
   def render(city: nil, state: nil, country: nil, code: nil)
     location = Location.new(city:, state:, country:, country_code: code)
     render_inline LocationComponent.new(location)
