@@ -27,7 +27,6 @@ class Developer < ApplicationRecord
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"], max_file_size: 10.megabytes
   validates :hero, presence: true
   validates :location, presence: true, on: :create
-
   validates :name, presence: true
 
   scope :filter_by_role_types, ->(role_types) do
