@@ -21,6 +21,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "sorting by availability excludes records if not set" do
     records = DeveloperQuery.new(sort: :availability).records
     assert_equal records, [
+      developers(:complete),
       developers(:available),
       developers(:unavailable)
     ]
@@ -29,6 +30,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "sorting by newest" do
     records = DeveloperQuery.new(sort: :newest).records
     assert_equal records, [
+      developers(:complete),
       developers(:available),
       developers(:unavailable),
       developers(:with_part_time_contract),
@@ -46,17 +48,23 @@ class DeveloperQueryTest < ActiveSupport::TestCase
 
   test "filtering by part-time contract" do
     records = DeveloperQuery.new(role_types: ["part_time_contract"]).records
-    assert_equal records, [developers(:with_part_time_contract)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_part_time_contract)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by full-time contract" do
     records = DeveloperQuery.new(role_types: ["full_time_contract"]).records
-    assert_equal records, [developers(:with_full_time_contract)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_full_time_contract)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by full-time employment" do
     records = DeveloperQuery.new(role_types: ["full_time_employment"]).records
-    assert_equal records, [developers(:with_full_time_employment)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_full_time_employment)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by including developers who aren't interested" do

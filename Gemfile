@@ -13,7 +13,7 @@ gem "puma", "~> 5.6"
 gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
 gem "turbo-rails", "~> 1.0"
-gem "view_component", "~> 2.46"
+gem "view_component", "~> 2.49"
 
 group :development, :test do
   gem "i18n-tasks"
