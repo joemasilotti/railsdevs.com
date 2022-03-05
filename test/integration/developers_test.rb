@@ -39,7 +39,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "can see own developer profile when invisible" do
-    sign_in users(:invisible_developer)
+    sign_in users(:with_invisible_profile)
     one = developers :invisible
 
     get developer_path(one)

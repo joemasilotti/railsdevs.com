@@ -22,6 +22,13 @@ unavailable:
   bio: I am unavailable.
   search_status: open
 
+invisible:
+  user: with_invisible_profile
+  name: Invisible Developer
+  hero: I'd rather stay invisible for now
+  bio: Soon to be visible.
+  search_status: invisible
+
 with_conversation:
   user: with_developer_conversation
   name: Conversating Developer
@@ -53,13 +60,6 @@ with_full_time_employment:
   name: Full-time Employee
   hero: A full-time employee
   bio: I am a developer available for full-time employment.
-
-invisible:
-  user: invisible_developer
-  name: Invisible Developer
-  hero: I'd rather stay invisible for now
-  bio: Soon to be visible
-  search_status: "invisible"
 
 with_actively_looking_search_status:
   user: with_actively_looking_status

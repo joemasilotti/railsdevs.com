@@ -18,13 +18,3 @@ with_conversation:
   company: Conversation Business
   bio: We are Conversation Business.
   developer_notifications: weekly
-
-
-invisible:
-  user: invisible_developer
-  name: Developer with invisible profile
-  company: Conversation Business
-  bio: We are Conversation Business.
-  developer_notifications: weekly
-
-
