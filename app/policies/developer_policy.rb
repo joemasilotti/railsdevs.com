@@ -1,19 +1,15 @@
 class DeveloperPolicy < ApplicationPolicy
   def update?
-    user == record.user
+    record_owner?
   end
 
   def show?
-    profile_owner? || record.try(:visible?)
+    record.visible? || record_owner?
   end
 
   private
 
-  def visible?
-    record.try(:visible?)
-  end
-
-  def profile_owner?
-    user && user.developer == record
+  def record_owner?
+    user == record.user
   end
 end
