@@ -35,7 +35,7 @@ class Developer < ApplicationRecord
     }.reduce(:or).joins(:role_type)
   end
 
-  scope :visible, -> { where(search_status: [:open, :actively_looking, :not_interested, nil]) }
+  scope :visible, -> { where.not(search_status: :invisible) }
 
   scope :filter_by_utc_offset, ->(utc_offset) do
     joins(:location).where(locations: {utc_offset:})
@@ -48,7 +48,7 @@ class Developer < ApplicationRecord
   after_create_commit :send_admin_notification
 
   def visible?
-    search_status == "visible" || search_status == "actively_looking" || search_status == "not_interested" || search_status == "open" || search_status.nil?
+    !invisible?
   end
 
   def location
