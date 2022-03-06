@@ -16,6 +16,7 @@ gem "turbo-rails", "~> 1.0"
 gem "view_component", "~> 2.49"
 
 group :development, :test do
+  gem "faker"
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"

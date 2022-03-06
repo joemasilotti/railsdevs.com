@@ -1,0 +1,19 @@
+new_york:
+  city: New York
+  state: New York
+  country: Unitd States
+  country_code: us
+  latitude: 40.7127281
+  longitude: -74.0060152
+  time_zone: America/New_York
+  utc_offset: -18000
+
+portland:
+  city: Portland
+  state: Oregon
+  country: United States
+  country_code: us
+  latitude: 45.5202471
+  longitude: -122.6741949
+  time_zone: America/Los_Angeles
+  utc_offset: -28800

@@ -56,6 +56,12 @@ class LocationTest < ActiveSupport::TestCase
     refute location.valid?
   end
 
+  test "creating a new record with latitude and longitude already present does not geocode" do
+    raise_on_geocoding do
+      create_location!(city: "Foo City", latitude: 1, longitude: 2, time_zone: "EST", utc_offset: 0)
+    end
+  end
+
   def stub_geocoder(query, city: "Portland", city_district: nil, state: "Oregon", country: "United States", country_code: "US", latitude: 45.523064, longitude: -122.676483, data: {"city" => "Portland"})
     Geocoder::Lookup::Test.add_stub(
       query, [
@@ -74,5 +80,10 @@ class LocationTest < ActiveSupport::TestCase
 
   def create_location!(options = {})
     Location.create!(options.merge(developer: developers(:available)))
+  end
+
+  def raise_on_geocoding(&block)
+    raises_exception = ->(query) { raise StandardError.new }
+    Geocoder.stub(:search, raises_exception, &block)
   end
 end
