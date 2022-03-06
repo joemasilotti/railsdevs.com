@@ -116,4 +116,9 @@ jobs:
           bin/rails test:system
 
       - name: Smoke test database seeds
-        run: RAILS_ENV=test bundle exec rails db:reset
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:password@localhost:5432/railsdevs_test
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          TZ: America/New_York
+        run: bundle exec rails db:reset
