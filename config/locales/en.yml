@@ -183,6 +183,7 @@ en:
       save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
+        invisible_help_text: Your profile is hidden and can only be seen by yourself.
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status

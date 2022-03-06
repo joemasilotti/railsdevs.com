@@ -4,20 +4,32 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   include MetaTagsHelper
   include PagyHelper
 
-  test "can view developer profiles" do
-    one = developers :available
-    two = developers :unavailable
-
+  test "can view visible developer profiles" do
     get developers_path
 
-    assert_select "h2", one.hero
-    assert_select "h2", two.hero
+    assert_select "h2", developers(:available).hero
+    assert_select "h2", developers(:unavailable).hero
+    assert_select "h2", text: developers(:invisible).hero, count: 0
   end
 
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
     assert_description_contains "looking for their"
+  end
+
+  test "can't view developer with invisible profile" do
+    dev = developers(:invisible)
+    get developer_path(dev)
+    assert_redirected_to root_path
+  end
+
+  test "can see own developer profile when invisible" do
+    sign_in users(:with_invisible_profile)
+    one = developers :invisible
+
+    get developer_path(one)
+    assert_response :ok
   end
 
   test "developers are sorted newest first" do

@@ -6,7 +6,8 @@ class Developer < ApplicationRecord
   enum search_status: {
     actively_looking: 1,
     open: 2,
-    not_interested: 3
+    not_interested: 3,
+    invisible: 4
   }
 
   belongs_to :user
@@ -41,8 +42,13 @@ class Developer < ApplicationRecord
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :newest_first, -> { order(created_at: :desc) }
+  scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   after_create_commit :send_admin_notification
+
+  def visible?
+    !invisible?
+  end
 
   def location
     super || build_location

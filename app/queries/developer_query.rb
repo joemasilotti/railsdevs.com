@@ -44,7 +44,7 @@ class DeveloperQuery
   private
 
   def initialize_pagy_and_developers
-    @_records = Developer.includes(:role_type).with_attached_avatar
+    @_records = Developer.includes(:role_type).with_attached_avatar.visible
     sort_records
     utc_offset_filter_records
     role_type_filter_records

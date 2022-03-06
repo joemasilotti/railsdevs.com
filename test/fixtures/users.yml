@@ -17,6 +17,11 @@ with_unavailable_profile:
   email: two@example.com
   confirmed_at: <%= DateTime.current %>
 
+with_invisible_profile:
+  email: invisible@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= DateTime.current %>
+
 without_profile:
   email: three@example.com
   confirmed_at: <%= DateTime.current %>
