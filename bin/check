@@ -14,3 +14,6 @@ bundle exec i18n-tasks health en
 
 # Run the test suite
 bundle exec rails test:all
+
+# Ensure seeds work
+RAILS_ENV=test bundle exec rails db:reset

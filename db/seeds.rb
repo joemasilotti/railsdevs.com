@@ -5,8 +5,8 @@ def seed(file)
   puts "Seeded #{file}"
 end
 
-puts "Seeding database..."
-seed("developers")
-seed("businesses")
-seed("conversations")
+puts "Seeding #{Rails.env} database..."
+seed "developers"
+seed "businesses"
+seed "conversations"
 puts "Seeded database"

@@ -114,3 +114,6 @@ jobs:
           bin/rails db:schema:load
           bin/rails test --fail-fast
           bin/rails test:system
+
+      - name: Smoke test database seeds
+        run: RAILS_ENV=test bundle exec rails db:reset

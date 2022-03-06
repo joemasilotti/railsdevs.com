@@ -16,6 +16,7 @@ gem "turbo-rails", "~> 1.0"
 gem "view_component", "~> 2.49"
 
 group :development, :test do
+  gem "faker"
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
@@ -25,7 +26,6 @@ end
 group :development do
   # Point to GitHub until https://github.com/Shopify/erb-lint/pull/235 is released.
   gem "erb_lint", require: false, github: "Shopify/erb-lint"
-  gem "faker"
   gem "hotwire-livereload"
   gem "listen", "~> 3.3"
   gem "redis"
