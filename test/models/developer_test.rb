@@ -159,4 +159,54 @@ class DeveloperTest < ActiveSupport::TestCase
     developer.save!
     assert_equal developer.github, "joemasilotti"
   end
+
+  test "missing fields when search status is blank" do
+    developer = developers(:unavailable)
+    developer.search_status = nil
+    assert developer.missing_fields?
+  end
+
+  test "missing fields when location country is blank" do
+    developer = developers(:unavailable)
+    developer.search_status = :open
+    refute developer.location.country
+    assert developer.missing_fields?
+  end
+
+  test "missing fields when role level is all blank" do
+    developer = developers(:unavailable)
+    developer.search_status = :open
+    developer.location.country = "United States"
+    developer.build_role_level
+    assert developer.missing_fields?
+  end
+
+  test "missing fields when role type is all blank" do
+    developer = developers(:unavailable)
+    developer.search_status = :open
+    developer.location.country = "United States"
+    developer.role_level = RoleLevel.new(mid: true)
+    developer.build_role_type
+    assert developer.missing_fields?
+  end
+
+  test "missing fields available on is blank" do
+    developer = developers(:unavailable)
+    developer.search_status = :open
+    developer.location.country = "United States"
+    developer.role_level = RoleLevel.new(mid: true)
+    developer.role_type = RoleType.new(part_time_contract: true)
+    developer.available_on = nil
+    assert developer.missing_fields?
+  end
+
+  test "not missing fields when everything is filled in" do
+    developer = developers(:unavailable)
+    developer.search_status = :open
+    developer.location.country = "United States"
+    developer.role_level = RoleLevel.new(mid: true)
+    developer.role_type = RoleType.new(part_time_contract: true)
+    developer.available_on = Date.tomorrow
+    refute developer.missing_fields?
+  end
 end

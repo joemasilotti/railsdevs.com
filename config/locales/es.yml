@@ -114,6 +114,8 @@ es:
     edit_profile: Actualizar mi perfil
   developer_query_component:
     apply: Aplicar
+    close_menu: Cerrar menú
+    filters: Filtros
     sort:
       availability: Disponibilidad
       newest: Más reciente

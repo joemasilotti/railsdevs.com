@@ -11,6 +11,10 @@ class Location < ApplicationRecord
       location.will_save_change_to_country?
   end
 
+  def missing_fields?
+    country.blank?
+  end
+
   private
 
   def valid_coordinates

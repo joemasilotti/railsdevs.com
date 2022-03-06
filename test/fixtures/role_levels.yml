@@ -24,3 +24,11 @@ pricipal_level:
 c_level:
   c_level: true
   developer: with_c_type_role_level
+
+all:
+  developer: complete
+  junior: true
+  mid: true
+  senior: true
+  principal: true
+  c_level: true

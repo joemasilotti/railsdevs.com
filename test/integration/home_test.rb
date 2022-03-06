@@ -3,11 +3,12 @@ require "test_helper"
 class HomeTest < ActionDispatch::IntegrationTest
   include MetaTagsHelper
 
-  test "sees only available developer profile" do
+  test "sees only available developer profiles" do
     get root_path
 
+    assert_select "h2", count: 2
     assert_select "h2", developers(:available).hero
-    assert_select "h2", count: 1
+    assert_select "h2", developers(:complete).hero
   end
 
   test "custom meta tags are rendered" do
