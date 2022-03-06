@@ -58,13 +58,9 @@ bin/dev
 
 ### Seeds
 
-Seeding the database, either via `rails db:seed` or during `bin/setup`, creates a few accounts with developer profiles. Sign in to these with the following email addresses; all the passwords are `password`.
+Seeding the database, either via `rails db:seed` or during `bin/setup`, creates a few accounts. Most importantly, use `developer@example.com` and `business@example.com` with password `password`.
 
-* `ada@example.com`
-* `bjarne@example.com`
-* `dennis@example.com`
-
-There is also a single business account, `business@example.com`, that has an active subscription. Use this to test anything related to messaging.
+More information is in [the docs on seeds](docs/seeds.md).
 
 ### Stripe
 
