@@ -74,27 +74,37 @@ class DeveloperQueryTest < ActiveSupport::TestCase
 
   test "filtering by junior role level" do
     records = DeveloperQuery.new(role_levels: ["junior"]).records
-    assert_equal records, [developers(:with_junior_role_level)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_junior_role_level)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by mid role level" do
     records = DeveloperQuery.new(role_levels: ["mid"]).records
-    assert_equal records, [developers(:with_mid_role_level)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_mid_role_level)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by senior role level" do
     records = DeveloperQuery.new(role_levels: ["senior"]).records
-    assert_equal records, [developers(:with_senior_role_level)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_senior_role_level)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by principal role level" do
     records = DeveloperQuery.new(role_levels: ["principal"]).records
-    assert_equal records, [developers(:with_principal_role_level)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_principal_role_level)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by c_level role level" do
     records = DeveloperQuery.new(role_levels: ["c_level"]).records
-    assert_equal records, [developers(:with_c_type_role_level)]
+    assert_equal 2, records.count
+    assert_includes records, developers(:with_c_type_role_level)
+    assert_includes records, developers(:complete)
   end
 
   test "filtering by including developers who aren't interested" do
