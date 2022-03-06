@@ -6,7 +6,7 @@ The password for all accounts is `password`.
 
 ### Developers
 
-The "named" developers cover most states of each field on the profile. There are also 10 developers that are randomized to encourage testing of pagination.
+The "named" developers cover most states of each field on the profile. There are also 20 developers that are randomized to encourage testing of pagination.
 
 * `developer@example.com` - The "core" developer with a complete profile, in a conversation with a business, and has sent and received messages.
 * `minimum@example.com` - Their developer profile only has the absolute minimum needed to fill out the form.
