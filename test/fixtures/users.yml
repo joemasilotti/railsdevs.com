@@ -71,6 +71,26 @@ with_not_interested_search_status:
   email: not-interested-status@example.com
   confirmed_at: <%= DateTime.current %>
 
+with_junior_level:
+  email: junior-level@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_mid_level:
+  email: mid-level@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_senior_level:
+  email: senior-level@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_principal_level:
+  email: principal-level@example.com
+  confirmed_at: <%= DateTime.current %>
+
+with_c_type_level:
+  email: c-type-level@example.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>
