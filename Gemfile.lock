@@ -145,6 +145,8 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.10.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -442,6 +444,7 @@ DEPENDENCIES
   devise (~> 4.8.1)
   devise-i18n (~> 1.10.1)
   erb_lint!
+  faker
   fathom_api (~> 0.1.2)
   geocoder (~> 1.7.3)
   groupdate (~> 6.0.1)

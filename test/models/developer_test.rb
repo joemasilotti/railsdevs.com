@@ -209,4 +209,12 @@ class DeveloperTest < ActiveSupport::TestCase
     developer.available_on = Date.tomorrow
     refute developer.missing_fields?
   end
+
+  test "visible scope includes developers who are invisible and haven't set their search status" do
+    developers = Developer.visible
+    assert_includes developers, developers(:with_actively_looking_search_status)
+    assert_includes developers, developers(:with_open_search_status)
+    assert_includes developers, developers(:with_not_interested_search_status)
+    assert_includes developers, developers(:with_conversation) # Blank search status.
+  end
 end

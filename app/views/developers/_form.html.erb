@@ -159,6 +159,15 @@
                     <p class="text-gray-500"><%= t(".search_status.not_interested_help_text") %></p>
                   </div>
                 </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :search_status, :invisible, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :search_status, value: :invisible, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500"><%= t(".search_status.invisible_help_text") %></p>
+                  </div>
+                </div>
               </div>
             </fieldset>
 
