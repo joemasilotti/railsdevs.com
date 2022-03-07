@@ -4,7 +4,7 @@ class Feature
     when :new_developer_fields_banner
       true
     when :role_level_filters
-      true
+      Rails.env.development?
     end
   end
 end
