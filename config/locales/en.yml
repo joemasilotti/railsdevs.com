@@ -294,36 +294,82 @@ en:
     description: Information that is only visible with a business subscription.
     title: Private information
   pricing:
-    show:
+    cta:
+      cta: Get started
+      subtitle: Find your next Rails developer today.
+      title: Ready to start hiring?
+    faq:
+      annual:
+        a_html: Yes. Email the founder – that's me, Joe! – to set up annual billing at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        q: Can I pay annually or yearly?
+      cancellation:
+        a_html: Yes. You can cancel your subscription from the Billing link in the user drop-down. You will lose access to all paid features at the end of your billing period.
+        q: Can I cancel my subscription at any time?
+      developers:
+        a: No. railsdevs is free for developers.
+        q: Does railsdevs cost anything for developers?
+      features:
+        a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
+        q: So what does the fee get me?
+      fee:
+        a_html: You are required to pay railsdevs 10% of a developer's first year salary if you found them through railsdevs. This only applies to hiring full-time employees and not contract or freelance. Email the founder – that's me, Joe! – to coordinate payment at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        q: How does the 10% fee work for hiring a full-time developer?
+      subscription:
+        a: No. The monthly/annual fee grants you business access to railsdevs. You have to externally pay the developers for the work they do.
+        q: Does the monthly/annual fee include the developer rate, too?
+      support:
+        a_html: Email the founder – that's me, Joe! – with any questions. You can reach me at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        q: Who can I contact for more specific questions?
+      title: Frequently asked questions
+    features:
+      direct_communication:
+        description: Skip formal job postings and start messaging with candidates with one click.
+        title: Talk directly to developers
+      independent_developers:
+        description: Directly hire independent Rails developers instead of going through a firm or agency.
+        title: Support independent developers
+      notifications:
+        description: Daily or weekly email notifications of new developer profiles.
+        title: New candidate notifications
+      open_source:
+        description: The code that runs railsdevs is open source with 30+ contributors on GitHub.
+        title: Support OSS
+      profiles:
+        description: Hundreds of Ruby on Rails developers looking for freelance, contract, and full-time work.
+        title: Highly targeted profiles
+      subtitle: Message hundreds of Ruby on Rails developers with a railsdevs subscription. Save time by reaching out to the perfect candidates directly.
+      support:
+        description: Email the founder – that's me, Joe! – whenever you need help.
+        title: Support from the founder
+      title: Level up your hiring with railsdevs
+      unlock:
+        description: View hidden information, like the real names of developers and their portfolio links.
+        title: Unlock full profiles
+    plans:
       cta: Get started today
-      faq:
-        '1':
-          a: No. $99 a month grants you business access to railsdevs. You have to externally pay the developers for the work they do.
-          q: Does $99 a month include the developer rate, too?
-        '2':
-          a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
-          q: So what does $99 a month get me?
-        '3':
-          a: No. railsdevs is free for developers.
-          q: Does railsdevs cost anything for developers?
-        '4':
-          a_html: Email me, Joe, with any questions. You can reach me at <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
-          q: Who can I contact for more specific questions?
-        title: Frequently asked questions
-      feature:
-        '1': Browse highly targeted profiles.
-        '2': Support independent developers.
-        '3': Skip job descriptions and formal postings.
-        '4': Talk directly to candidates.
-        '5': Unlock private developer information.
-        '6': Receive email updates of new candidates.
-        '7': Cancel anytime with no obligations.
-        '8': Support open source development.
-        subtitle: Browse developer profiles who can start working ASAP or when you need help. Save time by reaching out to the perfect candidates.
-        title: Hire at your own pace
-      subtitle: Connect with independent, freelance Ruby on Rails developers who are available for work now.
-      title_1: Hire Rails developers for
-      title_2: "$99 a month"
+      features:
+        notifications: Email updates of new candidates
+        onboarding: Concierge onboarding service
+        priority_support: Priority email and video call support
+        profiles: Highly targeted developer profiles
+        support: Email support
+        white_glove: Hand-selected candidates every month
+      full_time:
+        fees: "+ 10% first year salary"
+        help: Help on full-time fees
+        subtitle_html: Hire <span class="font-bold">full-time</span> Ruby on Rails developers.
+        title: Hire full-time employees
+      month: month
+      monthly: Monthly billing
+      part_time:
+        fees: "+ $0 additional fees"
+        subtitle: Hire freelance or contract Ruby on Rails developers.
+        title: Hire freelancers and contractors
+      title: Pricing plans
+      yearly: Yearly billing
+    show:
+      description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
+      title: Hire Ruby on Rails developers
       title_og: Pricing
   pundit:
     errors:
