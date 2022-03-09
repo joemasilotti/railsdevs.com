@@ -21,7 +21,37 @@
           </div>
         </div>
         <div class="flex items-baseline space-x-8">
-          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block" id="desktop-work-preferences-filters">
+          <% if Feature.enabled?(:role_level_filters) %>
+            <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
+              <div>
+                <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
+                  <span><%= t(".role_level.title") %></span>
+                  <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500" %>
+                </button>
+              </div>
+
+              <div data-toggle-target="element" class="origin-top-right absolute right-0 mt-2 bg-white rounded-md shadow-2xl p-4 ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+                <div class="space-y-4">
+                  <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
+                    <div class="flex items-center">
+                      <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_level_selected?(b.object) %>
+                      <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                    </div>
+                  <% end %>
+                </div>
+
+                <div class="pt-5">
+                  <div class="flex justify-end">
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                      <%= t(".apply") %>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left" id="desktop-work-preferences-filters">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
                 <span><%= t(".work_preference.title") %></span>
@@ -33,7 +63,7 @@
               <div class="space-y-4">
                 <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
                   <div class="flex items-center">
-                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_selected?(b.object) %>
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_type_selected?(b.object) %>
                     <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
                   </div>
                 <% end %>
@@ -104,6 +134,30 @@
               </div>
               <%= form_with url: developers_path, method: :get, html: {class: "py-6"} do |form| %>
                 <%= form.hidden_field :sort, value: @query.sort if @query.sort %>
+                <% if Feature.enabled?(:role_level_filters) %>
+                  <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
+                    <h3 class="-mx-2 -my-3 flow-root">
+                      <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-1" aria-expanded="false">
+                        <span class="font-medium text-gray-900"><%= t(".role_level.title") %></span>
+                        <span class="ml-6 flex items-center">
+                        <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
+                      </span>
+                      </button>
+                    </h3>
+
+                    <div class="pt-6" id="filter-section-1" data-toggle-target="element">
+                      <div class="space-y-6">
+                        <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
+                          <div class="flex items-center">
+                            <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_timezones_#{b.object.first}", checked: role_level_selected?(b.object) %>
+                            <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_timezones_#{b.object.first}" %>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+
                 <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
                   <h3 class="-mx-2 -my-3 flow-root">
                     <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-0" aria-expanded="false">
@@ -118,7 +172,7 @@
                     <div class="space-y-6">
                       <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
                         <div class="flex items-center">
-                          <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_role_types_#{b.object.first}", checked: role_selected?(b.object) %>
+                          <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_role_types_#{b.object.first}", checked: role_type_selected?(b.object) %>
                           <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_role_types_#{b.object.first}" %>
                         </div>
                       <% end %>

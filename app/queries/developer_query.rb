@@ -10,11 +10,12 @@ class DeveloperQuery
     @sort = options.delete(:sort)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
+    @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, include_not_interested:}
+    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:}
   end
 
   def pagy
@@ -37,6 +38,10 @@ class DeveloperQuery
     @role_types.to_a.reject(&:blank?).map(&:to_sym)
   end
 
+  def role_levels
+    @role_levels.to_a.reject(&:blank?).map(&:to_sym)
+  end
+
   def include_not_interested
     ActiveModel::Type::Boolean.new.cast(@include_not_interested)
   end
@@ -48,6 +53,7 @@ class DeveloperQuery
     sort_records
     utc_offset_filter_records
     role_type_filter_records
+    role_level_filter_records
     search_status_filter_records
     @pagy, @records = build_pagy(@_records)
   end
@@ -68,6 +74,10 @@ class DeveloperQuery
 
   def role_type_filter_records
     @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
+  end
+
+  def role_level_filter_records
+    @_records.merge!(Developer.filter_by_role_levels(role_levels)) if role_levels.any?
   end
 
   def search_status_filter_records

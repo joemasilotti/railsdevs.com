@@ -82,3 +82,38 @@ with_not_interested_search_status:
   hero: A developer with not interested status
   bio: I am a developer with not interested search status.
   search_status: not_interested
+
+with_junior_role_level:
+  user: with_junior_level
+  name: Junior Developer
+  hero: A junior level developer
+  bio: I am a junior level developer.
+  search_status: open
+
+with_mid_role_level:
+  user: with_mid_level
+  name: Mid Developer
+  hero: A mid level developer
+  bio: I am a mid level developer.
+  search_status: open
+
+with_senior_role_level:
+  user: with_senior_level
+  name: Senior Developer
+  hero: A senior level developer
+  bio: I am a senior level developer.
+  search_status: open
+
+with_principal_role_level:
+  user: with_principal_level
+  name: Pricipal Developer
+  hero: A principal level developer
+  bio: I am a principal level developer.
+  search_status: open
+
+with_c_type_role_level:
+  user: with_c_type_level
+  name: C-level Developer
+  hero: A C-level developer
+  bio: I am a C-level developer.
+  search_status: open

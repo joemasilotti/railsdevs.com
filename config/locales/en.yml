@@ -136,6 +136,8 @@ en:
     close_menu: Close menu
     filters: Filters
     include_not_interested: Include developers not currently interested
+    role_level:
+      title: Role level
     sort:
       availability: Availability
       newest: Newest

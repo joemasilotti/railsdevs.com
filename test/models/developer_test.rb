@@ -145,11 +145,9 @@ class DeveloperTest < ActiveSupport::TestCase
     end
   end
 
-  test "updating a profile doesn't require search status nor time zone" do
+  test "updating a profile doesn't require search status" do
     developer = developers(:with_conversation)
     assert_nil developer.search_status
-    assert_nil developer.time_zone
-
     assert developer.valid?
   end
 

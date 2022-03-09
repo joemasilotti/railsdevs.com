@@ -68,6 +68,19 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
   end
 
+  test "developers can be filtered by role level" do
+    get developers_path(role_levels: ["junior", "mid", "senior"])
+
+    assert_select "input[checked][type=checkbox][value=junior][name='role_levels[]']"
+    assert_select "input[checked][type=checkbox][value=mid][name='role_levels[]']"
+    assert_select "input[checked][type=checkbox][value=senior][name='role_levels[]']"
+    assert_select "h2", developers(:with_junior_role_level).hero
+    assert_select "h2", developers(:with_mid_role_level).hero
+    assert_select "h2", developers(:with_senior_role_level).hero
+    assert_select "h2", text: developers(:with_principal_role_level).hero, count: 0
+    assert_select "h2", text: developers(:with_c_type_role_level).hero, count: 0
+  end
+
   test "developers not interested in work can be shown" do
     get developers_path(include_not_interested: true)
 

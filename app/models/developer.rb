@@ -35,6 +35,12 @@ class Developer < ApplicationRecord
     }.reduce(:or).joins(:role_type)
   end
 
+  scope :filter_by_role_levels, ->(role_levels) do
+    RoleLevel::TYPES.filter_map { |level|
+      where(role_level: {level => true}) if role_levels.include?(level)
+    }.reduce(:or).joins(:role_level)
+  end
+
   scope :filter_by_utc_offset, ->(utc_offset) do
     joins(:location).where(locations: {utc_offset:})
   end
