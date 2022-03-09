@@ -280,37 +280,6 @@ pt-BR:
   paywalled_component:
     description: Informações somente disponível com uma assinatura empresarial.
     title: Informação privada
-  pricing:
-    show:
-      cta: Comece hoje
-      faq:
-        '1':
-          a: Não. $99 por mês garante acesso empresarial ao railsdevs. Você também tem que pagar os desenvolvedores pelo trabalho que eles fazem.
-          q: "$99 por mês também inclui o valor do desenvolvedor?"
-        '2':
-          a: Uma assinatura empresarial lhe permite contactar desenvolvedores no railsdevs diretamente. Isso também libera informações escondidas do público, como nomes reais dos desenvolvedores e seus links.
-          q: Então o que $99 por mês incliu?
-        '3':
-          a: Não. railsdevs é grátis para desenvolvedores.
-          q: O railsdevs tem algum custo para os desenvolvedores?
-        '4':
-          a_html: Envie um e-mail para mim, Joe, com quaisquer perguntas. Você pode me encontrar em <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
-          q: Quem posso contactar para perguntas mais específicas?
-        title: Perguntas frequentes
-      feature:
-        '1': Busque perfis altamente segmentados.
-        '2': Apoie desenvolvedores independentes.
-        '3': Pule descrições de vagas e publicações formais.
-        '4': Converse diretamente com os candidatos.
-        '5': Desbloqueie informações privadas do desenvolvedor.
-        '6': Receba atualizações por e-mail de novos candidatos.
-        '7': Cancele a qualquer momento sem nenhuma obrigação.
-        '8': Apoie o desenvolvimento de código aberto.
-        subtitle: Busque perfis de desenvolvedores que podem iniciar trabalhos o mais rápido possível e quando você precisa de ajuda. Economize tempo contactando os candidatos perfeitos.
-        title: Contrate no seu ritmo
-      subtitle: Conecte com desenvolvedores Ruby on Rails independentes disponíveis agora para trabalhar.
-      title_1: Contrate desenvolvedores Rails por
-      title_2: "$99 por mês"
   pundit:
     errors:
       unauthorized: Você não tem acesso a isso.

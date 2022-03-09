@@ -335,9 +335,6 @@ en:
       notifications:
         description: Daily or weekly email notifications of new developer profiles.
         title: New candidate notifications
-      open_source:
-        description: The code that runs railsdevs is open source with 30+ contributors on GitHub.
-        title: Support OSS
       profiles:
         description: Hundreds of Ruby on Rails developers looking for freelance, contract, and full-time work.
         title: Highly targeted profiles
@@ -364,13 +361,11 @@ en:
         subtitle_html: Hire <span class="font-bold">full-time</span> Ruby on Rails developers.
         title: Hire full-time employees
       month: month
-      monthly: Monthly billing
       part_time:
         fees: "+ $0 additional fees"
         subtitle: Hire freelance or contract Ruby on Rails developers.
         title: Hire freelancers and contractors
       title: Pricing plans
-      yearly: Yearly billing
     show:
       description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
