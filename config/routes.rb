@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   end
 
   namespace :stripe do
-    resource :checkout, only: :show
+    resource :checkout, only: :create
     resource :portal, only: :show
   end
 

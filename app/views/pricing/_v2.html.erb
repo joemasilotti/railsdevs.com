@@ -1,0 +1,22 @@
+<%= open_graph_tags title: t(".title_og"), description: t(".description") %>
+
+<div class="bg-white">
+  <div class="relative max-w-2xl mx-auto py-24 px-4 sm:px-6 lg:max-w-5xl lg:px-8">
+    <div class="relative">
+      <h1 class="text-3xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl"><%= t(".title") %></h1>
+      <p class="mt-6 max-w-prose text-xl text-gray-500"><%= t(".description") %></p>
+    </div>
+  </div>
+
+  <%= render LegacyBusinessSubscriptionComponent.new(current_user) do %>
+    <%= render "banner" %>
+  <% end %>
+
+  <div class="space-y-24 lg:space-y-48 pb-12 lg:pb-24">
+    <%= render "plans" %>
+    <%= render "features" %>
+    <%= render "testimonial" %>
+    <%= render "faq" %>
+    <%= render "cta" %>
+  </div>
+</div>

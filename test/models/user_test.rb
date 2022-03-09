@@ -33,4 +33,16 @@ class UserTest < ActiveSupport::TestCase
     user.payment_processor.subscribe(plan: "fake")
     assert user.reload.active_business_subscription?
   end
+
+  test "active legacy business subscription" do
+    user = users(:with_business_conversation)
+    refute user.active_legacy_business_subscription?
+
+    user.set_payment_processor(:fake_processor, allow_fake: true)
+    subscription = user.payment_processor.subscribe(plan: "fake")
+    refute user.active_legacy_business_subscription?
+
+    subscription.update!(processor_plan: BusinessSubscription::Legacy.new.price_id)
+    assert user.reload.active_legacy_business_subscription?
+  end
 end

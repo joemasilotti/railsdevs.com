@@ -1,0 +1,88 @@
+<section class="relative" aria-labelledby="plans">
+  <h2 id="plans" class="sr-only"><%= t(".title") %></h2>
+
+  <!-- Tiers -->
+  <div class="max-w-2xl mx-auto pt-8 px-4 space-y-12 sm:px-6 lg:max-w-5xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+    <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+      <div class="flex-1">
+        <h3 class="text-xl font-semibold text-gray-900"><%= t(".part_time.title") %></h3>
+        <p class="mt-4 flex items-baseline text-gray-900">
+        <span class="text-5xl font-extrabold tracking-tight">$99</span>
+        <span class="ml-1 text-xl font-semibold">/<%= t(".month") %></span>
+        </p>
+        <p class="mt-2 text-gray-900 font-medium ml-1"><%= t(".part_time.fees") %></p>
+        <p class="mt-6 text-gray-500"><%= t(".part_time.subtitle") %></p>
+
+        <!-- Feature list -->
+        <ul role="list" class="mt-6 space-y-6">
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.profiles") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.notifications") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.support") %></span>
+          </li>
+        </ul>
+      </div>
+
+      <%= button_to t(".cta"), stripe_checkout_path(plan: :part_time), method: :post, data: {turbo: false}, class: "bg-gray-500 text-white hover:bg-gray-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium cursor-pointer" %>
+    </div>
+
+    <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+      <div class="flex-1">
+        <h3 class="text-xl font-semibold text-gray-900"><%= t(".full_time.title") %></h3>
+
+        <p class="mt-4 flex items-baseline text-gray-900">
+        <span class="text-5xl font-extrabold tracking-tight">$299</span>
+        <span class="ml-1 text-xl font-semibold">/<%= t(".month") %></span>
+        </p>
+        <div class="mt-2 relative text-gray-900 font-medium ml-1 flex items-center">
+          <p><%= t(".full_time.fees") %></p>
+
+          <a href="#full-time-fee" class="ml-1.5">
+            <%= inline_svg_tag "icons/solid/question_mark_circle.svg", class: "h-5 w-5 text-gray-500 hover:text-gray-700" %>
+            <span class="sr-only"><%= t(".full_time.help") %></span>
+          </a>
+        </div>
+        <p class="mt-6 text-gray-600"><%= t(".full_time.subtitle_html") %></p>
+
+        <!-- Feature list -->
+        <ul role="list" class="mt-6 space-y-6">
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.profiles") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.notifications") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.priority_support") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.onboarding") %></span>
+          </li>
+
+          <li class="flex">
+            <%= inline_svg_tag "icons/outline/check.svg", class: "flex-shrink-0 w-6 h-6 text-gray-500" %>
+            <span class="ml-3 text-gray-500"><%= t(".features.white_glove") %></span>
+          </li>
+        </ul>
+      </div>
+
+      <%= button_to t(".cta"), stripe_checkout_path(plan: :full_time), method: :post, data: {turbo: false}, class: "bg-gray-500 text-white hover:bg-gray-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium cursor-pointer" %>
+    </div>
+  </div>
+</section>

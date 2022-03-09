@@ -224,37 +224,6 @@ es:
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
-  pricing:
-    show:
-      cta: Empieza hoy mismo
-      faq:
-        '1':
-          a: No. Los $99 dólares al mes te da la licencia empresarial para railsdevs. Tienes que pagar externamente por el trabajo que hacen.
-          q: "¿Los $99 dólares al mes incluyen la tarifa del desarrollador?"
-        '2':
-          a: Una suscripción comercial te permite comunicarse directamente con los desarrolladores en railsdevs. También te revela información que está oculta al público en general, como los nombres reales de los desarrolladores y los links en su portafolio.
-          q: Entonces, ¿los $99 dólares al mes que me otorgan?
-        '3':
-          a: No. railsdevs es gratis para desarrolladores.
-          q: "¿Railsdevs cuesta algo para desarrolladores?"
-        '4':
-          a_html: Envíame un correo electrónico a mí, Joe, con cualquier pregunta que tengas. Me puedes encontrar en <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
-          q: "¿A quién puedo contactar para preguntas más específicas?"
-        title: Preguntas frecuentes
-      feature:
-        '1': Explora perfiles altamente específicos.
-        '2': Apoya a desarrolladores independientes.
-        '3': Evita descripciones de trabajo y publicaciones formales.
-        '4': Habla directamente con candidatos.
-        '5': Desbloquea la información privada del desarrollador.
-        '6': Contrata tanto o tan poco como necesites.
-        '7': Cancela cuando quieras, sin ningún compromiso.
-        '8': Apoya el desarrollo con código abierto.
-        subtitle: Busca perfiles de desarrolladores que pueden comenzar a trabajar de inmediato o cuando necesites ayuda. Ahorra tiempo contactando a los candidatos perfectos.
-        title: Contrata a tu propio ritmo
-      subtitle: Conecta con desarrolladfores independientes de Ruby on Rails que estén disponibles a trabajar ahora.
-      title_1: Contrata a desarrolladores de Ruby on Rails por
-      title_2: "$99 dólares al mes"
   pundit:
     errors:
       unauthorized: No tienes permiso para eso.

@@ -25,6 +25,13 @@ class User < ApplicationRecord
   end
 
   def active_business_subscription?
-    subscriptions.any?(&:active?)
+    subscriptions.active.any?
+  end
+
+  def active_legacy_business_subscription?
+    subscriptions
+      .active
+      .where(processor_plan: BusinessSubscription::Legacy.new.price_id)
+      .any?
   end
 end

@@ -8,49 +8,48 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     user = users(:with_business)
     stub_pay(user) do
       assert_difference "Pay::Customer.count", 1 do
-        BusinessSubscriptionCheckout.new(user).url
+        BusinessSubscriptionCheckout.new(user:).url
       end
     end
     assert_equal Pay::Customer.last.owner, user
     assert Pay::Customer.last.stripe?
   end
 
-  test "redirects to sending a developer message if a developer is given" do
+  test "redirects to the success URL" do
     user = users(:with_business)
-    developer = developers(:available)
+    success_path = "/developers/42"
 
     stub_pay(user) do
       assert_difference "Analytics::Event.count", 1 do
-        BusinessSubscriptionCheckout.new(user, developer:).url
+        BusinessSubscriptionCheckout.new(user:, success_path:).url
       end
-      assert_equal Analytics::Event.last.url, new_developer_message_path(developer)
+      assert_equal Analytics::Event.last.url, success_path
     end
   end
 
-  test "redirects to conversations if the user has a business profile" do
+  test "charges the price for the part-time, full-time, or legacy plan" do
     user = users(:with_business)
-    stub_pay(user) do
-      assert_difference "Analytics::Event.count", 1 do
-        BusinessSubscriptionCheckout.new(user).url
-      end
-      assert_equal Analytics::Event.last.url, conversations_path
-    end
-  end
 
-  test "redirects to adding a business profile if the user doesn't have one" do
-    user = users(:empty)
-    stub_pay(user) do
-      assert_difference "Analytics::Event.count", 1 do
-        BusinessSubscriptionCheckout.new(user).url
-      end
-      assert_equal Analytics::Event.last.url, new_business_path
+    part_time_price_id = Rails.application.credentials.stripe[:price_ids][:part_time_plan]
+    stub_pay(user, plan_price_id: part_time_price_id) do
+      BusinessSubscriptionCheckout.new(user:, plan: "part_time").url
+    end
+
+    full_time_price_id = Rails.application.credentials.stripe[:price_ids][:full_time_plan]
+    stub_pay(user, plan_price_id: full_time_price_id) do
+      BusinessSubscriptionCheckout.new(user:, plan: "full_time").url
+    end
+
+    legacy_price_id = Rails.application.credentials.stripe[:price_ids][:legacy_plan]
+    stub_pay(user, plan_price_id: legacy_price_id) do
+      BusinessSubscriptionCheckout.new(user:, plan: "legacy").url
     end
   end
 
   test "returns a Stripe Checkout URL" do
     user = users(:with_business)
     stub_pay(user) do
-      url = BusinessSubscriptionCheckout.new(user).url
+      url = BusinessSubscriptionCheckout.new(user:).url
       assert_equal url, "checkout.stripe.com"
     end
   end

@@ -25,11 +25,14 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "must have an active business subscription" do
     sign_in businesses(:one).user
-    stub_pay(businesses(:one).user) do
-      get new_developer_message_path(@developer)
-      assert_redirected_to "checkout.stripe.com"
-      assert_equal Analytics::Event.last.url, new_developer_message_path(@developer)
-    end
+    get new_developer_message_path(@developer)
+    assert_redirected_to pricing_path
+  end
+
+  test "stores the location if no active business subscription" do
+    sign_in businesses(:one).user
+    get new_developer_message_path(@developer)
+    assert_equal session["user_return_to"], new_developer_message_path(@developer)
   end
 
   test "a business can start a new conversation" do
