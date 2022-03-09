@@ -27,7 +27,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     end
   end
 
-  test "charges the price for the part-time or full-time plan" do
+  test "charges the price for the part-time, full-time, or legacy plan" do
     user = users(:with_business)
 
     part_time_price_id = Rails.application.credentials.stripe[:price_ids][:part_time_plan]
@@ -38,6 +38,11 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     full_time_price_id = Rails.application.credentials.stripe[:price_ids][:full_time_plan]
     stub_pay(user, plan_price_id: full_time_price_id) do
       BusinessSubscriptionCheckout.new(user:, plan: "full_time").url
+    end
+
+    legacy_price_id = Rails.application.credentials.stripe[:price_ids][:legacy_plan]
+    stub_pay(user, plan_price_id: legacy_price_id) do
+      BusinessSubscriptionCheckout.new(user:, plan: "legacy").url
     end
   end
 

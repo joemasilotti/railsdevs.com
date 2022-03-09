@@ -9,7 +9,7 @@
       </h1>
       <p class="mt-5 text-xl text-gray-500"><%= t(".subtitle") %></p>
     </div>
-    <%= button_to t(".cta"), stripe_checkout_path, method: :post, data: {turbo: false}, rel: "nofollow", class: "mt-8 w-full bg-gray-600 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 sm:mt-10 sm:w-auto xl:mt-0 cursor-pointer" %>
+    <%= button_to t(".cta"), stripe_checkout_path(plan: :legacy), method: :post, data: {turbo: false}, rel: "nofollow", class: "mt-8 w-full bg-gray-600 border border-transparent rounded-md py-3 px-5 inline-flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 sm:mt-10 sm:w-auto xl:mt-0 cursor-pointer" %>
   </div>
 
   <section class="border-t border-gray-200 pt-16 xl:grid xl:grid-cols-3 xl:gap-x-8">
