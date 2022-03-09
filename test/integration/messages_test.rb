@@ -54,7 +54,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a business without an active subscription can no longer continue the conversation" do
-    pay_subscriptions(:two).update!(status: :incomplete)
+    pay_subscriptions(:two).update!(ends_at: Date.yesterday)
     sign_in @business.user
 
     assert_no_difference "Message.count" do

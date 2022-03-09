@@ -6,4 +6,8 @@ module BusinessSubscription
       PartTime.new
     end
   end
+
+  def self.price_ids
+    Rails.application.credentials.stripe[:price_ids]
+  end
 end

@@ -8,6 +8,10 @@
     </div>
   </div>
 
+  <%= render LegacyBusinessSubscriptionComponent.new(current_user) do %>
+    <%= render "banner" %>
+  <% end %>
+
   <div class="space-y-24 lg:space-y-48 pb-12 lg:pb-24">
     <%= render "plans" %>
     <%= render "features" %>

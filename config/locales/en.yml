@@ -300,6 +300,8 @@ en:
     description: Information that is only visible with a business subscription.
     title: Private information
   pricing:
+    banner:
+      title: You are subscribed to a legacy plan that is not listed on this page. Your price and features have not changed.
     cta:
       cta: Get started
       subtitle: Find your next Rails developer today.
