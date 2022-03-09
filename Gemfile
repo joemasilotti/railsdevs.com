@@ -37,6 +37,7 @@ group :test do
   gem "minitest-reporters-pride_reporter", "~> 0.0.2", require: false
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "webmock"
 end
 
 gem "auto_html", "~> 2.1"

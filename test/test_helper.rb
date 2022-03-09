@@ -6,6 +6,7 @@ require "rails/test_help"
 require "capybara"
 require "minitest/reporters"
 require "minitest/reporters/pride_reporter"
+require "webmock/minitest"
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
