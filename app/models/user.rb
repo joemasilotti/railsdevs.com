@@ -31,7 +31,7 @@ class User < ApplicationRecord
   def active_legacy_business_subscription?
     subscriptions
       .active
-      .where(processor_id: BusinessSubscription::Legacy.new.price_id)
+      .where(processor_plan: BusinessSubscription::Legacy.new.price_id)
       .any?
   end
 end
