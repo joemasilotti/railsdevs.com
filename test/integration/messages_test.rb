@@ -57,13 +57,10 @@ class MessagesTest < ActionDispatch::IntegrationTest
     pay_subscriptions(:two).update!(status: :incomplete)
     sign_in @business.user
 
-    stub_pay(@business.user) do
-      assert_no_difference "Message.count" do
-        post conversation_messages_path(@conversation), params: message_params
-      end
-      assert_redirected_to "checkout.stripe.com"
-      assert_equal Analytics::Event.last.url, new_developer_message_path(@developer)
+    assert_no_difference "Message.count" do
+      post conversation_messages_path(@conversation), params: message_params
     end
+    assert_redirected_to pricing_path
   end
 
   test "no one else can contribute to the conversation" do

@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.active_business_subscription?
-      redirect_to BusinessSubscriptionCheckout.new(current_user, developer:).url
+      redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
     end
   end
 
