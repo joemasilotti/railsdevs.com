@@ -22,7 +22,7 @@ module PayHelper
     private
 
     def part_time_plan_price_id
-      Rails.application.credentials.stripe.dig(:price_ids, :part_time_plan)
+      Rails.application.credentials.stripe[:price_ids][:part_time_plan]
     end
   end
 end

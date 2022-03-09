@@ -1,6 +1,5 @@
 module BusinessSubscription
   def self.new(plan)
-    plan = plan.to_s.to_sym
     case plan.to_s.to_sym
     when :full_time then FullTime.new
     when :legacy then Legacy.new
