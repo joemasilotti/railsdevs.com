@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_25_172150) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_09_070740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,8 +91,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_25_172150) do
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
-    t.string "time_zone"
-    t.integer "utc_offset"
   end
 
   create_table "locations", force: :cascade do |t|

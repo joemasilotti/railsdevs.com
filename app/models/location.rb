@@ -3,7 +3,7 @@ class Location < ApplicationRecord
 
   validates :time_zone, presence: true
   validates :utc_offset, presence: true
-  validate :valid_coordinates, unless: -> { validation_context == :backfill }
+  validate :valid_coordinates
 
   before_validation :geocode,
     if: ->(location) do

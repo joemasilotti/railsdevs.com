@@ -36,7 +36,7 @@ class LocationTest < ActiveSupport::TestCase
     assert_equal location.city, "Portland Proper"
   end
 
-  test "coordinates are validated unless we are backfilling" do
+  test "coordinates are validated" do
     stub_geocoder("Portlandia")
     location = create_location!(city: "Portlandia")
 
@@ -44,7 +44,6 @@ class LocationTest < ActiveSupport::TestCase
     location.longitude = nil
 
     refute location.valid?
-    assert location.valid?(:backfill)
   end
 
   test "unknown geocoding results invalidates the object" do
