@@ -362,7 +362,7 @@ en:
       full_time:
         fees: "+ 10% first year salary"
         help: Help on full-time fees
-        subtitle_html: Hire <span class="font-bold">full-time</span> Ruby on Rails developers.
+        subtitle_html: Hire freelance, contract, and <span class="font-bold">full-time</span> developers.
         title: Hire full-time employees
       month: month
       part_time:
