@@ -25,7 +25,7 @@
   </ul>
 
   <div class="mt-16 max-w-prose w-full mx-auto">
-    <%= render ExpiredSubscriptionComponent.new(current_user) do %>
+    <%= render ExpiredSubscriptionComponent.new(current_user, business: @conversation.business) do %>
       <%= form_with model: [@conversation, @message], data: {turbo: false}, class: "relative" do |form| %>
         <%= render "messages/form", form: form %>
       <% end %>
