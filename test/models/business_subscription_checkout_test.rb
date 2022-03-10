@@ -36,12 +36,12 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     end
 
     full_time_price_id = Rails.application.credentials.stripe[:price_ids][:full_time_plan]
-    stub_pay(user, plan_price_id: full_time_price_id) do
+    stub_pay(user, plan_price_id: full_time_price_id, pay_name: "full_time") do
       BusinessSubscriptionCheckout.new(user:, plan: "full_time").url
     end
 
     legacy_price_id = Rails.application.credentials.stripe[:price_ids][:legacy_plan]
-    stub_pay(user, plan_price_id: legacy_price_id) do
+    stub_pay(user, plan_price_id: legacy_price_id, pay_name: "legacy") do
       BusinessSubscriptionCheckout.new(user:, plan: "legacy").url
     end
   end
