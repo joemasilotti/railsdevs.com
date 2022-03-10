@@ -11,6 +11,14 @@ GIT
       rubocop
       smart_properties
 
+GIT
+  remote: https://github.com/pay-rails/pay.git
+  revision: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
+  ref: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
+  specs:
+    pay (3.0.24)
+      rails (>= 6.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -295,8 +303,6 @@ GEM
     parallel (1.21.0)
     parser (3.1.0.0)
       ast (~> 2.4.1)
-    pay (3.0.24)
-      rails (>= 6.0.0)
     pg (1.2.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -468,7 +474,7 @@ DEPENDENCIES
   minitest-reporters-pride_reporter (~> 0.0.2)
   noticed (~> 1.4)
   pagy (~> 5.2)
-  pay (~> 3.0)
+  pay!
   pg (~> 1.1)
   pry-rails
   puma (~> 5.6)
