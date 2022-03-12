@@ -8,7 +8,7 @@ class ReadNotificationsController < ApplicationController
   end
 
   def create
-    current_user.notifications.unread.each(&:mark_as_read!)
+    current_user.notifications.unread.mark_as_read!
 
     redirect_to notifications_path, notice: t(".notice")
   end
