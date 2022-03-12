@@ -1,6 +1,9 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <% if @notifications.any? %>
     <h1 class="mt-6 text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
+    <div class="text-center">
+      <%= button_to t(".mark_all_as_read"), read_notifications_path, class: "py-2 px-3 border border-gray-300 rounded-md bg-white cursor-pointer shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+    </div>
     <%= render PagyPaginatorComponent.new(id: "notifications", pagy: @pagy, url_array: [:notifications]) do |component| %>
       <% component.loading_icon do %>
         <%= render LoadingComponent.new %>
