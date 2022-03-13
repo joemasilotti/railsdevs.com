@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.0"
 
-gem "rails", "~> 7.0"
+gem "rails", "~> 7.0.2.3"
 
 gem "cssbundling-rails", "~> 1.0"
 gem "hotwire-rails", "~> 0.1"
@@ -13,9 +13,10 @@ gem "puma", "~> 5.6"
 gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
 gem "turbo-rails", "~> 1.0"
-gem "view_component", "~> 2.46"
+gem "view_component", "~> 2.49"
 
 group :development, :test do
+  gem "faker"
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
@@ -36,6 +37,7 @@ group :test do
   gem "minitest-reporters-pride_reporter", "~> 0.0.2", require: false
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "webmock"
 end
 
 gem "auto_html", "~> 2.1"
@@ -51,7 +53,7 @@ gem "inline_svg", "~> 1.7"
 gem "mailgun-ruby", "~> 1.2"
 gem "noticed", "~> 1.4"
 gem "pagy", "~> 5.2"
-gem "pay", "~> 3.0"
+gem "pay", github: "pay-rails/pay", ref: "4f4a726051bed3f88f6f74541cc2cdd8b600afb0"
 gem "pundit", "~> 2.1"
 gem "rails-i18n", "~> 7.0"
 gem "redcarpet", "~> 3.5"

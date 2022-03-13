@@ -36,6 +36,17 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_selector "input[checked][type=checkbox][name='role_types[]'][value=full_time_contract]"
   end
 
+  test "checks selected role levels" do
+    query = DeveloperQuery.new(role_levels: ["junior", "mid", "senior"])
+    render_inline DeveloperQueryComponent.new(query)
+
+    assert_selector "input[checked][type=checkbox][name='role_levels[]'][value=junior]"
+    assert_selector "input[checked][type=checkbox][name='role_levels[]'][value=mid]"
+    assert_selector "input[checked][type=checkbox][name='role_levels[]'][value=senior]"
+    assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=principal]"
+    assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
+  end
+
   test "checks option to include developers who aren't interested" do
     query = DeveloperQuery.new(include_not_interested: true)
     render_inline DeveloperQueryComponent.new(query)

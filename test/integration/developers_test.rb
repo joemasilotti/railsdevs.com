@@ -1,16 +1,35 @@
 require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
+  include MetaTagsHelper
   include PagyHelper
 
-  test "can view developer profiles" do
-    one = developers :available
-    two = developers :unavailable
-
+  test "can view visible developer profiles" do
     get developers_path
 
-    assert_select "h2", one.hero
-    assert_select "h2", two.hero
+    assert_select "h2", developers(:available).hero
+    assert_select "h2", developers(:unavailable).hero
+    assert_select "h2", text: developers(:invisible).hero, count: 0
+  end
+
+  test "custom meta tags are rendered" do
+    get developers_path
+    assert_title_contains "Hire Ruby on Rails developers"
+    assert_description_contains "looking for their"
+  end
+
+  test "can't view developer with invisible profile" do
+    dev = developers(:invisible)
+    get developer_path(dev)
+    assert_redirected_to root_path
+  end
+
+  test "can see own developer profile when invisible" do
+    sign_in users(:with_invisible_profile)
+    one = developers :invisible
+
+    get developer_path(one)
+    assert_response :ok
   end
 
   test "developers are sorted newest first" do
@@ -49,6 +68,19 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_full_time_employment).hero, count: 0
   end
 
+  test "developers can be filtered by role level" do
+    get developers_path(role_levels: ["junior", "mid", "senior"])
+
+    assert_select "input[checked][type=checkbox][value=junior][name='role_levels[]']"
+    assert_select "input[checked][type=checkbox][value=mid][name='role_levels[]']"
+    assert_select "input[checked][type=checkbox][value=senior][name='role_levels[]']"
+    assert_select "h2", developers(:with_junior_role_level).hero
+    assert_select "h2", developers(:with_mid_role_level).hero
+    assert_select "h2", developers(:with_senior_role_level).hero
+    assert_select "h2", text: developers(:with_principal_role_level).hero, count: 0
+    assert_select "h2", text: developers(:with_c_type_role_level).hero, count: 0
+  end
+
   test "developers not interested in work can be shown" do
     get developers_path(include_not_interested: true)
 
@@ -59,12 +91,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "paginating filtered developers respects the filters" do
     with_pagy_default_items(1) do
       get developers_path(sort: :availability)
-      assert_select "h2", count: 1
+      assert_select "#developers h2", count: 1
+      assert_select "#mobile-filters h2", count: 1
       assert_select "a[href=?]", "/developers?sort=availability&page=2"
     end
   end
 
-  test "cannot create new proflie if already has one" do
+  test "cannot create new profile if already has one" do
     sign_in users(:with_available_profile)
 
     assert_no_difference "Developer.count" do
@@ -98,11 +131,22 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_difference "Developer.count", 1 do
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
+      params[:developer][:role_level_attributes] = {senior: true}
       post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?
+    assert user.developer.role_level.senior?
     assert user.developer.avatar.attached?
+  end
+
+  test "custom develper meta tags are rendered" do
+    developer = developers(:available)
+
+    get developer_path(developer)
+
+    assert_title_contains developer.hero
+    assert_description_contains developer.bio
   end
 
   test "edit with nested attributes" do
@@ -113,11 +157,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       developer: {
         role_type_attributes: {
           part_time_contract: true
+        },
+        role_level_attributes: {
+          junior: true,
+          mid: true
         }
       }
     }
 
     assert user.developer.reload.role_type.part_time_contract?
+    assert user.developer.reload.role_level.junior?
+    assert user.developer.reload.role_level.mid?
   end
 
   test "successful edit to profile" do

@@ -25,6 +25,11 @@ class User < ApplicationRecord
   end
 
   def active_business_subscription?
-    subscriptions.any?(&:active?)
+    subscriptions.active.any?
+  end
+
+  def active_legacy_business_subscription?
+    legacy_plan = BusinessSubscription::Legacy.new
+    subscriptions.for_name(legacy_plan.name).active.any?
   end
 end

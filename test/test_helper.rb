@@ -6,11 +6,17 @@ require "rails/test_help"
 require "capybara"
 require "minitest/reporters"
 require "minitest/reporters/pride_reporter"
+require "webmock/minitest"
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
 options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count: 5} : {}
 Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
+
+WebMock.disable_net_connect!({
+  allow_localhost: true,
+  allow: "chromedriver.storage.googleapis.com"
+})
 
 class ActiveSupport::TestCase
   include GeocoderHelper

@@ -54,7 +54,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
 
   test "businesses without an active subscription don't receive emails, even if subscribed" do
     create_developers
-    businesses(:two).user.payment_processor.destroy
+    businesses(:two).user.subscriptions.update_all(ends_at: Date.yesterday)
 
     assert_no_emails do
       EmailDigests::NewDevelopers.new.send_daily_digest

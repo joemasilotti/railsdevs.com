@@ -3,12 +3,20 @@ class Location < ApplicationRecord
 
   validates :time_zone, presence: true
   validates :utc_offset, presence: true
-  validate :valid_coordinates, unless: -> { validation_context == :backfill }
+  validate :valid_coordinates
 
-  before_validation :geocode, if: ->(location) do
-    location.will_save_change_to_city? ||
-      location.will_save_change_to_state? ||
-      location.will_save_change_to_country?
+  before_validation :geocode,
+    if: ->(location) do
+      location.will_save_change_to_city? ||
+        location.will_save_change_to_state? ||
+        location.will_save_change_to_country?
+    end,
+    unless: ->(location) do
+      location.new_record? && latitude.present? && longitude.present?
+    end
+
+  def missing_fields?
+    country.blank?
   end
 
   private

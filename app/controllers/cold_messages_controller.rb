@@ -32,7 +32,8 @@ class ColdMessagesController < ApplicationController
 
   def require_active_subscription!
     unless current_user.active_business_subscription?
-      redirect_to BusinessSubscriptionCheckout.new(current_user, developer:).url
+      store_location!
+      redirect_to pricing_path
     end
   end
 

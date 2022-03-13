@@ -1,6 +1,6 @@
 one:
   customer: one
-  name: default
+  name: legacy
   processor_id: sub_1
   processor_plan: default
   quantity: 1
@@ -8,7 +8,7 @@ one:
 
 two:
   customer: two
-  name: default
+  name: part_time
   processor_id: sub_2
   processor_plan: default
   quantity: 1

@@ -1,6 +1,4 @@
-<% content_for :open_graph_tags do %>
-  <%= render OpenGraphTagsComponent.new(title: t(".title"), description: t(".description")) %>
-<% end %>
+<%= open_graph_tags title: t(".title_og"), description: t(".description", developers_count: @developers_count) %>
 
 <div class="bg-white max-w-5xl mx-auto lg:mt-16 mb-16 shadow overflow-auto sm:rounded-md">
   <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">
@@ -9,12 +7,7 @@
       <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
     </div>
 
-    <div class="mt-4 flex space-x-3 md:mt-0">
-      <%= link_to new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-        <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
-        <%= t(".cta") %>
-      <% end %>
-    </div>
+    <%= render DeveloperProfileActionComponent.new(current_user) %>
   </div>
 
   <%= render DeveloperQueryComponent.new(@query) %>
