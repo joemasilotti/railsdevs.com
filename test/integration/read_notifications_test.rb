@@ -26,4 +26,22 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
     assert_select "h1", "Read notifications"
   end
+
+  test "you can read all unread notifications" do
+    user = users(:with_business)
+    developer = developers(:available)
+    sign_in user
+    conversation = Conversation.create!(developer:, business: user.business)
+    ["Hello!", "Available", "Let's talk"].each do |text|
+      Message.create!(conversation:, sender: developer, body: text)
+    end
+    notifications = user.notifications.unread
+    assert_equal 3, notifications.size
+
+    post read_notifications_path
+
+    assert_redirected_to notifications_path
+    assert notifications.all?(&:read?)
+    assert_equal 0, user.notifications.unread.size
+  end
 end

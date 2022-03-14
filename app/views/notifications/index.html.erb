@@ -1,6 +1,16 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <% if @notifications.any? %>
-    <h1 class="mt-6 text-center text-3xl font-extrabold mb-5"><%= t(".title") %></h1>
+    <div class="w-full max-w-xl mx-auto mt-6">
+      <div class="flex items-center justify-between space-x-4">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900"><%= t(".title") %></h1>
+        </div>
+        <div class="flex space-x-3">
+          <%= button_to t(".mark_all_as_read"), read_notifications_path, class: "inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer" %>
+        </div>
+      </div>
+    </div>
+
     <%= render PagyPaginatorComponent.new(id: "notifications", pagy: @pagy, url_array: [:notifications]) do |component| %>
       <% component.loading_icon do %>
         <%= render LoadingComponent.new %>

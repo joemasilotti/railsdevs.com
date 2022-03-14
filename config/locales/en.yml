@@ -248,6 +248,7 @@ en:
       empty_state:
         body: You have no unread notifications.
         title: No new notifications
+      mark_all_as_read: Mark all as read
       title: New notifications
     new_business: "%{business} added their business."
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
@@ -409,6 +410,8 @@ en:
     errors:
       unauthorized: You don't have access to that.
   read_notifications:
+    create:
+      notice: All notifications marked as read.
     empty_state:
       body: You have no read notifications.
       title: No read notifications
