@@ -411,7 +411,7 @@ en:
       unauthorized: You don't have access to that.
   read_notifications:
     create:
-      notice: Notifications marked as read
+      notice: All notifications marked as read.
     empty_state:
       body: You have no read notifications.
       title: No read notifications
