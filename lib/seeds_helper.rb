@@ -50,7 +50,7 @@ module SeedsHelper
     end
 
     def attach_avatar(record)
-      url = Faker::Avatar.image(size: "200x200")
+      url = Faker::Avatar.image(slug: record.name.parameterize.first(8), size: "200x200")
       uri = URI.parse(url)
       filename = File.basename(uri.path)
       file = uri.open
