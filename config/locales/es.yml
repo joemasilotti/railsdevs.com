@@ -184,11 +184,12 @@ es:
       content_type_invalid: formato de la imagén no soprotado
       max_file_size_invalid: imagén superior a %{size}
   home:
-    show:
+    developers:
       available_developers: Desarrolladores disponibles ahora
+      more: Ver más desarrolladores
+    hero:
       get_started: Empezar
       learn_more: Aprender más
-      more: Ver más desarrolladores
       subtitle_1: railsdevs
       subtitle_2: empodera a los desarrolladores independientes disponibles para su próximo trabajo.
       subtitle_3: Deja de buscar en las bolsas de trabajo y relájate mientras las empresas se comunican contigo.
