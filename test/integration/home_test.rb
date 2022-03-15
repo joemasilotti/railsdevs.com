@@ -11,7 +11,7 @@ class HomeTest < ActionDispatch::IntegrationTest
   test "custom meta tags are rendered" do
     get root_path
 
-    assert_title_contains I18n.t("home.show.title_og")
-    assert_description_contains I18n.t("home.show.description_og")
+    assert_title_contains I18n.t("home.show.title")
+    assert_description_contains I18n.t("home.show.description")
   end
 end
