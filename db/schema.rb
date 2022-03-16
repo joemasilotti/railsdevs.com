@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_09_070740) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,13 +84,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_070740) do
     t.string "twitter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "linkedin"
     t.integer "search_status"
     t.integer "preferred_min_hourly_rate"
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
+    t.index ["user_id"], name: "index_developers_on_user_id"
   end
 
   create_table "locations", force: :cascade do |t|
