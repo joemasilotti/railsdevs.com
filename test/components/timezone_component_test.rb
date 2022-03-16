@@ -11,13 +11,16 @@ class TimeZoneComponentTest < ViewComponent::TestCase
 
   test "it renders the human readable time zone" do
     render(time_zone: "America/Los_Angeles", utc_offset: PACIFIC_UTC_OFFSET)
-    assert_selector("span", text: "Pacific Time (US & Canada) (GMT-8)")
+    assert_text "Pacific Time (US & Canada)"
+    assert_text "GMT-8"
 
     render(time_zone: "Europe/Paris", utc_offset: 3600)
-    assert_selector("span", text: "Paris (GMT+1)")
+    assert_text "Paris"
+    assert_text "GMT+1"
 
     render(time_zone: "Asia/Kolkata", utc_offset: 19800)
-    assert_selector("span", text: "Chennai (GMT+5.5)")
+    assert_text "Chennai"
+    assert_text "GMT+5.5"
   end
 
   def render(time_zone:, utc_offset:)
