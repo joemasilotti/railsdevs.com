@@ -7,7 +7,7 @@ module Stripe
         user: current_user,
         plan: params[:plan],
         success_path: stored_location_for(:user)
-      ).url
+      ).url, allow_other_host: true
     end
   end
 end

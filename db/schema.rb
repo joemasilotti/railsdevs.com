@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -31,8 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", precision: 6, null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -55,8 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.bigint "user_id"
     t.string "name", null: false
     t.string "company", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "bio", null: false
     t.integer "developer_notifications", default: 0, null: false
     t.index ["user_id"], name: "index_businesses_on_user_id"
@@ -65,10 +65,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
   create_table "conversations", force: :cascade do |t|
     t.bigint "developer_id"
     t.bigint "business_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "developer_blocked_at", precision: 6
-    t.datetime "business_blocked_at", precision: 6
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "developer_blocked_at"
+    t.datetime "business_blocked_at"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
   end
@@ -82,8 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "website"
     t.string "github"
     t.string "twitter"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "linkedin"
     t.integer "search_status"
@@ -115,8 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "sender_type"
     t.bigint "sender_id"
     t.text "body", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "body_html", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["sender_type", "sender_id"], name: "index_messages_on_sender"
@@ -127,9 +127,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.bigint "recipient_id", null: false
     t.string "type", null: false
     t.jsonb "params"
-    t.datetime "read_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
@@ -139,8 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "description", null: false
     t.string "url"
     t.decimal "amount", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "open_startup_expenses", force: :cascade do |t|
@@ -148,15 +148,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "description", null: false
     t.string "url"
     t.decimal "amount", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "open_startup_metrics", force: :cascade do |t|
     t.date "occurred_on", null: false
     t.jsonb "data", default: {}, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "open_startup_monthly_balances", force: :cascade do |t|
@@ -164,27 +164,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.decimal "revenue", null: false
     t.decimal "expenses", null: false
     t.decimal "contributions", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "open_startup_revenue", force: :cascade do |t|
     t.date "occurred_on", null: false
     t.string "description", null: false
     t.decimal "amount", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "open_startup_stripe_transactions", force: :cascade do |t|
     t.string "stripe_id", null: false
     t.decimal "amount", null: false
-    t.datetime "created", precision: 6, null: false
+    t.datetime "created", null: false
     t.string "description", null: false
     t.decimal "fee", null: false
     t.string "transaction_type", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["stripe_id"], name: "index_open_startup_stripe_transactions_on_stripe_id"
     t.index ["transaction_type"], name: "index_open_startup_stripe_transactions_on_transaction_type"
   end
@@ -195,8 +195,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "url"
     t.decimal "amount", null: false
     t.integer "transaction_type", default: 1, null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pay_charges", force: :cascade do |t|
@@ -209,8 +209,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.integer "amount_refunded"
     t.jsonb "metadata"
     t.jsonb "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id", "processor_id"], name: "index_pay_charges_on_customer_id_and_processor_id", unique: true
     t.index ["subscription_id"], name: "index_pay_charges_on_subscription_id"
   end
@@ -222,9 +222,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at", precision: 6
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
     t.index ["processor", "processor_id"], name: "index_pay_customers_on_processor_and_processor_id", unique: true
   end
@@ -236,8 +236,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "processor"], name: "index_pay_merchants_on_owner_type_and_owner_id_and_processor"
   end
 
@@ -247,8 +247,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.boolean "default"
     t.string "type"
     t.jsonb "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id", "processor_id"], name: "index_pay_payment_methods_on_customer_id_and_processor_id", unique: true
   end
 
@@ -259,13 +259,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at", precision: 6
-    t.datetime "ends_at", precision: 6
+    t.datetime "trial_ends_at"
+    t.datetime "ends_at"
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["customer_id", "processor_id"], name: "index_pay_subscriptions_on_customer_id_and_processor_id", unique: true
   end
 
@@ -273,8 +273,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "processor"
     t.string "event_type"
     t.jsonb "event"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "role_levels", force: :cascade do |t|
@@ -284,8 +284,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.boolean "senior"
     t.boolean "principal"
     t.boolean "c_level"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_role_levels_on_developer_id", unique: true
   end
 
@@ -294,8 +294,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.boolean "part_time_contract"
     t.boolean "full_time_contract"
     t.boolean "full_time_employment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_role_types_on_developer_id", unique: true
   end
 
@@ -303,14 +303,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_15_031550) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at", precision: 6
-    t.datetime "remember_created_at", precision: 6
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.string "confirmation_token"
-    t.datetime "confirmed_at", precision: 6
-    t.datetime "confirmation_sent_at", precision: 6
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
