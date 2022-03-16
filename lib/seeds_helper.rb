@@ -50,11 +50,11 @@ module SeedsHelper
     end
 
     def attach_avatar(record)
-      url = Faker::Avatar.image(slug: record.name.parameterize.first(8), size: "200x200")
+      name = record.name.parameterize
+      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name}"
       uri = URI.parse(url)
-      filename = File.basename(uri.path)
       file = uri.open
-      record.avatar.attach(io: file, filename:)
+      record.avatar.attach(io: file, filename: "avatar.png")
     end
 
     def location_seeds
