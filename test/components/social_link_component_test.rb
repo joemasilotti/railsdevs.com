@@ -3,7 +3,7 @@ require "test_helper"
 class SocialLinkComponentTest < ViewComponent::TestCase
   test "doesn't render if no handle" do
     render_inline SocialLinkComponent.new(nil, :github)
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "github" do

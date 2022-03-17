@@ -4,7 +4,7 @@ class RoleTypeComponentTest < ViewComponent::TestCase
   test "doesn't render with no role types selected" do
     role_type = role_types(:none)
     render_inline RoleTypeComponent.new(role_type)
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "renders each selected role type" do
