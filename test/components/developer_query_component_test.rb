@@ -52,7 +52,7 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
   end
 
-  test "does not show selected role levels in production" do
+  test "do not show role level in production" do
     query = DeveloperQuery.new(role_levels: ["junior", "mid", "senior"])
     user = users(:with_complete_profile)
     Rails.stub(:env, ActiveSupport::StringInquirer.new("production")) do
