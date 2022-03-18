@@ -12,7 +12,7 @@ class NewConversationNotification < ApplicationNotification
   end
 
   def url
-    nil
+    developer_path(conversation.developer)
   end
 
   def conversation

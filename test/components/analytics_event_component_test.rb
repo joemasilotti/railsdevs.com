@@ -3,13 +3,13 @@ require "test_helper"
 class AnalyticsEventComponentTest < ViewComponent::TestCase
   test "does not render unless the goal and value are present in the hash" do
     render_inline AnalyticsEventComponent.new({})
-    assert_no_select "*"
+    refute_component_rendered
 
     render_inline AnalyticsEventComponent.new(event: {"goal" => "ABC123"})
-    assert_no_select "*"
+    refute_component_rendered
 
     render_inline AnalyticsEventComponent.new(event: {"value" => "4200"})
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "renders the Stimulus controller with goal and value values" do

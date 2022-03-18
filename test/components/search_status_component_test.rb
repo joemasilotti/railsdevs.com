@@ -26,6 +26,6 @@ class SearchStatusComponentTest < ViewComponent::TestCase
   test "none" do
     @developer.search_status = nil
     render_inline SearchStatusComponent.new(@developer)
-    assert_no_selector "*"
+    refute_component_rendered
   end
 end

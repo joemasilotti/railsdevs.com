@@ -22,9 +22,9 @@ class AdminMailer < ApplicationMailer
     recipient = params[:recipient]
 
     instance = @notification.to_notification
-    @name = instance.conversation.business.name
-    @company = instance.conversation.business.company
-    @developer = instance.conversation.developer.name
+    @business = instance.conversation.business
+    @developer = instance.conversation.developer
+    @subscriptions = @business.user.subscriptions
 
     mail(to: recipient.email, subject: "New conversation started")
   end

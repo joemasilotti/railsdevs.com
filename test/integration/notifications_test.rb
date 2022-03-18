@@ -50,17 +50,6 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     assert notification.reload.read?
   end
 
-  test "redirects to your notifications if the notification doesn't have a URL" do
-    user = users(:admin)
-    sign_in user
-    Conversation.create!(developer: developers(:available), business: businesses(:one))
-    notification = Notification.last
-
-    get notification_path(notification)
-
-    assert_redirected_to notifications_path
-  end
-
   def create_message!(developer:, business:)
     Message.create!(developer:, business:, sender: developer, body: "Hello!")
   end
