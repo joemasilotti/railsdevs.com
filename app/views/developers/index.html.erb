@@ -10,7 +10,7 @@
     <%= render DeveloperProfileActionComponent.new(current_user) %>
   </div>
 
-  <%= render DeveloperQueryComponent.new(@query) %>
+  <%= render DeveloperQueryComponent.new(query: @query, user: current_user) %>
 
   <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
     <% component.loading_icon do %>
