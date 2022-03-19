@@ -199,10 +199,10 @@ en:
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
     show:
+      copy: Copy
       description: Description
       edit: Edit
       hire: Hire me
-      copy: Copy
     update:
       updated: Your profile was updated!
   dir: ltr
