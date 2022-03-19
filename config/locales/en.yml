@@ -202,6 +202,7 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+      copy: Copy
     update:
       updated: Your profile was updated!
   dir: ltr

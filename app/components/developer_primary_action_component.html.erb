@@ -8,4 +8,8 @@
     <%= inline_svg_tag "icons/solid/briefcase.svg", class: "-ml-1 mr-3 h-5 w-5" %>
     <%= t("developers.show.hire") %>
   <% end %>
+  <button data-controller="clipboard" data-action="click->clipboard#copy" value="<a href='<%= developer_url(@developer) %>'><%= @developer.hero %></a>" type="button" class="shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+    <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "-ml-1 mr-3 h-5 w-5" %>
+    <%= t("developers.show.copy") %>
+  </button>
 <% end %>
