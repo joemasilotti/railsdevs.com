@@ -1,5 +1,5 @@
 class Feature
-  def self.enabled?(feature_name:, user: nil)
+  def self.enabled?(feature_name, user: nil)
     case feature_name.to_sym
     when :new_developer_fields_banner
       true

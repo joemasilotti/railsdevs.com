@@ -52,34 +52,6 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
   end
 
-  test "do not show role level in production" do
-    query = DeveloperQuery.new(role_levels: ["junior", "mid", "senior"])
-    user = users(:with_complete_profile)
-    Rails.stub(:env, ActiveSupport::StringInquirer.new("production")) do
-      render_inline DeveloperQueryComponent.new(query:, user:)
-    end
-
-    assert_no_text RoleLevel.human_attribute_name("junior")
-    assert_no_text RoleLevel.human_attribute_name("senior")
-    assert_no_text RoleLevel.human_attribute_name("principal")
-    assert_no_text RoleLevel.human_attribute_name("mid")
-    assert_no_text RoleLevel.human_attribute_name("c_level")
-  end
-
-  test "show selected role levels in production for admin" do
-    query = DeveloperQuery.new(role_levels: ["junior", "mid", "senior"])
-    user = users(:admin)
-    Rails.stub(:env, ActiveSupport::StringInquirer.new("production")) do
-      render_inline DeveloperQueryComponent.new(query:, user:)
-    end
-
-    assert_text RoleLevel.human_attribute_name("junior")
-    assert_text RoleLevel.human_attribute_name("senior")
-    assert_text RoleLevel.human_attribute_name("principal")
-    assert_text RoleLevel.human_attribute_name("mid")
-    assert_text RoleLevel.human_attribute_name("c_level")
-  end
-
   test "checks option to include developers who aren't interested" do
     query = DeveloperQuery.new(include_not_interested: true)
     render_inline DeveloperQueryComponent.new(query:, user: @user)

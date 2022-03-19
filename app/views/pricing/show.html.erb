@@ -1,4 +1,4 @@
-<% if Feature.enabled?(feature_name: :pricing_v2) %>
+<% if Feature.enabled?(:pricing_v2) %>
   <%= render "v2" %>
 <% else %>
   <%= render "v1" %>
