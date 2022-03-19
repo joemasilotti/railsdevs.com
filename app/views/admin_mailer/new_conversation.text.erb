@@ -1,3 +1,9 @@
-<%= @name %> (<%= @company %>) started a conversation with <%= @developer %>.
+<%= @business.name %> (<%= @business.company %>) started a conversation with <%= @developer.name %>.
+<% @subscriptions.each do |subscription| %>
+
+  Plan: <%= subscription.name.humanize %>
+  Status: <%= subscription.status.humanize %>
+  Developer roles: <%= @developer.role_type.humanize %>
+<% end %>
 
 <%= notification_url(@notification) %>

@@ -468,7 +468,6 @@ DEPENDENCIES
   inline_svg (~> 1.7)
   jsbundling-rails (~> 1.0)
   letter_opener_web
-  listen (~> 3.3)
   mailgun-ruby (~> 1.2)
   minitest-reporters (~> 1.5)
   minitest-reporters-pride_reporter (~> 0.0.2)

@@ -20,7 +20,7 @@ class ExternalLinkComponentTest < ViewComponent::TestCase
   test "renders nothing with a blank href" do
     component = ExternalLinkComponent.new("")
     render_inline(component)
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "opens the link in a new tab/window" do

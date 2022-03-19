@@ -8,5 +8,6 @@ end
 puts "Seeding #{Rails.env} database..."
 seed "developers"
 seed "businesses"
+seed "admins"
 seed "conversations"
 puts "Seeded database"

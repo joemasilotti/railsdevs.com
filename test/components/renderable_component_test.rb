@@ -11,7 +11,7 @@ class RenderableComponentTest < ViewComponent::TestCase
 
   test "doesn't render when no content is given" do
     render_inline RenderableComponent.new
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "renders the given CSS classes" do

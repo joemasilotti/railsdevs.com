@@ -13,7 +13,13 @@ The "named" developers cover most states of each field on the profile. There are
 * `freelancer@example.com` - Available soon, open to offers, and looking for contract work.
 * `junior@example.com` - Actively looking for full-time junior roles.
 
-#### Businesses
+### Businesses
 
 * `business@example.com` - The "core" business with an active subscription, in a conversation with a developer, and has sent and received messages.
 * `lead@example.com` - A business with a complete profile but no subscription.
+
+### Users
+
+There is one admin account that is not associated with a developer nor a business.
+
+`admin@example.com`
