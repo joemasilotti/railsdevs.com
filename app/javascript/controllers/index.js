@@ -11,3 +11,6 @@ application.register("file-upload", FileUploadController)
 
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
+
+import ClipboardController from "./clipboard_controller.js"
+application.register("clipboard", ClipboardController)
