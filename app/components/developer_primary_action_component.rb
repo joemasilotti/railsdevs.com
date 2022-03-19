@@ -9,6 +9,6 @@ class DeveloperPrimaryActionComponent < ApplicationComponent
   end
 
   def admin?
-    @user.admin?
+    @user&.admin?
   end
 end
