@@ -8,7 +8,7 @@ module SeedsHelper
         bio: Faker::Lorem.paragraph(sentence_count: 10)
       })
       Developer.create!(attributes) do |developer|
-        attach_avatar(developer)
+        attach_avatar(developer, name: developer.hero)
       end
     end
 
@@ -28,7 +28,7 @@ module SeedsHelper
         bio: Faker::Lorem.paragraph(sentence_count: 10)
       })
       Business.create!(attributes) do |business|
-        attach_avatar(business)
+        attach_avatar(business, name: business.company)
       end
     end
 
@@ -49,9 +49,8 @@ module SeedsHelper
       )
     end
 
-    def attach_avatar(record)
-      name = record.name.parameterize
-      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name}"
+    def attach_avatar(record, name:)
+      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name.parameterize}"
       uri = URI.parse(url)
       file = uri.open
       record.avatar.attach(io: file, filename: "avatar.png")
