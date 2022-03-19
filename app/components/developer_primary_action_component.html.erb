@@ -8,18 +8,21 @@
     <%= inline_svg_tag "icons/solid/briefcase.svg", class: "-ml-1 mr-3 h-5 w-5" %>
     <%= t("developers.show.hire") %>
   <% end %>
+
+  <% if admin? %>
   <button data-controller="clipboard clone" data-action="click->clipboard#copy click->clone#append" value="<a href='<%= developer_url(@developer) %>'><%= @developer.hero %></a>" type="button" class="shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
     <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "-ml-1 mr-3 h-5 w-5" %>
     <%= t("developers.show.copy") %>
 
-  <template data-clone-target="template">
-    <turbo-stream action="append" target="flashes">
-     <template>
-      <%= render ToastMessageComponent.new(icon: "information_circle") do |c| %>
-        <%= c.message do %> <p>Copied to clipboard</p> <% end %>
-      <% end %>
-     </template>
-    </turbo-stream>
-  </template>
+    <template data-clone-target="template">
+      <turbo-stream action="append" target="flashes">
+       <template>
+        <%= render ToastMessageComponent.new(icon: "information_circle") do |c| %>
+          <%= c.message do %> <p><%= t("developers.show.copied") %></p> <% end %>
+        <% end %>
+       </template>
+      </turbo-stream>
+    </template>
   </button>
+  <% end %>
 <% end %>
