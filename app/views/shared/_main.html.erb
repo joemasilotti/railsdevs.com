@@ -1,5 +1,7 @@
 <%= render NewDeveloperFieldsComponent.new(current_user, enabled: Feature.enabled?(:new_developer_fields_banner)) %>
-<%= render "shared/flash" %>
+<div id="flashes">
+  <%= render "shared/flash" %>
+</div>
 
 <main class="mx-auto">
   <%= yield %>

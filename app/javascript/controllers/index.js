@@ -14,3 +14,6 @@ application.register("toggle", ToggleController)
 
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
+
+import CloneController from "./clone_controller"
+application.register("clone", CloneController)
