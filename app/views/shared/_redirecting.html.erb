@@ -1,8 +1,6 @@
-<div class="absolute top-0 left-0 w-full h-full lg:rounded flex content-center grid grid-cols-3 gap-4"
-     data-controller="redirect" data-redirect-target="redirecting" data-redirect-url-value="<%= redirect_url %>">
+<div data-controller="redirect" data-redirect-target="redirecting" data-redirect-url-value="<%= redirect_url %>" class="absolute top-0 left-0 w-full h-full lg:rounded flex content-center grid grid-cols-3 gap-4">
   <div class="absolute top-0 left-0 w-full h-full lg:rounded bg-gray-50 opacity-50"></div>
-  <div class="col bg-white text-lg text-center text-gray-900 font-bold z-40 border border-gray-400 border-dashed
-              shadow rounded-lg py-4 col-span-1 col-start-2">
+  <div class="col bg-white text-lg text-center text-gray-900 font-bold z-40 border border-gray-400 border-dashed shadow rounded-lg py-4 col-span-1 col-start-2">
     <%= t("shared.redirecting") %>
   </div>
 </div>

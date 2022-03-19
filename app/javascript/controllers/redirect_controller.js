@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
     this.redirectingTarget.remove()
-    window.location = this.urlValue
+    Turbo.visit(this.urlValue)
+    // window.location = this.urlValue
   }
 }

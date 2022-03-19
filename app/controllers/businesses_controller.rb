@@ -13,8 +13,8 @@ class BusinessesController < ApplicationController
     respond_to do |format|
       if @business.save
         url = stored_location_for(:user) || developers_path
-        Analytics::Event.added_business_profile(url)
-        format.html { redirect_to stripe_checkout_path }
+        event = Analytics::Event.added_business_profile(url)
+        format.html { redirect_to event, notice: t(".created") }
         format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }

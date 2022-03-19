@@ -69,6 +69,8 @@ es:
       message: "¿Está seguro de que deseas marcar esta conversación y bloquear al remitente? Esto ocultará la conversación y no podrán volver a ponerse en contacto contigo."
       title: Bloquear al remitente
   businesses:
+    create:
+      created: "¡Tu empresa fue creada!"
     form:
       avatar: Avatar
       change_avatar: Subir

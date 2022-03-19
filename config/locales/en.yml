@@ -85,6 +85,8 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   businesses:
+    create:
+      created: Your business was added!
     form:
       avatar: Avatar
       change_avatar: Upload

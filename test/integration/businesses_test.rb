@@ -41,6 +41,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
       post businesses_path, params: valid_business_params
     end
     assert user.business.avatar.attached?
+    assert_redirected_to Analytics::Event.last
     assert_equal Analytics::Event.last.url, developers_path
   end
 
