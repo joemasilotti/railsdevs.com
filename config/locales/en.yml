@@ -138,6 +138,7 @@ en:
     include_not_interested: Include developers not currently interested
     role_level:
       title: Role level
+    search_query_label: Search developer profiles
     sort:
       availability: Availability
       newest: Newest

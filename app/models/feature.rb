@@ -7,6 +7,8 @@ class Feature
       true
     when :role_level_filters
       !Rails.env.production?
+    when :filter_by_search_query
+      !Rails.env.production?
     end
   end
 end

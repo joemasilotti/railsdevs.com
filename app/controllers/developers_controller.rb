@@ -65,6 +65,7 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
+      :search_query,
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES

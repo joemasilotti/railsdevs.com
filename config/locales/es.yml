@@ -116,6 +116,7 @@ es:
     apply: Aplicar
     close_menu: Cerrar menú
     filters: Filtros
+    search_query_label: Buscar perfiles de desarrollador
     sort:
       availability: Disponibilidad
       newest: Más reciente
