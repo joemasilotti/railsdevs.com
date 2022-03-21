@@ -9,5 +9,8 @@ application.register("analytics--events", Analytics__EventsController)
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
+import FormController from "./form_controller.js"
+application.register("form", FormController)
+
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
