@@ -197,7 +197,6 @@ es:
   messages:
     form:
       help: Agrega tu mensaje
-      placeholder: Agrega tu mensaje...
       sending: Enviando...
       submit: Enviar
     message:

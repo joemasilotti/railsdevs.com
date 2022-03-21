@@ -20,15 +20,13 @@
     <% end %>
   </div>
 
-  <ul role="list" class="mt-8 space-y-2">
+  <ul id="messages" class="mt-8 space-y-2">
     <%= render @conversation.messages %>
   </ul>
 
   <div class="mt-16 max-w-prose w-full mx-auto">
-    <%= render ExpiredSubscriptionComponent.new(current_user, business: @conversation.business) do %>
-      <%= form_with model: [@conversation, @message], data: {turbo: false, controller: "form"}, class: "relative" do |form| %>
-        <%= render "messages/form", form: form %>
-      <% end %>
+    <%= turbo_frame_tag "new_message" do %>
+      <%= render "conversations/new_message", conversation: @conversation, message: @message %>
     <% end %>
   </div>
 </div>
