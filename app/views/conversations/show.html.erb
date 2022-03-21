@@ -24,7 +24,7 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <div class="mt-16 max-w-prose w-full mx-auto">
+  <div data-controller="page-scroll" class="mt-16 max-w-prose w-full mx-auto pb-6">
     <%= render ExpiredSubscriptionComponent.new(current_user, business: @conversation.business) do %>
       <%= form_with model: [@conversation, @message], data: {turbo: false}, class: "relative" do |form| %>
         <%= render "messages/form", form: form %>
