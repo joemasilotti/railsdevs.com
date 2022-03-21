@@ -231,7 +231,6 @@ en:
   messages:
     form:
       help: Add your message
-      placeholder: Add your message...
       sending: Sending...
       submit: Send
     message:
