@@ -2,7 +2,7 @@
   <% if @conversations.any? %>
     <h1 class="mt-6 text-center text-3xl font-extrabold"><%= t(".title") %></h1>
 
-    <ul role="list" class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-8">
+    <ul class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-8">
       <%= render @conversations %>
     </ul>
   <% else %>
