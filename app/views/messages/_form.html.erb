@@ -1,7 +1,7 @@
 <div class="mx-4 sm:mx-0">
   <%= form.label :body, t(".help"), class: "block text-sm font-medium text-gray-700" %>
   <div class="mt-1">
-    <%= form.text_area :body, rows: 4, class: field_classes(form, :body), classx: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md resize-y" %>
+    <%= form.text_area :body, rows: 4, required: true, class: field_classes(form, :body) %>
   </div>
 
   <div class="py-2 flex justify-end">
