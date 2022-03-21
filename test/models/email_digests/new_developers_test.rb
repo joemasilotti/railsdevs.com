@@ -66,11 +66,12 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     @yesterday = create_developer(1.day.ago)
     @two_days_ago = create_developer(2.days.ago)
     @seven_days_ago = create_developer(7.days.ago)
+    @invisible = create_developer(1.days.ago, search_status: :invisible)
     create_developer(8.days.ago)
   end
 
-  def create_developer(created_at)
-    Developer.create!(developer_attributes.merge(created_at:))
+  def create_developer(created_at, search_status: :open)
+    Developer.create!(developer_attributes.merge(created_at:, search_status:))
   end
 
   def monday

@@ -3,10 +3,10 @@ require "test_helper"
 class TimeZoneComponentTest < ViewComponent::TestCase
   test "it does not render if time zone is not present" do
     render_inline TimeZoneComponent.new(Location.new)
-    assert_no_select "*"
+    refute_component_rendered
 
     render_inline TimeZoneComponent.new(nil)
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "it renders the human readable time zone" do

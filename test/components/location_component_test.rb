@@ -3,10 +3,7 @@ require "test_helper"
 class LocationComponentTest < ViewComponent::TestCase
   test "doesn't render if city, state, and country aren't present" do
     render_inline LocationComponent.new(nil)
-    assert_no_select "*"
-
-    render
-    assert_no_select "*"
+    refute_component_rendered
   end
 
   test "renders if city, state, or country is present" do

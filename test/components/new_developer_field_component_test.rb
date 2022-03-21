@@ -3,7 +3,7 @@ require "test_helper"
 class NewDeveloperFieldComponentTest < ViewComponent::TestCase
   test "doesn't render if creating a new developer" do
     render_inline NewDeveloperFieldComponent.new(Developer.new, :foo)
-    assert_no_selector "*"
+    refute_component_rendered
   end
 
   test "renders if the field is missing" do
