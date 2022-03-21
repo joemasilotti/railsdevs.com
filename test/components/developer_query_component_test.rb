@@ -54,7 +54,7 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
 
   test "checks value of search query" do
     query = DeveloperQuery.new(search_query: "rails")
-    render_inline DeveloperQueryComponent.new(query)
+    render_inline DeveloperQueryComponent.new(query:, user: @user)
 
     assert_selector "input[type=text][name='search_query'][value=rails]"
   end

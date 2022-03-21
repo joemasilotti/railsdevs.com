@@ -123,7 +123,7 @@
             </div>
           </div>
 
-          <% if Feature.enabled?(:filter_by_search_query) %>
+          <% if Feature.enabled?(:search_feature, user: @user) %>
             <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left" id="sort">
               <div>
                 <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
