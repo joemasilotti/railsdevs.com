@@ -15,5 +15,7 @@ end
 Capybara.javascript_driver = :headless_chrome
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   driven_by :headless_chrome
 end
