@@ -2,7 +2,7 @@ require "test_helper"
 
 class FieldErrorTagBuilderTest < ActiveSupport::TestCase
   setup do
-    @instance = Struct.new(:error_message).new(["fake error"])
+    @instance = Struct.new(:error_message).new(["one error", "two error", "three error"])
   end
 
   test "replace only text color class" do
@@ -26,5 +26,12 @@ class FieldErrorTagBuilderTest < ActiveSupport::TestCase
     builder = FieldErrorTagBuilder.new(html_tag, @instance)
 
     assert builder.error_field.index(@instance.error_message.first) < builder.error_field.index("</label>")
+  end
+
+  test "joins error messages into a sentence" do
+    html_tag = %(<label>Test Label</label>)
+    builder = FieldErrorTagBuilder.new(html_tag, @instance)
+
+    assert_match(/one error, two error, and three error/, builder.error_field)
   end
 end

@@ -31,8 +31,8 @@ class FieldErrorTagBuilder
   end
 
   def error_message_tag
-    errors = Array(@instance.error_message).join(",")
-    %(<span class="mt-2 text-sm font-medium">&nbsp;#{errors}</span>).html_safe
+    errors = Array(@instance.error_message).to_sentence
+    " #{errors}"
   end
 
   def text_color_regex

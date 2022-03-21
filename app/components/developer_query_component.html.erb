@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="flex items-baseline space-x-8">
-          <% if Feature.enabled?(:role_level_filters) %>
+          <% if Feature.enabled?(:role_level_filters, user: @user) %>
             <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
               <div>
                 <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
@@ -134,7 +134,7 @@
               </div>
               <%= form_with url: developers_path, method: :get, html: {class: "py-6"} do |form| %>
                 <%= form.hidden_field :sort, value: @query.sort if @query.sort %>
-                <% if Feature.enabled?(:role_level_filters) %>
+                <% if Feature.enabled?(:role_level_filters, user: @user) %>
                   <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
                     <h3 class="-mx-2 -my-3 flow-root">
                       <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-1" aria-expanded="false">

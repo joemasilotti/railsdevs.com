@@ -49,7 +49,10 @@ Stripe requires a few different keys, the credentials and the price for the busi
 stripe:
   private_key:
   signing_secret:
-  price_id:
+  price_ids:
+    legacy_plan:
+    part_time_plan:
+    full_time_plan:
 ```
 
 ## Active Storage
