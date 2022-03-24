@@ -1,7 +1,7 @@
 class DeveloperQueryComponent < ApplicationComponent
   attr_reader :query
 
-  delegate :sort, to: :query
+  delegate :sort, :search_query, to: :query
 
   def initialize(query:, user:)
     @query = query

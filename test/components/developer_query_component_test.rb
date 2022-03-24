@@ -52,6 +52,13 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
   end
 
+  test "checks value of search query" do
+    query = DeveloperQuery.new(search_query: "rails")
+    render_inline DeveloperQueryComponent.new(query:, user: @user)
+
+    assert_selector "input[type=text][name='search_query'][value=rails]"
+  end
+
   test "checks option to include developers who aren't interested" do
     query = DeveloperQuery.new(include_not_interested: true)
     render_inline DeveloperQueryComponent.new(query:, user: @user)

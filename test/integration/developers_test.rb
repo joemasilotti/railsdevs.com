@@ -81,6 +81,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:with_c_type_role_level).hero, count: 0
   end
 
+  test "developers can be filtered by hero or bio" do
+    developer = developers(:complete)
+    get developers_path(search_query: "#{developer.bio} #{developer.hero}")
+
+    assert_select "h2", developers(:complete).hero
+  end
+
   test "developers not interested in work can be shown" do
     get developers_path(include_not_interested: true)
 

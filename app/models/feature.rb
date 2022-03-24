@@ -7,6 +7,8 @@ class Feature
       true
     when :role_level_filters
       !Rails.env.production? || user&.admin?
+    when :search_feature
+      !Rails.env.production? || user&.admin?
     end
   end
 end

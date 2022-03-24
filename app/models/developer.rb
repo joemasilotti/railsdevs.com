@@ -2,6 +2,7 @@ class Developer < ApplicationRecord
   include Availability
   include Avatarable
   include HasSocialProfiles
+  include PgSearch::Model
 
   enum search_status: {
     actively_looking: 1,
@@ -28,6 +29,8 @@ class Developer < ApplicationRecord
   validates :hero, presence: true
   validates :location, presence: true, on: :create
   validates :name, presence: true
+
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero]
 
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|

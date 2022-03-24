@@ -115,6 +115,12 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert_includes records, developers(:with_conversation) # Blank search status.
   end
 
+  test "filtering developers by their bio or hero" do
+    developers = developers(:complete)
+    records = DeveloperQuery.new(search_query: "#{developers.bio} #{developers.hero}").records
+    assert_includes records, developers
+  end
+
   test "pagy is initialized without errors" do
     assert_not_nil DeveloperQuery.new.pagy
   end
@@ -126,7 +132,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       utc_offsets:,
       role_types: [:part_time_contract],
       role_levels: [:junior],
-      include_not_interested: true
+      include_not_interested: true,
+      search_query: "rails engineer"
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end
