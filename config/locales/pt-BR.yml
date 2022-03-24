@@ -212,7 +212,6 @@ pt-BR:
   messages:
     form:
       help: Adicionar sua mensagem
-      placeholder: Adicione sua mensagem...
       sending: Enviando...
       submit: Enviar
     message:
