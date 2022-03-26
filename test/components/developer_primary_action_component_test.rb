@@ -10,7 +10,6 @@ class DeveloperPrimaryActionComponentTest < ViewComponent::TestCase
 
     assert_text "Hire me"
     refute_text "Edit"
-    refute_text "Copy"
 
     user = users(:with_business)
     render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
@@ -23,12 +22,5 @@ class DeveloperPrimaryActionComponentTest < ViewComponent::TestCase
     render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
 
     assert_text "Edit"
-  end
-
-  test "should show copy to admin user" do
-    user = users(:admin)
-    render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
-
-    assert_text "Copy"
   end
 end
