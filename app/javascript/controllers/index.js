@@ -12,5 +12,8 @@ application.register("file-upload", FileUploadController)
 import FormController from "./form_controller.js"
 application.register("form", FormController)
 
+import PageScrollController from "./page_scroll_controller.js"
+application.register("page-scroll", PageScrollController)
+
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
