@@ -25,7 +25,7 @@
   </ul>
 
   <div class="mt-16 max-w-prose w-full mx-auto pb-6">
-    <%= turbo_frame_tag "new_message", data: { page_scroll_target: "messageForm" } do %>
+    <%= turbo_frame_tag "new_message" do %>
       <%= render "conversations/new_message", conversation: @conversation, message: @message %>
     <% end %>
   </div>
