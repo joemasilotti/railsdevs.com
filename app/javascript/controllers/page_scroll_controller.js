@@ -2,10 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    scrollElementIntoView()
+    document.addEventListener("turbo:load", this.scrollIntoView)
   }
 
-  scrollElementIntoView() {
+  disconnect() {
+    document.removeEventListener("turbo:load", this.scrollIntoView)
+  }
+
+  scrollIntoView() {
     this.element.scrollIntoView(false)
   }
 }
