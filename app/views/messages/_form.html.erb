@@ -1,10 +1,10 @@
-<div class="mx-4 sm:mx-0">
+<div data-controller="page-scrolls" class="mx-4 sm:mx-0">
   <%= form.label :body, t(".help"), class: "block text-sm font-medium text-gray-700" %>
   <div class="mt-1">
     <%= form.text_area :body, rows: 4, required: true, data: {action: "keydown->form#submit"}, class: field_classes(form, :body) %>
   </div>
 
-  <div class="py-2 flex justify-end">
+  <div data-page-scroll-target="scrollPoint" class="py-2 flex justify-end">
     <div class="shrink-0">
       <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>
     </div>

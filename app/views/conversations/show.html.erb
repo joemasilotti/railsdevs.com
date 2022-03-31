@@ -1,6 +1,6 @@
 <%= render "shared/error_messages", resource: @message %>
 
-<div class="min-h-full max-w-2xl mx-auto py-12 sm:px-6 lg:px-8">
+<div data-controller="page-scroll" class="min-h-full max-w-2xl mx-auto py-12 sm:px-6 lg:px-8">
   <div class="mt-6 flex items-start justify-between">
     <h1 class="text-3xl px-6">
       <span class="font-extrabold"><%= t(".title") %></span>
@@ -24,9 +24,11 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <div data-controller="page-scroll" class="mt-16 max-w-prose w-full mx-auto pb-6">
-    <%= turbo_frame_tag "new_message" do %>
-      <%= render "conversations/new_message", conversation: @conversation, message: @message %>
-    <% end %>
+  <div>
+    <div class="mt-16 max-w-prose w-full mx-auto pb-6">
+      <%= turbo_frame_tag "new_message", data: { page_scroll_target: "messageForm" } do %>
+          <%= render "conversations/new_message", conversation: @conversation, message: @message %>
+      <% end %>
+    </div>
   </div>
 </div>
