@@ -1,4 +1,8 @@
-<%= @business.name %> (<%= @business.company %>) started a conversation with <%= @developer.name %>.
+<%= @business.name %> (<%= @business.company %>) started a conversation with <%= @developer.name %>:
+
+<%= truncate_message_body(@body) %>
+
+<%= "–" * 100 %>
 <% @subscriptions.each do |subscription| %>
 
   Plan: <%= subscription.name.humanize %>

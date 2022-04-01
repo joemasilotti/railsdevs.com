@@ -1,4 +1,8 @@
-<p><b><%= @business.name %> (<%= @business.company %>)</b> started <%= link_to "a conversation with #{@developer.name}", notification_url(@notification) %>.</p>
+<p><%= link_to "#{@business.name} (#{@business.company})", business_url(@business) %> started a conversation with <%= link_to @developer.name, notification_url(@notification) %>:</p>
+
+<%== html_truncate_message_body(@body) %>
+
+<hr>
 
 <% @subscriptions.each do |subscription| %>
   <ul>
