@@ -1,3 +1,5 @@
-<%= @sender %> sent you a message.
+<%= @sender %> sent you a message:
+
+<%= truncate_message_body(@body) %>
 
 <%= notification_url(@notification) %>
