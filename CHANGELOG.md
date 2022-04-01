@@ -4,6 +4,7 @@
 
 ### March
 
+* March 31 - Show message preview in notification email - #357
 * March 21 - Hotwire-ified sending messages - #334
 * March 21 - Added keyboard shortcuts to send a message - <kbd>⌘</kbd>+<kbd>Enter</kbd> or <kbd>⌃</kbd>+<kbd>Enter</kbd> - #335
 * March 16 - Application defaults were upgraded to Rails 7.0 - #330
