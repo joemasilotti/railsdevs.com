@@ -39,6 +39,18 @@ You will also need Google Chrome installed to run the system tests.
 
 ### Initial setup
 
+Start PostgreSQL server.
+
+```bash
+brew services start postgresql
+```
+
+Start Redis server.
+
+```bash
+brew services start redis
+```
+
 An installation script is included with the repository that will automatically get the application setup.
 
 ```bash
