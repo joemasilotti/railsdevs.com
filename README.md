@@ -39,7 +39,7 @@ You will also need Google Chrome installed to run the system tests.
 
 ### Initial setup
 
-Start Postgresql server.
+Start PostgreSQL server.
 
 ```bash
 brew services start postgresql
