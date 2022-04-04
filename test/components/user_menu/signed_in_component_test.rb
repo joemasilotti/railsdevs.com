@@ -53,11 +53,11 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   test "links to blocked conversations if user is an admin" do
     user = users(:admin)
     render_inline UserMenu::SignedInComponent.new(user)
-    assert_link_to admin_conversations_path
+    assert_link_to admin_conversations_blocks_path
 
     user = users(:business)
     render_inline UserMenu::SignedInComponent.new(user)
-    refute_link_to admin_conversations_path
+    refute_link_to admin_conversations_blocks_path
   end
 
   test "links to Stripe Customer Portal if the user is a customer" do

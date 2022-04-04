@@ -53,12 +53,13 @@ pt-BR:
         other: Usuários
   admin:
     conversations:
-      conversation:
-        blocked: Bloqueado
-      empty_state:
-        title: Nenhuma conversa bloqueada
-      index:
-        title: Conversas bloqueadas
+      blocks:
+        conversation:
+          blocked: Bloqueado
+        empty_state:
+          title: Nenhuma conversa bloqueada
+        index:
+          title: Conversas bloqueadas
     transactions:
       create:
         created: Transação criada

@@ -59,12 +59,13 @@ en:
         other: Users
   admin:
     conversations:
-      conversation:
-        blocked: Blocked
-      empty_state:
-        title: No blocked conversations
-      index:
-        title: Blocked conversations
+      blocks:
+        conversation:
+          blocked: Blocked
+        empty_state:
+          title: No blocked conversations
+        index:
+          title: Blocked conversations
     transactions:
       create:
         created: Transaction created

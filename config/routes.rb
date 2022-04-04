@@ -41,7 +41,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :conversations, only: :index
+    namespace :conversations do
+      resources :blocks, only: :index
+    end
     resources :transactions, except: :show
   end
 
