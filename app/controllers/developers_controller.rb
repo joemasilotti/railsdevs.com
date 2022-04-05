@@ -12,7 +12,8 @@ class DevelopersController < ApplicationController
   end
 
   def create
-    @developer = current_user.build_developer(developer_params)
+    account = Account.build_with_owner(current_user)
+    @developer = account.build_developer(developer_params)
 
     if @developer.save
       url = developer_path(@developer)

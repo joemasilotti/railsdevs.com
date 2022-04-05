@@ -5,7 +5,8 @@ class DeveloperQuery
 
   attr_reader :options
 
-  def initialize(options = {})
+  def initialize(developers = Developer.all, options = {})
+    @developers = developers
     @options = options
     @sort = options.delete(:sort)
     @utc_offsets = options.delete(:utc_offsets)
@@ -54,7 +55,7 @@ class DeveloperQuery
   private
 
   def initialize_pagy_and_developers
-    @_records = Developer.includes(:role_type).with_attached_avatar.visible
+    @_records = @developers.includes(:role_type).with_attached_avatar.visible
     sort_records
     utc_offset_filter_records
     role_type_filter_records

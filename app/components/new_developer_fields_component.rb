@@ -1,10 +1,10 @@
 class NewDeveloperFieldsComponent < ApplicationComponent
   include ComponentWithIcon
 
-  attr_reader :user
+  attr_reader :account
 
-  def initialize(user, enabled: true)
-    @user = user
+  def initialize(account, enabled: true)
+    @account = account
     @enabled = enabled
   end
 
@@ -19,10 +19,10 @@ class NewDeveloperFieldsComponent < ApplicationComponent
   end
 
   def editing?
-    user&.developer&.persisted?
+    account&.developer&.persisted?
   end
 
   def missing_fields?
-    user.developer.missing_fields?
+    account.developer.missing_fields?
   end
 end

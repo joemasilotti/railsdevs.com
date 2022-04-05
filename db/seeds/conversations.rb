@@ -1,5 +1,5 @@
-developer = User.find_by(email: "developer@example.com").developer
-business = User.find_by(email: "business@example.com").business
+developer = User.find_by(email: "developer@example.com").accounts.first.developer
+business = User.find_by(email: "business@example.com").accounts.first.business
 
 conversation = Conversation.create!(developer:, business:)
 Message.create!(conversation:, sender: business, body: "Let's work together!")

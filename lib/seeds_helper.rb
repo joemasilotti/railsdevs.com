@@ -2,7 +2,7 @@ module SeedsHelper
   class << self
     def create_developer!(name, attributes = {})
       attributes.merge!({
-        user: create_user!(name),
+        account: create_account!(name),
         name: Faker::Name.name,
         hero: attributes.delete(:hero) || Faker::Lorem.sentence,
         bio: Faker::Lorem.paragraph(sentence_count: 10)
@@ -22,7 +22,7 @@ module SeedsHelper
 
     def create_business!(name, attributes = {})
       attributes.merge!({
-        user: create_user!(name),
+        account: create_account!(name),
         name: Faker::Name.name,
         company: Faker::Company.name,
         bio: Faker::Lorem.paragraph(sentence_count: 10)
@@ -39,6 +39,13 @@ module SeedsHelper
     end
 
     private
+
+    def create_account!(name)
+      user = create_user!(name)
+      account = Account.build_with_owner(user)
+      account.save!
+      account
+    end
 
     def create_user!(name)
       User.create!(

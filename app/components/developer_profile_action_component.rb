@@ -1,11 +1,11 @@
 class DeveloperProfileActionComponent < ApplicationComponent
-  attr_reader :user
+  attr_reader :account
 
-  def initialize(user)
-    @user = user
+  def initialize(account)
+    @account = account
   end
 
   def update_profile?
-    user&.developer
+    account&.developer
   end
 end

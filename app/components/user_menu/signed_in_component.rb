@@ -1,8 +1,9 @@
 class UserMenu::SignedInComponent < ApplicationComponent
-  attr_reader :user
+  attr_reader :user, :account
 
-  def initialize(user)
+  def initialize(user, account)
     @user = user
+    @account = account
   end
 
   def neither?
@@ -10,25 +11,26 @@ class UserMenu::SignedInComponent < ApplicationComponent
   end
 
   def business?
-    user.business&.persisted?
+    account.business&.persisted?
   end
 
   def developer?
-    user.developer&.persisted?
+    account.developer&.persisted?
   end
 
   def conversations?
-    user.conversations.any? || business?
+    account.conversations.any? || business?
   end
 
   def customer?
-    user.payment_processor.present?
+    account.payment_processor.present?
   end
 
   def admin?
     user.admin?
   end
 
+  # TODO: Should this be user or account?
   def unread_notifications?
     user.notifications.unread.any?
   end

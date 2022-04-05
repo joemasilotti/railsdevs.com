@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_04_041706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_users", force: :cascade do |t|
+    t.bigint "account_id"
+    t.bigint "user_id"
+    t.integer "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_account_users_on_account_id"
+    t.index ["user_id"], name: "index_account_users_on_user_id"
+  end
+
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_accounts_on_owner_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.datetime "updated_at", null: false
     t.text "bio", null: false
     t.integer "developer_notifications", default: 0, null: false
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_businesses_on_account_id"
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
@@ -91,6 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_developers_on_account_id"
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
 
@@ -222,7 +243,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -259,8 +280,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"

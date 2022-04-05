@@ -3,7 +3,7 @@ class Business < ApplicationRecord
 
   enum :developer_notifications, %i[no daily weekly], default: :no, suffix: true
 
-  belongs_to :user
+  belongs_to :account
   has_many :conversations, -> { visible }
 
   has_noticed_notifications

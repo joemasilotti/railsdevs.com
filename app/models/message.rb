@@ -36,6 +36,6 @@ class Message < ApplicationRecord
   private
 
   def send_recipient_notification
-    NewMessageNotification.with(message: self, conversation:).deliver_later(recipient.user)
+    NewMessageNotification.with(message: self, conversation:).deliver_later(recipient.account.users)
   end
 end

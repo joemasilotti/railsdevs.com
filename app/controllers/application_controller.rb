@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include CurrentAccount
   include Locales
   include Pundit
   include StoredLocation
@@ -6,17 +7,19 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   around_action :set_locale
-  helper_method :resolve_locale
 
-  def after_sign_in_path_for(user)
-    if (stored_location = stored_location_for(:user)).present?
-      stored_location
-    elsif user.developer.present? || user.business.present?
-      super
-    else
-      new_role_path
-    end
-  end
+  helper_method :resolve_locale
+  helper_method :current_account
+
+  # def after_sign_in_path_for(user)
+  # if (stored_location = stored_location_for(:user)).present?
+  # stored_location
+  # elsif user.developer.present? || user.business.present?
+  # super
+  # else
+  # new_role_path
+  # end
+  # end
 
   private
 

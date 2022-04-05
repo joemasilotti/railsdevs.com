@@ -1,5 +1,5 @@
 # Random developers
-20.times { SeedsHelper.create_random_developer! }
+2.times { SeedsHelper.create_random_developer! }
 
 # Minimum developer
 SeedsHelper.create_developer!("minimum", {
