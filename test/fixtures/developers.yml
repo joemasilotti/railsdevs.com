@@ -1,119 +1,13 @@
-complete:
-  user: with_complete_profile
-  name: Complete Profile
+one:
+  user: developer
+  name: Developer One
   available_on: <%= Date.new(2021, 1, 1) %>
-  hero: Complete profile
-  bio: I have a complete profile.
+  hero: Developer number one
+  bio: I am the first developer.
   search_status: actively_looking
 
-available:
-  user: with_available_profile
-  name: Available Developer
-  available_on: <%= Date.new(2021, 1, 1) %>
-  hero: Available developer
-  bio: I am available.
-  search_status: actively_looking
-
-unavailable:
-  user: with_unavailable_profile
-  name: Unavailable Developer
-  available_on: <%= Date.new(2222, 2, 2) %>
-  hero: Unavailable developer
-  bio: I am unavailable.
-  search_status: open
-
-invisible:
-  user: with_invisible_profile
-  name: Invisible Developer
-  hero: I'd rather stay invisible for now
-  bio: Soon to be visible.
-  search_status: invisible
-
-with_conversation:
-  user: with_developer_conversation
-  name: Conversating Developer
-  hero: Conversating developer
-  bio: I am conversating.
-
-with_blocked_conversation:
-  user: with_blocked_conversation
-  name: Blocked Developer
-  hero: Blocked developer
-  bio: I am blocked.
-
-with_part_time_contract:
-  user: with_part_time_contract
-  name: Part-time Contractor
-  hero: A part-time contractor
-  bio: I am a developer available for part time contract.
-  search_status: open
-
-with_full_time_contract:
-  user: with_full_time_contract
-  name: Full-time Contractor
-  hero: A full-time contractor
-  bio: I am a developer available for full-time contract.
-  search_status: open
-
-with_full_time_employment:
-  user: with_full_time_employment
-  name: Full-time Employee
-  hero: A full-time employee
-  bio: I am a developer available for full-time employment.
-  search_status: open
-
-with_actively_looking_search_status:
-  user: with_actively_looking_status
-  name: Actively Looking
-  hero: A developer with actively looking search status
-  bio: I am a developer with actively looking search status.
-  search_status: actively_looking
-
-with_open_search_status:
-  user: with_open_search_status
-  name: Open
-  hero: A developer with open search status
-  bio: I am a developer with open search status.
-  search_status: open
-
-with_not_interested_search_status:
-  user: with_not_interested_status
-  name: Not Interested
-  hero: A developer with not interested status
-  bio: I am a developer with not interested search status.
-  search_status: not_interested
-
-with_junior_role_level:
-  user: with_junior_level
-  name: Junior Developer
-  hero: A junior level developer
-  bio: I am a junior level developer.
-  search_status: open
-
-with_mid_role_level:
-  user: with_mid_level
-  name: Mid Developer
-  hero: A mid level developer
-  bio: I am a mid level developer.
-  search_status: open
-
-with_senior_role_level:
-  user: with_senior_level
-  name: Senior Developer
-  hero: A senior level developer
-  bio: I am a senior level developer.
-  search_status: open
-
-with_principal_role_level:
-  user: with_principal_level
-  name: Pricipal Developer
-  hero: A principal level developer
-  bio: I am a principal level developer.
-  search_status: open
-
-with_c_type_role_level:
-  user: with_c_type_level
-  name: C-level Developer
-  hero: A C-level developer
-  bio: I am a C-level developer.
-  search_status: open
+prospect:
+  user: prospect_developer
+  name: Prospect Developer
+  hero: A prospect developer
+  bio: I am prospect developer.
