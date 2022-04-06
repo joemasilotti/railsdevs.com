@@ -2,7 +2,7 @@ require "test_helper"
 
 class AvailabilityComponentTest < ViewComponent::TestCase
   setup do
-    @developer = developers(:available)
+    @developer = developers(:one)
   end
 
   test "will show Currently unavailable when nil" do

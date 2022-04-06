@@ -4,13 +4,13 @@ class MessageTest < ActiveSupport::TestCase
   include NotificationsHelper
 
   test "user is sender if they are the associated developer" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     assert messages(:from_developer).sender?(user)
     refute messages(:from_business).sender?(user)
   end
 
   test "user is sender if they are the associated business" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     assert messages(:from_business).sender?(user)
     refute messages(:from_developer).sender?(user)
   end
@@ -21,7 +21,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test "message creation sends a notification to the recipient" do
-    developer = developers(:available)
+    developer = developers(:one)
     business = businesses(:one)
 
     assert_difference "Notification.count", 2 do

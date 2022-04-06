@@ -2,23 +2,25 @@ require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
   test "conversations where the user is the developer" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     assert_equal user.conversations, [conversations(:one)]
   end
 
   test "conversations where the user is the business" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     assert_equal user.conversations, [conversations(:one)]
   end
 
   test "blocked conversations are ignored" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     assert user.conversations.include?(conversations(:one))
-    refute user.conversations.include?(conversations(:blocked))
+
+    conversations(:one).touch(:developer_blocked_at)
+    refute user.conversations.include?(conversations(:one))
   end
 
   test "customer name for Pay" do
-    user = users(:with_business)
+    user = users(:business)
     assert_equal user.pay_customer_name, businesses(:one).name
 
     user = users(:empty)
@@ -26,19 +28,20 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "active business subscription" do
-    user = users(:with_business)
+    user = users(:business)
     refute user.active_business_subscription?
 
     user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(plan: "fake")
+    user.payment_processor.subscribe(name: "full_time")
     assert user.reload.active_business_subscription?
   end
 
   test "active legacy business subscription" do
-    user = users(:with_business_conversation)
+    user = users(:business)
     refute user.active_legacy_business_subscription?
 
-    pay_subscriptions(:two).update!(name: BusinessSubscription::Legacy.new.name)
+    user.set_payment_processor(:fake_processor, allow_fake: true)
+    user.payment_processor.subscribe(name: "legacy")
     assert user.reload.active_legacy_business_subscription?
   end
 end
