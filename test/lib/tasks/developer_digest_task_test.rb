@@ -10,10 +10,12 @@ class DeveloperDigestTaskTest < ActionMailer::TestCase
     travel_to monday do
       Developer.create!(developer_attributes.merge(created_at: 1.day.ago))
 
+      businesses(:subscriber).update!(developer_notifications: :daily)
       assert_emails 1 do
         Rake::Task["developer_digest:daily"].invoke
       end
 
+      businesses(:subscriber).update!(developer_notifications: :weekly)
       assert_emails 1 do
         Rake::Task["developer_digest:weekly"].invoke
       end

@@ -9,6 +9,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
 
   test "daily emails for developers who signed up yesterday" do
     create_developers
+    @business.update!(developer_notifications: :daily)
 
     args = {business: @business, developers: [@yesterday]}
     assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
@@ -18,6 +19,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
 
   test "do not send daily emails if no new developers signed up yesterday" do
     create_developer(2.days.ago)
+    @business.update!(developer_notifications: :daily)
 
     assert_no_emails do
       EmailDigests::NewDevelopers.new.send_daily_digest

@@ -2,7 +2,7 @@ require "test_helper"
 
 class BusinessPolicyTest < ActiveSupport::TestCase
   test "update their own business profile" do
-    user = users(:with_business)
+    user = users(:business)
     assert BusinessPolicy.new(user, user.business).update?
   end
 
@@ -14,11 +14,11 @@ class BusinessPolicyTest < ActiveSupport::TestCase
   end
 
   test "developer notifications are permitted for active business subscriptions" do
-    user = users(:with_business)
+    user = users(:business)
     policy = BusinessPolicy.new(user, user.business)
     refute_includes policy.permitted_attributes, :developer_notifications
 
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     policy = BusinessPolicy.new(user, user.business)
     assert_includes policy.permitted_attributes, :developer_notifications
   end
