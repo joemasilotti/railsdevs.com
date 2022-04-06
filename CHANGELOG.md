@@ -2,6 +2,10 @@
 
 ## 2022
 
+### April
+
+* April 6 - Migrate email sending from Mailgun to Postmark - #365
+
 ### March
 
 * March 31 - Show message preview in notification email - #357
