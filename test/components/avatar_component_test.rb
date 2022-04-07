@@ -8,10 +8,10 @@ class AvatarComponentTest < ViewComponent::TestCase
   end
 
   test "should render user avatars" do
-    @blob = active_storage_blobs(:lovelace)
+    blob = active_storage_blobs(:lovelace)
     render_inline(AvatarComponent.new(avatarable: @developer))
 
-    assert_selector("img[src$='#{@blob.filename}']")
+    assert_selector("img[src$='#{blob.filename}']")
   end
 
   test "should fall back to default" do
