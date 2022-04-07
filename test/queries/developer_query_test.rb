@@ -1,6 +1,8 @@
 require "test_helper"
 
 class DeveloperQueryTest < ActiveSupport::TestCase
+  include DevelopersHelper
+
   test "sort is :availability and defaults to :newest" do
     assert_equal DeveloperQuery.new(sort: "availability").sort, :availability
 
@@ -11,114 +13,100 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "default searching excludes developers not interested (or blank) search status" do
+    actively_looking = create_developer(search_status: :actively_looking)
+    open = create_developer(search_status: :open)
+    not_interested = create_developer(search_status: :not_interested)
+    blank = create_developer(search_status: nil)
+
     records = DeveloperQuery.new.records
-    assert_includes records, developers(:with_actively_looking_search_status)
-    assert_includes records, developers(:with_open_search_status)
-    refute_includes records, developers(:with_not_interested_search_status)
-    refute_includes records, developers(:with_conversation) # Blank search status.
+
+    assert_includes records, actively_looking
+    assert_includes records, open
+    refute_includes records, not_interested
+    refute_includes records, blank
   end
 
-  test "sorting by availability excludes records if not set" do
+  test "including developers who aren't currently interested" do
+    not_interested = create_developer(search_status: :not_interested)
+
+    records = DeveloperQuery.new.records
+    refute_includes records, not_interested
+
+    records = DeveloperQuery.new(include_not_interested: true).records
+    assert_includes records, not_interested
+  end
+
+  test "sorting by availability excludes developers who haven't set that field" do
+    available = create_developer(available_on: Date.yesterday)
+    unavailable = create_developer(available_on: Date.tomorrow)
+    blank = create_developer(available_on: nil)
+
     records = DeveloperQuery.new(sort: :availability).records
-    assert_equal records, [
-      developers(:complete),
-      developers(:available),
-      developers(:unavailable)
-    ]
+
+    assert_includes records, available
+    assert_includes records, unavailable
+    refute_includes records, blank
+
+    assert records.find_index(available) < records.find_index(unavailable)
   end
 
   test "sorting by newest" do
+    oldest = create_developer
+    newest = create_developer
+
     records = DeveloperQuery.new(sort: :newest).records
-    assert_equal records, [
-      developers(:complete),
-      developers(:available),
-      developers(:unavailable),
-      developers(:with_part_time_contract),
-      developers(:with_full_time_contract),
-      developers(:with_full_time_employment),
-      developers(:with_actively_looking_search_status),
-      developers(:with_open_search_status),
-      developers(:with_junior_role_level),
-      developers(:with_mid_role_level),
-      developers(:with_senior_role_level),
-      developers(:with_principal_role_level),
-      developers(:with_c_type_role_level)
-    ]
+
+    assert records.find_index(newest) < records.find_index(oldest)
   end
 
   test "filtering by time zones" do
+    eastern = create_developer(utc_offset: EASTERN_UTC_OFFSET)
+    pacific = create_developer(utc_offset: PACIFIC_UTC_OFFSET)
+
     records = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET]).records
-    assert_equal records, [developers(:unavailable)]
+
+    assert_includes records, pacific
+    refute_includes records, eastern
   end
 
-  test "filtering by part-time contract" do
-    records = DeveloperQuery.new(role_types: ["part_time_contract"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_part_time_contract)
-    assert_includes records, developers(:complete)
+  test "filtering by role types" do
+    part_time_contract = create_developer(role_type_attributes: {part_time_contract: true})
+    full_time_contract = create_developer(role_type_attributes: {full_time_contract: true})
+    full_time_employment = create_developer(role_type_attributes: {full_time_employment: true})
+    blank = create_developer
+
+    records = DeveloperQuery.new(role_types: ["part_time_contract", "full_time_contract"]).records
+
+    assert_includes records, part_time_contract
+    assert_includes records, full_time_contract
+    refute_includes records, full_time_employment
+    refute_includes records, blank
   end
 
-  test "filtering by full-time contract" do
-    records = DeveloperQuery.new(role_types: ["full_time_contract"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_full_time_contract)
-    assert_includes records, developers(:complete)
-  end
+  test "filtering by role level" do
+    junior = create_developer(role_level_attributes: {junior: true})
+    mid = create_developer(role_level_attributes: {mid: true})
+    senior = create_developer(role_level_attributes: {senior: true})
+    blank = create_developer
 
-  test "filtering by full-time employment" do
-    records = DeveloperQuery.new(role_types: ["full_time_employment"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_full_time_employment)
-    assert_includes records, developers(:complete)
-  end
+    records = DeveloperQuery.new(role_levels: ["junior", "mid"]).records
 
-  test "filtering by junior role level" do
-    records = DeveloperQuery.new(role_levels: ["junior"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_junior_role_level)
-    assert_includes records, developers(:complete)
-  end
-
-  test "filtering by mid role level" do
-    records = DeveloperQuery.new(role_levels: ["mid"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_mid_role_level)
-    assert_includes records, developers(:complete)
-  end
-
-  test "filtering by senior role level" do
-    records = DeveloperQuery.new(role_levels: ["senior"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_senior_role_level)
-    assert_includes records, developers(:complete)
-  end
-
-  test "filtering by principal role level" do
-    records = DeveloperQuery.new(role_levels: ["principal"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_principal_role_level)
-    assert_includes records, developers(:complete)
-  end
-
-  test "filtering by c_level role level" do
-    records = DeveloperQuery.new(role_levels: ["c_level"]).records
-    assert_equal 2, records.count
-    assert_includes records, developers(:with_c_type_role_level)
-    assert_includes records, developers(:complete)
-  end
-
-  test "filtering with developers who aren't interested" do
-    records = DeveloperQuery.new(include_not_interested: true).records
-    assert_includes records, developers(:with_actively_looking_search_status)
-    assert_includes records, developers(:with_open_search_status)
-    assert_includes records, developers(:with_not_interested_search_status)
-    assert_includes records, developers(:with_conversation) # Blank search status.
+    assert_includes records, junior
+    assert_includes records, mid
+    refute_includes records, senior
+    refute_includes records, blank
   end
 
   test "filtering developers by their bio or hero" do
-    developers = developers(:complete)
-    records = DeveloperQuery.new(search_query: "#{developers.bio} #{developers.hero}").records
-    assert_includes records, developers
+    loves_oss = create_developer(hero: "I love OSS!")
+    likes_oss = create_developer(bio: "I enjoy OSS")
+    does_not_mention_oss = create_developer
+
+    records = DeveloperQuery.new(search_query: "OSS").records
+
+    assert_includes records, loves_oss
+    assert_includes records, likes_oss
+    refute_includes records, does_not_mention_oss
   end
 
   test "pagy is initialized without errors" do
