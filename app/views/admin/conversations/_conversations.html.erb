@@ -18,11 +18,11 @@
             <% conversations.each do |conversation| %>
               <tr>
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                  <%= link_to "#{conversation.business.company} (#{conversation.business.name})", business_path(conversation.business), class: "hover:underline" %>
+                  <%= link_to "#{conversation.business.company} (#{conversation.business.name})", admin_business_conversations_path(conversation.business), class: "hover:underline" %>
                 </td>
 
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                  <%= link_to conversation.developer.name, developer_path(conversation.developer), class: "hover:underline" %>
+                  <%= link_to conversation.developer.name, admin_developer_conversations_path(conversation.developer), class: "hover:underline" %>
                 </td>
 
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">

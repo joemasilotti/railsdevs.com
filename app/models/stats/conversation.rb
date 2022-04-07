@@ -1,11 +1,19 @@
 module Stats
   class Conversation
+    private attr_reader :conversations
+
+    def initialize(conversations)
+      @conversations = conversations
+    end
+
     def sent
-      @sent ||= ::Conversation.count
+      @sent ||= conversations.count
     end
 
     def replied
-      @replied ||= Message.where(sender_type: "Developer").group(:conversation_id).count.count
+      @replied ||= Message.where(sender_type: "Developer", conversation: conversations)
+        .group(:conversation_id)
+        .count.count
     end
 
     def replied_rate

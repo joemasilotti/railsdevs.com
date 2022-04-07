@@ -73,8 +73,6 @@ en:
         replied: Replied
         started: Started
         view: View
-      index:
-        title: Conversations
       stats:
         reply_rate: Reply rate
         started: Started

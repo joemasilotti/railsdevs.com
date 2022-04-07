@@ -3,15 +3,20 @@ module Admin
     include Pagy::Backend
 
     def index
-      @stats = Stats::Conversation.new
+      @title = "Conversations"
+      @stats = Stats::Conversation.new(conversations)
       @pagy, @conversations = pagy(conversations)
       @replied_to_conversation_ids = replied_to_conversation_ids
     end
 
     private
 
+    def all_conversations
+      Conversation.all
+    end
+
     def conversations
-      @conversations ||= Conversation.includes(:business, :developer).order(created_at: :desc)
+      @conversations ||= all_conversations.includes(:business, :developer).order(created_at: :desc)
     end
 
     def replied_to_conversation_ids
