@@ -242,8 +242,8 @@ en:
       title_og: The reverse job board for Ruby on Rails developers
   messages:
     form:
-      help: Add your message
       agreement: I understand that if I hire %{developer_name} then I will pay railsdevs 10% of their first year salary.
+      help: Add your message
       sending: Sending...
       submit: Send
     message:
