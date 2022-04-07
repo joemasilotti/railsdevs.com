@@ -15,7 +15,7 @@ class Message < ApplicationRecord
   has_noticed_notifications
 
   validates :body, presence: true
-  validates :accepted, :acceptance => 1
+  validates :accepted, acceptance: 1
 
   after_create_commit :send_recipient_notification
 
