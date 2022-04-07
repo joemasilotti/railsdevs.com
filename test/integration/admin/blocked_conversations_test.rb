@@ -15,11 +15,11 @@ class Admin::BlockedConversationsTest < ActionDispatch::IntegrationTest
   test "shows only blocked conversations" do
     sign_in users(:admin)
 
-    get admin_conversations_path
+    get admin_conversations_blocks_path
     assert_select "p", text: developers(:prospect).name, count: 0
 
     conversations(:one).touch(:developer_blocked_at)
-    get admin_conversations_path
+    get admin_conversations_blocks_path
     assert_select "p", text: developers(:prospect).name
   end
 end

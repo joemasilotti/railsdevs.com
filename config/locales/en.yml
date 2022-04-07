@@ -66,6 +66,11 @@ en:
           title: No blocked conversations
         index:
           title: Blocked conversations
+      index:
+        title: Conversations
+      stats:
+        reply_rate: Reply rate
+        started: Started
     transactions:
       create:
         created: Transaction created
@@ -471,6 +476,7 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      conversations: Conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
