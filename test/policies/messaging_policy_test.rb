@@ -63,4 +63,14 @@ class MessagingPolicyTest < ActiveSupport::TestCase
     assert MessagingPolicy.new(user, message).show?
     assert MessagingPolicy.new(user, message).create?
   end
+
+  test "admins can view any conversation" do
+    conversation = conversations(:one)
+
+    user = users(:admin)
+    assert MessagingPolicy.new(user, conversation).show?
+
+    conversation.touch(:developer_blocked_at)
+    assert MessagingPolicy.new(user, conversation).show?
+  end
 end

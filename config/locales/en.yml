@@ -66,6 +66,13 @@ en:
           title: No blocked conversations
         index:
           title: Blocked conversations
+      conversations:
+        business: Business
+        developer: Developer
+        no_response: No response
+        replied: Replied
+        started: Started
+        view: View
       index:
         title: Conversations
       stats:
