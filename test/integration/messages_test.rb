@@ -4,8 +4,8 @@ class MessagesTest < ActionDispatch::IntegrationTest
   include PayHelper
 
   setup do
-    @developer = developers(:with_conversation)
-    @business = businesses(:with_conversation)
+    @developer = developers(:prospect)
+    @business = businesses(:subscriber)
     @conversation = conversations(:one)
   end
 
@@ -54,7 +54,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a business without an active subscription can no longer continue the conversation" do
-    pay_subscriptions(:two).update!(ends_at: Date.yesterday)
+    pay_subscriptions(:full_time).update!(ends_at: Date.yesterday)
     sign_in @business.user
 
     assert_no_difference "Message.count" do

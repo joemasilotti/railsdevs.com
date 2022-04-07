@@ -1,11 +1,5 @@
 one:
-  owner: with_business_two (User)
-  processor: stripe
-  processor_id: cus_2345
-  default: true
-
-two:
-  owner: with_business_conversation (User)
+  owner: subscribed_business (User)
   processor: stripe
   processor_id: cus_1234
   default: true

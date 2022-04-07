@@ -2,12 +2,13 @@ require "test_helper"
 
 class NewDeveloperFieldsComponentTest < ViewComponent::TestCase
   test "renders if the user's developer profile is missing fields" do
-    render_inline NewDeveloperFieldsComponent.new(users(:with_unavailable_profile))
+    developers(:one).update!(available_on: nil)
+    render_inline NewDeveloperFieldsComponent.new(users(:developer))
     assert_text I18n.t("new_developer_fields_component.title")
   end
 
   test "doesn't render if the developer profile is filled in" do
-    render_inline NewDeveloperFieldsComponent.new(users(:with_complete_profile))
+    render_inline NewDeveloperFieldsComponent.new(users(:developer))
     refute_component_rendered
   end
 
@@ -17,8 +18,9 @@ class NewDeveloperFieldsComponentTest < ViewComponent::TestCase
   end
 
   test "doesn't render if the developer hasn't been saved yet" do
-    users(:empty).build_developer
-    render_inline NewDeveloperFieldsComponent.new(users(:empty))
+    user = users(:empty)
+    user.build_developer
+    render_inline NewDeveloperFieldsComponent.new(user)
     refute_component_rendered
   end
 
@@ -28,7 +30,7 @@ class NewDeveloperFieldsComponentTest < ViewComponent::TestCase
   end
 
   test "doesn't render if disabled" do
-    render_inline NewDeveloperFieldsComponent.new(users(:with_unavailable_profile), enabled: false)
+    render_inline NewDeveloperFieldsComponent.new(users(:developer), enabled: false)
     refute_component_rendered
   end
 end

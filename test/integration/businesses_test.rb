@@ -8,7 +8,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "redirect to edit if building an existing business" do
-    user = users(:with_business)
+    user = users(:business)
     sign_in user
 
     get new_business_path
@@ -17,7 +17,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "cannot create new business if already has one" do
-    sign_in users(:with_business)
+    sign_in users(:business)
 
     assert_no_difference "Business.count" do
       post businesses_path, params: valid_business_params
@@ -25,7 +25,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "redirect to the edit if they already have a business" do
-    user = users(:with_business)
+    user = users(:business)
     sign_in user
 
     get new_business_path
@@ -46,7 +46,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "successful business creation with a stored location" do
-    developer = developers(:available)
+    developer = developers(:one)
 
     sign_in users(:empty)
     post developer_messages_path(developer)
@@ -58,7 +58,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "successful edit to business" do
-    sign_in users(:with_business)
+    sign_in users(:business)
     business = businesses(:one)
 
     get edit_business_path(business)
@@ -89,7 +89,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "can edit own business" do
-    sign_in users(:with_business)
+    sign_in users(:business)
     business = businesses(:one)
 
     get edit_business_path(business)
@@ -106,8 +106,8 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "cannot edit another business" do
-    sign_in users(:with_business)
-    business = businesses(:two)
+    sign_in users(:business)
+    business = businesses(:subscriber)
 
     get edit_business_path(business)
     assert_redirected_to root_path
@@ -123,7 +123,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "can update email notification preferences with an active business subscription" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     business = user.business
     sign_in user
 
@@ -136,7 +136,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   end
 
   test "cannot update email notification preferences without a subscription" do
-    user = users(:with_business)
+    user = users(:business)
     business = user.business
     sign_in user
 

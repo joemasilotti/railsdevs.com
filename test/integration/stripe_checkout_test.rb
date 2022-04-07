@@ -4,7 +4,7 @@ class StripeCheckoutTest < ActionDispatch::IntegrationTest
   include PayHelper
 
   setup do
-    @user = users(:with_business)
+    @user = users(:business)
   end
 
   test "redirects to the Stripe Checkout URL" do

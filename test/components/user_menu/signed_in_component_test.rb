@@ -5,7 +5,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   include Rails.application.routes.url_helpers
 
   test "links to business if persisted" do
-    user = users(:with_business)
+    user = users(:business)
 
     render_inline UserMenu::SignedInComponent.new(user)
 
@@ -15,7 +15,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   end
 
   test "links to developer if persisted" do
-    user = users(:with_available_profile)
+    user = users(:developer)
 
     render_inline UserMenu::SignedInComponent.new(user)
 
@@ -35,17 +35,17 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   end
 
   test "links to conversations if user has any" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to conversations_path
 
-    user = users(:with_available_profile)
+    user = users(:developer)
     render_inline UserMenu::SignedInComponent.new(user)
     refute_link_to conversations_path
   end
 
   test "links to conversations if user has a business profile" do
-    user = users(:with_business)
+    user = users(:business)
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to conversations_path
   end
@@ -55,13 +55,13 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to admin_conversations_path
 
-    user = users(:with_business)
+    user = users(:business)
     render_inline UserMenu::SignedInComponent.new(user)
     refute_link_to admin_conversations_path
   end
 
   test "links to Stripe Customer Portal if the user is a customer" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to stripe_portal_path
 
@@ -71,15 +71,15 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   end
 
   test "links to new notifications view when no new notifications exist" do
-    user = users(:with_business)
+    user = users(:business)
 
     render_inline UserMenu::SignedInComponent.new(user)
     assert_link_to notifications_path
   end
 
   test "links to new notifications view when new notifications exist" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
 
     render_inline UserMenu::SignedInComponent.new(user)
@@ -87,8 +87,8 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   end
 
   test "shows red alert dot when new notifications exist" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
 
     render_inline UserMenu::SignedInComponent.new(user)
@@ -96,7 +96,7 @@ class UserMenu::SignedInComponentTest < ViewComponent::TestCase
   end
 
   test "does not show red alert dot when no new notifications exist" do
-    user = users(:with_business)
+    user = users(:business)
 
     render_inline UserMenu::SignedInComponent.new(user)
     assert_no_css "bg-red-400"

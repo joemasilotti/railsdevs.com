@@ -2,7 +2,7 @@ require "test_helper"
 
 class BlocksTest < ActionDispatch::IntegrationTest
   setup do
-    @developer = developers(:available)
+    @developer = developers(:one)
     @business = businesses(:one)
     @conversation = Conversation.create!(developer: @developer, business: @business)
   end

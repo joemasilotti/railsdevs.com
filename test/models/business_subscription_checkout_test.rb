@@ -5,7 +5,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   include Rails.application.routes.url_helpers
 
   test "creates a Pay::Customer for Stripe for the user" do
-    user = users(:with_business)
+    user = users(:business)
     stub_pay(user) do
       assert_difference "Pay::Customer.count", 1 do
         BusinessSubscriptionCheckout.new(user:).url
@@ -16,7 +16,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   end
 
   test "redirects to the success URL" do
-    user = users(:with_business)
+    user = users(:business)
     success_path = "/developers/42"
 
     stub_pay(user) do
@@ -28,7 +28,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   end
 
   test "charges the price for the part-time, full-time, or legacy plan" do
-    user = users(:with_business)
+    user = users(:business)
 
     part_time_price_id = Rails.application.credentials.stripe[:price_ids][:part_time_plan]
     stub_pay(user, plan_price_id: part_time_price_id) do
@@ -47,7 +47,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   end
 
   test "returns a Stripe Checkout URL" do
-    user = users(:with_business)
+    user = users(:business)
     stub_pay(user) do
       url = BusinessSubscriptionCheckout.new(user:).url
       assert_equal url, "checkout.stripe.com"

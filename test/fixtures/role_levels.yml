@@ -5,28 +5,8 @@ some:
   senior: true
   principal: true
 
-junior_level:
-  junior: true
-  developer: with_junior_role_level
-
-mid_level:
-  mid: true
-  developer: with_mid_role_level
-
-senior_level:
-  senior: true
-  developer: with_senior_role_level
-
-pricipal_level:
-  principal: true
-  developer: with_principal_role_level
-
-c_level:
-  c_level: true
-  developer: with_c_type_role_level
-
 all:
-  developer: complete
+  developer: one
   junior: true
   mid: true
   senior: true

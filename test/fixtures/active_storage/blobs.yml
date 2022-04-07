@@ -1,11 +1,11 @@
-one: <%= ActiveStorage::FixtureSet.blob(
+lovelace: <%= ActiveStorage::FixtureSet.blob(
   filename: "lovelace.jpg"
 ) %>
 
-two: <%= ActiveStorage::FixtureSet.blob(
+mountains: <%= ActiveStorage::FixtureSet.blob(
   filename: "mountains.jpg"
 ) %>
 
-three: <%= ActiveStorage::FixtureSet.blob(
+basecamp: <%= ActiveStorage::FixtureSet.blob(
   filename: "basecamp.png"
 ) %>

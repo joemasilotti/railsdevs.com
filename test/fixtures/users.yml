@@ -3,93 +3,23 @@ empty:
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
-with_complete_profile:
-  email: complete@example.com
+developer:
+  email: developer@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
-with_available_profile:
-  email: one@example.com
+prospect_developer:
+  email: prospect_developer@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
-with_unavailable_profile:
-  email: two@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_invisible_profile:
-  email: invisible@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
-  confirmed_at: <%= DateTime.current %>
-
-without_profile:
-  email: three@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_business:
+business:
   email: business@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
-with_business_two:
-  email: business2@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_developer_conversation:
-  email: developer_conversation@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
-  confirmed_at: <%= DateTime.current %>
-
-with_business_conversation:
-  email: business_conversation@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_blocked_conversation:
-  email: blocked_conversation@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_part_time_contract:
-  email: part-time-contract@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_full_time_contract:
-  email: full-time-contract@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_full_time_employment:
-  email: full-time-employment@exmaple.com
-  confirmed_at: <%= DateTime.current %>
-
-with_actively_looking_status:
-  email: actively-looking-status@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_open_search_status:
-  email: open-search-status@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_not_interested_search_status:
-  email: not-interested-status@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_junior_level:
-  email: junior-level@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_mid_level:
-  email: mid-level@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_senior_level:
-  email: senior-level@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_principal_level:
-  email: principal-level@example.com
-  confirmed_at: <%= DateTime.current %>
-
-with_c_type_level:
-  email: c-type-level@example.com
+subscribed_business:
+  email: customer@example.com
   confirmed_at: <%= DateTime.current %>
 
 admin:
