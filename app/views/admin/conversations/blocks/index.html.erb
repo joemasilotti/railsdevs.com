@@ -1,0 +1,13 @@
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <% if @conversations.any? %>
+    <h1 class="mt-6 text-center text-3xl font-extrabold"><%= t(".title") %></h1>
+
+    <ul class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-8">
+      <%= render partial: "conversation", collection: @conversations %>
+    </ul>
+  <% else %>
+    <div class="mt-8">
+      <%= render "empty_state" %>
+    </div>
+  <% end %>
+</div>

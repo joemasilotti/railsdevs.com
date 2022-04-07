@@ -4,8 +4,8 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
   include PayHelper
 
   setup do
-    @developer = developers(:available)
-    @business = businesses(:with_conversation)
+    @developer = developers(:one)
+    @business = businesses(:subscriber)
   end
 
   test "must be signed in" do

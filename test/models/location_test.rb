@@ -78,7 +78,7 @@ class LocationTest < ActiveSupport::TestCase
   end
 
   def create_location!(options = {})
-    Location.create!(options.merge(developer: developers(:available)))
+    Location.create!(options.merge(developer: developers(:one)))
   end
 
   def raise_on_geocoding(&block)

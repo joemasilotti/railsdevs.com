@@ -4,7 +4,7 @@ class NotificationTest < ActiveSupport::TestCase
   include NotificationsHelper
 
   test "conversation resolves correctly" do
-    developer = developers(:available)
+    developer = developers(:one)
     business = businesses(:one)
     message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
 
@@ -12,7 +12,7 @@ class NotificationTest < ActiveSupport::TestCase
   end
 
   test "message resolves correctly" do
-    developer = developers(:available)
+    developer = developers(:one)
     business = businesses(:one)
     message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
 

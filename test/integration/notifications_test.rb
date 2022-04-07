@@ -9,8 +9,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   test "redirects to conversation if already sign in" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     sign_in user
     message = create_message!(developer:, business: user.business)
     notification = last_message_notification
@@ -20,15 +20,15 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   test "you can view the new notifications page even if none exist" do
-    sign_in users(:with_business)
+    sign_in users(:business)
 
     get notifications_path
     assert_select "h3", "No new notifications"
   end
 
   test "you can view your new notifications if you have new (unread) notifications" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     sign_in user
     create_message!(developer:, business: user.business)
 
@@ -37,8 +37,8 @@ class NotificationsTest < ActionDispatch::IntegrationTest
   end
 
   test "viewing a notification marks it as read and redirects" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     sign_in user
     message = create_message!(developer:, business: user.business)
     notification = last_message_notification

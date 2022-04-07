@@ -7,12 +7,14 @@ class NewDeveloperFieldComponentTest < ViewComponent::TestCase
   end
 
   test "renders if the field is missing" do
-    render_inline NewDeveloperFieldComponent.new(developers(:unavailable), :role_type)
+    developer = developers(:one)
+    developer.build_role_type
+    render_inline NewDeveloperFieldComponent.new(developer, :role_type)
     assert_text I18n.t("new_developer_field_component.new")
   end
 
   test "renders if the field is blank" do
-    render_inline NewDeveloperFieldComponent.new(developers(:with_conversation), :available_on)
+    render_inline NewDeveloperFieldComponent.new(developers(:prospect), :available_on)
     assert_text I18n.t("new_developer_field_component.new")
   end
 

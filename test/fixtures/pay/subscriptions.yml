@@ -1,15 +1,7 @@
-one:
+full_time:
   customer: one
-  name: legacy
+  name: full_time
   processor_id: sub_1
-  processor_plan: default
-  quantity: 1
-  status: active
-
-two:
-  customer: two
-  name: part_time
-  processor_id: sub_2
   processor_plan: default
   quantity: 1
   status: active

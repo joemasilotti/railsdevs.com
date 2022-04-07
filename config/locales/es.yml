@@ -50,12 +50,13 @@ es:
         other: Usuarios
   admin:
     conversations:
-      conversation:
-        blocked: Bloqueada
-      empty_state:
-        title: Ninguna conversación bloqueada
-      index:
-        title: Conversaciones bloqueadas
+      blocks:
+        conversation:
+          blocked: Bloqueada
+        empty_state:
+          title: Ninguna conversación bloqueada
+        index:
+          title: Conversaciones bloqueadas
   availability_component:
     in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
     now_html: Disponible ahora

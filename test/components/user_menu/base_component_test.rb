@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserMenu::BaseComponentTest < ViewComponent::TestCase
   test "renders the signed in component" do
-    user = users(:with_available_profile)
+    user = users(:developer)
     render_inline UserMenu::BaseComponent.new(user)
     assert_text "Open user menu"
   end
