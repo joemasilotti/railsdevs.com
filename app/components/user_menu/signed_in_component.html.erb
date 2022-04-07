@@ -31,7 +31,8 @@
         <div class="border-y border-gray-200 py-1">
           <span class="block mx-4 text-xs uppercase font-medium py-2"><%= t(".admin") %></span>
           <%= render UserMenu::MenuItemComponent.new(t(".transactions"), admin_transactions_path) %>
-          <%= render UserMenu::MenuItemComponent.new(t(".blocked_conversations"), admin_conversations_path) %>
+          <%= render UserMenu::MenuItemComponent.new(t(".conversations"), admin_conversations_path) %>
+          <%= render UserMenu::MenuItemComponent.new(t(".blocked_conversations"), admin_conversations_blocks_path) %>
         </div>
       <% end %>
 

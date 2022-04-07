@@ -43,6 +43,18 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :conversations, only: :index
     resources :transactions, except: :show
+
+    namespace :conversations do
+      resources :blocks, only: :index
+    end
+
+    resources :businesses, only: [] do
+      resources :conversations, only: :index, controller: :business_conversations
+    end
+
+    resources :developers, only: [] do
+      resources :conversations, only: :index, controller: :developer_conversations
+    end
   end
 
   namespace :stripe do

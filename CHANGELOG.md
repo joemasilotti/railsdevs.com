@@ -2,6 +2,10 @@
 
 ## 2022
 
+### April
+
+* April 7 - Added `/admin/conversations` - #368
+
 ### March
 
 * March 31 - Show message preview in notification email - #357

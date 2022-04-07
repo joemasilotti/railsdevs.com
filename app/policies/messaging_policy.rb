@@ -1,6 +1,6 @@
 class MessagingPolicy < ApplicationPolicy
   def show?
-    create?
+    create? || user.admin?
   end
 
   def create?
