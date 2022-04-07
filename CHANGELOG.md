@@ -4,6 +4,7 @@
 
 ### April
 
+* April 7 - Migrate email sending from Mailgun to Postmark - #365
 * April 7 - Added `/admin/conversations` - #368
 
 ### March

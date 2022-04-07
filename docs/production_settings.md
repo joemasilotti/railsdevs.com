@@ -28,12 +28,10 @@ honeybadger:
   api_key:
 ```
 
-Transactional emails are sent via [Mailgun](https://www.mailgun.com).
+Transactional emails are sent via [Postmark](https://postmarkapp.com).
 
 ```
-mailgun:
-  api_key:
-  domain:
+postmark_api_token:
 ```
 
 Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
