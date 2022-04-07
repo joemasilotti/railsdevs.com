@@ -50,6 +50,6 @@ class ColdMessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :accepted)
   end
 end
