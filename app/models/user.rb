@@ -32,4 +32,9 @@ class User < ApplicationRecord
     legacy_plan = BusinessSubscription::Legacy.new
     subscriptions.for_name(legacy_plan.name).active.any?
   end
+
+  # Always remember when signing in with Devise.
+  def remember_me
+    Rails.configuration.always_remember_me
+  end
 end
