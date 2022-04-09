@@ -54,6 +54,7 @@ Rails.application.routes.draw do
 
     resources :developers, only: [] do
       resources :conversations, only: :index, controller: :developer_conversations
+      resources :invisiblizes, only: :create
     end
   end
 
