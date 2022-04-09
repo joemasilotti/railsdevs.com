@@ -33,6 +33,10 @@ class User < ApplicationRecord
     subscriptions.for_name(legacy_plan.name).active.any?
   end
 
+  def full_time?
+    payment_processor.subscription(name: "full_time")
+  end
+
   # Always remember when signing in with Devise.
   def remember_me
     Rails.configuration.always_remember_me

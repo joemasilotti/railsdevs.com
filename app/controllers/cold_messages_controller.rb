@@ -6,10 +6,12 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
+    authorize @message, policy_class: MessagingPolicy
   end
 
   def create
     @message = Message.new(message_params.merge(conversation:, sender: business))
+    authorize @message, policy_class: MessagingPolicy
     if @message.save
       redirect_to @message.conversation
     else
