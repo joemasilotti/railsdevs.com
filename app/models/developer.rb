@@ -54,6 +54,7 @@ class Developer < ApplicationRecord
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   after_create_commit :send_admin_notification
+  after_update_commit :send_invisiblize_notification, if: :changed_to_invisible?
 
   def visible?
     !invisible?
@@ -84,5 +85,13 @@ class Developer < ApplicationRecord
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+  end
+
+  def changed_to_invisible?
+    search_status_previously_changed? to: "invisible"
+  end
+
+  def send_invisiblize_notification
+    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
   end
 end
