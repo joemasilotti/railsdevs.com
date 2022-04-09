@@ -2,7 +2,7 @@ require "test_helper"
 
 class DeveloperCardComponentTest < ViewComponent::TestCase
   setup do
-    @developer = developers(:available)
+    @developer = developers(:one)
   end
 
   test "should render hero" do
@@ -18,7 +18,7 @@ class DeveloperCardComponentTest < ViewComponent::TestCase
   end
 
   test "should render avatar" do
-    @blob = active_storage_blobs(:one)
+    @blob = active_storage_blobs(:lovelace)
     render_inline(DeveloperCardComponent.new(developer: @developer))
 
     assert_selector("img[src$='#{@blob.filename}']")

@@ -1,4 +1,6 @@
 class AdminMailer < ApplicationMailer
+  helper :messages
+
   def new_developer_profile
     @notification = params[:record]
     recipient = params[:recipient]
@@ -21,10 +23,11 @@ class AdminMailer < ApplicationMailer
     @notification = params[:record]
     recipient = params[:recipient]
 
-    instance = @notification.to_notification
-    @business = instance.conversation.business
-    @developer = instance.conversation.developer
+    conversation = @notification.to_notification.conversation
+    @business = conversation.business
+    @developer = conversation.developer
     @subscriptions = @business.user.subscriptions
+    @body = conversation.messages.first.body
 
     mail(to: recipient.email, subject: "New conversation started")
   end

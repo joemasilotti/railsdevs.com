@@ -2,8 +2,8 @@ require "test_helper"
 
 class PaywalledComponentTest < ViewComponent::TestCase
   test "should restrict paywall content" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
 
     render_inline(PaywalledComponent.new(user:, paywalled: developer)) { "Test text" }
     assert_no_text "Test text"
@@ -16,24 +16,24 @@ class PaywalledComponentTest < ViewComponent::TestCase
   end
 
   test "should show paywall content to customers" do
-    user = users(:with_business_conversation)
-    developer = developers(:available)
+    user = users(:subscribed_business)
+    developer = developers(:one)
     render_inline(PaywalledComponent.new(user:, paywalled: developer)) { "Test text" }
 
     assert_text "Test text"
   end
 
   test "should show paywall content to the owner" do
-    user = users(:with_available_profile)
-    developer = developers(:available)
+    user = users(:developer)
+    developer = developers(:one)
     render_inline(PaywalledComponent.new(user:, paywalled: developer)) { "Test text" }
 
     assert_text "Test text"
   end
 
   test "should show small CTA if paywalled" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
 
     render_inline(PaywalledComponent.new(user:, paywalled: developer, size: :small)) { "Test text" }
     assert_text I18n.t("paywalled_component.title")
@@ -41,8 +41,8 @@ class PaywalledComponentTest < ViewComponent::TestCase
   end
 
   test "should show large CTA if paywalled" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
 
     render_inline(PaywalledComponent.new(user:, paywalled: developer, size: :large)) { "Test text" }
     assert_text I18n.t("paywalled_component.title")

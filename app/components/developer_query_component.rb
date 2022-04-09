@@ -1,10 +1,11 @@
 class DeveloperQueryComponent < ApplicationComponent
   attr_reader :query
 
-  delegate :sort, to: :query
+  delegate :sort, :search_query, to: :query
 
-  def initialize(query)
+  def initialize(query:, user:)
     @query = query
+    @user = user
   end
 
   def time_zone_selected?(time_zone_pair)

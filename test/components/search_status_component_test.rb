@@ -2,7 +2,7 @@ require "test_helper"
 
 class SearchStatusComponentTest < ViewComponent::TestCase
   setup do
-    @developer = developers(:available)
+    @developer = developers(:one)
   end
 
   test "actively looking" do

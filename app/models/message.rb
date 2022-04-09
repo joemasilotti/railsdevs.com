@@ -1,5 +1,6 @@
 class Message < ApplicationRecord
   FORMAT = AutoHtml::Pipeline.new(
+    AutoHtml::HtmlEscape.new,
     AutoHtml::Link.new(target: "_blank"),
     AutoHtml::SimpleFormat.new
   )

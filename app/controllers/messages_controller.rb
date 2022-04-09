@@ -7,9 +7,11 @@ class MessagesController < ApplicationController
     authorize @message, policy_class: MessagingPolicy
 
     if @message.save
-      redirect_to conversation
+      respond_to do |format|
+        format.turbo_stream { @new_message = conversation.messages.build }
+        format.html { redirect_to conversation }
+      end
     else
-      @conversation = conversation
       render "conversations/show", status: :unprocessable_entity
     end
   end
@@ -23,7 +25,7 @@ class MessagesController < ApplicationController
   end
 
   def conversation
-    Conversation.visible.find(params[:conversation_id])
+    @conversation ||= Conversation.visible.find(params[:conversation_id])
   end
 
   def developer

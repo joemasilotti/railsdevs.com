@@ -23,11 +23,12 @@ module Railsdevs
     config.generators.system_tests = nil
 
     # Load custom configuration.
-    config.fathom = config_for(:fathom)
+    config.always_remember_me = true
     config.analytics = config_for(:analytics)
+    config.fathom = config_for(:fathom)
+    config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
     config.support_email = "joe@masilotti.com"
     config.upload_sitemap = false
-    config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
 
     # Run background jobs via sidekiq.
     config.active_job.queue_adapter = :sidekiq

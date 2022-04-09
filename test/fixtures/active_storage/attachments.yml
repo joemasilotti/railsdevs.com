@@ -1,23 +1,17 @@
-one:
+developer_avatar:
   name: avatar
   record_type: Developer
-  record_id: <%= ActiveRecord::FixtureSet.identify(:available) %>
-  blob_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:lovelace) %>
 
-two:
+developer_cover_image:
   name: cover_image
   record_type: Developer
-  record_id: <%= ActiveRecord::FixtureSet.identify(:available) %>
-  blob_id: <%= ActiveRecord::FixtureSet.identify(:two) %>
+  record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:mountains) %>
 
-three:
-  name: avatar
-  record_type: Business
-  record_id: <%= ActiveRecord::FixtureSet.identify(:with_conversation) %>
-  blob_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
-
-four:
+business_avatar:
   name: avatar
   record_type: Business
   record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
-  blob_id: <%= ActiveRecord::FixtureSet.identify(:three) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:basecamp) %>

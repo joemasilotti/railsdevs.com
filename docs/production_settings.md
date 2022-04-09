@@ -28,12 +28,10 @@ honeybadger:
   api_key:
 ```
 
-Transactional emails are sent via [Mailgun](https://www.mailgun.com).
+Transactional emails are sent via [Postmark](https://postmarkapp.com).
 
 ```
-mailgun:
-  api_key:
-  domain:
+postmark_api_token:
 ```
 
 Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
@@ -49,7 +47,10 @@ Stripe requires a few different keys, the credentials and the price for the busi
 stripe:
   private_key:
   signing_secret:
-  price_id:
+  price_ids:
+    legacy_plan:
+    part_time_plan:
+    full_time_plan:
 ```
 
 ## Active Storage

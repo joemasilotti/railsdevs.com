@@ -10,12 +10,12 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
   end
 
   test "redirects to the root path with a developer profile" do
-    login(users(:with_available_profile))
+    login(users(:developer))
     assert_redirected_to root_path
   end
 
   test "redirects to the root path with a business profile" do
-    login(users(:with_business))
+    login(users(:business))
     assert_redirected_to root_path
   end
 

@@ -10,15 +10,15 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "you can view your conversations (as a business)" do
-    sign_in users(:with_business_conversation)
+    sign_in users(:subscribed_business)
     get conversations_path
-    assert_select "h2", developers(:with_conversation).name
+    assert_select "h2", developers(:prospect).name
   end
 
   test "you can view your conversations (as a developer)" do
-    sign_in users(:with_developer_conversation)
+    sign_in users(:prospect_developer)
     get conversations_path
-    assert_select "h2", businesses(:with_conversation).name
+    assert_select "h2", businesses(:subscriber).name
   end
 
   test "you can view your own conversation (as a business)" do
@@ -49,9 +49,9 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "unread notifictions are marked as read" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     developer = user.developer
-    business = businesses(:with_conversation)
+    business = businesses(:subscriber)
     conversation = conversations(:one)
     Message.create!(developer:, business:, body: "Hi!", sender: business, conversation:)
     refute Notification.last.read?

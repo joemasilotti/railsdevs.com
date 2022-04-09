@@ -4,7 +4,7 @@ class DeveloperTest < ActiveSupport::TestCase
   include DevelopersHelper
 
   setup do
-    @developer = developers :available
+    @developer = developers(:one)
   end
 
   test "unspecified availability" do
@@ -47,7 +47,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without name" do
-    user = users(:with_available_profile)
+    user = users(:empty)
     developer = Developer.new(user:, name: nil)
 
     refute developer.valid?
@@ -55,7 +55,7 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without hero" do
-    user = users(:with_available_profile)
+    user = users(:empty)
     developer = Developer.new(user:, hero: nil)
 
     refute developer.valid?
@@ -63,20 +63,22 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "invalid without bio" do
-    user = users(:with_available_profile)
+    user = users(:empty)
     developer = Developer.new(user:, bio: nil)
 
     refute developer.valid?
     assert_not_nil developer.errors[:bio]
   end
 
-  test "available scope is only available developers" do
+  test "available scope is only developers available today or earlier" do
+    developers(:one).update!(available_on: Time.zone.local(2021, 1, 1))
+    developers(:prospect).update!(available_on: Time.zone.local(2022, 1, 1))
+
     travel_to Time.zone.local(2021, 5, 4)
 
     developers = Developer.available
-
-    assert_includes developers, developers(:available)
-    refute_includes developers, developers(:unavailable)
+    assert_includes developers, developers(:one)
+    refute_includes developers, developers(:prospect)
   end
 
   test "successful profile creation sends a notification to the admins" do
@@ -146,9 +148,9 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "updating a profile doesn't require search status" do
-    developer = developers(:with_conversation)
-    assert_nil developer.search_status
-    assert developer.valid?
+    @developer.search_status = nil
+    assert_nil @developer.search_status
+    assert @developer.valid?
   end
 
   test "normalizes social media profile input" do
@@ -159,60 +161,47 @@ class DeveloperTest < ActiveSupport::TestCase
   end
 
   test "missing fields when search status is blank" do
-    developer = developers(:unavailable)
-    developer.search_status = nil
-    assert developer.missing_fields?
+    refute @developer.missing_fields?
+
+    @developer.search_status = nil
+    assert @developer.missing_fields?
   end
 
   test "missing fields when location country is blank" do
-    developer = developers(:unavailable)
-    developer.search_status = :open
-    refute developer.location.country
-    assert developer.missing_fields?
+    refute @developer.missing_fields?
+
+    @developer.location.country = nil
+    assert @developer.missing_fields?
   end
 
   test "missing fields when role level is all blank" do
-    developer = developers(:unavailable)
-    developer.search_status = :open
-    developer.location.country = "United States"
-    developer.build_role_level
-    assert developer.missing_fields?
+    refute @developer.missing_fields?
+
+    @developer.build_role_level
+    assert @developer.missing_fields?
   end
 
   test "missing fields when role type is all blank" do
-    developer = developers(:unavailable)
-    developer.search_status = :open
-    developer.location.country = "United States"
-    developer.role_level = RoleLevel.new(mid: true)
-    developer.build_role_type
-    assert developer.missing_fields?
+    refute @developer.missing_fields?
+
+    @developer.build_role_type
+    assert @developer.missing_fields?
   end
 
   test "missing fields available on is blank" do
-    developer = developers(:unavailable)
-    developer.search_status = :open
-    developer.location.country = "United States"
-    developer.role_level = RoleLevel.new(mid: true)
-    developer.role_type = RoleType.new(part_time_contract: true)
-    developer.available_on = nil
-    assert developer.missing_fields?
+    refute @developer.missing_fields?
+
+    @developer.available_on = nil
+    assert @developer.missing_fields?
   end
 
-  test "not missing fields when everything is filled in" do
-    developer = developers(:unavailable)
-    developer.search_status = :open
-    developer.location.country = "United States"
-    developer.role_level = RoleLevel.new(mid: true)
-    developer.role_type = RoleType.new(part_time_contract: true)
-    developer.available_on = Date.tomorrow
-    refute developer.missing_fields?
-  end
+  test "visible scope includes developers who are not invisible and haven't set their search status" do
+    assert_includes Developer.visible, developers(:one)
 
-  test "visible scope includes developers who are invisible and haven't set their search status" do
-    developers = Developer.visible
-    assert_includes developers, developers(:with_actively_looking_search_status)
-    assert_includes developers, developers(:with_open_search_status)
-    assert_includes developers, developers(:with_not_interested_search_status)
-    assert_includes developers, developers(:with_conversation) # Blank search status.
+    developers(:one).update!(search_status: :invisible)
+    refute_includes Developer.visible, developers(:one)
+
+    developers(:one).update!(search_status: nil)
+    assert_includes Developer.visible, developers(:one)
   end
 end

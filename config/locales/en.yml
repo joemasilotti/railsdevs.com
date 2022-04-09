@@ -59,12 +59,23 @@ en:
         other: Users
   admin:
     conversations:
-      conversation:
-        blocked: Blocked
-      empty_state:
-        title: No blocked conversations
-      index:
-        title: Blocked conversations
+      blocks:
+        conversation:
+          blocked: Blocked
+        empty_state:
+          title: No blocked conversations
+        index:
+          title: Blocked conversations
+      conversations:
+        business: Business
+        developer: Developer
+        no_response: No response
+        replied: Replied
+        started: Started
+        view: View
+      stats:
+        reply_rate: Reply rate
+        started: Started
     transactions:
       create:
         created: Transaction created
@@ -138,6 +149,7 @@ en:
     include_not_interested: Include developers not currently interested
     role_level:
       title: Role level
+    search_query_label: Search developer profiles
     sort:
       availability: Availability
       newest: Newest
@@ -231,7 +243,6 @@ en:
   messages:
     form:
       help: Add your message
-      placeholder: Add your message...
       sending: Sending...
       submit: Send
     message:
@@ -471,6 +482,7 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      conversations: Conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
