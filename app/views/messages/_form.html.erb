@@ -4,6 +4,15 @@
     <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->form#submit"}, class: field_classes(form, :body) %>
   </div>
 
+  <% if developer_name.present? %>
+    <div class="flex mt-1 space-x-2">
+      <%= form.check_box("terms_of_service") %>
+      <span>
+        <%= form.label :terms_of_service, t(".terms_of_service", developer_name:), required: true, class: "block text-sm font-medium text-gray-700" %>
+      </span>
+    </div>
+  <% end %>
+
   <div class="py-2 flex justify-end">
     <div class="shrink-0">
       <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>
