@@ -88,7 +88,7 @@ class Developer < ApplicationRecord
   end
 
   def changed_to_invisible?
-    search_status_previously_changed? to: "invisible"
+    search_status_previously_changed?(to: "invisible")
   end
 
   def send_invisiblize_notification
