@@ -205,9 +205,9 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes Developer.visible, developers(:one)
   end
 
-  test "notifies the dev when they are marked invisible" do
+  test "notifies the dev when they are invisibilized" do
     assert_difference "Notification.count", 1 do
-      developers(:one).update!(search_status: :invisible)
+      developers(:one).invisiblize!
     end
 
     assert_equal Notification.last.type, InvisiblizeDeveloperNotification.name
