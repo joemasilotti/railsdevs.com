@@ -4,14 +4,6 @@ class InvisiblizeDeveloperNotification < Noticed::Base
 
   param :developer
 
-  def developer_profile_url
-    developer_path(developer)
-  end
-
-  def home_url
-    root_path
-  end
-
   def developer
     params[:developer]
   end
