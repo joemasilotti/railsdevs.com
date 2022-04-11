@@ -7,6 +7,13 @@ SeedsHelper.create_developer!("minimum", {
   location: SeedsHelper.locations[:new_york]
 })
 
+# Invisible developer
+developer = SeedsHelper.create_developer!("invisible", {
+  hero: "Invisible developer",
+  location: SeedsHelper.locations[:new_york]
+})
+developer.invisiblize!
+
 # Junior developer
 SeedsHelper.create_developer!("junior", {
   hero: "Junior developer",
