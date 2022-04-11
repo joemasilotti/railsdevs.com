@@ -1,5 +1,10 @@
 # Random developers
-20.times { SeedsHelper.create_random_developer! }
+RANDOM_DEVELOPERS = 20
+if Developer.count < RANDOM_DEVELOPERS
+  (RANDOM_DEVELOPERS - Developer.count).times do
+    SeedsHelper.create_random_developer!
+  end
+end
 
 # Minimum developer
 SeedsHelper.create_developer!("minimum", {
