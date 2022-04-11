@@ -7,4 +7,8 @@ class DeveloperPrimaryActionComponent < ApplicationComponent
   def owner?
     @user&.developer == @developer
   end
+
+  def admin?
+    !!@user&.admin?
+  end
 end
