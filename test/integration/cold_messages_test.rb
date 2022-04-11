@@ -29,6 +29,12 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to pricing_path
   end
 
+  test "part time businesses can't create a converstaion with a full-time developer" do
+    sign_in businesses(:one).user
+    get new_developer_message_path(@developer)
+    assert_select "form", count: 0
+  end
+
   test "stores the location if no active business subscription" do
     sign_in businesses(:one).user
     get new_developer_message_path(@developer)

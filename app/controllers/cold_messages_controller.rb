@@ -6,7 +6,7 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
-    authorize @message, policy_class: MessagingPolicy
+    @disable = MessagingPolicy.new(current_user, @message).priviledge_checked?
   end
 
   def create

@@ -13,6 +13,10 @@ prospect_developer:
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
 
+full_time_prospect_dev:
+  email: full_time_prospec_devt@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+
 business:
   email: business@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
