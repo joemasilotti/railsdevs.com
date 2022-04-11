@@ -78,7 +78,7 @@ en:
         started: Started
     invisiblizes:
       create:
-        created: Profile Invisiblized
+        created: Profile set to invisible.
     transactions:
       create:
         created: Transaction created
