@@ -41,6 +41,14 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_select "form[action=?]", developer_messages_path(@developer)
   end
 
+  test "a business gets terms of service checkbox" do
+    sign_in @business.user
+    get new_developer_message_path(@developer)
+
+    assert_select "input[type=checkbox][checked]", 0
+    assert I18n.t("messages.form.terms_of_service", developer_name: @developer.name)
+  end
+
   test "a business can create a new conversation" do
     sign_in @business.user
 
@@ -74,6 +82,22 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :unprocessable_entity
+  end
+
+  test "unaccepted terms of service renders the error message" do
+    sign_in @business.user
+
+    assert_no_difference "Message.count" do
+      assert_no_difference "Conversation.count" do
+        post developer_messages_path(@developer), params: {message: {
+          body: "Hello!",
+          terms_of_service: 0
+        }}
+      end
+    end
+
+    assert_response :unprocessable_entity
+    assert "Terms of service must be accepted"
   end
 
   def message_params
