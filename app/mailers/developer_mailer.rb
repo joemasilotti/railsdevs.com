@@ -1,7 +1,7 @@
 class DeveloperMailer < ApplicationMailer
   helper :messages
 
-  def flagged
+  def invisiblize
     @notification = params[:record]
     recipient = params[:recipient]
 
