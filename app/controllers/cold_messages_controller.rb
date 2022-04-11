@@ -6,6 +6,11 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
+    @tips = renderer.render(File.read("app/views/cold_messages/_tips.md"))
+  end
+
+  def renderer
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   def create
