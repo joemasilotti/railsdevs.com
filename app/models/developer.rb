@@ -80,9 +80,18 @@ class Developer < ApplicationRecord
       available_on.blank?
   end
 
+  def invisiblize!
+    invisible!
+    send_invisiblize_notification
+  end
+
   private
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+  end
+
+  def send_invisiblize_notification
+    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
   end
 end

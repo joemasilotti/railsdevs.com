@@ -1,11 +1,23 @@
 # Random developers
-20.times { SeedsHelper.create_random_developer! }
+RANDOM_DEVELOPERS = 20
+if Developer.count < RANDOM_DEVELOPERS
+  (RANDOM_DEVELOPERS - Developer.count).times do
+    SeedsHelper.create_random_developer!
+  end
+end
 
 # Minimum developer
 SeedsHelper.create_developer!("minimum", {
   hero: "Minimum developer",
   location: SeedsHelper.locations[:new_york]
 })
+
+# Invisible developer
+developer = SeedsHelper.create_developer!("invisible", {
+  hero: "Invisible developer",
+  location: SeedsHelper.locations[:new_york]
+})
+developer.invisiblize!
 
 # Junior developer
 SeedsHelper.create_developer!("junior", {

@@ -7,6 +7,7 @@ class ColdMessagesController < ApplicationController
   def new
     @message = Message.new(conversation:)
     @disable = MessagingPolicy.new(current_user, @message).priviledge_checked?
+    @tips = MarkdownRenderer.new("cold_messages/tips").render
   end
 
   def create
