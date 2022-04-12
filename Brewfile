@@ -19,3 +19,7 @@ brew "yarn"
 # Stripe CLI
 tap "stripe/stripe-cli"
 brew "stripe/stripe-cli/stripe"
+
+# Google Chrome & Chromedriver for Browser Testing
+cask "google-chrome"
+cask "chromedriver"
