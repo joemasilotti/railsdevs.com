@@ -34,8 +34,7 @@ brew bundle install --no-upgrade
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
-
-You will also need Google Chrome installed to run the system tests.
+* Google Chrome + Chromedriver for system tests - `brew install --cask google-chrome chromedriver`
 
 ### Initial setup
 
