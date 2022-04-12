@@ -6,6 +6,7 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
+    @tips = MarkdownRenderer.new("cold_messages/tips").render
   end
 
   def create

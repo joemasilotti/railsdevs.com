@@ -24,7 +24,7 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <div class="mt-16 max-w-prose w-full mx-auto pb-6">
+  <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <%= turbo_frame_tag "new_message" do %>
       <%= render "conversations/new_message", conversation: @conversation, message: @message %>
     <% end %>

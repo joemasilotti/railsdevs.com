@@ -4,6 +4,7 @@
 
 ### April
 
+* April 12 - Added messaging tips for businesses #376
 * April 10 - Added "Invisiblize" button on developer profiles (for admins) #370
 * April 7 - Migrate email sending from Mailgun to Postmark - #365
 * April 7 - Added `/admin/conversations` - #368
