@@ -17,7 +17,7 @@ developer = SeedsHelper.create_developer!("invisible", {
   hero: "Invisible developer",
   location: SeedsHelper.locations[:new_york]
 })
-developer.invisiblize!
+developer.invisiblize! unless developer.invisible?
 
 # Junior developer
 SeedsHelper.create_developer!("junior", {
