@@ -253,7 +253,7 @@ en:
       wrote: wrote
       you: You
     upgrade_required:
-      body: This developer is only interested in full-time employment. Upgrade your subscription to message this developer.
+      body: You can only message developers looking for part-time work. Upgrade your account to message this developer.
       plan_details: View plan details
       title: Upgrade required
       upgrade: Upgrade my account
