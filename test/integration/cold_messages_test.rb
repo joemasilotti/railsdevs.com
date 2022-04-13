@@ -104,7 +104,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :unprocessable_entity
-    assert "Terms of service must be accepted"
+    assert_select "li", "Terms of service must be accepted"
   end
 
   def message_params
