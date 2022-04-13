@@ -45,17 +45,15 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     sign_in @business.user
     get new_developer_message_path(@developer)
 
-    assert_select "input[type=checkbox][checked]", 0
-    assert I18n.t("messages.form.terms_of_service", developer_name: @developer.name)
+    assert_select "input[type=checkbox][name='message[terms_of_service]']"
   end
 
   test "a legacy business do not get terms of service checkbox" do
-    le_business = businesses(:legacy_subscriber)
-    sign_in le_business.user
+    # le_business = businesses(:legacy_subscriber)
+    sign_in @business.user
     get new_developer_message_path(@developer)
 
-    assert_select "input[type=checkbox][checked]", 0
-    assert I18n.t("messages.form.terms_of_service", developer_name: @developer.name)
+    assert_select "input[type=checkbox][name='message[terms_of_service]']", false, "This page must not show terms of service checkbox"
   end
 
   test "a business can create a new conversation" do
