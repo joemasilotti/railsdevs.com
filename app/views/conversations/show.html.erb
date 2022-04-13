@@ -14,9 +14,15 @@
       </div>
     </h1>
 
-    <%= link_to new_conversation_block_path(@conversation), data: {"turbo-frame": "modal"}, class: "mt-2 mr-2 flex items-center text-gray-400 hover:text-gray-600" do %>
-      <span class="sr-only"><%= t(".flag") %></span>
-      <%= inline_svg_tag "icons/solid/flag.svg", class: "h-5 w-5" %>
+    <% if @messageable %>
+      <%= link_to new_conversation_block_path(@conversation), data: {"turbo-frame": "modal"}, class: "mt-2 mr-2 flex items-center text-gray-400 hover:text-gray-600" do %>
+        <span class="sr-only"><%= t(".flag") %></span>
+        <%= inline_svg_tag "icons/solid/flag.svg", class: "h-5 w-5" %>
+      <% end %>
+    <% else %>
+      <div class="mt-4 md:mt-8">
+        <%= render "messages/upgrade_required" %>
+      </div>
     <% end %>
   </div>
 
