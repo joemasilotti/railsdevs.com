@@ -49,8 +49,8 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a legacy business do not get terms of service checkbox" do
-    # le_business = businesses(:legacy_subscriber)
-    sign_in @business.user
+    legacy_subscribed_business = businesses(:legacy_subscribed_business)
+    sign_in legacy_subscribed_business.user
     get new_developer_message_path(@developer)
 
     assert_select "input[type=checkbox][name='message[terms_of_service]']", false, "This page must not show terms of service checkbox"

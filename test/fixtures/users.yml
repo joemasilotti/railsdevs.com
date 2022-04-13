@@ -22,6 +22,10 @@ subscribed_business:
   email: customer@example.com
   confirmed_at: <%= DateTime.current %>
 
+legacy_subscribed_business:
+  email: legacy_subscribed_customer@example.com
+  confirmed_at: <%= DateTime.current %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>
