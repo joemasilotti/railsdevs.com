@@ -8,7 +8,7 @@ class SubscriptionPolicyTest < ActiveSupport::TestCase
   end
 
   test "not messageable if on part-time plan and developer ONLY wants full-time employment" do
-    pay_subscriptions(:full_time).update!(name: BusinessSubscription::PartTime.new.name)
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
 
     @conversation.developer.role_type.update!(
       part_time_contract: false,

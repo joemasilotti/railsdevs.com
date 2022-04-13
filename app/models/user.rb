@@ -30,12 +30,12 @@ class User < ApplicationRecord
 
   def active_legacy_business_subscription?
     legacy_plan = BusinessSubscription::Legacy.new
-    subscriptions.for_name(legacy_plan.name).active.any?
+    subscriptions.where(processor_plan: legacy_plan.plan).active.any?
   end
 
   def active_part_time_business_subscription?
-    legacy_plan = BusinessSubscription::PartTime.new
-    subscriptions.for_name(legacy_plan.name).active.any?
+    part_time_plan = BusinessSubscription::PartTime.new
+    subscriptions.where(processor_plan: part_time_plan.plan).active.any?
   end
 
   # Always remember when signing in with Devise.

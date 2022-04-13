@@ -66,7 +66,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "part-time plan subscribers can't message full-time seekers" do
     sign_in @business.user
-    pay_subscriptions(:full_time).update!(name: BusinessSubscription::PartTime.new.name)
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
     @developer.role_type.update!(
       part_time_contract: false,
       full_time_contract: false,
