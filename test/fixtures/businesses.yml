@@ -9,3 +9,9 @@ subscriber:
   name: Business Owner with Conversation
   company: Conversation Business
   bio: We are Conversation Business.
+
+# legacy_subscriber:
+#   user: business
+#   name: Business Owner with Conversation
+#   company: Conversation Business
+#   bio: We are Conversation Business.

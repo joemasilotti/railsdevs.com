@@ -4,7 +4,7 @@
     <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->form#submit"}, class: field_classes(form, :body) %>
   </div>
 
-  <% if developer_name.present? %>
+  <% if developer_name.present? && active_full_time_subscription %>
     <div class="flex mt-1 space-x-2">
       <%= form.check_box("terms_of_service") %>
       <span>

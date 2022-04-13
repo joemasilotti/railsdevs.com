@@ -22,7 +22,7 @@
       </div>
       <div class="min-w-0 flex-1 px-4 sm:px-0">
         <%= form_with model: [@message.conversation.developer, @message], class: "relative" do |form| %>
-          <%= render "messages/form", form: form, developer_name: @developer.name %>
+          <%= render "messages/form", form: form, developer_name: @developer.name, active_full_time_subscription: @business.user.active_full_time_business_subscription? %>
         <% end %>
       </div>
     </div>

@@ -46,7 +46,7 @@ class ColdMessagesController < ApplicationController
   end
 
   def business
-    current_user.business
+    @business = current_user.business
   end
 
   def message_params

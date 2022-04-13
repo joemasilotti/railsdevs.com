@@ -5,3 +5,11 @@ full_time:
   processor_plan: default
   quantity: 1
   status: active
+
+# legacy:
+#   customer: two
+#   name: legacy
+#   processor_id: sub_12
+#   processor_plan: default
+#   quantity: 1
+#   status: active
