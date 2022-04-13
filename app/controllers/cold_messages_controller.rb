@@ -6,13 +6,12 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
-    @disable = MessagingPolicy.new(current_user, @message).priviledge_checked?
     @tips = MarkdownRenderer.new("cold_messages/tips").render
+    @messageable = SubscriptionPolicy.new(current_user, @message).messageable?
   end
 
   def create
     @message = Message.new(message_params.merge(conversation:, sender: business))
-    authorize @message, policy_class: MessagingPolicy
     if @message.save
       redirect_to @message.conversation
     else

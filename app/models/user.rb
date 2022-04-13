@@ -33,8 +33,9 @@ class User < ApplicationRecord
     subscriptions.for_name(legacy_plan.name).active.any?
   end
 
-  def full_time?
-    payment_processor.subscription(name: "full_time")
+  def active_part_time_business_subscription?
+    legacy_plan = BusinessSubscription::PartTime.new
+    subscriptions.for_name(legacy_plan.name).active.any?
   end
 
   # Always remember when signing in with Devise.

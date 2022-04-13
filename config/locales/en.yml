@@ -252,6 +252,11 @@ en:
     message:
       wrote: wrote
       you: You
+    upgrade_required:
+      body: This developer is only interested in full-time employment. Upgrade your subscription to message this developer.
+      plan_details: View plan details
+      title: Upgrade required
+      upgrade: Upgrade my account
   new_developer_field_component:
     new: New!
   new_developer_fields_component:
