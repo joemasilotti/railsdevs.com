@@ -54,6 +54,7 @@ class Developer < ApplicationRecord
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   after_create_commit :send_admin_notification
+  after_create_commit :send_developer_notification
 
   def visible?
     !invisible?
@@ -84,5 +85,9 @@ class Developer < ApplicationRecord
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+  end
+
+  def send_developer_notification 
+    NewDeveloperNotification.with(developer: self).deliver_later(User.admin)
   end
 end
