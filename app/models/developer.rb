@@ -53,8 +53,7 @@ class Developer < ApplicationRecord
   scope :newest_first, -> { order(created_at: :desc) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
-  after_create_commit :send_admin_notification
-  after_create_commit :send_developer_notification
+  after_create_commit :send_admin_notification, :send_developer_welcome_email
 
   def visible?
     !invisible?
@@ -87,7 +86,7 @@ class Developer < ApplicationRecord
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
   end
 
-  def send_developer_notification 
-    NewDeveloperNotification.with(developer: self).deliver_later(User.admin)
+  def send_developer_welcome_email
+    WelcomeMailer.with(developer: self).developer_welcome_email.deliver_later(user)
   end
 end

@@ -3,10 +3,13 @@ class WelcomeMailer < ApplicationMailer
   helper :messages
 
 
-  def welcome_email
-    @notification = params[:record]
-    recipient = params[:recipient]
-    @developer = @notification.to_notification.developer
+  def developer_welcome_email
+    @developer = params[:developer]
     mail(to: @developer.user.email, subject: "Welcome to railsdevs!")
+  end
+
+  def business_welcome_email 
+    @business = params[:business]
+    mail(to: @business.user.email, subject: "Welcome to railsdevs!")
   end
 end
