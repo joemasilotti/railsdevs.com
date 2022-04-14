@@ -87,6 +87,6 @@ class Developer < ApplicationRecord
   end
 
   def send_developer_welcome_email
-    WelcomeMailer.with(developer: self).developer_welcome_email.deliver_later(user)
+    WelcomeMailer.with(developer: self).developer_welcome_email.deliver_later
   end
 end

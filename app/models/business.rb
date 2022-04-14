@@ -22,6 +22,6 @@ class Business < ApplicationRecord
   end
 
   def send_business_welcome_email 
-    WelcomeMailer.with(business: self).business_welcome_email.deliver_later(user)
+    WelcomeMailer.with(business: self).business_welcome_email.deliver_later
   end
 end
