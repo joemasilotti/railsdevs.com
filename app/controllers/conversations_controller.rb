@@ -8,8 +8,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = conversation
-    @message = Message.new
-    @message.conversation = conversation
+    @message = Message.new(conversation: @conversation)
     authorize @conversation, policy_class: MessagingPolicy
     @messageable = SubscriptionPolicy.new(current_user, @message).messageable?
   end
