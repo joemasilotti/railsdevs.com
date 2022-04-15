@@ -80,6 +80,11 @@ class Developer < ApplicationRecord
       available_on.blank?
   end
 
+  def invisiblize!
+    invisible!
+    send_invisiblize_notification
+  end
+
   private
 
   def send_admin_notification
@@ -88,5 +93,9 @@ class Developer < ApplicationRecord
 
   def send_developer_welcome_email
     WelcomeMailer.with(developer: self).developer_welcome_email.deliver_later
+  end
+  
+  def send_invisiblize_notification
+    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
   end
 end

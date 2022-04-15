@@ -76,6 +76,9 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    invisiblizes:
+      create:
+        created: Profile set to invisible.
     transactions:
       create:
         created: Transaction created
@@ -214,6 +217,7 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+      invisiblize: Invisiblize
     update:
       updated: Your profile was updated!
   dir: ltr
