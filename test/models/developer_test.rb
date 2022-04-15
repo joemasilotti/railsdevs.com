@@ -2,6 +2,7 @@ require "test_helper"
 
 class DeveloperTest < ActiveSupport::TestCase
   include DevelopersHelper
+  include ActionMailer::TestHelper
 
   setup do
     @developer = developers(:one)
@@ -203,5 +204,10 @@ class DeveloperTest < ActiveSupport::TestCase
 
     developers(:one).update!(search_status: nil)
     assert_includes Developer.visible, developers(:one)
+  end
+
+  test "successful developer creation sent welcome email" do
+    developer = Developer.create!(developer_attributes)
+    assert_enqueued_email_with WelcomeMailer, :developer_welcome_email, args: {developer:}
   end
 end

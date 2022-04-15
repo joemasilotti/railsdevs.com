@@ -1,4 +1,4 @@
-Hey <%= @developer.name %>,
+Hey Prospect Developer,
 
 I'm Joe the founder of railsdevs. I saw that you
 added your developer profile and wanted to reach out.
