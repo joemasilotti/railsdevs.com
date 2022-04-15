@@ -210,7 +210,7 @@ class DeveloperTest < ActiveSupport::TestCase
     developer = Developer.create!(developer_attributes)
     assert_enqueued_email_with WelcomeMailer, :developer_welcome_email, args: {developer:}
   end
-  
+
   test "notifies the dev when they are invisibilized" do
     assert_difference "Notification.count", 1 do
       developers(:one).invisiblize!
