@@ -206,7 +206,7 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes Developer.visible, developers(:one)
   end
 
-  test "successful developer creation sent welcome email" do
+  test "creating a developer sends the welcome email" do
     developer = Developer.create!(developer_attributes)
     assert_enqueued_email_with DeveloperMailer, :welcome_email, args: {developer:}
   end

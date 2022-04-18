@@ -99,7 +99,7 @@ class BusinessTest < ActiveSupport::TestCase
     assert business.no_developer_notifications?
   end
 
-  test "successful business creation sent welcome email" do
+  test "creating a business sends the welcome email" do
     business = Business.create!(valid_business_attributes)
     assert_enqueued_email_with BusinessMailer, :welcome_email, args: {business:}
   end
