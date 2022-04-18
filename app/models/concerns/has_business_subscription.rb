@@ -13,13 +13,21 @@ module HasBusinessSubscription
     end
 
     def active_legacy_business_subscription?
-      legacy_plan = BusinessSubscription::Legacy.new
-      subscriptions.for_name(legacy_plan.name).active.any?
+      active_business_subscription_to_plan?(BusinessSubscription::Legacy.new)
+    end
+
+    def active_part_time_business_subscription?
+      active_business_subscription_to_plan?(BusinessSubscription::PartTime.new)
     end
 
     def active_full_time_business_subscription?
-      full_time_plan = BusinessSubscription::FullTime.new
-      subscriptions.for_name(full_time_plan.name).active.any?
+      active_business_subscription_to_plan?(BusinessSubscription::FullTime.new)
+    end
+
+    private
+
+    def active_business_subscription_to_plan?(plan)
+      subscriptions.where(processor_plan: plan.plan).active.any?
     end
   end
 end

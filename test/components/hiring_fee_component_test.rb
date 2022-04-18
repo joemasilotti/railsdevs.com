@@ -15,7 +15,7 @@ class HiringFeeComponentTest < ViewComponent::TestCase
 
   test "doesn't render if not on a full-time subscription" do
     @conversation.update!(created_at: 2.weeks.ago - 1.day)
-    pay_subscriptions(:full_time).update!(name: "part_time")
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
 
     render_inline HiringFeeComponent.new(@user, @conversation)
     assert_no_text "Have you hired"

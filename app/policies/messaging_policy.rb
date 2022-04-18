@@ -1,10 +1,10 @@
 class MessagingPolicy < ApplicationPolicy
-  def show?
-    create? || user.admin?
-  end
-
   def create?
     associated_with_record? && !blocked?
+  end
+
+  def show?
+    create? || user.admin?
   end
 
   private

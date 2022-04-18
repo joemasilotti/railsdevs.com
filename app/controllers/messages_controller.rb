@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params.merge(conversation:, sender:))
     authorize @message, policy_class: MessagingPolicy
+    authorize @message, :messageable?, policy_class: SubscriptionPolicy
 
     if @message.save
       respond_to do |format|

@@ -20,12 +20,7 @@ class BusinessSubscriptionCheckout
     user.payment_processor.checkout(
       mode: "subscription",
       line_items: plan.price_id,
-      success_url: analytics_event_url(event),
-      subscription_data: {
-        metadata: {
-          pay_name: plan.name
-        }
-      }
+      success_url: analytics_event_url(event)
     )
   end
 

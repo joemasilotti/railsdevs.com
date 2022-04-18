@@ -1,12 +1,9 @@
 module BusinessSubscription
   class Legacy
-    def name
-      "legacy"
-    end
-
     def price_id
       BusinessSubscription.price_ids[:legacy_plan]
     end
+    alias_method :plan, :price_id
 
     def price
       99

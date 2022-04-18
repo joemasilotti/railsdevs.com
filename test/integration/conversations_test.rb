@@ -61,4 +61,19 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     assert Notification.last.read?
   end
+
+  test "part-time plan subscribers can't message full-time seekers" do
+    conversation = conversations(:one)
+    sign_in conversation.business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    conversation.developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
+
+    get conversation_path(conversation)
+
+    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
+  end
 end

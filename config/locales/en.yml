@@ -255,6 +255,11 @@ en:
     message:
       wrote: wrote
       you: You
+    upgrade_required:
+      body: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+      details: View pricing details
+      title: Upgrade required
+      upgrade: Upgrade my account
   new_developer_field_component:
     new: New!
   new_developer_fields_component:

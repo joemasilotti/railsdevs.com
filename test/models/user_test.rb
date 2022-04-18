@@ -32,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
     refute user.active_business_subscription?
 
     user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(name: "full_time")
+    user.payment_processor.subscribe(plan: BusinessSubscription::FullTime.new.plan)
     assert user.reload.active_business_subscription?
   end
 
@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
     refute user.active_legacy_business_subscription?
 
     user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(name: "legacy")
+    user.payment_processor.subscribe(plan: BusinessSubscription::Legacy.new.plan)
     assert user.reload.active_legacy_business_subscription?
   end
 end

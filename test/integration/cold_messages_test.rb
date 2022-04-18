@@ -64,6 +64,20 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to conversation_path(conversation)
   end
 
+  test "part-time plan subscribers can't message full-time seekers" do
+    sign_in @business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    @developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
+
+    get new_developer_message_path(@developer)
+
+    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
+  end
+
   test "an invalid message re-renders the form" do
     sign_in @business.user
 

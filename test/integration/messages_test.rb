@@ -73,6 +73,22 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "part-time plan subscribers can't message full-time seekers" do
+    sign_in @business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    @developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
+
+    assert_no_difference "Message.count" do
+      post conversation_messages_path(@conversation), params: message_params
+    end
+
+    assert_redirected_to root_path
+  end
+
   test "an invalid message re-renders the form" do
     sign_in @business.user
 

@@ -16,20 +16,26 @@
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
-    <div class="flex items-start sm:space-x-4">
-      <div class="hidden sm:block shrink-0">
-        <%= render AvatarComponent.new(avatarable: @message.conversation.business, classes: "inline-block h-10 w-10 rounded-full") %>
-      </div>
+    <% if @messageable %>
+      <div class="flex items-start sm:space-x-4">
+        <div class="hidden sm:block shrink-0">
+          <%= render AvatarComponent.new(avatarable: @message.conversation.business, classes: "inline-block h-10 w-10 rounded-full") %>
+        </div>
 
-      <div class="min-w-0 flex-1 px-4 sm:px-0">
-        <%= form_with model: [@message.conversation.developer, @message], class: "relative" do |form| %>
-          <%= render "messages/form", form: form %>
-        <% end %>
+        <div class="min-w-0 flex-1 px-4 sm:px-0">
+          <%= form_with model: [@message.conversation.developer, @message], class: "relative" do |form| %>
+            <%= render "messages/form", form: form %>
+          <% end %>
 
-        <div class="prose prose-sm mt-8 md:mt-16">
-          <%== @tips %>
+          <div class="prose prose-sm mt-8 md:mt-16">
+            <%== @tips %>
+          </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="mt-4 md:mt-8">
+        <%= render "messages/upgrade_required" %>
+      </div>
+    <% end %>
   </div>
 </div>
