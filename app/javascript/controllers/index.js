@@ -12,6 +12,9 @@ application.register("file-upload", FileUploadController)
 import FormController from "./form_controller.js"
 application.register("form", FormController)
 
+import KeyboardShortcutController from "./keyboard_shortcut_controller.js"
+application.register("keyboard-shortcut", KeyboardShortcutController)
+
 import PageScrollController from "./page_scroll_controller.js"
 application.register("page-scroll", PageScrollController)
 

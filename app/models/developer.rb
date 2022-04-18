@@ -30,7 +30,7 @@ class Developer < ApplicationRecord
   validates :location, presence: true, on: :create
   validates :name, presence: true
 
-  pg_search_scope :filter_by_search_query, against: [:bio, :hero]
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
 
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|

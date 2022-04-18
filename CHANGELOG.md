@@ -4,9 +4,10 @@
 
 ### April
 
+* April 18 - Added banner to connect with Joe to pay hiring fee - #380
 * April 15 - Automatically send out welcome emails on Business and Developer creation - #378
-* April 12 - Added messaging tips for businesses #376
-* April 10 - Added "Invisiblize" button on developer profiles (for admins) #370
+* April 12 - Added messaging tips for businesses - #376
+* April 10 - Added "Invisiblize" button on developer profiles (for admins) - #370
 * April 7 - Migrate email sending from Mailgun to Postmark - #365
 * April 7 - Added `/admin/conversations` - #368
 

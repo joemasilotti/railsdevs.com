@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_16_144523) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -91,6 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.integer "preferred_max_hourly_rate"
     t.integer "preferred_min_salary"
     t.integer "preferred_max_salary"
+    t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
+    t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
 
@@ -222,7 +225,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -259,8 +262,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_124159) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
