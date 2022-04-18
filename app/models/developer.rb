@@ -92,7 +92,7 @@ class Developer < ApplicationRecord
   end
 
   def send_developer_welcome_email
-    WelcomeMailer.with(developer: self).developer_welcome_email.deliver_later
+    DeveloperMailer.with(developer: self).developer_welcome_email.deliver_later
   end
 
   def send_invisiblize_notification

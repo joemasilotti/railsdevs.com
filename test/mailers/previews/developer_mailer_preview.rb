@@ -3,4 +3,8 @@ class DeveloperMailerPreview < ActionMailer::Preview
     notification = Notification.where(type: InvisiblizeDeveloperNotification.to_s).first
     DeveloperMailer.with(record: notification, recipient: notification.recipient).invisiblize
   end
+
+  def welcome_developer
+    DeveloperMailer.with(developer: Developer.first).developer_welcome_email
+  end
 end

@@ -8,4 +8,9 @@ class BusinessMailer < ApplicationMailer
 
     mail(to: @business.user.email, subject:)
   end
+
+  def business_welcome_email
+    @business = params[:business]
+    mail(to: @business.user.email, subject: "Welcome to railsdevs!")
+  end
 end
