@@ -29,9 +29,17 @@ class Conversation < ApplicationRecord
     developer_blocked_at.present? || business_blocked_at.present?
   end
 
+  def hiring_fee_eligible?
+    developer_replied? && created_at <= 2.weeks.ago
+  end
+
   private
 
   def send_admin_notification
     NewConversationNotification.with(conversation: self).deliver_later(User.admin)
+  end
+
+  def developer_replied?
+    messages.from_developer.any?
   end
 end

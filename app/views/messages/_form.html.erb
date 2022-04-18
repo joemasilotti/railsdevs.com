@@ -4,7 +4,15 @@
     <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->form#submit"}, class: field_classes(form, :body) %>
   </div>
 
-  <div class="py-2 flex justify-end">
+  <div class="py-2 flex space-x-4 justify-end items-baseline">
+    <div class="hidden sm:block">
+      <div data-controller="keyboard-shortcut" data-keyboard-shortcut-visibility-class="hidden" class="hidden text-xs text-gray-500 font-semibold flex space-x-2 items-baseline">
+        <span data-keyboard-shortcut-target="mac" class="hidden font-mono">&#x2318</span>
+        <span data-keyboard-shortcut-target="windows" class="hidden font-mono">Ctrl</span>
+        <span class="font-mono"> + Enter</span>
+      </div>
+    </div>
+
     <div class="shrink-0">
       <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>
     </div>

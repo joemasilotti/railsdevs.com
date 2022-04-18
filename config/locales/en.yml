@@ -231,6 +231,9 @@ en:
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
+  hiring_fee_component:
+    cta: Pay hiring fee
+    title: Have you hired %{developer}?
   home:
     show:
       available_developers: Developers available now

@@ -16,6 +16,8 @@ class Message < ApplicationRecord
 
   after_create_commit :send_recipient_notification
 
+  scope :from_developer, -> { where(sender_type: Developer.name) }
+
   def sender?(user)
     [user.developer, user.business].include?(sender)
   end
