@@ -10,7 +10,7 @@ class DeveloperMailer < ApplicationMailer
     mail(to: recipient.email, subject: "Your profile on railsdevs was flagged")
   end
 
-  def developer_welcome_email
+  def welcome_email
     @developer = params[:developer]
     mail(to: @developer.user.email, subject: "Welcome to railsdevs!")
   end

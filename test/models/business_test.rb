@@ -101,7 +101,7 @@ class BusinessTest < ActiveSupport::TestCase
 
   test "successful business creation sent welcome email" do
     business = Business.create!(valid_business_attributes)
-    assert_enqueued_email_with BusinessMailer, :business_welcome_email, args: {business:}
+    assert_enqueued_email_with BusinessMailer, :welcome_email, args: {business:}
   end
 
   def valid_business_attributes

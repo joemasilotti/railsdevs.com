@@ -7,6 +7,6 @@ class BusinessMailerPreview < ActionMailer::Preview
   end
 
   def welcome_business
-    BusinessMailer.with(business: Business.first).business_welcome_email
+    BusinessMailer.with(business: Business.first).welcome_email
   end
 end

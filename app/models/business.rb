@@ -13,7 +13,7 @@ class Business < ApplicationRecord
   validates :bio, presence: true
   validates :developer_notifications, inclusion: {in: developer_notifications.keys}
 
-  after_create_commit :send_admin_notification, :send_business_welcome_email
+  after_create_commit :send_admin_notification, :send_welcome_email
 
   private
 
@@ -21,7 +21,7 @@ class Business < ApplicationRecord
     NewBusinessNotification.with(business: self).deliver_later(User.admin)
   end
 
-  def send_business_welcome_email
-    BusinessMailer.with(business: self).business_welcome_email.deliver_later
+  def send_welcome_email
+    BusinessMailer.with(business: self).welcome_email.deliver_later
   end
 end

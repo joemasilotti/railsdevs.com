@@ -5,6 +5,6 @@ class DeveloperMailerPreview < ActionMailer::Preview
   end
 
   def welcome_developer
-    DeveloperMailer.with(developer: Developer.first).developer_welcome_email
+    DeveloperMailer.with(developer: Developer.first).welcome_email
   end
 end
