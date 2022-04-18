@@ -3,7 +3,7 @@ require "test_helper"
 class BusinessMailerTest < ActionMailer::TestCase
   test "sending the welcome email to a business" do
     business = businesses(:one)
-    email = BusinessMailer.with(business: business).welcome_email
+    email = BusinessMailer.with(business:).welcome_email
 
     assert_emails 1 do
       email.deliver_now
