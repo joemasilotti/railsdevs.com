@@ -24,6 +24,8 @@
     <%= render @conversation.messages %>
   </ul>
 
+  <%= render HiringFeeComponent.new(current_user, @conversation) %>
+
   <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <%= turbo_frame_tag "new_message" do %>
       <%= render "conversations/new_message", conversation: @conversation, message: @message %>
