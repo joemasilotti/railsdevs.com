@@ -23,6 +23,7 @@ class Location < ApplicationRecord
 
   def valid_coordinates
     if latitude.blank? || longitude.blank?
+      # i18n-tasks-use t('activerecord.errors.models.location.invalid_coordinates')
       errors.add(:city, :invalid_coordinates)
     end
   end

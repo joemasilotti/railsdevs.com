@@ -111,7 +111,6 @@ ignore_missing:
 ## Consider these keys used:
 ignore_unused:
 - 'activerecord.attributes.*' # 46 unused keys
-- 'activerecord.errors.models.location.invalid_coordinates' # 1
 - 'activerecord.models.*' # 3
 - 'availability_component.*' # 3
 - 'errors.messages.*' # 8
