@@ -63,6 +63,7 @@
               <% @contributions.each do |contribution| %>
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%# i18n-tasks-use t('date.formats.month_year')%>
                     <%= l(contribution.occurred_on, format: :month_year) %>
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
