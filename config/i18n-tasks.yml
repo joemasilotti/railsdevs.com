@@ -120,7 +120,6 @@ ignore_missing:
 ## Consider these keys used:
 ignore_unused:
 - 'activerecord.attributes.*' # 46 unused keys
-- 'activerecord.models.*' # 3
 - 'availability_component.*' # 3
 - 'errors.messages.*' # 8
 - 'size.{billion,million,thousand,unit}' # 4
