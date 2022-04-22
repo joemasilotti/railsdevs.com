@@ -10,9 +10,11 @@
   <% end %>
 
   <% if admin? %>
-    <button data-controller="clipboard" data-action="click->clipboard#copy click->clipboard#toggle" value="<a href='<%= developer_url(@developer) %>'><%= @developer.hero %></a>" type="button" class="shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-      <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "h-6 w-5", data: {clipboard_target: "toggleable"} %>
-      <%= inline_svg_tag "icons/solid/check.svg", class: "h-6 w-5 text-green-600 hidden", data: {clipboard_target: "toggleable"} %>
-    </button>
+    <%= tag.div data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: link_to(@developer.hero, developer_url(@developer))} do %>
+      <button data-action="clipboard#copy clipboard#toggle" type="button" class="shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "h-6 w-5", data: {clipboard_target: "toggleable"} %>
+        <%= inline_svg_tag "icons/solid/check.svg", class: "h-6 w-5 hidden", data: {clipboard_target: "toggleable"} %>
+      </button>
+    <% end %>
   <% end %>
 <% end %>

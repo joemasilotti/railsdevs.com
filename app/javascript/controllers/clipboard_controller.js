@@ -1,22 +1,29 @@
-import { Controller } from "@hotwired/stimulus";
+import { Controller } from "@hotwired/stimulus"
+import Clipboard from "../src/clipboard"
 
 export default class extends Controller {
-  static targets = ["toggleable"];
+  static classes = ["visibility"]
+  static targets = ["toggleable"]
+  static values = {
+    content: String,
+    toggleTimeout: {type: Number, default: 2000}
+  }
 
-  copy({ target: { value } }) {
-    navigator.clipboard.writeText(value);
+  copy(event) {
+    event.preventDefault()
+    Clipboard.copyHTML(this.contentValue)
   }
 
   toggle() {
-    this.toggleHidden();
+    this.toggleHidden()
     setTimeout(() => {
-      this.toggleHidden();
-    }, 2000);
+      this.toggleHidden()
+    }, this.toggleTimeoutValue)
   }
 
   toggleHidden() {
     this.toggleableTargets.forEach((toggleable) => {
-      toggleable.classList.toggle("hidden");
-    });
+      toggleable.classList.toggle(this.visibilityClass)
+    })
   }
 }
