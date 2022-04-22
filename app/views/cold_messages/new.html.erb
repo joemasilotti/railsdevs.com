@@ -1,21 +1,23 @@
 <%= render "shared/error_messages", resource: @message %>
 
-<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="min-h-full flex flex-col py-12 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-lg">
-    <h1 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+    <h1 class="sm:mt-6 text-3xl font-extrabold text-gray-900 ml-6">
       <%= t(".title") %>
     </h1>
 
-    <div class="flex items-center justify-center space-x-2 mt-2 text-center text-sm text-gray-600">
+    <div class="flex items-center space-x-2 mt-2 text-sm text-gray-600 ml-6">
       <div class="block"><%= t(".with") %></div>
       <%= link_to developer_path(@message.conversation.developer), class: "flex items-center space-x-2 group" do %>
         <%= render AvatarComponent.new(avatarable: @message.conversation.developer, classes: "h-8 w-8") %>
         <span class="font-medium text-gray-600 group-hover:text-gray-500"><%= @message.conversation.developer.name %></span>
       <% end %>
     </div>
+
+    <%= render ColdMessageRoleTypeComponent.new(@message.conversation.developer.role_type) %>
   </div>
 
-  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
+  <div class="mt-16 sm:mx-auto sm:w-full sm:max-w-xl">
     <% if @messageable %>
       <div class="flex items-start sm:space-x-4">
         <div class="hidden sm:block shrink-0">
