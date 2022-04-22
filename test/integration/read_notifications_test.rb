@@ -9,15 +9,15 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
   end
 
   test "you can view the history page even if no read notifications exist" do
-    sign_in users(:with_business)
+    sign_in users(:business)
 
     get read_notifications_path
     assert_select "h3", "No read notifications"
   end
 
   test "you can view your past notifications if you have past (read) notifications" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     sign_in user
     Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
     last_message_notification.mark_as_read!
@@ -28,8 +28,8 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
   end
 
   test "you can read all unread notifications" do
-    user = users(:with_business)
-    developer = developers(:available)
+    user = users(:business)
+    developer = developers(:one)
     sign_in user
     conversation = Conversation.create!(developer:, business: user.business)
     ["Hello!", "Available", "Let's talk"].each do |text|

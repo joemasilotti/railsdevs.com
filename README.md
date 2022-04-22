@@ -34,10 +34,21 @@ brew bundle install --no-upgrade
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
-
-You will also need Google Chrome installed to run the system tests.
+* Google Chrome + Chromedriver for system tests - `brew install --cask google-chrome chromedriver`
 
 ### Initial setup
+
+Start PostgreSQL server.
+
+```bash
+brew services start postgresql
+```
+
+Start Redis server.
+
+```bash
+brew services start redis
+```
 
 An installation script is included with the repository that will automatically get the application setup.
 
@@ -80,7 +91,9 @@ You will need to configure Stripe or do a mock configuration (ie set dummy value
 stripe:
   private_key: sk_test_YOUR_TEST_STRIPE_KEY
   signing_secret: whsec_YOUR_SIGNING_SECRET
-  price_id: price_YOUR_PRODUCT_PRICE_ID
+  price_ids:
+    part_time_plan: price_YOUR_PRODUCT_PRICE_ID
+    full_time_plan: price_ANOTHER_PRODUCT_PRICE_ID
 ```
 
 ## Monitoring
@@ -92,3 +105,7 @@ Application monitoring is powered by [Scout APM](https://scoutapm.com). This hel
 * Run `rails test` to run unit/integration tests.
 * Run `rails test:system` to run system tests, using `headless_chrome`.
 * Run `HEADFUL=1 rails test:system` to run system tests, using `headful_chrome`.
+
+## Changelog
+
+Significant changes and product updates are documented in the [changelog](CHANGELOG.md).

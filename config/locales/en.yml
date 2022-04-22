@@ -59,12 +59,26 @@ en:
         other: Users
   admin:
     conversations:
-      conversation:
-        blocked: Blocked
-      empty_state:
-        title: No blocked conversations
-      index:
-        title: Blocked conversations
+      blocks:
+        conversation:
+          blocked: Blocked
+        empty_state:
+          title: No blocked conversations
+        index:
+          title: Blocked conversations
+      conversations:
+        business: Business
+        developer: Developer
+        no_response: No response
+        replied: Replied
+        started: Started
+        view: View
+      stats:
+        reply_rate: Reply rate
+        started: Started
+    invisiblizes:
+      create:
+        created: Profile set to invisible.
     transactions:
       create:
         created: Transaction created
@@ -138,6 +152,7 @@ en:
     include_not_interested: Include developers not currently interested
     role_level:
       title: Role level
+    search_query_label: Search developer profiles
     sort:
       availability: Availability
       newest: Newest
@@ -202,6 +217,7 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+      invisiblize: Invisiblize
     update:
       updated: Your profile was updated!
   dir: ltr
@@ -215,6 +231,9 @@ en:
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
+  hiring_fee_component:
+    cta: Pay hiring fee
+    title: Have you hired %{developer}?
   home:
     show:
       available_developers: Developers available now
@@ -231,12 +250,16 @@ en:
   messages:
     form:
       help: Add your message
-      placeholder: Add your message...
       sending: Sending...
       submit: Send
     message:
       wrote: wrote
       you: You
+    upgrade_required:
+      body: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+      details: View pricing details
+      title: Upgrade required
+      upgrade: Upgrade my account
   new_developer_field_component:
     new: New!
   new_developer_fields_component:
@@ -470,6 +493,7 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      conversations: Conversations
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -478,6 +502,7 @@ en:
       open_user_menu: Open user menu
       sign_out: Sign out
       transactions: Transactions
+      view_conversations: View conversations
       view_notifications: View notifications
     signed_out_component:
       register: Register

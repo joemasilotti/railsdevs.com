@@ -10,15 +10,15 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "you can view your conversations (as a business)" do
-    sign_in users(:with_business_conversation)
+    sign_in users(:subscribed_business)
     get conversations_path
-    assert_select "h2", developers(:with_conversation).name
+    assert_select "h2", developers(:prospect).name
   end
 
   test "you can view your conversations (as a developer)" do
-    sign_in users(:with_developer_conversation)
+    sign_in users(:prospect_developer)
     get conversations_path
-    assert_select "h2", businesses(:with_conversation).name
+    assert_select "h2", businesses(:subscriber).name
   end
 
   test "you can view your own conversation (as a business)" do
@@ -49,9 +49,9 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "unread notifictions are marked as read" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     developer = user.developer
-    business = businesses(:with_conversation)
+    business = businesses(:subscriber)
     conversation = conversations(:one)
     Message.create!(developer:, business:, body: "Hi!", sender: business, conversation:)
     refute Notification.last.read?
@@ -60,5 +60,20 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     get conversation_path(conversation)
 
     assert Notification.last.read?
+  end
+
+  test "part-time plan subscribers can't message full-time seekers" do
+    conversation = conversations(:one)
+    sign_in conversation.business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    conversation.developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
+
+    get conversation_path(conversation)
+
+    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
   end
 end

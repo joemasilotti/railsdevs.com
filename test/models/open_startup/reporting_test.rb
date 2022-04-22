@@ -117,11 +117,11 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
   end
 
   def january
-    (today - 1.day).to_time.to_i
+    (today - 1.day).to_time(:utc).to_i
   end
 
   def february
-    today.to_time.to_i
+    today.to_time(:utc).to_i
   end
 
   def today

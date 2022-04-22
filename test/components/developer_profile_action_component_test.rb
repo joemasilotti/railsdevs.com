@@ -2,7 +2,7 @@ require "test_helper"
 
 class DeveloperProfileActionComponentTest < ViewComponent::TestCase
   setup do
-    @developer = developers(:available)
+    @developer = developers(:one)
   end
 
   test "should show add my profile for non-developers" do
@@ -11,14 +11,14 @@ class DeveloperProfileActionComponentTest < ViewComponent::TestCase
     assert_text "Add my profile"
     refute_text "Update my profile"
 
-    user = users(:with_business)
+    user = users(:business)
     render_inline DeveloperProfileActionComponent.new(user)
 
     assert_text "Add my profile"
   end
 
   test "should show update my profile for developers" do
-    user = users(:with_available_profile)
+    user = users(:developer)
     render_inline DeveloperProfileActionComponent.new(user)
 
     assert_text "Update my profile"

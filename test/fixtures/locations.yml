@@ -1,15 +1,13 @@
+one:
+  developer: one
+  country: United States
+  time_zone: Eastern Time (US & Canada)
+  utc_offset: -18_000
+
 eastern:
-  developer: available
   time_zone: Eastern Time (US & Canada)
   utc_offset: -18_000
 
 pacific:
-  developer: unavailable
   time_zone: Pacific Time (US & Canada)
   utc_offset: -28_800
-
-complete:
-  developer: complete
-  country: United States
-  time_zone: Eastern Time (US & Canada)
-  utc_offset: -18_000

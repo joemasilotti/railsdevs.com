@@ -2,6 +2,7 @@ class Developer < ApplicationRecord
   include Availability
   include Avatarable
   include HasSocialProfiles
+  include PgSearch::Model
 
   enum search_status: {
     actively_looking: 1,
@@ -29,6 +30,8 @@ class Developer < ApplicationRecord
   validates :location, presence: true, on: :create
   validates :name, presence: true
 
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
       where(role_type: {type => true}) if role_types.include?(type)
@@ -50,7 +53,7 @@ class Developer < ApplicationRecord
   scope :newest_first, -> { order(created_at: :desc) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
-  after_create_commit :send_admin_notification
+  after_create_commit :send_admin_notification, :send_welcome_email
 
   def visible?
     !invisible?
@@ -77,9 +80,22 @@ class Developer < ApplicationRecord
       available_on.blank?
   end
 
+  def invisiblize!
+    invisible!
+    send_invisiblize_notification
+  end
+
   private
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+  end
+
+  def send_welcome_email
+    DeveloperMailer.with(developer: self).welcome_email.deliver_later
+  end
+
+  def send_invisiblize_notification
+    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
   end
 end

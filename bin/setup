@@ -45,10 +45,4 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Restarting application server =="
   system! "bin/rails restart"
-
-  puts "\n== Next steps =="
-  puts "Start Postgres:"
-  puts "  brew services restart postgresql"
-  puts "Start Redis:"
-  puts "  brew services restart redis"
 end

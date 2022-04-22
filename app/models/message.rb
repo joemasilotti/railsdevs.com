@@ -1,5 +1,6 @@
 class Message < ApplicationRecord
   FORMAT = AutoHtml::Pipeline.new(
+    AutoHtml::HtmlEscape.new,
     AutoHtml::Link.new(target: "_blank"),
     AutoHtml::SimpleFormat.new
   )
@@ -14,6 +15,8 @@ class Message < ApplicationRecord
   validates :body, presence: true
 
   after_create_commit :send_recipient_notification
+
+  scope :from_developer, -> { where(sender_type: Developer.name) }
 
   def sender?(user)
     [user.developer, user.business].include?(sender)

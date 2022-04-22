@@ -1,0 +1,8 @@
+<ul class="flex flex-col sm:flex-row justify-between space-y-2 sm:space-y-0 w-full text-sm text-gray-500 font-medium ml-4 sm:ml-6 mt-4">
+  <% role_types.each do |type, enabled| %>
+    <%= tag.li class: "flex items-center #{css(enabled)}" do %>
+      <%= inline_svg_tag icon(enabled), class: "h-4 w-4 mr-2" %>
+      <%= type %>
+    <% end %>
+  <% end %>
+</ul>

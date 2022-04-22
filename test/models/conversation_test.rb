@@ -27,13 +27,13 @@ class ConversationTest < ActiveSupport::TestCase
   end
 
   test "other recipient is the business when the user is the developer" do
-    user = users(:with_developer_conversation)
+    user = users(:prospect_developer)
     conversation = conversations(:one)
     assert_equal conversation.other_recipient(user), conversation.business
   end
 
   test "other recipient is the developer when the user is the business" do
-    user = users(:with_business_conversation)
+    user = users(:subscribed_business)
     conversation = conversations(:one)
     assert_equal conversation.other_recipient(user), conversation.developer
   end
@@ -56,10 +56,21 @@ class ConversationTest < ActiveSupport::TestCase
 
   test "creating a conversation sends a notification to the admin" do
     assert_difference "Notification.count", 1 do
-      Conversation.create!(developer: developers(:available), business: businesses(:one))
+      Conversation.create!(developer: developers(:one), business: businesses(:one))
     end
 
     assert_equal Notification.last.type, NewConversationNotification.name
     assert_equal Notification.last.recipient, users(:admin)
+  end
+
+  test "is eligible for the hiring fee when the developer has responded and it is 2+ weeks old" do
+    conversation = conversations(:one)
+    refute conversation.hiring_fee_eligible?
+
+    conversation.update!(created_at: 2.weeks.ago - 1.day)
+    assert conversation.hiring_fee_eligible?
+
+    conversation.messages.from_developer.destroy_all
+    refute conversation.hiring_fee_eligible?
   end
 end

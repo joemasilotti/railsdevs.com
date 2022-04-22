@@ -4,8 +4,8 @@ class MessagesTest < ActionDispatch::IntegrationTest
   include PayHelper
 
   setup do
-    @developer = developers(:with_conversation)
-    @business = businesses(:with_conversation)
+    @developer = developers(:prospect)
+    @business = businesses(:subscriber)
     @conversation = conversations(:one)
   end
 
@@ -54,7 +54,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a business without an active subscription can no longer continue the conversation" do
-    pay_subscriptions(:two).update!(ends_at: Date.yesterday)
+    pay_subscriptions(:full_time).update!(ends_at: Date.yesterday)
     sign_in @business.user
 
     assert_no_difference "Message.count" do
@@ -65,6 +65,22 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "no one else can contribute to the conversation" do
     sign_in users(:empty)
+
+    assert_no_difference "Message.count" do
+      post conversation_messages_path(@conversation), params: message_params
+    end
+
+    assert_redirected_to root_path
+  end
+
+  test "part-time plan subscribers can't message full-time seekers" do
+    sign_in @business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    @developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
 
     assert_no_difference "Message.count" do
       post conversation_messages_path(@conversation), params: message_params

@@ -62,11 +62,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "railsdevs_production"
 
-  # Use mailgun to send email.
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: Rails.application.credentials.dig(:mailgun, :api_key),
-    domain: Rails.application.credentials.dig(:mailgun, :domain)
+  # Use Postmark to send email.
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = {
+    api_token: Rails.application.credentials.postmark_api_token
   }
 
   config.action_mailer.perform_caching = false

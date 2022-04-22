@@ -1,5 +1,14 @@
 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-  <div class="text-white px-2" style="position:relative">
+  <% if conversations? %>
+    <div class="text-white px-2 relative">
+      <%= link_to conversations_path, class: "flex-shrink-0 text-gray-300 rounded-full hover:text-white group" do %>
+        <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6" %>
+        <span class="sr-only"><%= t(".view_conversations") %></span>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="text-white px-2 relative">
     <%= link_to notifications_path, class: "flex-shrink-0 text-gray-300 rounded-full hover:text-white group" do %>
       <%= inline_svg_tag "icons/outline/bell.svg", class: "mx-auto h-6 w-6" %>
       <span class="sr-only"><%= t(".view_notifications") %></span>
@@ -31,7 +40,8 @@
         <div class="border-y border-gray-200 py-1">
           <span class="block mx-4 text-xs uppercase font-medium py-2"><%= t(".admin") %></span>
           <%= render UserMenu::MenuItemComponent.new(t(".transactions"), admin_transactions_path) %>
-          <%= render UserMenu::MenuItemComponent.new(t(".blocked_conversations"), admin_conversations_path) %>
+          <%= render UserMenu::MenuItemComponent.new(t(".conversations"), admin_conversations_path) %>
+          <%= render UserMenu::MenuItemComponent.new(t(".blocked_conversations"), admin_conversations_blocks_path) %>
         </div>
       <% end %>
 
