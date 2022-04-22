@@ -4,6 +4,7 @@
 
 ### April
 
+* April 22 - Add link to conversations in navigation bar - #384
 * April 21 - Note interested role types on cold message form - #383
 * April 18 - Automatically send Developer and Business welcome emails - #378
 * April 18 - Added banner to connect with Joe to pay hiring fee - #380
