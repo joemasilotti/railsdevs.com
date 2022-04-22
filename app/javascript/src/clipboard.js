@@ -1,7 +1,9 @@
 class Clipboard {
-  static copyHTML(html) {
-    const type = "text/html"
-    const data = [new ClipboardItem({[type]: new Blob([html], {type})})]
+  static copy({text, html}) {
+    const data = [
+      this.clipboardItem({type: "text/plain", content: text}),
+      this.clipboardItem({type: "text/html", content: html})
+    ]
 
     navigator.clipboard.write(data).then(
       () => { /* Success */ },
@@ -10,6 +12,10 @@ class Clipboard {
         alert("Failed to copy to clipboard.")
       }
     )
+  }
+
+  static clipboardItem({type, content}) {
+    return new ClipboardItem({[type]: new Blob([content], {type})})
   }
 }
 

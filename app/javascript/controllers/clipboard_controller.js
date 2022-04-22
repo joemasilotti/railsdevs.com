@@ -6,12 +6,16 @@ export default class extends Controller {
   static targets = ["toggleable"]
   static values = {
     content: String,
+    htmlContent: String,
     toggleTimeout: {type: Number, default: 2000}
   }
 
   copy(event) {
     event.preventDefault()
-    Clipboard.copyHTML(this.contentValue)
+    Clipboard.copy({
+      text: this.contentValue,
+      html: this.htmlContentValue
+    })
   }
 
   toggle() {
