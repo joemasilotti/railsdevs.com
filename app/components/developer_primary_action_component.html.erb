@@ -9,10 +9,3 @@
     <%= t("developers.show.hire") %>
   <% end %>
 <% end %>
-
-<% if admin? %>
-  <%= button_to admin_developer_invisiblizes_path(@developer), method: :post, rel: "nofollow", class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-    <%= inline_svg_tag "icons/solid/eye_off.svg", class: "-ml-1 mr-3 h-5 w-5" %>
-    <%= t("developers.show.invisiblize") %>
-  <% end %>
-<% end %>

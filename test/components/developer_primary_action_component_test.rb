@@ -23,11 +23,4 @@ class DeveloperPrimaryActionComponentTest < ViewComponent::TestCase
 
     assert_text "Edit"
   end
-
-  test "should show invisiblize to an admin" do
-    user = users(:admin)
-    render_inline DeveloperPrimaryActionComponent.new(user:, developer: @developer)
-
-    assert_text "Invisiblize"
-  end
 end

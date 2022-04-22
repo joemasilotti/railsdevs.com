@@ -142,6 +142,10 @@ en:
   date:
     formats:
       month_year: "%B %Y"
+  developer_admin_component:
+    copy: Copy
+    invisiblize: Invisiblize
+    title: Admin
   developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile
@@ -217,7 +221,6 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
-      invisiblize: Invisiblize
     update:
       updated: Your profile was updated!
   dir: ltr
