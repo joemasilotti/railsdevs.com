@@ -503,6 +503,7 @@ en:
       sign_out: Sign out
       transactions: Transactions
       view_notifications: View notifications
+      view_conversations: View conversations
     signed_out_component:
       register: Register
       sign_in: Sign in
