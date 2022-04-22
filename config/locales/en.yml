@@ -502,8 +502,8 @@ en:
       open_user_menu: Open user menu
       sign_out: Sign out
       transactions: Transactions
-      view_notifications: View notifications
       view_conversations: View conversations
+      view_notifications: View notifications
     signed_out_component:
       register: Register
       sign_in: Sign in
