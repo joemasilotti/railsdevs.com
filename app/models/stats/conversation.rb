@@ -11,7 +11,7 @@ module Stats
     end
 
     def replied
-      @replied ||= Message.where(sender_type: "Developer", conversation: conversations)
+      @replied ||= Message.from_developer.where(conversation: conversations)
         .group(:conversation_id)
         .count.count
     end

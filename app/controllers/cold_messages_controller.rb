@@ -6,6 +6,8 @@ class ColdMessagesController < ApplicationController
 
   def new
     @message = Message.new(conversation:)
+    @tips = MarkdownRenderer.new("cold_messages/tips").render
+    @messageable = SubscriptionPolicy.new(current_user, @message).messageable?
   end
 
   def create

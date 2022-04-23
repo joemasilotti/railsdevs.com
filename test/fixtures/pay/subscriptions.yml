@@ -2,7 +2,7 @@ full_time:
   customer: one
   name: full_time
   processor_id: sub_1
-  processor_plan: default
+  processor_plan: <%= BusinessSubscription::FullTime.new.plan %>
   quantity: 1
   status: active
 

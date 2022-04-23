@@ -62,4 +62,15 @@ class ConversationTest < ActiveSupport::TestCase
     assert_equal Notification.last.type, NewConversationNotification.name
     assert_equal Notification.last.recipient, users(:admin)
   end
+
+  test "is eligible for the hiring fee when the developer has responded and it is 2+ weeks old" do
+    conversation = conversations(:one)
+    refute conversation.hiring_fee_eligible?
+
+    conversation.update!(created_at: 2.weeks.ago - 1.day)
+    assert conversation.hiring_fee_eligible?
+
+    conversation.messages.from_developer.destroy_all
+    refute conversation.hiring_fee_eligible?
+  end
 end

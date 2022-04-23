@@ -6,11 +6,17 @@ import { application } from "./application"
 import Analytics__EventsController from "./analytics/events_controller.js"
 application.register("analytics--events", Analytics__EventsController)
 
+import ClipboardController from "./clipboard_controller.js"
+application.register("clipboard", ClipboardController)
+
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
 import FormController from "./form_controller.js"
 application.register("form", FormController)
+
+import KeyboardShortcutController from "./keyboard_shortcut_controller.js"
+application.register("keyboard-shortcut", KeyboardShortcutController)
 
 import PageScrollController from "./page_scroll_controller.js"
 application.register("page-scroll", PageScrollController)
