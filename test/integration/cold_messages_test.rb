@@ -41,19 +41,19 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_select "form[action=?]", developer_messages_path(@developer)
   end
 
-  test "a business gets terms of service checkbox" do
+  test "a business sees the hiring fee agreement checkbox" do
     sign_in @business.user
     get new_developer_message_path(@developer)
 
-    assert_select "input[type=checkbox][name='message[terms_of_service]']"
+    assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']"
   end
 
-  test "a legacy business do not get terms of service checkbox" do
+  test "a legacy business do not see the hiring fee agreement checkbox" do
     legacy_subscribed_business = businesses(:legacy_subscribed_business)
     sign_in legacy_subscribed_business.user
     get new_developer_message_path(@developer)
 
-    assert_select "input[type=checkbox][name='message[terms_of_service]']", false, "This page must not show terms of service checkbox"
+    assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']", count: 0
   end
 
   test "a business can create a new conversation" do
@@ -110,15 +110,17 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     assert_no_difference "Message.count" do
       assert_no_difference "Conversation.count" do
-        post developer_messages_path(@developer), params: {message: {
-          body: "Hello!",
-          terms_of_service: 0
-        }}
+        post developer_messages_path(@developer), params: {
+          message: {
+            body: "Hello!",
+            hiring_fee_agreement: false
+          }
+        }
       end
     end
 
     assert_response :unprocessable_entity
-    assert_select "li", "Terms of service must be accepted"
+    assert_select "li", text: "Hiring fee agreement must be accepted"
   end
 
   def message_params

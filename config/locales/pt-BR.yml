@@ -215,7 +215,6 @@ pt-BR:
       help: Adicionar sua mensagem
       sending: Enviando...
       submit: Enviar
-      terms_of_service: Entendo que, se eu contratar o %{developer_name}, pagarei aos railsdevs 10% do salário do primeiro ano.
     message:
       wrote: escreveu
       you: Você

@@ -253,9 +253,10 @@ en:
   messages:
     form:
       help: Add your message
+      hiring_fee_agreement: I agree to pay railsdevs the 10% hiring fee if I hire this developer for a full-time role.
+      hiring_fee_cta: Questions?
       sending: Sending...
       submit: Send
-      terms_of_service: I understand that if I hire %{developer_name} then I will pay railsdevs 10% of their first year salary.
     message:
       wrote: wrote
       you: You

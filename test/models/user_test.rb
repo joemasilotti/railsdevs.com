@@ -50,7 +50,7 @@ class UserTest < ActiveSupport::TestCase
     refute user.active_full_time_business_subscription?
 
     user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(name: "full_time")
+    user.payment_processor.subscribe(plan: BusinessSubscription::FullTime.new.plan)
     assert user.reload.active_full_time_business_subscription?
   end
 end

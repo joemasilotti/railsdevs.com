@@ -5,8 +5,6 @@ class Message < ApplicationRecord
     AutoHtml::SimpleFormat.new
   )
 
-  attr_accessor :terms_of_service
-
   belongs_to :conversation
   belongs_to :sender, polymorphic: true
   has_one :developer, through: :conversation
@@ -15,7 +13,7 @@ class Message < ApplicationRecord
   has_noticed_notifications
 
   validates :body, presence: true
-  validates :terms_of_service, acceptance: 1
+  validates :hiring_fee_agreement, acceptance: true
 
   after_create_commit :send_recipient_notification
 
