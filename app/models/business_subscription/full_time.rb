@@ -8,5 +8,9 @@ module BusinessSubscription
     def price
       299
     end
+
+    def name
+      "Full-time"
+    end
   end
 end

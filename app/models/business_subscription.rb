@@ -1,9 +1,23 @@
 module BusinessSubscription
+  class UnknownPrice < StandardError; end
+
   def self.new(plan)
     case plan.to_s.to_sym
     when :full_time then FullTime.new
     when :legacy then Legacy.new
     else PartTime.new
+    end
+  end
+
+  def self.from(price)
+    if FullTime.new.plan == price
+      FullTime.new
+    elsif PartTime.new.plan == price
+      PartTime.new
+    elsif Legacy.new.plan == price
+      Legacy.new
+    else
+      raise UnknownPrice.new
     end
   end
 
