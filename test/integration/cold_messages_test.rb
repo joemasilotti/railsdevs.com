@@ -41,6 +41,21 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_select "form[action=?]", developer_messages_path(@developer)
   end
 
+  test "a business sees the hiring fee agreement checkbox" do
+    sign_in @business.user
+    get new_developer_message_path(@developer)
+
+    assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']"
+  end
+
+  test "a legacy business do not see the hiring fee agreement checkbox" do
+    sign_in @business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::Legacy.new.plan)
+    get new_developer_message_path(@developer)
+
+    assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']", count: 0
+  end
+
   test "a business can create a new conversation" do
     sign_in @business.user
 
@@ -88,6 +103,24 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :unprocessable_entity
+  end
+
+  test "unaccepted terms of service renders the error message" do
+    sign_in @business.user
+
+    assert_no_difference "Message.count" do
+      assert_no_difference "Conversation.count" do
+        post developer_messages_path(@developer), params: {
+          message: {
+            body: "Hello!",
+            hiring_fee_agreement: false
+          }
+        }
+      end
+    end
+
+    assert_response :unprocessable_entity
+    assert_select "li", text: "Hiring fee agreement must be accepted"
   end
 
   def message_params

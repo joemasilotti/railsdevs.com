@@ -13,6 +13,7 @@ class Message < ApplicationRecord
   has_noticed_notifications
 
   validates :body, presence: true
+  validates :hiring_fee_agreement, acceptance: true
 
   after_create_commit :send_recipient_notification
 

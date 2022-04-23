@@ -5,21 +5,30 @@ class ColdMessagesController < ApplicationController
   before_action :require_active_subscription!
 
   def new
-    @message = Message.new(conversation:)
-    @tips = MarkdownRenderer.new("cold_messages/tips").render
-    @messageable = SubscriptionPolicy.new(current_user, @message).messageable?
+    message = Message.new(conversation:)
+    @cold_message = cold_message(message)
   end
 
   def create
-    @message = Message.new(message_params.merge(conversation:, sender: business))
-    if @message.save
-      redirect_to @message.conversation
+    message = Message.new(message_params.merge(conversation:, sender: business))
+    if message.save
+      redirect_to message.conversation
     else
+      @cold_message = cold_message(message)
       render :new, status: :unprocessable_entity
     end
   end
 
   private
+
+  def cold_message(message)
+    ColdMessage.new(
+      message:,
+      messageable: SubscriptionPolicy.new(current_user, message).messageable?,
+      show_hiring_fee_terms: current_user.active_full_time_business_subscription?,
+      tips: MarkdownRenderer.new("cold_messages/tips").render
+    )
+  end
 
   def require_business!
     unless business.present?
@@ -48,10 +57,10 @@ class ColdMessagesController < ApplicationController
   end
 
   def business
-    current_user.business
+    @business = current_user.business
   end
 
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :hiring_fee_agreement)
   end
 end
