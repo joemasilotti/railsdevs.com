@@ -4,6 +4,7 @@
 
 ### April
 
+* April 23 - Add 10% fee acceptance checkbox - #371
 * April 22 - Add link to conversations in navigation bar - #384
 * April 21 - Note interested role types on cold message form - #383
 * April 18 - Automatically send Developer and Business welcome emails - #378
