@@ -49,8 +49,8 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
   end
 
   test "a legacy business do not see the hiring fee agreement checkbox" do
-    legacy_subscribed_business = businesses(:legacy_subscribed_business)
-    sign_in legacy_subscribed_business.user
+    sign_in @business.user
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::Legacy.new.plan)
     get new_developer_message_path(@developer)
 
     assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']", count: 0

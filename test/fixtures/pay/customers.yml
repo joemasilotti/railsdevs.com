@@ -3,9 +3,3 @@ one:
   processor: stripe
   processor_id: cus_1234
   default: true
-
-two:
-  owner: legacy_subscribed_business (User)
-  processor: stripe
-  processor_id: cus_12345
-  default: true
