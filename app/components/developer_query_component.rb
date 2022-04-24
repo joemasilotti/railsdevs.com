@@ -31,6 +31,11 @@ class DeveloperQueryComponent < ApplicationComponent
   end
 
   def role_levels
+    # i18n-tasks-use t('activerecord.attributes.role_level.c_level')
+    # i18n-tasks-use t('activerecord.attributes.role_level.junior')
+    # i18n-tasks-use t('activerecord.attributes.role_level.mid')
+    # i18n-tasks-use t('activerecord.attributes.role_level.principal')
+    # i18n-tasks-use t('activerecord.attributes.role_level.senior')
     RoleLevel::TYPES.map { |role| [role, RoleLevel.human_attribute_name(role)] }
   end
 
