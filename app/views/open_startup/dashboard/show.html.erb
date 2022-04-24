@@ -36,6 +36,10 @@
                 <%= t(".visitors") %>
               </dt>
               <dd class="order-1 text-5xl font-extrabold text-gray-600">
+                <%# i18n-tasks-use t('size.billion') %>
+                <%# i18n-tasks-use t('size.million') %>
+                <%# i18n-tasks-use t('size.thousand') %>
+                <%# i18n-tasks-use t('size.unit') %>
                 <%= number_to_human(@metric.visitors, units: :size) %>
               </dd>
             <% end %>

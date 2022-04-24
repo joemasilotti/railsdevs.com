@@ -122,7 +122,6 @@ ignore_missing:
 ignore_unused:
 - 'activerecord.attributes.*' # 46 unused keys
 - 'errors.messages.*' # 8
-- 'size.{billion,million,thousand,unit}' # 4
 - '{devise}.*' #74
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
