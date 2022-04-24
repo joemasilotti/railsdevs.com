@@ -23,6 +23,9 @@ class DeveloperQueryComponent < ApplicationComponent
   end
 
   def role_types
+    # i18n-tasks-use t('activerecord.attributes.role_type.full_time_contract')
+    # i18n-tasks-use t('activerecord.attributes.role_type.full_time_employment')
+    # i18n-tasks-use t('activerecord.attributes.role_type.part_time_contract')
     RoleType::TYPES.map { |role| [role, RoleType.human_attribute_name(role)] }
   end
 
