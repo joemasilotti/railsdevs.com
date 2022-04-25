@@ -204,6 +204,25 @@ es:
     message:
       wrote: escrito
       you: Tu
+  nav_bar:
+    user_component:
+      admin: Admin
+      billing: Facturación
+      get_started: Empezar
+      my_business_profile: Mi perfil de empresa
+      my_conversations: Mis conversaciones
+      my_developer_profile: Mi perfil de desarrollador
+      new_notifications: Tienes una nueva notificación
+      open_user_menu: Abrir el menú del usuario
+      sign_out: Cerrar sesión
+      view_notifications: Ver notificaciones
+    guest_component:
+      register: Registrarse
+      sign_in: Iniciar sesión
+    base_component:
+      about: Acerca de
+      developers: Desarrolladores
+      pricing: Precios
   notifications:
     index:
       cta: Ver historia
@@ -257,27 +276,6 @@ es:
       open_source: Código abierto
       support: Soporte
       twitter: Twitter
-    header:
-      open_main_menu: Abrir el menú principal
-    nav_links:
-      about: Acerca de
-      developers: Desarrolladores
-      pricing: Precios
   upgrade_account_component:
     cta: Adquiere la suscripción
     title: Requiere de una suscripción empresarial activa.
-  user_menu:
-    signed_in_component:
-      admin: Admin
-      billing: Facturación
-      get_started: Empezar
-      my_business_profile: Mi perfil de empresa
-      my_conversations: Mis conversaciones
-      my_developer_profile: Mi perfil de desarrollador
-      new_notifications: Tienes una nueva notificación
-      open_user_menu: Abrir el menú del usuario
-      sign_out: Cerrar sesión
-      view_notifications: Ver notificaciones
-    signed_out_component:
-      register: Registrarse
-      sign_in: Iniciar sesión

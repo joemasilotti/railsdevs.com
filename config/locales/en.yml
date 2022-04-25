@@ -265,6 +265,29 @@ en:
       details: View pricing details
       title: Upgrade required
       upgrade: Upgrade my account
+  nav_bar:
+    base_component:
+      about: About
+      developers: Developers
+      pricing: Pricing
+    guest_component:
+      register: Register
+      sign_in: Sign in
+    user_component:
+      admin: Admin
+      billing: Billing
+      blocked_conversations: Blocked conversations
+      conversations: Conversations
+      get_started: Get started
+      my_business_profile: My business profile
+      my_conversations: My conversations
+      my_developer_profile: My developer profile
+      new_notifications: You have a new notification
+      open_user_menu: Open user menu
+      sign_out: Sign out
+      transactions: Transactions
+      view_conversations: View conversations
+      view_notifications: View notifications
   new_developer_field_component:
     new: New!
   new_developer_fields_component:
@@ -479,12 +502,6 @@ en:
       open_startup: Open startup
       support: Support
       twitter: Twitter
-    header:
-      open_main_menu: Open main menu
-    nav_links:
-      about: About
-      developers: Developers
-      pricing: Pricing
   size:
     billion: B
     million: M
@@ -493,24 +510,5 @@ en:
   upgrade_account_component:
     cta: Upgrade your account
     title: Requires an active business subscription.
-  user_menu:
-    signed_in_component:
-      admin: Admin
-      billing: Billing
-      blocked_conversations: Blocked conversations
-      conversations: Conversations
-      get_started: Get started
-      my_business_profile: My business profile
-      my_conversations: My conversations
-      my_developer_profile: My developer profile
-      new_notifications: You have a new notification
-      open_user_menu: Open user menu
-      sign_out: Sign out
-      transactions: Transactions
-      view_conversations: View conversations
-      view_notifications: View notifications
-    signed_out_component:
-      register: Register
-      sign_in: Sign in
   utc_offset_component:
     gmt: GMT
