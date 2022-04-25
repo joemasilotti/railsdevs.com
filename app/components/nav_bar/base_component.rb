@@ -1,7 +1,5 @@
 module NavBar
   class BaseComponent < ApplicationComponent
-    include ViewComponent::Translatable
-
     private attr_reader :user
 
     def initialize(user)
