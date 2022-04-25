@@ -218,6 +218,27 @@ pt-BR:
     message:
       wrote: escreveu
       you: Você
+  nav_bar:
+    base_component:
+      about: Sobre
+      developers: Desenvolvedores
+      pricing: Preços
+    user_component:
+      admin: Administrar
+      billing: Faturamento
+      blocked_conversations: Conversas bloqueadas
+      get_started: Comece por aqui
+      my_business_profile: Meu perfil empresarial
+      my_conversations: Minhas conversas
+      my_developer_profile: Meu perfil
+      new_notifications: Você tem uma nova notificação
+      open_user_menu: Abrir menu do usuário
+      sign_out: Sair
+      transactions: Transaçòes
+      view_notifications: Ver notificações
+    guest_component:
+      register: Registrar
+      sign_in: Entrar
   notifications:
     index:
       cta: Ver histórico
@@ -323,12 +344,6 @@ pt-BR:
       open_startup: Open startup
       support: Suporte
       twitter: Twitter
-    header:
-      open_main_menu: Abrir menu principal
-    nav_links:
-      about: Sobre
-      developers: Desenvolvedores
-      pricing: Preços
   size:
     billion: B
     million: M
@@ -337,20 +352,3 @@ pt-BR:
   upgrade_account_component:
     cta: Atualizar sua conta
     title: Requer um perfil empresarial ativo.
-  user_menu:
-    signed_in_component:
-      admin: Administrar
-      billing: Faturamento
-      blocked_conversations: Conversas bloqueadas
-      get_started: Comece por aqui
-      my_business_profile: Meu perfil empresarial
-      my_conversations: Minhas conversas
-      my_developer_profile: Meu perfil
-      new_notifications: Você tem uma nova notificação
-      open_user_menu: Abrir menu do usuário
-      sign_out: Sair
-      transactions: Transaçòes
-      view_notifications: Ver notificações
-    signed_out_component:
-      register: Registrar
-      sign_in: Entrar

@@ -12,7 +12,7 @@
             <%= form.text_field :search_query, value: search_query, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: t(".search_query_label") %>
           </div>
         <% else %>
-          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left" id="sort">
+          <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 inline-block text-left" id="sort">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
                 <%= t(".sort.title") %>
@@ -31,7 +31,7 @@
 
         <div class="flex items-baseline space-x-2 sm:space-x-8">
           <% if Feature.enabled?(:role_level_filters, user: @user) %>
-            <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
+            <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block">
               <div>
                 <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
                   <span><%= t(".role_level.title") %></span>
@@ -60,7 +60,7 @@
             </div>
           <% end %>
 
-          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 hidden sm:inline-block text-left" id="desktop-work-preferences-filters">
+          <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 hidden sm:inline-block text-left" id="desktop-work-preferences-filters">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
                 <span><%= t(".work_preference.title") %></span>
@@ -95,7 +95,7 @@
             </div>
           </div>
 
-          <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block" id="desktop-timezone-filters">
+          <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 inline-block text-left hidden sm:inline-block" id="desktop-timezone-filters">
             <div>
               <button type="button" data-action="toggle#toggle" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
                 <span><%= t(".timezone.title") %></span>
@@ -124,7 +124,7 @@
           </div>
 
           <% if Feature.enabled?(:search_feature, user: @user) %>
-            <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left" id="sort">
+            <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 inline-block text-left" id="sort">
               <div>
                 <button type="button" data-action="toggle#toggle" class="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false" aria-haspopup="true">
                   <%= t(".sort.title") %>
@@ -143,14 +143,14 @@
         </div>
       <% end %>
 
-      <div data-controller="toggle" data-toggle-close-class="hidden" class="relative z-10 inline-block text-left sm:hidden mr-2">
+      <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10 inline-block text-left sm:hidden mr-2">
         <div>
           <button type="button" data-action="toggle#toggle" class="text-sm font-medium text-gray-700 hover:text-gray-900" aria-expanded="false">
             <span><%= t(".filters") %></span>
           </button>
         </div>
 
-        <div data-toggle-target="element" id="mobile-filters" class="bg-gray-50">
+        <div data-toggle-target="element" id="mobile-filters" class="hidden bg-gray-50">
           <div class="fixed inset-0 flex z-40 sm:hidden" role="dialog" aria-modal="true">
             <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
             <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-6 flex flex-col overflow-y-auto">
@@ -175,9 +175,9 @@
                 <% end %>
 
                 <% if Feature.enabled?(:role_level_filters, user: @user) %>
-                  <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
+                  <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
                     <h3 class="-mx-2 -my-3 flow-root">
-                      <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-1" aria-expanded="false">
+                      <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="role-level-filter-section" aria-expanded="false">
                         <span class="font-medium text-gray-900"><%= t(".role_level.title") %></span>
                         <span class="ml-6 flex items-center">
                         <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
@@ -185,7 +185,7 @@
                       </button>
                     </h3>
 
-                    <div class="pt-6" id="filter-section-1" data-toggle-target="element">
+                    <div id="role-level-filter-section" data-toggle-target="element" class="hidden pt-6">
                       <div class="space-y-6">
                         <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
                           <div class="flex items-center">
@@ -198,9 +198,9 @@
                   </div>
                 <% end %>
 
-                <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
+                <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
                   <h3 class="-mx-2 -my-3 flow-root">
-                    <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-0" aria-expanded="false">
+                    <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="role-type-filter-section" aria-expanded="false">
                       <span class="font-medium text-gray-900"><%= t(".work_preference.title") %></span>
                       <span class="ml-6 flex items-center">
                       <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
@@ -208,7 +208,7 @@
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-0" data-toggle-target="element">
+                  <div id="role-type-filter-section" data-toggle-target="element" class="hidden pt-6">
                     <div class="space-y-6">
                       <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
                         <div class="flex items-center">
@@ -225,9 +225,9 @@
                   </div>
                 </div>
 
-                <div class="border-t border-gray-200 px-4 py-6" data-controller="toggle" data-toggle-close-class="hidden" data-toggle-chevron-class="rotate-180">
+                <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
                   <h3 class="-mx-2 -my-3 flow-root">
-                    <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="filter-section-1" aria-expanded="false">
+                    <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="timezone-filter-section" aria-expanded="false">
                       <span class="font-medium text-gray-900"><%= t(".timezone.title") %></span>
                       <span class="ml-6 flex items-center">
                       <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
@@ -235,7 +235,7 @@
                     </button>
                   </h3>
 
-                  <div class="pt-6" id="filter-section-1" data-toggle-target="element">
+                  <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
                     <div class="space-y-6">
                       <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
                         <div class="flex items-center">

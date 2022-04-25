@@ -1,0 +1,142 @@
+<div class="min-h-full">
+  <nav data-controller="toggle" data-toggle-visibility-class="hidden" class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current hover:text-white" do %>
+              <span class="sr-only">railsdevs</span>
+              <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "railsdevs logo" %>
+            <% end %>
+          </div>
+
+          <!-- Navigation links -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <% links.each do |link| %>
+                <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop nav bar -->
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6 space-x-4">
+            <% if conversations? %>
+              <%= link_to conversations_path, class: "relative text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
+                <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6" %>
+                <span class="sr-only"><%= t(".view_conversations") %></span>
+              <% end %>
+            <% end %>
+
+            <%= link_to notifications_path, class: "relative p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
+              <span class="sr-only"><%= t(".view_notifications") %></span>
+              <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6" %>
+
+              <% if unread_notifications? %>
+                <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
+                <span class="sr-only"><%= t(".new_notifications") %></span>
+              <% end %>
+            <% end %>
+
+            <!-- Profile dropdown -->
+            <div data-controller="toggle" data-toggle-visibility-class="hidden" class="relative z-10">
+              <div>
+                <button type="button" data-action="toggle#toggle" class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                  <span class="sr-only"><%= t(".open_user_menu") %></span>
+                  <%= render AvatarComponent.new(avatarable:, classes: "h-8 w-8 rounded-full") %>
+                </button>
+              </div>
+
+              <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                <% user_links.each_with_index do |link, index| %>
+                  <%= helpers.link_to_active link.title, link.path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", active_class: "bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index}" %>
+                <% end %>
+
+                <% if admin? %>
+                  <div class="border-y border-gray-200 py-1">
+                    <span class="block mx-4 text-xs uppercase text-gray-600 font-medium py-2"><%= t(".admin") %></span>
+                    <% admin_links.each_with_index do |link, index| %>
+                      <%= helpers.link_to_active link.title, link.path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", active_class: "bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index + user_links.count}" %>
+                    <% end %>
+                  </div>
+                <% end %>
+
+                <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {turbo: false}, class: "bg-transparent block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer w-full text-left" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="-mr-2 flex items-center md:hidden space-x-4">
+          <!-- Mobile nav bar -->
+          <% if conversations? %>
+            <%= link_to conversations_path, class: "bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
+              <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6" %>
+              <span class="sr-only"><%= t(".view_conversations") %></span>
+            <% end %>
+          <% end %>
+
+          <%= link_to notifications_path, class: "relative bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
+            <span class="sr-only">View notifications</span>
+            <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6" %>
+
+            <% if unread_notifications? %>
+              <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
+              <span class="sr-only"><%= t(".new_notifications") %></span>
+            <% end %>
+          <% end %>
+
+          <!-- Mobile menu button -->
+          <button type="button" data-action="toggle#toggle" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <span data-toggle-target="element"><%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6" %></span>
+            <span data-toggle-target="element" class="hidden"><%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6" %></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div data-toggle-target="element" class="hidden md:hidden" id="mobile-menu">
+      <!-- Navigation links -->
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <% links.each do |link| %>
+          <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
+        <% end %>
+      </div>
+
+      <!-- Mobile -->
+      <div class="pt-4 pb-3 border-t border-gray-700">
+        <div class="flex items-center px-5">
+          <div class="flex-shrink-0">
+            <%= render AvatarComponent.new(avatarable:, classes: "h-10 w-10 rounded-full") %>
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium leading-none text-white"><%= user.email %></div>
+          </div>
+        </div>
+        <div class="mt-3 px-2 space-y-1">
+          <% user_links.each do |link| %>
+            <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
+          <% end %>
+
+          <% if admin? %>
+            <div class="py-2">
+              <div class="border-0.5 border-y border-gray-600 py-2">
+                <span class="block mx-4 text-xs uppercase text-gray-400 font-medium py-2"><%= t(".admin") %></span>
+                <% admin_links.each_with_index do |link, index| %>
+                  <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index + user_links.count}" %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {turbo: false}, class: "block w-full text-left text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
