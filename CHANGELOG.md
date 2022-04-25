@@ -4,7 +4,7 @@
 
 ### April
 
-* April 24 - Rework nav bar to use a single menu - #386
+* April 25 - Rework nav bar to use a single menu - #386
 * April 23 - Add 10% fee acceptance checkbox - #371 @kaushikhande
 * April 22 - Add link to conversations in navigation bar - #384
 * April 21 - Note interested role types on cold message form - #383
