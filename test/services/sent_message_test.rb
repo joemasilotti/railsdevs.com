@@ -27,7 +27,6 @@ class SentMessageTest < ActiveSupport::TestCase
   end
 
   test "creating a message sends a notification to the recipient" do
-
     assert_difference "Notification.count", 1 do
       result = create_sent_message!
 
