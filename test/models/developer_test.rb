@@ -82,15 +82,6 @@ class DeveloperTest < ActiveSupport::TestCase
     refute_includes developers, developers(:prospect)
   end
 
-  test "successful profile creation sends a notification to the admins" do
-    assert_difference "Notification.count", 1 do
-      Developer.create!(developer_attributes)
-    end
-
-    assert_equal Notification.last.type, NewDeveloperProfileNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
-  end
-
   test "should accept avatars of valid file formats" do
     valid_formats = %w[image/png image/jpeg image/jpg]
 
@@ -204,11 +195,6 @@ class DeveloperTest < ActiveSupport::TestCase
 
     developers(:one).update!(search_status: nil)
     assert_includes Developer.visible, developers(:one)
-  end
-
-  test "creating a developer sends the welcome email" do
-    developer = Developer.create!(developer_attributes)
-    assert_enqueued_email_with DeveloperMailer, :welcome_email, args: {developer:}
   end
 
   test "notifies the dev when they are invisibilized" do

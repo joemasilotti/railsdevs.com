@@ -12,13 +12,14 @@ class DevelopersController < ApplicationController
   end
 
   def create
-    @developer = current_user.build_developer(developer_params)
+    result = DeveloperRegistration.new(developer_params, user: current_user).create
 
-    if @developer.save
-      url = developer_path(@developer)
+    if result.success?
+      url = developer_path(result.developer)
       event = Analytics::Event.added_developer_profile(url)
       redirect_to event, notice: t(".created")
     else
+      @developer = result.developer
       render :new, status: :unprocessable_entity
     end
   end
