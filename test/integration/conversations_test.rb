@@ -1,6 +1,8 @@
 require "test_helper"
 
 class ConversationsTest < ActionDispatch::IntegrationTest
+  include NotificationsHelper
+
   test "you must be signed in" do
     get conversations_path
     assert_redirected_to new_user_registration_path
@@ -49,11 +51,12 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "unread notifictions are marked as read" do
-    user = users(:prospect_developer)
-    developer = user.developer
-    business = businesses(:subscriber)
+    user = users(:subscribed_business)
     conversation = conversations(:one)
-    Message.create!(developer:, business:, body: "Hi!", sender: business, conversation:)
+    business = conversation.business
+    developer = conversation.developer
+
+    create_message_and_notification!(developer:, business:, conversation:)
     refute Notification.last.read?
 
     sign_in user

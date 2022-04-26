@@ -10,11 +10,12 @@ class ColdMessagesController < ApplicationController
   end
 
   def create
-    message = Message.new(message_params.merge(conversation:, sender: business))
-    if message.save
-      redirect_to message.conversation
+    result = SentMessage.new(message_params, user: current_user, conversation:, sender: business).create
+
+    if result.success?
+      redirect_to result.message.conversation
     else
-      @cold_message = cold_message(message)
+      @cold_message = cold_message(result.message)
       render :new, status: :unprocessable_entity
     end
   end

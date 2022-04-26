@@ -3,11 +3,10 @@ class MessagesController < ApplicationController
   before_action :require_active_subscription!
 
   def create
-    @message = Message.new(message_params.merge(conversation:, sender:))
-    authorize @message, policy_class: MessagingPolicy
-    authorize @message, :messageable?, policy_class: SubscriptionPolicy
+    result = SentMessage.new(message_params, user: current_user, conversation:, sender:).create
+    @message = result.message
 
-    if @message.save
+    if result.success?
       respond_to do |format|
         format.turbo_stream { @new_message = conversation.messages.build }
         format.html { redirect_to conversation }

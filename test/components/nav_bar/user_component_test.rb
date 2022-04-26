@@ -2,6 +2,7 @@ require "test_helper"
 
 class NavBar::UserComponentTest < ViewComponent::TestCase
   include ActionDispatch::Routing::UrlFor
+  include NotificationsHelper
   include Rails.application.routes.url_helpers
 
   test "renders links" do
@@ -89,8 +90,7 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
 
   test "links to new notifications view when new notifications exist" do
     user = users(:business)
-    developer = developers(:one)
-    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
+    create_message_and_notification!(developer: developers(:one), business: user.business)
 
     render_inline NavBar::UserComponent.new(user, links: [])
     assert_link_to notifications_path
@@ -98,8 +98,7 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
 
   test "shows red alert dot when new notifications exist" do
     user = users(:business)
-    developer = developers(:one)
-    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
+    create_message_and_notification!(developer: developers(:one), business: user.business)
 
     render_inline NavBar::UserComponent.new(user, links: [])
     assert_selector ".bg-red-400"

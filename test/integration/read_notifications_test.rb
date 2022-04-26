@@ -17,9 +17,8 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
   test "you can view your past notifications if you have past (read) notifications" do
     user = users(:business)
-    developer = developers(:one)
     sign_in user
-    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
+    create_message_and_notification!(developer: developers(:one), business: user.business)
     last_message_notification.mark_as_read!
 
     get read_notifications_path
@@ -29,19 +28,15 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
   test "you can read all unread notifications" do
     user = users(:business)
-    developer = developers(:one)
     sign_in user
-    conversation = Conversation.create!(developer:, business: user.business)
-    ["Hello!", "Available", "Let's talk"].each do |text|
-      Message.create!(conversation:, sender: developer, body: text)
-    end
-    notifications = user.notifications.unread
-    assert_equal 3, notifications.size
+    Notification.create!(recipient: user, type: ApplicationNotification)
+    Notification.create!(recipient: user, type: ApplicationNotification)
+    assert_equal 2, user.notifications.unread.count
 
     post read_notifications_path
 
     assert_redirected_to notifications_path
-    assert notifications.all?(&:read?)
-    assert_equal 0, user.notifications.unread.size
+    assert_equal 0, user.notifications.unread.count
+    assert_equal 2, user.notifications.read.count
   end
 end

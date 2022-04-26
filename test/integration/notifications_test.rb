@@ -12,7 +12,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     user = users(:business)
     developer = developers(:one)
     sign_in user
-    message = create_message!(developer:, business: user.business)
+    message = create_message_and_notification!(developer:, business: user.business)
     notification = last_message_notification
 
     get notification_path(notification)
@@ -30,7 +30,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     user = users(:business)
     developer = developers(:one)
     sign_in user
-    create_message!(developer:, business: user.business)
+    create_message_and_notification!(developer:, business: user.business)
 
     get notifications_path
     assert_select "h1", "New notifications"
@@ -40,7 +40,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
     user = users(:business)
     developer = developers(:one)
     sign_in user
-    message = create_message!(developer:, business: user.business)
+    message = create_message_and_notification!(developer:, business: user.business)
     notification = last_message_notification
 
     refute notification.reload.read?
@@ -48,9 +48,5 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to conversation_path(message.conversation)
     assert notification.reload.read?
-  end
-
-  def create_message!(developer:, business:)
-    Message.create!(developer:, business:, sender: developer, body: "Hello!")
   end
 end
