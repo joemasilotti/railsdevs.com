@@ -2,6 +2,7 @@ require "test_helper"
 
 class SentMessageTest < ActiveSupport::TestCase
   include NotificationsHelper
+  include PunditHelper
 
   setup do
     @developer = developers(:prospect)
@@ -35,6 +36,18 @@ class SentMessageTest < ActiveSupport::TestCase
       assert_equal notification.recipient, @business.user
       assert_equal notification.to_notification.message, result.message
       assert_equal notification.to_notification.conversation, conversations(:one)
+    end
+  end
+
+  test "the messaging policy is authorized for the create action" do
+    stub_not_authorized_pundit_policy(@user, Message, :create?, MessagingPolicy) do
+      create_sent_message!
+    end
+  end
+
+  test "the subscription policy is authorized for the messageable action" do
+    stub_not_authorized_pundit_policy(@user, Message, :messageable?, SubscriptionPolicy) do
+      create_sent_message!
     end
   end
 
