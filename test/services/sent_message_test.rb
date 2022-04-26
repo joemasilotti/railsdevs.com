@@ -2,7 +2,6 @@ require "test_helper"
 
 class SentMessageTest < ActiveSupport::TestCase
   include NotificationsHelper
-  include PunditHelper
 
   setup do
     @developer = developers(:prospect)
@@ -39,14 +38,24 @@ class SentMessageTest < ActiveSupport::TestCase
     end
   end
 
-  test "the messaging policy is authorized for the create action" do
-    stub_not_authorized_pundit_policy(@user, Message, :create?, MessagingPolicy) do
+  test "no one else can contribute to the conversation" do
+    @user = users(:empty)
+
+    assert_raises Pundit::NotAuthorizedError do
       create_sent_message!
     end
   end
 
-  test "the subscription policy is authorized for the messageable action" do
-    stub_not_authorized_pundit_policy(@user, Message, :messageable?, SubscriptionPolicy) do
+  test "part-time plan subscribers can't message full-time seekers" do
+    @user = users(:subscribed_business)
+    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    @developer.role_type.update!(
+      part_time_contract: false,
+      full_time_contract: false,
+      full_time_employment: true
+    )
+
+    assert_raises Pundit::NotAuthorizedError do
       create_sent_message!
     end
   end
