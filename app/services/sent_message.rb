@@ -1,5 +1,17 @@
 class SentMessage
-  Result = Struct.new(:success?, :message)
+  Result = Struct.new(:status, :message) do
+    def success?
+      status == :success
+    end
+
+    def unauthorized?
+      status == :unauthorized
+    end
+
+    def failure
+      status == :failure
+    end
+  end
 
   private attr_reader :options, :user, :conversation, :sender
 
@@ -12,18 +24,22 @@ class SentMessage
 
   def create
     message = Message.new(options.merge(conversation:, sender:))
-    Pundit.authorize(user, message, :create?, policy_class: MessagingPolicy)
-    Pundit.authorize(user, message, :messageable?, policy_class: SubscriptionPolicy)
-
-    if message.save
+    if !authorized?(message)
+      Result.new(:unauthorized, message)
+    elsif message.save
       send_recipient_notification(message)
-      Result.new(true, message)
+      Result.new(:success, message)
     else
-      Result.new(false, message)
+      Result.new(:failure, message)
     end
   end
 
   private
+
+  def authorized?(message)
+    MessagingPolicy.new(user, message).create? &&
+      SubscriptionPolicy.new(user, message).messageable?
+  end
 
   def send_recipient_notification(message)
     NewMessageNotification.with(message:, conversation:).deliver_later(message.recipient.user)

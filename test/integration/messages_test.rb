@@ -94,6 +94,18 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_select "p", html: 'Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!'
   end
 
+  test "unauthorized users are redirected" do
+    sign_in users(:empty)
+
+    service = Minitest::Mock.new
+    service.expect(:create, SentMessage::Result.new(:unauthorized, nil))
+
+    SentMessage.stub(:new, service) do
+      post conversation_messages_path(@conversation), params: message_params
+      assert_redirected_to root_path
+    end
+  end
+
   def message_params
     {
       message: {

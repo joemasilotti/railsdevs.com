@@ -14,6 +14,8 @@ class ColdMessagesController < ApplicationController
 
     if result.success?
       redirect_to result.message.conversation
+    elsif result.unauthorized?
+      user_not_authorized
     else
       @cold_message = cold_message(result.message)
       render :new, status: :unprocessable_entity

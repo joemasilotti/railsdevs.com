@@ -123,6 +123,18 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_select "li", text: "Hiring fee agreement must be accepted"
   end
 
+  test "unauthorized users are redirected" do
+    sign_in @business.user
+
+    service = Minitest::Mock.new
+    service.expect(:create, SentMessage::Result.new(:unauthorized, nil))
+
+    SentMessage.stub(:new, service) do
+      post developer_messages_path(@developer), params: message_params
+      assert_redirected_to root_path
+    end
+  end
+
   def message_params
     {
       message: {

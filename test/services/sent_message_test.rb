@@ -40,10 +40,7 @@ class SentMessageTest < ActiveSupport::TestCase
 
   test "no one else can contribute to the conversation" do
     @user = users(:empty)
-
-    assert_raises Pundit::NotAuthorizedError do
-      create_sent_message!
-    end
+    assert create_sent_message!.unauthorized?
   end
 
   test "part-time plan subscribers can't message full-time seekers" do
@@ -55,9 +52,7 @@ class SentMessageTest < ActiveSupport::TestCase
       full_time_employment: true
     )
 
-    assert_raises Pundit::NotAuthorizedError do
-      create_sent_message!
-    end
+    assert create_sent_message!.unauthorized?
   end
 
   def create_sent_message!(options = {body: "Hello!"})

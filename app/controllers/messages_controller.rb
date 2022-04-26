@@ -11,6 +11,8 @@ class MessagesController < ApplicationController
         format.turbo_stream { @new_message = conversation.messages.build }
         format.html { redirect_to conversation }
       end
+    elsif result.unauthorized?
+      user_not_authorized
     else
       render "conversations/show", status: :unprocessable_entity
     end
