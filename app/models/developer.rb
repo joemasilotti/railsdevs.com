@@ -77,15 +77,4 @@ class Developer < ApplicationRecord
       role_type.missing_fields? ||
       available_on.blank?
   end
-
-  def invisiblize!
-    invisible!
-    send_invisiblize_notification
-  end
-
-  private
-
-  def send_invisiblize_notification
-    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
-  end
 end
