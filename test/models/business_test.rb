@@ -3,15 +3,6 @@ require "test_helper"
 class BusinessTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
 
-  test "successful business creation sends a notification to the admin" do
-    assert_difference "Notification.count", 1 do
-      Business.create!(valid_business_attributes)
-    end
-
-    assert_equal Notification.last.type, NewBusinessNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
-  end
-
   test "conversations relationship doesn't include blocked ones" do
     business = businesses(:subscriber)
     conversation = business.conversations.create!(developer: developers(:one))
@@ -97,11 +88,6 @@ class BusinessTest < ActiveSupport::TestCase
     business = Business.new
 
     assert business.no_developer_notifications?
-  end
-
-  test "creating a business sends the welcome email" do
-    business = Business.create!(valid_business_attributes)
-    assert_enqueued_email_with BusinessMailer, :welcome_email, args: {business:}
   end
 
   def valid_business_attributes
