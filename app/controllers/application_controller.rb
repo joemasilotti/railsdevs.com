@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_to_result(result)
+    store_location!
+    redirect_to result.path, notice: result.notice
+  end
+
   private
 
   def user_not_authorized

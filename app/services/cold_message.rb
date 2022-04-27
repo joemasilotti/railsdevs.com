@@ -1,18 +1,11 @@
 class ColdMessage
-  class BusinessBlank < StandardError; end
+  include UrlHelpersWithDefaultUrlOptions
 
-  class MissingSubscription < StandardError; end
-
-  class ExistingConversation < StandardError
-    attr_reader :conversation
-
-    def initialize(conversation)
-      super
-      @conversation = conversation
+  Result = Struct.new(:success?, :message) do
+    def redirect?
+      false
     end
   end
-
-  Result = Struct.new(:success?, :message)
 
   private attr_reader :options, :user
 
@@ -26,31 +19,24 @@ class ColdMessage
     message = conversation.messages.new(options.merge(sender: business))
 
     if business.blank?
-      raise BusinessBlank.new
+      RedirectResult.new(new_business_path, I18n.t("errors.business_blank"))
     elsif conversation.persisted?
-      raise ExistingConversation.new(conversation)
+      RedirectResult.new(conversation_path(conversation))
     elsif !active_subscription?
-      raise MissingSubscription.new
-    elsif !MessagingPolicy.new(user, message).create?
-      raise Pundit::NotAuthorizedError.new
+      RedirectResult.new(pricing_path, I18n.t("errors.business_subscription_inactive"))
+    else
+      Result.new(true, message)
     end
-
-    message
   end
 
   def send
-    message = build
+    result = build
+    return result if result.redirect?
 
-    if business.blank?
-      raise BusinessBlank.new
-    elsif conversation.persisted?
-      raise ExistingConversation.new(conversation)
-    elsif !active_subscription?
-      raise MissingSubscription.new
-    elsif !MessagingPolicy.new(user, message).create?
-      raise Pundit::NotAuthorizedError.new
-    elsif !SubscriptionPolicy.new(user, message).messageable?
-      raise Pundit::NotAuthorizedError.new
+    message = result.message
+
+    if !SubscriptionPolicy.new(user, message).messageable?
+      RedirectResult.new(pricing_path, I18n.t("errors.upgrade_required"))
     elsif message.save
       send_recipient_notification(message)
       Result.new(true, message)

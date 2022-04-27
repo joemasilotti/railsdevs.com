@@ -231,6 +231,7 @@ en:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
+    upgrade_required: Upgrade your plan to message developers only seeking full-time employment.
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
