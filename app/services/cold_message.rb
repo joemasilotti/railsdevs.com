@@ -15,7 +15,7 @@ class ColdMessage
     @user = user
   end
 
-  def build
+  def build_message
     message = conversation.messages.new(options.merge(sender: business))
 
     if business.blank?
@@ -29,8 +29,8 @@ class ColdMessage
     end
   end
 
-  def send
-    result = build
+  def send_message
+    result = build_message
     return result if result.redirect?
 
     message = result.message

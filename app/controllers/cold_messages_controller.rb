@@ -2,7 +2,7 @@ class ColdMessagesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    result = ColdMessage.new({}, developer_id:, user: current_user).build
+    result = ColdMessage.new({}, developer_id:, user: current_user).build_message
     if result.redirect?
       redirect_to_result(result)
     else
@@ -11,7 +11,7 @@ class ColdMessagesController < ApplicationController
   end
 
   def create
-    result = ColdMessage.new(message_params, developer_id:, user: current_user).send
+    result = ColdMessage.new(message_params, developer_id:, user: current_user).send_message
 
     if result.success?
       redirect_to result.message.conversation

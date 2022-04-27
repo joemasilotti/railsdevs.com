@@ -7,7 +7,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:subscribed_business)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({}, developer_id:, user:).build
+    result = ColdMessage.new({}, developer_id:, user:).build_message
 
     assert result.success?
     assert result.message.new_record?
@@ -18,7 +18,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:empty)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({}, developer_id:, user:).build
+    result = ColdMessage.new({}, developer_id:, user:).build_message
 
     assert result.redirect?
     assert_equal new_business_path, result.path
@@ -28,7 +28,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:subscribed_business)
     developer_id = developers(:prospect).id
 
-    result = ColdMessage.new({}, developer_id:, user:).build
+    result = ColdMessage.new({}, developer_id:, user:).build_message
 
     assert result.redirect?
     assert_equal conversation_path(conversations(:one)), result.path
@@ -38,7 +38,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:business)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({}, developer_id:, user:).build
+    result = ColdMessage.new({}, developer_id:, user:).build_message
 
     assert result.redirect?
     assert_equal pricing_path, result.path
@@ -48,7 +48,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:subscribed_business)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({body: "Hi!"}, developer_id:, user:).send
+    result = ColdMessage.new({body: "Hi!"}, developer_id:, user:).send_message
 
     assert result.success?
     assert result.message.persisted?
@@ -59,7 +59,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:empty)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({}, developer_id:, user:).send
+    result = ColdMessage.new({}, developer_id:, user:).send_message
 
     assert result.redirect?
     assert_equal new_business_path, result.path
@@ -76,7 +76,7 @@ class ColdMessageTest < ActiveSupport::TestCase
       full_time_employment: true
     )
 
-    result = ColdMessage.new({}, developer_id:, user:).send
+    result = ColdMessage.new({}, developer_id:, user:).send_message
 
     assert result.redirect?
     assert_equal pricing_path, result.path
@@ -86,7 +86,7 @@ class ColdMessageTest < ActiveSupport::TestCase
     user = users(:subscribed_business)
     developer_id = developers(:one).id
 
-    result = ColdMessage.new({body: nil}, developer_id:, user:).send
+    result = ColdMessage.new({body: nil}, developer_id:, user:).send_message
 
     refute result.success?
     refute result.message.persisted?
