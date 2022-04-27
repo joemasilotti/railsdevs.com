@@ -1,31 +1,34 @@
 class ColdMessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_business!
-  before_action :require_new_conversation!
-  before_action :require_active_subscription!
+
+  rescue_from ColdMessage::BusinessBlank, with: :redirect_to_new_business
+  rescue_from ColdMessage::MissingSubscription, with: :redirect_to_pricing
+  rescue_from ColdMessage::ExistingConversation, with: :redirect_to_conversation
 
   def new
-    message = Message.new(conversation:)
-    @cold_message = cold_message(message)
+    message = ColdMessage.new({}, developer_id:, user: current_user).build
+    @context = context(message)
   end
 
   def create
-    result = SentMessage.new(message_params, user: current_user, conversation:, sender: business).create
+    result = ColdMessage.new(message_params, developer_id:, user: current_user).send
 
     if result.success?
       redirect_to result.message.conversation
-    elsif result.unauthorized?
-      user_not_authorized
     else
-      @cold_message = cold_message(result.message)
+      @context = context(result.message)
       render :new, status: :unprocessable_entity
     end
   end
 
   private
 
-  def cold_message(message)
-    ColdMessage.new(
+  def developer_id
+    params[:developer_id]
+  end
+
+  def context(message)
+    ColdMessageContext.new(
       message:,
       messageable: SubscriptionPolicy.new(current_user, message).messageable?,
       show_hiring_fee_terms: current_user.active_full_time_business_subscription?,
@@ -33,34 +36,18 @@ class ColdMessagesController < ApplicationController
     )
   end
 
-  def require_business!
-    unless business.present?
-      store_location!
-      redirect_to new_business_path, notice: I18n.t("errors.business_blank")
-    end
+  def redirect_to_new_business
+    store_location!
+    redirect_to new_business_path, notice: I18n.t("errors.business_blank")
   end
 
-  def require_new_conversation!
-    redirect_to conversation unless conversation.new_record?
+  def redirect_to_conversation(e)
+    redirect_to e.conversation
   end
 
-  def require_active_subscription!
-    unless current_user.active_business_subscription?
-      store_location!
-      redirect_to pricing_path
-    end
-  end
-
-  def conversation
-    @conversation ||= Conversation.find_or_initialize_by(developer:, business:)
-  end
-
-  def developer
-    @developer ||= Developer.find(params[:developer_id])
-  end
-
-  def business
-    @business = current_user.business
+  def redirect_to_pricing
+    store_location!
+    redirect_to pricing_path, notice: I18n.t("errors.business_subscription_inactive")
   end
 
   def message_params

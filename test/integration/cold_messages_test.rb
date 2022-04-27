@@ -19,7 +19,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     get new_developer_message_path(@developer)
     assert_redirected_to new_business_path
 
-    post developer_messages_path(@developer)
+    post developer_messages_path(@developer, params: message_params)
     assert_redirected_to new_business_path
   end
 
@@ -121,18 +121,6 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
     assert_select "li", text: "Hiring fee agreement must be accepted"
-  end
-
-  test "unauthorized users are redirected" do
-    sign_in @business.user
-
-    service = Minitest::Mock.new
-    service.expect(:create, SentMessage::Result.new(:unauthorized, nil))
-
-    SentMessage.stub(:new, service) do
-      post developer_messages_path(@developer), params: message_params
-      assert_redirected_to root_path
-    end
   end
 
   def message_params
