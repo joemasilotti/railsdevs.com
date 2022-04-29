@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include APIAuthenticatable
   include HasBusinessSubscription
 
   devise :confirmable,
