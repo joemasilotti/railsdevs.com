@@ -59,6 +59,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resource :auth, only: [:create, :destroy]
+    end
+  end
+
   namespace :stripe do
     resource :checkout, only: :create
     resource :portal, only: :show
