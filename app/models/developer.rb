@@ -95,10 +95,6 @@ class Developer < ApplicationRecord
     touch(:featured_at)
   end
 
-  def notifications_as_subject
-    Notification.where("substring(params->'developer'->>'_aj_globalid' FROM '[0-9]+')::int = ?", id)
-  end
-
   def new_developer_account?
     created_at > NEW_ACCOUNT_THRESHOLD.ago
   end
@@ -106,7 +102,7 @@ class Developer < ApplicationRecord
   private
 
   def changes_indicate_potential_hire?
-    return false unless saved_change_to_search_status?
+    return false unless saved_change_to_search_status? && !new_developer_account?
 
     original_value, saved_value = saved_change_to_search_status
     AVAILABLE_STATUSES.include?(original_value) && UNAVAILABLE_STATUSES.include?(saved_value)
