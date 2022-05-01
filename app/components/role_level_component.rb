@@ -14,6 +14,11 @@ class RoleLevelComponent < ApplicationComponent
   end
 
   def humanize(attribute)
+    # i18n-tasks-use t('activerecord.attributes.role_level.c_level')
+    # i18n-tasks-use t('activerecord.attributes.role_level.junior')
+    # i18n-tasks-use t('activerecord.attributes.role_level.mid')
+    # i18n-tasks-use t('activerecord.attributes.role_level.principal')
+    # i18n-tasks-use t('activerecord.attributes.role_level.senior')
     RoleLevel.human_attribute_name(attribute)
   end
 
