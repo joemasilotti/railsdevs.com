@@ -103,27 +103,13 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "admins do not get alerted to new accounts changing search status" do
     developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
-    assert_difference "Notification.count", 0 do
+    assert_no_difference "Notification.count" do
       developer.update!(search_status: :not_interested)
     end
-  end
-
-  test "admins do not get alerted if changes were made in past week" do
-    developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
-    developer.update!(search_status: :not_interested, created_at: (Developer::NEW_ACCOUNT_THRESHOLD + 1.day).ago)
-
-    notification = Notification.last
-    notification.update!(created_at: 3.days.ago)
-    assert_difference "Notification.count", 0 do
-      developer.update!(search_status: :actively_looking)
-      developer.update!(search_status: :not_interested)
-    end
-
-    assert_equal Notification.last.type, PotentialHireNotification.name
   end
 
   test "correctly identifies a new developer account" do
-    assert_equal @developer.new_developer_account?, true
+    assert @developer.new_developer_account?
   end
 
   test "should accept avatars of valid file formats" do
