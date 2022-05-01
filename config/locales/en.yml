@@ -311,6 +311,7 @@ en:
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
     new_developer_profile: "%{developer} added their developer profile."
     new_message: "%{sender} sent you a message."
+    potential_hire: "%{developer} may have been hired."
     show:
       notice: Notification marked as read.
   open_startup:
