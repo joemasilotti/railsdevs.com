@@ -250,7 +250,6 @@ pt-BR:
     new_conversation: "%{name} (%{company}) iniciou uma conversa com %{developer}."
     new_developer_profile: "%{developer} adicionou seu perfil de desenvolvedor."
     new_message: "%{sender} lhe enviou uma mensagem."
-    potential_hire: "%{developer} pode ter sido contratado."
     show:
       notice: Notificações marcadas como lidas.
   number:

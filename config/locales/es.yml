@@ -234,7 +234,6 @@ es:
     new_conversation: "%{name} (%{company}) empezó una conversación con %{developer}."
     new_developer_profile: "%{developer} agregó su perfil de desarrollador."
     new_message: "%{sender} te envió un mensaje."
-    potential_hire: "%{developer} puede haber sido contratado."
     show:
       notice: Notificaciones marcadas como leídas.
   number:
