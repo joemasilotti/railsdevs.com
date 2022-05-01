@@ -1,4 +1,3 @@
-
 require "application_system_test_case"
 
 class BusinessProfileTest < ApplicationSystemTestCase
@@ -7,7 +6,7 @@ class BusinessProfileTest < ApplicationSystemTestCase
 
     login_as(business.user)
 
-    visit business_url(id: business.id)
+    visit business_path(id: business.id)
 
     assert page.has_button?("Sign out")
   end
