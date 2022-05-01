@@ -18,7 +18,9 @@ class BusinessPolicy < ApplicationPolicy
       :name,
       :company,
       :bio,
-      :avatar
+      :avatar,
+      :website_url,
+      :contact_role
     ]
   end
 

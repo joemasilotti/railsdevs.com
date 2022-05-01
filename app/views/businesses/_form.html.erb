@@ -30,6 +30,20 @@
               </div>
             </div>
 
+            <div class="sm:col-span-3">
+              <%= form.label :website_url, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :website_url, class: field_classes(form, :website_url) %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= form.label :contact_role, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :contact_role, class: field_classes(form, :contact_role) %>
+              </div>
+            </div>
+
             <div class="sm:col-span-6">
               <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">

@@ -17,6 +17,8 @@
             <div class="ml-4 lg:ml-0">
               <div class="text-base font-medium text-gray-900"><%= @business.company %></div>
               <div class="text-base font-medium text-gray-600"><%= @business.name %></div>
+              <div class="text-base font-medium text-gray-600"><%= @business.contact_role %></div>
+              <div class="text-base font-medium text-gray-600"><%= link_to @business.website_url, @business.website_url, class: "underline" %></div>
             </div>
           </div>
         </footer>
