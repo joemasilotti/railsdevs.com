@@ -205,6 +205,13 @@ es:
       wrote: escrito
       you: Tu
   nav_bar:
+    base_component:
+      about: Acerca de
+      developers: Desarrolladores
+      pricing: Precios
+    guest_component:
+      register: Registrarse
+      sign_in: Iniciar sesión
     user_component:
       admin: Admin
       billing: Facturación
@@ -216,13 +223,6 @@ es:
       open_user_menu: Abrir el menú del usuario
       sign_out: Cerrar sesión
       view_notifications: Ver notificaciones
-    guest_component:
-      register: Registrarse
-      sign_in: Iniciar sesión
-    base_component:
-      about: Acerca de
-      developers: Desarrolladores
-      pricing: Precios
   notifications:
     index:
       cta: Ver historia
