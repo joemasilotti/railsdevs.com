@@ -91,6 +91,37 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_equal Notification.last.recipient, users(:admin)
   end
 
+  test "changing search status from available to unavailable alerts admins" do
+    developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
+    assert_difference "Notification.count", 1 do
+      developer.update!(search_status: :not_interested, created_at: (Developer::NEW_ACCOUNT_THRESHOLD + 1.day).ago)
+    end
+
+    assert_equal Notification.last.type, PotentialHireNotification.name
+    assert_equal Notification.last.recipient, users(:admin)
+  end
+
+  test "admins do not get alerted to new accounts changing search status" do
+    developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
+    assert_difference "Notification.count", 0 do
+      developer.update!(search_status: :not_interested)
+    end
+  end
+
+  test "admins do not get alerted if changes were made in past week" do
+    developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
+    developer.update!(search_status: :not_interested, created_at: (Developer::NEW_ACCOUNT_THRESHOLD + 1.day).ago)
+
+    notification = Notification.last
+    notification.update!(created_at: 3.days.ago)
+    assert_difference "Notification.count", 0 do
+      developer.update!(search_status: :actively_looking)
+      developer.update!(search_status: :not_interested)
+    end
+
+    assert_equal Notification.last.type, PotentialHireNotification.name
+  end
+
   test "should accept avatars of valid file formats" do
     valid_formats = %w[image/png image/jpeg image/jpg]
 
