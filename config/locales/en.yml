@@ -150,6 +150,8 @@ en:
     feature: Feature
     invisiblize: Invisiblize
     title: Admin
+  developer_card_component:
+    featured: Featured developer
   developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile
