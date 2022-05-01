@@ -94,7 +94,7 @@ class DeveloperTest < ActiveSupport::TestCase
   test "changing search status from available to unavailable alerts admins" do
     developer = Developer.create!(developer_attributes.merge(search_status: :actively_looking))
     assert_difference "Notification.count", 1 do
-      developer.update!(search_status: :not_interested, created_at: (Developer::NEW_ACCOUNT_THRESHOLD + 1.day).ago)
+      developer.update!(search_status: :not_interested)
     end
 
     assert_equal Notification.last.type, PotentialHireNotification.name
@@ -106,10 +106,6 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_no_difference "Notification.count" do
       developer.update!(search_status: :not_interested)
     end
-  end
-
-  test "correctly identifies a new developer account" do
-    assert @developer.new_developer_account?
   end
 
   test "should accept avatars of valid file formats" do

@@ -13,7 +13,6 @@ class Developer < ApplicationRecord
 
   AVAILABLE_STATUSES = %w[actively_looking open].freeze
   UNAVAILABLE_STATUSES = %w[not_interested].freeze
-  NEW_ACCOUNT_THRESHOLD = 1.day.freeze
 
   belongs_to :user
   has_many :conversations, -> { visible }
@@ -95,14 +94,10 @@ class Developer < ApplicationRecord
     touch(:featured_at)
   end
 
-  def new_developer_account?
-    created_at > NEW_ACCOUNT_THRESHOLD.ago
-  end
-
   private
 
   def changes_indicate_potential_hire?
-    return false unless saved_change_to_search_status? && !new_developer_account?
+    return false unless saved_change_to_search_status?
 
     original_value, saved_value = saved_change_to_search_status
     AVAILABLE_STATUSES.include?(original_value) && UNAVAILABLE_STATUSES.include?(saved_value)
