@@ -122,6 +122,10 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_equal Notification.last.type, PotentialHireNotification.name
   end
 
+  test "correctly identifies a new developer account" do
+    assert_equal @developer.new_developer_account?, true
+  end
+
   test "should accept avatars of valid file formats" do
     valid_formats = %w[image/png image/jpeg image/jpg]
 
