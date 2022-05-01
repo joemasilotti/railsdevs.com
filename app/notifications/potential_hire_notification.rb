@@ -1,11 +1,8 @@
 class PotentialHireNotification < Noticed::Base
   deliver_by :database, if: :still_needed?
-  deliver_by :email, mailer: "AdminMailer", method: :potential_hire, delay: 30.minutes, if: :still_needed?
-
-  REASONS = %i[saved_change_to_full_time_employment saved_change_to_search_status].freeze
+  deliver_by :email, mailer: "AdminMailer", method: :potential_hire, if: :still_needed?
 
   param :developer
-  param :reason
 
   def title
     t "notifications.potential_hire",
@@ -16,25 +13,15 @@ class PotentialHireNotification < Noticed::Base
     params[:developer]
   end
 
-  def reason
-    params[:reason]
-  end
-
   def url
     developer_path(developer)
   end
 
   def still_needed?
-    return false if developer.created_at > 1.day.ago
     return false if developer.notifications_as_subject
-      .where(created_at: 1.hour.ago..3.days.ago,
+      .where(created_at: 7.days.ago..5.minutes.ago,
         type: "PotentialHireNotification").exists?
 
-    case reason
-    when :search_status
-      Developer::UNAVAILABLE_STATUSES.include? developer.search_status
-    when :full_time_employment
-      !developer.role_type.full_time_employment
-    end
+    !developer.new_developer_account?
   end
 end
