@@ -27,8 +27,8 @@ class PotentialHireNotification < Noticed::Base
   def still_needed?
     return false if developer.created_at > 1.day.ago
     return false if developer.notifications_as_subject
-                             .where(created_at: 1.hour.ago..3.days.ago,
-                                    type: 'PotentialHireNotification').exists?
+      .where(created_at: 1.hour.ago..3.days.ago,
+        type: "PotentialHireNotification").exists?
 
     case reason
     when :search_status
