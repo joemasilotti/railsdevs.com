@@ -29,4 +29,14 @@ class DeveloperCardComponentTest < ViewComponent::TestCase
 
     assert_selector("span", text: "Available now")
   end
+
+  test "renders the star and blue background if featured" do
+    render_inline(DeveloperCardComponent.new(developer: @developer, featured: true))
+    assert_selector "svg[title='Star']"
+    assert_selector "a.bg-blue-50"
+
+    render_inline(DeveloperCardComponent.new(developer: @developer))
+    assert_no_selector "svg[title='Star']"
+    assert_selector "a.bg-white"
+  end
 end
