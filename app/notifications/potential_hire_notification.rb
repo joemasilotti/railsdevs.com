@@ -1,12 +1,11 @@
 class PotentialHireNotification < Noticed::Base
-  deliver_by :database, if: :still_needed?
-  deliver_by :email, mailer: "AdminMailer", method: :potential_hire, if: :still_needed?
+  deliver_by :database
+  deliver_by :email, mailer: "AdminMailer", method: :potential_hire
 
   param :developer
 
   def title
-    t "notifications.potential_hire",
-      developer: developer.name
+    t("notifications.potential_hire", developer: developer.name)
   end
 
   def developer
@@ -15,13 +14,5 @@ class PotentialHireNotification < Noticed::Base
 
   def url
     developer_path(developer)
-  end
-
-  def still_needed?
-    return false if developer.notifications_as_subject
-      .where(created_at: 7.days.ago..10.seconds.ago,
-        type: "PotentialHireNotification").exists?
-
-    !developer.new_developer_account?
   end
 end
