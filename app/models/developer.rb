@@ -11,6 +11,9 @@ class Developer < ApplicationRecord
     invisible: 4
   }
 
+  AVAILABLE_STATUSES = %i[actively_looking open].freeze
+  UNAVAILABLE_STATUSES = %i[not_interested].freeze
+
   belongs_to :user
   has_many :conversations, -> { visible }
   has_one :location, dependent: :destroy, autosave: true
@@ -55,6 +58,7 @@ class Developer < ApplicationRecord
   scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
 
   after_create_commit :send_admin_notification, :send_welcome_email
+  after_commit :notify_admins_of_potential_hire, if: :changes_indicate_potential_hire?
 
   def visible?
     !invisible?
@@ -90,7 +94,22 @@ class Developer < ApplicationRecord
     touch(:featured_at)
   end
 
+  def notifications_as_subject
+    Notification.where("substring(n.params->'developer'->>'_aj_globalid' FROM '[0-9]+')::int = ?", id)
+  end
+
   private
+
+  def changes_indicate_potential_hire?
+    return false unless saved_change_to_search_status?
+
+    original_value, saved_value = saved_change_to_search_status
+    AVAILABLE_STATUSES.include?(original_value) && UNAVAILABLE_STATUSES.include?(saved_value)
+  end
+
+  def notify_admins_of_potential_hire
+    PotentialHireNotification.with(developer: self, reason: :search_status).deliver_later(User.admin)
+  end
 
   def send_admin_notification
     NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
