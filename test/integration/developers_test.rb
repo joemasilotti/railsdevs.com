@@ -124,9 +124,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:empty)
 
     assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
-      post developers_path, params: valid_developer_params
+      assert_difference "Notification.count", 1 do
+        post developers_path, params: valid_developer_params
+      end
     end
+
     assert_redirected_to analytics_event_path(Analytics::Event.last)
+    assert_equal Notification.last.type, NewDeveloperProfileNotification.name
     assert_equal Analytics::Event.last.url, developer_path(Developer.last)
   end
 
