@@ -12,6 +12,7 @@ class Business < ApplicationRecord
   validates :company, presence: true
   validates :bio, presence: true
   validates :developer_notifications, inclusion: {in: developer_notifications.keys}
+  validates :website_url, url: true
 
   after_create_commit :send_admin_notification, :send_welcome_email
 

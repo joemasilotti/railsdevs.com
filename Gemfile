@@ -64,3 +64,4 @@ gem "sitemap_generator", "~> 6.1"
 gem "stripe", ">= 2.8", "< 6.0"
 gem "timezone_finder", "~> 1.5.7"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "validate_url"

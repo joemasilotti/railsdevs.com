@@ -419,6 +419,9 @@ GEM
       unf_ext
     unf_ext (0.0.8)
     unicode-display_width (2.1.0)
+    validate_url (1.0.13)
+      activemodel (>= 3.0.0)
+      public_suffix
     view_component (2.53.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
@@ -491,6 +494,7 @@ DEPENDENCIES
   timezone_finder (~> 1.5.7)
   turbo-rails (~> 1.0)
   tzinfo-data
+  validate_url
   view_component (~> 2.53)
   webdrivers
   webmock
