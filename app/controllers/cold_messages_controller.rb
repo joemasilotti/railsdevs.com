@@ -11,7 +11,7 @@ class ColdMessagesController < ApplicationController
 
   def create
     message = Message.new(message_params.merge(conversation:, sender: business))
-    if message.save
+    if message.save_and_notify(cold_message: true)
       redirect_to message.conversation
     else
       @cold_message = cold_message(message)

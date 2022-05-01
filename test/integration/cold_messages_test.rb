@@ -1,6 +1,7 @@
 require "test_helper"
 
 class ColdMessagesTest < ActionDispatch::IntegrationTest
+  include NotificationsHelper
   include PayHelper
 
   setup do
@@ -61,7 +62,9 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     assert_difference "Message.count", 1 do
       assert_difference "Conversation.count", 1 do
-        post developer_messages_path(@developer), params: message_params
+        assert_sends_notification NewConversationNotification do
+          post developer_messages_path(@developer), params: message_params
+        end
       end
     end
 

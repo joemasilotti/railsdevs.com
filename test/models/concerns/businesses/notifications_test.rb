@@ -3,20 +3,18 @@ require "test_helper"
 class Businesses::NotificationsTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
   include BusinessesHelper
+  include NotificationsHelper
 
   test "sends a notification to the admins" do
     business = Business.new(business_attributes)
-    assert_difference "Notification.count", 1 do
+    assert_sends_notification NewBusinessNotification, to: users(:admin) do
       assert business.save_and_notify
     end
-
-    assert_equal Notification.last.type, NewBusinessNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
   end
 
   test "invalid records don't send notifications" do
     business = Business.new
-    assert_no_difference "Notification.count" do
+    refute_sends_notifications do
       refute business.save_and_notify
     end
   end

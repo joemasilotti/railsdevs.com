@@ -1,22 +1,20 @@
 require "test_helper"
 
 class Developers::NotificationsTest < ActiveSupport::TestCase
-  include DevelopersHelper
   include ActionMailer::TestHelper
+  include DevelopersHelper
+  include NotificationsHelper
 
   test "sends a notification to the admins" do
     developer = Developer.new(developer_attributes)
-    assert_difference "Notification.count", 1 do
+    assert_sends_notification NewDeveloperProfileNotification, to: users(:admin) do
       assert developer.save_and_notify
     end
-
-    assert_equal Notification.last.type, NewDeveloperProfileNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
   end
 
   test "invalid records don't send notifications" do
     developer = Developer.new
-    assert_no_difference "Notification.count" do
+    refute_sends_notifications do
       refute developer.save_and_notify
     end
   end
@@ -34,11 +32,8 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
   end
 
   test "notifies the developer when they are invisibilized" do
-    assert_difference "Notification.count", 1 do
+    assert_sends_notification InvisiblizeDeveloperNotification, to: users(:developer) do
       developers(:one).invisiblize_and_notify!
     end
-
-    assert_equal Notification.last.type, InvisiblizeDeveloperNotification.name
-    assert_equal Notification.last.recipient, users(:developer)
   end
 end
