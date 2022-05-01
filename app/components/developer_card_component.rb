@@ -3,8 +3,9 @@ class DeveloperCardComponent < ApplicationComponent
 
   attr_reader :developer
 
-  def initialize(developer:)
+  def initialize(developer:, featured: false)
     @developer = developer
+    @featured = featured
   end
 
   def hero
@@ -13,5 +14,9 @@ class DeveloperCardComponent < ApplicationComponent
 
   def bio
     @developer.bio
+  end
+
+  def featured?
+    !!@featured
   end
 end

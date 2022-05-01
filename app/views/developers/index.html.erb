@@ -12,6 +12,8 @@
 
   <%= render DeveloperQueryComponent.new(query: @query, user: current_user) %>
 
+  <%= render DeveloperCardComponent.with_collection(@query.featured_records, featured: true) %>
+
   <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
     <% component.loading_icon do %>
       <div class="py-4">

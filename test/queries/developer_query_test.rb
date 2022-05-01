@@ -36,6 +36,29 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert_includes records, not_interested
   end
 
+  test "featured developers show if on page 1 and no filters" do
+    developer = developers(:one)
+    developer.touch(:featured_at)
+    developers(:prospect).update!(search_status: :open)
+
+    records = DeveloperQuery.new.featured_records
+    assert_includes records, developer
+
+    records = DeveloperQuery.new(page: 2, items_per_page: 1).featured_records
+    refute_includes records, developer
+
+    {
+      utc_offsets: [1],
+      role_types: [:full_time_employment],
+      role_levels: [:junior],
+      include_not_interested: true,
+      search_query: "developer"
+    }.each do |key, value|
+      records = DeveloperQuery.new(key => value, :items_per_page => 1).featured_records
+      refute_includes records, developer
+    end
+  end
+
   test "sorting by availability excludes developers who haven't set that field" do
     available = create_developer(available_on: Date.yesterday)
     unavailable = create_developer(available_on: Date.tomorrow)

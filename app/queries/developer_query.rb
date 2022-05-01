@@ -7,6 +7,7 @@ class DeveloperQuery
 
   def initialize(options = {})
     @options = options
+    @items_per_page = options.delete(:items_per_page)
     @sort = options.delete(:sort)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
@@ -25,6 +26,14 @@ class DeveloperQuery
 
   def records
     @records ||= initialize_pagy_and_developers.last
+  end
+
+  def featured_records
+    if pagy.page == 1 && empty_search?
+      @featured_records ||= Developer.featured
+    else
+      Developer.none
+    end
   end
 
   def sort
@@ -61,7 +70,19 @@ class DeveloperQuery
     role_level_filter_records
     search_status_filter_records
     search_query_filter_records
-    @pagy, @records = build_pagy(@_records)
+    @pagy, @records = build_pagy(@_records, items: items_per_page)
+  end
+
+  def items_per_page
+    @items_per_page || Pagy::DEFAULT[:items]
+  end
+
+  def empty_search?
+    utc_offsets.empty? &&
+      role_types.empty? &&
+      role_levels.empty? &&
+      search_query.blank? &&
+      !include_not_interested
   end
 
   def sort_records

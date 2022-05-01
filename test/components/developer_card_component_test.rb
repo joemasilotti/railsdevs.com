@@ -29,4 +29,14 @@ class DeveloperCardComponentTest < ViewComponent::TestCase
 
     assert_selector("span", text: "Available now")
   end
+
+  test "renders the accent border and badge if featured" do
+    render_inline(DeveloperCardComponent.new(developer: @developer, featured: true))
+    assert_selector "a.border-l-4.border-blue-400"
+    assert_text I18n.t("developer_card_component.featured")
+
+    render_inline(DeveloperCardComponent.new(developer: @developer))
+    assert_no_selector "a.border-l-4.border-blue-400"
+    assert_no_text I18n.t("developer_card_component.featured")
+  end
 end
