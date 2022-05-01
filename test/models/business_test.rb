@@ -2,15 +2,7 @@ require "test_helper"
 
 class BusinessTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
-
-  test "successful business creation sends a notification to the admin" do
-    assert_difference "Notification.count", 1 do
-      Business.create!(valid_business_attributes)
-    end
-
-    assert_equal Notification.last.type, NewBusinessNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
-  end
+  include BusinessesHelper
 
   test "conversations relationship doesn't include blocked ones" do
     business = businesses(:subscriber)
@@ -51,7 +43,7 @@ class BusinessTest < ActiveSupport::TestCase
   end
 
   test "anonymizes the filename of the avatar" do
-    business = Business.create!(valid_business_attributes)
+    business = Business.create!(business_attributes)
     assert_equal business.avatar.filename, "avatar.png"
   end
 
@@ -97,21 +89,5 @@ class BusinessTest < ActiveSupport::TestCase
     business = Business.new
 
     assert business.no_developer_notifications?
-  end
-
-  test "creating a business sends the welcome email" do
-    business = Business.create!(valid_business_attributes)
-    assert_enqueued_email_with BusinessMailer, :welcome_email, args: {business:}
-  end
-
-  def valid_business_attributes
-    {
-      user: users(:empty),
-      name: "Name",
-      company: "Company",
-      bio: "Bio",
-      avatar: active_storage_blobs(:basecamp),
-      developer_notifications: :no
-    }
   end
 end

@@ -43,6 +43,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert user.business.avatar.attached?
     assert_redirected_to Analytics::Event.last
     assert_equal Analytics::Event.last.url, developers_path
+    assert_equal Notification.last.type, NewBusinessNotification.name
   end
 
   test "successful business creation with a stored location" do

@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
     @business = current_user.build_business
     @business.assign_attributes(permitted_attributes(@business))
 
-    if @business.save
+    if @business.save_and_notify
       url = stored_location_for(:user) || developers_path
       event = Analytics::Event.added_business_profile(url)
       redirect_to event, notice: t(".created")
