@@ -19,7 +19,7 @@ class PotentialHireNotification < Noticed::Base
 
   def still_needed?
     return false if developer.notifications_as_subject
-      .where(created_at: 7.days.ago..5.minutes.ago,
+      .where(created_at: 7.days.ago..10.seconds.ago,
         type: "PotentialHireNotification").exists?
 
     !developer.new_developer_account?
