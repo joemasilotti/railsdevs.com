@@ -1,7 +1,7 @@
 class RoleType < ApplicationRecord
   TYPES = %i[part_time_contract full_time_contract full_time_employment].freeze
 
-  after_commit :notify_admins_of_potential_hire, if: :changes_indicate_potential_hire?
+  after_update_commit :notify_admins_of_potential_hire, if: :changes_indicate_potential_hire?
 
   belongs_to :developer
 
@@ -29,6 +29,6 @@ class RoleType < ApplicationRecord
   end
 
   def notify_admins_of_potential_hire
-    PotentialHireNotification.with(delevoper: developer, reason: :full_time_employment).deliver_later(User.admin)
+    PotentialHireNotification.with(developer:).deliver_later(User.admin)
   end
 end
