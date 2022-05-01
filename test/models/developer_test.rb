@@ -75,11 +75,11 @@ class DeveloperTest < ActiveSupport::TestCase
     developers(:one).update!(available_on: Time.zone.local(2021, 1, 1))
     developers(:prospect).update!(available_on: Time.zone.local(2022, 1, 1))
 
-    travel_to Time.zone.local(2021, 5, 4)
-
-    developers = Developer.available
-    assert_includes developers, developers(:one)
-    refute_includes developers, developers(:prospect)
+    travel_to Time.zone.local(2021, 5, 4) do
+      developers = Developer.available
+      assert_includes developers, developers(:one)
+      refute_includes developers, developers(:prospect)
+    end
   end
 
   test "successful profile creation sends a notification to the admins" do
