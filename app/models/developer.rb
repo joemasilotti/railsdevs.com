@@ -52,6 +52,7 @@ class Developer < ApplicationRecord
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
+  scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
 
   after_create_commit :send_admin_notification, :send_welcome_email
 
@@ -83,6 +84,10 @@ class Developer < ApplicationRecord
   def invisiblize!
     invisible!
     send_invisiblize_notification
+  end
+
+  def feature!
+    touch(:featured_at)
   end
 
   private

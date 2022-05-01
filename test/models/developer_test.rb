@@ -75,11 +75,11 @@ class DeveloperTest < ActiveSupport::TestCase
     developers(:one).update!(available_on: Time.zone.local(2021, 1, 1))
     developers(:prospect).update!(available_on: Time.zone.local(2022, 1, 1))
 
-    travel_to Time.zone.local(2021, 5, 4)
-
-    developers = Developer.available
-    assert_includes developers, developers(:one)
-    refute_includes developers, developers(:prospect)
+    travel_to Time.zone.local(2021, 5, 4) do
+      developers = Developer.available
+      assert_includes developers, developers(:one)
+      refute_includes developers, developers(:prospect)
+    end
   end
 
   test "successful profile creation sends a notification to the admins" do
@@ -204,6 +204,22 @@ class DeveloperTest < ActiveSupport::TestCase
 
     developers(:one).update!(search_status: nil)
     assert_includes Developer.visible, developers(:one)
+  end
+
+  test "featured developers were featured within the last week" do
+    developer = developers(:one)
+    refute_includes Developer.featured, developer
+
+    developer.feature!
+    assert_includes Developer.featured, developer
+
+    travel 7.days
+    assert_includes Developer.featured, developer
+
+    travel 1.second
+    refute_includes Developer.featured, developer
+
+    travel_back
   end
 
   test "creating a developer sends the welcome email" do

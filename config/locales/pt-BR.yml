@@ -223,6 +223,9 @@ pt-BR:
       about: Sobre
       developers: Desenvolvedores
       pricing: Preços
+    guest_component:
+      register: Registrar
+      sign_in: Entrar
     user_component:
       admin: Administrar
       billing: Faturamento
@@ -236,9 +239,6 @@ pt-BR:
       sign_out: Sair
       transactions: Transaçòes
       view_notifications: Ver notificações
-    guest_component:
-      register: Registrar
-      sign_in: Entrar
   notifications:
     index:
       cta: Ver histórico

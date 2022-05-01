@@ -76,6 +76,9 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    features:
+      create:
+        created: Profile featured for one week.
     invisiblizes:
       create:
         created: Profile set to invisible.
@@ -144,8 +147,11 @@ en:
       month_year: "%B %Y"
   developer_admin_component:
     copy: Copy
+    feature: Feature
     invisiblize: Invisiblize
     title: Admin
+  developer_card_component:
+    featured: Featured developer
   developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile
