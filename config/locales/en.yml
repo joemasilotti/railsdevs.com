@@ -11,6 +11,8 @@ en:
     attributes:
       business:
         company: Company name
+        contact_name: Your name
+        contact_role: Your job title or role
         name: Your name
       developer:
         available_on: Available to start on
@@ -105,7 +107,7 @@ en:
     create:
       created: Your business was added!
     form:
-      avatar: Avatar
+      avatar: Your company logo
       change_avatar: Upload
       creating: Creating...
       developer_notifications:
@@ -117,8 +119,11 @@ en:
           weekly: Weekly
       notifications:
         title: Email notifications
+      personal:
+        help: Information about you, the contact point for your business on railsdevs.
+        title: Personal details
       profile: Profile
-      profile_help_text: This information will be shared with any developers that you contact.
+      profile_help_text: Information about your business. Here's your chance to sell yourself to potential hires!
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
