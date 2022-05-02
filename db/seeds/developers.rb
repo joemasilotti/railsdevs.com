@@ -55,7 +55,7 @@ SeedsHelper.create_developer!("developer", {
   linkedin: Faker::Internet.username
 })
 
-# Potential Hire
+# Potential hire
 developer = SeedsHelper.create_developer!("hired", {
   hero: "Hired Developer",
   location: SeedsHelper.locations[:new_york],
