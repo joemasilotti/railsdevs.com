@@ -1,4 +1,6 @@
 class Message < ApplicationRecord
+  include Messages::Notifications
+
   FORMAT = AutoHtml::Pipeline.new(
     AutoHtml::HtmlEscape.new,
     AutoHtml::Link.new(target: "_blank"),
@@ -14,8 +16,6 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
   validates :hiring_fee_agreement, acceptance: true
-
-  after_create_commit :send_recipient_notification
 
   scope :from_developer, -> { where(sender_type: Developer.name) }
 
@@ -34,11 +34,5 @@ class Message < ApplicationRecord
   def body=(text)
     super(text)
     self[:body_html] = FORMAT.call(text)
-  end
-
-  private
-
-  def send_recipient_notification
-    NewMessageNotification.with(message: self, conversation:).deliver_later(recipient.user)
   end
 end

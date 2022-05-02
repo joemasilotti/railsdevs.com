@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include HoneybadgerUserContext
   include Locales
   include Pundit
   include StoredLocation

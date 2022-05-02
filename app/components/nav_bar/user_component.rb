@@ -60,7 +60,7 @@ module NavBar
     end
 
     def customer?
-      user.payment_processor.present?
+      user.payment_processor&.respond_to?(:billing_portal)
     end
   end
 end

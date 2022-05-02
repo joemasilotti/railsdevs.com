@@ -1,6 +1,7 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  include Developers::Notifications
   include HasSocialProfiles
   include PgSearch::Model
 
@@ -13,6 +14,7 @@ class Developer < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
@@ -54,8 +56,6 @@ class Developer < ApplicationRecord
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
   scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
 
-  after_create_commit :send_admin_notification, :send_welcome_email
-
   def visible?
     !invisible?
   end
@@ -81,26 +81,7 @@ class Developer < ApplicationRecord
       available_on.blank?
   end
 
-  def invisiblize!
-    invisible!
-    send_invisiblize_notification
-  end
-
   def feature!
     touch(:featured_at)
-  end
-
-  private
-
-  def send_admin_notification
-    NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
-  end
-
-  def send_welcome_email
-    DeveloperMailer.with(developer: self).welcome_email.deliver_later
-  end
-
-  def send_invisiblize_notification
-    InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
   end
 end

@@ -2,6 +2,9 @@
   <%= availability_icon %>
 
   <span class="ml-2 text-sm font-medium <%= "text-green-700" if available? %>">
+    <%# i18n-tasks-use t('availability_component.in_future_html') %>
+    <%# i18n-tasks-use t('availability_component.now_html') %>
+    <%# i18n-tasks-use t('availability_component.unspecified_html') %>
     <%= t(".#{developer.availability_status}_html", date: date, date_in_words: date_in_words) %>
   </span>
 </div>

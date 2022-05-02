@@ -16,6 +16,8 @@ module BusinessSubscription
       PartTime.new
     elsif Legacy.new.plan == price
       Legacy.new
+    elsif Free.new.plan == price
+      Free.new
     else
       raise UnknownPrice.new
     end

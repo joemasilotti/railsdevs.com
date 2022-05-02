@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     authorize @message, policy_class: MessagingPolicy
     authorize @message, :messageable?, policy_class: SubscriptionPolicy
 
-    if @message.save
+    if @message.save_and_notify
       respond_to do |format|
         format.turbo_stream { @new_message = conversation.messages.build }
         format.html { redirect_to conversation }

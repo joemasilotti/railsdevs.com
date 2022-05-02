@@ -31,7 +31,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
       create_developers
       @business.update!(developer_notifications: :weekly)
 
-      developers = [@yesterday, @two_days_ago, @seven_days_ago]
+      developers = [@seven_days_ago, @two_days_ago, @yesterday]
       args = {business: @business, developers:}
       assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
         EmailDigests::NewDevelopers.new.send_weekly_digest

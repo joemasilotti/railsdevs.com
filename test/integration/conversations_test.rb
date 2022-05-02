@@ -49,17 +49,13 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   end
 
   test "unread notifictions are marked as read" do
-    user = users(:prospect_developer)
-    developer = user.developer
-    business = businesses(:subscriber)
-    conversation = conversations(:one)
-    Message.create!(developer:, business:, body: "Hi!", sender: business, conversation:)
-    refute Notification.last.read?
+    sign_in users(:subscribed_business)
+    notification = notifications(:message)
+    refute notification.read?
 
-    sign_in user
-    get conversation_path(conversation)
+    get conversation_path(conversations(:one))
 
-    assert Notification.last.read?
+    assert notification.reload.read?
   end
 
   test "part-time plan subscribers can't message full-time seekers" do

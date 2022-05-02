@@ -1,21 +1,21 @@
 require "test_helper"
 
 class NotificationTest < ActiveSupport::TestCase
-  include NotificationsHelper
-
-  test "conversation resolves correctly" do
+  setup do
     developer = developers(:one)
     business = businesses(:one)
-    message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
 
-    assert last_message_notification.to_notification.conversation == message.conversation
+    @message = Message.new(developer:, business:, sender: developer, body: "Hello!")
+    assert @message.save_and_notify
+
+    @notification = Notification.where(type: NewMessageNotification.name).last
   end
 
   test "message resolves correctly" do
-    developer = developers(:one)
-    business = businesses(:one)
-    message = Message.create!(developer:, business:, sender: developer, body: "Hello!")
+    assert @notification.to_notification.message == @message
+  end
 
-    assert last_message_notification.to_notification.message == message
+  test "conversation resolves correctly" do
+    assert @notification.to_notification.conversation == @message.conversation
   end
 end

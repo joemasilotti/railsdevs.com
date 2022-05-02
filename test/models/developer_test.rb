@@ -2,7 +2,6 @@ require "test_helper"
 
 class DeveloperTest < ActiveSupport::TestCase
   include DevelopersHelper
-  include ActionMailer::TestHelper
 
   setup do
     @developer = developers(:one)
@@ -80,15 +79,6 @@ class DeveloperTest < ActiveSupport::TestCase
       assert_includes developers, developers(:one)
       refute_includes developers, developers(:prospect)
     end
-  end
-
-  test "successful profile creation sends a notification to the admins" do
-    assert_difference "Notification.count", 1 do
-      Developer.create!(developer_attributes)
-    end
-
-    assert_equal Notification.last.type, NewDeveloperProfileNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
   end
 
   test "should accept avatars of valid file formats" do
@@ -220,19 +210,5 @@ class DeveloperTest < ActiveSupport::TestCase
     refute_includes Developer.featured, developer
 
     travel_back
-  end
-
-  test "creating a developer sends the welcome email" do
-    developer = Developer.create!(developer_attributes)
-    assert_enqueued_email_with DeveloperMailer, :welcome_email, args: {developer:}
-  end
-
-  test "notifies the dev when they are invisibilized" do
-    assert_difference "Notification.count", 1 do
-      developers(:one).invisiblize!
-    end
-
-    assert_equal Notification.last.type, InvisiblizeDeveloperNotification.name
-    assert_equal Notification.last.recipient, users(:developer)
   end
 end
