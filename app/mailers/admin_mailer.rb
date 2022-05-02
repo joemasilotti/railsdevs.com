@@ -31,4 +31,15 @@ class AdminMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: "New conversation started")
   end
+
+  def potential_hire
+    @notification = params[:record]
+    recipient = params[:recipient]
+
+    @developer = @notification.to_notification.developer
+    @conversations = @developer.conversations.count
+    @replies = @developer.messages.distinct.count(:conversation_id)
+
+    mail(to: recipient.email, subject: "New potential hire")
+  end
 end

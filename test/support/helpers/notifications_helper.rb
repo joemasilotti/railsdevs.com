@@ -2,10 +2,10 @@ module NotificationsHelper
   def assert_sends_notification(notification_class, to: nil, &block)
     assert_difference "Notification.where(type: #{notification_class}.name).count", 1 do
       yield
+    end
 
-      if to.present?
-        assert_equal Notification.where(type: notification_class.name).last.recipient, to
-      end
+    if to.present?
+      assert_equal Notification.where(type: notification_class.name).last.recipient, to
     end
   end
 
