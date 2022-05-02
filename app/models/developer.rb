@@ -12,7 +12,7 @@ class Developer < ApplicationRecord
   }
 
   AVAILABLE_STATUSES = %w[actively_looking open].freeze
-  UNAVAILABLE_STATUSES = %w[not_interested].freeze
+  UNAVAILABLE_STATUSES = %w[not_interested invisible].freeze
 
   belongs_to :user
   has_many :conversations, -> { visible }
