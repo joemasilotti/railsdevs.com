@@ -67,13 +67,17 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        contact_name: "New Owner Name"
+        contact_name: "New Owner Name",
+        contact_role: "New Role",
+        website: "http://www.newwebsite.com"
       }
     }
     assert_redirected_to developers_path
     follow_redirect!
 
     assert_equal "New Owner Name", business.reload.name
+    assert_equal "New Role", business.reload.contact_role
+    assert_equal "http://www.newwebsite.com", business.reload.website
   end
 
   test "invalid profile creation" do
@@ -98,7 +102,9 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        contact_name: "New Name"
+        contact_name: "New Name",
+        contact_role: "New Role",
+        website: "http://www.newwebsite.com"
       }
     }
     assert_redirected_to developers_path
@@ -152,9 +158,11 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     {
       business: {
         contact_name: "Business Owner",
+        contact_role: "Director",
         company: "Business, LLC",
         bio: "We're in the business for business.",
-        avatar: fixture_file_upload("basecamp.png", "image/png")
+        avatar: fixture_file_upload("basecamp.png", "image/png"),
+        website: "http://www.example.com"
       }
     }
   end
