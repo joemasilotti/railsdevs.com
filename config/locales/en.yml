@@ -124,7 +124,6 @@ en:
       personal:
         help: Information about you, the contact point for your business on railsdevs.
         title: Personal details
-      profile: Profile
       profile_help_text: Information about your business. Here's your chance to sell yourself to potential hires!
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
