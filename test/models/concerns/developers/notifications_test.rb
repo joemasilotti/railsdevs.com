@@ -38,13 +38,11 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
       assert developer.update_and_notify(search_status: :open)
     end
 
-    assert_difference "Notification.count", 1 do
+    assert_sends_notification PotentialHireNotification, to: users(:admin) do
       assert developer.update_and_notify(search_status: :not_interested)
     end
-    assert_equal Notification.last.type, PotentialHireNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
 
-    assert_no_difference "Notification.count" do
+    refute_sends_notifications do
       assert developer.update_and_notify(search_status: :invisible)
     end
   end
