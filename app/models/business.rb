@@ -9,8 +9,10 @@ class Business < ApplicationRecord
 
   has_noticed_notifications
 
-  validates :name, presence: true
+  validates :contact_name, presence: true
   validates :company, presence: true
   validates :bio, presence: true
   validates :developer_notifications, inclusion: {in: developer_notifications.keys}
+
+  alias_attribute :name, :contact_name
 end

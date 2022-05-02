@@ -10,23 +10,26 @@
     <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile") %></h3>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".profile_help_text") %></p>
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".business.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".business.help") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
-            <div class="sm:col-span-3">
-              <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
-              </div>
-            </div>
-
             <div class="sm:col-span-6">
               <%= form.label :company, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
                 <%= form.text_field :company, class: field_classes(form, :company) %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= form.label :website, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  https://
+                </span>
+                <%= form.text_field :website, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
               </div>
             </div>
 
@@ -54,6 +57,33 @@
                 <div class="ml-3">
                   <p class="text-sm text-red-700"><%= t(".something_went_wrong") %></p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".personal.title") %></h3>
+          <p class="mt-1 text-sm text-gray-500"><%= t(".personal.help") %></p>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="space-y-6">
+            <div class="sm:col-span-3">
+              <%= form.label :contact_name, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :contact_name, autocomplete: "name", class: field_classes(form, :name) %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= form.label :contact_role, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :contact_role, class: field_classes(form, :contact_role) %>
               </div>
             </div>
           </div>

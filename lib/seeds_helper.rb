@@ -27,7 +27,7 @@ module SeedsHelper
       company = "#{name.titleize} Company"
       attributes.merge!({
         user: create_user!(name),
-        name: Faker::Name.name,
+        contact_name: Faker::Name.name,
         company:,
         bio: Faker::Lorem.paragraph(sentence_count: 10)
       })

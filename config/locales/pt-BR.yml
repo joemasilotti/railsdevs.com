@@ -95,8 +95,6 @@ pt-BR:
           weekly: Semanalmente
       notifications:
         title: Notificações por E-mail
-      profile: Perfil
-      profile_help_text: Essa informação será compartilhada com quaisquer desenvolvedores que você contactar.
       save: Salvar
       something_went_wrong: Ocorreu um erro ao enviar sua imagem. Por favor, tente novamente.
       updating: Atualizando...

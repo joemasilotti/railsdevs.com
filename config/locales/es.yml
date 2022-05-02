@@ -85,8 +85,6 @@ es:
           weekly: Semanal
       notifications:
         title: Notificaciones por correo electrónico
-      profile: Perfil
-      profile_help_text: Esta información se compartirá con cualquier desarrollador con el que te comuniques.
       save: Guardar
       something_went_wrong: Algo falló al subir tu imagen. Por favor intenta de nuevo.
       updating: Actualizando...

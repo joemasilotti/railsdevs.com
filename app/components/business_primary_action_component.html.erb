@@ -1,0 +1,6 @@
+<% if owner? %>
+  <%= link_to edit_business_path(business), class: "shrink-0 mt-4 md:mt-0 inline-flex items-center justify-center sm:justify-start px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+    <%= inline_svg_tag "icons/solid/pencil.svg", class: "-ml-1 mr-3 h-5 w-5" %>
+    <%= t("business_primary_action_component.edit") %>
+  <% end %>
+<% end %>

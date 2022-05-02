@@ -1,26 +1,42 @@
-<div class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
-  <div class="relative lg:flex lg:items-center">
-    <div class="hidden lg:block lg:shrink-0">
-      <%= render AvatarComponent.new(avatarable: @business, classes: "h-64 w-64 rounded-full xl:h-80 xl:w-80") %>
+<%= render BusinessOpenGraphTagsComponent.new(business: @business) %>
+
+<div class="md:mt-16 pb-8 mb-16">
+  <div class="bg-white md:shadow md:rounded max-w-3xl mx-auto px-4 py-8 sm:px-6">
+    <div class="px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5">
+      <div class="flex items-center space-x-5">
+        <div class="hidden sm:block flex-shrink-0">
+          <div class="relative">
+            <%= render AvatarComponent.new(avatarable: @business, classes: "h-24 w-24 rounded-full") %>
+            <span class="absolute inset-0 shadow-inner rounded-full" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div>
+          <% if @business.website.present? %>
+            <%= link_to "https://#{@business.website}", target: "_blank", class: "text-3xl font-bold text-gray-900 flex items-center group hover:underline" do %>
+              <h1><%= @business.company %></h1>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 ml-1" %>
+            <% end %>
+          <% else %>
+              <h1 class="text-3xl font-bold text-gray-900"><%= @business.company %></h1>
+          <% end %>
+          <p class="text-gray-500 mt-1"><%= [@business.contact_name, @business.contact_role].map(&:presence).compact.join(", ") %></p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
+        <%= render BusinessPrimaryActionComponent.new(@business, user: current_user) %>
+      </div>
     </div>
 
-    <div class="relative lg:ml-10">
-      <blockquote class="relative">
-        <div class="text-2xl leading-9 font-medium text-gray-900">
-          <p><%= @business.bio %></p>
-        </div>
-        <footer class="mt-8">
-          <div class="flex">
-            <div class="shrink-0 lg:hidden">
-              <%= render AvatarComponent.new(avatarable: @business, classes: "h-12 w-12 rounded-full") %>
-            </div>
-            <div class="ml-4 lg:ml-0">
-              <div class="text-base font-medium text-gray-900"><%= @business.company %></div>
-              <div class="text-base font-medium text-gray-600"><%= @business.name %></div>
-            </div>
+    <div class="mt-8 md:mt-12 gap-6 px-6">
+      <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+        <section>
+          <div class="max-w-prose mx-auto">
+            <span class="sr-only"><%= t(".bio") %></span>
+            <div class="mt-1 text-gray-700 space-y-3"><%= simple_format @business.bio %></div>
           </div>
-        </footer>
-      </blockquote>
+        </section>
+      </div>
     </div>
   </div>
 </div>

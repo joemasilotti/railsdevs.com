@@ -5,7 +5,7 @@ class NewBusinessNotification < ApplicationNotification
   param :business
 
   def title
-    t "notifications.new_business", business: business.name
+    t "notifications.new_business", business: business.contact_name
   end
 
   def url

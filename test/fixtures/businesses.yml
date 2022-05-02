@@ -1,11 +1,11 @@
 one:
   user: business
-  name: Business Owner One
+  contact_name: Business Owner One
   company: Company One
   bio: We are Company One.
 
 subscriber:
   user: subscribed_business
-  name: Business Owner with Conversation
+  contact_name: Business Owner with Conversation
   company: Conversation Business
   bio: We are Conversation Business.

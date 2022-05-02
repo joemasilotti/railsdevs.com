@@ -72,13 +72,17 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        name: "New Owner Name"
+        contact_name: "New Owner Name",
+        contact_role: "New Role",
+        website: "http://www.newwebsite.com"
       }
     }
     assert_redirected_to developers_path
     follow_redirect!
 
     assert_equal "New Owner Name", business.reload.name
+    assert_equal "New Role", business.reload.contact_role
+    assert_equal "http://www.newwebsite.com", business.reload.website
   end
 
   test "invalid profile creation" do
@@ -87,7 +91,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert_no_difference "Business.count" do
       post businesses_path, params: {
         business: {
-          name: "Business"
+          contact_name: "Business"
         }
       }
     end
@@ -103,7 +107,9 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        name: "New Name"
+        contact_name: "New Name",
+        contact_role: "New Role",
+        website: "http://www.newwebsite.com"
       }
     }
     assert_redirected_to developers_path
@@ -117,10 +123,10 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     get edit_business_path(business)
     assert_redirected_to root_path
 
-    assert_no_changes "business.name" do
+    assert_no_changes "business.contact_name" do
       patch business_path(business), params: {
         business: {
-          name: "New Name"
+          contact_name: "New Name"
         }
       }
     end
@@ -156,10 +162,12 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   def valid_business_params
     {
       business: {
-        name: "Business Owner",
+        contact_name: "Business Owner",
+        contact_role: "Director",
         company: "Business, LLC",
         bio: "We're in the business for business.",
-        avatar: fixture_file_upload("basecamp.png", "image/png")
+        avatar: fixture_file_upload("basecamp.png", "image/png"),
+        website: "http://www.example.com"
       }
     }
   end

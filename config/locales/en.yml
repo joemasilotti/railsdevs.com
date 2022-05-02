@@ -11,6 +11,8 @@ en:
     attributes:
       business:
         company: Company name
+        contact_name: Your name
+        contact_role: Your job title or role
         name: Your name
       developer:
         available_on: Available to start on
@@ -101,11 +103,16 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
+  business_primary_action_component:
+    edit: Edit
   businesses:
     create:
       created: Your business was added!
     form:
-      avatar: Avatar
+      avatar: Your company logo
+      business:
+        help: Information about your business. Here's your chance to sell yourself to potential hires!
+        title: Business details
       change_avatar: Upload
       creating: Creating...
       developer_notifications:
@@ -117,12 +124,15 @@ en:
           weekly: Weekly
       notifications:
         title: Email notifications
-      profile: Profile
-      profile_help_text: This information will be shared with any developers that you contact.
+      personal:
+        help: Information about you, the contact point for your business on railsdevs.
+        title: Personal details
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    show:
+      bio: Bio
     update:
       updated: Your business was updated!
   cold_messages:
