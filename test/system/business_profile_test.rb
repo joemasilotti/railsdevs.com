@@ -7,7 +7,5 @@ class BusinessProfileTest < ApplicationSystemTestCase
     login_as(business.user)
 
     visit business_path(id: business.id)
-
-    assert page.has_button?("Sign out")
   end
 end

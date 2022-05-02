@@ -67,7 +67,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        name: "New Owner Name"
+        contact_name: "New Owner Name"
       }
     }
     assert_redirected_to developers_path
@@ -82,7 +82,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert_no_difference "Business.count" do
       post businesses_path, params: {
         business: {
-          name: "Business"
+          contact_name: "Business"
         }
       }
     end
@@ -98,7 +98,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     patch business_path(business), params: {
       business: {
-        name: "New Name"
+        contact_name: "New Name"
       }
     }
     assert_redirected_to developers_path
@@ -112,10 +112,10 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     get edit_business_path(business)
     assert_redirected_to root_path
 
-    assert_no_changes "business.name" do
+    assert_no_changes "business.contact_name" do
       patch business_path(business), params: {
         business: {
-          name: "New Name"
+          contact_name: "New Name"
         }
       }
     end
@@ -151,7 +151,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
   def valid_business_params
     {
       business: {
-        name: "Business Owner",
+        contact_name: "Business Owner",
         company: "Business, LLC",
         bio: "We're in the business for business.",
         avatar: fixture_file_upload("basecamp.png", "image/png")

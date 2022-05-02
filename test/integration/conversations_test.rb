@@ -18,7 +18,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   test "you can view your conversations (as a developer)" do
     sign_in users(:prospect_developer)
     get conversations_path
-    assert_select "h2", businesses(:subscriber).name
+    assert_select "h2", businesses(:subscriber).contact_name
   end
 
   test "you can view your own conversation (as a business)" do

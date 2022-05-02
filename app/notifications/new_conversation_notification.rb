@@ -6,7 +6,7 @@ class NewConversationNotification < ApplicationNotification
 
   def title
     t "notifications.new_conversation",
-      name: conversation.business.name,
+      name: conversation.business.contact_name,
       company: conversation.business.company,
       developer: conversation.developer.name
   end

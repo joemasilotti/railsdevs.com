@@ -107,7 +107,7 @@ class BusinessTest < ActiveSupport::TestCase
   def valid_business_attributes
     {
       user: users(:empty),
-      name: "Name",
+      contact_name: "Name",
       company: "Company",
       bio: "Bio",
       avatar: active_storage_blobs(:basecamp),

@@ -15,7 +15,7 @@ class BusinessPolicy < ApplicationPolicy
 
   def default_attributes
     [
-      :name,
+      :contact_name,
       :company,
       :bio,
       :avatar,

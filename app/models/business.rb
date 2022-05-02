@@ -8,13 +8,15 @@ class Business < ApplicationRecord
 
   has_noticed_notifications
 
-  validates :name, presence: true
+  validates :contact_name, presence: true
   validates :company, presence: true
   validates :bio, presence: true
   validates :developer_notifications, inclusion: {in: developer_notifications.keys}
   validates :website_url, format: URI::DEFAULT_PARSER.make_regexp(%w[http https]), allow_blank: true
 
   after_create_commit :send_admin_notification, :send_welcome_email
+
+  alias_attribute :name, :contact_name
 
   private
 

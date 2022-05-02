@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_01_021745) do
 
   create_table "businesses", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "name", null: false
+    t.string "contact_name", null: false
     t.string "company", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
