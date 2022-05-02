@@ -19,4 +19,9 @@ class Stats::ConversationTest < ActiveSupport::TestCase
     stats = Stats::Conversation.new(Conversation.all)
     assert_equal 0.5, stats.replied_rate
   end
+
+  test "#replied_rate handles no sent messages" do
+    stats = Stats::Conversation.new(Conversation.none)
+    assert_equal 0, stats.replied_rate
+  end
 end

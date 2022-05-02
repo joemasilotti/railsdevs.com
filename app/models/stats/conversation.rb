@@ -17,6 +17,8 @@ module Stats
     end
 
     def replied_rate
+      return 0 if sent.zero?
+
       @replied_rate ||= replied.fdiv(sent)
     end
   end
