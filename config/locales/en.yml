@@ -110,6 +110,9 @@ en:
       created: Your business was added!
     form:
       avatar: Your company logo
+      business:
+        help: Information about your business. Here's your chance to sell yourself to potential hires!
+        title: Business details
       change_avatar: Upload
       creating: Creating...
       developer_notifications:
@@ -124,11 +127,12 @@ en:
       personal:
         help: Information about you, the contact point for your business on railsdevs.
         title: Personal details
-      profile_help_text: Information about your business. Here's your chance to sell yourself to potential hires!
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    show:
+      bio: Bio
     update:
       updated: Your business was updated!
   cold_messages:
