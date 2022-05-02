@@ -63,4 +63,4 @@ developer = SeedsHelper.create_developer!("hired", {
   role_type: RoleType.new(RoleType::TYPES.map { |t| [t, true] }.to_h),
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h)
 })
-developer.update!(search_status: :not_interested)
+developer.update!(search_status: :not_interested) unless developer.not_interested?
