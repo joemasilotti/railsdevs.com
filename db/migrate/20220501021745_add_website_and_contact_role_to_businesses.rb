@@ -1,4 +1,4 @@
-class AddWebsiteUrlAndContactRoleToBusinesses < ActiveRecord::Migration[7.0]
+class AddWebsiteAndContactRoleToBusinesses < ActiveRecord::Migration[7.0]
   def change
     add_column :businesses, :website, :string, null: true
     add_column :businesses, :contact_role, :string, null: true
