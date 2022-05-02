@@ -2,6 +2,10 @@
 
 ## 2022
 
+### May
+
+* May 2 - Revamped business profiles - #397 @scottharvey
+
 ### April
 
 * April 30 - Featured developers - #399
