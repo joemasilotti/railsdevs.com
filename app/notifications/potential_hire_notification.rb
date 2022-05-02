@@ -13,6 +13,6 @@ class PotentialHireNotification < Noticed::Base
   end
 
   def url
-    developer_path(developer)
+    admin_developer_conversations_path(developer)
   end
 end
