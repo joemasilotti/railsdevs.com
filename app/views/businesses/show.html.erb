@@ -1,42 +1,40 @@
-<div class="mt-8 sm:mt-16 pb-8 mb-16">
-  <div class="max-w-prose mx-auto px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:px-8">
-    <div class="flex items-center space-x-5">
-      <div class="flex-shrink-0">
-        <div class="relative">
-          <%= render AvatarComponent.new(avatarable: @business, classes: "h-24 w-24 rounded-full") %>
-          <span class="absolute inset-0 shadow-inner rounded-full" aria-hidden="true"></span>
+<div class="md:mt-16 pb-8 mb-16">
+  <div class="bg-white md:shadow md:rounded max-w-3xl mx-auto px-4 py-8 sm:px-6">
+    <div class="px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5">
+      <div class="flex items-center space-x-5">
+        <div class="hidden sm:block flex-shrink-0">
+          <div class="relative">
+            <%= render AvatarComponent.new(avatarable: @business, classes: "h-24 w-24 rounded-full") %>
+            <span class="absolute inset-0 shadow-inner rounded-full" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div>
+          <% if @business.website.present? %>
+            <%= link_to "https://#{@business.website}", target: "_blank", class: "text-3xl font-bold text-gray-900 flex items-center group hover:underline" do %>
+              <h1><%= @business.company %></h1>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 ml-1" %>
+            <% end %>
+          <% else %>
+              <h1 class="text-3xl font-bold text-gray-900"><%= @business.company %></h1>
+          <% end %>
+          <p class="text-gray-500 mt-1"><%= [@business.contact_name, @business.contact_role].map(&:presence).compact.join(", ") %></p>
         </div>
       </div>
-      <div>
-        <%= link_to @business.website, class: "text-3xl font-bold text-gray-900 flex items-center group hover:underline" do %>
-          <h1><%= @business.company %></h1>
-          <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 text-gray-500 group-hover:text-gray-700 ml-1" %>
-        <% end %>
-        <p class="text-gray-500"><%= @business.contact_name %>, <%= @business.contact_role %></p>
+
+      <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
+        <%= render BusinessPrimaryActionComponent.new(@business, user: current_user) %>
       </div>
     </div>
 
-    <!-- TODO: Add Edit button for business owner. -->
-    <%# <div class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3"> %>
-      <%# <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Disqualify</button> %>
-      <%# <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500">Advance to offer</button> %>
-      <%# </div> %>
-  </div>
-
-  <div class="mt-8 max-w-prose mx-auto gap-6 sm:px-6">
-    <div class="space-y-6 lg:col-start-1 lg:col-span-2">
-      <section>
-        <div class="bg-white shadow sm:rounded-lg">
-          <div class="px-4 py-5 sm:px-6">
-            <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
-              <div class="sm:col-span-2">
-                <span class="sr-only">Bio</span>
-                <div class="mt-1 text-gray-700 space-y-3"><%= simple_format @business.bio %></div>
-              </div>
-            </div>
+    <div class="mt-8 md:mt-12 gap-6 px-6">
+      <div class="space-y-6 lg:col-start-1 lg:col-span-2">
+        <section>
+          <div class="max-w-prose mx-auto">
+            <span class="sr-only">Bio</span>
+            <div class="mt-1 text-gray-700 space-y-3"><%= simple_format @business.bio %></div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </div>
 </div>

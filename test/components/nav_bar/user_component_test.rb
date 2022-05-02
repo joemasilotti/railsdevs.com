@@ -19,7 +19,7 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
 
     render_inline NavBar::UserComponent.new(user, links: [])
 
-    assert_link_to edit_business_path(user.business)
+    assert_link_to business_path(user.business)
     assert_no_link_to new_developer_path
     assert_no_link_to new_role_path
   end
