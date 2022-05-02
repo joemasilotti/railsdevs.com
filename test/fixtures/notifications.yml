@@ -1,0 +1,11 @@
+message:
+  type: NewMessageNotification
+  recipient: subscribed_business (User)
+  params:
+    _aj_symbol_keys:
+      - message
+      - conversation
+    message:
+      _aj_globalid: gid://railsdevs/Message/<%= ActiveRecord::FixtureSet.identify(:from_developer) %>
+    conversation:
+      _aj_globalid: gid://railsdevs/Conversation/<%= ActiveRecord::FixtureSet.identify(:one) %>

@@ -1,6 +1,7 @@
 require "test_helper"
 
 class MessagesTest < ActionDispatch::IntegrationTest
+  include NotificationsHelper
   include PayHelper
 
   setup do
@@ -28,7 +29,9 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
     assert_difference "Message.count", 1 do
       assert_no_difference "Conversation.count" do
-        post conversation_messages_path(@conversation), params: message_params
+        assert_sends_notification NewMessageNotification do
+          post conversation_messages_path(@conversation), params: message_params
+        end
       end
     end
     assert_equal Message.last.sender, @developer

@@ -54,15 +54,6 @@ class ConversationTest < ActiveSupport::TestCase
     assert conversation.blocked?
   end
 
-  test "creating a conversation sends a notification to the admin" do
-    assert_difference "Notification.count", 1 do
-      Conversation.create!(developer: developers(:one), business: businesses(:one))
-    end
-
-    assert_equal Notification.last.type, NewConversationNotification.name
-    assert_equal Notification.last.recipient, users(:admin)
-  end
-
   test "is eligible for the hiring fee when the developer has responded and it is 2+ weeks old" do
     conversation = conversations(:one)
     refute conversation.hiring_fee_eligible?

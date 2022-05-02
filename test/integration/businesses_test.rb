@@ -1,6 +1,8 @@
 require "test_helper"
 
 class BusinessesTest < ActionDispatch::IntegrationTest
+  include NotificationsHelper
+
   test "can build a new business" do
     sign_in users(:empty)
     get new_business_path
@@ -38,8 +40,11 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference ["Business.count", "Analytics::Event.count"], 1 do
-      post businesses_path, params: valid_business_params
+      assert_sends_notification NewBusinessNotification do
+        post businesses_path, params: valid_business_params
+      end
     end
+
     assert user.business.avatar.attached?
     assert_redirected_to Analytics::Event.last
     assert_equal Analytics::Event.last.url, developers_path

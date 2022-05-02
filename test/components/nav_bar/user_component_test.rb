@@ -97,12 +97,11 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
   end
 
   test "shows red alert dot when new notifications exist" do
-    user = users(:business)
-    developer = developers(:one)
-    Message.create!(developer:, business: user.business, sender: developer, body: "Hello!")
-
+    user = users(:subscribed_business)
     render_inline NavBar::UserComponent.new(user, links: [])
-    assert_selector ".bg-red-400"
+    assert_selector "a[href='/notifications']" do
+      assert_selector ".bg-red-400"
+    end
   end
 
   test "does not show red alert dot when no new notifications exist" do

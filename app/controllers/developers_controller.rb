@@ -14,7 +14,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = current_user.build_developer(developer_params)
 
-    if @developer.save
+    if @developer.save_and_notify
       url = developer_path(@developer)
       event = Analytics::Event.added_developer_profile(url)
       redirect_to event, notice: t(".created")
@@ -32,7 +32,7 @@ class DevelopersController < ApplicationController
     @developer = Developer.find(params[:id])
     authorize @developer
 
-    if @developer.update(developer_params)
+    if @developer.update_and_notify(developer_params)
       redirect_to @developer, notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
