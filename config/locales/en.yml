@@ -182,6 +182,23 @@ en:
     title: Developer filters
     work_preference:
       title: Work preference
+  developer_query_component_sort:
+    apply: Apply
+    close_menu: Close menu
+    filters: Filters
+    include_not_interested: Include developers not currently interested
+    role_level:
+      title: Role level
+    search_query_label: Search developer profiles
+    sort:
+      availability: Availability
+      newest: Newest
+      title: Sort
+    timezone:
+      title: Timezone
+    title: Developer filters
+    work_preference:
+      title: Work preference
   developers:
     create:
       created: Your profile was added!

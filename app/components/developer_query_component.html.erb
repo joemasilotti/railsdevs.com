@@ -1,6 +1,6 @@
 <h3 class="sr-only"><%= t(".title") %></h3>
 <!-- desktop form -->
-<%= form_with url: developers_path, method: :get do |form| %>
+<%= form_with url: developers_path, id: 'quedev', method: :get do |form| %>
 
   <!-- search feature -->
   <% if Feature.enabled?(:search_feature, user: @user) %>
@@ -111,19 +111,6 @@
     </div><!-- data-toggle-target -->
   </div><!-- data-controller --><!-- timezone -->
 
-  <!-- search_feature -->
-  <% if Feature.enabled?(:search_feature, user: @user) %>
-    <div data-controller="toggle" data-toggle-visibility-class="hidden" id="sort">
-      <button type="button" data-action="toggle#toggle" aria-expanded="false" aria-haspopup="true">
-        <%= t(".sort.title") %>
-        <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-      </button>
-
-      <div data-toggle-target="element" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
-        <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
-        <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
-      </div><!-- data-toggle-target -->
-    </div><!-- data-controller -->
-  <% end %>
+  <!-- sort filter for this form lives in component sort_button_component and is passed the id of this form as a form attribute -->
 <% end %><!-- end of desktop form_with -->
 

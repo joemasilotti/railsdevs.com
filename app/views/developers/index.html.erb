@@ -8,8 +8,10 @@
     </div>
 
     <%= render DeveloperProfileActionComponent.new(current_user) %>
+    <!-- sort filter for form id: quedev -->
+    <%= render DeveloperQueryComponentSort.new(query: @query, user: current_user) %>
+    <!-- end sort filter for form id: quedev -->
   </div>
-
 
   <div class="grid grid-cols-12">
     <div class="col-span-3">
