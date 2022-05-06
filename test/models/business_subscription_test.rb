@@ -15,7 +15,7 @@ class BusinessSubscriptionTest < ActiveSupport::TestCase
     assert_instance_of FullTime, BusinessSubscription.from(price_ids[:full_time_plan])
     assert_instance_of Legacy, BusinessSubscription.from(price_ids[:legacy_plan])
     assert_instance_of PartTime, BusinessSubscription.from(price_ids[:part_time_plan])
-    assert_instance_of Free, BusinessSubscription.from(nil)
+    assert_instance_of Free, BusinessSubscription.from("Business subscription")
 
     assert_raises UnknownPrice do
       BusinessSubscription.from("invalid_price")

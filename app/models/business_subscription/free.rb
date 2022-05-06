@@ -1,7 +1,7 @@
 module BusinessSubscription
   class Free
     def price_id
-      nil
+      "Business subscription"
     end
     alias_method :plan, :price_id
 
