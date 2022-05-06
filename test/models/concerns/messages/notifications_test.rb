@@ -22,6 +22,7 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
     assert_sends_notification NewConversationNotification do
       assert message.save_and_notify(cold_message: true)
     end
+    assert_equal message.conversation, Notification.last.to_notification.conversation
 
     refute_sends_notification NewConversationNotification do
       assert message.save_and_notify(cold_message: false)
