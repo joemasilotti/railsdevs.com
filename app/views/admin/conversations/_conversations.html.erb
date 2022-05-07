@@ -9,7 +9,7 @@
               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".developer") %></th>
               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".started") %></th>
               <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".replied") %>?</th>
-              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email?</th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".email") %></th>
               <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                 <span class="sr-only"><%= t(".view") %></span>
               </th>
@@ -41,10 +41,10 @@
 
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <% if query.potential_email_conversation_ids.include?(conversation.id) %>
-                    <span class="sr-only">Potential email</span>
+                    <span class="sr-only"><%= t(".potential_email") %></span>
                     <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800" %>
                   <% else %>
-                    <span class="sr-only">No</span>
+                    <span class="sr-only"><%= t(".no_potential_email") %></span>
                   <% end %>
                 </td>
 

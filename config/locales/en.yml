@@ -69,9 +69,12 @@ en:
         index:
           title: Blocked conversations
       conversations:
+        Email: email
         business: Business
         developer: Developer
+        no_potential_email: No potential email
         no_response: No response
+        potential_email: Potential email
         replied: Replied
         started: Started
         view: View
