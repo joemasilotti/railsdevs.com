@@ -13,7 +13,7 @@ module Admin
     end
 
     def stats
-      @status ||= Stats::Conversation.new(query.all_records)
+      @stats ||= Stats::Conversation.new(query.all_records)
     end
   end
 end
