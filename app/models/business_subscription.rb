@@ -19,7 +19,7 @@ module BusinessSubscription
     elsif Free.new.plan == price
       Free.new
     else
-      raise UnknownPrice.new
+      raise UnknownPrice.new("Unknown price: #{price}")
     end
   end
 

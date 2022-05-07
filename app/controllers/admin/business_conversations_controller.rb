@@ -2,18 +2,17 @@ module Admin
   class BusinessConversationsController < ConversationsController
     def index
       super
-      @title = "#{business.company}'s conversations"
       render "admin/conversations/index"
     end
 
     private
 
-    def business
-      @business ||= Business.find(params[:business_id])
+    def entity
+      @entity ||= Business.find(params[:business_id])
     end
 
-    def all_conversations
-      @all_conversations ||= business.conversations
+    def title
+      entity.company
     end
   end
 end

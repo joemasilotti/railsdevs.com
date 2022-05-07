@@ -9,4 +9,8 @@ module BusinessesHelper
       developer_notifications: :no
     }
   end
+
+  def create_business(options = {})
+    Business.create!(business_attributes.merge(options))
+  end
 end

@@ -1,16 +1,24 @@
 <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <h1 class="mt-6 text-center text-3xl font-extrabold"><%= @title %></h1>
+  <div class="flex items-center justify-center">
+    <h1 class="mt-6 text-center text-3xl font-extrabold">
+      <% if @context.entity.present? %>
+        <%= t ".title_html", href: link_to(@context.title, polymorphic_path(@context.entity), class: "hover:underline") %>
+      <% else %>
+        <%= @context.title %>
+      <% end %>
+    </h1>
+  </div>
 
   <div class="max-w-sm sm:max-w-2xl mx-auto mt-8 w-full">
     <div class="px-4 sm:px-6 lg:px-8">
-      <%= render "stats", stats: @stats %>
+      <%= render "stats", stats: @context.stats %>
     </div>
   </div>
 
-  <div class="max-w-4xl mx-auto mt-8 w-full overflow-scroll">
+  <div class="max-w-5xl mx-auto mt-8 w-full overflow-scroll">
     <div class="px-4 sm:px-6 lg:px-8">
-      <%= render "conversations", conversations: @conversations, replied_to_conversation_ids: @replied_to_conversation_ids %>
-      <%== pagy_nav @pagy %>
+      <%= render "conversations", query: @context.query %>
+      <%== pagy_nav @context.query.pagy %>
     </div>
   </div>
 </div>
