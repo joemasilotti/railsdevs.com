@@ -1,7 +1,7 @@
 <%= render BusinessOpenGraphTagsComponent.new(business: @business) %>
 
-<div class="md:mt-16 pb-8 mb-16">
-  <div class="bg-white md:shadow md:rounded max-w-3xl mx-auto px-4 py-8 sm:px-6">
+<div class="md:mt-16 pb-8">
+  <div class="bg-white shadow overflow-hidden sm:rounded-lg max-w-3xl mx-auto px-4 py-8 sm:px-6">
     <div class="px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5">
       <div class="flex items-center space-x-5">
         <div class="hidden sm:block flex-shrink-0">
@@ -17,7 +17,7 @@
               <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 ml-1" %>
             <% end %>
           <% else %>
-              <h1 class="text-3xl font-bold text-gray-900"><%= @business.company %></h1>
+            <h1 class="text-3xl font-bold text-gray-900"><%= @business.company %></h1>
           <% end %>
           <p class="text-gray-500 mt-1"><%= [@business.contact_name, @business.contact_role].map(&:presence).compact.join(", ") %></p>
         </div>
@@ -40,3 +40,5 @@
     </div>
   </div>
 </div>
+
+<%= render BusinessAdminComponent.new(@business, user: current_user) %>

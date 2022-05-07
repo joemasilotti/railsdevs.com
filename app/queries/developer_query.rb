@@ -21,11 +21,11 @@ class DeveloperQuery
   end
 
   def pagy
-    @pagy ||= initialize_pagy_and_developers.first
+    @pagy ||= query_and_paginate.first
   end
 
   def records
-    @records ||= initialize_pagy_and_developers.last
+    @records ||= query_and_paginate.last
   end
 
   def featured_records
@@ -62,7 +62,7 @@ class DeveloperQuery
 
   private
 
-  def initialize_pagy_and_developers
+  def query_and_paginate
     @_records = Developer.includes(:role_type).with_attached_avatar.visible
     sort_records
     utc_offset_filter_records

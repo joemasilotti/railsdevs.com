@@ -71,10 +71,16 @@ en:
       conversations:
         business: Business
         developer: Developer
+        email: email
+        no_potential_email: No potential email
         no_response: No response
+        potential_email: Potential email
         replied: Replied
         started: Started
         view: View
+      index:
+        title: Conversations
+        title_html: "%{href}'s conversations"
       stats:
         reply_rate: Reply rate
         started: Started
@@ -103,6 +109,10 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
+  business_admin_component:
+    plan: Plan
+    status: Status
+    title: Business subscription
   business_primary_action_component:
     edit: Edit
   businesses:
