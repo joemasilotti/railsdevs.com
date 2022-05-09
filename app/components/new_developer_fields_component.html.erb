@@ -5,11 +5,11 @@
         <span class="flex p-2 rounded-lg bg-blue-800">
           <%= inline_svg_tag "icons/outline/speakerphone.svg", class: "h-6 w-6 text-white" %>
         </span>
-        <p class="ml-3 font-medium text-white truncate"><%= t("new_developer_fields_component.title") %></p>
+        <p class="ml-3 font-medium text-white truncate"><%= t(".title") %></p>
       </div>
 
       <div class="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
-        <%= link_to t("new_developer_fields_component.cta"), edit_developer_path(user.developer), class: "flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50" %>
+        <%= link_to t(".cta"), edit_developer_path(user.developer), class: "flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50" %>
       </div>
 
       <!-- Ensure content wraps correctly on mobile. A dismiss button could go here. -->

@@ -25,9 +25,9 @@ module NavBar
 
     def admin_links
       @admin_links ||= [
-        Link.new(t("nav_bar.user_component.transactions"), admin_transactions_path),
-        Link.new(t("nav_bar.user_component.conversations"), admin_conversations_path),
-        Link.new(t("nav_bar.user_component.blocked_conversations"), admin_conversations_blocks_path)
+        Link.new(t(".transactions"), admin_transactions_path),
+        Link.new(t(".conversations"), admin_conversations_path),
+        Link.new(t(".blocked_conversations"), admin_conversations_blocks_path)
       ]
     end
 
@@ -35,11 +35,11 @@ module NavBar
 
     def build_user_links
       links = []
-      links << Link.new(t("nav_bar.user_component.get_started"), new_role_path) if neither?
-      links << Link.new(t("nav_bar.user_component.my_business_profile"), business_path(user.business)) if business?
-      links << Link.new(t("nav_bar.user_component.my_developer_profile"), developer_path(user.developer)) if developer?
-      links << Link.new(t("nav_bar.user_component.my_conversations"), conversations_path) if conversations?
-      links << Link.new(t("nav_bar.user_component.billing"), stripe_portal_path) if customer?
+      links << Link.new(t(".get_started"), new_role_path) if neither?
+      links << Link.new(t(".my_business_profile"), business_path(user.business)) if business?
+      links << Link.new(t(".my_developer_profile"), developer_path(user.developer)) if developer?
+      links << Link.new(t(".my_conversations"), conversations_path) if conversations?
+      links << Link.new(t(".billing"), stripe_portal_path) if customer?
       links
     end
 
