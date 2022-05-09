@@ -6,6 +6,6 @@ class BusinessMailer < ApplicationMailer
     @developers = params[:developers]
     subject = "#{pluralize(@developers.count, "new developer profile")} added to railsdevs"
 
-    mail(to: @business.user.email, subject:)
+    mail(to: @business.user.email, subject:, from: Rails.configuration.notifications_email)
   end
 end
