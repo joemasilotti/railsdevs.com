@@ -67,10 +67,6 @@ pt-BR:
         destroyed: Transação excluida
       update:
         updated: Transação atualizada
-  availability_component:
-    in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
-    now_html: Disponível agora
-    unspecified_html: Atualmente indisponível
   blocks:
     create:
       notice: "%{other_recipient} foi bloqueado."
@@ -138,6 +134,10 @@ pt-BR:
     work_preference:
       title: Preferencia de trabalho
   developers:
+    availability_component:
+      in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
+      now_html: Disponível agora
+      unspecified_html: Atualmente indisponível
     create:
       created: Seu perfil foi adicionado!
     details:
