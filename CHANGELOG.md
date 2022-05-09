@@ -4,6 +4,7 @@
 
 ### May
 
+* May 8 - Send automated emails from `@railsdevs.com` -#414
 * May 8 - Stop business welcome email and clean up developer welcome email -#413
 * May 2 - Revamped business profiles - #397 @scottharvey
 

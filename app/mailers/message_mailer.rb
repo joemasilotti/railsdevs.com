@@ -1,4 +1,5 @@
 class MessageMailer < ApplicationMailer
+  default from: Rails.configuration.notifications_email
   helper :messages
 
   def new_message

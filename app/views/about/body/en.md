@@ -21,4 +21,4 @@ On top of that, I'm making all my decisions in public. I'm posting questions and
 
 The site is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level that follow the [code of conduct](/conduct).
 
-If something doesn't feel right, or you ever feel uncomfortable, please [send me an email](mailto:joe@masilotti.com) right away.
+If something doesn't feel right, or you ever feel uncomfortable, please [send me an email](mailto:joe@railsdevs.com) right away.

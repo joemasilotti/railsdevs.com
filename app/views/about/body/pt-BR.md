@@ -21,4 +21,4 @@ Além disso, estou tomando todas as minhas decisões em público. Estou postando
 
 O site está aberto a todos os desenvolvedores, independentemente de raça, cor, nacionalidade, religião, sexo, idade, deficiência ou nível de habilidade que seguem o [código de conduta](/conduct).
 
-Se algo não parecer certo, ou você se sentir desconfortável, por favor [me envie um e-mail](mailto:joe@masilotti.com) imediatamente.
+Se algo não parecer certo, ou você se sentir desconfortável, por favor [me envie um e-mail](mailto:joe@railsdevs.com) imediatamente.

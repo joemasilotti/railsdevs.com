@@ -387,7 +387,7 @@ en:
       title: Ready to start hiring?
     faq:
       annual:
-        a_html: Yes. Email the founder – that's me, Joe! – to set up annual billing at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        a_html: Yes. Email the founder – that's me, Joe! – to set up annual billing at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
         q: Can I pay annually or yearly?
       cancellation:
         a_html: Yes. You can cancel your subscription from the Billing link in the user drop-down. You will lose access to all paid features at the end of your billing period.
@@ -399,13 +399,13 @@ en:
         a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
         q: So what does the fee get me?
       fee:
-        a_html: You are required to pay railsdevs 10% of a developer's first year salary if you found them through railsdevs. This only applies to hiring full-time employees and not contract or freelance. Email the founder – that's me, Joe! – to coordinate payment at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        a_html: You are required to pay railsdevs 10% of a developer's first year salary if you found them through railsdevs. This only applies to hiring full-time employees and not contract or freelance. Email the founder – that's me, Joe! – to coordinate payment at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
         q: How does the 10% fee work for hiring a full-time developer?
       subscription:
         a: No. The monthly/annual fee grants you business access to railsdevs. You have to externally pay the developers for the work they do.
         q: Does the monthly/annual fee include the developer rate, too?
       support:
-        a_html: Email the founder – that's me, Joe! – with any questions. You can reach me at <a href='mailto:joe@masilotti.com' class='underline'>joe@masilotti.com</a>.
+        a_html: Email the founder – that's me, Joe! – with any questions. You can reach me at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
         q: Who can I contact for more specific questions?
       title: Frequently asked questions
     features:
@@ -462,7 +462,7 @@ en:
           a: No. railsdevs is free for developers.
           q: Does railsdevs cost anything for developers?
         '4':
-          a_html: Email me, Joe, with any questions. You can reach me at <a href='mailto:joe@masilotti.com'>joe@masilotti.com</a>.
+          a_html: Email me, Joe, with any questions. You can reach me at <a href='mailto:joe@railsdevs.com'>joe@railsdevs.com</a>.
           q: Who can I contact for more specific questions?
         title: Frequently asked questions
       feature:
