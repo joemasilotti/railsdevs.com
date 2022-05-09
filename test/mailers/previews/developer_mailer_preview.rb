@@ -4,7 +4,7 @@ class DeveloperMailerPreview < ActionMailer::Preview
     DeveloperMailer.with(record: notification, recipient: notification.recipient).invisiblize
   end
 
-  def welcome_developer
+  def welcome
     DeveloperMailer.with(developer: Developer.first).welcome_email
   end
 end

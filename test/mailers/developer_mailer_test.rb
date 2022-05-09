@@ -10,6 +10,6 @@ class DeveloperMailerTest < ActionMailer::TestCase
     end
 
     assert_equal [developer.user.email], email.to
-    assert_match(/added your developer profile/, email.body.encoded)
+    assert_match(/Thanks for adding your profile!/, email.body.encoded)
   end
 end

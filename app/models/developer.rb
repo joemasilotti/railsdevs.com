@@ -3,6 +3,7 @@ class Developer < ApplicationRecord
   include Avatarable
   include Developers::Notifications
   include HasSocialProfiles
+  include PersonName
   include PgSearch::Model
 
   enum search_status: {
