@@ -17,11 +17,10 @@ module NavBar
     private
 
     def links
-      [
-        Link.new(t(".developers"), developers_path),
-        Link.new(t(".pricing"), pricing_path),
-        Link.new(t(".about"), about_path)
-      ]
+      links = [Link.new(t(".developers"), developers_path)]
+      links << Link.new(t(".pricing"), pricing_path) unless helpers.turbo_native_app?
+      links << Link.new(t(".about"), about_path)
+      links
     end
   end
 end

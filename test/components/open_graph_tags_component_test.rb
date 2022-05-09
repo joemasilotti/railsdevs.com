@@ -1,6 +1,8 @@
 require "test_helper"
 
 class OpenGraphTagsComponentTest < ViewComponent::TestCase
+  include TurboNativeHelper
+
   test "present attributes" do
     render_inline OpenGraphTagsComponent.new
 
@@ -22,6 +24,7 @@ class OpenGraphTagsComponentTest < ViewComponent::TestCase
   end
 
   test "Turbo Native attributes" do
+    turbo_native_request!
     render_inline OpenGraphTagsComponent.new(
       turbo_native_title: "Turbo Native title"
     )
