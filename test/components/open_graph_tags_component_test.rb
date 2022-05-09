@@ -20,4 +20,12 @@ class OpenGraphTagsComponentTest < ViewComponent::TestCase
     assert_meta property: "og:title", content: "Custom title · railsdevs"
     assert_meta property: "og:description", content: "And a custom description."
   end
+
+  test "Turbo Native attributes" do
+    render_inline OpenGraphTagsComponent.new(
+      turbo_native_title: "Turbo Native title"
+    )
+
+    assert_meta property: "og:title", content: "Turbo Native title"
+  end
 end

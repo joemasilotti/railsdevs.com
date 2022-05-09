@@ -257,6 +257,8 @@ en:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
+  developer_open_graph_tags_component:
+    turbo_native_title: Developer profile
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
