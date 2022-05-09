@@ -9,7 +9,7 @@ Notification.find_or_create_by!(type: NewMessageNotification.name, recipient: de
 
 # DeveloperMailer#invisiblize
 invisible_developer = User.find_by(email: "invisible@example.com").developer
-Notification.find_or_create_by!(type: InvisiblizeDeveloperNotification.name, recipient: invisible_developer, params: {developer: invisible_developer})
+Notification.find_or_create_by!(type: InvisiblizeDeveloperNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
 
 # AdminMailer#new_business
 admin = User.find_by(email: "admin@example.com")
