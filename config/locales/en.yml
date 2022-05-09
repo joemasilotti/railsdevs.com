@@ -275,6 +275,9 @@ en:
       subtitle_3: Stop scouring job boards and sit back as companies reach out to you first.
       title_1: The reverse job board for
       title_2: Rails developers
+    hired:
+      description: These Ruby on Rails developers found their next gig via railsdevs.
+      title: Developer success stories
     show:
       description: railsdevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
       title: The reverse job board for Ruby on Rails developers

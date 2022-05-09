@@ -1,0 +1,37 @@
+<section class="bg-gray-800 mx-auto pt-10 pb-12 my-12 px-4 sm:px-6 lg:px-8 lg:pt-16 lg:pb-24 lg:my-24">
+  <div class="space-y-8 sm:space-y-12">
+    <div class="space-y-3 sm:mx-auto sm:space-y-2 lg:max-w-5xl">
+      <h2 class="text-gray-100 text-2xl font-extrabold tracking-tight sm:text-3xl"><%= t(".title") %></h2>
+      <p class="text-gray-300"><%= t(".description") %></p>
+    </div>
+
+    <ul role="list" class="mx-auto text-center grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
+      <% developers.each do |developer| %>
+        <li>
+          <div class="space-y-4">
+            <%= image_tag "hired_developers/#{developer["img"]}", alt: developer["title"], class: "mx-auto object-cover h-20 w-20 rounded-full lg:w-24 lg:h-24" %>
+            <div class="space-y-2">
+              <div class="text-xs text-gray-200 font-medium lg:text-sm">
+                <h3><%= developer["title"] %></h3>
+                <p class="text-gray-400"><%= developer["description"] %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to new_developer_path, class: "space-y-4" do %>
+          <div class="mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24 bg-gray-100 flex items-center justify-center">
+            <%= inline_svg_tag "icons/outline/user.svg", class: "h-20 w-20 text-gray-500" %>
+          </div>
+          <div class="space-y-2">
+            <div class="text-xs text-gray-200 font-medium lg:text-sm">
+              <h3>You</h3>
+              <p class="text-gray-400">This could be you!</p>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</section>
