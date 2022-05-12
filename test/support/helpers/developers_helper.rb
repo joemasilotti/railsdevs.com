@@ -35,7 +35,8 @@ module DevelopersHelper
         latitude: 1,
         longitude: 2,
         country: "United States",
-        time_zone: "Fake Time Zone"
+        time_zone: "Fake Time Zone",
+        utc_offset: -8 * 60 * 60
       }
     end
   end
