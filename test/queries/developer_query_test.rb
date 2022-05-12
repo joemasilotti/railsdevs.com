@@ -83,8 +83,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "filtering by time zones" do
-    eastern = create_developer(utc_offset: EASTERN_UTC_OFFSET)
-    pacific = create_developer(utc_offset: PACIFIC_UTC_OFFSET)
+    eastern = create_developer(location_attributes: {utc_offset: EASTERN_UTC_OFFSET})
+    pacific = create_developer(location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
     records = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET]).records
 
