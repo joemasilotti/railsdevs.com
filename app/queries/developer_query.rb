@@ -42,7 +42,7 @@ class DeveloperQuery
   end
 
   def countries
-    @countries.to_a
+    @countries.to_a.reject(&:blank?)
   end
 
   def utc_offsets
