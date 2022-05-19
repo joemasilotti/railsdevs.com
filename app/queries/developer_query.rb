@@ -100,12 +100,12 @@ class DeveloperQuery
   end
 
   def country_filter_records
-    @_records.merge!(Developer.filter_by_country(countries)) if countries.any?
+    @_records.merge!(Developer.filter_by_countries(countries)) if countries.any?
   end
 
   def utc_offset_filter_records
     if utc_offsets.any?
-      @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
+      @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets))
     end
   end
 
