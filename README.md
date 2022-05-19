@@ -109,3 +109,11 @@ Application monitoring is powered by [Scout APM](https://scoutapm.com). This hel
 ## Changelog
 
 Significant changes and product updates are documented in the [changelog](CHANGELOG.md).
+
+## Open source support
+
+railsdevs uses a free or discounted open source plan from the following companies. Thank you for the support!
+
+<a href="https://tracking.scoutapm.com/t/102858/c/24eac3db-39dd-4863-b972-a35a3e35b72b/NB2HI4DTHIXS65DFOIXGY2JPNA4GWMRZOI======/ter-li-h8k29r">
+  <img src="https://user-images.githubusercontent.com/2092156/169346365-12f3806f-5a04-494a-a2d6-45611666c57c.png" width="250" alt="Scout APM logo">
+</a>
