@@ -1,0 +1,29 @@
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="flex items-center justify-center">
+    <h1 class="mt-6 text-center text-3xl font-extrabold">
+      <%= @context.title %>
+    </h1>
+  </div>
+
+  <div class="max-w-sm sm:max-w-2xl mx-auto mt-8 w-full">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <%= render "stats", stats: @context.stats %>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto mt-8 w-full overflow-scroll">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto mt-8 w-full overflow-scroll">
+        <%= form_with url: admin_businesses_path, method: :get, class: "flex items-center justify-between sm:w-full" do |form| %>
+          <div class="hidden sm:block flex-1 max-w-xs">
+            <%= form.label :search_query, t(".search_query_label"), class: "sr-only" %>
+            <%= form.text_field :search_query, value: params[:search_query], class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: t(".search_query_label") %>
+          </div>
+        <% end %>
+      </div>
+
+      <%= render "businesses", query: @context.query %>
+      <%== pagy_nav @context.query.pagy %>
+    </div>
+  </div>
+</div>

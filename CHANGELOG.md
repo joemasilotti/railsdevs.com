@@ -4,6 +4,7 @@
 
 ### May
 
+* May 19 - Add admin search capabilities  - #419 @esmale
 * May 9 - Send daily/weekly emails via broadcast stream - #421
 * May 8 - Send automated emails from `@railsdevs.com` -#414
 * May 8 - Stop business welcome email and clean up developer welcome email -#413

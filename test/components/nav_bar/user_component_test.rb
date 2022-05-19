@@ -70,6 +70,26 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
     assert_no_link_to admin_conversations_blocks_path
   end
 
+  test "links to admin developer search if user is an admin" do
+    user = users(:admin)
+    render_inline NavBar::UserComponent.new(user, links: [])
+    assert_link_to admin_developers_path
+
+    user = users(:business)
+    render_inline NavBar::UserComponent.new(user, links: [])
+    assert_no_link_to admin_developers_path
+  end
+
+  test "links to admin business search if user is an admin" do
+    user = users(:admin)
+    render_inline NavBar::UserComponent.new(user, links: [])
+    assert_link_to admin_businesses_path
+
+    user = users(:business)
+    render_inline NavBar::UserComponent.new(user, links: [])
+    assert_no_link_to admin_businesses_path
+  end
+
   test "links to Stripe Customer Portal if the user is a customer" do
     user = users(:subscribed_business)
     render_inline NavBar::UserComponent.new(user, links: [])

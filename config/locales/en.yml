@@ -60,6 +60,15 @@ en:
         one: User
         other: Users
   admin:
+    businesses:
+      businesses:
+        company: Company
+        contact_name: Contact Name
+        email: Email
+      index:
+        search_query_label: Search Businesses
+      stats:
+        number_of_businesses: Number of Businesses
     conversations:
       blocks:
         conversation:
@@ -84,6 +93,15 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    developers:
+      developers:
+        email: Email
+        name: Name
+      index:
+        search_query_label: Search developer profiles
+      stats:
+        actively_looking_and_open: Actively Looking + Open
+        number_of_developers: Number of Developers
     features:
       create:
         created: Profile featured for one week.
@@ -303,7 +321,9 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      businesses: Businesses
       conversations: Conversations
+      developers: Developers
       get_started: Get started
       my_business_profile: My business profile
       my_conversations: My conversations

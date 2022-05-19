@@ -48,11 +48,11 @@ Rails.application.routes.draw do
       resources :blocks, only: :index
     end
 
-    resources :businesses, only: [] do
+    resources :businesses, only: [:index] do
       resources :conversations, only: :index, controller: :business_conversations
     end
 
-    resources :developers, only: [] do
+    resources :developers, only: [:index] do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create

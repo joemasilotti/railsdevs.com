@@ -1,0 +1,25 @@
+<dl class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+  <div class="relative bg-white pt-5 px-4 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+    <dt>
+      <div class="absolute bg-gray-500 rounded-md p-3">
+        <%= inline_svg_tag "icons/outline/user_group.svg", class: "h-6 w-6 text-white" %>
+      </div>
+      <p class="ml-16 text-sm font-medium text-gray-500 truncate"><%= t(".number_of_developers") %></p>
+    </dt>
+    <dd class="ml-16 pb-6 flex items-baseline">
+      <p class="text-2xl font-semibold text-gray-900"><%= stats.count %></p>
+    </dd>
+  </div>
+
+  <div class="relative bg-white pt-5 px-4 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
+    <dt>
+      <div class="absolute bg-gray-500 rounded-md p-3">
+        <%= inline_svg_tag "icons/outline/speakerphone.svg", class: "h-6 w-6 text-white" %>
+      </div>
+      <p class="ml-16 text-sm font-medium text-gray-500 truncate"><%= t(".actively_looking_and_open") %></p>
+    </dt>
+    <dd class="ml-16 pb-6 flex items-baseline">
+      <p class="text-2xl font-semibold text-gray-900"><%= stats.looking_and_open %></p>
+    </dd>
+  </div>
+</dl>

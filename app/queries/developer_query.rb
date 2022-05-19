@@ -15,6 +15,7 @@ class DeveloperQuery
     @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
     @search_query = options.delete(:search_query)
+    @search_type = options.delete(:search_type)
   end
 
   def filters
@@ -27,6 +28,10 @@ class DeveloperQuery
 
   def records
     @records ||= query_and_paginate.last
+  end
+
+  def all_records
+    @all_records ||= Developer.all
   end
 
   def featured_records
@@ -122,7 +127,15 @@ class DeveloperQuery
   end
 
   def search_query_filter_records
-    @_records.merge!(Developer.filter_by_search_query(search_query)) unless search_query.empty?
+    @_records.merge!(determine_filter_by_search_type) unless search_query.empty?
+  end
+
+  def determine_filter_by_search_type
+    if @search_type == :name_and_email
+      Developer.filter_by_name_and_email(search_query)
+    else
+      Developer.filter_by_search_query(search_query)
+    end
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.
