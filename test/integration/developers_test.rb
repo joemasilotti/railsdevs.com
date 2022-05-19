@@ -52,7 +52,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    create_developer(hero: "Pacific", utc_offset: PACIFIC_UTC_OFFSET)
+    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
     get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 

@@ -47,8 +47,12 @@ class Developer < ApplicationRecord
     }.reduce(:or).joins(:role_level)
   end
 
-  scope :filter_by_utc_offset, ->(utc_offset) do
-    joins(:location).where(locations: {utc_offset:})
+  scope :filter_by_utc_offsets, ->(utc_offsets) do
+    joins(:location).where(locations: {utc_offset: utc_offsets})
+  end
+
+  scope :filter_by_countries, ->(countries) do
+    joins(:location).where(locations: {country: countries})
   end
 
   scope :available, -> { where(available_on: ..Time.current.to_date) }
