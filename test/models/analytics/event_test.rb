@@ -7,7 +7,7 @@ class AnalytisEventTest < ActiveSupport::TestCase
       refute event.tracked?
       assert_nil event.tracked_at
 
-      event.mark_as_tracked!
+      event.track!
       assert event.tracked?
       assert_equal event.tracked_at, now
     end
