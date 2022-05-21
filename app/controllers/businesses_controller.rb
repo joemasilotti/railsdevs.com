@@ -12,7 +12,7 @@ class BusinessesController < ApplicationController
 
     if @business.save_and_notify
       url = stored_location_for(:user) || developers_path
-      event = Analytics::Event.added_business_profile(url)
+      event = Analytics::EventTracking.new(:added_business_profile, url:).create_event
       redirect_to event, notice: t(".created")
     else
       render :new, status: :unprocessable_entity

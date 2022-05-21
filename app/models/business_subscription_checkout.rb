@@ -29,7 +29,8 @@ class BusinessSubscriptionCheckout
   end
 
   def event
-    @event ||= Analytics::Event.subscribed_to_busines_plan(success_path, value: plan.price)
+    @event ||= Analytics::EventTracking
+      .new(:subscribed_to_busines_plan, url: success_path, value: plan.price).create_event
   end
 
   def success_path

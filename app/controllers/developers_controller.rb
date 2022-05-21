@@ -16,7 +16,7 @@ class DevelopersController < ApplicationController
 
     if @developer.save_and_notify
       url = developer_path(@developer)
-      event = Analytics::Event.added_developer_profile(url)
+      event = Analytics::EventTracking.new(:added_developer_profile, url:).create_event
       redirect_to event, notice: t(".created")
     else
       render :new, status: :unprocessable_entity
