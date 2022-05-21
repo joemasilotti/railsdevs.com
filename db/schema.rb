@@ -284,10 +284,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_21_175054) do
   create_table "prompts", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "active", default: false
-    t.bigint "developer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["developer_id"], name: "index_prompts_on_developer_id"
   end
 
   create_table "role_levels", force: :cascade do |t|
