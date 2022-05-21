@@ -6,6 +6,15 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+def stripe_price_id(subscription)
+  credentials = Rails.application.credentials
+  if Rails.env.development?
+    credentials.dig(:stripe, :price_ids, subscription) || "#{subscription}_dummy_price_id"
+  else
+    credentials.stripe[:price_ids][subscription]
+  end
+end
+
 module Railsdevs
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

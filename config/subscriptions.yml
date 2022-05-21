@@ -4,15 +4,15 @@ shared:
   legacy:
     name: Legacy
     price: 99
-    price_id: <%= Rails.application.credentials.dig(*%i[stripe price_ids legacy_plan]) || "legacy_dummy_price_id" %>
+    price_id: <%= stripe_price_id(:legacy_plan) %>
   part_time:
     name: Part-time
     price: 99
-    price_id: <%= Rails.application.credentials.dig(*%i[stripe price_ids part_time_plan]) || "part_time_dummy_price_id" %>
+    price_id: <%= stripe_price_id(:part_time_plan) %>
   full_time:
     name: Full-time
     price: 299
-    price_id: <%= Rails.application.credentials.dig(*%i[stripe price_ids full_time_plan]) || "full_time_dummy_price_id" %>
+    price_id: <%= stripe_price_id(:full_time_plan) %>
   free:
     name: Free
     price: 0
