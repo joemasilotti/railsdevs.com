@@ -97,6 +97,12 @@ en:
         destroyed: Transaction deleted
       update:
         updated: Transaction updated
+    prompts:
+      index:
+        empty:
+          title: No prompts
+          subtext: Get started by creating a new prompt.
+        new_button: New Prompt
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -312,6 +318,7 @@ en:
       open_user_menu: Open user menu
       sign_out: Sign out
       transactions: Transactions
+      prompts: Prompts
       view_conversations: View conversations
       view_notifications: View notifications
   new_developer_field_component:

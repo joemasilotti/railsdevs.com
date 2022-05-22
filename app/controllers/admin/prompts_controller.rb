@@ -1,6 +1,7 @@
 module Admin
   class PromptsController < ApplicationController
     def index
+      @prompts = Admin::Prompt.all
     end
 
     def new
