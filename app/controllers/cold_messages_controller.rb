@@ -25,7 +25,7 @@ class ColdMessagesController < ApplicationController
     ColdMessage.new(
       message:,
       messageable: SubscriptionPolicy.new(current_user, message).messageable?,
-      show_hiring_fee_terms: current_user.active_full_time_business_subscription?,
+      show_hiring_fee_terms: permission.pays_hiring_fee?,
       tips: MarkdownRenderer.new("cold_messages/tips").render
     )
   end
@@ -42,10 +42,14 @@ class ColdMessagesController < ApplicationController
   end
 
   def require_active_subscription!
-    unless current_user.active_business_subscription?
+    unless permission.active_subscription?
       store_location!
       redirect_to pricing_path
     end
+  end
+
+  def permission
+    @permission = Businesses::Permission.new(current_user.subscriptions)
   end
 
   def conversation

@@ -1,6 +1,8 @@
 require "test_helper"
 
 class SubscriptionPolicyTest < ActiveSupport::TestCase
+  include SubscriptionsHelper
+
   setup do
     @conversation = conversations(:one)
     @user = @conversation.business.user
@@ -8,7 +10,7 @@ class SubscriptionPolicyTest < ActiveSupport::TestCase
   end
 
   test "not messageable if on part-time plan and developer ONLY wants full-time employment" do
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
 
     @conversation.developer.role_type.update!(
       part_time_contract: false,

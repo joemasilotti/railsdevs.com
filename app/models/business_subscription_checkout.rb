@@ -25,7 +25,7 @@ class BusinessSubscriptionCheckout
   end
 
   def plan
-    BusinessSubscription.new(@plan)
+    Businesses::Subscription.with_identifier(@plan)
   end
 
   def event

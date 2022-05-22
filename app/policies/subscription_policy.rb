@@ -1,16 +1,13 @@
 class SubscriptionPolicy < ApplicationPolicy
   def messageable?
-    !(part_time_subscription? && only_full_time_employment?)
+    Businesses::Permission.new(subscriptions)
+      .can_message_developer?(role_type: developer.role_type)
   end
 
   private
 
-  def part_time_subscription?
-    business.user.active_part_time_business_subscription?
-  end
-
-  def only_full_time_employment?
-    developer.role_type.only_full_time_employment?
+  def subscriptions
+    business.user.subscriptions
   end
 
   def business
