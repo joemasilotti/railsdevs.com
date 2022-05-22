@@ -66,8 +66,6 @@ es:
       message: "¿Está seguro de que deseas marcar esta conversación y bloquear al remitente? Esto ocultará la conversación y no podrán volver a ponerse en contacto contigo."
       title: Bloquear al remitente
   businesses:
-    create:
-      created: "¡Tu empresa fue creada!"
     form:
       avatar: Avatar
       change_avatar: Subir
@@ -85,6 +83,8 @@ es:
       something_went_wrong: Algo falló al subir tu imagen. Por favor intenta de nuevo.
       updating: Actualizando...
       your_business_profile: Perfil de tu empresa
+    profile:
+      created: "¡Tu empresa fue creada!"
     update:
       updated: "¡Tu empresa fue actualizada!"
   cold_messages:

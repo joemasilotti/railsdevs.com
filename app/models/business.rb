@@ -1,6 +1,5 @@
 class Business < ApplicationRecord
   include Avatarable
-  include Businesses::Notifications
   include PersonName
 
   enum :developer_notifications, %i[no daily weekly], default: :no, suffix: true

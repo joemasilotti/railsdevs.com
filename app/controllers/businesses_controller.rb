@@ -7,14 +7,14 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = current_user.build_business
-    @business.assign_attributes(permitted_attributes(@business))
+    success_url = stored_location_for(:user) || developers_path
+    result = Businesses::Profile.new(current_user, success_url:)
+      .create_profile(permitted_attributes(Business))
 
-    if @business.save_and_notify
-      url = stored_location_for(:user) || developers_path
-      event = Analytics::EventTracking.new(:added_business_profile, url:).create_event
-      redirect_to event, notice: t(".created")
+    if result.success?
+      redirect_to result.event, notice: result.message
     else
+      @business = result.business
       render :new, status: :unprocessable_entity
     end
   end

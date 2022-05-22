@@ -76,8 +76,6 @@ pt-BR:
       message: Você tem certeza que quer sinalizar essa conversa e bloquear o remetente? Isso vai esconder essa conversa e eles não poderão contactar você novamente.
       title: Bloquear remetente
   businesses:
-    create:
-      created: Sua empresa foi criada!
     form:
       avatar: Imagem
       change_avatar: Enviar
@@ -95,6 +93,8 @@ pt-BR:
       something_went_wrong: Ocorreu um erro ao enviar sua imagem. Por favor, tente novamente.
       updating: Atualizando...
       your_business_profile: Perfil da sua empresa
+    profile:
+      created: Sua empresa foi criada!
     update:
       updated: Sua empresa foi atualizada!
   cold_messages:

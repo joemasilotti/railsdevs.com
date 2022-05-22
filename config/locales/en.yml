@@ -112,8 +112,6 @@ en:
   business_primary_action_component:
     edit: Edit
   businesses:
-    create:
-      created: Your business was added!
     form:
       avatar: Your company logo
       business:
@@ -137,6 +135,8 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    profile:
+      created: Your business was added!
     show:
       bio: Bio
     update:
