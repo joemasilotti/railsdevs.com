@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :conversations, only: :index
     resources :transactions, except: :show
-    resources :prompts, except: :show
+    resources :prompts, except: [:show, :edit]
 
     namespace :conversations do
       resources :blocks, only: :index

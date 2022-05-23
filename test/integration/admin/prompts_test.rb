@@ -49,17 +49,6 @@ class Admin::PromptsTest < ActionDispatch::IntegrationTest
       assert_redirected_to root_path
     end
 
-    test "must be signed in to see the form to edit a prompt" do
-      get edit_admin_prompt_path(admin_prompts(:one))
-      assert_redirected_to new_user_registration_path
-    end
-
-    test "must be an admin to see the form to edit a prompt" do
-      sign_in users(:empty)
-      get edit_admin_prompt_path(admin_prompts(:one))
-      assert_redirected_to root_path
-    end
-
     test "must be signed in to update a prompt" do
       patch admin_prompt_path(admin_prompts(:one)), params: {prompt: {name: "Test name"}}
       assert_redirected_to new_user_registration_path

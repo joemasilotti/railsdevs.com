@@ -13,7 +13,9 @@ export default class extends Controller {
     this.toggleClasses()
 
     this.enabledValue = !this.enabledValue
-    this.checkboxTarget.checked = this.enabledValue
+    if(this.hasCheckboxTarget) {
+      this.checkboxTarget.checked = this.enabledValue
+    }
   }
 
   toggleClasses() {
@@ -31,6 +33,12 @@ export default class extends Controller {
     } else {
       this.backgroundTarget.classList.toggle(this.backgroundOffClass)
       this.indicatorTarget.classList.toggle(this.indicatorOffClass)
+    }
+  }
+
+  processResponse(event) {
+    if(!event.detail.fetchResponse.response.ok) {
+      this.toggle()
     }
   }
 }
