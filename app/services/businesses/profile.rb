@@ -1,28 +1,23 @@
 module Businesses
   class Profile
-    Success = Struct.new(:business, :event, :message, keyword_init: true) do
-      def success?
-        true
-      end
-    end
+    private attr_reader :user
 
-    Failure = Struct.new(:business) do
-      def success?
-        false
-      end
-    end
-
-    private attr_reader :user, :success_url
-
-    def initialize(user, success_url:)
+    def initialize(user)
       @user = user
-      @success_url = success_url
     end
 
-    def create_profile(options)
+    def build_profile
+      return ExistingBusiness.new(user.business) if existing_business?
+
+      Success.new(business: user.build_business, event: nil, message: nil)
+    end
+
+    def create_profile(success_url, options)
+      return ExistingBusiness.new(user.business) if existing_business?
+
       business.assign_attributes(options)
       if business.save
-        notify_and_track
+        notify_and_track(success_url)
       else
         Failure.new(business)
       end
@@ -34,18 +29,44 @@ module Businesses
       @business ||= user.build_business
     end
 
-    def notify_and_track
+    def existing_business?
+      user.business.present?
+    end
+
+    def notify_and_track(success_url)
       send_admin_notification
-      event = create_event
+      event = create_event(success_url)
       Success.new(business:, event:, message: I18n.t("businesses.profile.created"))
     end
 
-    def create_event
-      Analytics::EventTracking.new(:added_business_profile, url: success_url).create_event
+    def create_event(url)
+      Analytics::EventTracking.new(:added_business_profile, url:).create_event
     end
 
     def send_admin_notification
       NewBusinessNotification.with(business:).deliver_later(User.admin)
+    end
+
+    Success = Struct.new(:business, :event, :message, keyword_init: true) do
+      def success?
+        true
+      end
+    end
+
+    Failure = Struct.new(:business) do
+      def success?
+        false
+      end
+
+      def existing_business?
+        false
+      end
+    end
+
+    class ExistingBusiness < Failure
+      def existing_business?
+        true
+      end
     end
   end
 end
