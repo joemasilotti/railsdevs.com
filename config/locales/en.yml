@@ -90,6 +90,23 @@ en:
     invisiblizes:
       create:
         created: Profile set to invisible.
+    prompts:
+      form:
+        new_prompt_label: New prompt
+        submit:
+          disabled: Creating...
+          text: Create Prompt
+      index:
+        empty:
+          subtext: Get started by creating a new prompt.
+          title: No prompts
+        new_button:
+          disabled: Loading...
+          text: New Prompt
+      prompt:
+        destroy:
+          disabled: Removing...
+          text: Delete
     transactions:
       create:
         created: Transaction created
@@ -97,23 +114,6 @@ en:
         destroyed: Transaction deleted
       update:
         updated: Transaction updated
-    prompts:
-      index:
-        empty:
-          title: No prompts
-          subtext: Get started by creating a new prompt.
-        new_button:
-          text: New Prompt
-          disabled: Loading...
-      form:
-        new_prompt_label: New prompt
-        submit:
-          text: Create Prompt
-          disabled: Creating...
-      prompt:
-        destroy:
-          text: Delete
-          disabled: Removing...
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -327,9 +327,9 @@ en:
       my_developer_profile: My developer profile
       new_notifications: You have a new notification
       open_user_menu: Open user menu
+      prompts: Prompts
       sign_out: Sign out
       transactions: Transactions
-      prompts: Prompts
       view_conversations: View conversations
       view_notifications: View notifications
   new_developer_field_component:
