@@ -1,0 +1,24 @@
+<li class="py-4 px-16">
+  <div class="flex items-center space-x-4">
+    <div class="flex-1 min-w-0">
+      <p class="text-sm font-medium text-gray-900 truncate"><%= prompt.name %></p>
+    </div>
+    <div>
+      <button type="button"
+              data-controller="slide-toggle"
+              data-action="click->slide-toggle#toggle"
+              data-slide-toggle-enabled-value="<%= prompt.active? %>"
+              data-slide-toggle-indicator-on-class="translate-x-5"
+              data-slide-toggle-indicator-off-class="translate-x-0"
+              data-slide-toggle-background-on-class="bg-green-500"
+              data-slide-toggle-background-off-class="bg-gray-200"
+              class="rounded-full h-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      >
+        <input type="checkbox" class="sr-only">
+        <span data-slide-toggle-target="background" aria-hidden="true" class="inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent cursor-pointer transition-colors rounded-full ease-in-out duration-200">
+          <span data-slide-toggle-target="indicator" aria-hidden="true" class="inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</li>

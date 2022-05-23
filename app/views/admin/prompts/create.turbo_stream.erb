@@ -1,0 +1,4 @@
+<%= turbo_stream.update "new-prompt" %>
+<%= turbo_stream.append "prompts" do %>
+  <%= render @prompt %>
+<% end %>

@@ -102,7 +102,14 @@ en:
         empty:
           title: No prompts
           subtext: Get started by creating a new prompt.
-        new_button: New Prompt
+        new_button:
+          text: New Prompt
+          disabled: Loading...
+      form:
+        new_prompt_label: New prompt
+        submit:
+          text: Create Prompt
+          disabled: Creating...
   blocks:
     create:
       notice: "%{other_recipient} was blocked."

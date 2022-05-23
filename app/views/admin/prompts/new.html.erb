@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "new-prompt" do %>
+  <div class="bg-white shadow max-w-lg sm:rounded-lg mt-4 px-4 py-5 sm:p-6">
+    <%= render "form", prompt: @prompt %>
+  </div>
+<% end %>

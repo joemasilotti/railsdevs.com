@@ -1,0 +1,31 @@
+<%= form_with model: prompt, class: "flex-col items-start w-full" do |f| %>
+  <div class="w-full">
+    <%= f.label :name, t(".new_prompt_label"), class: "block text-sm font-medium text-gray-700" %>
+    <div>
+      <%= f.text_area :name, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+  </div>
+  <div class="mt-4 flex items-center justify-between">
+    <div class="flex items-center space-x-2">
+      <label class="text-sm text-gray-900">
+        Active?
+      </label>
+      <button type="button"
+              data-controller="slide-toggle"
+              data-action="click->slide-toggle#toggle"
+              data-slide-toggle-enabled-value="<%= prompt.active? %>"
+              data-slide-toggle-indicator-on-class="translate-x-5"
+              data-slide-toggle-indicator-off-class="translate-x-0"
+              data-slide-toggle-background-on-class="bg-green-500"
+              data-slide-toggle-background-off-class="bg-gray-200"
+              class="rounded-full h-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      >
+        <%= f.check_box :active, data: { "slide-toggle-target": "checkbox" }, class: "sr-only" %>
+        <span data-slide-toggle-target="background" aria-hidden="true" class="inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent cursor-pointer transition-colors rounded-full ease-in-out duration-200">
+          <span data-slide-toggle-target="indicator" aria-hidden="true" class="inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+        </span>
+      </button>
+    </div>
+    <%= render SubmitButtonComponent.new(text: t(".submit.text"), disable_with: t(".submit.disabled")) %>
+  </div>
+<% end %>
