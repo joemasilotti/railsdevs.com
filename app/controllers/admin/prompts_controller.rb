@@ -1,5 +1,7 @@
 module Admin
   class PromptsController < ApplicationController
+    include ActionView::RecordIdentifier
+
     def index
       @prompts = Admin::Prompt.all.order(created_at: :asc)
     end
@@ -29,6 +31,10 @@ module Admin
     end
 
     def destroy
+      @prompt = Admin::Prompt.find(params[:id])
+      @prompt.destroy
+
+      render turbo_stream: turbo_stream.remove(dom_id(@prompt))
     end
 
     private

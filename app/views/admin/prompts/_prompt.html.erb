@@ -1,7 +1,13 @@
 <li id="<%= dom_id prompt %>" class="py-4 px-16">
   <div class="flex items-center space-x-4">
     <div class="flex-1 min-w-0">
-      <p class="text-sm font-medium text-gray-900 truncate"><%= prompt.name %></p>
+      <p class="text-gray-900 truncate"><%= prompt.name %></p>
+      <%= form_with model: prompt, method: :delete do |f| %>
+        <%= f.button class: "group text-sm text-red-400 hover:underline hover:text-red-500 disabled:text-gray-300 disabled:cursor-not-allowed" do %>
+          <%= tag.span t(".destroy.text"), class: "group-disabled:hidden" %>
+          <%= tag.span t(".destroy.disabled"), class: "hidden group-disabled:inline" %>
+        <% end %>
+      <% end %>
     </div>
     <div>
       <%= form_with model: prompt, method: :patch, data: {controller: "slide-toggle", action: "turbo:submit-end->slide-toggle#processResponse", "slide-toggle-enabled-value": prompt.active?, "slide-toggle-indicator-on-class": "translate-x-5", "slide-toggle-indicator-off-class": "translate-x-0", "slide-toggle-background-on-class": "bg-green-500", "slide-toggle-background-off-class": "bg-gray-200"}, class: "rounded-full h-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do |f| %>

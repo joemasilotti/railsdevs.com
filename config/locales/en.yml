@@ -110,6 +110,10 @@ en:
         submit:
           text: Create Prompt
           disabled: Creating...
+      prompt:
+        destroy:
+          text: Delete
+          disabled: Removing...
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
