@@ -82,9 +82,6 @@ module Messaging
         false
       end
 
-      def existing_conversation?
-        false
-      end
 
       def invalid_subscription?
         false

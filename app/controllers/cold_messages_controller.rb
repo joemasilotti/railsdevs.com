@@ -2,6 +2,11 @@ class ColdMessagesController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    conversation = Messaging::FindConversation.find(current_user, developer_id:)
+    if conversation
+      redirect_to conversation and return
+    end
+
     result = Messaging::Message.new(current_user, developer_id:).build_message
     if result.success?
       @cold_message = result.cold_message
@@ -33,8 +38,6 @@ class ColdMessagesController < ApplicationController
 
     if result.missing_business?
       redirect_to new_business_path, notice: result.message
-    elsif result.existing_conversation?
-      redirect_to result.conversation
     elsif result.invalid_subscription?
       redirect_to pricing_path
     end
