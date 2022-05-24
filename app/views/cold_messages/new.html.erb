@@ -18,7 +18,7 @@
   </div>
 
   <div class="mt-12 sm:mt-20 sm:mx-auto sm:w-full sm:max-w-xl">
-    <% if @cold_message.messageable %>
+    <% if @cold_message.messageable? %>
       <div class="flex items-start sm:space-x-4">
         <div class="hidden sm:block shrink-0">
           <%= render AvatarComponent.new(avatarable: @cold_message.business, classes: "inline-block h-10 w-10 rounded-full") %>
@@ -26,7 +26,7 @@
 
         <div class="min-w-0 flex-1 px-4 sm:px-0">
           <%= form_with model: [@cold_message.developer, @cold_message.message], class: "relative" do |form| %>
-            <%= render "messages/form", form: form, terms: @cold_message.show_hiring_fee_terms %>
+            <%= render "messages/form", form: form, terms: @cold_message.show_hiring_fee_terms? %>
           <% end %>
 
           <div class="prose prose-sm mt-10 md:mt-20">

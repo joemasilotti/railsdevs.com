@@ -54,7 +54,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     developer = developers(:one)
 
     sign_in users(:empty)
-    post developer_messages_path(developer)
+    post developer_messages_path(developer, params: {message: {body: "Hello!"}})
     assert_redirected_to new_business_path
 
     post businesses_path, params: valid_business_params

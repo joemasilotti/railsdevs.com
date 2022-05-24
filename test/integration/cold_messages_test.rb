@@ -1,7 +1,6 @@
 require "test_helper"
 
 class ColdMessagesTest < ActionDispatch::IntegrationTest
-  include NotificationsHelper
   include PayHelper
   include SubscriptionsHelper
 
@@ -21,7 +20,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     get new_developer_message_path(@developer)
     assert_redirected_to new_business_path
 
-    post developer_messages_path(@developer)
+    post developer_messages_path(@developer, params: message_params)
     assert_redirected_to new_business_path
   end
 
@@ -31,7 +30,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to pricing_path
   end
 
-  test "stores the location if no active business subscription" do
+  test "stores the location when redirecting" do
     sign_in businesses(:one).user
     get new_developer_message_path(@developer)
     assert_equal session["user_return_to"], new_developer_message_path(@developer)
@@ -61,17 +60,11 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
   test "a business can create a new conversation" do
     sign_in @business.user
 
-    assert_difference "Message.count", 1 do
-      assert_difference "Conversation.count", 1 do
-        assert_sends_notification NewConversationNotification do
-          post developer_messages_path(@developer), params: message_params
-        end
-      end
+    assert_difference "Conversation.count", 1 do
+      post developer_messages_path(@developer), params: message_params
     end
 
     assert_redirected_to conversation_path(Conversation.last)
-    follow_redirect!
-    assert_select "h1", text: /^Conversation/
   end
 
   test "starting an existing conversation redirects to the conversation" do
