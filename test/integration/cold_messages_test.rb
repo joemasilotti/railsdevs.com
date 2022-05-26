@@ -94,7 +94,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     get new_developer_message_path(@developer)
 
-    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
+    assert_select "h3", text: I18n.t("upgrade_required_component.title.upgrade")
   end
 
   test "an invalid message re-renders the form" do
