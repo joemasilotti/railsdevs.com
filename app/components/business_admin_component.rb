@@ -22,6 +22,10 @@ class BusinessAdminComponent < ApplicationComponent
     end
   end
 
+  def subscription_name(subscription)
+    Businesses::Subscription.with_price_id(subscription.processor_plan).name
+  end
+
   private
 
   def customer

@@ -8,7 +8,7 @@ class ExpiredSubscriptionComponent < ApplicationComponent
 
   def render_content?
     if user.business == business
-      user.active_business_subscription?
+      Businesses::Permission.new(user.subscriptions).active_subscription?
     else
       true
     end

@@ -1,6 +1,8 @@
 require "test_helper"
 
 class MessagePolicyTest < ActiveSupport::TestCase
+  include SubscriptionsHelper
+
   setup do
     @conversation = conversations(:one)
     @message = @conversation.messages.new
@@ -21,15 +23,11 @@ class MessagePolicyTest < ActiveSupport::TestCase
     refute MessagePolicy.new(user, @message).create?
   end
 
-  test "businesses without an active subscription can't send messages" do
-    user = @conversation.business.user
-    pay_subscriptions(:full_time).delete
-    refute MessagePolicy.new(user, @message).create?
-  end
-
   test "businesses on part-time plans can't message developers only seeking full-time roles" do
     user = @conversation.business.user
-    update_subscription(BusinessSubscription::PartTime)
+    assert MessagePolicy.new(user, @message).create?
+
+    update_subscription(:part_time)
     assert MessagePolicy.new(user, @message).create?
 
     @conversation.developer.role_type.update!(
@@ -38,9 +36,5 @@ class MessagePolicyTest < ActiveSupport::TestCase
       full_time_contract: false
     )
     refute MessagePolicy.new(user, @message).create?
-  end
-
-  def update_subscription(plan_class)
-    pay_subscriptions(:full_time).update!(processor_plan: plan_class.new.price_id)
   end
 end

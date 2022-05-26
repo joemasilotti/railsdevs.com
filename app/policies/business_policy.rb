@@ -4,7 +4,7 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    if user.active_business_subscription?
+    if Businesses::Permission.new(user.subscriptions).active_subscription?
       default_attributes + notification_attributes
     else
       default_attributes
