@@ -23,6 +23,6 @@ class MarkdownComponent < ApplicationComponent
   end
 
   def rendered_markdown
-    MarkdownRenderer.new(path, localize: localize).render
+    MarkdownRenderer.new(path, localize:).render
   end
 end
