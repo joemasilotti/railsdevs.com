@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params.merge(conversation:, sender:))
-    authorize! @message
+    authorize @message
 
     if @message.save_and_notify
       respond_to do |format|

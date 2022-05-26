@@ -2,12 +2,12 @@ class BlocksController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    authorize! conversation
+    authorize conversation
     @conversation = conversation
   end
 
   def create
-    authorize! conversation
+    authorize conversation
     conversation.touch(blocked_by_column)
     redirect_to root_path, notice: t(".notice", other_recipient:)
   end

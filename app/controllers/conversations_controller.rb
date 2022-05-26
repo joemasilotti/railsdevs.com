@@ -9,7 +9,7 @@ class ConversationsController < ApplicationController
   def show
     @conversation = conversation
     @message = Message.new(conversation: @conversation)
-    authorize! @conversation
+    authorize @conversation
   end
 
   private

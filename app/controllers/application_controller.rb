@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   include HoneybadgerUserContext
   include Locales
+  include Pundit::Authorization
   include StoredLocation
 
-  rescue_from ActionPolicy::Unauthorized, with: :user_not_authorized
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   around_action :set_locale
   helper_method :resolve_locale
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_not_authorized(exception)
+  def user_not_authorized
     flash[:alert] = I18n.t("errors.unauthorized")
     redirect_back_or_to root_path, allow_other_host: false
   rescue ActionController::Redirecting::UnsafeRedirectError

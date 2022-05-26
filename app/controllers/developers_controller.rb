@@ -25,12 +25,12 @@ class DevelopersController < ApplicationController
 
   def edit
     @developer = Developer.find(params[:id])
-    authorize! @developer
+    authorize @developer
   end
 
   def update
     @developer = Developer.find(params[:id])
-    authorize! @developer
+    authorize @developer
 
     if @developer.update_and_notify(developer_params)
       redirect_to @developer, notice: t(".updated")
@@ -41,7 +41,7 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find(params[:id])
-    authorize! @developer
+    authorize @developer
   end
 
   private

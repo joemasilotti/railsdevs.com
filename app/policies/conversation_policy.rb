@@ -1,5 +1,7 @@
-class ConversationPolicy < ActionPolicy::Base
-  alias_rule :create?, to: :show?
+class ConversationPolicy < ApplicationPolicy
+  def create?
+    show?
+  end
 
   def show?
     return true if user.admin?

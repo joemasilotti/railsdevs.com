@@ -3,12 +3,6 @@ class BusinessPolicy < ApplicationPolicy
     record_owner?
   end
 
-  params_filter do |params|
-    params.permit(permitted_attributes)
-  end
-
-  private
-
   def permitted_attributes
     if user.active_business_subscription?
       default_attributes + notification_attributes
@@ -16,6 +10,8 @@ class BusinessPolicy < ApplicationPolicy
       default_attributes
     end
   end
+
+  private
 
   def default_attributes
     [
