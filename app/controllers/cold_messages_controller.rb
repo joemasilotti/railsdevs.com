@@ -24,8 +24,7 @@ class ColdMessagesController < ApplicationController
   def cold_message(message)
     ColdMessage.new(
       message:,
-      show_hiring_fee_terms: current_user.active_full_time_business_subscription?,
-      tips: MarkdownRenderer.new("cold_messages/tips").render
+      show_hiring_fee_terms: current_user.active_full_time_business_subscription?
     )
   end
 
