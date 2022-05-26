@@ -33,7 +33,7 @@
       <% end %>
     <% else %>
       <div class="mt-4 md:mt-8">
-        <%= render "messages/upgrade_required" %>
+        <%= render UpgradeRequiredComponent.new(current_user) %>
       </div>
     <% end %>
   </div>
