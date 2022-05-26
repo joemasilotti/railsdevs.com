@@ -41,7 +41,7 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find(params[:id])
-    authorize @developer, policy_class: DeveloperPolicy
+    authorize @developer
   end
 
   private

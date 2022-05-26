@@ -1,6 +1,6 @@
 class BusinessPolicy < ApplicationPolicy
   def update?
-    user == record.user
+    record_owner?
   end
 
   def permitted_attributes

@@ -27,7 +27,7 @@
   <%= render HiringFeeComponent.new(current_user, @conversation) %>
 
   <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
-    <% if @messageable %>
+    <% if policy(@message).create? %>
       <%= turbo_frame_tag "new_message" do %>
         <%= render "conversations/new_message", conversation: @conversation, message: @message %>
       <% end %>
