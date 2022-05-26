@@ -197,6 +197,7 @@ pt-BR:
       attached: não está anexado
       content_type_invalid: formato da imagem inválido
       max_file_size_invalid: imagem com mais de %{size}
+    unauthorized: Você não tem acesso a isso.
   home:
     show:
       available_developers: Desenvolvedores disponíveis agora
@@ -299,9 +300,6 @@ pt-BR:
   paywalled_component:
     description: Informações somente disponível com uma assinatura empresarial.
     title: Informação privada
-  pundit:
-    errors:
-      unauthorized: Você não tem acesso a isso.
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.

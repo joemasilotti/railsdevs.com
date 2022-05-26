@@ -257,6 +257,7 @@ en:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
+    unauthorized: You don't have access to that.
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
@@ -484,9 +485,6 @@ en:
       description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
       title_og: Pricing
-  pundit:
-    errors:
-      unauthorized: You don't have access to that.
   read_notifications:
     create:
       notice: All notifications marked as read.

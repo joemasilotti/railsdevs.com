@@ -183,6 +183,7 @@ es:
       attached: no esta adjunto
       content_type_invalid: formato de la imagén no soprotado
       max_file_size_invalid: imagén superior a %{size}
+    unauthorized: No tienes permiso para eso.
   home:
     show:
       available_developers: Desarrolladores disponibles ahora
@@ -242,9 +243,6 @@ es:
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
-  pundit:
-    errors:
-      unauthorized: No tienes permiso para eso.
   read_notifications:
     empty_state:
       body: No tienes notificaciones leídas.
