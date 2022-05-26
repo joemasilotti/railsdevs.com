@@ -158,6 +158,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains developer.bio
   end
 
+  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
+    developer = developers(:one)
+    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+
+    get developer_path(developer)
+
+    assert_select "p", text: "Line one"
+    assert_select "p", text: "Line two"
+    assert_select "p", text: "Header"
+  end
+
   test "successful edit to profile" do
     sign_in users(:developer)
     developer = developers(:one)
