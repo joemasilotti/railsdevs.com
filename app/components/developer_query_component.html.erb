@@ -2,7 +2,10 @@
 <!-- desktop form -->
 <%= form_with url: developers_path, id: 'quedev', method: :get do |form| %>
 
-  <!-- search feature -->
+  <!-- search feature 
+    (sort dropdown by newest or availibilty is in: 
+    DeveloperQueryComponentSort. link by form attribute) 
+  -->
   <% if Feature.enabled?(:search_feature, user: @user) %>
     <!-- search bar -->
     <%= form.label :search_query, t(".search_query_label") %>
