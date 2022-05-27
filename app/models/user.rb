@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include HasBusinessSubscription
+  include PayCustomer
 
   devise :confirmable,
     :database_authenticatable,

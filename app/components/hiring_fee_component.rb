@@ -7,7 +7,7 @@ class HiringFeeComponent < ApplicationComponent
   end
 
   def render?
-    user.active_full_time_business_subscription? &&
+    Businesses::Permission.new(user.subscriptions).pays_hiring_fee? &&
       conversation.hiring_fee_eligible?
   end
 

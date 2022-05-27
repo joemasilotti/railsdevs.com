@@ -287,11 +287,6 @@ en:
     message:
       wrote: wrote
       you: You
-    upgrade_required:
-      body: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
-      details: View pricing details
-      title: Upgrade required
-      upgrade: Upgrade my account
   nav_bar:
     base_component:
       about: About
@@ -535,5 +530,16 @@ en:
   upgrade_account_component:
     cta: Upgrade your account
     title: Requires an active business subscription.
+  upgrade_required_component:
+    body:
+      expired: Your subscription has expired. Reactivate your account to continue messaging developers.
+      upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+    cta:
+      expired: Reactivate my account
+      upgrade: Upgrade my account
+    details: View pricing details
+    title:
+      expired: Subscription expired
+      upgrade: Upgrade required
   utc_offset_component:
     gmt: GMT

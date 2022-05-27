@@ -1,0 +1,17 @@
+shared:
+  legacy:
+    name: Legacy
+    price: 99
+    price_id: <%= stripe_price_id(:legacy_plan) %>
+  part_time:
+    name: Part-time
+    price: 99
+    price_id: <%= stripe_price_id(:part_time_plan) %>
+  full_time:
+    name: Full-time
+    price: 299
+    price_id: <%= stripe_price_id(:full_time_plan) %>
+  free:
+    name: Free
+    price: 0
+    price_id: <%= Pay.default_plan_name %>

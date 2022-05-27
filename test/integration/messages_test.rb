@@ -3,6 +3,7 @@ require "test_helper"
 class MessagesTest < ActionDispatch::IntegrationTest
   include NotificationsHelper
   include PayHelper
+  include SubscriptionsHelper
 
   setup do
     @developer = developers(:prospect)
@@ -78,7 +79,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "part-time plan subscribers can't message full-time seekers" do
     sign_in @business.user
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
     @developer.role_type.update!(
       part_time_contract: false,
       full_time_contract: false,
