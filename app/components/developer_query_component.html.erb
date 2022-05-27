@@ -8,8 +8,8 @@
   -->
   <% if Feature.enabled?(:search_feature, user: @user) %>
     <!-- search bar -->
-    <%= form.label :search_query, t(".search_query_label") %>
-    <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_label") %>
+    <div class="py-4 group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900"><%= form.label :search_query, t(".search_query_label") %></div>
+    <%= form.text_field :search_query, value: search_query, placeholder: "Ruby, React, etc", class: "rounded-lg" %>
   <% else %>
     <!-- sort dropdown (won't show because feature is enabled) -->
     <div data-controller="toggle" data-toggle-visibility-class="hidden" id="sort">
@@ -33,20 +33,20 @@
   <% if Feature.enabled?(:role_level_filters, user: @user) %>
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
       <!-- role dropdown -->
-      <div>
-        <button type="button" data-action="toggle#toggle" aria-expanded="false">
+      <div class="py-2">
+        <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
           <span><%= t(".role_level.title") %></span>
           <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
         </button>
       </div>
 
       <!-- role checkbox -->
-      <div data-toggle-target="element">
+      <div data-toggle-target="element" class="hidden">
         <div>
           <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
             <div>
-              <%= b.check_box checked: role_level_selected?(b.object) %>
-              <%= b.label %>
+              <%= b.check_box checked: role_level_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
+              <%= b.label class: 'ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap' %>
             </div>
           <% end %>
         </div>
@@ -54,7 +54,7 @@
         <div>
           <div>
             <!-- role apply button -->
-            <button type="submit">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
               <%= t(".apply") %>
             </button>
           </div>
@@ -63,30 +63,33 @@
     </div><!-- data-controller -->
   <% end %>
 
-  <!-- work preferences dropdown -->
+  <!-- work preferences -->
   <div data-controller="toggle" data-toggle-visibility-class="hidden">
-    <button type="button" data-action="toggle#toggle" aria-expanded="false">
-      <span><%= t(".work_preference.title") %></span>
-      <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-    </button>
+    <!-- work preferences dropdown -->
+    <div class="py-2">
+      <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
+        <span><%= t(".work_preference.title") %></span>
+        <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
+      </button>
+    </div>
 
     <!-- work preferences checkboxes -->
-    <div data-toggle-target="element">
+    <div data-toggle-target="element" class="hidden">
       <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %><!-- begin role_types -->
-        <%= b.check_box checked: role_type_selected?(b.object) %>
-        <%= b.label %>
+        <%= b.check_box checked: role_type_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
+        <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
       <% end %><!-- end role_types -->
 
       <hr>
 
       <!-- devs not interested checkbox -->
       <div>
-        <%= form.check_box :include_not_interested, include_hidden: false, checked: include_not_interested? %><!-- begin include_not_interested -->
+        <%= form.check_box :include_not_interested, include_hidden: false, checked: include_not_interested?, class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %><!-- begin include_not_interested -->
         <%= form.label :include_not_interested, t(".include_not_interested") %>
       </div>
 
       <!-- work preferences/not intersted apply button -->
-      <button type="submit" name="sort" value="<%= sort %>">
+      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" name="sort" value="<%= sort %>">
         <%= t(".apply") %>
       </button>
 
@@ -95,20 +98,22 @@
 
   <!-- timezone toggle -->
   <div data-controller="toggle" data-toggle-visibility-class="hidden" id="desktop-timezone-filters">
-    <button type="button" data-action="toggle#toggle" aria-expanded="false">
-      <span><%= t(".timezone.title") %></span>
-      <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-    </button>
+    <div class="py-2">
+      <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
+        <span><%= t(".timezone.title") %></span>
+        <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
+      </button>
+    </div>
 
     <!-- timezone checkbox -->
-    <div data-toggle-target="element">
+    <div data-toggle-target="element" class="hidden">
       <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
-        <%= b.check_box checked: time_zone_selected?(b.object) %>
-        <%= b.label %>
+        <%= b.check_box checked: time_zone_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
+        <%= b.label class: 'ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap' %>
       <% end %>
 
       <!-- timezone apply -->
-      <button type="submit" name="sort" value="<%= sort %>">
+      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" name="sort" value="<%= sort %>">
         <%= t(".apply") %>
       </button>
     </div><!-- data-toggle-target -->
