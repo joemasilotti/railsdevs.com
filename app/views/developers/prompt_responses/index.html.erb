@@ -1,0 +1,10 @@
+<%= turbo_frame_tag "prompt-responses" do %>
+  <% if @developer.user == current_user && @prompt_responses.empty? %>
+    <%= render "empty_state" %>
+  <% else %>
+    <ul role="list" class="mt-12 space-y-3">
+      <li class="bg-white border-gray-200 overflow-hidden rounded-md px-6 py-4">
+      </li>
+    </ul>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="flex-col items-center text-center mt-12">
+  <%= inline_svg_tag "prompt_empty_state", class: "h-36 w-36 mx-auto" %>
+  <%= tag.h3 t(".headline"), class: "mt-2 text-sm font-medium text-gray-900" %>
+  <%= tag.p t(".cta"), class: "mt-1 text-sm text-gray-500" %>
+  <div class="mt-6">
+    <%= link_to new_developer_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+      <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
+      <%= t(".add_response") %>
+    <% end %>
+  </div>
+</div>

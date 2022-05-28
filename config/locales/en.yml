@@ -260,6 +260,11 @@ en:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
+    prompt_responses:
+      empty_state:
+        headline: No prompt responses published
+        cta: Attract companies by writing a prompt response!
+        add_response: "Add Response"
     show:
       description: Description
       edit: Edit

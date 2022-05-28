@@ -27,7 +27,10 @@ Rails.application.routes.draw do
 
     resources :developers, except: :destroy do
       resources :messages, only: %i[new create], controller: :cold_messages
+      resources :prompt_responses, only: %i[index new create], module: :developers
     end
+
+    resources :prompt_responses, only: %i[edit update destroy], module: :developers
 
     namespace :open_startup, path: "/open" do
       resources :contributions, only: :index
