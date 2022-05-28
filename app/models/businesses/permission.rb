@@ -19,7 +19,7 @@ module Businesses
     end
 
     def can_message_developer?(role_type:)
-      if legacy_subscription? || full_time_subscription?
+      if legacy_subscription? || full_time_subscription? || free_subscription?
         true
       elsif part_time_subscription? && !role_type.only_full_time_employment?
         true
@@ -43,6 +43,10 @@ module Businesses
 
     def part_time_subscription?
       active_subscriptions(:part_time).any?
+    end
+
+    def free_subscription?
+      active_subscriptions(:free).any?
     end
   end
 end

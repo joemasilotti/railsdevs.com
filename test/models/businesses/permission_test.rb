@@ -42,7 +42,7 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     assert permission.can_message_developer?(role_type: flexible_role_type)
   end
 
-  test "full-time and legacy subscriptions can message any developer" do
+  test "full-time, legacy, and free subscriptions can message any developer" do
     customer = pay_customers(:one)
     permission = Businesses::Permission.new(customer.subscriptions)
     assert permission.can_message_developer?(role_type: part_time_role_type)
@@ -50,6 +50,12 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     assert permission.can_message_developer?(role_type: flexible_role_type)
 
     update_subscription(:legacy)
+    permission = Businesses::Permission.new(customer.subscriptions)
+    assert permission.can_message_developer?(role_type: part_time_role_type)
+    assert permission.can_message_developer?(role_type: full_time_role_type)
+    assert permission.can_message_developer?(role_type: flexible_role_type)
+
+    update_subscription(:free)
     permission = Businesses::Permission.new(customer.subscriptions)
     assert permission.can_message_developer?(role_type: part_time_role_type)
     assert permission.can_message_developer?(role_type: full_time_role_type)
