@@ -114,6 +114,8 @@ en:
   businesses:
     create:
       created: Your business was added!
+    edit:
+      title: Your business profile
     form:
       avatar: Your company logo
       business:
@@ -199,6 +201,8 @@ en:
       created: Your profile was added!
     details:
       title: Details
+    edit:
+      title: Your developer profile
     form:
       creating: Creating...
       online_presence:
