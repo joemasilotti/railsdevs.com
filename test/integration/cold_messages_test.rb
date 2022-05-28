@@ -12,7 +12,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "must be signed in" do
     post developer_messages_path(@developer)
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "must have a business profile" do
