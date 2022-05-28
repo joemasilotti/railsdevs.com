@@ -1,4 +1,5 @@
 <%= turbo_frame_tag "prompt-responses" do %>
+  <%= turbo_frame_tag "new-response" %>
   <% if @developer.user == current_user && @prompt_responses.empty? %>
     <%= render "empty_state" %>
   <% else %>

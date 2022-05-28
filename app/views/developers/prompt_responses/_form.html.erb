@@ -1,0 +1,13 @@
+<%= form_with model: prompt_response, url: developer_prompt_responses_path(developer), data: {controller: "prompt-response-dropdown"}, class: "-mt-4 flex-col items-start w-full space-y-3" do |f| %>
+  <div>
+    <%= f.label :prompt_id, "Select your prompt", class: "block text-sm font-medium text-gray-700" %>
+    <%= f.select :prompt_id, options_from_collection_for_select(@prompts, "id", "name"), {prompt: "Select a prompt"}, data: {action: "change->prompt-response-dropdown#updateUi"}, class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md" %>
+  </div>
+  <div data-prompt-response-dropdown-target="responseArea" class="w-full space-y-3 hidden">
+    <div>
+      <%= f.label :content, data: {"prompt-response-dropdown-target": "label"}, class: "block font-medium text-gray-700" %>
+      <%= f.text_area :content, rows: 5, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+    </div>
+    <%= render SubmitButtonComponent.new(text: t(".submit.text"), disable_with: t(".submit.disabled")) %>
+  </div>
+<% end %>

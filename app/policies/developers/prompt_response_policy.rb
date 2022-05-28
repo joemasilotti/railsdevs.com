@@ -1,5 +1,9 @@
-module Developer
-  class PromptResponse < ApplicationPolicy
+module Developers
+  class PromptResponsePolicy < ApplicationPolicy
+    def index?
+      user&.active_business_subscription? || user == record.user
+    end
+
     def create?
       record_owner?
     end

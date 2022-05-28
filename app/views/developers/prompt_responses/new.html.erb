@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "new-response" do %>
+  <div class="mt-8 bg-gray-50 overflow-hidden rounded-lg">
+    <div class="px-4 py-5 sm:p-6">
+      <%= render "form", developer: @developer, prompt_response: @prompt_response %>
+    </div>
+  </div>
+<% end %>
