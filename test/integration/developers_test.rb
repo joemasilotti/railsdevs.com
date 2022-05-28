@@ -52,7 +52,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    create_developer(hero: "Pacific", utc_offset: PACIFIC_UTC_OFFSET)
+    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
     get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
@@ -156,6 +156,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_title_contains developer.hero
     assert_description_contains developer.bio
+  end
+
+  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
+    developer = developers(:one)
+    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+
+    get developer_path(developer)
+
+    assert_select "p", text: "Line one"
+    assert_select "p", text: "Line two"
+    assert_select "p", text: "Header"
   end
 
   test "successful edit to profile" do

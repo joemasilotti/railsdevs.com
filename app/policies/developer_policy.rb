@@ -6,10 +6,4 @@ class DeveloperPolicy < ApplicationPolicy
   def show?
     record.visible? || record_owner?
   end
-
-  private
-
-  def record_owner?
-    user == record.user
-  end
 end

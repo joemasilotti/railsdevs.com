@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include APIAuthenticatable
-  include HasBusinessSubscription
+  include PayCustomer
 
   devise :confirmable,
     :database_authenticatable,

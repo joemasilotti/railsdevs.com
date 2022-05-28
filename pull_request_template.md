@@ -1,6 +1,6 @@
 <!-- Description of pull request linking to any relevant issues. -->
 
-### Pull request checklist
+## Pull request checklist
 
 <!-- Before you submit a pull request for review, please make sure... -->
 

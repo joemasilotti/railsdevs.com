@@ -6,6 +6,6 @@ class UpgradeAccountComponent < ApplicationComponent
   end
 
   def render_content?
-    user.active_business_subscription?
+    Businesses::Permission.new(user.subscriptions).active_subscription?
   end
 end

@@ -3,6 +3,7 @@ require "test_helper"
 class ColdMessagesTest < ActionDispatch::IntegrationTest
   include NotificationsHelper
   include PayHelper
+  include SubscriptionsHelper
 
   setup do
     @developer = developers(:one)
@@ -51,7 +52,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "a legacy business do not see the hiring fee agreement checkbox" do
     sign_in @business.user
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::Legacy.new.plan)
+    update_subscription(:legacy)
     get new_developer_message_path(@developer)
 
     assert_select "input[type=checkbox][name='message[hiring_fee_agreement]']", count: 0
@@ -84,7 +85,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
   test "part-time plan subscribers can't message full-time seekers" do
     sign_in @business.user
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
     @developer.role_type.update!(
       part_time_contract: false,
       full_time_contract: false,
@@ -93,7 +94,7 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     get new_developer_message_path(@developer)
 
-    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
+    assert_select "h3", text: I18n.t("upgrade_required_component.title.upgrade")
   end
 
   test "an invalid message re-renders the form" do

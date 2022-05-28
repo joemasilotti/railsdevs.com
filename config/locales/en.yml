@@ -168,6 +168,8 @@ en:
     title: Admin
   developer_card_component:
     featured: Featured developer
+  developer_open_graph_tags_component:
+    turbo_native_title: Developer profile
   developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile
@@ -257,8 +259,7 @@ en:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
-  developer_open_graph_tags_component:
-    turbo_native_title: Developer profile
+    unauthorized: You don't have access to that.
   expired_subscription_component:
     cta: Upgrade your account to message developers
     title: Your subscription expired.
@@ -289,11 +290,6 @@ en:
     message:
       wrote: wrote
       you: You
-    upgrade_required:
-      body: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
-      details: View pricing details
-      title: Upgrade required
-      upgrade: Upgrade my account
   nav_bar:
     base_component:
       about: About
@@ -487,9 +483,6 @@ en:
       description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
       title_og: Pricing
-  pundit:
-    errors:
-      unauthorized: You don't have access to that.
   read_notifications:
     create:
       notice: All notifications marked as read.
@@ -540,5 +533,16 @@ en:
   upgrade_account_component:
     cta: Upgrade your account
     title: Requires an active business subscription.
+  upgrade_required_component:
+    body:
+      expired: Your subscription has expired. Reactivate your account to continue messaging developers.
+      upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+    cta:
+      expired: Reactivate my account
+      upgrade: Upgrade my account
+    details: View pricing details
+    title:
+      expired: Subscription expired
+      upgrade: Upgrade required
   utc_offset_component:
     gmt: GMT

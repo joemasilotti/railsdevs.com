@@ -26,7 +26,7 @@ module Analytics
       tracked_at.present?
     end
 
-    def mark_as_tracked!
+    def track!
       touch(:tracked_at)
     end
   end
