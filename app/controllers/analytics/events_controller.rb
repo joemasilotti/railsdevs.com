@@ -8,6 +8,7 @@ module Analytics
         flash[:event] = {goal: event.goal, value: event.value}
       end
 
+      flash.keep
       redirect_to event.url
     end
   end
