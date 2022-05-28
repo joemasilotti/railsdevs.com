@@ -5,7 +5,7 @@ message = Message.find_or_create_by!(conversation:, sender: business, body: "You
 Message.find_or_create_by!(conversation:, sender: developer, body: "Let's chat over Zoom.")
 
 # MessageMailer#new_message
-Notification.find_or_create_by!(type: NewMessageNotification.name, recipient: developer.user, params: {message:})
+Notification.find_or_create_by!(type: NewMessageNotification.name, recipient: developer.user, params: {message:, conversation:})
 
 # DeveloperMailer#invisiblize
 invisible_developer = User.find_by(email: "invisible@example.com").developer
