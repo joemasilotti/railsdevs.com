@@ -34,7 +34,7 @@ class Businesses::SubscriptionTest < ActiveSupport::TestCase
 
   test "finds all subscriptions by price ID" do
     price_ids = %w[
-      default
+      free
       price_FAKE_LEGACY_PLAN_PRICE_ID
       price_FAKE_PART_TIME_PLAN_PRICE_ID
       price_FAKE_FULL_TIME_PLAN_PRICE_ID

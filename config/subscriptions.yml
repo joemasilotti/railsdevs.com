@@ -14,4 +14,4 @@ shared:
   free:
     name: Free
     price: 0
-    price_id: <%= Pay.default_plan_name %>
+    price_id: free
