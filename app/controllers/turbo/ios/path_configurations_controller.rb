@@ -9,6 +9,11 @@ module Turbo
                 title: "Home",
                 path: "/",
                 ios_system_image_name: "house"
+              },
+              {
+                title: "Notifications",
+                path: "/notifications",
+                ios_system_image_name: "bell"
               }
             ]
           },

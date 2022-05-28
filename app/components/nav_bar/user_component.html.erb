@@ -110,7 +110,7 @@
       <!-- Navigation links -->
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <% links.each do |link| %>
-          <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
+          <%= helpers.link_to_active link.title, link.path, "data-turbo-action": "replace", active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
         <% end %>
       </div>
 

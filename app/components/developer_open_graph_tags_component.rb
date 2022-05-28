@@ -2,7 +2,10 @@ class DeveloperOpenGraphTagsComponent < OpenGraphTagsComponent
   def initialize(developer:)
     @developer = developer
     @title = @developer.hero
-    @turbo_native_title = I18n.t(".turbo_native_title")
+  end
+
+  def turbo_native_title
+    t(".turbo_native_title")
   end
 
   def description

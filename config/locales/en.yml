@@ -294,6 +294,7 @@ en:
     base_component:
       about: About
       developers: Developers
+      home: Home
       pricing: Pricing
     guest_component:
       register: Register

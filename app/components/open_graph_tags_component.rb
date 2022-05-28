@@ -1,4 +1,6 @@
 class OpenGraphTagsComponent < ApplicationComponent
+  attr_reader :turbo_native_title
+
   def initialize(title: nil, turbo_native_title: nil, description: nil, image: nil)
     @title = title
     @turbo_native_title = turbo_native_title
@@ -7,8 +9,8 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def title
-    if @turbo_native_title.present? && helpers.turbo_native_app?
-      @turbo_native_title
+    if turbo_native_title.present? && helpers.turbo_native_app?
+      turbo_native_title
     elsif @title.present? && helpers.turbo_native_app?
       @title
     elsif @title.present?
