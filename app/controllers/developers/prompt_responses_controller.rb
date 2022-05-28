@@ -4,7 +4,7 @@ module Developers
 
     def index
       @developer = ::Developer.find(params[:developer_id])
-      @prompt_responses = @developer.prompt_responses.includes(:prompts)
+      @prompt_responses = @developer.prompt_responses.includes(:prompt)
       authorize @developer, policy_class: Developers::PromptResponsePolicy
     end
 

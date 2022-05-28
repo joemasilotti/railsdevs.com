@@ -3,9 +3,15 @@
   <% if @developer.user == current_user && @prompt_responses.empty? %>
     <%= render "empty_state" %>
   <% else %>
-    <ul role="list" class="mt-12 space-y-3">
-      <li class="bg-white border-gray-200 overflow-hidden rounded-md px-6 py-4">
-      </li>
-    </ul>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <% @prompt_responses.each do |response| %>
+        <div class="relative rounded-lg border border-gray-300 bg-white mt-8 px-6 py-5 shadow-sm flex items-center space-x-3">
+          <div class="flex-1 min-w-0">
+            <%= tag.h3 response.prompt.name, class: "font-medium" %>
+            <%= tag.p response.content, class: "mt-2 text-sm text-gray-700" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
