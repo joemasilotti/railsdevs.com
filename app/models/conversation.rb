@@ -12,7 +12,7 @@ class Conversation < ApplicationRecord
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
 
   def other_recipient(user)
-    developer == user.developer ? business : developer
+    recipient?(user.developer) ? business : developer
   end
 
   def recipient?(participant)
