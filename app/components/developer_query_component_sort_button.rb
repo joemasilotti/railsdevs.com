@@ -1,4 +1,4 @@
-class DeveloperQueryComponentSort < ApplicationComponent
+class DeveloperQueryComponentSortButton < ApplicationComponent
   attr_reader :query
 
   delegate :sort, :search_query, to: :query
