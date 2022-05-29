@@ -15,6 +15,10 @@ class Conversation < ApplicationRecord
     developer == user.developer ? business : developer
   end
 
+  def recipient?(participant)
+    participant.in? [ business, developer ]
+  end
+
   def business?(user)
     business == user.business
   end
