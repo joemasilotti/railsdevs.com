@@ -19,14 +19,6 @@ class Conversation < ApplicationRecord
     participant.in? [ business, developer ]
   end
 
-  def business?(user)
-    business == user.business
-  end
-
-  def developer?(user)
-    developer == user.developer
-  end
-
   def blocked?
     developer_blocked_at.present? || business_blocked_at.present?
   end

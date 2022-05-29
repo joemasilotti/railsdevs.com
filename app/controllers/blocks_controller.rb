@@ -19,9 +19,9 @@ class BlocksController < ApplicationController
   end
 
   def blocked_by_column
-    if conversation.business?(current_user)
+    if conversation.recipient?(current_user.business)
       :business_blocked_at
-    elsif conversation.developer?(current_user)
+    elsif conversation.recipient?(current_user.developer)
       :developer_blocked_at
     end
   end

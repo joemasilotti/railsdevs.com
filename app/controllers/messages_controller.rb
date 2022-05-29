@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   private
 
   def require_active_subscription!
-    if conversation.business?(current_user) && !Businesses::Permission.new(current_user.subscriptions).active_subscription?
+    if conversation.recipient?(current_user.business) && !Businesses::Permission.new(current_user.subscriptions).active_subscription?
       redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
     end
   end
@@ -33,11 +33,7 @@ class MessagesController < ApplicationController
   end
 
   def sender
-    if conversation.business?(current_user)
-      current_user.business
-    elsif conversation.developer?(current_user)
-      current_user.developer
-    end
+    [ current_user.business, current_user.developer ].find { conversation.recipient?(_1) }
   end
 
   def message_params
