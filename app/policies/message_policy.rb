@@ -4,25 +4,19 @@ class MessagePolicy < ApplicationPolicy
 
     return false unless business_recipient?
 
-    permission.can_message_developer?(role_type: developer.role_type)
+    permission.can_message_developer?(role_type: conversation.developer.role_type)
   end
 
   private
 
+  delegate :conversation, to: :record
+
   def developer_recipient?
-    user.developer == developer
+    conversation.developer?(user)
   end
 
   def business_recipient?
-    user.business == business
-  end
-
-  def business
-    record.conversation.business
-  end
-
-  def developer
-    record.conversation.developer
+    conversation.business?(user)
   end
 
   def permission
