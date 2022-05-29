@@ -23,3 +23,9 @@ application.register("page-scroll", PageScrollController)
 
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
+
+import SlideToggleController from "./slide_toggle_controller.js"
+application.register("slide-toggle", SlideToggleController)
+
+import PromptResponseDropdownController from "./prompt_response_dropdown_controller.js"
+application.register("prompt-response-dropdown", PromptResponseDropdownController)
