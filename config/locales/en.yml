@@ -243,6 +243,17 @@ en:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
+    notifications:
+      show:
+        help_text: Receive relevant email notifications about your profile on railsdevs
+        legend: Profile notifications
+        save: Save
+        send_stale_notification: Periodically remind me to update my profile
+        title: Email notifications
+        updating: Updating
+        your_notification_settings: Your notification settings
+      update:
+        updated: Your notification settings was updated!
     show:
       description: Description
       edit: Edit
@@ -330,6 +341,7 @@ en:
     potential_hire: "%{developer} may have been hired."
     show:
       notice: Notification marked as read.
+    stale_developer_profile: Is your developer profile up to date?
   open_startup:
     contributions:
       index:

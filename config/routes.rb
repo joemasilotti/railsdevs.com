@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
     resources :developers, except: :destroy do
       resources :messages, only: %i[new create], controller: :cold_messages
+      resource :notifications, only: %i[show update], module: :developers
     end
 
     namespace :open_startup, path: "/open" do

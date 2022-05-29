@@ -1,0 +1,41 @@
+<%= render "shared/error_messages", resource: @developer %>
+
+<div class="max-w-5xl mx-auto">
+  <div class="mt-8 lg:mt-16 flex flex-col space-y-6">
+    <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
+      <%= t(".your_notification_settings") %>
+    </h1>
+
+    <%= form_with model: @developer, url: [@developer, :notifications] do |form| %>
+      <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".title") %></h3>
+          </div>
+
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <div>
+              <%= form.label t(".legend"), class: "text-base font-medium text-gray-900" %>
+              <p class="text-sm leading-5 text-gray-500"><%= t(".help_text") %></p>
+              <div class="mt-4">
+                <fieldset>
+                  <legend class="sr-only"><%= t(".legend") %></legend>
+                  <div class="space-y-4">
+                    <div class="flex items-center">
+                      <%= form.check_box :send_stale_notification, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                      <%= form.label :send_stale_notification, t(".send_stale_notification"), class: "ml-3 block text-sm font-medium text-gray-700" %>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
+        <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: t(".updating"), button_classes: "ml-3") %>
+      </div>
+    <% end %>
+  </div>
+</div>
