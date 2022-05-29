@@ -1,0 +1,5 @@
+<%= turbo_stream.update "new-response" %>
+<%= turbo_stream.remove "prompt-response-empty" %>
+<%= turbo_stream.append "prompt-responses-container" do %>
+  <%= render @prompt_response %>
+<% end %>

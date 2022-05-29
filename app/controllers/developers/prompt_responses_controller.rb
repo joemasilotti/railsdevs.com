@@ -22,7 +22,7 @@ module Developers
       authorize @prompt_response
 
       if @prompt_response.save
-        redirect_to developer_path(@developer), notice: "Response published to profile!"
+        render "create"
       else
         render "new", status: :unprocessable_entity
       end

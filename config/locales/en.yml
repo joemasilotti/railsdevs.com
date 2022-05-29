@@ -266,7 +266,6 @@ en:
       empty_state:
         headline: No prompt responses published
         cta: Attract companies by writing a prompt response!
-        add_response: Add Response
       form:
         new_prompt_response_label: What are you thinking?
         submit:

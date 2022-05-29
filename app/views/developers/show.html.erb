@@ -40,7 +40,7 @@
                 </div>
               </div>
               <%= render PaywalledComponent.new(user: current_user, paywalled: @developer, size: :large) do %>
-                <%= turbo_frame_tag "prompt-responses", src: developer_prompt_responses_path(@developer) do %>
+                <%= turbo_frame_tag "prompt-responses-index", src: developer_prompt_responses_path(@developer) do %>
                   <ul role="list" class="mt-12 space-y-3">
                     <li class="bg-white border border-gray-200 overflow-hidden rounded-md px-6 py-4">
                       <div class="rounded bg-gray-200 h-6 w-36 animate-pulse"></div>
