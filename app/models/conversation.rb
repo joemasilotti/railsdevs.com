@@ -15,7 +15,11 @@ class Conversation < ApplicationRecord
     recipient?(user.developer) ? business : developer
   end
 
-  def participant?(user)
+  def recipient_from?(user)
+    recipient_from(user).present?
+  end
+
+  def recipient_from(user)
     [ user.business, user.developer ].find { recipient?(_1) }
   end
 

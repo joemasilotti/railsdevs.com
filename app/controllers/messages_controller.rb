@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
   end
 
   def sender
-    [ current_user.business, current_user.developer ].find { conversation.recipient?(_1) }
+    conversation.recipient_from(current_user)
   end
 
   def message_params

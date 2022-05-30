@@ -7,6 +7,6 @@ class ConversationPolicy < ApplicationPolicy
     return true if user.admin?
     return false if record.blocked?
 
-    record.participant?(user)
+    record.recipient_from?(user)
   end
 end
