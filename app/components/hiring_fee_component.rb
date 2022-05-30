@@ -16,7 +16,7 @@ class HiringFeeComponent < ApplicationComponent
   end
 
   def recipient
-    Rails.configuration.support_email
+    Rails.configuration.emails.support!
   end
 
   def subject

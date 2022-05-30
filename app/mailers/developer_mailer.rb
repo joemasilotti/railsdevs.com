@@ -19,7 +19,7 @@ class DeveloperMailer < ApplicationMailer
     mail(
       to: recipient.email,
       subject: "Is your railsdevs profile up to date?",
-      from: Rails.configuration.reminders_email,
+      from: Rails.configuration.emails.reminders_mailbox!,
       stream: :broadcast
     )
   end
