@@ -200,6 +200,19 @@ en:
     title: Developer filters
     work_preference:
       title: Work preference
+  developer_query_mobile_menu:
+    apply: Apply
+    filters: Filters
+    close_menu: Close menu
+    search_query_label: Customize your search
+    search_query_placeholder: "Ruby, React, Junior, etc..."
+    role_level:
+      title: Role level
+    work_preference:
+      title: Work preference
+    include_not_interested: Include developers not currently interested
+    timezone:
+      title: Timezone
   developers:
     create:
       created: Your profile was added!

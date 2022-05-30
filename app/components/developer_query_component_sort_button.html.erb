@@ -3,14 +3,15 @@
 <% if Feature.enabled?(:search_feature, user: @user) %>
   <div data-controller="toggle" data-toggle-visibility-class="hidden" id="sort">
     <button type="button" class="flex items-center" data-action="toggle#toggle" aria-expanded="false" aria-haspopup="true">
-      <%= t(".sort.title") %> by <%= sort %>
+      <%= t(".sort.title") %>
       <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
     </button>
 
-    <div data-toggle-target="element" class="hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
+    <div data-toggle-target="element" class="absolute z-10 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
       <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest, form: "quedev") %>
       <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability, form: "quedev") %>
     </div>
   </div>
 <% end %>
+
 

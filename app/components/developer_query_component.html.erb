@@ -3,10 +3,8 @@
 <div class="px-4 sm:px-6">
   <%= form_with url: developers_path, id: 'quedev', method: :get do |form| %>
 
-    <!-- search feature 
-      (sort dropdown by newest or availibilty is in: 
-      DeveloperQueryComponentSort. link by form attribute) 
-    -->
+    <!-- search feature (sort dropdown by newest or availibilty is in: 
+      DeveloperQueryComponentSort. link by form attribute) -->
     <% if Feature.enabled?(:search_feature, user: @user) %>
       <!-- search bar -->
       <div class="py-4 group inline-flex items-center justify-center text-sm font-bold text-gray-700 hover:text-gray-900"><%= form.label :search_query, t(".search_query_label") %></div>
@@ -36,13 +34,13 @@
         <!-- role dropdown -->
         <div class="py-2">
           <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-            <span class="font-bold"><%= t(".role_level.title") %></span>
+            <span class="font-medium"><%= t(".role_level.title") %></span>
             <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
           </button>
         </div>
 
         <!-- role checkbox -->
-        <div data-toggle-target="element" class="hidden">
+        <div data-toggle-target="element">
           <div>
             <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
               <!-- begin checkboxes -->
@@ -63,13 +61,13 @@
       <!-- work preferences dropdown -->
       <div class="py-2">
         <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-          <span class="font-bold"><%= t(".work_preference.title") %></span>
+          <span class="font-medium"><%= t(".work_preference.title") %></span>
           <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
         </button>
       </div>
 
       <!-- work preferences checkboxes -->
-      <div data-toggle-target="element" class="hidden">
+      <div data-toggle-target="element">
         <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
           <!-- begin role types -->
           <div class="flex pb-2">
@@ -94,7 +92,7 @@
     <div data-controller="toggle" data-toggle-visibility-class="hidden" id="desktop-timezone-filters">
       <div class="py-2">
         <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-          <span class="font-bold"><%= t(".timezone.title") %></span>
+          <span class="font-medium"><%= t(".timezone.title") %></span>
           <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
         </button>
       </div>
@@ -112,6 +110,10 @@
 
       </div><!-- data-toggle-target -->
     </div><!-- data-controller --><!-- timezone -->
+    
+    <a href="/developers" class="inline-flex justify-center py-2 px-4 border bg-gray-200 border-bg-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-600 bg-gray-600 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+      Clear
+    </a>
 
     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" name="sort" value="<%= sort %>">
       <%= t(".apply") %>
@@ -119,5 +121,7 @@
 
     <!-- sort filter for this form lives in component sort_button_component and is passed the id of this form as a form attribute -->
   <% end %><!-- end of desktop form_with -->
+  <!-- render mobile filters here -->
+
 </div>
 
