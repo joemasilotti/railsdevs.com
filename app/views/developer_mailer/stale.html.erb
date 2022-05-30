@@ -4,7 +4,6 @@
 
 <p>If not, you can <%= link_to "update your profile", edit_developer_url(@developer) %>. Or, if you've found a gig and are no longer looking let me know by replying to this email!</p>
 
-<p>To stop receiving these emails, please <%= link_to "change your notification settings", developer_notifications_url(@developer) %>.</p>
+<p>To stop receiving these emails, please <%= link_to "change your notification settings", edit_developer_url(@developer, anchor: "notifications") %>.</p>
 
 <%= render "shared/signature" %>
-

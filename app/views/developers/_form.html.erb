@@ -323,6 +323,29 @@
       </div>
     </div>
 
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 id="notifications" class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></h3>
+        </div>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <fieldset>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="h-5 flex items-center">
+                  <%= form.check_box :profile_reminder_notifications, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                </div>
+                <div class="ml-3 text-sm">
+                  <%= form.label :profile_reminder_notifications, t(".notifications.profile_reminder_notifications"), class: "font-medium text-gray-700" %>
+                  <p class="text-gray-500"><%= t(".notifications.profile_reminder_notifications_help") %></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
       <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: developer.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
     </div>

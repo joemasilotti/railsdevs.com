@@ -9,14 +9,14 @@ class StaleDeveloperNotification < ApplicationNotification
   end
 
   def title
-    t("notifications.stale_developer_profile")
+    t("notifications.profile_reminder")
   end
 
   def url
-    edit_developer_path(developer)
+    edit_developer_path(developer, anchor: "notifications")
   end
 
   def deliver_notification?
-    developer.send_stale_notification?
+    developer.profile_reminder_notifications?
   end
 end

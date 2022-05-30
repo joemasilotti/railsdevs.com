@@ -199,6 +199,10 @@ en:
       title: Details
     form:
       creating: Creating...
+      notifications:
+        profile_reminder_notifications: Profile reminders
+        profile_reminder_notifications_help: Periodically remind me to update my developer profile.
+        title: Email notifications
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
@@ -243,17 +247,6 @@ en:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
-    notifications:
-      show:
-        help_text: Receive relevant email notifications about your profile on railsdevs
-        legend: Profile notifications
-        save: Save
-        send_stale_notification: Periodically remind me to update my profile
-        title: Email notifications
-        updating: Updating
-        your_notification_settings: Your notification settings
-      update:
-        updated: Your notification settings was updated!
     show:
       description: Description
       edit: Edit
@@ -339,9 +332,9 @@ en:
     new_developer_profile: "%{developer} added their developer profile."
     new_message: "%{sender} sent you a message."
     potential_hire: "%{developer} may have been hired."
+    profile_reminder: Is your developer profile up to date?
     show:
       notice: Notification marked as read.
-    stale_developer_profile: Is your developer profile up to date?
   open_startup:
     contributions:
       index:

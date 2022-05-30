@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_115740) do
     t.integer "preferred_max_salary"
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
-    t.boolean "send_stale_notification", default: true
+    t.boolean "profile_reminder_notifications", default: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end

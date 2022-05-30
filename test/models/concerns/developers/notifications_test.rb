@@ -76,7 +76,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
   end
 
   test "does not send a stale notification email if developer opts out" do
-    developer = create_developer(send_stale_notification: false)
+    developer = create_developer(profile_reminder_notifications: false)
     refute_sends_notification StaleDeveloperNotification do
       developer.notify_as_stale
     end
