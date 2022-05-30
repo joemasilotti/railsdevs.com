@@ -8,14 +8,17 @@ class BlocksController < ApplicationController
 
   def create
     authorize conversation
-    block = conversation.blocked_by(current_user)
-
-    redirect_to root_path, notice: t(".notice", other_recipient: block.blockee.name)
+    conversation.blocked_by(current_user)
+    redirect_to root_path, notice: t(".notice", other_recipient:)
   end
 
   private
 
   def conversation
     @conversation ||= Conversation.find(params[:conversation_id])
+  end
+
+  def other_recipient
+    conversation.other_recipient(current_user).name
   end
 end
