@@ -34,13 +34,10 @@ module Railsdevs
     # Load custom configuration.
     config.always_remember_me = true
     config.analytics = config_for(:analytics)
+    config.emails = config_for(:emails)
     config.fathom = config_for(:fathom)
-    config.notifications_email = "railsdevs <notifications@railsdevs.com>"
-    config.reminders_email = "railsdevs <reminders@railsdevs.com>"
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
     config.subscriptions = config_for(:subscriptions)
-    config.support_email = "Joe Masilotti from railsdevs <joe@railsdevs.com>"
-    config.updates_email = "railsdevs <updates@railsdevs.com>"
     config.upload_sitemap = false
 
     # Run background jobs via sidekiq.
