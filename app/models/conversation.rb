@@ -20,7 +20,7 @@ class Conversation < ApplicationRecord
   end
 
   def blocked?
-    developer_blocked_at.present? || business_blocked_at.present?
+    developer_blocked_at? || business_blocked_at?
   end
 
   def hiring_fee_eligible?
