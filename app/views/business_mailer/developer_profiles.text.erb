@@ -1,6 +1,6 @@
 <%= @business.contact_name %>,
 
-Here are the newest developer profiles on railsdevs:
+Here are the new developer profiles on railsdevs:
 
 <% @developers.each do |developer| %>
 <%= developer.hero %>
@@ -8,5 +8,7 @@ Here are the newest developer profiles on railsdevs:
   <%= developer_url(developer) %>
 
 <% end %>
+
+<%= render "shared/signature" %>
 Update my email notification settings:
-  <%= edit_business_url(@business) %>
+  <%= edit_business_url(@business, anchor: "notifications") %>

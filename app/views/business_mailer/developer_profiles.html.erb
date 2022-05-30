@@ -1,8 +1,9 @@
 <p><%= @business.first_name %>,</p>
-<p>Here are the newest developer profiles on railsdevs:</p>
+<p>Here are the new developer profiles on railsdevs:</p>
 <ul>
   <% @developers.each do |developer| %>
     <li><b><%= link_to developer.hero, developer %></b>: <%= developer.bio %></li>
   <% end %>
 </ul>
-<p><small><%= link_to "Update my email notification settings", edit_business_url(@business) %>.</small></p>
+<%= render "shared/signature" %>
+<p><small><%= link_to "Update my email notification settings", edit_business_url(@business, anchor: "notifications") %>.</small></p>
