@@ -199,6 +199,10 @@ en:
       title: Details
     form:
       creating: Creating...
+      notifications:
+        profile_reminder_notifications: Profile reminders
+        profile_reminder_notifications_help: Periodically remind me to update my developer profile.
+        title: Email notifications
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
@@ -328,6 +332,7 @@ en:
     new_developer_profile: "%{developer} added their developer profile."
     new_message: "%{sender} sent you a message."
     potential_hire: "%{developer} may have been hired."
+    profile_reminder: Is your developer profile up to date?
     show:
       notice: Notification marked as read.
   open_startup:

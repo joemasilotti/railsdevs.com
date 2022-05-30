@@ -45,9 +45,20 @@ class BusinessesTest < ActionDispatch::IntegrationTest
       end
     end
 
+    last_event = Analytics::Event.last
+
     assert user.business.avatar.attached?
-    assert_redirected_to Analytics::Event.last
+    assert_redirected_to last_event
     assert_equal Analytics::Event.last.url, developers_path
+
+    follow_redirect!
+
+    assert_redirected_to last_event.url
+
+    follow_redirect!
+
+    assert_not_nil flash[:event]
+    assert_not_nil flash[:notice]
   end
 
   test "successful business creation with a stored location" do
