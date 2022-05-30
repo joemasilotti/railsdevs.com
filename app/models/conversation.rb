@@ -19,11 +19,11 @@ class Conversation < ApplicationRecord
   end
 
   def recipient_from(user)
-    [ user.business, user.developer ].find { recipient?(_1) }
+    [user.business, user.developer].find { recipient?(_1) }
   end
 
   def recipient?(participant)
-    participant.in? [ business, developer ]
+    participant.in? [business, developer]
   end
 
   def hiring_fee_eligible?
