@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   scope :admin, -> { where(admin: true) }
 
+  def name
+    (business || developer).name
+  end
+
   # Always remember when signing in with Devise.
   def remember_me
     Rails.configuration.always_remember_me

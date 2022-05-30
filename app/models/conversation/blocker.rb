@@ -2,20 +2,17 @@ module Conversation::Blocker
   extend ActiveSupport::Concern
 
   included do
-    scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
-    scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
+    has_many :blocks
+
+    scope :blocked, -> { where.associated(:blocks) }
+    scope :visible, -> { where.missing(:blocks) }
   end
 
   def blocked_by(user)
-    case recipient_from(user)
-    when Business
-      touch :business_blocked_at
-    when Developer
-      touch :developer_blocked_at
-    end
+    blocks.find_or_create_by!(blocker: user, blockee: other_recipient(user).user)
   end
 
   def blocked?
-    business_blocked_at? || developer_blocked_at?
+    blocks.any?
   end
 end

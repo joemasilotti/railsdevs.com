@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_23_115740) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_30_153119) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_23_115740) do
     t.string "website"
     t.string "contact_role"
     t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "conversation_blocks", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.bigint "blocker_id"
+    t.bigint "blockee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blockee_id"], name: "index_conversation_blocks_on_blockee_id"
+    t.index ["blocker_id"], name: "index_conversation_blocks_on_blocker_id"
+    t.index ["conversation_id"], name: "index_conversation_blocks_on_conversation_id"
   end
 
   create_table "conversations", force: :cascade do |t|

@@ -9,7 +9,7 @@ class BusinessTest < ActiveSupport::TestCase
     conversation = business.conversations.create!(developer: developers(:one))
     assert_includes business.conversations, conversation
 
-    conversation.touch(:developer_blocked_at)
+    conversation.blocked_by developers(:one).user
     refute_includes business.conversations, conversation
   end
 
