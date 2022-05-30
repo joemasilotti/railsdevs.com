@@ -112,8 +112,6 @@ It also requires some CORS configuration for direct uploads, copied from the [Ac
 5. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
 6. `bundle exec rake developers:notify_stale_profiles` - daily at 8:00 AM UTC
 
-[//]: # (TODO: Document the background jobs)
-
 ## Sitemap hosting on S3
 
 A second bucket is used for sitemaps, only. This bucket has public access enabled so Google and other search engines can fetch without authorization. On S3, this means disabling all "Block public access" settings.
