@@ -36,6 +36,7 @@ module Railsdevs
     config.analytics = config_for(:analytics)
     config.fathom = config_for(:fathom)
     config.notifications_email = "railsdevs <notifications@railsdevs.com>"
+    config.reminders_email = "railsdevs <reminders@railsdevs.com>"
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
     config.subscriptions = config_for(:subscriptions)
     config.support_email = "Joe Masilotti from railsdevs <joe@railsdevs.com>"

@@ -20,6 +20,10 @@ module Developers
       send_invisiblize_notification
     end
 
+    def notify_as_stale
+      send_stale_profile_notification
+    end
+
     private
 
     AVAILABLE_STATUSES = %w[actively_looking open].freeze
@@ -38,6 +42,10 @@ module Developers
 
     def send_welcome_email
       DeveloperMailer.with(developer: self).welcome_email.deliver_later
+    end
+
+    def send_stale_profile_notification
+      StaleDeveloperNotification.with(developer: self).deliver_later(user)
     end
 
     def notify_admins_of_potential_hire

@@ -19,6 +19,14 @@ developer = SeedsHelper.create_developer!("invisible", {
 })
 developer.invisible! unless developer.invisible?
 
+# Stale developer
+developer = SeedsHelper.create_developer!("stale", {
+  hero: "Stale developer",
+  location: SeedsHelper.locations[:new_york]
+})
+long_time_ago = 31.days.ago
+developer.update!(created_at: long_time_ago, updated_at: long_time_ago)
+
 # Junior developer
 SeedsHelper.create_developer!("junior", {
   hero: "Junior developer",
