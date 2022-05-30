@@ -28,10 +28,6 @@ class MessagesController < ApplicationController
     @conversation ||= Conversation.visible.find(params[:conversation_id])
   end
 
-  def developer
-    conversation.developer
-  end
-
   def sender
     [ current_user.business, current_user.developer ].find { conversation.recipient?(_1) }
   end
