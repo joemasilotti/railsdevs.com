@@ -8,7 +8,7 @@ class BlocksController < ApplicationController
 
   def create
     authorize conversation
-    conversation.touch(blocked_by_column)
+    conversation.blocked_by(current_user)
     redirect_to root_path, notice: t(".notice", other_recipient:)
   end
 
@@ -16,14 +16,6 @@ class BlocksController < ApplicationController
 
   def conversation
     @conversation ||= Conversation.find(params[:conversation_id])
-  end
-
-  def blocked_by_column
-    if conversation.recipient?(current_user.business)
-      :business_blocked_at
-    elsif conversation.recipient?(current_user.developer)
-      :developer_blocked_at
-    end
   end
 
   def other_recipient
