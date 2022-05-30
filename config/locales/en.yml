@@ -253,6 +253,7 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+      message: Message
     update:
       updated: Your profile was updated!
   dir: ltr
