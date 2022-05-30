@@ -1,5 +1,5 @@
 class BusinessMailer < ApplicationMailer
-  default from: Rails.configuration.emails.updates_mailbox
+  default from: Rails.configuration.emails.updates_mailbox!
   delegate :pluralize, to: "ActionController::Base.helpers"
 
   def developer_profiles
