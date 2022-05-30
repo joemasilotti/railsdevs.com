@@ -12,4 +12,9 @@ class MessageMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: "#{@sender} sent you a message on railsdevs")
   end
+
+  def first_message
+    @developer = params[:developer]
+    mail(to: @developer.user.email, subject: "Tips on responding to your first message on railsdevs")
+  end
 end

@@ -31,6 +31,10 @@ class Conversation < ApplicationRecord
     developer_replied? && created_at <= 2.weeks.ago
   end
 
+  def self.first_message?(developer)
+    where(developer:).count == 1 && where(developer:).first.messages.count == 1
+  end
+
   private
 
   def developer_replied?
