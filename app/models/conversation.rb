@@ -15,6 +15,10 @@ class Conversation < ApplicationRecord
     recipient?(user.developer) ? business : developer
   end
 
+  def participant?(user)
+    [ user.business, user.developer ].find { recipient?(_1) }
+  end
+
   def recipient?(participant)
     participant.in? [ business, developer ]
   end
