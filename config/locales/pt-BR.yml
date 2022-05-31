@@ -124,10 +124,6 @@ pt-BR:
     apply: Aplicar
     close_menu: Fechar menu
     filters: Filtros
-    sort:
-      availability: Disponibilidade
-      newest: Mais novo
-      title: Ordenar
     timezone:
       title: Fuso Horário
     title: Filtros de desenvolvedores
