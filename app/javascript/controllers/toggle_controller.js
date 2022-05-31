@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["element", "chevron"]
-  static classes = ["visibility", "chevron"]
+  static targets = ["element"]
+  static classes = ["visibility"]
   static values = {"toggleOnConnect": Boolean}
 
   connect() {
@@ -16,10 +16,6 @@ export default class extends Controller {
 
     this.elementTargets.forEach(element => {
       element.classList.toggle(this.visibilityClass)
-    })
-
-    this.chevronTargets.forEach(element => {
-      element.classList.toggle(this.chevronClasses)
     })
   }
 }
