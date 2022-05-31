@@ -7,12 +7,17 @@
       <%= render DeveloperProfileActionComponent.new(current_user) %>
     </div>
 
+    <!-- Sort and mobile filter button -->
     <div class="md:flex justify-between items-center">
       <p class="mt-4 pb-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
 
-      <div class="flex justify-end items-center">
-        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user) %>
-        <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 md:hidden" aria-expanded="false">
+      <div class="hidden md:block">
+        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
+      </div>
+
+      <div class="flex justify-end items-center md:hidden">
+        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
+        <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
           <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5" %>
           <span class="sr-only"><%= t("developer_query_component.filters") %></span>
         </button>
@@ -23,14 +28,18 @@
   <hr>
 
   <div class="grid grid-cols-12">
+    <!-- Desktop and mobile filters -->
     <div class="col-span-12 md:col-span-3 sm:pt-4">
       <div class="hidden md:block">
-        <%= render DeveloperQueryComponent.new(query: @query, user: current_user) %>
+        <%= render DeveloperQueryComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
+
       <div class="md:hidden">
-        <%= render DeveloperQueryMobileComponent.new(query: @query, user: current_user) %>
+        <%= render DeveloperQueryMobileComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
       </div>
     </div>
+
+    <!-- Paginated list of developers -->
     <div class="col-span-12 md:col-span-9">
       <%= render DeveloperCardComponent.with_collection(@query.featured_records, featured: true) %>
 
