@@ -327,6 +327,7 @@ en:
         title: No new notifications
       mark_all_as_read: Mark all as read
       title: New notifications
+    invisiblize: Your profile on railsdevs was flagged
     new_business: "%{business} added their business."
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
     new_developer_profile: "%{developer} added their developer profile."

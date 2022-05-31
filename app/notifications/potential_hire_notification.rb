@@ -1,4 +1,4 @@
-class PotentialHireNotification < Noticed::Base
+class PotentialHireNotification < ApplicationNotification
   deliver_by :database
   deliver_by :email, mailer: "AdminMailer", method: :potential_hire
 
@@ -8,11 +8,11 @@ class PotentialHireNotification < Noticed::Base
     t("notifications.potential_hire", developer: developer.name)
   end
 
-  def developer
-    params[:developer]
-  end
-
   def url
     admin_developer_conversations_path(developer)
+  end
+
+  def developer
+    params[:developer]
   end
 end
