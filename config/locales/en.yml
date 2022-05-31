@@ -179,7 +179,7 @@ en:
     role_level:
       title: Role level
     search_query_label: Customize your search
-    search_query_placeholder: "Ruby, React, Junior, etc..."
+    search_query_placeholder: Ruby, React, Junior, etc...
     sort:
       availability: Availability
       newest: Newest
@@ -208,17 +208,17 @@ en:
       title: Work preference
   developer_query_mobile_menu:
     apply: Apply
-    filters: Filters
     close_menu: Close menu
-    search_query_label: Customize your search
-    search_query_placeholder: "Ruby, React, Junior, etc..."
+    filters: Filters
+    include_not_interested: Include developers not currently interested
     role_level:
       title: Role level
-    work_preference:
-      title: Work preference
-    include_not_interested: Include developers not currently interested
+    search_query_label: Customize your search
+    search_query_placeholder: Ruby, React, Junior, etc...
     timezone:
       title: Timezone
+    work_preference:
+      title: Work preference
   developers:
     availability_component:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
