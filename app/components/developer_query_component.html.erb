@@ -1,16 +1,14 @@
 <h3 class="sr-only"><%= t(".title") %></h3>
-<!-- desktop form -->
 <div class="px-4 sm:px-6">
   <%= form_with url: developers_path, id: 'quedev', method: :get do |form| %>
-
-    <!-- search feature (sort dropdown by newest or availibilty is in: 
-      DeveloperQueryComponentSort. link by form attribute) -->
     <% if Feature.enabled?(:search_feature, user: @user) %>
-      <!-- search bar -->
-      <div class="py-4 group inline-flex items-center justify-center text-sm font-bold text-gray-700 hover:text-gray-900"><%= form.label :search_query, t(".search_query_label") %></div>
-      <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: "rounded-lg text-sm w-full" %>
+      <div>
+        <%= form.label :search_query, t(".search_query_label"), class: 'block text-sm font-medium text-gray-700' %>
+        <div class="mt-1 relative flex items-center">
+          <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: 'shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md' %>
+        </div>
+      </div>
     <% else %>
-      <!-- sort dropdown (won't show because feature is enabled) -->
       <div data-controller="toggle" data-toggle-visibility-class="hidden" id="sort">
         <div>
           <button type="button" data-action="toggle#toggle" aria-expanded="false" aria-haspopup="true">
@@ -24,104 +22,135 @@
             <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
             <%= render SortButtonComponent.new(title: t(".sort.availibility"), name: :sort, value: :availability, enabled: sort == :availibility) %>
           </div>
-        </div><!-- data-toggle-target -->
-      </div><!-- data-controller -->
+        </div>
+      </div>
     <% end %>
 
-    <!-- role level filters -->
     <% if Feature.enabled?(:role_level_filters, user: @user) %>
       <div data-controller="toggle" data-toggle-visibility-class="hidden">
-        <!-- role dropdown -->
-        <div class="py-2">
-          <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-            <span class="font-medium"><%= t(".role_level.title") %></span>
-            <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-          </button>
-        </div>
-
-        <!-- role checkbox -->
-        <div data-toggle-target="element">
-          <div>
+        <div class="border-t border-gray-200 py-6">
+          <h3 class="-my-3 flow-root">
+            <div x-data="{ open: false }">
+              <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+                <span class="font-medium text-gray-900"> <%= t(".role_level.title") %> </span>
+                <span class="ml-6 flex items-center">
+                  <div x-show="open">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div x-show="!open">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </span>
+              </button>
+            </div>
+          </h3>
+          <div data-toggle-target="element">
             <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
-              <!-- begin checkboxes -->
-              <div class="flex pb-2">
-                <%= b.check_box checked: role_level_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
-                <%= b.label class: 'ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap' %>
-              </div>
-              <!-- end checkboxes -->
+              <div class="pt-6" id="filter-section-mobile-0">
+                <div class="space-y-4">
+                  <div class="flex items-center">
+                    <%= b.check_box checked: role_level_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500' %>
+                    <%= b.label id: 'filter-mobile-color-0', class: 'ml-3 text-gray-500 text-sm' %>
+                  </div>
+                </div>
+              </div> 
             <% end %>
           </div>
-
-        </div><!-- data-toggle-target -->
-      </div><!-- data-controller -->
+        </div>
+      </div>
     <% end %>
 
-    <!-- work preferences -->
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
-      <!-- work preferences dropdown -->
-      <div class="py-2">
-        <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-          <span class="font-medium"><%= t(".work_preference.title") %></span>
-          <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-        </button>
-      </div>
-
-      <!-- work preferences checkboxes -->
-      <div data-toggle-target="element">
-        <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
-          <!-- begin role types -->
-          <div class="flex pb-2">
-            <%= b.check_box checked: role_type_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
-            <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+      <div class="border-t border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div x-data="{ open: false }">
+            <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> <%= t(".work_preference.title") %> </span>
+              <span class="ml-6 flex items-center">
+                <div x-show="open">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div x-show="!open">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </span>
+            </button>
           </div>
-        <!-- end role_types -->
-        <% end %>
+        </h3>
+        <div data-toggle-target="element">
+          <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
+            <div class="pt-6">
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <%= b.check_box checked: role_type_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
+                  <%= b.label class: 'ml-3 text-gray-500 text-sm' %>
+                </div>
+              </div>
+            </div> 
+          <% end %>
 
-        <hr>
+          <hr class="py-2 mt-6">
 
-        <!-- devs not interested checkbox -->
-        <div>
-          <%= form.check_box :include_not_interested, include_hidden: false, checked: include_not_interested?, class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %><!-- begin include_not_interested -->
-          <%= form.label :include_not_interested, t(".include_not_interested") %>
+          <div>
+            <%= form.check_box :include_not_interested, include_hidden: false, checked: include_not_interested?, class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
+            <%= form.label :include_not_interested, t(".include_not_interested"), class: 'ml-3 text-sm text-gray-500' %>
+          </div>
         </div>
-
-      </div><!-- data-toggle -->
-    </div><!-- data-controller --><!-- work preferences -->
-
-    <!-- timezone toggle -->
-    <div data-controller="toggle" data-toggle-visibility-class="hidden" id="desktop-timezone-filters">
-      <div class="py-2">
-        <button type="button" class="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900" data-action="toggle#toggle" aria-expanded="false">
-          <span class="font-medium"><%= t(".timezone.title") %></span>
-          <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-        </button>
       </div>
+    </div>
 
-      <!-- timezone checkbox -->
-      <div data-toggle-target="element" class="hidden">
-        <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
-          <!-- begin checkboxes -->
-          <div class="flex pb-2">
-            <%= b.check_box checked: time_zone_selected?(b.object), class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
-            <%= b.label class: 'ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap' %>
+    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+      <div class="border-t border-gray-200 py-6">
+        <h3 class="-my-3 flow-root">
+          <div x-data="{ open: true }">
+            <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> <%= t(".timezone.title") %> </span>
+              <span class="ml-6 flex items-center">
+                <div x-show="open">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div x-show="!open">
+                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </span>
+            </button>
           </div>
-          <!-- end checkboxes -->
-        <% end %>
+        </h3>
+        <div data-toggle-target="element" class="hidden">
+          <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
+            <div class="pt-6">
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <%= b.check_box checked: time_zone_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
+                  <%= b.label class: 'ml-3 text-gray-500 text-sm' %>
+                </div>
+              </div>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+    </div>
 
-      </div><!-- data-toggle-target -->
-    </div><!-- data-controller --><!-- timezone -->
-    
-    <a href="/developers" class="inline-flex justify-center py-2 px-4 border bg-gray-200 border-bg-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-600 bg-gray-600 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-      Clear
-    </a>
-
-    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" name="sort" value="<%= sort %>">
-      <%= t(".apply") %>
-    </button>
-
-    <!-- sort filter for this form lives in component sort_button_component and is passed the id of this form as a form attribute -->
-  <% end %><!-- end of desktop form_with -->
-  <!-- render mobile filters here -->
-
+    <div role="form-submit-buttons">
+      <a href="/developers" class="inline-flex justify-center py-2 px-4 border bg-gray-200 border-bg-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-600 bg-gray-600 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+        Clear
+      </a>
+      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" name="sort" value="<%= sort %>">
+        <%= t(".apply") %>
+      </button>
+    </div>
+  <% end %>
 </div>
 
