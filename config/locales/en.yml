@@ -181,10 +181,6 @@ en:
       title: Role level
     search_query_label: Customize your search
     search_query_placeholder: Ruby, React, Junior, etc...
-    sort:
-      availability: Availability
-      newest: Newest
-      title: Sort
     timezone:
       title: Timezone
     title: Developer filters
