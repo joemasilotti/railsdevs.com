@@ -5,14 +5,6 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     @user = users(:empty)
   end
 
-  test "emphasises the selected sorting" do
-    query = DeveloperQuery.new(sort: :availability)
-    render_inline DeveloperQueryComponent.new(query:, user: @user)
-
-    assert_selector "button.text-gray-700", text: "Newest"
-    assert_selector "button.text-gray-900", text: "Availability"
-  end
-
   test "renders unique UTC offset pairs for developers" do
     query = DeveloperQuery.new({})
     render_inline DeveloperQueryComponent.new(query:, user: @user)
