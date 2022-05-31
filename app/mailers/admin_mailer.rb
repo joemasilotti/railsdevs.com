@@ -7,7 +7,7 @@ class AdminMailer < ApplicationMailer
 
     @developer = @notification.developer
 
-    mail(to: recipient.email, subject: @notification.title)
+    mail(to: recipient.email, subject: @notification.email_subject)
   end
 
   def new_business
@@ -16,7 +16,7 @@ class AdminMailer < ApplicationMailer
 
     @business = @notification.business
 
-    mail(to: recipient.email, subject: @notification.title)
+    mail(to: recipient.email, subject: @notification.email_subject)
   end
 
   def new_conversation
@@ -29,7 +29,7 @@ class AdminMailer < ApplicationMailer
     @subscriptions = @business.user.subscriptions
     @body = conversation.messages.first.body
 
-    mail(to: recipient.email, subject: @notification.title)
+    mail(to: recipient.email, subject: @notification.email_subject)
   end
 
   def potential_hire
@@ -40,6 +40,6 @@ class AdminMailer < ApplicationMailer
     @conversations = @developer.conversations.count
     @replies = @developer.messages.distinct.count(:conversation_id)
 
-    mail(to: recipient.email, subject: @notification.title)
+    mail(to: recipient.email, subject: @notification.email_subject)
   end
 end

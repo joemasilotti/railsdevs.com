@@ -323,12 +323,16 @@ en:
     admin:
       new_business_notification:
         title: "%{business} added their business"
+        email_subject: New business added
       new_conversation_notification:
         title: "%{name} (%{company}) started a conversation with %{developer}"
+        email_subject: New conversation started
       new_developer_notification:
         title: "%{developer} added their developer profile"
+        email_subject: New developer profile added
       potential_hire_notification:
         title: "%{developer} may have been hired"
+        email_subject: New potential hire
     developers:
       invisiblize_notification:
         title: Your profile on railsdevs was flagged

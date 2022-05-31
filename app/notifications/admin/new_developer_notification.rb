@@ -9,6 +9,10 @@ module Admin
       t("notifications.admin.new_developer_notification.title", developer: developer.name)
     end
 
+    def email_subject
+      t("notifications.admin.new_developer_notification.email_subject")
+    end
+
     def url
       developer_path(developer)
     end

@@ -12,6 +12,10 @@ module Admin
         developer: conversation.developer.name)
     end
 
+    def email_subject
+      t("notifications.admin.new_conversation_notification.email_subject")
+    end
+
     def url
       conversation_path(conversation)
     end
