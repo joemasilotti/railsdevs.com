@@ -21,28 +21,26 @@
           </div>
         <% end %>
 
-        <% if Feature.enabled?(:role_level_filters, user: user) %>
-          <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
-            <h3 class="-mx-2 -my-3 flow-root">
-              <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="role-level-filter-section" aria-expanded="false">
-                <span class="font-medium text-gray-900"><%= t("developer_query_component.role_level.title") %></span>
-                <span class="ml-6 flex items-center">
-                  <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
-                </span>
-              </button>
-            </h3>
-            <div id="role-level-filter-section" data-toggle-target="element" class="hidden pt-6">
-              <div class="space-y-6">
-                <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
-                  <div class="flex items-center">
-                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_timezones_#{b.object.first}", checked: role_level_selected?(b.object) %>
-                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_timezones_#{b.object.first}" %>
-                  </div>
-                <% end %>
-              </div>
+        <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
+          <h3 class="-mx-2 -my-3 flow-root">
+            <button type="button" data-action="toggle#toggle" class="px-2 py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400" aria-controls="role-level-filter-section" aria-expanded="false">
+              <span class="font-medium text-gray-900"><%= t("developer_query_component.role_level.title") %></span>
+              <span class="ml-6 flex items-center">
+                <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "h-5 w-5 transform", data: {"toggle-target": "chevron"} %>
+              </span>
+            </button>
+          </h3>
+          <div id="role-level-filter-section" data-toggle-target="element" class="hidden pt-6">
+            <div class="space-y-6">
+              <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
+                <div class="flex items-center">
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", id: "mobile_timezones_#{b.object.first}", checked: role_level_selected?(b.object) %>
+                  <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap", for: "mobile_timezones_#{b.object.first}" %>
+                </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" data-toggle-chevron-class="rotate-180" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">

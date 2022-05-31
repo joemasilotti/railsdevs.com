@@ -11,34 +11,32 @@
       </div>
     <% end %>
 
-    <% if Feature.enabled?(:role_level_filters, user: user) %>
-      <div data-controller="toggle" data-toggle-visibility-class="hidden">
-        <%= tag.div class: "pb-6 #{Feature.enabled?(:search_feature, user: user) ? "pt-6" : "pt-3"}" do %>
-          <h3 class="-my-3 flow-root">
-            <div x-data="{ open: false }">
-              <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
-                <span class="font-medium text-gray-900"> <%= t(".role_level.title") %> </span>
-                <span class="ml-6 flex items-center">
-                  <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-                </span>
-              </button>
-            </div>
-          </h3>
-          <div data-toggle-target="element">
-            <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
-              <div class="pt-6" id="filter-section-mobile-0">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <%= b.check_box checked: role_level_selected?(b.object), id: "filter-mobile-color-0", class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
-                    <%= b.label id: "filter-mobile-color-0", class: "ml-3 text-gray-500 text-sm" %>
-                  </div>
+    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+      <%= tag.div class: "pb-6 #{Feature.enabled?(:search_feature, user: user) ? "pt-6" : "pt-3"}" do %>
+        <h3 class="-my-3 flow-root">
+          <div x-data="{ open: false }">
+            <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+              <span class="font-medium text-gray-900"> <%= t(".role_level.title") %> </span>
+              <span class="ml-6 flex items-center">
+                <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
+              </span>
+            </button>
+          </div>
+        </h3>
+        <div data-toggle-target="element">
+          <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
+            <div class="pt-6" id="filter-section-mobile-0">
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <%= b.check_box checked: role_level_selected?(b.object), id: "filter-mobile-color-0", class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                  <%= b.label id: "filter-mobile-color-0", class: "ml-3 text-gray-500 text-sm" %>
                 </div>
               </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">

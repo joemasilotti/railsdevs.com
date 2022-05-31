@@ -5,8 +5,6 @@ class Feature
       true
     when :pricing_v2
       true
-    when :role_level_filters
-      !Rails.env.production? || user&.admin?
     when :search_feature
       !Rails.env.production? || user&.admin?
     end
