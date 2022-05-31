@@ -9,7 +9,7 @@
 
     <div class="md:flex justify-between items-center">
       <p class="mt-4 pb-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
-      <%= render DeveloperQueryComponentSortButton.new(query: @query, user: current_user) %>
+      <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user) %>
     </div>
   </div>
 
