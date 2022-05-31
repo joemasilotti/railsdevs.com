@@ -172,8 +172,8 @@ en:
     add_profile: Add my profile
     edit_profile: Update my profile
   developer_query_component:
-    clear: Clear
     apply: Apply
+    clear: Clear
     close_menu: Close menu
     filters: Filters
     include_not_interested: Include developers not currently interested
@@ -205,20 +205,6 @@ en:
     timezone:
       title: Timezone
     title: Developer filters
-    work_preference:
-      title: Work preference
-  developer_query_mobile_menu:
-    clear: Clear
-    apply: Apply
-    close_menu: Close menu
-    filters: Filters
-    include_not_interested: Include developers not currently interested
-    role_level:
-      title: Role level
-    search_query_label: Customize your search
-    search_query_placeholder: Ruby, React, Junior, etc...
-    timezone:
-      title: Timezone
     work_preference:
       title: Work preference
   developers:

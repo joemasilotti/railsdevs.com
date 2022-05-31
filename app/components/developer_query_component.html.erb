@@ -2,7 +2,7 @@
 
 <div class="px-4 sm:px-6">
   <%= form_with url: developers_path, id: "quedev", method: :get do |form| %>
-    <% if Feature.enabled?(:search_feature, user: @user) %>
+    <% if Feature.enabled?(:search_feature, user: user) %>
       <div>
         <%= form.label :search_query, t(".search_query_label"), class: "block text-sm font-medium text-gray-700" %>
         <div class="mt-1 relative flex items-center">
@@ -27,7 +27,7 @@
       </div>
     <% end %>
 
-    <% if Feature.enabled?(:role_level_filters, user: @user) %>
+    <% if Feature.enabled?(:role_level_filters, user: user) %>
       <div data-controller="toggle" data-toggle-visibility-class="hidden">
         <div class="py-6">
           <h3 class="-my-3 flow-root">

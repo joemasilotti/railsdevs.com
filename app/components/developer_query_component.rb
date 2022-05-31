@@ -1,5 +1,5 @@
 class DeveloperQueryComponent < ApplicationComponent
-  attr_reader :query
+  attr_reader :query, :user
 
   delegate :sort, :search_query, to: :query
 
