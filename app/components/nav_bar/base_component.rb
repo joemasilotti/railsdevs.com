@@ -18,9 +18,9 @@ module NavBar
 
     def links
       [
-        Link.new(t("nav_bar.base_component.developers"), developers_path),
-        Link.new(t("nav_bar.base_component.pricing"), pricing_path),
-        Link.new(t("nav_bar.base_component.about"), about_path)
+        Link.new(t(".developers"), developers_path),
+        Link.new(t(".pricing"), pricing_path),
+        Link.new(t(".about"), about_path)
       ]
     end
   end

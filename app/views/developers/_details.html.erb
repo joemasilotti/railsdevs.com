@@ -2,7 +2,7 @@
 <div class="space-y-5 divide-y divide-gray-200">
   <%= render RenderableComponent.new("space-y-3") do %>
     <div class="flex items-center space-x-2">
-      <%= render AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
+      <%= render Developers::AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
     </div>
     <%= render SearchStatusComponent.new(developer) %>
   <% end %>

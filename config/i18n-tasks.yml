@@ -71,7 +71,8 @@ search:
   # Directories listed here will not consider the name of the method part of the resolved key
   #
   relative_exclude_method_name_paths:
-   - app/components
+    - app/components
+    - app/notifications
 
   ## Files or `File.fnmatch` patterns to exclude from search. Some files are always excluded regardless of this setting:
   ##   %w(*.jpg *.png *.gif *.svg *.ico *.eot *.otf *.ttf *.woff *.woff2 *.pdf *.css *.sass *.scss *.less *.yml *.json)

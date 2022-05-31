@@ -8,7 +8,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
     user = users(:business)
     stub_pay(user) do
       assert_difference "Pay::Customer.count", 1 do
-        BusinessSubscriptionCheckout.new(user:).url
+        BusinessSubscriptionCheckout.new(user:, plan: "part_time").url
       end
     end
     assert_equal Pay::Customer.last.owner, user
@@ -21,7 +21,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
 
     stub_pay(user) do
       assert_difference "Analytics::Event.count", 1 do
-        BusinessSubscriptionCheckout.new(user:, success_path:).url
+        BusinessSubscriptionCheckout.new(user:, success_path:, plan: "part_time").url
       end
       assert_equal Analytics::Event.last.url, success_path
     end
@@ -49,7 +49,7 @@ class BusinessSubscriptionCheckoutTest < ActiveSupport::TestCase
   test "returns a Stripe Checkout URL" do
     user = users(:business)
     stub_pay(user) do
-      url = BusinessSubscriptionCheckout.new(user:).url
+      url = BusinessSubscriptionCheckout.new(user:, plan: "part_time").url
       assert_equal url, "checkout.stripe.com"
     end
   end

@@ -18,6 +18,7 @@ class Message < ApplicationRecord
   validates :hiring_fee_agreement, acceptance: true
 
   scope :from_developer, -> { where(sender_type: Developer.name) }
+  scope :potential_email, -> { where("body LIKE ?", "%@%") }
 
   def sender?(user)
     [user.developer, user.business].include?(sender)

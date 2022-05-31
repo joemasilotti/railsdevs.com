@@ -5,8 +5,4 @@ class BusinessMailerPreview < ActionMailer::Preview
 
     BusinessMailer.with(business:, developers:).developer_profiles
   end
-
-  def welcome_business
-    BusinessMailer.with(business: Business.first).welcome_email
-  end
 end

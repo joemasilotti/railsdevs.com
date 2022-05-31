@@ -1,11 +1,12 @@
-<h3 class="sr-only"><%= t(".title") %></h3>
+<h2 class="sr-only"><%= t(".title") %></h2>
+
 <div class="px-4 sm:px-6">
-  <%= form_with url: developers_path, id: 'quedev', method: :get do |form| %>
+  <%= form_with url: developers_path, id: "quedev", method: :get do |form| %>
     <% if Feature.enabled?(:search_feature, user: @user) %>
       <div>
-        <%= form.label :search_query, t(".search_query_label"), class: 'block text-sm font-medium text-gray-700' %>
+        <%= form.label :search_query, t(".search_query_label"), class: "block text-sm font-medium text-gray-700" %>
         <div class="mt-1 relative flex items-center">
-          <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: 'shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md' %>
+          <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2" %>
         </div>
       </div>
     <% else %>
@@ -28,10 +29,10 @@
 
     <% if Feature.enabled?(:role_level_filters, user: @user) %>
       <div data-controller="toggle" data-toggle-visibility-class="hidden">
-        <div class="border-t border-gray-200 py-6">
+        <div class="py-6">
           <h3 class="-my-3 flow-root">
             <div x-data="{ open: false }">
-              <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+              <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
                 <span class="font-medium text-gray-900"> <%= t(".role_level.title") %> </span>
                 <span class="ml-6 flex items-center">
                   <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
@@ -44,11 +45,11 @@
               <div class="pt-6" id="filter-section-mobile-0">
                 <div class="space-y-4">
                   <div class="flex items-center">
-                    <%= b.check_box checked: role_level_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500' %>
-                    <%= b.label id: 'filter-mobile-color-0', class: 'ml-3 text-gray-500 text-sm' %>
+                    <%= b.check_box checked: role_level_selected?(b.object), id: "filter-mobile-color-0", class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                    <%= b.label id: "filter-mobile-color-0", class: "ml-3 text-gray-500 text-sm" %>
                   </div>
                 </div>
-              </div> 
+              </div>
             <% end %>
           </div>
         </div>
@@ -59,7 +60,7 @@
       <div class="border-t border-gray-200 py-6">
         <h3 class="-my-3 flow-root">
           <div x-data="{ open: false }">
-            <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+            <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
               <span class="font-medium text-gray-900"> <%= t(".work_preference.title") %> </span>
               <span class="ml-6 flex items-center">
                 <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
@@ -72,18 +73,18 @@
             <div class="pt-6">
               <div class="space-y-4">
                 <div class="flex items-center">
-                  <%= b.check_box checked: role_type_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
-                  <%= b.label class: 'ml-3 text-gray-500 text-sm' %>
+                  <%= b.check_box checked: role_type_selected?(b.object), id: "filter-mobile-color-0", class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
+                  <%= b.label class: "ml-3 text-gray-500 text-sm" %>
                 </div>
               </div>
-            </div> 
+            </div>
           <% end %>
 
           <hr class="py-2 mt-6">
 
           <div>
             <%= form.check_box :include_not_interested, include_hidden: false, checked: include_not_interested?, class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
-            <%= form.label :include_not_interested, t(".include_not_interested"), class: 'ml-3 text-sm text-gray-500' %>
+            <%= form.label :include_not_interested, t(".include_not_interested"), class: "ml-3 text-sm text-gray-500" %>
           </div>
         </div>
       </div>
@@ -93,7 +94,7 @@
       <div class="border-t border-gray-200 py-6">
         <h3 class="-my-3 flow-root">
           <div x-data="{ open: true }">
-            <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
+            <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
               <span class="font-medium text-gray-900"> <%= t(".timezone.title") %> </span>
               <span class="ml-6 flex items-center">
                 <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
@@ -106,11 +107,11 @@
             <div class="pt-6">
               <div class="space-y-4">
                 <div class="flex items-center">
-                  <%= b.check_box checked: time_zone_selected?(b.object), id: 'filter-mobile-color-0', class: 'h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500' %>
-                  <%= b.label class: 'ml-3 text-gray-500 text-sm' %>
+                  <%= b.check_box checked: time_zone_selected?(b.object), id: "filter-mobile-color-0", class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
+                  <%= b.label class: "ml-3 text-gray-500 text-sm" %>
                 </div>
               </div>
-            </div> 
+            </div>
           <% end %>
         </div>
       </div>

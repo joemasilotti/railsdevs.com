@@ -82,9 +82,19 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert records.find_index(newest) < records.find_index(oldest)
   end
 
+  test "filtering by countries" do
+    united_states = create_developer
+    singapore = create_developer(location_attributes: {country: "Singapore"})
+
+    records = DeveloperQuery.new(countries: ["Singapore"]).records
+
+    assert_includes records, singapore
+    refute_includes records, united_states
+  end
+
   test "filtering by time zones" do
-    eastern = create_developer(utc_offset: EASTERN_UTC_OFFSET)
-    pacific = create_developer(utc_offset: PACIFIC_UTC_OFFSET)
+    eastern = create_developer(location_attributes: {utc_offset: EASTERN_UTC_OFFSET})
+    pacific = create_developer(location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
     records = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET]).records
 

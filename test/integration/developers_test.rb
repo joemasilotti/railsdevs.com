@@ -52,7 +52,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers can be filtered by time zone" do
-    create_developer(hero: "Pacific", utc_offset: PACIFIC_UTC_OFFSET)
+    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
     get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
@@ -125,12 +125,23 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:empty)
 
     assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
-      assert_sends_notification NewDeveloperProfileNotification do
+      assert_sends_notification Admin::NewDeveloperNotification do
         post developers_path, params: valid_developer_params
       end
     end
 
-    assert_redirected_to analytics_event_path(Analytics::Event.last)
+    last_event = Analytics::Event.last
+
+    assert_redirected_to analytics_event_path(last_event)
+
+    follow_redirect!
+
+    assert_redirected_to last_event.url
+
+    follow_redirect!
+
+    assert_not_nil flash[:event]
+    assert_not_nil flash[:notice]
   end
 
   test "create with nested attributes" do
@@ -158,6 +169,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains developer.bio
   end
 
+  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
+    developer = developers(:one)
+    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+
+    get developer_path(developer)
+
+    assert_select "p", text: "Line one"
+    assert_select "p", text: "Line two"
+    assert_select "p", text: "Header"
+  end
+
   test "successful edit to profile" do
     sign_in users(:developer)
     developer = developers(:one)
@@ -167,7 +189,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "#developer_avatar_hidden"
     assert_select "#developer_cover_image_hidden"
 
-    assert_sends_notification PotentialHireNotification, to: users(:admin) do
+    assert_sends_notification Admin::PotentialHireNotification, to: users(:admin) do
       patch developer_path(developer), params: {
         developer: {
           name: "New Name",

@@ -10,19 +10,15 @@ class ApplicationPolicy
     false
   end
 
-  def show?
-    false
+  def new?
+    create?
   end
 
   def create?
     false
   end
 
-  def new?
-    create?
-  end
-
-  def update?
+  def show?
     false
   end
 
@@ -30,22 +26,19 @@ class ApplicationPolicy
     update?
   end
 
+  def update?
+    false
+  end
+
   def destroy?
     false
   end
 
-  class Scope
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
+  def admin?
+    user.admin?
+  end
 
-    def resolve
-      scope.all
-    end
-
-    private
-
-    attr_reader :user, :scope
+  def record_owner?
+    user == record.user
   end
 end

@@ -1,6 +1,8 @@
 require "test_helper"
 
 class HiringFeeComponentTest < ViewComponent::TestCase
+  include SubscriptionsHelper
+
   setup do
     @conversation = conversations(:one)
     @user = @conversation.business.user
@@ -15,7 +17,7 @@ class HiringFeeComponentTest < ViewComponent::TestCase
 
   test "doesn't render if not on a full-time subscription" do
     @conversation.update!(created_at: 2.weeks.ago - 1.day)
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
 
     render_inline HiringFeeComponent.new(@user, @conversation)
     assert_no_text "Have you hired"

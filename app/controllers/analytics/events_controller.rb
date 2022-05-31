@@ -4,10 +4,11 @@ module Analytics
       event = Analytics::Event.find(params[:id])
 
       unless event.tracked?
-        event.mark_as_tracked!
+        event.track!
         flash[:event] = {goal: event.goal, value: event.value}
       end
 
+      flash.keep
       redirect_to event.url
     end
   end

@@ -67,10 +67,6 @@ pt-BR:
         destroyed: Transação excluida
       update:
         updated: Transação atualizada
-  availability_component:
-    in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
-    now_html: Disponível agora
-    unspecified_html: Atualmente indisponível
   blocks:
     create:
       notice: "%{other_recipient} foi bloqueado."
@@ -138,6 +134,10 @@ pt-BR:
     work_preference:
       title: Preferencia de trabalho
   developers:
+    availability_component:
+      in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
+      now_html: Disponível agora
+      unspecified_html: Atualmente indisponível
     create:
       created: Seu perfil foi adicionado!
     details:
@@ -197,6 +197,7 @@ pt-BR:
       attached: não está anexado
       content_type_invalid: formato da imagem inválido
       max_file_size_invalid: imagem com mais de %{size}
+    unauthorized: Você não tem acesso a isso.
   home:
     show:
       available_developers: Desenvolvedores disponíveis agora
@@ -238,16 +239,21 @@ pt-BR:
       transactions: Transaçòes
       view_notifications: Ver notificações
   notifications:
+    admin:
+      new_business_notification:
+        title: "%{business} adicionou nova empresa."
+      new_conversation_notification:
+        title: "%{name} (%{company}) iniciou uma conversa com %{developer}."
+      new_developer_notification:
+        title: "%{developer} adicionou seu perfil de desenvolvedor."
     index:
       cta: Ver histórico
       empty_state:
         body: Você não tem notificações não lidas.
         title: Nenhuma notificação nova
       title: Novas notificações
-    new_business: "%{business} adicionou nova empresa."
-    new_conversation: "%{name} (%{company}) iniciou uma conversa com %{developer}."
-    new_developer_profile: "%{developer} adicionou seu perfil de desenvolvedor."
-    new_message: "%{sender} lhe enviou uma mensagem."
+    new_message_notification:
+      title: "%{sender} lhe enviou uma mensagem."
     show:
       notice: Notificações marcadas como lidas.
   number:
@@ -299,9 +305,6 @@ pt-BR:
   paywalled_component:
     description: Informações somente disponível com uma assinatura empresarial.
     title: Informação privada
-  pundit:
-    errors:
-      unauthorized: Você não tem acesso a isso.
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.
