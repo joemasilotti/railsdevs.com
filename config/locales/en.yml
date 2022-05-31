@@ -172,6 +172,7 @@ en:
     add_profile: Add my profile
     edit_profile: Update my profile
   developer_query_component:
+    clear: Clear
     apply: Apply
     close_menu: Close menu
     filters: Filters
@@ -207,6 +208,7 @@ en:
     work_preference:
       title: Work preference
   developer_query_mobile_menu:
+    clear: Clear
     apply: Apply
     close_menu: Close menu
     filters: Filters
