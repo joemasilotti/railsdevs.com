@@ -10,7 +10,7 @@ module Businesses
     private
 
     def send_admin_notification
-      NewBusinessNotification.with(business: self).deliver_later(User.admin)
+      Admin::NewBusinessNotification.with(business: self).deliver_later(User.admin)
     end
   end
 end

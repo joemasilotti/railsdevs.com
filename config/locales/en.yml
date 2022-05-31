@@ -320,6 +320,27 @@ en:
     cta: Complete my profile
     title: New fields were added to developer profiles!
   notifications:
+    admin:
+      new_business_notification:
+        email_subject: New business added
+        title: "%{business} added their business"
+      new_conversation_notification:
+        email_subject: New conversation started
+        title: "%{name} (%{company}) started a conversation with %{developer}"
+      new_developer_notification:
+        email_subject: New developer profile added
+        title: "%{developer} added their developer profile"
+      potential_hire_notification:
+        email_subject: New potential hire
+        title: "%{developer} may have been hired"
+    developers:
+      invisiblize_notification:
+        title: Your profile on railsdevs was flagged
+      profile_reminder_notification:
+        email_subject: Is your railsdevs profile up to date?
+        title: Is your developer profile up to date?
+      welcome_notification:
+        title: Welcome to railsdevs!
     index:
       cta: View history
       empty_state:
@@ -327,12 +348,9 @@ en:
         title: No new notifications
       mark_all_as_read: Mark all as read
       title: New notifications
-    new_business: "%{business} added their business."
-    new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
-    new_developer_profile: "%{developer} added their developer profile."
-    new_message: "%{sender} sent you a message."
-    potential_hire: "%{developer} may have been hired."
-    profile_reminder: Is your developer profile up to date?
+    new_message_notification:
+      email_subject: "%{sender} sent you a message on railsdevs"
+      title: "%{sender} sent you a message"
     show:
       notice: Notification marked as read.
   open_startup:

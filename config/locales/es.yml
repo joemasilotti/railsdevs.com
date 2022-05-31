@@ -223,16 +223,21 @@ es:
       sign_out: Cerrar sesión
       view_notifications: Ver notificaciones
   notifications:
+    admin:
+      new_business_notification:
+        title: "%{business} agregó su empresa."
+      new_conversation_notification:
+        title: "%{name} (%{company}) empezó una conversación con %{developer}."
+      new_developer_notification:
+        title: "%{developer} agregó su perfil de desarrollador."
     index:
       cta: Ver historia
       empty_state:
         body: No tienes notificaciones no leídas.
         title: No hay nuevas notificaciones
       title: Nuevas notificaciones
-    new_business: "%{business} agregó su empresa."
-    new_conversation: "%{name} (%{company}) empezó una conversación con %{developer}."
-    new_developer_profile: "%{developer} agregó su perfil de desarrollador."
-    new_message: "%{sender} te envió un mensaje."
+    new_message_notification:
+      title: "%{sender} te envió un mensaje."
     show:
       notice: Notificaciones marcadas como leídas.
   number:

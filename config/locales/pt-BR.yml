@@ -239,16 +239,21 @@ pt-BR:
       transactions: Transaçòes
       view_notifications: Ver notificações
   notifications:
+    admin:
+      new_business_notification:
+        title: "%{business} adicionou nova empresa."
+      new_conversation_notification:
+        title: "%{name} (%{company}) iniciou uma conversa com %{developer}."
+      new_developer_notification:
+        title: "%{developer} adicionou seu perfil de desenvolvedor."
     index:
       cta: Ver histórico
       empty_state:
         body: Você não tem notificações não lidas.
         title: Nenhuma notificação nova
       title: Novas notificações
-    new_business: "%{business} adicionou nova empresa."
-    new_conversation: "%{name} (%{company}) iniciou uma conversa com %{developer}."
-    new_developer_profile: "%{developer} adicionou seu perfil de desenvolvedor."
-    new_message: "%{sender} lhe enviou uma mensagem."
+    new_message_notification:
+      title: "%{sender} lhe enviou uma mensagem."
     show:
       notice: Notificações marcadas como lidas.
   number:
