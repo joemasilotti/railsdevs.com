@@ -9,27 +9,11 @@
           <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2" %>
         </div>
       </div>
-    <% else %>
-      <div data-controller="toggle" data-toggle-visibility-class="hidden" id="sort">
-        <div>
-          <button type="button" data-action="toggle#toggle" aria-expanded="false" aria-haspopup="true">
-            <%= t(".sort.title") %>
-            <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
-          </button>
-        </div>
-
-        <div data-toggle-target="element" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
-          <div role="none">
-            <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, active: sort == :newest, form_id: form_id) %>
-            <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, active: sort == :availability, form_id: form_id) %>
-          </div>
-        </div>
-      </div>
     <% end %>
 
     <% if Feature.enabled?(:role_level_filters, user: user) %>
       <div data-controller="toggle" data-toggle-visibility-class="hidden">
-        <div class="py-6">
+        <%= tag.div class: "pb-6 #{Feature.enabled?(:search_feature, user: user) ? "pt-6" : "pt-3"}" do %>
           <h3 class="-my-3 flow-root">
             <div x-data="{ open: false }">
               <button x-on:click="open = ! open" type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
@@ -52,7 +36,7 @@
               </div>
             <% end %>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
 
