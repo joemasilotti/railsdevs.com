@@ -21,7 +21,7 @@
         <div data-toggle-target="element" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
           <div role="none">
             <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, enabled: sort == :newest) %>
-            <%= render SortButtonComponent.new(title: t(".sort.availibility"), name: :sort, value: :availability, enabled: sort == :availibility) %>
+            <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, enabled: sort == :availability) %>
           </div>
         </div>
       </div>
