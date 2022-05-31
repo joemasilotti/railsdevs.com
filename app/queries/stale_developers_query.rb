@@ -24,7 +24,7 @@ class StaleDevelopersQuery
   end
 
   def stale_notification_type
-    notifications_table[:type].eq("StaleDeveloperNotification")
+    notifications_table[:type].eq("Developers::ProfileReminderNotification")
   end
 
   def recently_created

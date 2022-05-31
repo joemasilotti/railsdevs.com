@@ -21,7 +21,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
 
   test "sends a welcome notification" do
     developer = Developer.new(developer_attributes)
-    assert_sends_notification WelcomeDeveloperNotification, to: developer.user do
+    assert_sends_notification Developers::WelcomeNotification, to: developer.user do
       assert developer.save_and_notify
     end
   end
@@ -65,21 +65,21 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
   end
 
   test "notifies the developer when they are invisibilized" do
-    assert_sends_notification InvisiblizeDeveloperNotification, to: users(:developer) do
+    assert_sends_notification Developers::InvisiblizeNotification, to: users(:developer) do
       developers(:one).invisiblize_and_notify!
     end
   end
 
   test "sends a stale notification email" do
     developer = create_developer
-    assert_sends_notification StaleDeveloperNotification, to: developer.user do
+    assert_sends_notification Developers::ProfileReminderNotification, to: developer.user do
       developer.notify_as_stale
     end
   end
 
   test "does not send a stale notification email if developer opts out" do
     developer = create_developer(profile_reminder_notifications: false)
-    refute_sends_notification StaleDeveloperNotification do
+    refute_sends_notification Developers::ProfileReminderNotification do
       developer.notify_as_stale
     end
   end

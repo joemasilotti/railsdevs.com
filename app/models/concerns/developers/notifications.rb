@@ -41,11 +41,11 @@ module Developers
     end
 
     def send_welcome_notification
-      WelcomeDeveloperNotification.with(developer: self).deliver_later(user)
+      WelcomeNotification.with(developer: self).deliver_later(user)
     end
 
     def send_stale_profile_notification
-      StaleDeveloperNotification.with(developer: self).deliver_later(user)
+      ProfileReminderNotification.with(developer: self).deliver_later(user)
     end
 
     def notify_admins_of_potential_hire
@@ -53,7 +53,7 @@ module Developers
     end
 
     def send_invisiblize_notification
-      InvisiblizeDeveloperNotification.with(developer: self).deliver_later(user)
+      InvisiblizeNotification.with(developer: self).deliver_later(user)
     end
   end
 end
