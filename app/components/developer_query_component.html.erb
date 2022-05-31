@@ -34,16 +34,7 @@
               <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
                 <span class="font-medium text-gray-900"> <%= t(".role_level.title") %> </span>
                 <span class="ml-6 flex items-center">
-                  <div x-show="open">
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
-                  <div x-show="!open">
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
+                  <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
                 </span>
               </button>
             </div>
@@ -71,16 +62,7 @@
             <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
               <span class="font-medium text-gray-900"> <%= t(".work_preference.title") %> </span>
               <span class="ml-6 flex items-center">
-                <div x-show="open">
-                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <div x-show="!open">
-                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
               </span>
             </button>
           </div>
@@ -114,16 +96,7 @@
             <button x-on:click="open = ! open" type="button" class="px-2 py-3 bg-gray-50 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle" aria-controls="filter-section-mobile-0" aria-expanded="false">
               <span class="font-medium text-gray-900"> <%= t(".timezone.title") %> </span>
               <span class="ml-6 flex items-center">
-                <div x-show="open">
-                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <div x-show="!open">
-                  <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd" />
-                  </svg>
-                </div>
+                <%= inline_svg_tag "icons/solid/chevron_down.svg" %>
               </span>
             </button>
           </div>
@@ -153,4 +126,3 @@
     </div>
   <% end %>
 </div>
-
