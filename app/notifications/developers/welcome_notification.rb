@@ -10,7 +10,7 @@ module Developers
     end
 
     def title
-      t("notifications.welcome_developer_notification.title")
+      t("notifications.developers.welcome_notification.title")
     end
 
     def url

@@ -37,7 +37,7 @@ module Developers
     end
 
     def send_admin_notification
-      NewDeveloperProfileNotification.with(developer: self).deliver_later(User.admin)
+      Admin::NewDeveloperNotification.with(developer: self).deliver_later(User.admin)
     end
 
     def send_welcome_notification
@@ -49,7 +49,7 @@ module Developers
     end
 
     def notify_admins_of_potential_hire
-      PotentialHireNotification.with(developer: self).deliver_later(User.admin)
+      Admin::PotentialHireNotification.with(developer: self).deliver_later(User.admin)
     end
 
     def send_invisiblize_notification

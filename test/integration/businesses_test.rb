@@ -40,7 +40,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     sign_in user
 
     assert_difference ["Business.count", "Analytics::Event.count"], 1 do
-      assert_sends_notification NewBusinessNotification do
+      assert_sends_notification Admin::NewBusinessNotification do
         post businesses_path, params: valid_business_params
       end
     end

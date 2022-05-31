@@ -7,7 +7,7 @@ class Businesses::NotificationsTest < ActiveSupport::TestCase
 
   test "sends a notification to the admins" do
     business = Business.new(business_attributes)
-    assert_sends_notification NewBusinessNotification, to: users(:admin) do
+    assert_sends_notification Admin::NewBusinessNotification, to: users(:admin) do
       assert business.save_and_notify
     end
   end

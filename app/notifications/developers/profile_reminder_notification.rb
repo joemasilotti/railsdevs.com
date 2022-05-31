@@ -10,7 +10,7 @@ module Developers
     end
 
     def title
-      t("notifications.stale_developer_notification.title")
+      t("notifications.developers.profile_reminder_notification.title")
     end
 
     def url

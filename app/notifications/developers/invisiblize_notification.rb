@@ -6,7 +6,7 @@ module Developers
     param :developer
 
     def title
-      t("notifications.invisiblize_developer_notification.title")
+      t("notifications.developers.invisiblize_notification.title")
     end
 
     def url

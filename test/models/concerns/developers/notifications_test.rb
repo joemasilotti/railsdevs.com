@@ -7,7 +7,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
 
   test "sends a notification to the admins" do
     developer = Developer.new(developer_attributes)
-    assert_sends_notification NewDeveloperProfileNotification, to: users(:admin) do
+    assert_sends_notification Admin::NewDeveloperNotification, to: users(:admin) do
       assert developer.save_and_notify
     end
   end
@@ -40,7 +40,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
       assert developer.update_and_notify(search_status: :open)
     end
 
-    assert_sends_notification PotentialHireNotification, to: users(:admin) do
+    assert_sends_notification Admin::PotentialHireNotification, to: users(:admin) do
       assert developer.update_and_notify(search_status: :not_interested)
     end
 
