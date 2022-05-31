@@ -4,9 +4,9 @@ class DeveloperMailerPreview < ActionMailer::Preview
     DeveloperMailer.with(record: notification, recipient: notification.recipient).invisiblize
   end
 
-  def stale
+  def profile_reminder
     notification = Notification.where(type: Developers::ProfileReminderNotification.to_s).first
-    DeveloperMailer.with(record: notification, recipient: notification.recipient).stale
+    DeveloperMailer.with(record: notification, recipient: notification.recipient).profile_reminder
   end
 
   def welcome

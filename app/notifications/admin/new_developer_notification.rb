@@ -1,7 +1,7 @@
 module Admin
   class NewDeveloperNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "AdminMailer", method: :new_developer_profile
+    deliver_by :email, mailer: "AdminMailer", method: :new_developer
 
     param :developer
 

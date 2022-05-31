@@ -252,7 +252,8 @@ pt-BR:
         body: Você não tem notificações não lidas.
         title: Nenhuma notificação nova
       title: Novas notificações
-    new_message: "%{sender} lhe enviou uma mensagem."
+    new_message_notification:
+      title: "%{sender} lhe enviou uma mensagem."
     show:
       notice: Notificações marcadas como lidas.
   number:

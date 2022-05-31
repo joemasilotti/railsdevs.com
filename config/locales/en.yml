@@ -333,7 +333,8 @@ en:
       invisiblize_notification:
         title: Your profile on railsdevs was flagged
       profile_reminder_notification:
-        title: Is your railsdevs profile up to date?
+        email_subject: Is your railsdevs profile up to date?
+        title: Is your developer profile up to date?
       welcome_notification:
         title: Welcome to railsdevs!
     index:
@@ -343,7 +344,9 @@ en:
         title: No new notifications
       mark_all_as_read: Mark all as read
       title: New notifications
-    new_message: "%{sender} sent you a message"
+    new_message_notification:
+      email_subject: "%{sender} sent you a message on railsdevs"
+      title: "%{sender} sent you a message"
     show:
       notice: Notification marked as read.
   open_startup:

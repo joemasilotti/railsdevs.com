@@ -1,1 +1,1 @@
-<p><b><%= link_to @business.contact_name, "mailto:#{@business.user.email}" %></b> added their <%= link_to "business", notification_url(@notification) %>!</p>
+<p><b><%= link_to @business.contact_name, "mailto:#{@business.user.email}" %></b> added their <%= link_to "business", notification_url(@notification.record) %>!</p>

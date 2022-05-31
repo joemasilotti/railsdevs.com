@@ -1,3 +1,3 @@
-<p><%= @sender %> sent you <%= link_to "a message", notification_url(@notification) %>:</p>
+<p><%= @sender %> sent you <%= link_to "a message", notification_url(@notification.record) %>:</p>
 
 <%== html_truncate_message_body(@body) %>

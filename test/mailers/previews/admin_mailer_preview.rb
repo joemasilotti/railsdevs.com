@@ -1,7 +1,7 @@
 class AdminMailerPreview < ActionMailer::Preview
-  def new_developer_profile
+  def new_developer
     notification = Notification.where(type: Admin::NewDeveloperNotification.to_s).first
-    AdminMailer.with(record: notification, recipient: User.first).new_developer_profile
+    AdminMailer.with(record: notification, recipient: User.first).new_developer
   end
 
   def new_business

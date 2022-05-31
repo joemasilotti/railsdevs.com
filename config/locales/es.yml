@@ -236,7 +236,8 @@ es:
         body: No tienes notificaciones no leídas.
         title: No hay nuevas notificaciones
       title: Nuevas notificaciones
-    new_message: "%{sender} te envió un mensaje."
+    new_message_notification:
+      title: "%{sender} te envió un mensaje."
     show:
       notice: Notificaciones marcadas como leídas.
   number:
