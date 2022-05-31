@@ -36,4 +36,8 @@ class Message < ApplicationRecord
     super(text)
     self[:body_html] = FORMAT.call(text)
   end
+
+  def self.first_message?(developer)
+    joins(:conversation).where(conversation: { developer: }).one?
+  end
 end

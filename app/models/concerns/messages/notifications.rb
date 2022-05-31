@@ -3,7 +3,7 @@ module Messages
     def save_and_notify(cold_message: false)
       if save
         send_recipient_notification
-        send_first_message_notification if Conversation.first_message?(conversation.developer)
+        send_first_message_notification if Message.first_message?(conversation.developer)
         send_admin_notification if cold_message
         true
       end
