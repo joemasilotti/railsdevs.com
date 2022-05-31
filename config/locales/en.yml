@@ -179,8 +179,8 @@ en:
     include_not_interested: Include developers not currently interested
     role_level:
       title: Role level
-    search_query_label: Customize your search
-    search_query_placeholder: Ruby, React, Junior, etc...
+    search_query_label: Search profiles
+    search_query_placeholder: Hotwire, React, Heroku, etc.
     timezone:
       title: Timezone
     title: Developer filters
