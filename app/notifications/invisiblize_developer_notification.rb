@@ -5,7 +5,7 @@ class InvisiblizeDeveloperNotification < ApplicationNotification
   param :developer
 
   def title
-    t("notifications.invisiblize")
+    t("notifications.invisiblize_developer_notification.title")
   end
 
   def url

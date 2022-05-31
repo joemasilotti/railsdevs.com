@@ -327,15 +327,19 @@ en:
         title: No new notifications
       mark_all_as_read: Mark all as read
       title: New notifications
-    invisiblize: Your profile on railsdevs was flagged
+    invisiblize_developer_notification:
+      title: Your profile on railsdevs was flagged
     new_business: "%{business} added their business."
     new_conversation: "%{name} (%{company}) started a conversation with %{developer}."
     new_developer_profile: "%{developer} added their developer profile."
     new_message: "%{sender} sent you a message."
     potential_hire: "%{developer} may have been hired."
-    profile_reminder: Is your developer profile up to date?
     show:
       notice: Notification marked as read.
+    stale_developer_notification:
+      title: Is your railsdevs profile up to date?
+    welcome_developer_notification:
+      title: Welcome to railsdevs!
   open_startup:
     contributions:
       index:

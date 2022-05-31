@@ -9,7 +9,7 @@ class StaleDeveloperNotification < ApplicationNotification
   end
 
   def title
-    t("notifications.profile_reminder")
+    t("notifications.stale_developer_notification.title")
   end
 
   def url

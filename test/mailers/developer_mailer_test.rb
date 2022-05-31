@@ -1,15 +1,23 @@
 require "test_helper"
 
 class DeveloperMailerTest < ActionMailer::TestCase
-  test "sending the welcome email to a developer" do
-    developer = developers(:one)
-    email = DeveloperMailer.with(developer:).welcome_email
+  test "invisiblize" do
+    InvisiblizeDeveloperNotification.with(developer:).deliver(recipient)
+  end
 
-    assert_emails 1 do
-      email.deliver_now
-    end
+  test "stale" do
+    StaleDeveloperNotification.with(developer:).deliver(recipient)
+  end
 
-    assert_equal [developer.user.email], email.to
-    assert_match(/Thanks for adding your profile!/, email.body.encoded)
+  test "welcome" do
+    WelcomeDeveloperNotification.with(developer:).deliver(recipient)
+  end
+
+  def developer
+    developers(:one)
+  end
+
+  def recipient
+    developer.user
   end
 end

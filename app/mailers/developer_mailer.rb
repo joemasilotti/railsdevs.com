@@ -7,7 +7,10 @@ class DeveloperMailer < ApplicationMailer
 
     @developer = @notification.to_notification.developer
 
-    mail(to: recipient.email, subject: "Your profile on railsdevs was flagged")
+    mail(
+      to: recipient.email,
+      subject: @notification.to_notification.title
+    )
   end
 
   def stale
@@ -18,14 +21,21 @@ class DeveloperMailer < ApplicationMailer
 
     mail(
       to: recipient.email,
-      subject: "Is your railsdevs profile up to date?",
+      subject: @notification.to_notification.title,
       from: Rails.configuration.emails.reminders_mailbox!,
       message_stream: :broadcast
     )
   end
 
-  def welcome_email
-    @developer = params[:developer]
-    mail(to: @developer.user.email, subject: "Welcome to railsdevs!")
+  def welcome
+    @notification = params[:record]
+    recipient = params[:recipient]
+
+    @developer = @notification.to_notification.developer
+
+    mail(
+      to: recipient.email,
+      subject: @notification.to_notification.title
+    )
   end
 end
