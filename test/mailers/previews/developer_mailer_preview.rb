@@ -17,8 +17,4 @@ class DeveloperMailerPreview < ActionMailer::Preview
   def first_message
     DeveloperMailer.with(developer: Developer.first).first_message
   end
-
-  def apology
-    DeveloperMailer.with(developer: Developer.first).apology
-  end
 end
