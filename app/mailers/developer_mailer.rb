@@ -47,13 +47,4 @@ class DeveloperMailer < ApplicationMailer
       subject: t(".subject")
     )
   end
-
-  def apology
-    @developer = params[:developer]
-
-    mail(
-      to: @developer.user.email,
-      subject: "Apologies - you may have gotten 2 emails from railsdevs"
-    )
-  end
 end
