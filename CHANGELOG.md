@@ -4,6 +4,7 @@
 
 ### May
 
+* May 31 - Email developers tips when they get their first message - #422 @seagalputra
 * May 29 - Send notifications about stale profiles to developers - #420 @mrtnin
 * May 26 - Strip HTML tags from developer bios - #446
 * May 21 - Accessibility updates - #436 and #440 @metamoni

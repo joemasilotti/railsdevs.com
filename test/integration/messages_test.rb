@@ -124,6 +124,15 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_select "p", html: 'Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!'
   end
 
+  test "email developer tips when they receive their first message" do
+    sign_in @business.user
+    developer = users(:developer).developer
+
+    assert_enqueued_email_with DeveloperMailer, :first_message, args: {developer:} do
+      post developer_messages_path(developer), params: message_params
+    end
+  end
+
   def message_params
     {
       message: {
