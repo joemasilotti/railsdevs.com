@@ -6,6 +6,6 @@ class LegacyBusinessSubscriptionComponent < ApplicationComponent
   end
 
   def render?
-    user&.active_legacy_business_subscription?
+    Businesses::Permission.new(user&.subscriptions).legacy_subscription?
   end
 end

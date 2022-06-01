@@ -57,10 +57,6 @@ es:
           title: Ninguna conversación bloqueada
         index:
           title: Conversaciones bloqueadas
-  availability_component:
-    in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
-    now_html: Disponible ahora
-    unspecified_html: No disponible actualmente
   blocks:
     create:
       notice: "%{other_recipient} fue bloqueado."
@@ -116,14 +112,14 @@ es:
     close_menu: Cerrar menú
     filters: Filtros
     search_query_label: Buscar perfiles de desarrollador
-    sort:
-      availability: Disponibilidad
-      newest: Más reciente
-      title: Ordenar
     timezone:
       title: Zona horaria
     title: Filtros del desarrollador
   developers:
+    availability_component:
+      in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
+      now_html: Disponible ahora
+      unspecified_html: No disponible actualmente
     create:
       created: "¡Tu perfil fue creado!"
     details:
@@ -183,6 +179,7 @@ es:
       attached: no esta adjunto
       content_type_invalid: formato de la imagén no soprotado
       max_file_size_invalid: imagén superior a %{size}
+    unauthorized: No tienes permiso para eso.
   home:
     developers:
       available_developers: Desarrolladores disponibles ahora
@@ -223,16 +220,21 @@ es:
       sign_out: Cerrar sesión
       view_notifications: Ver notificaciones
   notifications:
+    admin:
+      new_business_notification:
+        title: "%{business} agregó su empresa."
+      new_conversation_notification:
+        title: "%{name} (%{company}) empezó una conversación con %{developer}."
+      new_developer_notification:
+        title: "%{developer} agregó su perfil de desarrollador."
     index:
       cta: Ver historia
       empty_state:
         body: No tienes notificaciones no leídas.
         title: No hay nuevas notificaciones
       title: Nuevas notificaciones
-    new_business: "%{business} agregó su empresa."
-    new_conversation: "%{name} (%{company}) empezó una conversación con %{developer}."
-    new_developer_profile: "%{developer} agregó su perfil de desarrollador."
-    new_message: "%{sender} te envió un mensaje."
+    new_message_notification:
+      title: "%{sender} te envió un mensaje."
     show:
       notice: Notificaciones marcadas como leídas.
   number:
@@ -243,9 +245,6 @@ es:
   paywalled_component:
     description: Información que solo es visible con una suscripción comercial.
     title: Información provada
-  pundit:
-    errors:
-      unauthorized: No tienes permiso para eso.
   read_notifications:
     empty_state:
       body: No tienes notificaciones leídas.

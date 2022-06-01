@@ -19,12 +19,12 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
 
     message = Message.new(developer:, business:, sender: business, body: "Hello!")
 
-    assert_sends_notification NewConversationNotification do
+    assert_sends_notification Admin::NewConversationNotification do
       assert message.save_and_notify(cold_message: true)
     end
     assert_equal message.conversation, Notification.last.to_notification.conversation
 
-    refute_sends_notification NewConversationNotification do
+    refute_sends_notification Admin::NewConversationNotification do
       assert message.save_and_notify(cold_message: false)
     end
   end

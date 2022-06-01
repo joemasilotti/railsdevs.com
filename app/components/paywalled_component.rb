@@ -20,7 +20,7 @@ class PaywalledComponent < ApplicationComponent
   private
 
   def customer?
-    @user&.active_business_subscription?
+    Businesses::Permission.new(@user&.subscriptions).active_subscription?
   end
 
   def owner?

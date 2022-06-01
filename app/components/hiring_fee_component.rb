@@ -7,7 +7,7 @@ class HiringFeeComponent < ApplicationComponent
   end
 
   def render?
-    user.active_full_time_business_subscription? &&
+    Businesses::Permission.new(user.subscriptions).pays_hiring_fee? &&
       conversation.hiring_fee_eligible?
   end
 
@@ -16,7 +16,7 @@ class HiringFeeComponent < ApplicationComponent
   end
 
   def recipient
-    Rails.configuration.support_email
+    Rails.configuration.emails.support!
   end
 
   def subject

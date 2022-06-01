@@ -9,6 +9,7 @@ class DeveloperQuery
     @options = options
     @items_per_page = options.delete(:items_per_page)
     @sort = options.delete(:sort)
+    @countries = options.delete(:countries)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
     @role_levels = options.delete(:role_levels)
@@ -40,6 +41,10 @@ class DeveloperQuery
     @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
   end
 
+  def countries
+    @countries.to_a.reject(&:blank?)
+  end
+
   def utc_offsets
     @utc_offsets.to_a.reject(&:blank?).map(&:to_f)
   end
@@ -65,6 +70,7 @@ class DeveloperQuery
   def query_and_paginate
     @_records = Developer.includes(:role_type).with_attached_avatar.visible
     sort_records
+    country_filter_records
     utc_offset_filter_records
     role_type_filter_records
     role_level_filter_records
@@ -93,9 +99,13 @@ class DeveloperQuery
     end
   end
 
+  def country_filter_records
+    @_records.merge!(Developer.filter_by_countries(countries)) if countries.any?
+  end
+
   def utc_offset_filter_records
     if utc_offsets.any?
-      @_records.merge!(Developer.filter_by_utc_offset(utc_offsets))
+      @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets))
     end
   end
 

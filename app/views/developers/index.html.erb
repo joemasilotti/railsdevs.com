@@ -1,25 +1,56 @@
 <%= open_graph_tags title: t(".title_og"), description: t(".description", developers_count: @developers_count) %>
 
-<div class="bg-white max-w-5xl mx-auto lg:mt-16 mb-16 shadow overflow-auto sm:rounded-md">
-  <div class="py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-4">
-    <div>
+<div data-controller="toggle" data-toggle-visibility-class="hidden" class="max-w-7xl bg-white mx-auto lg:mt-16 mb-16 overflow-auto sm:rounded-md sm:shadow">
+  <div class="pt-12 px-4 sm:px-6 mb-4">
+    <div class="md:flex md:space-x-8">
       <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
-      <p class="mt-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
+      <%= render DeveloperProfileActionComponent.new(current_user) %>
     </div>
 
-    <%= render DeveloperProfileActionComponent.new(current_user) %>
+    <!-- Sort and mobile filter button -->
+    <div class="md:flex justify-between items-center">
+      <p class="mt-4 pb-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
+
+      <div class="hidden md:block">
+        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
+      </div>
+
+      <div class="flex justify-end items-center md:hidden">
+        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
+        <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
+          <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5" %>
+          <span class="sr-only"><%= t("developer_query_component.filters") %></span>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <%= render DeveloperQueryComponent.new(query: @query, user: current_user) %>
+  <hr>
 
-  <%= render DeveloperCardComponent.with_collection(@query.featured_records, featured: true) %>
-
-  <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
-    <% component.loading_icon do %>
-      <div class="py-4">
-        <%= render LoadingComponent.new %>
+  <div class="grid grid-cols-12">
+    <!-- Desktop and mobile filters -->
+    <div class="col-span-12 md:col-span-3 sm:pt-4">
+      <div class="hidden md:block">
+        <%= render DeveloperQueryComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
-    <% end %>
-    <%= render DeveloperCardComponent.with_collection(@query.records) %>
-  <% end %>
+
+      <div class="md:hidden">
+        <%= render DeveloperQueryMobileComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
+      </div>
+    </div>
+
+    <!-- Paginated list of developers -->
+    <div class="col-span-12 md:col-span-9">
+      <%= render DeveloperCardComponent.with_collection(@query.featured_records, featured: true) %>
+
+      <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
+        <% component.loading_icon do %>
+          <div class="py-4">
+            <%= render LoadingComponent.new %>
+          </div>
+        <% end %>
+        <%= render DeveloperCardComponent.with_collection(@query.records) %>
+      <% end %>
+    </div>
+  </div>
 </div>

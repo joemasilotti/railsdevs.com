@@ -4,6 +4,11 @@
 
 ### May
 
+* May 31 - Email developers tips when they get their first message - #422 @seagalputra
+* May 29 - Send notifications about stale profiles to developers - #420 @mrtnin
+* May 26 - Strip HTML tags from developer bios - #446
+* May 21 - Accessibility updates - #436 and #440 @metamoni
+* May 9 - Send daily/weekly emails via broadcast stream - #421
 * May 8 - Send automated emails from `@railsdevs.com` -#414
 * May 8 - Stop business welcome email and clean up developer welcome email -#413
 * May 2 - Revamped business profiles - #397 @scottharvey

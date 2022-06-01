@@ -23,4 +23,23 @@ class MessageTest < ActiveSupport::TestCase
 
     assert_equal '<p>Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!</p>', message.body_html
   end
+
+  test "user (developer) has their first message" do
+    developer = users(:developer).developer
+    business = users(:subscribed_business).business
+    conversation = Conversation.find_or_initialize_by(business:, developer:)
+    Message.create(body: "Hello", sender: business, conversation:)
+
+    assert Message.first_message?(developer)
+  end
+
+  test "user (developer) doesn't have any message" do
+    user = users(:developer)
+    refute Message.first_message?(user.developer)
+  end
+
+  test "user (developer) has many messages" do
+    user = users(:prospect_developer)
+    refute Message.first_message?(user.developer)
+  end
 end

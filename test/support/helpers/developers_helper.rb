@@ -21,8 +21,8 @@ module DevelopersHelper
         options[:search_status] = :open
       end
 
-      if (utc_offset = options.delete(:utc_offset))
-        options[:location_attributes] = location_attributes(utc_offset)
+      if (location_attributes = options.delete(:location_attributes))
+        options[:location_attributes] = default_location_attributes.merge(location_attributes)
       end
 
       Developer.create!(developer_attributes.merge(options))
@@ -30,13 +30,13 @@ module DevelopersHelper
 
     private
 
-    def location_attributes(utc_offset)
+    def default_location_attributes
       {
         latitude: 1,
         longitude: 2,
         country: "United States",
         time_zone: "Fake Time Zone",
-        utc_offset:
+        utc_offset: -8 * 60 * 60
       }
     end
   end
