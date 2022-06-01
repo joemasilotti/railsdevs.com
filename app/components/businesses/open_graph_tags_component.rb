@@ -1,4 +1,4 @@
-class BusinessOpenGraphTagsComponent < OpenGraphTagsComponent
+class OpenGraphTagsComponent < OpenGraphTagsComponent
   def initialize(business:)
     @business = business
   end
