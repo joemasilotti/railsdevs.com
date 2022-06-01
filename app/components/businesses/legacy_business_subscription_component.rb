@@ -1,5 +1,5 @@
 module Businesses
-  class LegacyBusinessSubscriptionComponent < ApplicationComponent
+  class LegacySubscriptionComponent < ApplicationComponent
     attr_reader :user
 
     def initialize(user)
