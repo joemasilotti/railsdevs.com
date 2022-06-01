@@ -102,7 +102,7 @@
             <%= form.label t(".developer_notifications.legend"), class: "text-base font-medium text-gray-900" %>
             <p class="text-sm leading-5 text-gray-500"><%= t(".developer_notifications.help_text") %></p>
             <div class="mt-4">
-              <%= render UpgradeAccountComponent.new(current_user) do %>
+              <%= render Businesses::UpgradeAccountComponent.new(current_user) do %>
                 <fieldset>
                   <legend class="sr-only"><%= t(".developer_notifications.legend") %></legend>
                   <div class="space-y-4">

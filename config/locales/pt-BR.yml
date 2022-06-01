@@ -97,6 +97,9 @@ pt-BR:
       your_business_profile: Perfil da sua empresa
     update:
       updated: Sua empresa foi atualizada!
+    upgrade_account_component:
+      cta: Atualizar sua conta
+      title: Requer um perfil empresarial ativo.
   cold_messages:
     new:
       title: Iniciar uma conversa
@@ -346,6 +349,3 @@ pt-BR:
     million: M
     thousand: K
     unit: ''
-  upgrade_account_component:
-    cta: Atualizar sua conta
-    title: Requer um perfil empresarial ativo.

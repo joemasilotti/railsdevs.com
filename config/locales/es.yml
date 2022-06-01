@@ -87,6 +87,9 @@ es:
       your_business_profile: Perfil de tu empresa
     update:
       updated: "¡Tu empresa fue actualizada!"
+    upgrade_account_component:
+      cta: Adquiere la suscripción
+      title: Requiere de una suscripción empresarial activa.
   cold_messages:
     new:
       title: Empieza una conversación
@@ -273,6 +276,3 @@ es:
       open_source: Código abierto
       support: Soporte
       twitter: Twitter
-  upgrade_account_component:
-    cta: Adquiere la suscripción
-    title: Requiere de una suscripción empresarial activa.
