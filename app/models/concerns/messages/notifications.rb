@@ -16,7 +16,7 @@ module Messages
     end
 
     def send_admin_notification
-      NewConversationNotification.with(conversation:).deliver_later(User.admin)
+      Admin::NewConversationNotification.with(conversation:).deliver_later(User.admin)
     end
 
     def send_first_message_notification

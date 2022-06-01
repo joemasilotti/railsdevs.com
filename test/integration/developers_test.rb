@@ -125,7 +125,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:empty)
 
     assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
-      assert_sends_notification NewDeveloperProfileNotification do
+      assert_sends_notification Admin::NewDeveloperNotification do
         post developers_path, params: valid_developer_params
       end
     end
@@ -189,7 +189,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "#developer_avatar_hidden"
     assert_select "#developer_cover_image_hidden"
 
-    assert_sends_notification PotentialHireNotification, to: users(:admin) do
+    assert_sends_notification Admin::PotentialHireNotification, to: users(:admin) do
       patch developer_path(developer), params: {
         developer: {
           name: "New Name",

@@ -27,6 +27,13 @@ developer = SeedsHelper.create_developer!("stale", {
 long_time_ago = 31.days.ago
 developer.update!(created_at: long_time_ago, updated_at: long_time_ago)
 
+# Featured developer
+developer = SeedsHelper.create_developer!("featured", {
+  hero: "Featured developer",
+  location: SeedsHelper.locations[:new_york]
+})
+developer.feature! unless developer.featured_at?
+
 # Junior developer
 SeedsHelper.create_developer!("junior", {
   hero: "Junior developer",

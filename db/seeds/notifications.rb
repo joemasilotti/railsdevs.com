@@ -7,24 +7,27 @@ Message.find_or_create_by!(conversation:, sender: developer, body: "Let's chat o
 # MessageMailer#new_message
 Notification.find_or_create_by!(type: NewMessageNotification.name, recipient: developer.user, params: {message:, conversation:})
 
+# DeveloperMailer#welcome
+Notification.find_or_create_by!(type: Developers::WelcomeNotification.name, recipient: developer.user, params: {developer:})
+
 # DeveloperMailer#invisiblize
 invisible_developer = User.find_by(email: "invisible@example.com").developer
-Notification.find_or_create_by!(type: InvisiblizeDeveloperNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
+Notification.find_or_create_by!(type: Developers::InvisiblizeNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
 
 # DeveloperMailer#stale
 stale_developer = User.find_by(email: "stale@example.com").developer
-Notification.find_or_create_by!(type: StaleDeveloperNotification.name, recipient: stale_developer.user, params: {developer: stale_developer})
+Notification.find_or_create_by!(type: Developers::ProfileReminderNotification.name, recipient: stale_developer.user, params: {developer: stale_developer})
 
 # AdminMailer#new_business
 admin = User.find_by(email: "admin@example.com")
-Notification.find_or_create_by!(type: NewBusinessNotification.name, recipient: admin, params: {business:})
+Notification.find_or_create_by!(type: Admin::NewBusinessNotification.name, recipient: admin, params: {business:})
 
 # AdminMailer#new_conversation
-Notification.find_or_create_by!(type: NewConversationNotification.name, recipient: admin, params: {message:, conversation:})
+Notification.find_or_create_by!(type: Admin::NewConversationNotification.name, recipient: admin, params: {message:, conversation:})
 
 # AdminMailer#new_developer_profile
-Notification.find_or_create_by!(type: NewDeveloperProfileNotification.name, recipient: admin, params: {developer:})
+Notification.find_or_create_by!(type: Admin::NewDeveloperNotification.name, recipient: admin, params: {developer:})
 
 # AdminMailer#potential_hire
 developer = User.find_by(email: "hired@example.com").developer
-Notification.find_or_create_by!(type: PotentialHireNotification.name, recipient: admin, params: {developer:})
+Notification.find_or_create_by!(type: Admin::PotentialHireNotification.name, recipient: admin, params: {developer:})
