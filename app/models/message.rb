@@ -38,6 +38,6 @@ class Message < ApplicationRecord
   end
 
   def self.first_message?(developer)
-    joins(:conversation).where(conversation: { developer: }).one?
+    joins(:conversation).where(conversation: {developer:}).one?
   end
 end

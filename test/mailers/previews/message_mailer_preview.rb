@@ -3,4 +3,9 @@ class MessageMailerPreview < ActionMailer::Preview
     notification = Notification.where(type: NewMessageNotification.to_s).first
     MessageMailer.with(record: notification, recipient: notification.recipient).new_message
   end
+
+  def first_message
+    developer = Developer.first
+    MessageMailer.with(developer:).first_message
+  end
 end

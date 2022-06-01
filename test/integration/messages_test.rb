@@ -124,6 +124,15 @@ class MessagesTest < ActionDispatch::IntegrationTest
     assert_select "p", html: 'Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!'
   end
 
+  test "send email when subscriber send a first message to developer" do
+    sign_in @business.user
+    developer = users(:developer).developer
+
+    assert_emails 1 do
+      post developer_messages_path(developer), params: message_params
+    end
+  end
+
   def message_params
     {
       message: {
