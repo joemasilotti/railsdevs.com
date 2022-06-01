@@ -168,6 +168,9 @@ en:
     title: Admin
   developer_card_component:
     featured: Featured developer
+  developer_mailer:
+    first_message:
+      subject: Tips on responding to your first message on railsdevs
   developer_profile_action_component:
     add_profile: Add my profile
     edit_profile: Update my profile

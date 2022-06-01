@@ -15,13 +15,4 @@ class MessageMailer < ApplicationMailer
       subject: @notification.email_subject
     )
   end
-
-  def first_message
-    @developer = params[:developer]
-    mail(
-      from: Rails.configuration.emails.support_mailbox,
-      to: @developer.user.email,
-      subject: "Tips on responding to your first message on railsdevs"
-    )
-  end
 end

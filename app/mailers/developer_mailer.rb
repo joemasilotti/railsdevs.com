@@ -38,4 +38,13 @@ class DeveloperMailer < ApplicationMailer
       subject: @notification.title
     )
   end
+
+  def first_message
+    @developer = params[:developer]
+
+    mail(
+      to: @developer.user.email,
+      subject: t(".subject")
+    )
+  end
 end

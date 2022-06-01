@@ -13,6 +13,10 @@ class DeveloperMailerTest < ActionMailer::TestCase
     Developers::WelcomeNotification.with(developer:).deliver(recipient)
   end
 
+  test "first message" do
+    DeveloperMailer.with(developer:).first_message
+  end
+
   def developer
     developers(:one)
   end
