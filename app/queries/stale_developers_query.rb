@@ -2,7 +2,9 @@ class StaleDevelopersQuery
   EARLIEST_TIME = 30.days.ago.beginning_of_day
 
   def stale_and_not_recently_notified
-    Developer.where(updated_at: ..EARLIEST_TIME).where(no_recent_notifications)
+    Developer.actively_looking_or_open
+      .where(updated_at: ..EARLIEST_TIME)
+      .where(no_recent_notifications)
   end
 
   private
@@ -24,7 +26,7 @@ class StaleDevelopersQuery
   end
 
   def stale_notification_type
-    notifications_table[:type].eq("Developers::ProfileReminderNotification")
+    notifications_table[:type].eq(Developers::ProfileReminderNotification.name)
   end
 
   def recently_created
