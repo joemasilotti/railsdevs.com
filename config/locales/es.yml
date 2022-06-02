@@ -113,8 +113,6 @@ es:
   developer_query_component:
     apply: Aplicar
     close_menu: Cerrar menú
-    country:
-      title: País
     filters: Filtros
     search_query_label: Buscar perfiles de desarrollador
     timezone:

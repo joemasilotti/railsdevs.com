@@ -126,8 +126,6 @@ pt-BR:
   developer_query_component:
     apply: Aplicar
     close_menu: Fechar menu
-    country:
-      title: País
     filters: Filtros
     timezone:
       title: Fuso Horário
