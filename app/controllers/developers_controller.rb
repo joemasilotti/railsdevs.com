@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = Developer.count.round(-1)
-    @query = DeveloperQuery.new(params)
+    @query = DeveloperQuery.new(params.merge!(user: current_user))
   end
 
   def new

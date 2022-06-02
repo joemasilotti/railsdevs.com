@@ -44,9 +44,10 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
   end
 
-  test "checks value of search query" do
-    query = DeveloperQuery.new(search_query: "rails")
-    render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)
+  test "checks value of search query if the business has an active subscription" do
+    subscribed_business = users(:subscribed_business)
+    query = DeveloperQuery.new(search_query: "rails", user: subscribed_business)
+    render_inline DeveloperQueryComponent.new(query:, user: subscribed_business, form_id: nil)
 
     assert_selector "input[type=text][name='search_query'][value=rails]"
   end
