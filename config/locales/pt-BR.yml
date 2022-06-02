@@ -317,8 +317,9 @@ pt-BR:
     sign_up_html: ou %{link}
   role_level_component:
     interested_in_roles: Interessado em perfis
-  role_type_component:
-    interested_in_roles: Interessado em perfis
+  role_types:
+    role_type_component:
+      interested_in_roles: Interessado em perfis
   roles:
     new:
       hiring_developers: Estou contratando desenvolvedores

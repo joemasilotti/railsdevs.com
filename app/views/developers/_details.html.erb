@@ -8,7 +8,7 @@
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
-    <%= render RoleTypeComponent.new(developer.role_type) %>
+    <%= render RoleTypes::RoleTypeComponent.new(developer.role_type) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>

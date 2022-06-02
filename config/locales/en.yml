@@ -527,8 +527,9 @@ en:
     sign_up_html: Or %{link}
   role_level_component:
     interested_in_roles: Interested in roles
-  role_type_component:
-    interested_in_roles: Interested in roles
+  role_types:
+    role_type_component:
+      interested_in_roles: Interested in roles
   roles:
     new:
       hiring_developers: I'm hiring developers
