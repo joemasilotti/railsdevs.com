@@ -5,6 +5,22 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     @user = users(:empty)
   end
 
+  test "renders unique countries for developers" do
+    query = DeveloperQuery.new({})
+    render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)
+
+    assert_selector "input[type=checkbox][name='countries[]'][value='United States']"
+
+    assert_selector "label[for=countries_united_states]", text: "United States"
+  end
+
+  test "checks selected countries" do
+    query = DeveloperQuery.new(countries: ["United States"])
+    render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)
+
+    assert_selector "input[checked][type=checkbox][name='countries[]'][value='United States']"
+  end
+
   test "renders unique UTC offset pairs for developers" do
     query = DeveloperQuery.new({})
     render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)

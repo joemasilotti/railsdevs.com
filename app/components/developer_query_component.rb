@@ -9,6 +9,14 @@ class DeveloperQueryComponent < ApplicationComponent
     @form_id = form_id
   end
 
+  def country_selected?(country)
+    query.countries.include?(country.first)
+  end
+
+  def countries
+    Location.order(:country).distinct.pluck(:country).map { |c| [c, c] }
+  end
+
   def time_zone_selected?(time_zone_pair)
     query.utc_offsets.include?(time_zone_pair.first.to_f)
   end
