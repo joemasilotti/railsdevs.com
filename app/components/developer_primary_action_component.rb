@@ -12,7 +12,7 @@ class DeveloperPrimaryActionComponent < ApplicationComponent
   end
 
   def conversation
-    return nil
+    # return nil
     Conversation.find_by(developer:, business:)
   end
 end
