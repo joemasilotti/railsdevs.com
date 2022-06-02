@@ -9,8 +9,8 @@ class DeveloperQueryComponent < ApplicationComponent
     @form_id = form_id
   end
 
-  def country_selected?(country)
-    query.countries.include?(country.first)
+  def country_selected?(country_pair)
+    query.countries.include?(country_pair.first)
   end
 
   def countries
