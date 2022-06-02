@@ -1,4 +1,4 @@
-<%= render ExpiredSubscriptionComponent.new(current_user, business: conversation.business) do %>
+<%= render Businesses::ExpiredSubscriptionComponent.new(current_user, business: conversation.business) do %>
   <%= form_with model: [conversation, message], data: {controller: "form"}, class: "relative" do |form| %>
     <%= render "messages/form", form: form %>
   <% end %>

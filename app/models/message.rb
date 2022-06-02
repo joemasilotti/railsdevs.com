@@ -20,6 +20,10 @@ class Message < ApplicationRecord
   scope :from_developer, -> { where(sender_type: Developer.name) }
   scope :potential_email, -> { where("body LIKE ?", "%@%") }
 
+  def self.first_message?(developer)
+    joins(:conversation).where(conversation: {developer:}).one?
+  end
+
   def sender?(user)
     [user.developer, user.business].include?(sender)
   end
