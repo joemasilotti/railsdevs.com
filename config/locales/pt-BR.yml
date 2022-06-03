@@ -123,15 +123,6 @@ pt-BR:
   developer_profile_action_component:
     add_profile: Adicionar meu perfil
     edit_profile: Atualizar meu perfil
-  developer_query_component:
-    apply: Aplicar
-    close_menu: Fechar menu
-    filters: Filtros
-    timezone:
-      title: Fuso Horário
-    title: Filtros de desenvolvedores
-    work_preference:
-      title: Preferencia de trabalho
   developers:
     availability_component:
       in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
@@ -184,6 +175,15 @@ pt-BR:
     index:
       description: "%{developers_count}+ desenvolvedores Ruby on Rails buscando seu próximo trabalho. Aqui você vai encontrar de Juniors a seniors e tudo no meio do caminho."
       title: Desenvolvedores Ruby on Rails
+    query_component:
+      apply: Aplicar
+      close_menu: Fechar menu
+      filters: Filtros
+      timezone:
+        title: Fuso Horário
+      title: Filtros de desenvolvedores
+      work_preference:
+        title: Preferencia de trabalho
     show:
       description: Descrição
       edit: Editar

@@ -19,7 +19,7 @@
         <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
         <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
           <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5" %>
-          <span class="sr-only"><%= t("developer_query_component.filters") %></span>
+          <span class="sr-only"><%= t("developers.query_component.filters") %></span>
         </button>
       </div>
     </div>
@@ -31,11 +31,11 @@
     <!-- Desktop and mobile filters -->
     <div class="col-span-12 md:col-span-3 sm:pt-4">
       <div class="hidden md:block">
-        <%= render DeveloperQueryComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
+        <%= render Developers::QueryComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
 
       <div class="md:hidden">
-        <%= render DeveloperQueryMobileComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
+        <%= render Developers::QueryMobileComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
       </div>
     </div>
 
