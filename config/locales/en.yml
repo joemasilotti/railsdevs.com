@@ -167,11 +167,6 @@ en:
   date:
     formats:
       month_year: "%B %Y"
-  developer_admin_component:
-    copy: Copy
-    feature: Feature
-    invisiblize: Invisiblize
-    title: Admin
   developer_card_component:
     featured: Featured developer
   developer_mailer:
@@ -201,6 +196,11 @@ en:
       newest: Newest
       title: Sort
   developers:
+    admin_component:
+      copy: Copy
+      feature: Feature
+      invisiblize: Invisiblize
+      title: Admin
     availability_component:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
       now_html: Available now
