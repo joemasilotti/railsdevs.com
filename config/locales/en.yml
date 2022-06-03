@@ -244,6 +244,11 @@ en:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
+    new_field_component:
+      new: New!
+    new_fields_component:
+      cta: Complete my profile
+      title: New fields were added to developer profiles!
     query_component:
       apply: Apply
       clear: Clear
@@ -323,11 +328,6 @@ en:
       transactions: Transactions
       view_conversations: View conversations
       view_notifications: View notifications
-  new_developer_field_component:
-    new: New!
-  new_developer_fields_component:
-    cta: Complete my profile
-    title: New fields were added to developer profiles!
   notifications:
     admin:
       new_business_notification:

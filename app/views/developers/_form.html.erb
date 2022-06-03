@@ -45,7 +45,7 @@
                   <div class="sm:col-span-2">
                     <div class="flex items-center">
                       <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :location, size: :small) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :location, size: :small) %>
                     </div>
                     <div class="mt-1">
                       <%= location.text_field :city, class: field_classes(location, :city) %>
@@ -128,7 +128,7 @@
               <legend class="text-base font-medium text-gray-900">
                 <div class="flex">
                   <%= t(".search_status.title") %>
-                  <%= render NewDeveloperFieldComponent.new(form.object, :search_status) %>
+                  <%= render Developers::NewFieldComponent.new(form.object, :search_status) %>
                 </div>
               </legend>
               <div class="mt-4 space-y-4">
@@ -177,7 +177,7 @@
                   <legend class="text-base font-medium text-gray-900 w-full">
                     <div class="flex">
                       <%= t(".role_type.title") %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :role_type) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :role_type) %>
                     </div>
                   </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_type.help_text") %></p>
@@ -205,7 +205,7 @@
                   <legend class="text-base font-medium text-gray-900 w-full">
                     <div class="flex">
                       <%= t(".role_level.title") %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :role_level) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :role_level) %>
                     </div>
                   </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_level.help_text") %></p>
@@ -241,7 +241,7 @@
                   <div class="sm:col-span-1">
                     <div class="flex">
                       <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :available_on, size: :small) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :available_on, size: :small) %>
                     </div>
                     <div class="mt-1">
                       <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
