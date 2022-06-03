@@ -24,10 +24,6 @@ en:
         name: Name
         twitter: Twitter
         website: Website
-      developer/search_status:
-        actively_looking: Actively looking for work
-        not_interested: Not interested in work right now
-        open: Open, but not actively looking
       location:
         country_code: Country
       role_level:
@@ -264,6 +260,10 @@ en:
       title: Developer filters
       work_preference:
         title: Work preference
+    search_status:
+      actively_looking: Actively looking for work
+      not_interested: Not interested in work right now
+      open: Open, but not actively looking
     show:
       description: Description
       edit: Edit

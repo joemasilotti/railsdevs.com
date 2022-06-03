@@ -19,10 +19,6 @@ es:
         name: Nombre
         twitter: Twitter
         website: Sitio web
-      developer/search_status:
-        actively_looking: Activamente buscando trabajo
-        not_interested: No interesado en trabajar por ahora
-        open: Abierto, pero no buscando activamente
       role_level:
         c_level: nivel C
         junior: Júnior
@@ -170,6 +166,10 @@ es:
       timezone:
         title: Zona horaria
       title: Filtros del desarrollador
+    search_status:
+      actively_looking: Activamente buscando trabajo
+      not_interested: No interesado en trabajar por ahora
+      open: Abierto, pero no buscando activamente
     show:
       description: Descripción
       edit: Editar

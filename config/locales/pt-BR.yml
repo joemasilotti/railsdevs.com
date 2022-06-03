@@ -22,10 +22,6 @@ pt-BR:
         name: Nome
         twitter: Twitter
         website: Website
-      developer/search_status:
-        actively_looking: Ativamente buscando trabalho
-        not_interested: Não estou interessado em trabalho no momento
-        open: Aberto, mas não buscando ativamente
       role_level:
         c_level: Nível C
         junior: Júnior
@@ -184,6 +180,10 @@ pt-BR:
       title: Filtros de desenvolvedores
       work_preference:
         title: Preferencia de trabalho
+    search_status:
+      actively_looking: Ativamente buscando trabalho
+      not_interested: Não estou interessado em trabalho no momento
+      open: Aberto, mas não buscando ativamente
     show:
       description: Descrição
       edit: Editar

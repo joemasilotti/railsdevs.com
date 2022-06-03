@@ -4,7 +4,7 @@
     <div class="flex items-center space-x-2">
       <%= render Developers::AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
     </div>
-    <%= render SearchStatusComponent.new(developer) %>
+    <%= render Developers::SearchStatusComponent.new(developer) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
