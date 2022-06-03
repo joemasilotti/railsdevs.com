@@ -1,7 +1,7 @@
 <h2 class="sr-only"><%= t(".title") %></h2>
 
 <div class="px-4 sm:px-6">
-  <%= form_with url: developers_path, id: form_id, method: :get do |form| %>
+  <%= form_with url: developers_path, id: form_id, method: :get, html: {data: {turbo_action: :replace}} do |form| %>
     <% if Feature.enabled?(:search_feature, user: user) %>
       <div>
         <%= form.label :search_query, t(".search_query_label"), class: "block text-sm font-medium text-gray-700" %>

@@ -9,6 +9,9 @@ application.register("analytics--events", Analytics__EventsController)
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 
+import DismissModalController from "./dismiss_modal_controller.js"
+application.register("dismiss-modal", DismissModalController)
+
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 

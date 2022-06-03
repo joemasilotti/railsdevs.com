@@ -12,7 +12,7 @@ class ColdMessagesController < ApplicationController
   def create
     message = Message.new(message_params.merge(conversation:, sender: business))
     if message.save_and_notify(cold_message: true)
-      redirect_to message.conversation
+      recede_or_redirect_to conversation_path(message.conversation)
     else
       @cold_message = cold_message(message)
       render :new, status: :unprocessable_entity
@@ -20,6 +20,14 @@ class ColdMessagesController < ApplicationController
   end
 
   private
+
+  def recede_or_redirect_to(url, **options)
+    if true # request.post? && turbo_native_app?
+      redirect_to dismiss_modal_path(url: CGI.escape(url))
+    else
+      redirect_to url, options
+    end
+  end
 
   def cold_message(message)
     ColdMessage.new(message:, show_hiring_fee_terms: permission.pays_hiring_fee?)

@@ -42,6 +42,12 @@ module Turbo
               properties: {
                 flow: "authentication"
               }
+            },
+            {
+              patterns: ["/recede_historical_location"],
+              properties: {
+                action: "recede"
+              }
             }
           ]
         }
