@@ -167,8 +167,6 @@ en:
   date:
     formats:
       month_year: "%B %Y"
-  developer_card_component:
-    featured: Featured developer
   developer_mailer:
     first_message:
       subject: Tips on responding to your first message on railsdevs
@@ -205,6 +203,8 @@ en:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
       now_html: Available now
       unspecified_html: Currently unavailable
+    card_component:
+      featured: Featured developer
     create:
       created: Your profile was added!
     details:
