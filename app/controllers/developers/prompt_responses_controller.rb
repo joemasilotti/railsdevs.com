@@ -24,6 +24,7 @@ module Developers
       if @prompt_response.save
         render "create"
       else
+        @prompts = Admin::Prompt.active
         render "new", status: :unprocessable_entity
       end
     end
@@ -42,7 +43,8 @@ module Developers
       if @prompt_response.update(response_params)
         render "update"
       else
-        render "new", status: :unprocessable_entity
+        @prompts = Admin::Prompt.active
+        render "edit", status: :unprocessable_entity
       end
     end
 
