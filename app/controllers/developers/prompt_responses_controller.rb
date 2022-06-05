@@ -53,7 +53,7 @@ module Developers
       authorize @prompt_response
       @prompt_response.destroy
 
-      render 'destroy'
+      render "destroy"
     end
 
     private

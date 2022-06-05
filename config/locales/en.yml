@@ -261,16 +261,15 @@ en:
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
     prompt_responses:
+      empty_state:
+        cta: Attract companies by writing a prompt response!
+        headline: No prompt responses published
+      form:
+        submit:
+          disabled: Publishing...
+          text: Publish Response
       index:
         add_response: Add Response
-      empty_state:
-        headline: No prompt responses published
-        cta: Attract companies by writing a prompt response!
-      form:
-        new_prompt_response_label: What are you thinking?
-        submit:
-          text: Publish Response
-          disabled: Publishing...
     show:
       description: Description
       edit: Edit
