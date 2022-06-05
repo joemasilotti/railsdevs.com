@@ -1,5 +1,5 @@
 <%= turbo_stream.update "response-form" %>
 <%= turbo_stream.remove "prompt-response-empty" %>
-<%= turbo_stream.append "prompt-responses-container" do %>
+<%= turbo_stream.replace dom_id(@prompt_response) do %>
   <%= render @prompt_response %>
 <% end %>

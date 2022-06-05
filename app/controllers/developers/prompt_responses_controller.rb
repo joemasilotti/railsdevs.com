@@ -29,12 +29,29 @@ module Developers
     end
 
     def edit
+      @prompt_response = PromptResponse.find(params[:id])
+      authorize(@prompt_response)
+
+      @prompts = Admin::Prompt.active
     end
 
     def update
+      @prompt_response = PromptResponse.find(params[:id])
+      authorize @prompt_response
+
+      if @prompt_response.update(response_params)
+        render "update"
+      else
+        render "new", status: :unprocessable_entity
+      end
     end
 
     def destroy
+      @prompt_response = PromptResponse.find(params[:id])
+      authorize @prompt_response
+      @prompt_response.destroy
+
+      render 'destroy'
     end
 
     private

@@ -1,13 +1,13 @@
 <%= turbo_frame_tag "prompt-responses-index" do %>
   <% if @developer.user == current_user %>
     <div class="mt-6">
-      <%= link_to new_developer_prompt_response_path(@developer), data: {turbo_frame: "new-response"}, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+      <%= link_to new_developer_prompt_response_path(@developer), data: {turbo_frame: "response-form"}, class: "inline-flex px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
         <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
         <%= t(".add_response") %>
       <% end %>
     </div>
   <% end %>
-  <%= turbo_frame_tag "new-response" %>
+  <%= turbo_frame_tag "response-form" %>
   <div id="prompt-responses-container" class="grid grid-cols-1 gap-4 empty:hidden sm:grid-cols-2">
     <%= render partial: "prompt_response", collection: @prompt_responses %>
   </div>

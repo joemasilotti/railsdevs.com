@@ -1,19 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["responseArea", "label"]
+  static targets = ["responseArea", "label", "dropdown"]
 
-  updateUi(event) {
-    var dropdown = event.target
-
-    this.toggleResponseVisibility(dropdown)
-    console.log(this.labelTarget)
-    this.labelTarget.textContent = dropdown.options[dropdown.selectedIndex].text
+  connect() {
+    this.updateUi()
+    this.element.scrollIntoView({ behavior: 'smooth' })
   }
 
-  toggleResponseVisibility(dropdown) {
-    if(dropdown.value != "") {
+  updateUi() {
+    if(this.dropdownTarget.value != "") {
       this.responseAreaTarget.style.display = "block"
+      this.labelTarget.textContent = this.dropdownTarget.options[this.dropdownTarget.selectedIndex].text
     } else {
       this.responseAreaTarget.style.display = "none"
     }
