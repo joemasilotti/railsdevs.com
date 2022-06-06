@@ -19,10 +19,6 @@ es:
         name: Nombre
         twitter: Twitter
         website: Sitio web
-      developer/search_status:
-        actively_looking: Activamente buscando trabajo
-        not_interested: No interesado en trabajar por ahora
-        open: Abierto, pero no buscando activamente
       role_level:
         c_level: nivel C
         junior: Júnior
@@ -110,14 +106,6 @@ es:
   developer_profile_action_component:
     add_profile: Agregar mi perfil
     edit_profile: Actualizar mi perfil
-  developer_query_component:
-    apply: Aplicar
-    close_menu: Cerrar menú
-    filters: Filtros
-    search_query_label: Buscar perfiles de desarrollador
-    timezone:
-      title: Zona horaria
-    title: Filtros del desarrollador
   developers:
     availability_component:
       in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
@@ -170,6 +158,18 @@ es:
     index:
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
+    query_component:
+      apply: Aplicar
+      close_menu: Cerrar menú
+      filters: Filtros
+      search_query_label: Buscar perfiles de desarrollador
+      timezone:
+        title: Zona horaria
+      title: Filtros del desarrollador
+    search_status:
+      actively_looking: Activamente buscando trabajo
+      not_interested: No interesado en trabajar por ahora
+      open: Abierto, pero no buscando activamente
     show:
       description: Descripción
       edit: Editar

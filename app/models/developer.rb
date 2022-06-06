@@ -78,7 +78,7 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
-  # If a check is added make sure to add a NewDeveloperFieldComponent to the developer form.
+  # If a check is added make sure to add a Developer::NewFieldComponent to the developer form.
   def missing_fields?
     search_status.blank? ||
       location.missing_fields? ||
