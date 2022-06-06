@@ -255,8 +255,9 @@ es:
       title: Ver notificaciones
   role_level_component:
     interested_in_roles: Interesado en roles
-  role_type_component:
-    interested_in_roles: Interesado en roles
+  role_types:
+    role_type_component:
+      interested_in_roles: Interesado en roles
   roles:
     new:
       hiring_developers: Estoy contratando desarrolladores
