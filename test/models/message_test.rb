@@ -18,6 +18,35 @@ class MessageTest < ActiveSupport::TestCase
     refute messages(:from_developer).sender?(user)
   end
 
+  test "last_message_in_conversation?" do
+    first_message = messages(:from_developer)
+    conversation = first_message.conversation
+    sender = users(:empty)
+    last_message = conversation.messages.create!(body: "Foo", sender:)
+
+    assert_not first_message.last_message_in_conversation?
+    assert last_message.last_message_in_conversation?
+  end
+
+  test "read_at returns nil if no notification" do
+    message = messages(:from_business)
+
+    assert_nil message.read_at
+  end
+
+  test "read_at returns nil if notification is not read" do
+    message = messages(:from_developer)
+
+    assert_nil message.read_at
+  end
+
+  test "read_at returns timestamp from notification" do
+    message = messages(:from_developer)
+    message.notifications_as_message.last.mark_as_read!
+
+    assert_not_nil message.read_at
+  end
+
   test "body_html is filled with rendered html version of body" do
     message = Message.new(body: "Check out https://railsdevs.com/!")
 
