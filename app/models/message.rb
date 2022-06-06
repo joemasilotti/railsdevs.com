@@ -36,6 +36,14 @@ class Message < ApplicationRecord
     end
   end
 
+  def last_message_in_conversation?
+    conversation.messages.reorder(created_at: :desc).first == self
+  end
+
+  def read_at
+    notifications_as_message.last&.read_at
+  end
+
   def body=(text)
     super(text)
     self[:body_html] = FORMAT.call(text)

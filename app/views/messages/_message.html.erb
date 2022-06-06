@@ -5,12 +5,17 @@
       <span class="text-gray-600"><%= t(".wrote") %></span>
     </h3>
 
-    <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
-      <%= render TimeComponent.new(message.created_at) %>
-    </p>
+    <div class="flex">
+      <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
+        <%= render TimeComponent.new(message.created_at) %>
+      </p>
+      <% if Feature.enabled?(:message_read_indicator, user: current_user) %>
+        <%= render Messages::ReadAtComponent.new(message: message) %>
+      <% end %>
+    </div>
   </div>
 
   <div class="mt-4 text-sm text-gray-800 prose">
-    <%== message.body_html %>
-  </div>
+  <%== message.body_html %>
+</div>
 </li>
