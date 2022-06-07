@@ -61,6 +61,17 @@ class LocationTest < ActiveSupport::TestCase
     end
   end
 
+  test "top_countries does not include least common countries" do
+    stub_geocoder("Tokoyo", country: "China")
+    (0..5).each { |_n| create_location!(city: "Tokoyo") }
+    stub_geocoder("Mumbai", country: "India")
+    create_location!(city: "Mumbai")
+
+    top_countries = Location.top_countries(2)
+    assert top_countries.include?("China")
+    refute top_countries.include?("India")
+  end
+
   def stub_geocoder(query, city: "Portland", city_district: nil, state: "Oregon", country: "United States", country_code: "US", latitude: 45.523064, longitude: -122.676483, data: {"city" => "Portland"})
     Geocoder::Lookup::Test.add_stub(
       query, [

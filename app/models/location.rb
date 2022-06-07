@@ -1,6 +1,13 @@
 class Location < ApplicationRecord
   belongs_to :developer
 
+  scope :top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
+    group(:country)
+      .order("count_all DESC")
+      .limit(limit)
+      .count
+  end
+
   validates :time_zone, presence: true
   validates :utc_offset, presence: true
   validate :valid_coordinates

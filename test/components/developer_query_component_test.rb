@@ -5,6 +5,16 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     @user = users(:empty)
   end
 
+  test "renders top countries for developers" do
+    query = DeveloperQuery.new({})
+    Location.stub :top_countries, {"China" => 1, "United States" => 2} do
+      render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)
+    end
+
+    assert_selector "input[type=checkbox][name='countries[]'][value='United States']"
+    assert_selector "input[type=checkbox][name='countries[]'][value='China']"
+  end
+
   test "renders unique countries for developers" do
     query = DeveloperQuery.new({})
     render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)

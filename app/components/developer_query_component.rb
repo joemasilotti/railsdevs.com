@@ -13,6 +13,10 @@ class DeveloperQueryComponent < ApplicationComponent
     query.countries.include?(country_pair.first)
   end
 
+  def top_countries
+    Location.top_countries.map { |k, _v| [k, k] }
+  end
+
   def countries
     Location.order(:country).distinct.pluck(:country).map { |c| [c, c] }
   end

@@ -62,14 +62,32 @@
           <h3 class="-mx-2 -my-3 flow-root">
             <%= render CollapseControlComponent.new(t("developer_query_component.country.title"), collapsed: true) %>
           </h3>
-          <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
+          <div id="top-countries-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">
-              <%= form.collection_check_boxes(:countries, countries, :first, :last, {include_hidden: false}) do |b| %>
+              <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
                   <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: country_selected?(b.object) %>
                   <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
                 </div>
               <% end %>
+            </div>
+
+            <div data-controller="toggle" data-toggle-visibility-class="hidden" class="pt-6">
+              <div class="pt-6 border-t border-gray-200">
+                <h3 class="-mx-2 -my-3 flow-root">
+                  <%= render CollapseControlComponent.new(t("developer_query_component.all_countries.title"), collapsed: true) %>
+                </h3>
+              </div>
+              <div id="all-countries-filter-section" data-toggle-target="element" class="hidden">
+                <div class="space-y-4 pt-6">
+                  <%= form.collection_check_boxes(:countries, countries, :first, :last, {include_hidden: false}) do |b| %>
+                    <div class="flex items-center">
+                      <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: country_selected?(b.object) %>
+                      <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -181,6 +181,8 @@ en:
     add_profile: Add my profile
     edit_profile: Update my profile
   developer_query_component:
+    all_countries:
+      title: Show all countries
     apply: Apply
     clear: Clear
     close_menu: Close menu
