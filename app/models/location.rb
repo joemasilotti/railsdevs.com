@@ -8,6 +8,10 @@ class Location < ApplicationRecord
       .count
   end
 
+  scope :not_top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
+    where.not(country: top_countries(limit).keys)
+  end
+
   validates :time_zone, presence: true
   validates :utc_offset, presence: true
   validate :valid_coordinates
