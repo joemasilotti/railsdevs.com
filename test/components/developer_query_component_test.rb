@@ -20,7 +20,6 @@ class DeveloperQueryComponentTest < ViewComponent::TestCase
     render_inline DeveloperQueryComponent.new(query:, user: @user, form_id: nil)
 
     assert_selector build_input("countries[]", type: "checkbox", value: "United States")
-
     assert_selector "label[for=countries_united_states]", text: "United States"
   end
 
