@@ -10,6 +10,7 @@ class User < ApplicationRecord
     :validatable
 
   has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :notification_tokens
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
 
