@@ -65,9 +65,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_153119) do
   end
 
   create_table "conversation_blocks", force: :cascade do |t|
-    t.bigint "conversation_id"
-    t.bigint "blocker_id"
-    t.bigint "blockee_id"
+    t.bigint "conversation_id", null: false
+    t.bigint "blocker_id", null: false
+    t.bigint "blockee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blockee_id"], name: "index_conversation_blocks_on_blockee_id"
