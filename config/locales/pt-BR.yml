@@ -301,9 +301,6 @@ pt-BR:
         revenue: Receitas
         source: Fonte
         title: Receita do railsdevs
-  paywalled_component:
-    description: Informações somente disponível com uma assinatura empresarial.
-    title: Informação privada
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.
@@ -315,10 +312,11 @@ pt-BR:
     register: Registre-se
     sign_up_hero: Cria sua conta
     sign_up_html: ou %{link}
-  role_level_component:
-    interested_in_roles: Interessado em perfis
+  role_levels:
+    component:
+      interested_in_roles: Interessado em perfis
   role_types:
-    role_type_component:
+    component:
       interested_in_roles: Interessado em perfis
   roles:
     new:
@@ -350,3 +348,7 @@ pt-BR:
     million: M
     thousand: K
     unit: ''
+  users:
+    paywalled_component:
+      description: Informações somente disponível com uma assinatura empresarial.
+      title: Informação privada

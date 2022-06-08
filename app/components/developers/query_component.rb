@@ -16,7 +16,7 @@ module Developers
 
     def time_zones
       @time_zones ||= utc_offsets.map do |utc_offset|
-        [utc_offset, render(UTCOffsetComponent.new(utc_offset))]
+        [utc_offset, render(UTCOffsets::Component.new(utc_offset))]
       end
     end
 

@@ -152,6 +152,9 @@ en:
       body: Get started by finding a developer to message.
       cta: Find a developer
       title: No conversations
+    hiring_fee_component:
+      cta: Pay hiring fee
+      title: Have you hired %{developer}?
     index:
       title: Your conversations
     show:
@@ -279,9 +282,6 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
-  hiring_fee_component:
-    cta: Pay hiring fee
-    title: Have you hired %{developer}?
   home:
     show:
       available_developers: Developers available now
@@ -403,9 +403,6 @@ en:
         revenue: Revenue
         source: Source
         title: railsdevs revenue
-  paywalled_component:
-    description: Information that is only visible with a business subscription.
-    title: Private information
   pricing:
     banner:
       title: You are subscribed to a legacy plan that is not listed on this page. Your price and features have not changed.
@@ -525,10 +522,11 @@ en:
     register: Register
     sign_up_hero: Create your account
     sign_up_html: Or %{link}
-  role_level_component:
-    interested_in_roles: Interested in roles
+  role_levels:
+    component:
+      interested_in_roles: Interested in roles
   role_types:
-    role_type_component:
+    component:
       interested_in_roles: Interested in roles
   roles:
     new:
@@ -571,5 +569,10 @@ en:
     title:
       expired: Subscription expired
       upgrade: Upgrade required
-  utc_offset_component:
-    gmt: GMT
+  users:
+    paywalled_component:
+      description: Information that is only visible with a business subscription.
+      title: Private information
+  utc_offsets:
+    component:
+      gmt: GMT

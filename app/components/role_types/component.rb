@@ -1,5 +1,5 @@
 module RoleTypes
-  class RoleTypeComponent < ApplicationComponent
+  class Component < ApplicationComponent
     attr_reader :role_type
 
     def initialize(role_type)
