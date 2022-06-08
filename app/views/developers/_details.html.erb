@@ -15,7 +15,7 @@
     <%= render RoleLevelComponent.new(developer.role_level) %>
   <% end %>
 
-  <%= render PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
+  <%= render Users::PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
     <%= render RenderableComponent.new("space-y-3 pt-4") do %>
       <%= render ExternalLinkComponent.new(developer.website) %>
       <%= render SocialLinkComponent.new(developer.github, :github) %>

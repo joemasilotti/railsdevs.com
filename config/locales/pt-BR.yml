@@ -301,9 +301,6 @@ pt-BR:
         revenue: Receitas
         source: Fonte
         title: Receita do railsdevs
-  paywalled_component:
-    description: Informações somente disponível com uma assinatura empresarial.
-    title: Informação privada
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.
@@ -350,3 +347,7 @@ pt-BR:
     million: M
     thousand: K
     unit: ''
+  users:
+    paywalled_component:
+      description: Informações somente disponível com uma assinatura empresarial.
+      title: Informação privada

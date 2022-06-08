@@ -403,9 +403,6 @@ en:
         revenue: Revenue
         source: Source
         title: railsdevs revenue
-  paywalled_component:
-    description: Information that is only visible with a business subscription.
-    title: Private information
   pricing:
     banner:
       title: You are subscribed to a legacy plan that is not listed on this page. Your price and features have not changed.
@@ -571,5 +568,9 @@ en:
     title:
       expired: Subscription expired
       upgrade: Upgrade required
+  users:
+    paywalled_component:
+      description: Information that is only visible with a business subscription.
+      title: Private information
   utc_offset_component:
     gmt: GMT

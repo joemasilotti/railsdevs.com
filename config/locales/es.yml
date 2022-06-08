@@ -244,9 +244,6 @@ es:
       format:
         format: "%u%n"
         unit: "$"
-  paywalled_component:
-    description: Información que solo es visible con una suscripción comercial.
-    title: Información provada
   read_notifications:
     empty_state:
       body: No tienes notificaciones leídas.
@@ -277,3 +274,7 @@ es:
       open_source: Código abierto
       support: Soporte
       twitter: Twitter
+  users:
+    paywalled_component:
+      description: Información que solo es visible con una suscripción comercial.
+      title: Información provada
