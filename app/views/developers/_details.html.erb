@@ -8,11 +8,11 @@
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
-    <%= render RoleTypes::RoleTypeComponent.new(developer.role_type) %>
+    <%= render RoleTypes::Component.new(developer.role_type) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
-    <%= render RoleLevelComponent.new(developer.role_level) %>
+    <%= render RoleLevels::Component.new(developer.role_level) %>
   <% end %>
 
   <%= render Users::PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
