@@ -247,7 +247,7 @@ en:
       title: New fields were added to developer profiles!
     query_component:
       all_countries:
-        title: Show all locations
+        title: All locations
       apply: Apply
       clear: Clear
       close_menu: Close menu

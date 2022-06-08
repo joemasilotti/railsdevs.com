@@ -8,7 +8,7 @@ module Developers
 
     test "renders top countries for developers" do
       query = DeveloperQuery.new({})
-      Location.stub :top_countries, {"China" => 1, "United States" => 2} do
+      Location.stub :top_countries, ["China", "United States"] do
         render_inline QueryComponent.new(query:, user: @user, form_id: nil)
       end
 

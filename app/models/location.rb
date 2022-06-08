@@ -6,10 +6,11 @@ class Location < ApplicationRecord
       .order("count_all DESC")
       .limit(limit)
       .count
+      .keys
   end
 
   scope :not_top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
-    where.not(country: top_countries(limit).keys)
+    where.not(country: top_countries(limit))
   end
 
   validates :time_zone, presence: true

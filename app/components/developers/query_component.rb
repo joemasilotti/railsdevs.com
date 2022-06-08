@@ -15,7 +15,7 @@ module Developers
     end
 
     def top_countries
-      Location.top_countries.map { |k, _v| [k, k] }
+      Location.top_countries.map { |k| [k, k] }
     end
 
     def countries
