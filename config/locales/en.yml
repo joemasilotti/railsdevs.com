@@ -152,6 +152,9 @@ en:
       body: Get started by finding a developer to message.
       cta: Find a developer
       title: No conversations
+    hiring_fee_component:
+      cta: Pay hiring fee
+      title: Have you hired %{developer}?
     index:
       title: Your conversations
     show:
@@ -279,9 +282,6 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
-  hiring_fee_component:
-    cta: Pay hiring fee
-    title: Have you hired %{developer}?
   home:
     show:
       available_developers: Developers available now
