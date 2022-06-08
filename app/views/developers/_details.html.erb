@@ -25,7 +25,7 @@
   <% end %>
 
   <%= render RenderableComponent.new("space-y-3 pt-4") do %>
-    <%= render LocationComponent.new(developer.location) %>
+    <%= render Locations::LocationComponent.new(developer.location) %>
     <%= render TimeZoneComponent.new(developer.location) %>
   <% end %>
 
