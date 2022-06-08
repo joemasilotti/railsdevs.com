@@ -2,7 +2,7 @@ require "test_helper"
 
 class CollapseControlComponentTest < ViewComponent::TestCase
   setup do
-    @title = 'foo'
+    @title = "foo"
   end
 
   test "renders text-xs for title if is a subcomponent" do
