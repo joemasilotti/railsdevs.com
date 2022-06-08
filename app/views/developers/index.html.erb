@@ -4,7 +4,7 @@
   <div class="pt-12 px-4 sm:px-6 mb-4">
     <div class="md:flex md:space-x-8">
       <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
-      <%= render DeveloperProfileActionComponent.new(current_user) %>
+      <%= render Developers::ProfileActionComponent.new(current_user) %>
     </div>
 
     <!-- Sort and mobile filter button -->
@@ -12,11 +12,11 @@
       <p class="mt-4 pb-4 max-w-xl text-sm text-gray-700"><%= t(".description", developers_count: @developers_count) %></p>
 
       <div class="hidden md:block">
-        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
+        <%= render Developers::QuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
 
       <div class="flex justify-end items-center md:hidden">
-        <%= render DeveloperQuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
+        <%= render Developers::QuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile") %>
         <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
           <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5" %>
           <span class="sr-only"><%= t("developers.query_component.filters") %></span>
