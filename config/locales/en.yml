@@ -244,9 +244,13 @@ en:
       add_profile: Add my profile
       edit_profile: Update my profile
     query_component:
+      all_countries:
+        title: All locations
       apply: Apply
       clear: Clear
       close_menu: Close menu
+      country:
+        title: Location
       filters: Filters
       include_not_interested: Include developers not currently interested
       role_level:

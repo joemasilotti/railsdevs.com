@@ -57,6 +57,42 @@
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
+          <%= render CollapseControlComponent.new(t(".country.title"), collapsed: true) %>
+        </h3>
+        <div data-toggle-target="element" class="hidden">
+          <div class="space-y-4 pt-6">
+            <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
+              <div class="flex items-center">
+                <%= b.check_box checked: country_selected?(b.object), class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
+                <%= b.label class: "ml-3 text-gray-500 text-sm" %>
+              </div>
+            <% end %>
+          </div>
+
+          <div data-controller="toggle" data-toggle-visibility-class="hidden">
+            <div class="pt-6">
+              <h5 class="-mx-2 -my-3 flow-root">
+                <%= render CollapseControlComponent.new(t(".all_countries.title"), collapsed: true, subcomponent: true) %>
+              </h5>
+              <div data-toggle-target="element" class="hidden">
+                <div class="space-y-4 pt-6">
+                  <%= form.collection_check_boxes(:countries, countries, :first, :last, {include_hidden: false}) do |b| %>
+                    <div class="flex items-center">
+                      <%= b.check_box checked: country_selected?(b.object), class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
+                      <%= b.label class: "ml-3 text-gray-500 text-sm" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+      <div class="border-t border-gray-200 py-6">
+        <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".timezone.title"), collapsed: true) %>
         </h3>
         <div data-toggle-target="element" class="hidden">
