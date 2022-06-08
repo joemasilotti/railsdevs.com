@@ -172,8 +172,6 @@ en:
       flag: Flag this conversation
       title: Conversation
       with: with
-  cover_image_component:
-    alt: Developer's cover image
   date:
     formats:
       month_year: "%B %Y"
@@ -192,6 +190,8 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+    cover_image_component:
+      alt: Developer's cover image
     create:
       created: Your profile was added!
     details:
