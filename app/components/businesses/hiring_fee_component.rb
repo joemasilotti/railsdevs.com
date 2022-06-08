@@ -1,4 +1,4 @@
-module Conversations
+module Businesses
   class HiringFeeComponent < ApplicationComponent
     private attr_reader :user, :conversation
 

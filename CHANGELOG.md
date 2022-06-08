@@ -5,7 +5,7 @@
 ### June
 
 * June 8 - Add country search for Developers - #468 @troyizzle
-* June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478 @metamoni
+* June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478, #480 @metamoni
 
 ### May
 

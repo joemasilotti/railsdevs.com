@@ -101,13 +101,13 @@ es:
       flag: Marcar esta conversación
       title: Conversación
       with: con
-  cover_image_component:
-    alt: Imagen de portada del desarrollador
   developers:
     availability_component:
       in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
       now_html: Disponible ahora
       unspecified_html: No disponible actualmente
+    cover_image_component:
+      alt: Imagen de portada del desarrollador
     create:
       created: "¡Tu perfil fue creado!"
     details:

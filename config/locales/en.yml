@@ -130,6 +130,9 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    hiring_fee_component:
+      cta: Pay hiring fee
+      title: Have you hired %{developer}?
     primary_action_component:
       edit: Edit
     show:
@@ -143,6 +146,17 @@ en:
     upgrade_account_component:
       cta: Upgrade your account
       title: Requires an active business subscription.
+    upgrade_required_component:
+      body:
+        expired: Your subscription has expired. Reactivate your account to continue messaging developers.
+        upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+      cta:
+        expired: Reactivate my account
+        upgrade: Upgrade my account
+      details: View pricing details
+      title:
+        expired: Subscription expired
+        upgrade: Upgrade required
   cold_messages:
     new:
       title: Start a conversation
@@ -152,17 +166,12 @@ en:
       body: Get started by finding a developer to message.
       cta: Find a developer
       title: No conversations
-    hiring_fee_component:
-      cta: Pay hiring fee
-      title: Have you hired %{developer}?
     index:
       title: Your conversations
     show:
       flag: Flag this conversation
       title: Conversation
       with: with
-  cover_image_component:
-    alt: Developer's cover image
   date:
     formats:
       month_year: "%B %Y"
@@ -181,6 +190,8 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+    cover_image_component:
+      alt: Developer's cover image
     create:
       created: Your profile was added!
     details:
@@ -562,17 +573,6 @@ en:
     million: M
     thousand: K
     unit: ''
-  upgrade_required_component:
-    body:
-      expired: Your subscription has expired. Reactivate your account to continue messaging developers.
-      upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
-    cta:
-      expired: Reactivate my account
-      upgrade: Upgrade my account
-    details: View pricing details
-    title:
-      expired: Subscription expired
-      upgrade: Upgrade required
   users:
     paywalled_component:
       description: Information that is only visible with a business subscription.

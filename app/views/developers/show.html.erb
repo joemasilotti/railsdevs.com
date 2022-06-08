@@ -1,7 +1,7 @@
 <%= open_graph_tags component: Developers::OpenGraphTagsComponent, developer: @developer %>
 
 <div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
-  <%= render CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
+  <%= render Developers::CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
