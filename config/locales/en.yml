@@ -101,8 +101,6 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
-  business_primary_action_component:
-    edit: Edit
   businesses:
     create:
       created: Your business was added!
@@ -132,6 +130,8 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    primary_action_component:
+      edit: Edit
     show:
       bio: Bio
     subscriptions_component:
