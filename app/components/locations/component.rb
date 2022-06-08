@@ -1,5 +1,5 @@
 module Locations
-  class LocationComponent < ApplicationComponent
+  class Component < ApplicationComponent
     def initialize(location)
       @city = location&.city
       @state = location&.state

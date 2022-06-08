@@ -1,9 +1,9 @@
 require "test_helper"
 
 module Locations
-  class LocationComponentTest < ViewComponent::TestCase
+  class ComponentTest < ViewComponent::TestCase
     test "doesn't render if city, state, and country aren't present" do
-      render_inline LocationComponent.new(nil)
+      render_inline Component.new(nil)
       refute_component_rendered
     end
 
@@ -41,7 +41,7 @@ module Locations
 
     def render(city: nil, state: nil, country: nil, code: nil)
       location = Location.new(city:, state:, country:, country_code: code)
-      render_inline LocationComponent.new(location)
+      render_inline Component.new(location)
     end
   end
 end
