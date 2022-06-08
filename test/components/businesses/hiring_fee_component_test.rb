@@ -1,6 +1,6 @@
 require "test_helper"
 
-module Conversations
+module Businesses
   class HiringFeeComponentTest < ViewComponent::TestCase
     include SubscriptionsHelper
 
