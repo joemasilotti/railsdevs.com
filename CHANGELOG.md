@@ -2,6 +2,10 @@
 
 ## 2022
 
+### June
+
+* June 8 - Add country search for Developers - #468 @troyizzle
+
 ### May
 
 * May 31 - Email developers tips when they get their first message - #422 @seagalputra
