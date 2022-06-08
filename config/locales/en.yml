@@ -101,8 +101,6 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
-  business_primary_action_component:
-    edit: Edit
   businesses:
     create:
       created: Your business was added!
@@ -132,6 +130,8 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    primary_action_component:
+      edit: Edit
     show:
       bio: Bio
     subscriptions_component:
@@ -169,14 +169,6 @@ en:
   developer_mailer:
     first_message:
       subject: Tips on responding to your first message on railsdevs
-  developer_profile_action_component:
-    add_profile: Add my profile
-    edit_profile: Update my profile
-  developer_query_sort_button_component:
-    sort:
-      availability: Availability
-      newest: Newest
-      title: Sort
   developers:
     admin_component:
       copy: Copy
@@ -248,6 +240,9 @@ en:
     new_fields_component:
       cta: Complete my profile
       title: New fields were added to developer profiles!
+    profile_action_component:
+      add_profile: Add my profile
+      edit_profile: Update my profile
     query_component:
       apply: Apply
       clear: Clear
@@ -263,6 +258,11 @@ en:
       title: Developer filters
       work_preference:
         title: Work preference
+    query_sort_button_component:
+      sort:
+        availability: Availability
+        newest: Newest
+        title: Sort
     search_status:
       actively_looking: Actively looking for work
       not_interested: Not interested in work right now

@@ -103,9 +103,6 @@ es:
       with: con
   cover_image_component:
     alt: Imagen de portada del desarrollador
-  developer_profile_action_component:
-    add_profile: Agregar mi perfil
-    edit_profile: Actualizar mi perfil
   developers:
     availability_component:
       in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
@@ -158,6 +155,9 @@ es:
     index:
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
+    profile_action_component:
+      add_profile: Agregar mi perfil
+      edit_profile: Actualizar mi perfil
     query_component:
       apply: Aplicar
       close_menu: Cerrar menú
