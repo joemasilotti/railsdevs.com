@@ -11,7 +11,7 @@ class ConversationPolicyTest < ActiveSupport::TestCase
   end
 
   test "blocked conversations can't be viewed" do
-    @conversation.blocked_by @conversation.developer.user
+    @conversation.block_by @conversation.developer.user
 
     user = @conversation.business.user
     refute ConversationPolicy.new(user, @conversation).show?

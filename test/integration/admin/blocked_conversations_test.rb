@@ -18,7 +18,7 @@ class Admin::BlockedConversationsTest < ActionDispatch::IntegrationTest
     get admin_conversations_blocks_path
     assert_select "p", text: developers(:prospect).name, count: 0
 
-    conversations(:one).blocked_by developers(:prospect).user
+    conversations(:one).block_by developers(:prospect).user
     get admin_conversations_blocks_path
     assert_select "p", text: developers(:prospect).name
   end

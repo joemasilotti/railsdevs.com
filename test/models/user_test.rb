@@ -15,7 +15,7 @@ class UserTest < ActiveSupport::TestCase
     user = users(:subscribed_business)
     assert user.conversations.include?(conversations(:one))
 
-    conversations(:one).blocked_by user
+    conversations(:one).block_by user
     refute user.conversations.include?(conversations(:one))
   end
 

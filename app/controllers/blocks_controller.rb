@@ -8,7 +8,7 @@ class BlocksController < ApplicationController
 
   def create
     authorize conversation
-    conversation.blocked_by(current_user)
+    conversation.block_by(current_user)
     redirect_to root_path, notice: t(".notice", other_recipient:)
   end
 

@@ -8,7 +8,7 @@ module Conversation::Blocker
     scope :visible, -> { where.missing(:blocks) }
   end
 
-  def blocked_by(user)
+  def block_by(user)
     blocks.find_or_create_by!(blocker: user, blockee: other_recipient(user).user)
   end
 

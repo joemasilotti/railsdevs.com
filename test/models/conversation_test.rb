@@ -14,7 +14,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation = conversations(:one)
     assert Conversation.visible.include?(conversation)
 
-    conversation.blocked_by conversation.developer.user
+    conversation.block_by conversation.developer.user
     refute Conversation.visible.include?(conversation)
   end
 
@@ -22,7 +22,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation = conversations(:one)
     assert Conversation.visible.include?(conversation)
 
-    conversation.blocked_by conversation.business.user
+    conversation.block_by conversation.business.user
     refute Conversation.visible.include?(conversation)
   end
 
@@ -42,7 +42,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation = conversations(:one)
     refute conversation.blocked?
 
-    conversation.blocked_by conversation.developer.user
+    conversation.block_by conversation.developer.user
     assert conversation.blocked?
   end
 
@@ -50,7 +50,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation = conversations(:one)
     refute conversation.blocked?
 
-    conversation.blocked_by conversation.business.user
+    conversation.block_by conversation.business.user
     assert conversation.blocked?
   end
 
