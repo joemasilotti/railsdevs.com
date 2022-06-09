@@ -3,6 +3,7 @@ class Location < ApplicationRecord
 
   scope :top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
     group(:country)
+      .where.not(country: nil)
       .order("count_all DESC")
       .limit(limit)
       .count
