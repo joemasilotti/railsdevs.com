@@ -3,7 +3,10 @@ class MessagesMailbox < ApplicationMailbox
   rescue_from(ActiveRecord::RecordNotFound) { bounced! }
 
   def process
-    Message.new(conversation:, sender:, body: mail_body).save_and_notify
+    message = Message.new(conversation:, sender:, body: mail_body)
+    if message.save_and_notify
+      conversation.mark_notifications_as_read(user)
+    end
   end
 
   private
