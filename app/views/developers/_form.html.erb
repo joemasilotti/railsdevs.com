@@ -47,7 +47,7 @@
                   <div class="sm:col-span-2">
                     <div class="flex items-center">
                       <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :location, size: :small) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :location, size: :small) %>
                     </div>
                     <div class="mt-1">
                       <%= location.text_field :city, class: field_classes(location, :city) %>
@@ -97,7 +97,7 @@
                 <%= form.file_field :cover_image, direct_upload: true, accept: "image/png, image/jpg, image/jpeg, image/gif", data: {action: "input->file-upload#select direct-upload:initialize->file-upload#start direct-upload:error->file-upload#error"}, class: "hidden" %>
                 <%= form.label :cover_image, t(".profile.change"), class: "cursor-pointer absolute right-0 bottom-0 z-10 m-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
 
-                <%= render CoverImageComponent.new(developer: developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
+                <%= render Developers::CoverImageComponent.new(developer: developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
                 <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                 </div>
@@ -130,7 +130,7 @@
               <legend class="text-base font-medium text-gray-900">
                 <div class="flex">
                   <%= t(".search_status.title") %>
-                  <%= render NewDeveloperFieldComponent.new(form.object, :search_status) %>
+                  <%= render Developers::NewFieldComponent.new(form.object, :search_status) %>
                 </div>
               </legend>
               <div class="mt-4 space-y-4">
@@ -179,7 +179,7 @@
                   <legend class="text-base font-medium text-gray-900 w-full">
                     <div class="flex">
                       <%= t(".role_type.title") %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :role_type) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :role_type) %>
                     </div>
                   </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_type.help_text") %></p>
@@ -207,7 +207,7 @@
                   <legend class="text-base font-medium text-gray-900 w-full">
                     <div class="flex">
                       <%= t(".role_level.title") %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :role_level) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :role_level) %>
                     </div>
                   </legend>
                   <p class="text-sm text-gray-500"><%= t(".role_level.help_text") %></p>
@@ -243,7 +243,7 @@
                   <div class="sm:col-span-1">
                     <div class="flex">
                       <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render NewDeveloperFieldComponent.new(form.object, :available_on, size: :small) %>
+                      <%= render Developers::NewFieldComponent.new(form.object, :available_on, size: :small) %>
                     </div>
                     <div class="mt-1">
                       <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>

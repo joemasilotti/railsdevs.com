@@ -4,18 +4,18 @@
     <div class="flex items-center space-x-2">
       <%= render Developers::AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
     </div>
-    <%= render SearchStatusComponent.new(developer) %>
+    <%= render Developers::SearchStatusComponent.new(developer) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
-    <%= render RoleTypeComponent.new(developer.role_type) %>
+    <%= render RoleTypes::Component.new(developer.role_type) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-5 pt-4") do %>
-    <%= render RoleLevelComponent.new(developer.role_level) %>
+    <%= render RoleLevels::Component.new(developer.role_level) %>
   <% end %>
 
-  <%= render PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
+  <%= render Users::PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
     <%= render RenderableComponent.new("space-y-3 pt-4") do %>
       <%= render ExternalLinkComponent.new(developer.website) %>
       <%= render SocialLinkComponent.new(developer.github, :github) %>
@@ -25,11 +25,11 @@
   <% end %>
 
   <%= render RenderableComponent.new("space-y-3 pt-4") do %>
-    <%= render LocationComponent.new(developer.location) %>
-    <%= render TimeZoneComponent.new(developer.location) %>
+    <%= render Locations::Component.new(developer.location) %>
+    <%= render Locations::TimeZoneComponent.new(developer.location) %>
   <% end %>
 
   <%= render RenderableComponent.new("space-y-3 pt-4") do %>
-    <%= render DeveloperAdminComponent.new(developer, user: current_user) %>
+    <%= render Developers::AdminComponent.new(developer, user: current_user) %>
   <% end %>
 </div>

@@ -130,12 +130,13 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, blank
   end
 
-  test "filtering developers by their bio or hero" do
+  test "filtering developers by their bio or hero does not includes all if business has an active subscription" do
+    subscribed_business = users(:subscribed_business)
     loves_oss = create_developer(hero: "I love OSS!")
     likes_oss = create_developer(bio: "I enjoy OSS")
     does_not_mention_oss = create_developer
 
-    records = DeveloperQuery.new(search_query: "OSS").records
+    records = DeveloperQuery.new(search_query: "OSS", user: subscribed_business).records
 
     assert_includes records, loves_oss
     assert_includes records, likes_oss

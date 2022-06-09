@@ -2,6 +2,12 @@
 
 ## 2022
 
+### June
+
+* June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
+* June 8 - Add country search for developers - #468 @troyizzle
+* June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478, #480 @metamoni
+
 ### May
 
 * May 31 - Email developers tips when they get their first message - #422 @seagalputra

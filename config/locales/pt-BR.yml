@@ -22,10 +22,6 @@ pt-BR:
         name: Nome
         twitter: Twitter
         website: Website
-      developer/search_status:
-        actively_looking: Ativamente buscando trabalho
-        not_interested: Não estou interessado em trabalho no momento
-        open: Aberto, mas não buscando ativamente
       role_level:
         c_level: Nível C
         junior: Júnior
@@ -115,28 +111,16 @@ pt-BR:
       flag: Sinalizar essa conversa
       title: Conversa
       with: com
-  cover_image_component:
-    alt: Imagem de capa do desenvolvedor
   date:
     formats:
       month_year: "%B / %Y"
-  developer_profile_action_component:
-    add_profile: Adicionar meu perfil
-    edit_profile: Atualizar meu perfil
-  developer_query_component:
-    apply: Aplicar
-    close_menu: Fechar menu
-    filters: Filtros
-    timezone:
-      title: Fuso Horário
-    title: Filtros de desenvolvedores
-    work_preference:
-      title: Preferencia de trabalho
   developers:
     availability_component:
       in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
       now_html: Disponível agora
       unspecified_html: Atualmente indisponível
+    cover_image_component:
+      alt: Imagem de capa do desenvolvedor
     create:
       created: Seu perfil foi adicionado!
     details:
@@ -184,6 +168,22 @@ pt-BR:
     index:
       description: "%{developers_count}+ desenvolvedores Ruby on Rails buscando seu próximo trabalho. Aqui você vai encontrar de Juniors a seniors e tudo no meio do caminho."
       title: Desenvolvedores Ruby on Rails
+    profile_action_component:
+      add_profile: Adicionar meu perfil
+      edit_profile: Atualizar meu perfil
+    query_component:
+      apply: Aplicar
+      close_menu: Fechar menu
+      filters: Filtros
+      timezone:
+        title: Fuso Horário
+      title: Filtros de desenvolvedores
+      work_preference:
+        title: Preferencia de trabalho
+    search_status:
+      actively_looking: Ativamente buscando trabalho
+      not_interested: Não estou interessado em trabalho no momento
+      open: Aberto, mas não buscando ativamente
     show:
       description: Descrição
       edit: Editar
@@ -301,9 +301,6 @@ pt-BR:
         revenue: Receitas
         source: Fonte
         title: Receita do railsdevs
-  paywalled_component:
-    description: Informações somente disponível com uma assinatura empresarial.
-    title: Informação privada
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.
@@ -315,10 +312,12 @@ pt-BR:
     register: Registre-se
     sign_up_hero: Cria sua conta
     sign_up_html: ou %{link}
-  role_level_component:
-    interested_in_roles: Interessado em perfis
-  role_type_component:
-    interested_in_roles: Interessado em perfis
+  role_levels:
+    component:
+      interested_in_roles: Interessado em perfis
+  role_types:
+    component:
+      interested_in_roles: Interessado em perfis
   roles:
     new:
       hiring_developers: Estou contratando desenvolvedores
@@ -349,3 +348,7 @@ pt-BR:
     million: M
     thousand: K
     unit: ''
+  users:
+    paywalled_component:
+      description: Informações somente disponível com uma assinatura empresarial.
+      title: Informação privada

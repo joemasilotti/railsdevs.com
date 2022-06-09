@@ -72,6 +72,6 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     get conversation_path(conversation)
 
-    assert_select "h3", text: I18n.t("upgrade_required_component.title.upgrade")
+    assert_select "h3", text: I18n.t("businesses.upgrade_required_component.title.upgrade")
   end
 end
