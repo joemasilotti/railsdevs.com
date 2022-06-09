@@ -15,7 +15,6 @@ class DeveloperQuery
     @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
     @search_query = options.delete(:search_query)
-    @user = options.delete(:user)
   end
 
   def filters
@@ -123,8 +122,6 @@ class DeveloperQuery
   end
 
   def search_query_filter_records
-    return unless Businesses::Permission.new(@user&.subscriptions).active_subscription?
-
     @_records.merge!(Developer.filter_by_search_query(search_query)) unless search_query.empty?
   end
 

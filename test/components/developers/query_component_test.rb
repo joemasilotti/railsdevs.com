@@ -45,9 +45,17 @@ module Developers
       assert_no_selector "input[checked][type=checkbox][name='role_levels[]'][value=c_level]"
     end
 
-    test "checks value of search query" do
+    test "does not render search query input if user does not have subscription" do
       query = DeveloperQuery.new(search_query: "rails")
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+
+      assert_no_selector "input[type=text][name='search_query'][value=rails]"
+    end
+
+    test "checks value of search query if user has subscription" do
+      user = users(:subscribed_business)
+      query = DeveloperQuery.new(search_query: "rails")
+      render_inline QueryComponent.new(query:, user:, form_id: nil)
 
       assert_selector "input[type=text][name='search_query'][value=rails]"
     end
