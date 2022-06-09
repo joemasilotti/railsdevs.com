@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users
 
-    resource :dismiss_modal
-
     resource :about, only: :show, controller: :about
     resource :conduct, only: :show
     resource :home, only: :show

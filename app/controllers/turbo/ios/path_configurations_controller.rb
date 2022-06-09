@@ -11,6 +11,11 @@ module Turbo
                 ios_system_image_name: "house"
               },
               {
+                title: "Conversations",
+                path: "/conversations",
+                ios_system_image_name: "envelope"
+              },
+              {
                 title: "Notifications",
                 path: "/notifications",
                 ios_system_image_name: "bell"
@@ -41,12 +46,6 @@ module Turbo
               ],
               properties: {
                 flow: "authentication"
-              }
-            },
-            {
-              patterns: ["/recede_historical_location"],
-              properties: {
-                action: "recede"
               }
             }
           ]
