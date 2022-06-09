@@ -264,6 +264,8 @@ en:
         title: Location
       filters: Filters
       include_not_interested: Include developers not currently interested
+      paywalled_search:
+        title: Text search requires a paid account
       role_level:
         title: Role level
       search_query_label: Search profiles

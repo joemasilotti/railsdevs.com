@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = Developer.count.round(-1)
-    @query = DeveloperQuery.new(params)
+    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]))
   end
 
   def new
@@ -45,6 +45,10 @@ class DevelopersController < ApplicationController
   end
 
   private
+
+  def pundit_params_for(_record)
+    params
+  end
 
   def require_new_developer!
     if current_user.developer.present?

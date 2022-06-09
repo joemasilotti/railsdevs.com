@@ -12,14 +12,12 @@
         </div>
 
         <%= form.hidden_field :sort, value: query.sort if query.sort %>
-        <% if Feature.enabled?(:search_feature, user: user) %>
-          <div class="mx-4 pb-4">
-            <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
+        <div class="mx-4 pb-4">
+          <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
+          <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
               <%= form.text_field :search_query, value: search_query, placeholder: t("developers.query_component.search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
