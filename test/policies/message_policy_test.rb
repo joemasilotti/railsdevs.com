@@ -7,6 +7,7 @@ class MessagePolicyTest < ActiveSupport::TestCase
     @conversation = conversations(:one)
     @message = @conversation.messages.new
   end
+
   test "developers involved in the conversation can send messages" do
     developer = @conversation.developer
     assert MessagePolicy.new(developer.user, @message).create?

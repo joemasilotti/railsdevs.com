@@ -1,4 +1,6 @@
 class Conversation < ApplicationRecord
+  include Blocker
+
   belongs_to :developer
   belongs_to :business
 
@@ -8,23 +10,20 @@ class Conversation < ApplicationRecord
 
   validates :developer_id, uniqueness: {scope: :business_id}
 
-  scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
-  scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
-
   def other_recipient(user)
-    developer == user.developer ? business : developer
+    recipient?(user.developer) ? business : developer
   end
 
-  def business?(user)
-    business == user.business
+  def recipient_from?(user)
+    recipient_from(user).present?
   end
 
-  def developer?(user)
-    developer == user.developer
+  def recipient_from(user)
+    [user.business, user.developer].find { recipient?(_1) }
   end
 
-  def blocked?
-    developer_blocked_at.present? || business_blocked_at.present?
+  def recipient?(participant)
+    participant.in? [business, developer]
   end
 
   def hiring_fee_eligible?
