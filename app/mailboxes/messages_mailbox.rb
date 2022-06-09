@@ -24,7 +24,11 @@ class MessagesMailbox < ApplicationMailbox
   end
 
   def signed_conversation_id
-    mail.to.first.split("@").first
+    recipient.match(/^message-(.*)@/).captures.first
+  end
+
+  def recipient
+    mail.to.first
   end
 
   def mail_body
