@@ -47,7 +47,7 @@ class DevelopersController < ApplicationController
   private
 
   def pundit_params_for(_record)
-    params
+    params["developer-filters-mobile"] || params
   end
 
   def require_new_developer!
