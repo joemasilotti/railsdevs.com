@@ -10,13 +10,25 @@ module Developers
       @form_id = form_id
     end
 
+    def country_selected?(country_pair)
+      query.countries.include?(country_pair.first)
+    end
+
+    def top_countries
+      Location.top_countries.map { |k| [k, k] }
+    end
+
+    def countries
+      Location.not_top_countries.order(:country).distinct.pluck(:country).map { |c| [c, c] }
+    end
+
     def time_zone_selected?(time_zone_pair)
       query.utc_offsets.include?(time_zone_pair.first.to_f)
     end
 
     def time_zones
       @time_zones ||= utc_offsets.map do |utc_offset|
-        [utc_offset, render(UTCOffsetComponent.new(utc_offset))]
+        [utc_offset, render(UTCOffsets::Component.new(utc_offset))]
       end
     end
 

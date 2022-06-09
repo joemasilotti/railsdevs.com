@@ -101,8 +101,6 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
-  business_primary_action_component:
-    edit: Edit
   businesses:
     create:
       created: Your business was added!
@@ -132,6 +130,11 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    hiring_fee_component:
+      cta: Pay hiring fee
+      title: Have you hired %{developer}?
+    primary_action_component:
+      edit: Edit
     show:
       bio: Bio
     subscriptions_component:
@@ -143,6 +146,17 @@ en:
     upgrade_account_component:
       cta: Upgrade your account
       title: Requires an active business subscription.
+    upgrade_required_component:
+      body:
+        expired: Your subscription has expired. Reactivate your account to continue messaging developers.
+        upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+      cta:
+        expired: Reactivate my account
+        upgrade: Upgrade my account
+      details: View pricing details
+      title:
+        expired: Subscription expired
+        upgrade: Upgrade required
   cold_messages:
     new:
       title: Start a conversation
@@ -158,22 +172,12 @@ en:
       flag: Flag this conversation
       title: Conversation
       with: with
-  cover_image_component:
-    alt: Developer's cover image
   date:
     formats:
       month_year: "%B %Y"
   developer_mailer:
     first_message:
       subject: Tips on responding to your first message on railsdevs
-  developer_profile_action_component:
-    add_profile: Add my profile
-    edit_profile: Update my profile
-  developer_query_sort_button_component:
-    sort:
-      availability: Availability
-      newest: Newest
-      title: Sort
   developers:
     admin_component:
       copy: Copy
@@ -186,6 +190,8 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+    cover_image_component:
+      alt: Developer's cover image
     create:
       created: Your profile was added!
     details:
@@ -245,10 +251,17 @@ en:
     new_fields_component:
       cta: Complete my profile
       title: New fields were added to developer profiles!
+    profile_action_component:
+      add_profile: Add my profile
+      edit_profile: Update my profile
     query_component:
+      all_countries:
+        title: All locations
       apply: Apply
       clear: Clear
       close_menu: Close menu
+      country:
+        title: Location
       filters: Filters
       include_not_interested: Include developers not currently interested
       paywalled_search:
@@ -262,6 +275,11 @@ en:
       title: Developer filters
       work_preference:
         title: Work preference
+    query_sort_button_component:
+      sort:
+        availability: Availability
+        newest: Newest
+        title: Sort
     search_status:
       actively_looking: Actively looking for work
       not_interested: Not interested in work right now
@@ -281,9 +299,6 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
-  hiring_fee_component:
-    cta: Pay hiring fee
-    title: Have you hired %{developer}?
   home:
     show:
       available_developers: Developers available now
@@ -405,9 +420,6 @@ en:
         revenue: Revenue
         source: Source
         title: railsdevs revenue
-  paywalled_component:
-    description: Information that is only visible with a business subscription.
-    title: Private information
   pricing:
     banner:
       title: You are subscribed to a legacy plan that is not listed on this page. Your price and features have not changed.
@@ -527,10 +539,11 @@ en:
     register: Register
     sign_up_hero: Create your account
     sign_up_html: Or %{link}
-  role_level_component:
-    interested_in_roles: Interested in roles
+  role_levels:
+    component:
+      interested_in_roles: Interested in roles
   role_types:
-    role_type_component:
+    component:
       interested_in_roles: Interested in roles
   roles:
     new:
@@ -562,16 +575,10 @@ en:
     million: M
     thousand: K
     unit: ''
-  upgrade_required_component:
-    body:
-      expired: Your subscription has expired. Reactivate your account to continue messaging developers.
-      upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
-    cta:
-      expired: Reactivate my account
-      upgrade: Upgrade my account
-    details: View pricing details
-    title:
-      expired: Subscription expired
-      upgrade: Upgrade required
-  utc_offset_component:
-    gmt: GMT
+  users:
+    paywalled_component:
+      description: Information that is only visible with a business subscription.
+      title: Private information
+  utc_offsets:
+    component:
+      gmt: GMT

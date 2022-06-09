@@ -28,6 +28,6 @@
     </div>
     <%= render "shared/footer" %>
     <%= turbo_frame_tag "modal" %>
-    <%= render AnalyticsEventComponent.new(flash) %>
+    <%= render Analytics::EventComponent.new(flash) %>
   </body>
 </html>
