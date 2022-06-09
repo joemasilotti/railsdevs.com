@@ -1,4 +1,7 @@
 class MessagesMailbox < ApplicationMailbox
+  rescue_from(ActiveSupport::MessageVerifier::InvalidSignature) { bounced! }
+  rescue_from(ActiveRecord::RecordNotFound) { bounced! }
+
   def process
     Message.new(conversation:, sender:, body: mail_body).save_and_notify
   end
@@ -7,14 +10,13 @@ class MessagesMailbox < ApplicationMailbox
 
   def conversation
     @conversation ||= user.conversations
-      .find_signed(signed_conversation_id, purpose: :message)
+      .find_signed!(signed_conversation_id, purpose: :message)
   end
 
   def user
-    @user ||= User.find_by(email: mail.from)
+    @user ||= User.find_by!(email: mail.from)
   end
 
-  # TODO: Extract somewhere - this is used in MessagesController, too.
   def sender
     if conversation.business?(user)
       user.business
