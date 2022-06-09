@@ -4,8 +4,12 @@ class MessagesMailbox < ApplicationMailbox
 
   def process
     message = Message.new(conversation:, sender:, body: mail_body)
-    if message.save_and_notify
-      conversation.mark_notifications_as_read(user)
+    if conversation.developer?(user) || Businesses::Permission.new(user.subscriptions).active_subscription?
+      if message.save_and_notify
+        conversation.mark_notifications_as_read(user)
+      end
+    else
+      bounced!
     end
   end
 
