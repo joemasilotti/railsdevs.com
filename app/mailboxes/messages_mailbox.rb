@@ -6,10 +6,10 @@ class MessagesMailbox < ApplicationMailbox
   private
 
   def conversation
-    @conversation ||= user.conversations.find(conversation_id)
+    @conversation ||= user.conversations
+      .find_signed(signed_conversation_id, purpose: :message)
   end
 
-  # TODO: `from` headers can be faked.
   def user
     @user ||= User.find_by(email: mail.from)
   end
@@ -23,8 +23,8 @@ class MessagesMailbox < ApplicationMailbox
     end
   end
 
-  def conversation_id
-    mail.to.first.scan(/\d+/).first
+  def signed_conversation_id
+    mail.to.first.split("@").first
   end
 
   def mail_body

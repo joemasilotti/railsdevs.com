@@ -10,10 +10,12 @@ class MessageMailer < ApplicationMailer
     @sender = message.sender.name
     @body = message.body
 
+    signed_id = message.conversation.signed_id(purpose: :message)
+
     mail(
       to: recipient.email,
       subject: @notification.email_subject,
-      reply_to: "conversation-#{message.conversation.id}@example.com"
+      reply_to: "#{signed_id}@example.com"
     )
   end
 end
