@@ -3,7 +3,7 @@ class ConversationsController < ApplicationController
   after_action :mark_notifications_as_read, only: :show
 
   def index
-    @conversations = current_user.conversations.order(created_at: :desc)
+    @conversations = current_user.conversations.order(updated_at: :desc)
   end
 
   def show
