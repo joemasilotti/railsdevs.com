@@ -7,6 +7,7 @@ class MessagePolicyTest < ActiveSupport::TestCase
     @conversation = conversations(:one)
     @message = @conversation.messages.new
   end
+
   test "developers involved in the conversation can send messages" do
     developer = @conversation.developer
     assert MessagePolicy.new(developer.user, @message).create?
@@ -21,6 +22,12 @@ class MessagePolicyTest < ActiveSupport::TestCase
 
     user = users(:empty)
     refute MessagePolicy.new(user, @message).create?
+  end
+
+  test "blocked conversations can't be replied to" do
+    @conversation.touch(:business_blocked_at)
+    developer = @conversation.developer
+    refute MessagePolicy.new(developer.user, @message).create?
   end
 
   test "businesses on part-time plans can't message developers only seeking full-time roles" do

@@ -1,7 +1,7 @@
 class MessagePolicy < ApplicationPolicy
   def create?
+    return false if record.conversation.blocked?
     return true if developer_recipient?
-
     return false unless business_recipient?
 
     permission.can_message_developer?(role_type: developer.role_type)
