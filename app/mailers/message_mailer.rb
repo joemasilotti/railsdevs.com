@@ -12,7 +12,8 @@ class MessageMailer < ApplicationMailer
 
     mail(
       to: recipient.email,
-      subject: @notification.email_subject
+      subject: @notification.email_subject,
+      reply_to: "conversation-#{message.conversation.id}@example.com"
     )
   end
 end
