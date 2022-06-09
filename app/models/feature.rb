@@ -5,6 +5,8 @@ class Feature
       true
     when :pricing_v2
       true
+    when :reply_via_email
+      !Rails.env.production? || user&.admin?
     end
   end
 end
