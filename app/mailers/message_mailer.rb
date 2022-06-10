@@ -15,7 +15,7 @@ class MessageMailer < ApplicationMailer
     mail(
       to: @recipient.email,
       subject: @notification.email_subject,
-      reply_to: "message-#{signed_id}@railsdevs.com"
+      reply_to: "message-#{signed_id}@inbound.railsdevs.com"
     )
   end
 end
