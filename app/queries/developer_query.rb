@@ -88,6 +88,7 @@ class DeveloperQuery
       role_types.empty? &&
       role_levels.empty? &&
       search_query.blank? &&
+      countries.blank? &&
       !include_not_interested
   end
 

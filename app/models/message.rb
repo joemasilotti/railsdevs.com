@@ -7,7 +7,7 @@ class Message < ApplicationRecord
     AutoHtml::SimpleFormat.new
   )
 
-  belongs_to :conversation
+  belongs_to :conversation, touch: true
   belongs_to :sender, polymorphic: true
   has_one :developer, through: :conversation
   has_one :business, through: :conversation

@@ -4,6 +4,7 @@
 
 ### June
 
+* June 9 - Order conversations by most recent message, not when they were started
 * June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
 * June 8 - Add country search for developers - #468 @troyizzle
 * June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478, #480 @metamoni

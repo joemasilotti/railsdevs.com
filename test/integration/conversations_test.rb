@@ -52,7 +52,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
   test "unread notifictions are marked as read" do
     sign_in users(:subscribed_business)
-    notification = notifications(:message)
+    notification = notifications(:message_to_business)
     refute notification.read?
 
     get conversation_path(conversations(:one))

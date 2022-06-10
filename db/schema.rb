@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_205013) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_205013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_mailbox_inbound_emails", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.string "message_id", null: false
+    t.string "message_checksum", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id", "message_checksum"], name: "index_action_mailbox_inbound_emails_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,8 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_205013) do
     t.datetime "updated_at", null: false
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
+    t.string "inbound_email_token"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
+    t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
   end
 
   create_table "developers", force: :cascade do |t|
@@ -326,7 +337,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_205013) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
-    t.string "authentication_token", null: false
+    t.string "authentication_token"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

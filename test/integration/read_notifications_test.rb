@@ -15,7 +15,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
   test "you can view your past notifications if you have past (read) notifications" do
     sign_in users(:subscribed_business)
-    notifications(:message).mark_as_read!
+    notifications(:message_to_business).mark_as_read!
 
     get read_notifications_path
 
@@ -24,7 +24,7 @@ class ReadNotificationsTest < ActionDispatch::IntegrationTest
 
   test "you can mark all unread notifications as read" do
     sign_in users(:subscribed_business)
-    notification = notifications(:message)
+    notification = notifications(:message_to_business)
 
     refute notification.read?
     post read_notifications_path

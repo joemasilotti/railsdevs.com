@@ -1,3 +1,7 @@
 <p><%= @sender %> sent you <%= link_to "a message", notification_url(@notification.record) %>:</p>
 
-<%== html_truncate_message_body(@body) %>
+<%== @body %>
+
+<% if Feature.enabled?(:reply_via_email, user: @recipient) %>
+  <p><small>You can continue the conversation by replying to this email.</small></p>
+<% end %>
