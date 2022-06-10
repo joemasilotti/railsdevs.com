@@ -3,7 +3,7 @@ require "test_helper"
 class AuthenticationTest < ActionDispatch::IntegrationTest
   test "redirects to the stored location" do
     get new_developer_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
 
     login(users(:empty))
     assert_redirected_to new_developer_path

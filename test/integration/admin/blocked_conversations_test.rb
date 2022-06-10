@@ -3,7 +3,7 @@ require "test_helper"
 class Admin::BlockedConversationsTest < ActionDispatch::IntegrationTest
   test "must be signed in" do
     get admin_conversations_blocks_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "must be an admin" do
