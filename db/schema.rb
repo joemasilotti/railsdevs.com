@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_09_190652) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_180608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,8 +80,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_190652) do
     t.datetime "updated_at", null: false
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
+    t.string "inbound_email_token"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
+    t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
   end
 
   create_table "developers", force: :cascade do |t|

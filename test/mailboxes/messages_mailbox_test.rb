@@ -20,10 +20,19 @@ class MessagesMailboxTest < ActionMailbox::TestCase
     assert_equal @conversation.developer, Message.last.sender
   end
 
+  test "only text in the actual sent email is used for the message body" do
+    body = "Message content\n
+      On June 10, 2022, notifications@railsdevs.com wrote:\n
+      Previous message content"
+
+    receive_inbound_email(body:, from: @conversation.business)
+    assert_equal "Message content", Message.last.body
+  end
+
   test "invalid conversation signatures bounce" do
     email = receive_inbound_email(
       from: @conversation.developer,
-      valid_signed_id: false
+      valid_token: false
     )
 
     assert email.bounced?
@@ -32,7 +41,7 @@ class MessagesMailboxTest < ActionMailbox::TestCase
   test "invalid users bounce" do
     email = receive_inbound_email(
       from: developers(:one),
-      valid_signed_id: false
+      valid_token: false
     )
 
     assert email.bounced?
@@ -47,16 +56,12 @@ class MessagesMailboxTest < ActionMailbox::TestCase
     end
   end
 
-  def receive_inbound_email(from:, body: "Email body.", valid_signed_id: true)
-    id = valid_signed_id ? conversation_signed_id : "invalid-id"
+  def receive_inbound_email(from:, body: "Email body.", valid_token: true)
+    token = valid_token ? @conversation.inbound_email_token : "invalid-token"
 
     receive_inbound_email_from_mail \
-      to: "message-#{id}@example.com",
+      to: "message-#{token}@example.com",
       from: from.user.email,
       body:
-  end
-
-  def conversation_signed_id
-    @conversation.signed_id(purpose: :message)
   end
 end

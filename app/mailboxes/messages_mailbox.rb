@@ -1,9 +1,8 @@
 class MessagesMailbox < ApplicationMailbox
-  rescue_from(ActiveSupport::MessageVerifier::InvalidSignature) { bounced! }
   rescue_from(ActiveRecord::RecordNotFound) { bounced! }
 
   def process
-    message = Message.new(conversation:, sender:, body: mail_body)
+    message = Message.new(conversation:, sender:, body:)
     if MessagePolicy.new(user, message).create?
       message.save_and_notify
       conversation.mark_notifications_as_read(user)
@@ -15,8 +14,7 @@ class MessagesMailbox < ApplicationMailbox
   private
 
   def conversation
-    @conversation ||= user.conversations
-      .find_signed!(signed_conversation_id, purpose: :message)
+    @conversation ||= user.conversations.find_by!(inbound_email_token: conversation_token)
   end
 
   def user
@@ -31,7 +29,7 @@ class MessagesMailbox < ApplicationMailbox
     end
   end
 
-  def signed_conversation_id
+  def conversation_token
     recipient.match(/^message-(.*)@/).captures.first
   end
 
@@ -39,11 +37,7 @@ class MessagesMailbox < ApplicationMailbox
     mail.to.first
   end
 
-  def mail_body
-    if mail.multipart?
-      mail.parts.first.body.decoded
-    else
-      mail.decoded
-    end
+  def body
+    InboundEmailContent.new(mail).content
   end
 end
