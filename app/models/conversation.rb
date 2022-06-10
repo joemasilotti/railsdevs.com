@@ -1,4 +1,6 @@
 class Conversation < ApplicationRecord
+  has_secure_token :inbound_email_token
+
   belongs_to :developer
   belongs_to :business
 

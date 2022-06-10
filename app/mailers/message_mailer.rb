@@ -10,12 +10,12 @@ class MessageMailer < ApplicationMailer
     @sender = message.sender.name
     @body = message.body
 
-    signed_id = message.conversation.signed_id(purpose: :message)
+    conversation_token = message.conversation.inbound_email_token
 
     mail(
       to: @recipient.email,
       subject: @notification.email_subject,
-      reply_to: "message-#{signed_id}@inbound.railsdevs.com"
+      reply_to: "message-#{conversation_token}@inbound.railsdevs.com"
     )
   end
 end

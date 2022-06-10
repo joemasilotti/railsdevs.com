@@ -1,3 +1,4 @@
 one:
   developer: prospect
   business: subscriber
+  inbound_email_token: EMAIL-TOKEN

@@ -1,5 +1,4 @@
 class MessagesMailbox < ApplicationMailbox
-  rescue_from(ActiveSupport::MessageVerifier::InvalidSignature) { bounced! }
   rescue_from(ActiveRecord::RecordNotFound) { bounced! }
 
   def process
@@ -15,8 +14,7 @@ class MessagesMailbox < ApplicationMailbox
   private
 
   def conversation
-    @conversation ||= user.conversations
-      .find_signed!(signed_conversation_id, purpose: :message)
+    @conversation ||= user.conversations.find_by!(inbound_email_token: conversation_token)
   end
 
   def user
@@ -31,7 +29,7 @@ class MessagesMailbox < ApplicationMailbox
     end
   end
 
-  def signed_conversation_id
+  def conversation_token
     recipient.match(/^message-(.*)@/).captures.first
   end
 

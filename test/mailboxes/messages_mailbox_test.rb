@@ -23,7 +23,7 @@ class MessagesMailboxTest < ActionMailbox::TestCase
   test "invalid conversation signatures bounce" do
     email = receive_inbound_email(
       from: @conversation.developer,
-      valid_signed_id: false
+      valid_token: false
     )
 
     assert email.bounced?
@@ -32,7 +32,7 @@ class MessagesMailboxTest < ActionMailbox::TestCase
   test "invalid users bounce" do
     email = receive_inbound_email(
       from: developers(:one),
-      valid_signed_id: false
+      valid_token: false
     )
 
     assert email.bounced?
@@ -47,16 +47,12 @@ class MessagesMailboxTest < ActionMailbox::TestCase
     end
   end
 
-  def receive_inbound_email(from:, body: "Email body.", valid_signed_id: true)
-    id = valid_signed_id ? conversation_signed_id : "invalid-id"
+  def receive_inbound_email(from:, body: "Email body.", valid_token: true)
+    token = valid_token ? @conversation.inbound_email_token : "invalid-token"
 
     receive_inbound_email_from_mail \
-      to: "message-#{id}@example.com",
+      to: "message-#{token}@example.com",
       from: from.user.email,
       body:
-  end
-
-  def conversation_signed_id
-    @conversation.signed_id(purpose: :message)
   end
 end
