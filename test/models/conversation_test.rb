@@ -64,4 +64,15 @@ class ConversationTest < ActiveSupport::TestCase
     conversation.messages.from_developer.destroy_all
     refute conversation.hiring_fee_eligible?
   end
+
+  test "unread notifications are marked as read" do
+    refute notifications(:message_to_business).read?
+    refute notifications(:message_to_developer).read?
+
+    user = users(:subscribed_business)
+    conversations(:one).mark_notifications_as_read(user)
+
+    assert notifications(:message_to_business).reload.read?
+    refute notifications(:message_to_developer).reload.read?
+  end
 end

@@ -31,6 +31,10 @@ class Conversation < ApplicationRecord
     developer_replied? && created_at <= 2.weeks.ago
   end
 
+  def mark_notifications_as_read(user)
+    notifications_as_conversation.where(recipient: user).unread.mark_as_read!
+  end
+
   private
 
   def developer_replied?
