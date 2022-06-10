@@ -20,6 +20,15 @@ class MessagesMailboxTest < ActionMailbox::TestCase
     assert_equal @conversation.developer, Message.last.sender
   end
 
+  test "only text in the actual sent email is used for the message body" do
+    body = "Message content\n
+      On June 10, 2022, notifications@railsdevs.com wrote:\n
+      Previous message content"
+
+    receive_inbound_email(body:, from: @conversation.business)
+    assert_equal "Message content", Message.last.body
+  end
+
   test "invalid conversation signatures bounce" do
     email = receive_inbound_email(
       from: @conversation.developer,

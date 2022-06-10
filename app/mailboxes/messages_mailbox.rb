@@ -2,7 +2,7 @@ class MessagesMailbox < ApplicationMailbox
   rescue_from(ActiveRecord::RecordNotFound) { bounced! }
 
   def process
-    message = Message.new(conversation:, sender:, body: mail_body)
+    message = Message.new(conversation:, sender:, body:)
     if MessagePolicy.new(user, message).create?
       message.save_and_notify
       conversation.mark_notifications_as_read(user)
@@ -37,11 +37,7 @@ class MessagesMailbox < ApplicationMailbox
     mail.to.first
   end
 
-  def mail_body
-    if mail.multipart?
-      mail.parts.first.body.decoded
-    else
-      mail.decoded
-    end
+  def body
+    InboundEmailContent.new(mail).content
   end
 end
