@@ -4,7 +4,7 @@ module Developers
 
     def index
       @developer = ::Developer.find(params[:developer_id])
-      @prompt_responses = @developer.prompt_responses.includes(:prompt)
+      @prompt_responses = @developer.prompt_responses.active
     end
 
     def new
