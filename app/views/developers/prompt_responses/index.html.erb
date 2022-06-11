@@ -1,12 +1,15 @@
 <%= turbo_frame_tag "prompt-responses-index" do %>
-  <% if @developer.user == current_user %>
-    <div class="mt-6">
-      <%= link_to new_developer_prompt_response_path(@developer), data: {turbo_frame: "response-form"}, class: "inline-flex px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-        <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
-        <%= t(".add_response") %>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="pb-2 mt-12 border-b border-gray-200 sm:flex sm:items-center sm:justify-between">
+    <%= tag.h3 t(".header"), class: "text-lg leading-6 font-medium text-gray-900" %>
+    <% if @developer.user == current_user %>
+      <div class="mt-3 sm:mt-0 sm:ml-4">
+        <%= link_to new_developer_prompt_response_path(@developer), data: {turbo_frame: "response-form"}, class: "inline-flex px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "-ml-1 mr-2 h-5 w-5" %>
+          <%= t(".add_response") %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <%= turbo_frame_tag "response-form" %>
   <div id="prompt-responses-container" class="grid grid-cols-1 gap-4 empty:hidden sm:grid-cols-2">
     <%= render partial: "prompt_response", collection: @prompt_responses %>

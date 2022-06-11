@@ -269,6 +269,7 @@ en:
           disabled: Publishing...
           text: Publish Response
       index:
+        header: More About this Developer
         add_response: Add Response
     show:
       description: Description
