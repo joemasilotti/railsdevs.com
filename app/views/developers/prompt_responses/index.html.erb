@@ -12,7 +12,7 @@
   </div>
   <%= turbo_frame_tag "response-form" %>
   <div id="prompt-responses-container" class="grid grid-cols-1 gap-4 empty:hidden sm:grid-cols-2">
-    <%= render partial: "prompt_response", collection: @prompt_responses %>
+    <%= render partial: "prompt_response", collection: @prompt_responses, locals: {developer: @developer} %>
   </div>
   <% if @developer.user == current_user && @prompt_responses.empty? %>
     <%= render "empty_state" %>

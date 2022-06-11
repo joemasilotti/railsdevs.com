@@ -1,7 +1,9 @@
 <%= tag.div id: dom_id(prompt_response), class: "relative rounded-lg border border-gray-300 bg-white h-96 mt-8 px-6 pt-5 shadow-sm flex flex-col items-stretch justify-between" do %>
   <div class="flex-1 min-w-0">
     <%= tag.h3 prompt_response.prompt.name, class: "font-medium" %>
-    <%= tag.p prompt_response.content, class: "mt-2 text-sm text-gray-700" %>
+    <%= render PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
+      <%= tag.p prompt_response.content, class: "mt-2 text-sm text-gray-700" %>
+    <% end %>
   </div>
   <% if policy(prompt_response).update? && policy(prompt_response).destroy? %>
     <div class="flex divide-x divide-gray-200">

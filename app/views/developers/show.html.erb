@@ -39,16 +39,14 @@
                   <%= simple_format @developer.bio %>
                 </div>
               </div>
-              <%= render PaywalledComponent.new(user: current_user, paywalled: @developer, size: :large) do %>
-                <%= turbo_frame_tag "prompt-responses-index", src: developer_prompt_responses_path(@developer) do %>
-                  <ul role="list" class="mt-12 space-y-3">
-                    <li class="bg-white border border-gray-200 overflow-hidden rounded-md px-6 py-4">
-                      <div class="rounded bg-gray-200 h-6 w-36 animate-pulse"></div>
-                      <div class="mt-4 rounded bg-gray-200 h-4 w-94 animate-pulse"></div>
-                      <div class="mt-2 rounded bg-gray-200 h-4 w-94 animate-pulse"></div>
-                    </li>
-                  </ul>
-                <% end %>
+              <%= turbo_frame_tag "prompt-responses-index", src: developer_prompt_responses_path(@developer) do %>
+                <ul role="list" class="mt-12 space-y-3">
+                  <li class="bg-white border border-gray-200 overflow-hidden rounded-md px-6 py-4">
+                    <div class="rounded bg-gray-200 h-6 w-36 animate-pulse"></div>
+                    <div class="mt-4 rounded bg-gray-200 h-4 w-94 animate-pulse"></div>
+                    <div class="mt-2 rounded bg-gray-200 h-4 w-94 animate-pulse"></div>
+                  </li>
+                </ul>
               <% end %>
             </div>
           </div>
