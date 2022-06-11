@@ -1,4 +1,8 @@
 <%= form_with model: prompt_response, url: prompt_response.form_action, data: {controller: "prompt-response-dropdown"}, class: "-mt-4 flex-col items-start w-full space-y-3" do |f| %>
+  <h3 class="text-lg leading-6 font-medium text-gray-900">Lorem ipsum and assorted titles</h3>
+  <div class="mt-2 max-w-xl text-sm text-gray-500">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus praesentium tenetur pariatur.</p>
+  </div>
   <div>
     <%= f.label :prompt_id, class: "block text-sm font-medium text-gray-700" %>
     <%= f.select :prompt_id, options_from_collection_for_select(prompts, "id", "name", prompt_response.prompt_id), {prompt: "Select a prompt"}, data: {action: "change->prompt-response-dropdown#updateUi", "prompt-response-dropdown-target": "dropdown"}, class: "mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md" %>
