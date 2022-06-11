@@ -17,4 +17,19 @@ class ScrollTest < ApplicationSystemTestCase
 
     refute find("#message_body").obscured?
   end
+
+  test "scrolling to bottom of of the developers page loads more results" do
+    # Create some more developers for pagination results to load
+    (1..20).each do |n|
+      developer = developers(:one).dup
+      developer.name = "Developer #{n}"
+      developer.hero = "Hero: #{n}"
+      developer.save(validate: false)
+    end
+
+    visit developers_path
+    # Scroll to bottom of page
+    page.execute_script "window.scrollBy(0,10000)"
+    assert_text "Developer number one"
+  end
 end
