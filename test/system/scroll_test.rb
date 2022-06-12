@@ -1,6 +1,7 @@
 require "application_system_test_case"
 
 class ScrollTest < ApplicationSystemTestCase
+  include DevelopersHelper
   include Devise::Test::IntegrationHelpers
 
   test "scrolling to the message form at the bottom of the conversation page on page load" do
@@ -19,17 +20,17 @@ class ScrollTest < ApplicationSystemTestCase
   end
 
   test "scrolling to bottom of of the developers page loads more results" do
-    # Create some more developers for pagination results to load
-    (1..20).each do |n|
-      developer = developers(:one).dup
-      developer.name = "Developer #{n}"
-      developer.hero = "Hero: #{n}"
-      developer.save(validate: false)
-    end
+    # Create more developers to trigger pagination.
+    20.times { create_developer }
 
     visit developers_path
-    # Scroll to bottom of page
-    page.execute_script "window.scrollBy(0,10000)"
+    refute_text "Developer number one"
+
+    scroll_to_bottom_of_page
     assert_text "Developer number one"
+  end
+
+  def scroll_to_bottom_of_page
+    page.execute_script "window.scrollBy(0,10000)"
   end
 end
