@@ -12,6 +12,7 @@ module Developers
 
     def default_attributes
       [
+        :page,
         :include_not_interested,
         :sort,
         role_levels: [],
