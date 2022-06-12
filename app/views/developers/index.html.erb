@@ -54,7 +54,7 @@
         <% end %>
       <% else %>
         <div class="mt-16">
-          <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), unseeded_body: t(".empty_state.dev_body_html"), icon: "icons/outline/user_group.svg") %>
+          <%= render Developers::EmptyStateComponent.new(show_unseeded_message: Rails.env.development? && User.none?) %>
         </div>
       <% end %>
     </div>
