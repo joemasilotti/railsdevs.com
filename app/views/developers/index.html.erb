@@ -53,8 +53,8 @@
           <%= render Developers::CardComponent.with_collection(@query.records) %>
         <% end %>
       <% else %>
-        <div class="my-16">
-          <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: Rails.env.development? && User.none? ? t(".empty_state.dev_body_html") : t(".empty_state.body"), icon: "icons/outline/user_group.svg") %>
+        <div class="mt-16">
+          <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), unseeded_body: t(".empty_state.dev_body_html"), icon: "icons/outline/user_group.svg") %>
         </div>
       <% end %>
     </div>
