@@ -247,9 +247,9 @@ en:
     index:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       empty_state:
-        body: No developers match these attributes.
+        body: Try changing or clearing your filters.
         dev_body_html: Run <code>bin/rails db:seed</code> to create development data.
-        title: No matching developers
+        title: No developers found
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
     new_field_component:
