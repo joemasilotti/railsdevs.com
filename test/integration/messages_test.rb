@@ -13,7 +13,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "must be signed in" do
     post conversation_messages_path(@conversation)
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "can't view blocked conversations" do
