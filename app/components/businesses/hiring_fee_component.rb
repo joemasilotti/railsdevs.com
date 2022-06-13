@@ -21,11 +21,11 @@ module Businesses
     end
 
     def subject
-      t(".subject.hired")
+      t(".subject")
     end
 
     def body
-      t(".body.hired", developer:)
+      t(".body", developer:)
     end
   end
 end
