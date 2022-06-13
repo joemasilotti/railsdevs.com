@@ -21,11 +21,11 @@ module Businesses
     end
 
     def subject
-      "I hired a developer via railsdevs"
+      t(".subject.hired")
     end
 
     def body
-      "Hi Joe, I hired #{developer} via railsdevs and would like to coordinate paying the fee. Their starting salary is: "
+      t(".body.hired", developer: developer)
     end
   end
 end
