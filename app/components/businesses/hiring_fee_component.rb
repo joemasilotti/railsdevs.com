@@ -25,7 +25,7 @@ module Businesses
     end
 
     def body
-      t(".body.hired", developer: developer)
+      t(".body.hired", developer:)
     end
   end
 end
