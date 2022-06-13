@@ -13,6 +13,7 @@ module API
       end
 
       def destroy
+        destroy_notification_token
         sign_out(current_user)
         render json: {}
       end
@@ -21,6 +22,10 @@ module API
 
       def error_message
         I18n.t("devise.failure.invalid", authentication_keys: [:email])
+      end
+
+      def destroy_notification_token
+        current_user.notification_tokens.where(token: params[:token]).destroy_all
       end
     end
   end

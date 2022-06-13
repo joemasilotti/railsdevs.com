@@ -33,14 +33,28 @@ class API::V1::AuthenticationTest < ActionDispatch::IntegrationTest
     post api_v1_auth_path, params: valid_credentials
     assert_not_nil session["warden.user.user.key"]
 
-    delete api_v1_auth_path
+    delete api_v1_auth_path, headers: valid_headers
     assert_nil session["warden.user.user.key"]
+  end
+
+  test "signing out destroys the notification token" do
+    assert_changes "NotificationToken.count", -1 do
+      delete api_v1_auth_path,
+        headers: valid_headers,
+        params: {token: notification_tokens(:ios).token}
+    end
   end
 
   def valid_credentials
     {
       email: @user.email,
       password: "password"
+    }
+  end
+
+  def valid_headers
+    {
+      Authorization: @user.authentication_token
     }
   end
 end
