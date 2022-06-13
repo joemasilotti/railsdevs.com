@@ -131,7 +131,9 @@ en:
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
+      body: 'Hi Joe, I hired %{developer} via railsdevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
+      subject: I hired a developer via railsdevs
       title: Have you hired %{developer}?
     primary_action_component:
       edit: Edit
