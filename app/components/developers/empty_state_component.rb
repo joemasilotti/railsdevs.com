@@ -1,12 +1,12 @@
 module Developers
   class EmptyStateComponent < ApplicationComponent
-    def initialize(show_unseeded_message: false)
-      @show_unseeded_message = show_unseeded_message
+    def initialize(seedable: false)
+      @seedable = seedable
     end
 
     def call
       title = t(".title")
-      body = if show_unseeded_message?
+      body = if show_seed_message?
         t(".unseeded_body_html")
       else
         t(".body")
@@ -17,8 +17,8 @@ module Developers
 
     private
 
-    def show_unseeded_message?
-      @show_unseeded_message
+    def show_seed_message?
+      @seedable && Developer.none?
     end
   end
 end

@@ -10,8 +10,10 @@ module Developers
       assert_selector "svg"
     end
 
-    test "Renders title, unseeded_body and icon" do
-      render_inline(EmptyStateComponent.new(show_unseeded_message: true))
+    test "in empty and seedable environment, shows message to run db:seed" do
+      Developer.destroy_all
+
+      render_inline(EmptyStateComponent.new(seedable: true))
 
       assert_selector("p", text: "Run bin/rails db:seed to create development data.")
     end

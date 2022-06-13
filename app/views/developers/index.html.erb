@@ -54,7 +54,7 @@
         <% end %>
       <% else %>
         <div class="mt-16">
-          <%= render Developers::EmptyStateComponent.new(show_unseeded_message: Rails.env.development? && User.none?) %>
+          <%= render Developers::EmptyStateComponent.new(seedable: Rails.env.development?) %>
         </div>
       <% end %>
     </div>
