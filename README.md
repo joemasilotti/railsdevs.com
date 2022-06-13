@@ -24,7 +24,7 @@ brew bundle install --no-upgrade
 
 ...or manually:
 
-* Ruby 3.1.0
+* Ruby 3.1.2
 * [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
     * `libpg` is needed to use the native `pg` gem without Rosetta on M1 macs
 * [postgresql](https://www.postgresql.org) - `brew install postgresql` [Note: PostgreSQL 13+ is required]
