@@ -4,6 +4,7 @@
 
 ### June
 
+* June 13 - Fix sorting on mobile - #495
 * June 13 - Remove `turbo: false` from all non-Stripe forms - #483
 * June 9 - Order conversations by most recent message, not when they were started
 * June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
