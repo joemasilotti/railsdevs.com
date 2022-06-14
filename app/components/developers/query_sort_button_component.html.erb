@@ -5,7 +5,7 @@
   </button>
 
   <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
-    <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, active: sort == :newest, form_id: form_id) %>
-    <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, active: sort == :availability, form_id: form_id) %>
+    <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, active: sort == :newest, form_id: form_id, scope: scope) %>
+    <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, active: sort == :availability, form_id: form_id, scope: scope) %>
   </div>
 </div>
