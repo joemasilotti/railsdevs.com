@@ -54,7 +54,7 @@
         <% end %>
       <% else %>
         <div class="mt-16">
-          <%= render Developers::EmptyStateComponent.new(seedable: Rails.env.development?) %>
+          <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), icon: "icons/outline/user_group.svg") %>
         </div>
       <% end %>
     </div>
