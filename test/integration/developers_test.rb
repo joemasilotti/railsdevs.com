@@ -14,7 +14,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "no developers produce empty state" do
     Developer.destroy_all
     get developers_path
-    assert_select "h3", "No developers found"
+    assert_select "h3", I18n.t("developers.index.empty_state.title")
   end
 
   test "custom meta tags are rendered" do
