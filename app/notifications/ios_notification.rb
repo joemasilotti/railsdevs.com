@@ -1,4 +1,10 @@
 module IosNotification
+  extend ActiveSupport::Concern
+
+  included do
+    deliver_by :ios, format: :ios_format, cert_path: :ios_cert_path, development: :development?
+  end
+
   def ios_format(apn)
     apn.alert = {title:, body: ios_subject}
     apn.custom_payload = {url:}
