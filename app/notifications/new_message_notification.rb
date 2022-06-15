@@ -21,7 +21,7 @@ class NewMessageNotification < ApplicationNotification
   end
 
   def url
-    conversation_path(conversation)
+    conversation_url(conversation)
   end
 
   def message

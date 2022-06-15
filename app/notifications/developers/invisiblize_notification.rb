@@ -10,7 +10,7 @@ module Developers
     end
 
     def url
-      edit_developer_path(developer)
+      edit_developer_url(developer)
     end
 
     def developer
