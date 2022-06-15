@@ -1,0 +1,4 @@
+ios:
+  platform: iOS
+  token: abc-123
+  user: empty

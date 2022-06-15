@@ -1,4 +1,4 @@
-<%= form_with scope: form_id, url: developers_path, id: form_id, method: :get do |form| %>
+<%= form_with scope: form_id, url: developers_path, id: form_id, method: :get, html: {data: {turbo_action: :replace}} do |form| %>
   <div data-toggle-target="element" id="mobile-filters" class="hidden bg-gray-50">
     <div class="fixed inset-0 flex z-40 sm:hidden" role="dialog" aria-modal="true">
       <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>

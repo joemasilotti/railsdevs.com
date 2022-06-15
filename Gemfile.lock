@@ -90,6 +90,9 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
+    apnotic (1.7.0)
+      connection_pool (~> 2)
+      net-http2 (>= 0.18.3, < 2)
     ast (2.4.2)
     auto_html (2.1.0)
       gemoji (~> 4.0.0.rc2)
@@ -206,12 +209,13 @@ GEM
       stimulus-rails
       turbo-rails
     html_tokenizer (0.0.7)
+    http-2 (0.11.0)
     http (5.0.4)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       llhttp-ffi (~> 0.4.0)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     i18n (1.10.0)
@@ -268,6 +272,8 @@ GEM
       minitest (~> 5)
       minitest-reporters (~> 1)
     multipart-post (2.1.1)
+    net-http2 (0.18.4)
+      http-2 (~> 0.11)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -288,7 +294,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
-    noticed (1.4.1)
+    noticed (1.5.9)
       http (>= 4.0.0)
       rails (>= 5.2.0)
     orm_adapter (0.5.0)
@@ -417,7 +423,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.2)
     unicode-display_width (2.1.0)
     view_component (2.53.0)
       activesupport (>= 5.0.0, < 8.0)
@@ -445,6 +451,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  apnotic (~> 1.7.0)
   auto_html (~> 2.1)
   aws-sdk-s3 (~> 1)
   capybara (~> 3.36)
@@ -466,7 +473,7 @@ DEPENDENCIES
   letter_opener_web
   minitest-reporters (~> 1.5)
   minitest-reporters-pride_reporter (~> 0.0.2)
-  noticed (~> 1.4)
+  noticed (~> 1.5.9)
   pagy (~> 5.2)
   pay!
   pg (~> 1.1)

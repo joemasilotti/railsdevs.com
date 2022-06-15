@@ -2,6 +2,8 @@ require "test_helper"
 
 module Developers
   class OpenGraphTagsComponentTest < ViewComponent::TestCase
+    include TurboNativeHelper
+
     test "always includes basic tags" do
       developer = Developer.new(id: 123, hero: "hero text", bio: "bio text")
 
@@ -36,6 +38,14 @@ module Developers
       render_inline OpenGraphTagsComponent.new(developer:)
 
       assert_meta property: "twitter:site", content: "@me"
+    end
+
+    test "Turbo Native requests" do
+      turbo_native_request!
+      developer = Developer.new(id: 123, twitter: "me")
+      render_inline Developers::OpenGraphTagsComponent.new(developer:)
+      title = I18n.t("developers.open_graph_tags_component.turbo_native_title")
+      assert_selector "title", exact_text: title, visible: false
     end
   end
 end

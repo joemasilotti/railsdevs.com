@@ -1,12 +1,19 @@
 module Developers
   class PrimaryActionComponent < ApplicationComponent
-    def initialize(user:, developer:)
+    attr_reader :user, :developer, :business
+
+    def initialize(user:, developer:, business:)
       @user = user
       @developer = developer
+      @business = business
     end
 
     def owner?
-      @user&.developer == @developer
+      user&.developer == developer
+    end
+
+    def conversation
+      Conversation.find_by(developer:, business:)
     end
   end
 end

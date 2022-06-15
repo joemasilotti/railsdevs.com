@@ -104,6 +104,8 @@ en:
   businesses:
     create:
       created: Your business was added!
+    edit:
+      title: Your business profile
     expired_subscription_component:
       cta: Upgrade your account to message developers
       title: Your subscription expired.
@@ -198,6 +200,8 @@ en:
       created: Your profile was added!
     details:
       title: Details
+    edit:
+      title: Your developer profile
     form:
       creating: Creating...
       notifications:
@@ -256,6 +260,8 @@ en:
     new_fields_component:
       cta: Complete my profile
       title: New fields were added to developer profiles!
+    open_graph_tags_component:
+      turbo_native_title: Developer profile
     profile_action_component:
       add_profile: Add my profile
       edit_profile: Update my profile
@@ -293,6 +299,7 @@ en:
       description: Description
       edit: Edit
       hire: Hire me
+      message: Message
     update:
       updated: Your profile was updated!
   dir: ltr
@@ -317,6 +324,7 @@ en:
       title_1: The reverse job board for
       title_2: Rails developers
       title_og: The reverse job board for Ruby on Rails developers
+      turbo_native_title: railsdevs
   messages:
     form:
       help: Add your message
@@ -331,6 +339,7 @@ en:
     base_component:
       about: About
       developers: Developers
+      home: Home
       pricing: Pricing
     guest_component:
       register: Register
@@ -496,6 +505,10 @@ en:
         subtitle: Hire freelance or contract Ruby on Rails developers.
         title: Hire freelancers and contractors
       title: Pricing plans
+    show:
+      description: Please visit the website to learn more.
+      title: Pricing not available on iOS
+      title_og: Pricing
     v1:
       cta: Get started today
       faq:
