@@ -24,6 +24,6 @@ module IosNotification
   end
 
   def cleanup_device_token(token:, platform:)
-    NotificationToken.find_by(token: token.token, platform:)&.destroy
+    NotificationToken.where(token: token.token, platform:).destroy_all
   end
 end
