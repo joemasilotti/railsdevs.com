@@ -4,6 +4,7 @@
 
 ### June
 
+* June 14 - Add support for iOS app powered by Turbo Native - #496
 * June 13 - Fix sorting on mobile - #495
 * June 13 - Add empty state for `/developers` - #484 @bensheldon
 * June 13 - Remove `turbo: false` from all non-Stripe forms - #483
