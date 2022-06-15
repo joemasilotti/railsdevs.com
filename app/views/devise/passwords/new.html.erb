@@ -6,7 +6,9 @@
       <%= t(".forgot_your_password") %>
     </h2>
 
-    <%= render "devise/shared/signup_link" if devise_mapping.registerable? %>
+    <% if devise_mapping.registerable? && !turbo_native_app? %>
+      <%= render "devise/shared/signup_link" %>
+    <% end %>
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
