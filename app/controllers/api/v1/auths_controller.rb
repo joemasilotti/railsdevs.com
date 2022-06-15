@@ -21,7 +21,7 @@ module API
       private
 
       def error_message
-        I18n.t("devise.failure.invalid", authentication_keys: [:email])
+        I18n.t("devise.failure.invalid", authentication_keys: :email)
       end
 
       def destroy_notification_token
