@@ -3,7 +3,7 @@ class NewMessageNotification < ApplicationNotification
 
   deliver_by :database
   deliver_by :email, mailer: "MessageMailer", method: :new_message
-  deliver_by :ios, format: :ios_format, development: :development?
+  deliver_by :ios, format: :ios_format, cert_path: :ios_cert_path, development: :development?
 
   param :message
   param :conversation

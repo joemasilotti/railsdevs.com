@@ -4,6 +4,10 @@ module IosNotification
     apn.custom_payload = {url:}
   end
 
+  def ios_cert_path
+    StringIO.new(Rails.application.credentials.ios.apns_token_cert)
+  end
+
   # Use APNS's sandbox server to send notifications to apps run via Xcode.
   def development?
     Rails.env.development?
