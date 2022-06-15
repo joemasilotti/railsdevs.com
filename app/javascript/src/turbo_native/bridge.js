@@ -8,7 +8,7 @@ class Bridge {
     window.webkit?.messageHandlers?.nativeApp?.postMessage({name, ...data})
   }
 
-  static isTurboNativeApp() {
+  static get isTurboNativeApp() {
     return navigator.userAgent.indexOf("Turbo Native") !== -1
   }
 }
