@@ -11,7 +11,6 @@
           </button>
         </div>
 
-        <%= form.hidden_field :sort, value: query.sort if query.sort %>
         <div class="mx-4 pb-4">
           <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
           <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>

@@ -133,7 +133,9 @@ en:
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
+      body: 'Hi Joe, I hired %{developer} via railsdevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
+      subject: I hired a developer via railsdevs
       title: Have you hired %{developer}?
     primary_action_component:
       edit: Edit
@@ -248,6 +250,9 @@ en:
         title: Work preferences
     index:
       description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
+      empty_state:
+        body: Try changing or clearing your filters.
+        title: No developers found
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
     new_field_component:

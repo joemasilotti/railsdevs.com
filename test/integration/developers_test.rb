@@ -11,6 +11,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", developers(:one).hero
   end
 
+  test "no developers produce empty state" do
+    Developer.destroy_all
+    get developers_path
+    assert_select "h3", I18n.t("developers.index.empty_state.title")
+  end
+
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
