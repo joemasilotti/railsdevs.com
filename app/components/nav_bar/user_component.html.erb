@@ -1,9 +1,5 @@
 <div class="min-h-full">
-  <%= tag.nav data: {
-    controller: "toggle",
-    "toggle-visibility-class": "hidden",
-    action: "toggle-nav-bar@window->toggle#toggle"
-  }, class: "bg-gray-800 #{"fixed top-0 left-0 right-0 z-50" if helpers.turbo_native_app?}" do %>
+  <%= tag.nav data: {controller: "toggle", "toggle-visibility-class": "hidden", action: "toggle-nav-bar@window->toggle#toggle"}, class: "bg-gray-800 #{"fixed top-0 left-0 right-0 z-50" if helpers.turbo_native_app?}" do %>
     <% unless helpers.turbo_native_app? %>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
