@@ -12,3 +12,15 @@ Notification.where(type: "NewDeveloperProfileNotification")
 ```
 
 This can be added to `lib/tasks/backfills.rake` as a new task and manually run via the Heroku CLI.
+
+## iOS Simulator
+
+You can send notifications to the iOS simulator with a .apns file.
+
+Boot the iOS app, sign in as `developer@example.com`, and run the following command to send a notification.
+
+Change `com.masilotti.railsdevs.io` to your app's bundle identifier, if different.
+
+```
+xcrun simctl push booted com.masilotti.railsdevs.ios app/notifications/notification.apns
+```
