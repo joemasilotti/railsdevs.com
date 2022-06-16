@@ -13,7 +13,17 @@ Notification.where(type: "NewDeveloperProfileNotification")
 
 This can be added to `lib/tasks/backfills.rake` as a new task and manually run via the Heroku CLI.
 
-## iOS Simulator
+## iOS notifications (APNs)
+
+To send a push notification via APNs to iOS devices, add the following to the notification class.
+
+```ruby
+include IosNotification
+```
+
+Also, make sure that the following methods are implemented: `#title`, `#ios_subject`, and `#url`.
+
+### iOS Simulator
 
 You can send notifications to the iOS simulator with a .apns file.
 
