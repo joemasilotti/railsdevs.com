@@ -9,7 +9,7 @@ module Developers
 
     test "hidden when seedable but developers exist" do
       render_inline UnseededWarningComponent.new(seedable: true)
-      assert_no_text("Run bin/rails db:seed")
+      assert_no_text "Run bin/rails db:seed"
     end
 
     test "displayed when seedable and no developers exist" do
