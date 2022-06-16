@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+admin: 
+  user: subscribed_business
+  business: subscriber
+  role_type: admin
+member:
+  user: developer
+  business: subscriber
+  role_type: member

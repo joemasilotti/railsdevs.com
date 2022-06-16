@@ -111,6 +111,7 @@ jobs:
           bin/rails javascript:build
           bin/rails css:build
           bin/rails db:create
+          bin/rails db:migrate
           bin/rails db:schema:load
           bin/rails test --fail-fast
           bin/rails test:system
