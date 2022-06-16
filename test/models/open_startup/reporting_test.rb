@@ -9,7 +9,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
       charge(amount: 2000, created: january, description: "New subscription"),
       charge(amount: 4000, created: february, description: "New subscription"),
       charge(amount: 5000, created: february, description: "Update subscription"),
-      charge(amount: 9900, created: february, description: "Payment for Invoice"),
+      charge(amount: 9900, created: february, description: "Payment for Invoice")
     ]
 
     refresh_metrics
