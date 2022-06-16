@@ -10,7 +10,7 @@ class BlocksTest < ActionDispatch::IntegrationTest
   test "must be signed in" do
     get new_conversation_block_path(@conversation)
     post conversation_block_path(@conversation)
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "the developer can block the conversation" do

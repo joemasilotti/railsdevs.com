@@ -4,7 +4,14 @@
 
 ### June
 
-* June 8 - Add country search for Developers - #468 @troyizzle
+* June 16 - Note hiring fees on `/open/revenue` #501
+* June 14 - Add support for iOS app powered by Turbo Native - #496
+* June 13 - Fix sorting on mobile - #495
+* June 13 - Add empty state for `/developers` - #484 @bensheldon
+* June 13 - Remove `turbo: false` from all non-Stripe forms - #483
+* June 9 - Order conversations by most recent message, not when they were started
+* June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
+* June 8 - Add country search for developers - #468 @troyizzle
 * June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478, #480 @metamoni
 
 ### May

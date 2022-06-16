@@ -14,7 +14,7 @@ module Admin
     end
 
     def url
-      business_path(business)
+      business_url(business)
     end
 
     def business

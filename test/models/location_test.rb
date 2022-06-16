@@ -61,13 +61,13 @@ class LocationTest < ActiveSupport::TestCase
     end
   end
 
-  test "top_countries does not include least common countries" do
+  test "top_countries does not include least common countries (or nil)" do
     stub_geocoder("Shanghai", country: "China")
     (0..5).each { |_n| create_location!(city: "Shanghai") }
     stub_geocoder("Mumbai", country: "India")
-    create_location!(city: "Mumbai")
+    create_location!(city: "Atlantis").update!(country: nil)
 
-    top_countries = Location.top_countries(2)
+    top_countries = Location.top_countries(3)
 
     assert_equal 2, top_countries.count
     assert top_countries.include?("China")
@@ -83,7 +83,7 @@ class LocationTest < ActiveSupport::TestCase
 
     not_top_countries = Location.not_top_countries(2)
 
-    assert_equal 2, not_top_countries.count
+    assert_equal 1, not_top_countries.count
     refute not_top_countries.include?(china)
     assert not_top_countries.include?(india)
   end

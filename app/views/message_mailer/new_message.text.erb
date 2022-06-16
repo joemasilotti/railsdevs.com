@@ -3,3 +3,7 @@
 <%= truncate_message_body(@body) %>
 
 <%= notification_url(@notification.record) %>
+
+<% if Feature.enabled?(:reply_via_email, user: @recipient) %>
+You can continue the conversation by replying to this email.
+<% end %>

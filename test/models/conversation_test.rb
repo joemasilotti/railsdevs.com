@@ -106,6 +106,17 @@ class ConversationTest < ActiveSupport::TestCase
     assert conversation.latest_message_read_by_other_user?(user)
   end
 
+  test "unread notifications are marked as read" do
+    refute notifications(:message_to_business).read?
+    refute notifications(:message_to_developer).read?
+
+    user = users(:subscribed_business)
+    conversations(:one).mark_notifications_as_read(user)
+
+    assert notifications(:message_to_business).reload.read?
+    refute notifications(:message_to_developer).reload.read?
+  end
+  
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,

@@ -26,7 +26,7 @@
         <%= yield %>
       <% end %>
     </div>
-    <%= render "shared/footer" %>
+    <%= render "shared/footer" unless turbo_native_app? %>
     <%= turbo_frame_tag "modal" %>
     <%= render Analytics::EventComponent.new(flash) %>
   </body>

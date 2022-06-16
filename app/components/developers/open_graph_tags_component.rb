@@ -2,10 +2,11 @@ module Developers
   class OpenGraphTagsComponent < OpenGraphTagsComponent
     def initialize(developer:)
       @developer = developer
+      @title = @developer.hero
     end
 
-    def title
-      [@developer.hero, "railsdevs"].join(" · ")
+    def turbo_native_title
+      t(".turbo_native_title")
     end
 
     def description

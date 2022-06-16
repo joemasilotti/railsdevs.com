@@ -4,15 +4,18 @@ class MessageMailer < ApplicationMailer
 
   def new_message
     @notification = params[:record].to_notification
-    recipient = params[:recipient]
+    @recipient = params[:recipient]
 
     message = @notification.message
     @sender = message.sender.name
     @body = message.body
 
+    conversation_token = message.conversation.inbound_email_token
+
     mail(
-      to: recipient.email,
-      subject: @notification.email_subject
+      to: @recipient.email,
+      subject: @notification.email_subject,
+      reply_to: "message-#{conversation_token}@inbound.railsdevs.com"
     )
   end
 end

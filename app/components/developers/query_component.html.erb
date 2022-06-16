@@ -2,17 +2,17 @@
 
 <div class="px-4 sm:px-6">
   <%= form_with url: developers_path, id: form_id, method: :get do |form| %>
-    <% if Feature.enabled?(:search_feature, user: user) %>
-      <div>
-        <%= form.label :search_query, t(".search_query_label"), class: "block text-sm font-medium text-gray-700" %>
+    <div class="pb-6">
+      <%= form.label :search_query, t(".search_query_label"), class: "block text-sm font-medium text-gray-700" %>
+      <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t(".paywalled_search.title")) do %>
         <div class="mt-1 relative flex items-center">
           <%= form.text_field :search_query, value: search_query, placeholder: t(".search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2" %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
-      <%= tag.div class: "pb-6 #{Feature.enabled?(:search_feature, user: user) ? "pt-6" : "pt-3"}" do %>
+      <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".role_level.title")) %>
         </h3>
@@ -26,7 +26,7 @@
             <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
     </div>
 
     <div data-controller="toggle" data-toggle-visibility-class="hidden">

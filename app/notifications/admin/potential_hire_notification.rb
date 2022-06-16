@@ -14,7 +14,7 @@ module Admin
     end
 
     def url
-      admin_developer_conversations_path(developer)
+      admin_developer_conversations_url(developer)
     end
 
     def developer

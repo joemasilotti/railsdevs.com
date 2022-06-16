@@ -1,9 +1,11 @@
 <%= render "shared/error_messages", resource: developer %>
 
-<div class="mt-8 lg:mt-16 flex flex-col space-y-6">
-  <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
-    <%= t(".title") %>
-  </h1>
+<div class="flex flex-col space-y-6">
+  <% unless turbo_native_app? %>
+    <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0 mt-8 lg:mt-16">
+      <%= t(".title") %>
+    </h1>
+  <% end %>
 
   <%= form_with model: developer do |form| %>
     <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
@@ -41,7 +43,7 @@
 
             <%= form.fields_for :location, include_id: false do |location| %>
               <div>
-                <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 md:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 gap-6">
                   <div class="sm:col-span-2">
                     <div class="flex items-center">
                       <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>

@@ -10,7 +10,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   test "redirects to notification if signed in" do
     sign_in users(:subscribed_business)
-    notification = notifications(:message)
+    notification = notifications(:message_to_business)
     conversation = conversations(:one)
 
     get notification_path(notification)
@@ -31,7 +31,7 @@ class NotificationsTest < ActionDispatch::IntegrationTest
 
   test "viewing a notification marks it as read and redirects" do
     sign_in users(:subscribed_business)
-    notification = notifications(:message)
+    notification = notifications(:message_to_business)
     conversation = conversations(:one)
 
     refute notification.reload.read?

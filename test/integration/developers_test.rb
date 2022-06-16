@@ -11,6 +11,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", developers(:one).hero
   end
 
+  test "no developers produce empty state" do
+    Developer.destroy_all
+    get developers_path
+    assert_select "h3", I18n.t("developers.index.empty_state.title")
+  end
+
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
@@ -91,6 +97,22 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_select "input[checked][type=checkbox][name='include_not_interested']"
     assert_select "h2", "Not interested"
+  end
+
+  test "mobile filtering" do
+    get developers_path
+
+    assert_select "h2", text: developers(:one).hero, count: 1
+    assert_select "form#developer-filters-mobile"
+    developers(:one).role_level.update!(junior: false)
+
+    get developers_path, params: {
+      "developer-filters-mobile": {
+        role_levels: [:junior]
+      }
+    }
+
+    assert_select "h2", text: developers(:one).hero, count: 0
   end
 
   test "paginating filtered developers respects the filters" do

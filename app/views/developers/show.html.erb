@@ -26,7 +26,7 @@
                   <% end %>
                 </div>
 
-                <%= render Developers::PrimaryActionComponent.new(user: current_user, developer: @developer) %>
+                <%= render Developers::PrimaryActionComponent.new(user: current_user, developer: @developer, business: current_user&.business) %>
               </div>
 
               <aside class="mt-8 lg:hidden">

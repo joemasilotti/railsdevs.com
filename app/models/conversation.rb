@@ -1,4 +1,6 @@
 class Conversation < ApplicationRecord
+  has_secure_token :inbound_email_token
+
   belongs_to :developer
   belongs_to :business
 
@@ -41,6 +43,12 @@ class Conversation < ApplicationRecord
   def latest_message
     messages.reorder(created_at: :desc).first
   end
+
+  def mark_notifications_as_read(user)
+    notifications_as_conversation.where(recipient: user).unread.mark_as_read!
+  end
+
+  private
 
   def developer_replied?
     messages.from_developer.any?

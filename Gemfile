@@ -24,8 +24,7 @@ group :development, :test do
 end
 
 group :development do
-  # Point to GitHub until https://github.com/Shopify/erb-lint/pull/235 is released.
-  gem "erb_lint", require: false, github: "Shopify/erb-lint"
+  gem "erb_lint", "~> 0.1.2", require: false
   gem "hotwire-livereload"
   gem "redis"
 end
@@ -39,6 +38,7 @@ group :test do
   gem "webmock"
 end
 
+gem "apnotic", "~> 1.7.0"
 gem "auto_html", "~> 2.1"
 gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
@@ -49,7 +49,7 @@ gem "geocoder", "~> 1.7.3"
 gem "groupdate", "~> 6.0.1"
 gem "honeybadger", "~> 4.0"
 gem "inline_svg", "~> 1.7"
-gem "noticed", "~> 1.4"
+gem "noticed", "~> 1.5.9"
 gem "pagy", "~> 5.2"
 gem "pay", github: "pay-rails/pay", ref: "4f4a726051bed3f88f6f74541cc2cdd8b600afb0"
 gem "pg_search"
