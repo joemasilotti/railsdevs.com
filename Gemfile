@@ -24,8 +24,7 @@ group :development, :test do
 end
 
 group :development do
-  # Point to GitHub until https://github.com/Shopify/erb-lint/pull/235 is released.
-  gem "erb_lint", require: false, github: "Shopify/erb-lint"
+  gem "erb_lint", "~> 0.1.2", require: false
   gem "hotwire-livereload"
   gem "redis"
 end

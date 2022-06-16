@@ -1,17 +1,4 @@
 GIT
-  remote: https://github.com/Shopify/erb-lint.git
-  revision: 02fb0e948d57fca7eed050ca7713436ebb8ff4f9
-  specs:
-    erb_lint (0.1.1)
-      activesupport
-      better_html (~> 1.0.7)
-      html_tokenizer
-      parser (>= 2.7.1.4)
-      rainbow
-      rubocop
-      smart_properties
-
-GIT
   remote: https://github.com/pay-rails/pay.git
   revision: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
   ref: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
@@ -157,6 +144,14 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    erb_lint (0.1.2)
+      activesupport
+      better_html (~> 1.0.7)
+      html_tokenizer
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.10.0)
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
@@ -459,7 +454,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.0)
   devise (~> 4.8.1)
   devise-i18n (~> 1.10.1)
-  erb_lint!
+  erb_lint (~> 0.1.2)
   faker
   fathom_api (~> 0.1.2)
   geocoder (~> 1.7.3)
