@@ -117,47 +117,6 @@ class ConversationTest < ActiveSupport::TestCase
     refute notifications(:message_to_developer).reload.read?
   end
 
-  test "latest_message" do
-    conversation = conversations(:one)
-
-    assert_equal messages(:from_business), conversation.latest_message
-  end
-
-  test "latest_message_read_by_other_user? returns false if no messages" do
-    conversation = conversations(:one)
-    conversation.messages.destroy_all
-    user = users(:developer)
-
-    assert_not conversation.latest_message_read_by_other_user?(user)
-  end
-
-  test "latest_message_read_by_other_user? returns false if latest message has no notification" do
-    conversation = conversations(:one)
-    conversation.latest_message.notifications_as_message.destroy_all
-    user = users(:developer)
-
-    assert_not conversation.latest_message_read_by_other_user?(user)
-  end
-
-  test "latest_message_read_by_other_user? returns false if notification is not read" do
-    conversation = conversations(:one)
-    user = users(:subscribed_business)
-    message = conversation.latest_message
-    create_notification(message, user)
-
-    assert_not conversation.latest_message_read_by_other_user?(user)
-  end
-
-  test "latest_message_read_by_other_user? returns true if notification is read" do
-    conversation = conversations(:one)
-    user = users(:subscribed_business)
-    message = conversation.latest_message
-    notification = create_notification(message, user)
-    notification.mark_as_read!
-
-    assert conversation.latest_message_read_by_other_user?(user)
-  end
-
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,
