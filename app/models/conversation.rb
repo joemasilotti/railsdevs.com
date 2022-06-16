@@ -48,6 +48,17 @@ class Conversation < ApplicationRecord
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
   end
 
+  def latest_message_read_by_other_user?(other_user)
+    return false unless latest_message
+
+    notification = latest_message.latest_notification_for_recipient(other_user)
+    notification&.read?
+  end
+
+  def latest_message
+    messages.reorder(created_at: :desc).first
+  end
+
   private
 
   def developer_replied?
