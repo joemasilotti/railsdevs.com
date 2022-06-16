@@ -8,16 +8,18 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
       charge(amount: 1000, created: january, description: "New subscription"),
       charge(amount: 2000, created: january, description: "New subscription"),
       charge(amount: 4000, created: february, description: "New subscription"),
-      charge(amount: 5000, created: february, description: "Update subscription")
+      charge(amount: 5000, created: february, description: "Update subscription"),
+      charge(amount: 9900, created: february, description: "Payment for Invoice")
     ]
 
     refresh_metrics
 
-    assert_equal OpenStartup::Revenue.pluck(:occurred_on, :description, :amount), [
-      [Date.new(2022, 1, 1), "New subscriptions", 30],
-      [Date.new(2022, 2, 1), "New subscriptions", 40],
-      [Date.new(2022, 2, 1), "Update subscriptions", 50]
-    ]
+    revenue = OpenStartup::Revenue.pluck(:occurred_on, :description, :amount)
+    assert_equal 4, revenue.count
+    assert_includes revenue, [Date.new(2022, 1, 1), "New subscriptions", 30]
+    assert_includes revenue, [Date.new(2022, 2, 1), "New subscriptions", 40]
+    assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 99]
+    assert_includes revenue, [Date.new(2022, 2, 1), "Update subscriptions", 50]
   end
 
   test "refreshes Expense records (grouped by month and merged with additional fees) and adds manual expenses" do
