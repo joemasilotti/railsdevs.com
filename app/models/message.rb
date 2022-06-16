@@ -36,12 +36,8 @@ class Message < ApplicationRecord
     end
   end
 
-  def last_message_in_conversation?
-    conversation.messages.reorder(created_at: :desc).first == self
-  end
-
-  def read_at
-    notifications_as_message.last&.read_at
+  def latest_notification_for_recipient(recipient)
+    notifications_as_message.where(recipient:).last
   end
 
   def body=(text)

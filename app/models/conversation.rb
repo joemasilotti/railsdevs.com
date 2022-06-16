@@ -31,7 +31,16 @@ class Conversation < ApplicationRecord
     developer_replied? && created_at <= 2.weeks.ago
   end
 
-  private
+  def latest_message_read_by_other_user?(other_user)
+    return false unless latest_message
+
+    notification = latest_message.latest_notification_for_recipient(other_user)
+    notification&.read?
+  end
+
+  def latest_message
+    messages.reorder(created_at: :desc).first
+  end
 
   def developer_replied?
     messages.from_developer.any?
