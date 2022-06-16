@@ -7,6 +7,7 @@ class Business < ApplicationRecord
 
   belongs_to :user
   has_many :conversations, -> { visible }
+  has_many :user_business_roles, dependent: :destroy
 
   has_noticed_notifications
 
