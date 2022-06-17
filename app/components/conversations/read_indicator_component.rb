@@ -10,13 +10,7 @@ module Conversations
     end
 
     def show_read?
-      @conversation.latest_message_read_by_other_user?(other_user)
-    end
-
-    private
-
-    def other_user
-      @conversation.other_recipient(@user).user
+      @conversation.latest_message_read_by_other_recipient?(@user)
     end
   end
 end
