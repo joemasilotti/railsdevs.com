@@ -24,21 +24,16 @@ module Messages
     end
 
     test "should render message read when show_read? is true" do
-      component = Conversations::ReadIndicatorComponent.new(@user, conversation: @conversation)
-      component.stub :show_read?, true do
-        render_inline component
+      @conversation.latest_message.notifications_as_message.mark_as_read!
+      render_inline Conversations::ReadIndicatorComponent.new(@user, conversation: @conversation)
 
-        assert_text "Message read."
-      end
+      assert_text "Message read."
     end
 
     test "should render message unread when show_read? is false" do
-      component = Conversations::ReadIndicatorComponent.new(@user, conversation: @conversation)
-      component.stub :show_read?, false do
-        render_inline component
+      render_inline Conversations::ReadIndicatorComponent.new(@user, conversation: @conversation)
 
-        assert_text "Message unread."
-      end
+      assert_text "Message unread."
     end
   end
 end
