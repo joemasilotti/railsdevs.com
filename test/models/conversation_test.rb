@@ -71,39 +71,41 @@ class ConversationTest < ActiveSupport::TestCase
     assert_equal messages(:from_business), conversation.latest_message
   end
 
-  test "latest_message_read_by_other_user? returns false if no messages" do
+  test "latest_message_read_by_other_recipient? returns false if no messages" do
     conversation = conversations(:one)
     conversation.messages.destroy_all
     user = users(:developer)
 
-    refute conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_recipient?(user)
   end
 
-  test "latest_message_read_by_other_user? returns false if latest message has no notification" do
+  test "latest_message_read_by_other_recipient? returns false if latest message has no notification" do
     conversation = conversations(:one)
     conversation.latest_message.notifications_as_message.destroy_all
-    user = users(:developer)
+    user = users(:business)
 
-    refute conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_recipient?(user)
   end
 
-  test "latest_message_read_by_other_user? returns false if notification is not read" do
+  test "latest_message_read_by_other_recipient? returns false if notification is not read" do
     conversation = conversations(:one)
     user = users(:subscribed_business)
     message = conversation.latest_message
     create_notification(message, user)
+    sender = users(:prospect_developer)
 
-    refute conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_recipient?(sender)
   end
 
-  test "latest_message_read_by_other_user? returns true if notification is read" do
+  test "latest_message_read_by_other_recipient? returns true if notification is read" do
     conversation = conversations(:one)
     user = users(:subscribed_business)
     message = conversation.latest_message
     notification = create_notification(message, user)
     notification.mark_as_read!
+    sender = users(:prospect_developer)
 
-    assert conversation.latest_message_read_by_other_user?(user)
+    assert conversation.latest_message_read_by_other_recipient?(sender)
   end
 
   test "unread notifications are marked as read" do

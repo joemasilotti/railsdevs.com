@@ -33,8 +33,10 @@ class Conversation < ApplicationRecord
     developer_replied? && created_at <= 2.weeks.ago
   end
 
-  def latest_message_read_by_other_user?(other_user)
+  def latest_message_read_by_other_recipient?(user)
     return false unless latest_message
+
+    other_user = other_recipient(user).user
 
     notification = latest_message.latest_notification_for_recipient(other_user)
     notification&.read?
