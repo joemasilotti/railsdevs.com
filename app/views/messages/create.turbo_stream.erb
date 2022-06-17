@@ -2,6 +2,10 @@
   <%= render @message %>
 <% end %>
 
+<%= turbo_stream.update "message_read_indicator" do %>
+  <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
+<% end %>
+
 <%= turbo_stream.update "new_message" do %>
   <%= render "conversations/new_message", conversation: @conversation, message: @new_message %>
 <% end %>

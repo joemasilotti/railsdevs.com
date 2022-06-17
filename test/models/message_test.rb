@@ -42,4 +42,19 @@ class MessageTest < ActiveSupport::TestCase
     user = users(:prospect_developer)
     refute Message.first_message?(user.developer)
   end
+
+  test "latest_notification_for_recipient returns nil if no notification" do
+    message = messages(:from_business)
+    recipient = users(:subscribed_business)
+
+    assert_not message.latest_notification_for_recipient(recipient)
+  end
+
+  test "latest_notification_for_recipient returns a notification" do
+    message = messages(:from_developer)
+    notification = notifications(:message_to_business)
+    recipient = users(:subscribed_business)
+
+    assert_equal notification, message.latest_notification_for_recipient(recipient)
+  end
 end
