@@ -76,7 +76,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation.messages.destroy_all
     user = users(:developer)
 
-    assert_not conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_user?(user)
   end
 
   test "latest_message_read_by_other_user? returns false if latest message has no notification" do
@@ -84,7 +84,7 @@ class ConversationTest < ActiveSupport::TestCase
     conversation.latest_message.notifications_as_message.destroy_all
     user = users(:developer)
 
-    assert_not conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_user?(user)
   end
 
   test "latest_message_read_by_other_user? returns false if notification is not read" do
@@ -93,7 +93,7 @@ class ConversationTest < ActiveSupport::TestCase
     message = conversation.latest_message
     create_notification(message, user)
 
-    assert_not conversation.latest_message_read_by_other_user?(user)
+    refute conversation.latest_message_read_by_other_user?(user)
   end
 
   test "latest_message_read_by_other_user? returns true if notification is read" do
