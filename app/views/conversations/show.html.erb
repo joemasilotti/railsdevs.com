@@ -22,10 +22,13 @@
 
   <ul id="messages" class="mt-8 space-y-2">
     <%= render @conversation.messages %>
-    <% if Feature.enabled?(:message_read_indicator, user: current_user) %>
+  </ul>
+
+  <% if Feature.enabled?(:message_read_indicator, user: current_user) %>
+    <%= turbo_frame_tag "message_read_indicator" do %>
       <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
     <% end %>
-  </ul>
+  <% end %>
 
   <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
 
