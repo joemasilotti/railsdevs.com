@@ -172,6 +172,9 @@ en:
       title: No conversations
     index:
       title: Your conversations
+    read_indicator_component:
+      read: Message read.
+      unread: Message unread.
     show:
       flag: Flag this conversation
       title: Conversation
