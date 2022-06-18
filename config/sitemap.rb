@@ -17,7 +17,8 @@ end
 SitemapGenerator::Sitemap.create do
   add root_path, changefreq: "always", priority: 1, lastmod: Developer.visible.maximum(:updated_at)
   add developers_path, changefreq: "always", priority: 1, lastmod: Developer.visible.maximum(:updated_at)
-  add about_path, changefreq: "weekly", priority: 0.9
+  add pricing_path, changefreq: "weekly", priority: 0.9
+  add about_path, changefreq: "monthly", priority: 0.9
 
   Developer.visible.newest_first.find_each do |developer|
     add developer_path(id: developer.id), changefreq: "always", priority: 0.8, lastmod: developer.updated_at
@@ -29,5 +30,8 @@ SitemapGenerator::Sitemap.create do
   add new_user_confirmation_path, changefreq: "monthly", priority: 0.7
 
   add new_role_path, changefreq: "weekly", priority: 0.6
-  add pricing_path, changefreq: "weekly", priority: 0.5
+
+  Developers::QueryPath.all.each do |path|
+    add path, changefreq: "weekly", priority: 1
+  end
 end

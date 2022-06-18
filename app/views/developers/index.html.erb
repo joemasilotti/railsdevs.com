@@ -1,10 +1,10 @@
-<%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".title"), description: t(".description", developers_count: @developers_count) %>
+<%= open_graph_tags title: @title, turbo_native_title: t(".title"), description: t(".description", developers_count: @developers_count) %>
 
 <div data-controller="toggle" data-toggle-visibility-class="hidden" class="max-w-7xl bg-white mx-auto lg:mt-16 mb-16 overflow-auto sm:rounded-md sm:shadow">
   <div class="pt-12 px-4 sm:px-6 mb-4">
-    <div class="md:flex md:space-x-8">
+    <div class="md:flex md:space-x-8 justify-between items-center">
       <% unless turbo_native_app? %>
-        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= t(".title") %></h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= @title %></h1>
       <% end %>
       <%= render Developers::ProfileActionComponent.new(current_user) %>
     </div>
