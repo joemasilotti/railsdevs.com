@@ -10,18 +10,15 @@ module Developers
       paths = []
 
       RoleLevel::TYPES.each do |role_level|
-        paths << build_path(role_level:)
-        paths << build_path(role_level:, freelance: true)
+        paths += build_paths(role_level:)
 
         top_countries.each do |country|
-          paths << build_path(role_level:, country:)
-          paths << build_path(role_level:, country:, freelance: true)
+          paths += build_paths(role_level:, country:)
         end
       end
 
       top_countries.each do |country|
-        paths << build_path(country:)
-        paths << build_path(country:, freelance: true)
+        paths += build_paths(country:)
       end
 
       paths
@@ -31,6 +28,13 @@ module Developers
 
     def top_countries
       @top_countries ||= Location.top_countries
+    end
+
+    def build_paths(role_level: nil, country: nil)
+      [
+        build_path(role_level:, country:),
+        build_path(role_level:, country:, freelance: true)
+      ]
     end
 
     def build_path(role_level: nil, country: nil, freelance: false)
