@@ -38,6 +38,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
+  test "admin can see invisible developer profile" do
+    developer = create_developer(search_status: :invisible)
+    user = users(:admin)
+    sign_in user
+
+    get developer_path(developer)
+
+    assert_response :ok
+  end
+
   test "developers are sorted newest first" do
     create_developer(hero: "Oldest")
     create_developer(hero: "Newest")

@@ -4,6 +4,7 @@
 
 ### June
 
+* June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
 * June 17 - Read indicators for messages - #485 @troyizzle
 * June 16 - Note hiring fees on `/open/revenue` #501
 * June 14 - Add support for iOS app powered by Turbo Native - #496
