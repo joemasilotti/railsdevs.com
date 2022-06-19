@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def admin?
-    user.admin?
+    user&.admin?
   end
 
   def record_owner?
