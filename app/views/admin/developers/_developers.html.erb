@@ -6,17 +6,13 @@
           <thead class="bg-gray-50">
           <tr>
             <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= t(".name") %></th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".email") %></th>
           </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 bg-white">
           <% query.records.each do |developer| %>
             <tr>
               <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <%= link_to developer.name, developer_path(developer), class: "hover:underline" %>
-              </td>
-              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <%= developer.user.email %>
+                <%= link_to developer.name, admin_developer_conversations_path(developer), class: "hover:underline" %>
               </td>
             </tr>
           <% end %>

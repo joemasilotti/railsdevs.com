@@ -4,26 +4,26 @@
       <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
         <table class="min-w-full divide-y divide-gray-300">
           <thead class="bg-gray-50">
-          <tr>
-            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= t(".company") %></th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".contact_name") %></th>
-            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".email") %></th>
-          </tr>
+            <tr>
+              <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"><%= t(".company") %></th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".contact_name") %></th>
+              <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"><%= t(".email") %></th>
+            </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 bg-white">
-          <% query.records.each do |business| %>
-            <tr>
-              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <%= link_to business.company, business_path(business), class: "hover:underline" %>
-              </td>
-              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <%= business.contact_name %>
-              </td>
-              <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                <%= business.user.email %>
-              </td>
-            </tr>
-          <% end %>
+            <% query.records.each do |business| %>
+              <tr>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <%= link_to business.company, admin_business_conversations_path(business), class: "hover:underline" %>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <%= business.contact_name %>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <%= business.user.email %>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

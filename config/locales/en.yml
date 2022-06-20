@@ -63,12 +63,12 @@ en:
     businesses:
       businesses:
         company: Company
-        contact_name: Contact Name
+        contact_name: Contact name
         email: Email
       index:
-        search_query_label: Search Businesses
+        search_query_label: Search businesses
       stats:
-        number_of_businesses: Number of Businesses
+        businesses: Businesses
     conversations:
       blocks:
         conversation:
@@ -100,8 +100,8 @@ en:
       index:
         search_query_label: Search developer profiles
       stats:
-        actively_looking_and_open: Actively Looking + Open
-        number_of_developers: Number of Developers
+        actively_looking_or_open: Actively looking or open
+        developers: Developers
     features:
       create:
         created: Profile featured for one week.

@@ -19,6 +19,7 @@
             <%= form.label :search_query, t(".search_query_label"), class: "sr-only" %>
             <%= form.text_field :search_query, value: params[:search_query], class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md", placeholder: t(".search_query_label") %>
           </div>
+          <%= form.submit "Search", class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
         <% end %>
       </div>
 

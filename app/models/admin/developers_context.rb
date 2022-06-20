@@ -8,7 +8,7 @@ module Admin
     end
 
     def query
-      @query ||= DeveloperQuery.new({search_query:, include_not_interested: true, search_type: :name_and_email})
+      @query ||= Admin::DeveloperQuery.new(search_query:)
     end
 
     def stats

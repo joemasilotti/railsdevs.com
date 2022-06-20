@@ -8,7 +8,7 @@ module Admin
     end
 
     def query
-      @query ||= BusinessQuery.new({search_query:})
+      @query ||= BusinessQuery.new(search_query:)
     end
 
     def stats
