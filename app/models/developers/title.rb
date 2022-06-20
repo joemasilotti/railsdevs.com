@@ -24,13 +24,9 @@ module Developers
 
     def role_level
       if query.role_levels.one?
-        if query.role_levels.first == :mid
-          "mid-level"
-        elsif query.role_levels.first == :c_level
-          "C-level"
-        else
-          query.role_levels.first
-        end
+        role = query.role_levels.first
+        scope = [:activerecord, :attributes, :role_level]
+        I18n.t(role, scope:, default: role.to_s.humanize).downcase
       end
     end
 
