@@ -95,7 +95,6 @@ en:
         started: Started
     developers:
       developers:
-        email: Email
         name: Name
       index:
         search_query_label: Search developer profiles
