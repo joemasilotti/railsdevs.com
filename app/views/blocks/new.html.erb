@@ -21,8 +21,8 @@
           </div>
         </div>
         <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-          <%= button_to t(".block"), conversation_block_path(@conversation), method: :post, data: {turbo: false}, class: "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-600 text-base font-medium text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm" %>
-          <%= link_to t(".cancel"), conversation_path(@conversation), data: {turbo: false}, class: "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:w-auto sm:text-sm" %>
+          <%= button_to t(".block"), conversation_block_path(@conversation), form: {data: {turbo_frame: "_top"}}, class: "w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-gray-600 text-base font-medium text-white hover:bg-gray-700 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:ml-3 sm:w-auto sm:text-sm" %>
+          <%= link_to t(".cancel"), conversation_path(@conversation), class: "mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:mt-0 sm:w-auto sm:text-sm" %>
         </div>
       </div>
     </div>

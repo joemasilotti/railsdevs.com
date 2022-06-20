@@ -26,40 +26,4 @@ class UserTest < ActiveSupport::TestCase
     user = users(:empty)
     assert_nil user.pay_customer_name
   end
-
-  test "active business subscription" do
-    user = users(:business)
-    refute user.active_business_subscription?
-
-    user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(plan: BusinessSubscription::FullTime.new.plan)
-    assert user.reload.active_business_subscription?
-  end
-
-  test "active legacy business subscription" do
-    user = users(:business)
-    refute user.active_legacy_business_subscription?
-
-    user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(plan: BusinessSubscription::Legacy.new.plan)
-    assert user.reload.active_legacy_business_subscription?
-  end
-
-  test "active full-time business subscription" do
-    user = users(:business)
-    refute user.active_full_time_business_subscription?
-
-    user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(plan: BusinessSubscription::FullTime.new.plan)
-    assert user.reload.active_full_time_business_subscription?
-  end
-
-  test "active part-time business subscription" do
-    user = users(:business)
-    refute user.active_part_time_business_subscription?
-
-    user.set_payment_processor(:fake_processor, allow_fake: true)
-    user.payment_processor.subscribe(plan: BusinessSubscription::PartTime.new.plan)
-    assert user.reload.active_part_time_business_subscription?
-  end
 end

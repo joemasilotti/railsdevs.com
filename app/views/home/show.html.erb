@@ -1,8 +1,8 @@
-<%= open_graph_tags title: t(".title_og"), description: t(".description_og") %>
+<%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".turbo_native_title"), description: t(".description_og") %>
 
 <div class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
   <div class="text-center">
-    <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+    <h1 class="text-3xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
       <span class="block text-gray-600"><%= t(".title_1") %></span>
       <span class="block text-gray-800"><%= t(".title_2") %></span>
     </h1>
@@ -24,13 +24,13 @@
 
 <div class="max-w-5xl mx-auto mt-24 mx-auto sm:mt-32">
   <div class="pb-5 px-4 lg:px-0 sm:flex sm:items-center sm:justify-between">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
+    <h2 class="text-lg leading-6 font-medium text-gray-900">
       <%= t(".available_developers") %>
-    </h3>
+    </h2>
   </div>
 
   <div class="shadow overflow-hidden sm:rounded-md divide-y divide-gray-200">
-    <%= render DeveloperCardComponent.with_collection(@developers) %>
+    <%= render Developers::CardComponent.with_collection(@developers) %>
   </div>
 
   <div class="mt-8 mb-16 text-right mr-2 lg:mr-0">

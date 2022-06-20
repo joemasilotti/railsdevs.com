@@ -1,12 +1,12 @@
 <% if flash.notice.present? %>
   <%= render ToastMessageComponent.new(icon: "information_circle") do |c| %>
-    <%= c.message do %> <p><%= flash.notice %></p> <% end %>
+    <%= c.message do %> <p aria-live="polite"><%= flash.notice %></p> <% end %>
   <% end %>
 <% end %>
 
 <% if flash.alert.present? %>
   <%= render ToastMessageComponent.new(icon: "x_circle", color: :red) do |c| %>
-    <%= c.message do %> <p><%= flash.alert %></p> <% end %>
+    <%= c.message do %> <p aria-live="polite"><%= flash.alert %></p> <% end %>
   <% end %>
 <% end %>
 

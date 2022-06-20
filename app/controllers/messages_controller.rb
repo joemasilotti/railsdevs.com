@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params.merge(conversation:, sender:))
-    authorize @message, policy_class: MessagingPolicy
-    authorize @message, :messageable?, policy_class: SubscriptionPolicy
+    authorize @message
 
     if @message.save_and_notify
       respond_to do |format|
@@ -20,7 +19,7 @@ class MessagesController < ApplicationController
   private
 
   def require_active_subscription!
-    if conversation.business?(current_user) && !current_user.active_business_subscription?
+    if conversation.business?(current_user) && !Businesses::Permission.new(current_user.subscriptions).active_subscription?
       redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
     end
   end

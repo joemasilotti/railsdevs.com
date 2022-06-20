@@ -46,9 +46,13 @@ module OpenStartup
       Revenue.transaction do
         Revenue.delete_all
 
-        StripeTransaction.charge.group_by_month(:created).group(:description).sum(:amount).each do |group, amount|
+        monthly_charges = StripeTransaction.charge
+          .group_by_month(:created).group(:description)
+          .sum(:amount)
+        monthly_charges.each do |(occurred_on, description), amount|
           next if amount.zero?
-          Revenue.create!(occurred_on: group.first, description: group.last.pluralize, amount:)
+          description = "Hiring fees" if description == "Payment for Invoice"
+          Revenue.create!(occurred_on:, description: description.pluralize, amount:)
         end
       end
     end

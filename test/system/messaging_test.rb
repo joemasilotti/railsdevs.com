@@ -8,6 +8,8 @@ class MessagingTest < ApplicationSystemTestCase
     fill_in "Add your message", with: "Hello!"
     click_button "Send"
 
-    assert_text "Hello!"
+    within "#messages" do
+      assert_text "Hello!"
+    end
   end
 end

@@ -7,7 +7,7 @@ class Message < ApplicationRecord
     AutoHtml::SimpleFormat.new
   )
 
-  belongs_to :conversation
+  belongs_to :conversation, touch: true
   belongs_to :sender, polymorphic: true
   has_one :developer, through: :conversation
   has_one :business, through: :conversation
@@ -20,6 +20,10 @@ class Message < ApplicationRecord
   scope :from_developer, -> { where(sender_type: Developer.name) }
   scope :potential_email, -> { where("body LIKE ?", "%@%") }
 
+  def self.first_message?(developer)
+    joins(:conversation).where(conversation: {developer:}).one?
+  end
+
   def sender?(user)
     [user.developer, user.business].include?(sender)
   end
@@ -30,6 +34,10 @@ class Message < ApplicationRecord
     elsif sender == business
       developer
     end
+  end
+
+  def latest_notification_for_recipient(recipient)
+    notifications_as_message.where(recipient:).last
   end
 
   def body=(text)

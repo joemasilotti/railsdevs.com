@@ -2,9 +2,27 @@
 
 ## 2022
 
+### June
+
+* June 20 - Add admin search capabilities  - #419 @esmale
+* June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
+* June 17 - Read indicators for messages - #485 @troyizzle
+* June 16 - Note hiring fees on `/open/revenue` #501
+* June 14 - Add support for iOS app powered by Turbo Native - #496
+* June 13 - Fix sorting on mobile - #495
+* June 13 - Add empty state for `/developers` - #484 @bensheldon
+* June 13 - Remove `turbo: false` from all non-Stripe forms - #483
+* June 9 - Order conversations by most recent message, not when they were started
+* June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
+* June 8 - Add country search for developers - #468 @troyizzle
+* June 8 - Refactor non-reusable View Components under model named module - #456, #462, #471, #476, #478, #480 @metamoni
+
 ### May
 
-* May 19 - Add admin search capabilities  - #419 @esmale
+* May 31 - Email developers tips when they get their first message - #422 @seagalputra
+* May 29 - Send notifications about stale profiles to developers - #420 @mrtnin
+* May 26 - Strip HTML tags from developer bios - #446
+* May 21 - Accessibility updates - #436 and #440 @metamoni
 * May 9 - Send daily/weekly emails via broadcast stream - #421
 * May 8 - Send automated emails from `@railsdevs.com` -#414
 * May 8 - Stop business welcome email and clean up developer welcome email -#413

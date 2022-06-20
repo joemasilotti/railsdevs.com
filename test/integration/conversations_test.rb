@@ -1,12 +1,14 @@
 require "test_helper"
 
 class ConversationsTest < ActionDispatch::IntegrationTest
+  include SubscriptionsHelper
+
   test "you must be signed in" do
     get conversations_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
 
     get conversation_path(conversations(:one))
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "you can view your conversations (as a business)" do
@@ -50,7 +52,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
   test "unread notifictions are marked as read" do
     sign_in users(:subscribed_business)
-    notification = notifications(:message)
+    notification = notifications(:message_to_business)
     refute notification.read?
 
     get conversation_path(conversations(:one))
@@ -61,7 +63,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
   test "part-time plan subscribers can't message full-time seekers" do
     conversation = conversations(:one)
     sign_in conversation.business.user
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
     conversation.developer.role_type.update!(
       part_time_contract: false,
       full_time_contract: false,
@@ -70,6 +72,6 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     get conversation_path(conversation)
 
-    assert_select "h3", text: I18n.t("messages.upgrade_required.title")
+    assert_select "h3", text: I18n.t("businesses.upgrade_required_component.title.upgrade")
   end
 end

@@ -1,0 +1,9 @@
+Hey <%= @developer.first_name %>,
+
+Joe, solo-founder of railsdevs (<%= root_url %>) here. It looks like your developer profile hasn't been updated in a while. Is everything still accurate?
+
+If not, you can update your profile (<%= notification_url(@notification.record) %>). Or, if you've found a gig and are no longer looking let me know by replying to this email!
+
+<%= render "shared/signature" %>
+Update my email notification settings:
+  <%= edit_developer_url(@developer, anchor: "notifications") %>

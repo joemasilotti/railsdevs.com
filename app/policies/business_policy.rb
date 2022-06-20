@@ -1,10 +1,10 @@
 class BusinessPolicy < ApplicationPolicy
   def update?
-    user == record.user
+    record_owner?
   end
 
   def permitted_attributes
-    if user.active_business_subscription?
+    if Businesses::Permission.new(user.subscriptions).active_subscription?
       default_attributes + notification_attributes
     else
       default_attributes

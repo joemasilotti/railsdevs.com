@@ -38,7 +38,7 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   # Devise mailer.
-  config.action_mailer.default_url_options = {host: "localhost", port: 3000, locale: nil}
+  config.action_mailer.default_url_options = {host: "www.example.com", locale: nil}
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
@@ -66,5 +66,5 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Configure host for URL helpers.
-  Rails.application.routes.default_url_options = {host: "localhost", port: 3000, locale: nil}
+  Rails.application.routes.default_url_options = {host: "www.example.com", locale: nil}
 end

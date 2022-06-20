@@ -10,6 +10,13 @@ This documents all of the configuration for the production environment.
 
 The following credentials are used in the production environment.
 
+[Inbound emails](https://guides.rubyonrails.org/action_mailbox_basics.html) are processed by Postmark and require a password.
+
+```
+action_mailbox:
+  ingress_password:
+```
+
 AWS credentials for Active Storage uploads. `sitemaps_bucket` is a different bucket exclusively for uploading the sitemaps.
 
 ```
@@ -106,10 +113,11 @@ It also requires some CORS configuration for direct uploads, copied from the [Ac
 ## Background jobs
 
 1. `bundle exec rake sitemap:refresh` - daily at 12:00 AM UTC
-1. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
-1. `bundle exec rake developers:utc_offset` - daily at 5:00 AM UTC
-1. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
-1. `bundle exec rake developer_digest:weekly ` - daily at 2:00 PM UTC
+2. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
+3. `bundle exec rake developers:utc_offset` - daily at 5:00 AM UTC
+4. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
+5. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
+6. `bundle exec rake developers:notify_stale_profiles` - daily at 8:00 AM UTC
 
 ## Sitemap hosting on S3
 
