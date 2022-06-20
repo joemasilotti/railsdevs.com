@@ -26,6 +26,12 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
     refute DeveloperPolicy.new(user, developer).show?
   end
 
+  test "admin can view another's invisible developer profile" do
+    user = users(:admin)
+    developer = create_invisible_developer!
+    assert DeveloperPolicy.new(user, developer).show?
+  end
+
   def create_invisible_developer!
     Developer.create!(developer_attributes.merge(search_status: :invisible))
   end

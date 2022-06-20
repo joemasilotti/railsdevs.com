@@ -60,6 +60,7 @@ class Developer < ApplicationRecord
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
+  scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
 
   def visible?
@@ -78,7 +79,7 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
-  # If a check is added make sure to add a NewDeveloperFieldComponent to the developer form.
+  # If a check is added make sure to add a Developer::NewFieldComponent to the developer form.
   def missing_fields?
     search_status.blank? ||
       location.missing_fields? ||

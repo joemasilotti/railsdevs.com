@@ -1,5 +1,5 @@
 class SidekiqPolicy
-  attr_reader :user, :environment
+  private attr_reader :user, :environment
 
   def initialize(user, environment: Rails.env)
     @user = user

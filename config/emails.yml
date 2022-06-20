@@ -1,0 +1,6 @@
+shared:
+  support: joe@railsdevs.com
+  support_mailbox: "Joe Masilotti from railsdevs <joe@railsdevs.com>"
+  notifications_mailbox: "railsdevs <notifications@railsdevs.com>"
+  updates_mailbox: "railsdevs <updates@railsdevs.com>"
+  reminders_mailbox: "railsdevs <reminders@railsdevs.com>"

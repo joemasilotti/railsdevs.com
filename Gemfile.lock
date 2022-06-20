@@ -1,17 +1,4 @@
 GIT
-  remote: https://github.com/Shopify/erb-lint.git
-  revision: 02fb0e948d57fca7eed050ca7713436ebb8ff4f9
-  specs:
-    erb_lint (0.1.1)
-      activesupport
-      better_html (~> 1.0.7)
-      html_tokenizer
-      parser (>= 2.7.1.4)
-      rainbow
-      rubocop
-      smart_properties
-
-GIT
   remote: https://github.com/pay-rails/pay.git
   revision: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
   ref: 4f4a726051bed3f88f6f74541cc2cdd8b600afb0
@@ -90,6 +77,9 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
+    apnotic (1.7.0)
+      connection_pool (~> 2)
+      net-http2 (>= 0.18.3, < 2)
     ast (2.4.2)
     auto_html (2.1.0)
       gemoji (~> 4.0.0.rc2)
@@ -154,6 +144,14 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    erb_lint (0.1.2)
+      activesupport
+      better_html (~> 1.0.7)
+      html_tokenizer
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.10.0)
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
@@ -185,7 +183,7 @@ GEM
     fathom_api (0.1.2)
       faraday (~> 1.7)
       faraday_middleware (~> 1.1)
-    ffi (1.15.4)
+    ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -198,7 +196,7 @@ GEM
     hashdiff (1.0.1)
     highline (2.0.3)
     honeybadger (4.9.0)
-    hotwire-livereload (1.1.0)
+    hotwire-livereload (1.2.0)
       listen (>= 3.0.0)
       rails (>= 6.0.0)
     hotwire-rails (0.1.3)
@@ -206,12 +204,13 @@ GEM
       stimulus-rails
       turbo-rails
     html_tokenizer (0.0.7)
+    http-2 (0.11.0)
     http (5.0.4)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       llhttp-ffi (~> 0.4.0)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     i18n (1.10.0)
@@ -230,7 +229,7 @@ GEM
     inline_svg (1.7.2)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
     json (2.6.1)
@@ -242,13 +241,13 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    listen (3.7.0)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
-    loofah (2.17.0)
+    loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -258,7 +257,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.15.0)
+    minitest (5.16.0)
     minitest-reporters (1.5.0)
       ansi
       builder
@@ -268,6 +267,8 @@ GEM
       minitest (~> 5)
       minitest-reporters (~> 1)
     multipart-post (2.1.1)
+    net-http2 (0.18.4)
+      http-2 (~> 0.11)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -288,7 +289,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
-    noticed (1.4.1)
+    noticed (1.5.9)
       http (>= 4.0.0)
       rails (>= 5.2.0)
     orm_adapter (0.5.0)
@@ -313,10 +314,10 @@ GEM
     public_suffix (4.0.6)
     puma (5.6.4)
       nio4r (~> 2.0)
-    pundit (2.1.1)
+    pundit (2.2.0)
       activesupport (>= 3.0.0)
     racc (1.6.0)
-    rack (2.2.3)
+    rack (2.2.3.1)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.2.4)
@@ -336,7 +337,7 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.4.2)
+    rails-html-sanitizer (1.4.3)
       loofah (~> 2.3)
     rails-i18n (7.0.3)
       i18n (>= 0.7, < 2)
@@ -350,7 +351,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.5.1)
@@ -404,11 +405,11 @@ GEM
     stimulus-rails (0.7.2)
       rails (>= 6.0.0)
     stripe (5.42.0)
-    strscan (3.0.1)
+    strscan (3.0.3)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.2.1)
-    timeout (0.2.0)
+    timeout (0.3.0)
     timezone_finder (1.5.7)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
@@ -417,7 +418,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.2)
     unicode-display_width (2.1.0)
     view_component (2.53.0)
       activesupport (>= 5.0.0, < 8.0)
@@ -437,7 +438,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.4)
+    zeitwerk (2.6.0)
 
 PLATFORMS
   ruby
@@ -445,6 +446,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  apnotic (~> 1.7.0)
   auto_html (~> 2.1)
   aws-sdk-s3 (~> 1)
   capybara (~> 3.36)
@@ -452,7 +454,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.0)
   devise (~> 4.8.1)
   devise-i18n (~> 1.10.1)
-  erb_lint!
+  erb_lint (~> 0.1.2)
   faker
   fathom_api (~> 0.1.2)
   geocoder (~> 1.7.3)
@@ -466,7 +468,7 @@ DEPENDENCIES
   letter_opener_web
   minitest-reporters (~> 1.5)
   minitest-reporters-pride_reporter (~> 0.0.2)
-  noticed (~> 1.4)
+  noticed (~> 1.5.9)
   pagy (~> 5.2)
   pay!
   pg (~> 1.1)

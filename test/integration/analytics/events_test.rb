@@ -21,7 +21,7 @@ class Analytics::EventsTest < ActionDispatch::IntegrationTest
   end
 
   test "viewing an already viewed event does not render the flash" do
-    @event.mark_as_tracked!
+    @event.track!
     get analytics_event_path(@event)
     assert_nil flash[:event]
   end

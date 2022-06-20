@@ -3,6 +3,7 @@ require "test_helper"
 class MessagesTest < ActionDispatch::IntegrationTest
   include NotificationsHelper
   include PayHelper
+  include SubscriptionsHelper
 
   setup do
     @developer = developers(:prospect)
@@ -12,7 +13,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "must be signed in" do
     post conversation_messages_path(@conversation)
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "can't view blocked conversations" do
@@ -78,7 +79,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
 
   test "part-time plan subscribers can't message full-time seekers" do
     sign_in @business.user
-    pay_subscriptions(:full_time).update!(processor_plan: BusinessSubscription::PartTime.new.plan)
+    update_subscription(:part_time)
     @developer.role_type.update!(
       part_time_contract: false,
       full_time_contract: false,
@@ -121,6 +122,15 @@ class MessagesTest < ActionDispatch::IntegrationTest
     get conversation_path(@conversation)
 
     assert_select "p", html: 'Check out <a href="https://railsdevs.com/" target="_blank">https://railsdevs.com/</a>!'
+  end
+
+  test "email developer tips when they receive their first message" do
+    sign_in @business.user
+    developer = users(:developer).developer
+
+    assert_enqueued_email_with DeveloperMailer, :first_message, args: {developer:} do
+      post developer_messages_path(developer), params: message_params
+    end
   end
 
   def message_params

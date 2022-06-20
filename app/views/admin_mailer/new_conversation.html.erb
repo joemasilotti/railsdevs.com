@@ -2,13 +2,13 @@
 
 <%== html_truncate_message_body(@body) %>
 
-<%= link_to "View conversation", notification_url(@notification) %>
+<%= link_to "View conversation", notification_url(@notification.record) %>
 
 <hr>
 
 <% @subscriptions.each do |subscription| %>
   <ul>
-    <li><b>Plan</b>: <%= BusinessSubscription.from(subscription.processor_plan).name %></li>
+    <li><b>Plan</b>: <%= Businesses::Subscription.with_price_id(subscription.processor_plan).name %></li>
     <li><b>Status</b>: <%= subscription.status.humanize %></li>
     <li><b>Developer roles</b>: <%= @developer.role_type.humanize %></li>
   </ul>

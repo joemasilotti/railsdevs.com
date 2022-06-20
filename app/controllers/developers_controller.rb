@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = Developer.count.round(-1)
-    @query = DeveloperQuery.new(params)
+    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]))
   end
 
   def new
@@ -41,10 +41,14 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find(params[:id])
-    authorize @developer, policy_class: DeveloperPolicy
+    authorize @developer
   end
 
   private
+
+  def pundit_params_for(_record)
+    params["developer-filters-mobile"] || params
+  end
 
   def require_new_developer!
     if current_user.developer.present?
@@ -66,6 +70,7 @@ class DevelopersController < ApplicationController
       :cover_image,
       :search_status,
       :search_query,
+      :profile_reminder_notifications,
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES

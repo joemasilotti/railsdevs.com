@@ -23,3 +23,6 @@ application.register("page-scroll", PageScrollController)
 
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
+
+import TurboNative__SignOutController from "./turbo_native/sign_out_controller.js"
+application.register("turbo-native--sign-out", TurboNative__SignOutController)

@@ -19,10 +19,6 @@ es:
         name: Nombre
         twitter: Twitter
         website: Sitio web
-      developer/search_status:
-        actively_looking: Activamente buscando trabajo
-        not_interested: No interesado en trabajar por ahora
-        open: Abierto, pero no buscando activamente
       role_level:
         c_level: nivel C
         junior: Júnior
@@ -87,6 +83,9 @@ es:
       your_business_profile: Perfil de tu empresa
     update:
       updated: "¡Tu empresa fue actualizada!"
+    upgrade_account_component:
+      cta: Adquiere la suscripción
+      title: Requiere de una suscripción empresarial activa.
   cold_messages:
     new:
       title: Empieza una conversación
@@ -102,28 +101,13 @@ es:
       flag: Marcar esta conversación
       title: Conversación
       with: con
-  cover_image_component:
-    alt: Imagen de portada del desarrollador
-  developer_profile_action_component:
-    add_profile: Agregar mi perfil
-    edit_profile: Actualizar mi perfil
-  developer_query_component:
-    apply: Aplicar
-    close_menu: Cerrar menú
-    filters: Filtros
-    search_query_label: Buscar perfiles de desarrollador
-    sort:
-      availability: Disponibilidad
-      newest: Más reciente
-      title: Ordenar
-    timezone:
-      title: Zona horaria
-    title: Filtros del desarrollador
   developers:
     availability_component:
       in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
       now_html: Disponible ahora
       unspecified_html: No disponible actualmente
+    cover_image_component:
+      alt: Imagen de portada del desarrollador
     create:
       created: "¡Tu perfil fue creado!"
     details:
@@ -171,6 +155,21 @@ es:
     index:
       description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
       title: Desarrolladores Ruby on Rails
+    profile_action_component:
+      add_profile: Agregar mi perfil
+      edit_profile: Actualizar mi perfil
+    query_component:
+      apply: Aplicar
+      close_menu: Cerrar menú
+      filters: Filtros
+      search_query_label: Buscar perfiles de desarrollador
+      timezone:
+        title: Zona horaria
+      title: Filtros del desarrollador
+    search_status:
+      actively_looking: Activamente buscando trabajo
+      not_interested: No interesado en trabajar por ahora
+      open: Abierto, pero no buscando activamente
     show:
       description: Descripción
       edit: Editar
@@ -183,6 +182,7 @@ es:
       attached: no esta adjunto
       content_type_invalid: formato de la imagén no soprotado
       max_file_size_invalid: imagén superior a %{size}
+    unauthorized: No tienes permiso para eso.
   home:
     show:
       available_developers: Desarrolladores disponibles ahora
@@ -222,16 +222,21 @@ es:
       sign_out: Cerrar sesión
       view_notifications: Ver notificaciones
   notifications:
+    admin:
+      new_business_notification:
+        title: "%{business} agregó su empresa."
+      new_conversation_notification:
+        title: "%{name} (%{company}) empezó una conversación con %{developer}."
+      new_developer_notification:
+        title: "%{developer} agregó su perfil de desarrollador."
     index:
       cta: Ver historia
       empty_state:
         body: No tienes notificaciones no leídas.
         title: No hay nuevas notificaciones
       title: Nuevas notificaciones
-    new_business: "%{business} agregó su empresa."
-    new_conversation: "%{name} (%{company}) empezó una conversación con %{developer}."
-    new_developer_profile: "%{developer} agregó su perfil de desarrollador."
-    new_message: "%{sender} te envió un mensaje."
+    new_message_notification:
+      title: "%{sender} te envió un mensaje."
     show:
       notice: Notificaciones marcadas como leídas.
   number:
@@ -239,22 +244,18 @@ es:
       format:
         format: "%u%n"
         unit: "$"
-  paywalled_component:
-    description: Información que solo es visible con una suscripción comercial.
-    title: Información provada
-  pundit:
-    errors:
-      unauthorized: No tienes permiso para eso.
   read_notifications:
     empty_state:
       body: No tienes notificaciones leídas.
       title: Sin noticaciones leídas
     index:
       title: Ver notificaciones
-  role_level_component:
-    interested_in_roles: Interesado en roles
-  role_type_component:
-    interested_in_roles: Interesado en roles
+  role_levels:
+    component:
+      interested_in_roles: Interesado en roles
+  role_types:
+    component:
+      interested_in_roles: Interesado en roles
   roles:
     new:
       hiring_developers: Estoy contratando desarrolladores
@@ -274,6 +275,7 @@ es:
       open_source: Código abierto
       support: Soporte
       twitter: Twitter
-  upgrade_account_component:
-    cta: Adquiere la suscripción
-    title: Requiere de una suscripción empresarial activa.
+  users:
+    paywalled_component:
+      description: Información que solo es visible con una suscripción comercial.
+      title: Información provada

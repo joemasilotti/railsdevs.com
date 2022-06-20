@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_205013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_mailbox_inbound_emails", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.string "message_id", null: false
+    t.string "message_checksum", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id", "message_checksum"], name: "index_action_mailbox_inbound_emails_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,13 +80,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
     t.datetime "updated_at", null: false
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
+    t.string "inbound_email_token"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
+    t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
   end
 
   create_table "developers", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email"
     t.date "available_on"
     t.string "hero", null: false
     t.text "bio", null: false
@@ -95,6 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
     t.integer "preferred_max_salary"
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
+    t.boolean "profile_reminder_notifications", default: true
     t.virtual "admin_textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (COALESCE(name, ''::character varying))::text)", stored: true
     t.index ["admin_textsearchable_index_col"], name: "admin_textsearchable_index", using: :gin
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
@@ -127,6 +138,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
     t.text "body_html", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["sender_type", "sender_id"], name: "index_messages_on_sender"
+  end
+
+  create_table "notification_tokens", force: :cascade do |t|
+    t.string "platform", null: false
+    t.string "token", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_tokens_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -319,6 +339,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
+    t.string "authentication_token"
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -326,6 +348,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_042402) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "notification_tokens", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"

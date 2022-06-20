@@ -1,0 +1,117 @@
+<%= form_with scope: form_id, url: developers_path, id: form_id, method: :get, html: {data: {turbo_action: :replace}} do |form| %>
+  <div data-toggle-target="element" id="mobile-filters" class="hidden bg-gray-50">
+    <div class="fixed inset-0 flex z-40 sm:hidden" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+      <div class="ml-auto relative max-w-xs w-full h-full bg-white shadow-xl py-4 pb-6 flex flex-col overflow-y-auto">
+        <div class="px-4 mb-2 flex items-center justify-between">
+          <h2 class="text-lg font-medium text-gray-900"><%= t("developers.query_component.filters") %></h2>
+          <button type="button" data-action="toggle#toggle" class="-mr-2 w-10 h-10 bg-white p-2 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <span class="sr-only"><%= t("developers.query_component.close_menu") %></span>
+            <%= inline_svg_tag "icons/outline/x.svg", class: "h-6 w-6" %>
+          </button>
+        </div>
+
+        <div class="mx-4 pb-4">
+          <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
+          <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
+              <%= form.text_field :search_query, value: search_query, placeholder: t("developers.query_component.search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+          <% end %>
+        </div>
+
+        <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
+          <h3 class="-mx-2 -my-3 flow-root">
+            <%= render CollapseControlComponent.new(t("developers.query_component.role_level.title"), collapsed: true) %>
+          </h3>
+          <div id="role-level-filter-section" data-toggle-target="element" class="hidden pt-6">
+            <div class="space-y-6">
+              <%= form.collection_check_boxes(:role_levels, role_levels, :first, :last, {include_hidden: false}) do |b| %>
+                <div class="flex items-center">
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_level_selected?(b.object) %>
+                  <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
+          <h3 class="-mx-2 -my-3 flow-root">
+            <%= render CollapseControlComponent.new(t("developers.query_component.work_preference.title"), collapsed: true) %>
+          </h3>
+          <div id="role-type-filter-section" data-toggle-target="element" class="hidden pt-6">
+            <div class="space-y-6">
+              <%= form.collection_check_boxes(:role_types, role_types, :first, :last, {include_hidden: false}) do |b| %>
+                <div class="flex items-center">
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: role_type_selected?(b.object) %>
+                  <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                </div>
+              <% end %>
+              <hr>
+              <div class="flex items-top">
+                <%= form.check_box :include_not_interested, class: "mt-1 h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", include_hidden: false, checked: include_not_interested? %>
+                <%= form.label :include_not_interested, t("developers.query_component.include_not_interested"), class: "ml-3 pr-6 text-sm font-medium text-gray-900" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
+          <h3 class="-mx-2 -my-3 flow-root">
+            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true) %>
+          </h3>
+          <div id="top-countries-filter-section" data-toggle-target="element" class="hidden pt-6">
+            <div class="space-y-6">
+              <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
+                <div class="flex items-center">
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: country_selected?(b.object) %>
+                  <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                </div>
+              <% end %>
+            </div>
+
+            <div data-controller="toggle" data-toggle-visibility-class="hidden">
+              <div class="pt-6">
+                <h5 class="-mx-2 -my-3 flow-root">
+                  <%= render CollapseControlComponent.new(t("developers.query_component.all_countries.title"), collapsed: true, subcomponent: true) %>
+                </h5>
+              </div>
+              <div id="all-countries-filter-section" data-toggle-target="element" class="hidden">
+                <div class="space-y-4 pt-6">
+                  <%= form.collection_check_boxes(:countries, countries, :first, :last, {include_hidden: false}) do |b| %>
+                    <div class="flex items-center">
+                      <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: country_selected?(b.object) %>
+                      <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
+          <h3 class="-mx-2 -my-3 flow-root">
+            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true) %>
+          </h3>
+          <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
+            <div class="space-y-6">
+              <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
+                <div class="flex items-center">
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: time_zone_selected?(b.object) %>
+                  <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 px-4 py-6">
+          <div class="flex justify-start space-x-2">
+            <%= link_to t("developers.query_component.clear"), developers_path, class: "bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+            <%= submit_tag t("developers.query_component.apply"), class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

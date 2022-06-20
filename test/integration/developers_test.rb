@@ -11,6 +11,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", developers(:one).hero
   end
 
+  test "no developers produce empty state" do
+    Developer.destroy_all
+    get developers_path
+    assert_select "h3", I18n.t("developers.index.empty_state.title")
+  end
+
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
@@ -26,6 +32,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "can see own developer profile when invisible" do
     developer = create_developer(search_status: :invisible)
     sign_in developer.user
+
+    get developer_path(developer)
+
+    assert_response :ok
+  end
+
+  test "admin can see invisible developer profile" do
+    developer = create_developer(search_status: :invisible)
+    user = users(:admin)
+    sign_in user
 
     get developer_path(developer)
 
@@ -93,6 +109,22 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Not interested"
   end
 
+  test "mobile filtering" do
+    get developers_path
+
+    assert_select "h2", text: developers(:one).hero, count: 1
+    assert_select "form#developer-filters-mobile"
+    developers(:one).role_level.update!(junior: false)
+
+    get developers_path, params: {
+      "developer-filters-mobile": {
+        role_levels: [:junior]
+      }
+    }
+
+    assert_select "h2", text: developers(:one).hero, count: 0
+  end
+
   test "paginating filtered developers respects the filters" do
     developers(:prospect).update!(available_on: Date.yesterday, search_status: :open)
 
@@ -125,12 +157,23 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in users(:empty)
 
     assert_difference ["Developer.count", "Analytics::Event.count"], 1 do
-      assert_sends_notification NewDeveloperProfileNotification do
+      assert_sends_notification Admin::NewDeveloperNotification do
         post developers_path, params: valid_developer_params
       end
     end
 
-    assert_redirected_to analytics_event_path(Analytics::Event.last)
+    last_event = Analytics::Event.last
+
+    assert_redirected_to analytics_event_path(last_event)
+
+    follow_redirect!
+
+    assert_redirected_to last_event.url
+
+    follow_redirect!
+
+    assert_not_nil flash[:event]
+    assert_not_nil flash[:notice]
   end
 
   test "create with nested attributes" do
@@ -158,6 +201,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains developer.bio
   end
 
+  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
+    developer = developers(:one)
+    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+
+    get developer_path(developer)
+
+    assert_select "p", text: "Line one"
+    assert_select "p", text: "Line two"
+    assert_select "p", text: "Header"
+  end
+
   test "successful edit to profile" do
     sign_in users(:developer)
     developer = developers(:one)
@@ -167,7 +221,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "#developer_avatar_hidden"
     assert_select "#developer_cover_image_hidden"
 
-    assert_sends_notification PotentialHireNotification, to: users(:admin) do
+    assert_sends_notification Admin::PotentialHireNotification, to: users(:admin) do
       patch developer_path(developer), params: {
         developer: {
           name: "New Name",
