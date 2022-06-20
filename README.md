@@ -119,5 +119,5 @@ railsdevs uses a free or discounted open source plan from the following companie
 </a>
 
 <a href="https://papertrailapp.com/?thank=87e5a8">
-  <img src="https://user-images.githubusercontent.com/2092156/174342046-be5e41c3-9cd0-45e6-8838-45607bb5c2d3.png" width="250" alt="Papertrail logo">
+  <img src="https://user-images.githubusercontent.com/2092156/174668240-6abc59ef-8cf1-4282-91cc-c1d9ce95c9c7.png" width="250" alt="Papertrail logo">
 </a>
