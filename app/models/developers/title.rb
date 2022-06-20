@@ -8,18 +8,28 @@ module Developers
 
     def title
       components = []
-      components << I18n.t("hire", scope:)
+
+      # i18n-tasks-use t("developers.title.hire")
+      components << i18n("hire")
+
       components << role_level if role_level
-      components << I18n.t("freelance", scope:) if freelance?
-      components << I18n.t("ruby_on_rails_developers", scope:)
-      components << I18n.t("in_country", country:, scope:) if country
+
+      # i18n-tasks-use t("developers.title.freelance")
+      components << i18n("freelance") if freelance?
+
+      # i18n-tasks-use t("developers.title.ruby_on_rails_developers")
+      components << i18n("ruby_on_rails_developers")
+
+      # i18n-tasks-use t("developers.title.in_country")
+      components << i18n("in_country", country:) if country
+
       components.join(" ")
     end
 
     private
 
-    def scope
-      "developers.title"
+    def i18n(key, options = {})
+      I18n.t(key, **options.merge(scope: "developers.title"))
     end
 
     def role_level
