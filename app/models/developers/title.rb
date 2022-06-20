@@ -8,15 +8,19 @@ module Developers
 
     def title
       components = []
-      components << "Hire"
+      components << I18n.t("hire", scope:)
       components << role_level if role_level
-      components << "freelance" if freelance?
-      components << "Ruby on Rails developers"
-      components << "in #{country}" if country
+      components << I18n.t("freelance", scope:) if freelance?
+      components << I18n.t("ruby_on_rails_developers", scope:)
+      components << I18n.t("in_country", country:, scope:) if country
       components.join(" ")
     end
 
     private
+
+    def scope
+      "developers.title"
+    end
 
     def role_level
       if query.role_levels.one?

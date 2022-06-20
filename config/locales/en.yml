@@ -317,6 +317,11 @@ en:
       edit: Edit
       hire: Hire me
       message: Message
+    title:
+      freelance: freelance
+      hire: Hire
+      in_country: in %{country}
+      ruby_on_rails_developers: Ruby on Rails developers
     update:
       updated: Your profile was updated!
   dir: ltr
