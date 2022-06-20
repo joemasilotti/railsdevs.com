@@ -3,7 +3,7 @@ require "test_helper"
 class Admin::BusinessesTest < ActionDispatch::IntegrationTest
   test "must be signed in" do
     get admin_businesses_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "must be an admin" do
