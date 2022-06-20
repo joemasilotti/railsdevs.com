@@ -19,7 +19,7 @@ module Developers
     end
 
     def countries
-      Location.not_top_countries.order(:country).distinct.pluck(:country).map { |c| [c, c] }
+      Location.not_top_countries.map { |k| [k, k] }
     end
 
     def time_zone_selected?(time_zone_pair)

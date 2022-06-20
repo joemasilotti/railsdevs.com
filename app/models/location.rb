@@ -12,6 +12,10 @@ class Location < ApplicationRecord
 
   scope :not_top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
     where.not(country: top_countries(limit))
+      .select(:country)
+      .distinct
+      .order(:country)
+      .pluck(:country)
   end
 
   validates :time_zone, presence: true
