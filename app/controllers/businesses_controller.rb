@@ -21,6 +21,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    authorize @business
   end
 
   def edit
