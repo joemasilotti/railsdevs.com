@@ -107,8 +107,8 @@ en:
       title: Block sender
   businesses:
     admin_component:
-      title: Admin
       invisiblize: Invisiblize
+      title: Admin
     create:
       created: Your business was added!
     edit:
