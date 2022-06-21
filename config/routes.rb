@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
     resources :businesses, only: [] do
       resources :conversations, only: :index, controller: :business_conversations
+      resources :invisiblizes, only: :create, module: :businesses
     end
 
     resources :developers, only: [] do

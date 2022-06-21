@@ -56,6 +56,10 @@ en:
         one: User
         other: Users
   admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     conversations:
       blocks:
         conversation:
@@ -102,6 +106,9 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   businesses:
+    admin_component:
+      title: Admin
+      invisiblize: Invisiblize
     create:
       created: Your business was added!
     edit:

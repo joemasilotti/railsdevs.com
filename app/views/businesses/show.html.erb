@@ -36,6 +36,9 @@
             <div class="mt-1 text-gray-700 space-y-3"><%= simple_format @business.bio %></div>
           </div>
         </section>
+        <section>
+          <%= render Businesses::AdminComponent.new(@business, user: current_user) %>
+        </section>
       </div>
     </div>
   </div>
