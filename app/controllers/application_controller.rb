@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  before_action -> { Current.user = current_user }
   around_action :set_locale
   helper_method :resolve_locale
   helper_method :turbo_native_app?

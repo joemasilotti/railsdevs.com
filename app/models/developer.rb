@@ -5,6 +5,7 @@ class Developer < ApplicationRecord
   include HasSocialProfiles
   include PersonName
   include PgSearch::Model
+  include Profile
 
   enum search_status: {
     actively_looking: 1,
