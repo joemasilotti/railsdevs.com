@@ -142,6 +142,7 @@ en:
     show:
       bio: Bio
     subscriptions_component:
+      expires_on: Expires on
       plan: Plan
       status: Status
       title: Business subscription
