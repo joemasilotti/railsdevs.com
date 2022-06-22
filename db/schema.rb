@@ -106,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_10_205013) do
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
+    t.virtual "admin_textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (COALESCE(name, ''::character varying))::text)", stored: true
+    t.index ["admin_textsearchable_index_col"], name: "admin_textsearchable_index", using: :gin
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end

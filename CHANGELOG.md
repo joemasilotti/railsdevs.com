@@ -4,6 +4,7 @@
 
 ### June
 
+* June 20 - Add admin search capabilities  - #419 @esmale
 * June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
 * June 17 - Read indicators for messages - #485 @troyizzle
 * June 16 - Note hiring fees on `/open/revenue` #501
