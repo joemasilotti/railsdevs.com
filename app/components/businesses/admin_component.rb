@@ -1,6 +1,7 @@
 module Businesses
   class AdminComponent < ApplicationComponent
-    private attr_reader :business, :user
+    private attr_reader :user
+    attr_reader :business
 
     def initialize(business, user:)
       @business = business
