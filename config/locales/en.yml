@@ -84,12 +84,13 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    developers:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     features:
       create:
         created: Profile featured for one week.
-    invisiblizes:
-      create:
-        created: Profile set to invisible.
     transactions:
       create:
         created: Transaction created
