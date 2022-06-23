@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
     branches:
-      - '*'
+      - "*"
   push:
     branches:
       - main
@@ -27,6 +27,11 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Install system deps
+        run: |
+          sudo apt-get -y update
+          sudo apt-get install -yqq libvips-dev
+
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
@@ -41,7 +46,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install Dependencies
+      - name: Install yarn dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: |
           yarn install --force --non-interactive
