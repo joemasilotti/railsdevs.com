@@ -329,7 +329,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get business_path(business)
 
-    assert_response :redirect
+    assert_redirected_to root_path
   end
 
   def valid_developer_params
