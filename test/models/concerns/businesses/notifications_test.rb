@@ -18,4 +18,10 @@ class Businesses::NotificationsTest < ActiveSupport::TestCase
       refute business.save_and_notify
     end
   end
+
+  test "notifies the business when they are invisibilized" do
+    assert_sends_notification Businesses::InvisiblizeNotification, to: users(:business) do
+      businesses(:one).invisiblize_and_notify!
+    end
+  end
 end

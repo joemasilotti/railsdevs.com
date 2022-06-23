@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Admin::InvisiblizesTest < ActionDispatch::IntegrationTest
+class Admin::Developers::InvisiblizesTest < ActionDispatch::IntegrationTest
   test "must be an admin" do
     sign_in users(:admin)
     post admin_developer_invisiblizes_path(developers(:one))
