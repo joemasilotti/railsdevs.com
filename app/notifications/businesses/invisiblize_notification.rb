@@ -6,7 +6,7 @@ module Businesses
     param :business
 
     def title
-      t("notifications.business.invisiblize_notification.title")
+      t("notifications.businesses.invisiblize_notification.title")
     end
 
     def url
