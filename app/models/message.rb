@@ -36,6 +36,10 @@ class Message < ApplicationRecord
     end
   end
 
+  def latest_notification_for_recipient(recipient)
+    notifications_as_message.where(recipient:).last
+  end
+
   def body=(text)
     super(text)
     self[:body_html] = FORMAT.call(text)

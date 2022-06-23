@@ -65,6 +65,49 @@ class ConversationTest < ActiveSupport::TestCase
     refute conversation.hiring_fee_eligible?
   end
 
+  test "latest_message" do
+    conversation = conversations(:one)
+
+    assert_equal messages(:from_business), conversation.latest_message
+  end
+
+  test "latest_message_read_by_other_recipient? returns false if no messages" do
+    conversation = conversations(:one)
+    conversation.messages.destroy_all
+    user = users(:developer)
+
+    refute conversation.latest_message_read_by_other_recipient?(user)
+  end
+
+  test "latest_message_read_by_other_recipient? returns false if latest message has no notification" do
+    conversation = conversations(:one)
+    conversation.latest_message.notifications_as_message.destroy_all
+    user = users(:business)
+
+    refute conversation.latest_message_read_by_other_recipient?(user)
+  end
+
+  test "latest_message_read_by_other_recipient? returns false if notification is not read" do
+    conversation = conversations(:one)
+    user = users(:subscribed_business)
+    message = conversation.latest_message
+    create_notification(message, user)
+    sender = users(:prospect_developer)
+
+    refute conversation.latest_message_read_by_other_recipient?(sender)
+  end
+
+  test "latest_message_read_by_other_recipient? returns true if notification is read" do
+    conversation = conversations(:one)
+    user = users(:subscribed_business)
+    message = conversation.latest_message
+    notification = create_notification(message, user)
+    notification.mark_as_read!
+    sender = users(:prospect_developer)
+
+    assert conversation.latest_message_read_by_other_recipient?(sender)
+  end
+
   test "unread notifications are marked as read" do
     refute notifications(:message_to_business).read?
     refute notifications(:message_to_developer).read?
@@ -74,5 +117,11 @@ class ConversationTest < ActiveSupport::TestCase
 
     assert notifications(:message_to_business).reload.read?
     refute notifications(:message_to_developer).reload.read?
+  end
+
+  def create_notification(message, recipient)
+    message.notifications_as_message.create!(recipient:,
+      type: NewMessageNotification.name,
+      params: {message:})
   end
 end

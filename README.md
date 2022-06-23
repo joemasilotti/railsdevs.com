@@ -114,6 +114,14 @@ Significant changes and product updates are documented in the [changelog](CHANGE
 
 railsdevs uses a free or discounted open source plan from the following companies. Thank you for the support!
 
+### Scout APM – application monitoring
+
 <a href="https://tracking.scoutapm.com/t/102858/c/24eac3db-39dd-4863-b972-a35a3e35b72b/NB2HI4DTHIXS65DFOIXGY2JPNA4GWMRZOI======/ter-li-h8k29r">
   <img src="https://user-images.githubusercontent.com/2092156/169346365-12f3806f-5a04-494a-a2d6-45611666c57c.png" width="250" alt="Scout APM logo">
+</a>
+
+### Papertrail – log management
+
+<a href="https://papertrailapp.com/?thank=87e5a8">
+  <img src="https://user-images.githubusercontent.com/2092156/174669135-16c80551-801d-4d5c-bde8-db81c66eb08f.png" width="250" alt="Papertrail logo">
 </a>

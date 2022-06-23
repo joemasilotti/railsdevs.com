@@ -24,6 +24,12 @@
     <%= render @conversation.messages %>
   </ul>
 
+  <% if Feature.enabled?(:message_read_indicator, user: current_user) %>
+    <%= turbo_frame_tag "message_read_indicator" do %>
+      <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
+    <% end %>
+  <% end %>
+
   <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
 
   <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
