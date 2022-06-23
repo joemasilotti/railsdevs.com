@@ -321,6 +321,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "#developers"
   end
 
+  test "can't see a business profile when business is invisible" do
+    business = businesses(:one)
+    business.update(invisible: true)
+
+    sign_in developers(:one).user
+
+    get business_path(business)
+
+    assert_redirected_to root_path
+  end
+
   def valid_developer_params
     {
       developer: {

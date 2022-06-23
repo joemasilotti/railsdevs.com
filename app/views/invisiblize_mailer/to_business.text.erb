@@ -1,0 +1,9 @@
+Hey <%= @business.name %>,
+
+I'm Joe, the founder of railsdevs (<%= root_url %>). Your business profile (<%= notification_url(@notification.record) %>) was flagged because it doesn't contain enough information and kind of looks like spam.
+
+I've set your profile to invisible – only you can see it. Let me know when you update your profile and I will make it public again.
+
+Questions? Respond to this email and I can help.
+
+<%= render "shared/signature" %>

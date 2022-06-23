@@ -1,6 +1,6 @@
 Hey <%= @developer.first_name %>,
 
-I'm Joe, the founder of railsdevs (<%= root_url %>). Your developer profile (<%= notification_url(@notification) %>) was flagged because it doesn't contain enough information and kind of looks like spam.
+I'm Joe, the founder of railsdevs (<%= root_url %>). Your developer profile (<%= notification_url(@notification.record) %>) was flagged because it doesn't contain enough information and kind of looks like spam.
 
 I've set your profile to invisible – only you can see it. You can toggle this back to visible after you add more details to your profile.
 

@@ -56,6 +56,10 @@ en:
         one: User
         other: Users
   admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     conversations:
       blocks:
         conversation:
@@ -80,12 +84,13 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    developers:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     features:
       create:
         created: Profile featured for one week.
-    invisiblizes:
-      create:
-        created: Profile set to invisible.
     transactions:
       create:
         created: Transaction created
@@ -102,6 +107,9 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   businesses:
+    admin_component:
+      invisiblize: Invisiblize
+      title: Admin
     create:
       created: Your business was added!
     edit:
@@ -377,6 +385,9 @@ en:
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"
+    businesses:
+      invisiblize_notification:
+        title: Your profile on railsdevs was flagged
     developers:
       invisiblize_notification:
         title: Your profile on railsdevs was flagged

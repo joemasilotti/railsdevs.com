@@ -18,3 +18,6 @@ end
 
 # Lead business (lead)
 SeedsHelper.create_business!("lead")
+
+# Invisible business
+SeedsHelper.create_business!("invisible", {invisible: true})

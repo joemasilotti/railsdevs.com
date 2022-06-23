@@ -1,0 +1,8 @@
+<h2 class="text-sm font-medium text-gray-500"><%= t(".title") %></h2>
+
+<span class="relative z-0 inline-flex shadow-sm rounded-md mt-3">
+  <%= button_to admin_business_invisiblizes_path(business), method: :post, rel: "nofollow", class: "relative inline-flex items-center px-4 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this business as invisible and notify them via email?"}} do %>
+    <%= inline_svg_tag "icons/solid/eye_off.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
+    <%= t(".invisiblize") %>
+  <% end %>
+</span>

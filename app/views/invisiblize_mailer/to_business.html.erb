@@ -1,0 +1,5 @@
+<p>Hey <%= @business.name %>,</p>
+<p>I'm Joe, the founder of <%= link_to "railsdevs", root_url %>. <%= link_to "Your business profile", notification_url(@notification.record) %> was flagged because it doesn't contain enough information and kind of looks like spam.</p>
+<p>I've set your profile to invisible – only you can see it. Let me know when you update your profile and I will make it public again.</p>
+<p>Questions? Respond to this email and I can help.</p>
+<%= render "shared/signature" %>
