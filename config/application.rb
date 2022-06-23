@@ -54,5 +54,7 @@ module Railsdevs
 
     # Use default language as fallback if translation is missing
     config.i18n.fallbacks = true
+
+    config.action_view.image_loading = "lazy"
   end
 end
