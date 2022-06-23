@@ -1,35 +1,43 @@
 module Developers
-  class Title
+  class Meta
+    attr_reader :count
+
     private attr_reader :query
 
-    def initialize(query)
+    def initialize(query:, count:)
       @query = query
+      @count = count
     end
 
     def title
       components = []
 
-      # i18n-tasks-use t("developers.title.hire")
+      # i18n-tasks-use t("developers.meta.hire")
       components << i18n("hire")
 
       components << role_level if role_level
 
-      # i18n-tasks-use t("developers.title.freelance")
+      # i18n-tasks-use t("developers.meta.freelance")
       components << i18n("freelance") if freelance?
 
-      # i18n-tasks-use t("developers.title.ruby_on_rails_developers")
+      # i18n-tasks-use t("developers.meta.ruby_on_rails_developers")
       components << i18n("ruby_on_rails_developers")
 
-      # i18n-tasks-use t("developers.title.in_country")
+      # i18n-tasks-use t("developers.meta.in_country")
       components << i18n("in_country", country:) if country
 
       components.join(" ")
     end
 
+    def description
+      # i18n-tasks-use t("developers.meta.description")
+      i18n("description", count:)
+    end
+
     private
 
     def i18n(key, options = {})
-      I18n.t(key, **options.merge(scope: "developers.title"))
+      I18n.t(key, **options.merge(scope: "developers.meta"))
     end
 
     def role_level

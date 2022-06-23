@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Developers::TitleTest < ActiveSupport::TestCase
+class Developers::MetaTest < ActiveSupport::TestCase
   test "displays role level when one is selected" do
     title = build_title(role_levels: [:junior])
     assert_equal title, "Hire junior Ruby on Rails developers"
@@ -45,6 +45,6 @@ class Developers::TitleTest < ActiveSupport::TestCase
 
   def build_title(query_options = {})
     query = DeveloperQuery.new(query_options)
-    Developers::Title.new(query).title
+    Developers::Meta.new(query:, count: 190).title
   end
 end

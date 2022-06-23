@@ -264,7 +264,6 @@ en:
         help_text: What kind of work are you looking for next?
         title: Work preferences
     index:
-      description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       empty_state:
         body: Try changing or clearing your filters.
         title: No developers found
@@ -272,6 +271,12 @@ en:
     invisible_banner_component:
       cta: Edit my profile
       title: Your developer profile is invisible – only you can see it.
+    meta:
+      description: "%{count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
+      freelance: freelance
+      hire: Hire
+      in_country: in %{country}
+      ruby_on_rails_developers: Ruby on Rails developers
     new_field_component:
       new: New!
     new_fields_component:
@@ -317,11 +322,6 @@ en:
       edit: Edit
       hire: Hire me
       message: Message
-    title:
-      freelance: freelance
-      hire: Hire
-      in_country: in %{country}
-      ruby_on_rails_developers: Ruby on Rails developers
     update:
       updated: Your profile was updated!
   dir: ltr
