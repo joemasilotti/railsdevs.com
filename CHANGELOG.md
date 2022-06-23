@@ -4,6 +4,7 @@
 
 ### June
 
+* June 22 - Added "Invisiblize" button on business profiles (for admins) - #510 @DRBragg
 * June 16 - Note hiring fees on `/open/revenue` #501
 * June 14 - Add support for iOS app powered by Turbo Native - #496
 * June 13 - Fix sorting on mobile - #495
