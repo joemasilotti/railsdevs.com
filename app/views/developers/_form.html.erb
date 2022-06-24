@@ -74,7 +74,7 @@
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.avatar") %></span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
-                  <%= render AvatarComponent.new(avatarable: developer, data: {"file-upload-target": "image"}) %>
+                  <%= render AvatarComponent.new(avatarable: developer, variant: :medium, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>
