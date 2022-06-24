@@ -6,7 +6,6 @@ class AvatarComponent < ViewComponent::Base
   def initialize(avatarable:, variant: nil, classes: nil, data: {})
     @avatarable = avatarable
     @variant = variant
-    @image = image
     @classes = classes
     @data = data
   end
