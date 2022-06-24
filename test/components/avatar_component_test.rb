@@ -18,7 +18,7 @@ class AvatarComponentTest < ViewComponent::TestCase
     avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
     render_inline(avatar_component)
 
-    assert_equal true, avatar_component.image.is_a?(ActiveStorage::VariantWithRecord)
+    assert_instance_of ActiveStorage::VariantWithRecord, avatar_component.image
     assert_equal [64, 64], avatar_component.image.variation.transformations[:resize_to_limit]
   end
 
