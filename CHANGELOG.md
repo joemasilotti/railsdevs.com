@@ -4,6 +4,7 @@
 
 ### June
 
+* June 24 - Added configuration to lazily load images - #520 @joshio1
 * June 23 - Added "Invisiblize" button on business profiles (for admins) - #510 @DRBragg
 * June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
 * June 17 - Read indicators for messages - #485 @troyizzle
