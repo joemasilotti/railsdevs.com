@@ -78,10 +78,10 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Install system deps
+      - name: Install system dependencies
         run: |
           sudo apt-get -y update
-          sudo apt-get install -yqq libvips-dev
+          sudo apt-get install -yqq libvips
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v1
