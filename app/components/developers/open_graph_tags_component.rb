@@ -21,6 +21,10 @@ module Developers
       rails_blob_url(@developer.avatar) if @developer.avatar.attached?
     end
 
+    def twitter_card
+      "summary"
+    end
+
     def twitter
       "@#{@developer.twitter}" if @developer.twitter.present?
     end
