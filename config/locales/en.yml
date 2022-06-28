@@ -267,6 +267,9 @@ en:
         title: No developers found
       title: Ruby on Rails developers
       title_og: Hire Ruby on Rails developers
+    invisible_banner_component:
+      cta: Edit my profile
+      title: Your developer profile is invisible – only you can see it.
     new_field_component:
       new: New!
     new_fields_component:
