@@ -206,6 +206,9 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+    count_component:
+      cta: Reset filters
+      title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
     cover_image_component:
       alt: Developer's cover image
     create:
