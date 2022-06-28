@@ -1,7 +1,8 @@
-<%= unseeded_warning_component = Developers::UnseededWarningComponent.new(seedable: Rails.env.development?)
-    new_fields_component = Developers::NewFieldsComponent.new(current_user, enabled: Feature.enabled?(:new_developer_fields_banner, user: current_user))
-    invisible_banner_component = Developers::InvisibleBannerComponent.new(current_user)
-    render Developers::BannerComponent.new([unseeded_warning_component, invisible_banner_component, new_fields_component]) %>
+<%= render Developers::BannerComponent.new([
+      Developers::UnseededWarningComponent.new(seedable: Rails.env.development?),
+      Developers::NewFieldsComponent.new(current_user, enabled: Feature.enabled?(:new_developer_fields_banner, user: current_user)),
+      Developers::InvisibleBannerComponent.new(current_user)
+    ]) %>
 <%= render "shared/flash" %>
 
 <main class="mx-auto">

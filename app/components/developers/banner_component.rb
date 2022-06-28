@@ -1,6 +1,7 @@
 module Developers
   class BannerComponent < ApplicationComponent
-    private attr_reader :banners, :selected_banner
+    attr_reader :selected_banner
+    private attr_reader :banners
 
     def initialize(banners)
       @banners = banners
@@ -13,8 +14,7 @@ module Developers
           return true
         end
       end
+      false
     end
-
-    private
   end
 end
