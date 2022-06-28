@@ -4,6 +4,7 @@
 
 ### June
 
+* June 28 - Add plain text devise emails - #516 @jamgar
 * June 28 - Long-tail SEO pages for /developers #507
 * June 28 - Display X of Y developers in search results - #502
 * June 28 - Site-wide banner indicating your profile is invisible - #509 @joshio1
