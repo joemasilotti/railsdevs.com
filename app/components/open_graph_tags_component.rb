@@ -29,7 +29,7 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def image
-    @image || helpers.image_url("logo.png")
+    @image || helpers.image_url("opengraph.png")
   end
 
   def twitter
