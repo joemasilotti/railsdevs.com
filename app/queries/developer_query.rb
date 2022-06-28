@@ -18,7 +18,7 @@ class DeveloperQuery
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:}
+    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:}
   end
 
   def pagy

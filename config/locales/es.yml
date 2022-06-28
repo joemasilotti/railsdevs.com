@@ -152,9 +152,6 @@ es:
       work_preferences:
         help_text: "¿Qué tipo de trabajo estás buscando?"
         title: Preferencias de trabajo
-    index:
-      description: Más de %{developers_count} desarrolladores de Ruby on Rails en busca de su próximo trabajo. De juniors a seniors y todos los intermedios, los encontrarás aquí.
-      title: Desarrolladores Ruby on Rails
     profile_action_component:
       add_profile: Agregar mi perfil
       edit_profile: Actualizar mi perfil
