@@ -43,8 +43,9 @@
 
     <!-- Paginated list of developers -->
     <div class="col-span-12 md:col-span-9 border-l">
+      <%= render Developers::CountComponent.new(count: @query.pagy.count, total: @developers_count) %>
+
       <% if @query.records.any? %>
-        <%= render Developers::CountComponent.new(count: @query.pagy.count, total: @developers_count) %>
         <%= render Developers::CardComponent.with_collection(@query.featured_records, featured: true) %>
 
         <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
