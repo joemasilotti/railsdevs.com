@@ -4,7 +4,7 @@
 
 ### June
 
-* June 25 - Add plain text devise emails - #516 @jamgar
+* June 28 - Add plain text devise emails - #516 @jamgar
 * June 24 - Added configuration to lazily load images - #520 @joshio1
 * June 23 - Added "Invisiblize" button on business profiles (for admins) - #510 @DRBragg
 * June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
