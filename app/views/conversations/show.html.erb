@@ -1,9 +1,10 @@
+<%= open_graph_tags title: t(".title", with: @conversation.other_recipient(current_user).name) %>
 <%= render "shared/error_messages", resource: @message %>
 
 <div class="min-h-full max-w-2xl mx-auto py-12 sm:px-6 lg:px-8">
   <div class="mt-6 flex items-start justify-between">
     <h1 class="text-3xl px-6">
-      <span class="font-extrabold"><%= t(".title") %></span>
+      <span class="font-extrabold"><%= t(".title", with: @conversation.other_recipient(current_user).name) %></span>
 
       <div class="flex items-center space-x-2 mt-2 text-sm text-gray-600">
         <div class="block"><%= t(".with") %></div>
