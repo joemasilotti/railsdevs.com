@@ -4,7 +4,7 @@
 
 ### July
 
-* July 1 - Creating an invisible developer profile raises an error - #534 @joshio1
+* July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
 
 ### June
 
