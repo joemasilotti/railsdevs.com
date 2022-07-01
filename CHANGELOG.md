@@ -2,6 +2,10 @@
 
 ## 2022
 
+### July
+
+* July 1 - Creating an invisible developer profile raises an error - #534 @joshio1
+
 ### June
 
 * June 28 - Add plain text devise emails - #516 @jamgar
