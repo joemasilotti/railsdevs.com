@@ -510,8 +510,9 @@ en:
       unlock:
         description: View hidden information, like the real names of developers and their portfolio links.
         title: Unlock full profiles
+    purchase_button:
+      title: Get started today
     plans:
-      cta: Get started today
       features:
         notifications: Email updates of new candidates
         onboarding: Concierge onboarding service
@@ -530,10 +531,6 @@ en:
         subtitle: Hire freelance or contract Ruby on Rails developers.
         title: Hire freelancers and contractors
       title: Pricing plans
-    show:
-      description: Please visit the website to learn more.
-      title: Pricing not available on iOS
-      title_og: Pricing
     v1:
       cta: Get started today
       faq:
@@ -566,6 +563,7 @@ en:
       title_2: "$99 a month"
       title_og: Pricing
     v2:
+      turbo_native_title: Hire Rails developers
       description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
       title_og: Pricing
