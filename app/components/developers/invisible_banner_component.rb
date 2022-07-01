@@ -9,10 +9,14 @@ module Developers
     end
 
     def render?
-      invisible?
+      invisible? && persisted?
     end
 
     private
+
+    def persisted?
+      user.developer.persisted?
+    end
 
     def invisible?
       user&.developer&.invisible?
