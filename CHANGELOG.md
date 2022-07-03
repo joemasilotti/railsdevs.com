@@ -2,6 +2,10 @@
 
 ## 2022
 
+### July
+
+* July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
+
 ### June
 
 * June 28 - Add plain text devise emails - #516 @jamgar

@@ -29,5 +29,12 @@ module Developers
       render_inline InvisibleBannerComponent.new(nil)
       refute_component_rendered
     end
+
+    test "doesn't render if the user is invisible but hasn't been saved yet" do
+      user = users(:empty)
+      user.build_developer(search_status: "invisible")
+      render_inline InvisibleBannerComponent.new(user)
+      refute_component_rendered
+    end
   end
 end
