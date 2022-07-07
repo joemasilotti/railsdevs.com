@@ -1,17 +1,4 @@
 module SeedsHelper
-  AVATAR_URLS = [
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHwxfHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHwyfHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1599566150163-29194dcaad36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHwzfHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw0fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw1fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1527980965255-d3b416303d12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw2fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw3fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw4fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1607746882042-944635dfe10e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHw5fHxhdmF0YXJ8ZW58MHx8fHwxNjU2NTM2NDYw&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit",
-    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNDIyNzJ8MHwxfHNlYXJjaHwxMHx8YXZhdGFyfGVufDB8fHx8MTY1NjUzNjQ2MA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=api_app&utm_medium=referral&utm_campaign=api-credit"
-  ].freeze
-
   class << self
     def create_developer!(name, attributes = {})
       user = create_user!(name)
@@ -24,7 +11,7 @@ module SeedsHelper
 
       Developer.find_or_create_by!(user:) do |developer|
         developer.assign_attributes(attributes)
-        attach_avatar(developer)
+        attach_developer_avatar(developer)
       end
     end
 
@@ -47,7 +34,7 @@ module SeedsHelper
 
       Business.find_or_create_by!(company:) do |business|
         business.assign_attributes(attributes)
-        attach_avatar(business)
+        attach_business_avatar(business)
       end
     end
 
@@ -73,14 +60,28 @@ module SeedsHelper
       end
     end
 
-    def attach_avatar(record)
-      uri = URI.parse(AVATAR_URLS.sample)
+    def attach_developer_avatar(record)
+      uri = URI.parse(developer_avatar_urls[Developer.count % developer_avatar_urls.size])
+      file = uri.open
+      record.avatar.attach(io: file, filename: "avatar.png")
+    end
+
+    def attach_business_avatar(record)
+      uri = URI.parse(business_avatar_urls[Business.count % business_avatar_urls.size])
       file = uri.open
       record.avatar.attach(io: file, filename: "avatar.png")
     end
 
     def location_seeds
       @location_seeds ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "locations.yml"))
+    end
+
+    def developer_avatar_urls
+      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
+    end
+
+    def business_avatar_urls
+      @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "business_avatars.yml"))
     end
   end
 end
