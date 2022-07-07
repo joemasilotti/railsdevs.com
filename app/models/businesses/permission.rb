@@ -33,8 +33,8 @@ module Businesses
     def active_subscriptions(subscription_identifier = nil)
       return subscriptions.active unless subscription_identifier.present?
 
-      price_id = Subscription.with_identifier(subscription_identifier).price_id
-      subscriptions.active.where(processor_plan: price_id)
+      processor_plans = Subscription.with_identifier(subscription_identifier).processor_plans
+      subscriptions.active.where(processor_plan: processor_plans)
     end
 
     def full_time_subscription?

@@ -2,6 +2,6 @@ full_time:
   customer: one
   name: full_time
   processor_id: sub_1
-  processor_plan: <%= Rails.configuration.subscriptions.dig(:full_time, :price_id) %>
+  processor_plan: <%= Rails.configuration.subscriptions.dig(:full_time, :stripe_price_id) %>
   quantity: 1
   status: active
