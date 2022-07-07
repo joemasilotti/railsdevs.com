@@ -24,7 +24,7 @@ module Businesses
     end
 
     def subscription_name(subscription)
-      Businesses::Subscription.with_price_id(subscription.processor_plan).name
+      Businesses::Subscription.with_processor_plan(subscription.processor_plan).name
     end
 
     private
