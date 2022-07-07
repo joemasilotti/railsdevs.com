@@ -2,17 +2,12 @@ module Businesses
   class Subscription
     class UnknownSubscription < StandardError; end
 
-    attr_reader :name, :price, :stripe_price_id, :revenue_cat_product_identifier
+    attr_reader :name, :price, :price_id
 
-    def initialize(name:, price:, stripe_price_id:, revenue_cat_product_identifier:)
+    def initialize(name:, price:, price_id:)
       @name = name
       @price = price
-      @stripe_price_id = stripe_price_id
-      @revenue_cat_product_identifier = revenue_cat_product_identifier
-    end
-
-    def processor_plans
-      [stripe_price_id, revenue_cat_product_identifier]
+      @price_id = price_id
     end
 
     class << self
@@ -23,11 +18,11 @@ module Businesses
         Subscription.new(**data)
       end
 
-      def with_processor_plan(processor_plan)
+      def with_price_id(price_id)
         data = subscription_data.values.find do |data|
-          [data[:stripe_price_id], data[:revenue_cat_product_identifier]].include?(processor_plan)
+          data[:price_id] == price_id
         end
-        raise UnknownSubscription.new("Unknown processor plan: #{processor_plan}") unless data.present?
+        raise UnknownSubscription.new("Unknown price ID: #{price_id}") unless data.present?
         Subscription.new(**data)
       end
 
