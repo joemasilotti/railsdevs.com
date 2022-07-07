@@ -48,6 +48,18 @@ scout:
   key:
 ```
 
+RevenueCat powers in-app purchases on the iOS app. Configuration requires a product identifier for each plan, API keys, and a webhook authorization. See below for more information on setting up RevenueCat.
+
+```
+revenue_cat:
+  public_key:
+  private_key:
+  webhook_authorization:
+  product_identifiers:
+    part_time:
+    full_time:
+```
+
 Stripe requires a few different keys, the credentials and the price for the business subscriptions. The signing secret is for webhooks. See below for more information on setting up Stripe.
 
 ```
@@ -161,6 +173,17 @@ development: VSQTSUAQ
 test: XXXXXXXX
 production: CACNFAAN
 ```
+
+## RevenueCat
+
+A few settings need to be configured in [RevenueCat](https://www.revenuecat.com) for in-app purchases to work.
+
+1. A project - railsdevs names this "railsdevs"
+1. Two products (to match the subscription tiers)
+1. An App Store (iOS) app configured with the name and bundle identifier
+1. The App Store Connect App-Specific Shared Secret copied to App Store Connect
+1. A public and secret API key
+1. An authorization header value
 
 ## Stripe
 
