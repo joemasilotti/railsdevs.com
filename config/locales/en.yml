@@ -191,6 +191,7 @@ en:
       unread: Message unread.
     show:
       flag: Flag this conversation
+      og_title: Conversation with %{with}
       title: Conversation
       with: with
   date:

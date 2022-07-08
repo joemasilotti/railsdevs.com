@@ -1,3 +1,4 @@
+<%= open_graph_tags title: t(".og_title", with: @conversation.other_recipient(current_user).name) %>
 <%= render "shared/error_messages", resource: @message %>
 
 <div class="min-h-full max-w-2xl mx-auto py-12 sm:px-6 lg:px-8">
