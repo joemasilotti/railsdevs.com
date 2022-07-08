@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
 

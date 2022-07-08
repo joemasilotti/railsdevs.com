@@ -91,6 +91,11 @@ en:
     features:
       create:
         created: Profile featured for one week.
+    impersonates:
+      show:
+        cta: Impersonate
+        description: Sign in and act as a different person.
+        title: Impersonate a user
     transactions:
       create:
         created: Transaction created
@@ -347,6 +352,9 @@ en:
       title_2: Rails developers
       title_og: The reverse job board for Ruby on Rails developers
       turbo_native_title: railsdevs
+  impersonating_banner_component:
+    cta: Sign out
+    title: Signed in as %{email}
   messages:
     form:
       help: Add your message
@@ -372,6 +380,7 @@ en:
       blocked_conversations: Blocked conversations
       conversations: Conversations
       get_started: Get started
+      impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
