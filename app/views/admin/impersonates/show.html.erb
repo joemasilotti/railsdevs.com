@@ -5,8 +5,8 @@
         <div class="space-y-8 divide-y divide-gray-200">
           <div class="pt-8">
             <div>
-              <h1 class="text-lg leading-6 font-medium text-gray-900">Impersonate a user</h1>
-              <p class="mt-1 text-sm text-gray-500">Sign in and act as a different person.</p>
+              <h1 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h1>
+              <p class="mt-1 text-sm text-gray-500"><%= t(".description") %></p>
             </div>
 
             <div class="sm:col-span-4 mt-8">
@@ -20,7 +20,7 @@
 
         <div class="pt-5">
           <div class="flex justify-end">
-            <%= form.submit "Impersonate", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer" %>
+            <%= form.submit t(".cta"), class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer" %>
           </div>
         </div>
       <% end %>
