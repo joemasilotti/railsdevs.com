@@ -4,6 +4,7 @@
 
 ### July
 
+* July 7 - Impersonate users as an admin
 * July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
 
 ### June
