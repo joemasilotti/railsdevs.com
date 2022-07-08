@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resource :pricing, only: :show, controller: :pricing
     resource :role, only: :new
 
+    # this is only fo r testing in production a real webp image and shall be removed once it is ready
+    resource :webp, only: :show, controller: :webp
+
     resources :businesses, except: :destroy
 
     # /notifications/read must come before /notifications/:id.
