@@ -155,7 +155,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       role_types: [:part_time_contract],
       role_levels: [:junior],
       include_not_interested: true,
-      search_query: "rails engineer"
+      search_query: "rails engineer",
+      countries: ["United States"]
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end

@@ -14,6 +14,14 @@ class AvatarComponentTest < ViewComponent::TestCase
     assert_selector("img[src$='#{blob.filename}']")
   end
 
+  test "should render user avatar at specified variant" do
+    avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
+    render_inline(avatar_component)
+
+    assert_instance_of ActiveStorage::VariantWithRecord, avatar_component.image
+    assert_equal [64, 64], avatar_component.image.variation.transformations[:resize_to_limit]
+  end
+
   test "should fall back to default" do
     @developer.avatar.detach
     render_inline(AvatarComponent.new(avatarable: @developer))

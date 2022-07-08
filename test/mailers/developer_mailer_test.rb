@@ -1,10 +1,6 @@
 require "test_helper"
 
 class DeveloperMailerTest < ActionMailer::TestCase
-  test "invisiblize" do
-    Developers::InvisiblizeNotification.with(developer:).deliver(recipient)
-  end
-
   test "stale" do
     Developers::ProfileReminderNotification.with(developer:).deliver(recipient)
   end

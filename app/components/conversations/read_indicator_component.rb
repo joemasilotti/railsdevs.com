@@ -6,7 +6,7 @@ module Conversations
     end
 
     def render?
-      @conversation.latest_message&.sender?(@user)
+      @conversation.latest_message&.sender?(@user) || @user.admin?
     end
 
     def show_read?

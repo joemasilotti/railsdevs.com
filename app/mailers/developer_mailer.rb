@@ -1,18 +1,6 @@
 class DeveloperMailer < ApplicationMailer
   helper :messages
 
-  def invisiblize
-    @notification = params[:record].to_notification
-    recipient = params[:recipient]
-
-    @developer = @notification.developer
-
-    mail(
-      to: recipient.email,
-      subject: @notification.title
-    )
-  end
-
   def profile_reminder
     @notification = params[:record].to_notification
     recipient = params[:recipient]

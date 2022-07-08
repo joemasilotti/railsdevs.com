@@ -1,19 +1,11 @@
 require_relative "boot"
+require_relative "subscriptions"
 
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-
-def stripe_price_id(subscription)
-  credentials = Rails.application.credentials
-  if Rails.env.development?
-    credentials.dig(:stripe, :price_ids, subscription) || "#{subscription}_dummy_price_id"
-  else
-    credentials.stripe[:price_ids][subscription]
-  end
-end
 
 module Railsdevs
   class Application < Rails::Application
@@ -54,5 +46,8 @@ module Railsdevs
 
     # Use default language as fallback if translation is missing
     config.i18n.fallbacks = true
+
+    # Defer loading of images until it reaches a calculated distance from the viewport
+    config.action_view.image_loading = "lazy"
   end
 end

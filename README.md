@@ -32,6 +32,7 @@ brew bundle install --no-upgrade
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
 * [Redis](https://redis.io) - `brew install redis`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
+* [libvips](https://www.libvips.org) - `brew install vips`
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 * Google Chrome + Chromedriver for system tests - `brew install --cask google-chrome chromedriver`

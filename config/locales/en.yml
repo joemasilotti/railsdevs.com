@@ -29,7 +29,7 @@ en:
       role_level:
         c_level: C-level
         junior: Junior
-        mid: Mid
+        mid: Mid-level
         principal: Principal / staff
         senior: Senior
       role_type:
@@ -56,6 +56,10 @@ en:
         one: User
         other: Users
   admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     conversations:
       blocks:
         conversation:
@@ -80,12 +84,18 @@ en:
       stats:
         reply_rate: Reply rate
         started: Started
+    developers:
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
     features:
       create:
         created: Profile featured for one week.
-    invisiblizes:
-      create:
-        created: Profile set to invisible.
+    impersonates:
+      show:
+        cta: Impersonate
+        description: Sign in and act as a different person.
+        title: Impersonate a user
     transactions:
       create:
         created: Transaction created
@@ -102,6 +112,9 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   businesses:
+    admin_component:
+      invisiblize: Invisiblize
+      title: Admin
     create:
       created: Your business was added!
     edit:
@@ -198,6 +211,9 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+    count_component:
+      cta: Reset filters
+      title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
     cover_image_component:
       alt: Developer's cover image
     create:
@@ -253,12 +269,19 @@ en:
         help_text: What kind of work are you looking for next?
         title: Work preferences
     index:
-      description: "%{developers_count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
       empty_state:
         body: Try changing or clearing your filters.
         title: No developers found
       title: Ruby on Rails developers
-      title_og: Hire Ruby on Rails developers
+    invisible_banner_component:
+      cta: Edit my profile
+      title: Your developer profile is invisible – only you can see it.
+    meta:
+      description: "%{count}+ Ruby on Rails developers looking for their next gig. Juniors to seniors and everyone in between, you'll find them all here."
+      freelance: freelance
+      hire: Hire
+      in_country: in %{country}
+      ruby_on_rails_developers: Ruby on Rails developers
     new_field_component:
       new: New!
     new_fields_component:
@@ -329,6 +352,9 @@ en:
       title_2: Rails developers
       title_og: The reverse job board for Ruby on Rails developers
       turbo_native_title: railsdevs
+  impersonating_banner_component:
+    cta: Sign out
+    title: Signed in as %{email}
   messages:
     form:
       help: Add your message
@@ -354,6 +380,7 @@ en:
       blocked_conversations: Blocked conversations
       conversations: Conversations
       get_started: Get started
+      impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
@@ -377,6 +404,9 @@ en:
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"
+    businesses:
+      invisiblize_notification:
+        title: Your profile on railsdevs was flagged
     developers:
       invisiblize_notification:
         title: Your profile on railsdevs was flagged

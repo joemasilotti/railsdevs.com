@@ -3,6 +3,10 @@ class BusinessPolicy < ApplicationPolicy
     record_owner?
   end
 
+  def show?
+    record.visible? || record_owner?
+  end
+
   def permitted_attributes
     if Businesses::Permission.new(user.subscriptions).active_subscription?
       default_attributes + notification_attributes

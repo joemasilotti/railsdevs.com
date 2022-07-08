@@ -226,6 +226,9 @@ GEM
       rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
+    image_processing (1.12.2)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     inline_svg (1.7.2)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
@@ -255,6 +258,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.0)
@@ -294,7 +298,7 @@ GEM
       rails (>= 5.2.0)
     orm_adapter (0.5.0)
     pagy (5.2.0)
-    parallel (1.21.0)
+    parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
@@ -306,6 +310,8 @@ GEM
     postmark-rails (0.22.0)
       actionmailer (>= 3.0.0)
       postmark (>= 1.21.3, < 2.0)
+    pretender (0.4.0)
+      actionpack (>= 5.2)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -356,27 +362,29 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.5.1)
     redis (4.5.1)
-    regexp_parser (2.2.0)
+    regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
     rinku (2.0.6)
-    rubocop (1.24.1)
+    rubocop (1.29.1)
       parallel (~> 1.10)
-      parser (>= 3.0.0.0)
+      parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
-      rexml
-      rubocop-ast (>= 1.15.1, < 2.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.17.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.15.1)
-      parser (>= 3.0.1.1)
-    rubocop-performance (1.13.1)
+    rubocop-ast (1.18.0)
+      parser (>= 3.1.1.0)
+    rubocop-performance (1.13.3)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
+    ruby-vips (2.1.4)
+      ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     scout_apm (5.1.1)
@@ -399,9 +407,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    standard (1.6.0)
-      rubocop (= 1.24.1)
-      rubocop-performance (= 1.13.1)
+    standard (1.12.1)
+      rubocop (= 1.29.1)
+      rubocop-performance (= 1.13.3)
     stimulus-rails (0.7.2)
       rails (>= 6.0.0)
     stripe (5.42.0)
@@ -419,7 +427,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
-    unicode-display_width (2.1.0)
+    unicode-display_width (2.2.0)
     view_component (2.53.0)
       activesupport (>= 5.0.0, < 8.0)
       method_source (~> 1.0)
@@ -463,6 +471,7 @@ DEPENDENCIES
   hotwire-livereload
   hotwire-rails (~> 0.1)
   i18n-tasks
+  image_processing (~> 1.2)
   inline_svg (~> 1.7)
   jsbundling-rails (~> 1.0)
   letter_opener_web
@@ -474,6 +483,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pg_search
   postmark-rails (~> 0.22.0)
+  pretender (~> 0.4.0)
   pry-rails
   puma (~> 5.6)
   pundit (~> 2.1)
@@ -501,4 +511,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.4
+   2.3.16

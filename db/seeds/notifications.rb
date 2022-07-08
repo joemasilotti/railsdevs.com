@@ -10,13 +10,17 @@ Notification.find_or_create_by!(type: NewMessageNotification.name, recipient: de
 # DeveloperMailer#welcome
 Notification.find_or_create_by!(type: Developers::WelcomeNotification.name, recipient: developer.user, params: {developer:})
 
-# DeveloperMailer#invisiblize
-invisible_developer = User.find_by(email: "invisible@example.com").developer
-Notification.find_or_create_by!(type: Developers::InvisiblizeNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
-
 # DeveloperMailer#stale
 stale_developer = User.find_by(email: "stale@example.com").developer
 Notification.find_or_create_by!(type: Developers::ProfileReminderNotification.name, recipient: stale_developer.user, params: {developer: stale_developer})
+
+# InvisiblizeMailer#to_developer
+invisible_developer = User.find_by(email: "invisible@example.com").developer
+Notification.find_or_create_by!(type: Developers::InvisiblizeNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
+
+# InvisiblizeMailer#to_business
+invisible_business = User.find_by(email: "invisible@example.com").business
+Notification.find_or_create_by!(type: Businesses::InvisiblizeNotification.name, recipient: invisible_business.user, params: {business: invisible_business})
 
 # AdminMailer#new_business
 admin = User.find_by(email: "admin@example.com")

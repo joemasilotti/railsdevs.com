@@ -1,9 +1,4 @@
 class DeveloperMailerPreview < ActionMailer::Preview
-  def invisiblize
-    notification = Notification.where(type: Developers::InvisiblizeNotification.to_s).first
-    DeveloperMailer.with(record: notification, recipient: notification.recipient).invisiblize
-  end
-
   def profile_reminder
     notification = Notification.where(type: Developers::ProfileReminderNotification.to_s).first
     DeveloperMailer.with(record: notification, recipient: notification.recipient).profile_reminder

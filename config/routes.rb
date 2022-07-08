@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
 
@@ -50,12 +51,13 @@ Rails.application.routes.draw do
 
     resources :businesses, only: [] do
       resources :conversations, only: :index, controller: :business_conversations
+      resources :invisiblizes, only: :create, module: :businesses
     end
 
     resources :developers, only: [] do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
-      resources :invisiblizes, only: :create
+      resources :invisiblizes, only: :create, module: :developers
     end
   end
 

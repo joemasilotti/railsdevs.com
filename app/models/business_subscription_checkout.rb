@@ -19,7 +19,7 @@ class BusinessSubscriptionCheckout
     user.set_payment_processor(:stripe)
     user.payment_processor.checkout(
       mode: "subscription",
-      line_items: plan.price_id,
+      line_items: plan.stripe_price_id,
       success_url: analytics_event_url(event)
     )
   end

@@ -182,4 +182,14 @@ class BusinessesTest < ActionDispatch::IntegrationTest
       }
     }
   end
+
+  test "can see own business profile when invisible" do
+    business = businesses(:one)
+    business.update(invisible: true)
+    sign_in business.user
+
+    get business_path(business)
+
+    assert_response :ok
+  end
 end
