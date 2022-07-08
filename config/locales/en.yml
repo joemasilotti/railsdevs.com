@@ -379,6 +379,7 @@ en:
       open_user_menu: Open user menu
       sign_out: Sign out
       transactions: Transactions
+      impersonate: Impersonate
       view_conversations: View conversations
       view_notifications: View notifications
   notifications:
