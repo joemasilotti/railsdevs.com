@@ -1,5 +1,23 @@
 # Contributing
 
-See the [Roadmap project](https://github.com/joemasilotti/railsdevs.com/projects/2) to see where you can contribute. All cards in the backlog are issues – feel free to comment on one to let others know you might be working on it.
+Welcome to railsdevs! I'm Joe, the solo-founder, and I'd love for you to contribute to the project.
 
-We use [Standard](https://github.com/testdouble/standard) and [erb-lint](https://github.com/Shopify/erb-lint) for formatting Ruby code. Please make sure to run `bundle exec standardrb --fix` and `bundle exec erblint --lint-all --autocorrect` before submitting pull requests to enforce code style on commit.
+[Unassigned issues labelled "help wanted"](https://github.com/joemasilotti/railsdevs.com/issues?q=is%3Aissue+is%3Aopen+no%3Aassignee) are ready to be worked on. Comment on one to "claim" it – I'll assign it to you to let others know.
+
+To keep things moving, you'll have 2 weeks to submit a pull request. If you don't finish in time, no worries! Comment and let me know and we can work something out.
+
+## PR checklist
+
+Before submitting a pull request make sure to:
+
+1. Add tests covering the code you modified
+1. Lint and test the project with `bin/check`
+1. Add significant changes and product updates to the [changelog](CHANGELOG.md)
+
+## Need help?
+
+First PR ever? Need help deciding which design pattern to use? Can't fix a flaky test? Let me know – I'm more than happy to help.
+
+Feel free to comment on the issue/PR or [send me an email](mailto:joe@masilotti.com).
+
+Lots of developers first open source contribution was to railsdevs. Let me help you make it yours, too!
