@@ -6,7 +6,7 @@ module API
       def create
         if (user = User.valid_credentials?(params[:email], params[:password]))
           sign_in(user)
-          render json: {token: user.authentication_token}
+          render json: {token: user.authentication_token, id: user.id}
         else
           render json: {error: error_message}, status: :unauthorized
         end
