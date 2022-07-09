@@ -111,7 +111,7 @@ ignore_missing:
 
 ## Consider these keys used:
 ignore_unused:
-- 'activerecord.attributes.*' # 46 unused keys
+- 'activerecord.attributes.*'
 - 'activerecord.errors.models.*'
 - 'activerecord.models.*'
 - 'date.formats.month_year'
