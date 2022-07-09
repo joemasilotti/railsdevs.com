@@ -12,25 +12,20 @@ module Developers
     def title
       components = []
 
-      # i18n-tasks-use t("developers.meta.hire")
       components << i18n("hire")
 
       components << role_level if role_level
 
-      # i18n-tasks-use t("developers.meta.freelance")
       components << i18n("freelance") if freelance?
 
-      # i18n-tasks-use t("developers.meta.ruby_on_rails_developers")
       components << i18n("ruby_on_rails_developers")
 
-      # i18n-tasks-use t("developers.meta.in_country")
       components << i18n("in_country", country:) if country
 
       components.join(" ")
     end
 
     def description
-      # i18n-tasks-use t("developers.meta.description")
       i18n("description", count:)
     end
 

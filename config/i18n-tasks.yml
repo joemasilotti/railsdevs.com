@@ -115,8 +115,11 @@ ignore_unused:
 - 'activerecord.errors.models.*'
 - 'activerecord.models.*'
 - 'date.formats.month_year'
-- 'errors.messages.*' # 8
-- '{devise}.*' #74
+- 'developers.availability_component.*'
+- 'developers.meta.*'
+- 'developers.search_status.*'
+- 'errors.messages.*'
+- '{devise}.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
