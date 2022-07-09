@@ -521,7 +521,6 @@ en:
         description: View hidden information, like the real names of developers and their portfolio links.
         title: Unlock full profiles
     plans:
-      cta: Get started today
       features:
         notifications: Email updates of new candidates
         onboarding: Concierge onboarding service
@@ -540,10 +539,8 @@ en:
         subtitle: Hire freelance or contract Ruby on Rails developers.
         title: Hire freelancers and contractors
       title: Pricing plans
-    show:
-      description: Please visit the website to learn more.
-      title: Pricing not available on iOS
-      title_og: Pricing
+    purchase_button:
+      title: Get started today
     v1:
       cta: Get started today
       faq:
@@ -579,6 +576,7 @@ en:
       description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
       title_og: Pricing
+      turbo_native_title: Hire Rails developers
   read_notifications:
     create:
       notice: All notifications marked as read.
