@@ -24,5 +24,8 @@ application.register("page-scroll", PageScrollController)
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
 
+import TurboNative__InAppPurchasesController from "./turbo_native/in_app_purchases_controller.js"
+application.register("turbo-native--in-app-purchases", TurboNative__InAppPurchasesController)
+
 import TurboNative__SignOutController from "./turbo_native/sign_out_controller.js"
 application.register("turbo-native--sign-out", TurboNative__SignOutController)

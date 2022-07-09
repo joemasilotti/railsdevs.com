@@ -520,8 +520,9 @@ en:
       unlock:
         description: View hidden information, like the real names of developers and their portfolio links.
         title: Unlock full profiles
+    purchase_button:
+      title: Get started today
     plans:
-      cta: Get started today
       features:
         notifications: Email updates of new candidates
         onboarding: Concierge onboarding service
