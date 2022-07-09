@@ -33,7 +33,7 @@ module Businesses
     def active_subscriptions(subscription_identifier = nil)
       return subscriptions.active unless subscription_identifier.present?
 
-      processor_plans = Subscription.with_identifier(subscription_identifier).processor_plans
+      processor_plans = Plan.with_identifier(subscription_identifier).processor_plans
       subscriptions.active.where(processor_plan: processor_plans)
     end
 

@@ -28,8 +28,8 @@ module Railsdevs
     config.analytics = config_for(:analytics)
     config.emails = config_for(:emails)
     config.fathom = config_for(:fathom)
+    config.plans = config_for(:plans)
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
-    config.subscriptions = config_for(:subscriptions)
     config.upload_sitemap = false
 
     # Run background jobs via sidekiq.

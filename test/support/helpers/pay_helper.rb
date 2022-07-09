@@ -23,7 +23,7 @@ module PayHelper
     private
 
     def part_time_plan_price_id
-      Businesses::Subscription.with_identifier(:part_time).stripe_price_id
+      Businesses::Plan.with_identifier(:part_time).stripe_price_id
     end
   end
 end
