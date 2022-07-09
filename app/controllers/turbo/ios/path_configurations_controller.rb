@@ -37,7 +37,7 @@ module Turbo
                 "/users/sign_up"
               ],
               properties: {
-                flow: "registration"
+                flow: "safari"
               }
             },
             {
