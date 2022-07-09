@@ -79,6 +79,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :webhooks do
+    resource :revenuecat, only: :create, controller: :revenue_cat
+  end
+
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
   get "robots.:format" => "robots#index"
 
