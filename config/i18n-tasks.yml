@@ -119,6 +119,7 @@ ignore_unused:
 - 'developers.meta.*'
 - 'developers.search_status.*'
 - 'errors.messages.*'
+- 'size.*'
 - '{devise}.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
