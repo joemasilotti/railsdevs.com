@@ -23,8 +23,8 @@ module Businesses
       end
     end
 
-    def subscription_name(subscription)
-      Businesses::Subscription.with_processor_plan(subscription.processor_plan).name
+    def plan_name(subscription)
+      Businesses::Plan.with_processor_plan(subscription.processor_plan).name
     end
 
     private

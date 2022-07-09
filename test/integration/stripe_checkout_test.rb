@@ -9,7 +9,7 @@ class StripeCheckoutTest < ActionDispatch::IntegrationTest
 
   test "passes along the plan and redirects to the Stripe Checkout URL" do
     sign_in @user
-    full_time_price_id = Businesses::Subscription.with_identifier(:full_time).stripe_price_id
+    full_time_price_id = Businesses::Plan.with_identifier(:full_time).stripe_price_id
 
     stub_pay(@user, plan_price_id: full_time_price_id) do
       post stripe_checkout_path(plan: :full_time)

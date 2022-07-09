@@ -8,7 +8,7 @@
 
 <% @subscriptions.each do |subscription| %>
   <ul>
-    <li><b>Plan</b>: <%= Businesses::Subscription.with_processor_plan(subscription.processor_plan).name %></li>
+    <li><b>Plan</b>: <%= Businesses::Plan.with_processor_plan(subscription.processor_plan).name %></li>
     <li><b>Status</b>: <%= subscription.status.humanize %></li>
     <li><b>Developer roles</b>: <%= @developer.role_type.humanize %></li>
   </ul>

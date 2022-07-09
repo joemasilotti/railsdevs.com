@@ -1,6 +1,6 @@
 module Businesses
-  class Subscription
-    class UnknownSubscription < StandardError; end
+  class Plan
+    class UnknownPlan < StandardError; end
 
     attr_reader :name, :price, :stripe_price_id, :revenue_cat_product_identifier
 
@@ -18,23 +18,23 @@ module Businesses
     class << self
       def with_identifier(identifier)
         identifier = identifier.to_s.to_sym
-        data = subscription_data[identifier]
-        raise UnknownSubscription.new("Unknown identifier: #{identifier}") unless data.present?
-        Subscription.new(**data)
+        data = plan_data[identifier]
+        raise UnknownPlan.new("Unknown identifier: #{identifier}") unless data.present?
+        Plan.new(**data)
       end
 
       def with_processor_plan(processor_plan)
-        data = subscription_data.values.find do |data|
+        data = plan_data.values.find do |data|
           [data[:stripe_price_id], data[:revenue_cat_product_identifier]].include?(processor_plan)
         end
-        raise UnknownSubscription.new("Unknown processor plan: #{processor_plan}") unless data.present?
-        Subscription.new(**data)
+        raise UnknownPlan.new("Unknown processor plan: #{processor_plan}") unless data.present?
+        Plan.new(**data)
       end
 
       private
 
-      def subscription_data
-        Rails.configuration.subscriptions
+      def plan_data
+        Rails.configuration.plans
       end
     end
   end
