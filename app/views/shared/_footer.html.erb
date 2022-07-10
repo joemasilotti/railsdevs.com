@@ -32,6 +32,16 @@
       </div>
     </nav>
 
+    <nav class="-mx-5 mt-6 flex flex-wrap justify-center" aria-label="Footer">
+      <div class="px-5 py-2">
+        <%= link_to t(".privacy_policy"), policies_privacy_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+
+      <div class="px-5 py-2">
+        <%= link_to t(".terms_and_conditions"), policies_terms_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+      </div>
+    </nav>
+
     <div class="mt-8 flex justify-center space-x-6">
       <%= link_to "https://twitter.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
         <span class="sr-only"><%= t(".twitter") %></span>

@@ -37,6 +37,11 @@ Rails.application.routes.draw do
       root to: "dashboard#show"
     end
 
+    namespace :policies do
+      resource :privacy, only: :show, controller: :privacy
+      resource :terms, only: :show
+    end
+
     root to: "home#show"
   end
 
