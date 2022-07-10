@@ -1,14 +1,18 @@
 <section class="relative" aria-labelledby="plans">
   <h2 id="plans" class="sr-only"><%= t(".title") %></h2>
 
-  <!-- Tiers -->
+  <!-- Plans -->
   <div class="max-w-2xl mx-auto px-4 space-y-12 sm:px-6 lg:max-w-5xl lg:space-y-0 lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
     <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col lg:order-last">
       <div class="flex-1">
         <h3 class="text-xl font-semibold text-gray-900"><%= t(".full_time.title") %></h3>
 
         <p class="mt-4 flex items-baseline text-gray-900">
-        <span class="text-5xl font-extrabold tracking-tight">$299</span>
+        <% if turbo_native_app? %>
+          <span class="text-5xl font-extrabold tracking-tight">$299.99</span>
+        <% else %>
+          <span class="text-5xl font-extrabold tracking-tight">$299</span>
+        <% end %>
         <span class="ml-1 text-xl font-semibold">/<%= t(".month") %></span>
         </p>
         <div class="mt-2 relative text-gray-900 font-medium ml-1 flex items-center">
@@ -57,7 +61,11 @@
       <div class="flex-1">
         <h3 class="text-xl font-semibold text-gray-900"><%= t(".part_time.title") %></h3>
         <p class="mt-4 flex items-baseline text-gray-900">
-        <span class="text-5xl font-extrabold tracking-tight">$99</span>
+        <% if turbo_native_app? %>
+          <span class="text-5xl font-extrabold tracking-tight">$99.99</span>
+        <% else %>
+          <span class="text-5xl font-extrabold tracking-tight">$99</span>
+        <% end %>
         <span class="ml-1 text-xl font-semibold">/<%= t(".month") %></span>
         </p>
         <p class="mt-2 text-gray-900 font-medium ml-1"><%= t(".part_time.fees") %></p>
