@@ -37,36 +37,36 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     customer = pay_customers(:one)
     update_subscription(:part_time)
     permission = Businesses::Permission.new(customer.subscriptions)
-    assert permission.can_message_developer?(role_type: part_time_role_type)
-    refute permission.can_message_developer?(role_type: full_time_role_type)
-    assert permission.can_message_developer?(role_type: flexible_role_type)
+    assert permission.can_message_developer?(part_time_developer)
+    refute permission.can_message_developer?(full_time_developer)
+    assert permission.can_message_developer?(flexible_developer)
   end
 
   test "full-time, legacy, and free subscriptions can message any developer" do
     customer = pay_customers(:one)
     permission = Businesses::Permission.new(customer.subscriptions)
-    assert permission.can_message_developer?(role_type: part_time_role_type)
-    assert permission.can_message_developer?(role_type: full_time_role_type)
-    assert permission.can_message_developer?(role_type: flexible_role_type)
+    assert permission.can_message_developer?(part_time_developer)
+    assert permission.can_message_developer?(full_time_developer)
+    assert permission.can_message_developer?(flexible_developer)
 
     update_subscription(:legacy)
     permission = Businesses::Permission.new(customer.subscriptions)
-    assert permission.can_message_developer?(role_type: part_time_role_type)
-    assert permission.can_message_developer?(role_type: full_time_role_type)
-    assert permission.can_message_developer?(role_type: flexible_role_type)
+    assert permission.can_message_developer?(part_time_developer)
+    assert permission.can_message_developer?(full_time_developer)
+    assert permission.can_message_developer?(flexible_developer)
 
     update_subscription(:free)
     permission = Businesses::Permission.new(customer.subscriptions)
-    assert permission.can_message_developer?(role_type: part_time_role_type)
-    assert permission.can_message_developer?(role_type: full_time_role_type)
-    assert permission.can_message_developer?(role_type: flexible_role_type)
+    assert permission.can_message_developer?(part_time_developer)
+    assert permission.can_message_developer?(full_time_developer)
+    assert permission.can_message_developer?(flexible_developer)
   end
 
   test "inactive subscriptions can't message anyone" do
     permission = Businesses::Permission.new(Pay::Subscription.none)
-    refute permission.can_message_developer?(role_type: part_time_role_type)
-    refute permission.can_message_developer?(role_type: full_time_role_type)
-    refute permission.can_message_developer?(role_type: flexible_role_type)
+    refute permission.can_message_developer?(part_time_developer)
+    refute permission.can_message_developer?(full_time_developer)
+    refute permission.can_message_developer?(flexible_developer)
   end
 
   test "no subscriptions doesn't raise" do
@@ -78,15 +78,18 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     refute permission.can_message_developer?(role_type: nil)
   end
 
-  def part_time_role_type
-    RoleType.new(part_time_contract: true)
+  def part_time_developer
+    Developer.new(role_type_attributes: {part_time_contract: true})
   end
 
-  def full_time_role_type
-    RoleType.new(full_time_employment: true)
+  def full_time_developer
+    Developer.new(role_type_attributes: {full_time_employment: true})
   end
 
-  def flexible_role_type
-    RoleType.new(part_time_contract: true, full_time_employment: true)
+  def flexible_developer
+    Developer.new(role_type_attributes: {
+      part_time_contract: true,
+      full_time_employment: true
+    })
   end
 end

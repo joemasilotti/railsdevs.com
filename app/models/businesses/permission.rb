@@ -18,10 +18,10 @@ module Businesses
       full_time_subscription?
     end
 
-    def can_message_developer?(role_type:)
+    def can_message_developer?(developer)
       if legacy_subscription? || full_time_subscription? || free_subscription?
         true
-      elsif part_time_subscription? && !role_type.only_full_time_employment?
+      elsif part_time_subscription? && !developer.role_type.only_full_time_employment?
         true
       else
         false

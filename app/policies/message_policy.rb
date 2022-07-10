@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
     elsif developer_sender?
       true
     elsif business_sender?
-      permission.can_message_developer?(role_type: developer.role_type)
+      permission.can_message_developer?(developer)
     end
   end
 
