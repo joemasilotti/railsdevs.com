@@ -18,6 +18,7 @@ namespace :backfills do
         hero: "Demo Developer",
         name: "Demo Developer",
         bio: "Don't message me, I'm a demo account for App Store review!",
+        search_status: :invisible,
         location: SeedsHelper.locations[:new_york]
       )
       SeedsHelper.attach_avatar(developer, name: "Demo Developer")
