@@ -31,7 +31,23 @@
         <div class="mt-8 prose prose-gray text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
           <%= render MarkdownComponent.about_body %>
         </div>
+
+        <div class="mt-8 prose prose-gray text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
+          <%= render MarkdownComponent.about_body %>
+        </div>
       </div>
     </div>
+
+    <% if turbo_native_app? %>
+      <nav class="-mx-5 mt-12 flex flex-wrap justify-center">
+        <div class="px-5 py-2">
+          <%= link_to "Privacy policy", policies_privacy_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        </div>
+
+        <div class="px-5 py-2">
+          <%= link_to "Terms and conditions", policies_terms_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        </div>
+      </nav>
+    <% end %>
   </div>
 </div>
