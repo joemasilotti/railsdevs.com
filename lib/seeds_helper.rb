@@ -63,7 +63,7 @@ module SeedsHelper
     def attach_developer_avatar(record)
       uri = URI.parse(developer_avatar_urls[Developer.count % developer_avatar_urls.size])
       file = uri.open
-      record.avatar.attach(io: file, filename: "avatar.png")
+      record.avatar.attach(io: file, filename: "avatar-#{Developer.count}.png")
     end
 
     def attach_business_avatar(record)
@@ -78,10 +78,16 @@ module SeedsHelper
 
     def developer_avatar_urls
       @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
+        .map { |image_id| unsplash_url_for(image_id) }
     end
 
     def business_avatar_urls
       @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "business_avatars.yml"))
+        .map { |image_id| unsplash_url_for(image_id) }
+    end
+
+    def unsplash_url_for(image_id)
+      "https://images.unsplash.com/#{image_id}?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=512"
     end
   end
 end
