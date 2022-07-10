@@ -15,6 +15,11 @@ class AvatarComponent < ViewComponent::Base
     variant ? avatarable.avatar.variant(variant) : avatarable.avatar
   end
 
+  def image_2x
+    return DEFAULT_AVATAR unless avatarable&.avatar&.attached?
+    variant ? avatarable.avatar.variant("#{variant}_2x".to_sym) : avatarable.avatar
+  end
+
   def classes
     @classes || "h-24 w-24 sm:h-32 sm:w-32 ring-4 ring-white"
   end
