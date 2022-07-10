@@ -3,7 +3,7 @@
 ## 2022
 
 ### July
-
+* July 2 - Add developer and business avatar images from Unsplash - #530 @adrienpoly
 * July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
 
 ### June
