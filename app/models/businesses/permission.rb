@@ -14,6 +14,10 @@ module Businesses
       active_subscriptions(:legacy).any?
     end
 
+    def demo_subscription?
+      active_subscriptions(:demo).any?
+    end
+
     def pays_hiring_fee?
       full_time_subscription?
     end
@@ -24,7 +28,7 @@ module Businesses
       elsif part_time_subscription? && !developer.role_type.only_full_time_employment?
         true
       else
-        false
+        demo_subscription? && developer.demo?
       end
     end
 

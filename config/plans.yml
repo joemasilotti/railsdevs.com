@@ -19,3 +19,8 @@ shared:
     price: 0
     stripe_price_id: free
     revenue_cat_product_identifier: free
+  demo:
+    name: Demo
+    price: 0
+    stripe_price_id: demo
+    revenue_cat_product_identifier: demo

@@ -69,6 +69,18 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     refute permission.can_message_developer?(flexible_developer)
   end
 
+  test "demo subscriptions can only message demo developers" do
+    customer = pay_customers(:one)
+    update_subscription(:demo)
+
+    permission = Businesses::Permission.new(customer.subscriptions)
+
+    refute permission.can_message_developer?(part_time_developer)
+    refute permission.can_message_developer?(full_time_developer)
+    refute permission.can_message_developer?(flexible_developer)
+    assert permission.can_message_developer?(demo_developer)
+  end
+
   test "no subscriptions doesn't raise" do
     permission = Businesses::Permission.new(nil)
 
@@ -91,5 +103,9 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
       part_time_contract: true,
       full_time_employment: true
     })
+  end
+
+  def demo_developer
+    Developer.new(demo: true)
   end
 end

@@ -8,6 +8,10 @@ SeedsHelper.subscribe_user_to_plan(business.user, plan_identifier: :full_time)
 business = SeedsHelper.create_business!("part-time")
 SeedsHelper.subscribe_user_to_plan(business.user, plan_identifier: :part_time)
 
+# Business on demo plan (for App Store review)
+business = SeedsHelper.create_business!("demo-business")
+SeedsHelper.subscribe_user_to_plan(business.user, plan_identifier: :demo)
+
 # Lead business (lead)
 SeedsHelper.create_business!("lead")
 

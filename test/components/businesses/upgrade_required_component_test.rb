@@ -33,5 +33,16 @@ module Businesses
       assert_text I18n.t("businesses.upgrade_required_component.cta.upgrade")
       assert_selector "a[href='/stripe/portal']"
     end
+
+    test "demo accounts don't see a CTA" do
+      user = users(:subscribed_business)
+      update_subscription(:demo)
+
+      render_inline UpgradeRequiredComponent.new(user)
+
+      assert_text I18n.t("businesses.upgrade_required_component.title.demo")
+      assert_text I18n.t("businesses.upgrade_required_component.body.demo")
+      assert_no_selector "a"
+    end
   end
 end

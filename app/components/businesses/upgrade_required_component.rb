@@ -14,9 +14,15 @@ module Businesses
       !permission.active_subscription?
     end
 
+    def demo?
+      permission.demo_subscription?
+    end
+
     def title
       if expired?
         t(".title.expired")
+      elsif demo?
+        t(".title.demo")
       else
         t(".title.upgrade")
       end
@@ -25,6 +31,8 @@ module Businesses
     def body
       if expired?
         t(".body.expired")
+      elsif demo?
+        t(".body.demo")
       else
         t(".body.upgrade")
       end

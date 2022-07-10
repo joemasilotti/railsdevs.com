@@ -166,6 +166,7 @@ en:
       title: Requires an active business subscription.
     upgrade_required_component:
       body:
+        demo: This demo account can only message demo developers.
         expired: Your subscription has expired. Reactivate your account to continue messaging developers.
         upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
       cta:
@@ -173,6 +174,7 @@ en:
         upgrade: Upgrade my account
       details: View pricing details
       title:
+        demo: Demo account
         expired: Subscription expired
         upgrade: Upgrade required
   cold_messages:

@@ -10,7 +10,7 @@ class Businesses::PlanTest < ActiveSupport::TestCase
   end
 
   test "finds all plans" do
-    identifiers = %w[free legacy part_time full_time]
+    identifiers = %w[legacy part_time full_time free demo]
 
     identifiers.each do |identifier|
       assert_not_nil Businesses::Plan.with_identifier(identifier)
