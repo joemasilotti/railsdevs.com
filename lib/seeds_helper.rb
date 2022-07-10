@@ -38,6 +38,14 @@ module SeedsHelper
       end
     end
 
+    def subscribe_user_to_plan(user, plan_identifier:)
+      if user.subscriptions.none?
+        plan = Businesses::Plan.with_identifier(plan_identifier)
+        user.set_payment_processor(:fake_processor, allow_fake: true)
+        user.payment_processor.subscribe(plan: plan.stripe_price_id)
+      end
+    end
+
     def locations
       location_seeds.map do |name, attrs|
         [name.to_sym, Location.new(attrs)]
