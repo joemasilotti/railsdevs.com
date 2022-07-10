@@ -173,6 +173,44 @@
               </div>
             </fieldset>
 
+            <fieldset>
+              <legend class="text-base font-medium text-gray-900">
+                <div class="flex">
+                  <%= t(".search_status.title") %>
+                  <%= render Developers::NewFieldComponent.new(form.object, :remote_work_preference) %>
+                </div>
+              </legend>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-start">
+                  <div class="h-5 flex items-center">
+                    <%= form.radio_button :remote_work_preference, :remote_only, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :remote_work_preference, value: :remote_only, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500"><%= t(".search_status.actively_looking_help_text") %></p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :remote_work_preference, :remote_preferred, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :remote_work_preference, value: :remote_preferred, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500"><%= t(".search_status.open_help_text") %></p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="flex items-center h-5">
+                    <%= form.radio_button :remote_work_preference, :no_preference, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :remote_work_preference, value: :no_preference, class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500"><%= t(".search_status.not_interested_help_text") %></p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
             <%= form.fields_for :role_type, include_id: false do |role_type| %>
               <fieldset>
                 <div>
