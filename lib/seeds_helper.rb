@@ -52,6 +52,13 @@ module SeedsHelper
       end.to_h
     end
 
+    def attach_avatar(record, name:)
+      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name.parameterize}"
+      uri = URI.parse(url)
+      file = uri.open
+      record.avatar.attach(io: file, filename: "avatar.png")
+    end
+
     private
 
     def create_user!(name)
@@ -66,13 +73,6 @@ module SeedsHelper
       User.find_or_create_by!(email:) do |user|
         user.assign_attributes(attributes)
       end
-    end
-
-    def attach_avatar(record, name:)
-      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name.parameterize}"
-      uri = URI.parse(url)
-      file = uri.open
-      record.avatar.attach(io: file, filename: "avatar.png")
     end
 
     def location_seeds
