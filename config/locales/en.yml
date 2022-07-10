@@ -469,6 +469,13 @@ en:
         revenue: Revenue
         source: Source
         title: railsdevs revenue
+  policies:
+    privacy:
+      show:
+        title: Privacy policy
+    terms:
+      show:
+        title: Terms and conditions
   pricing:
     banner:
       title: You are subscribed to a legacy plan that is not listed on this page. Your price and features have not changed.
@@ -619,7 +626,9 @@ en:
       masilotti_com: Masilotti.com
       open_source: Open source
       open_startup: Open startup
+      privacy_policy: Privacy policy
       support: Support
+      terms_and_conditions: Terms and conditions
       twitter: Twitter
   size:
     billion: B
