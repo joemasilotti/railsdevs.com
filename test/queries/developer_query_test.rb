@@ -130,6 +130,20 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, blank
   end
 
+  test "filtering by remote work preferences" do
+    remote_only = create_developer(remote_work_preference: 1)
+    remote_preferred = create_developer(remote_work_preference: 2)
+    no_preference = create_developer(remote_work_preference: 3)
+    blank = create_developer
+
+    records = DeveloperQuery.new(remote_work_preferences: ["1", "2"]).records
+
+    assert_includes records, remote_only
+    assert_includes records, remote_preferred
+    refute_includes records, no_preference
+    refute_includes records, blank
+  end
+
   test "filtering developers by their bio or hero does not includes all if business has an active subscription" do
     subscribed_business = users(:subscribed_business)
     loves_oss = create_developer(hero: "I love OSS!")
