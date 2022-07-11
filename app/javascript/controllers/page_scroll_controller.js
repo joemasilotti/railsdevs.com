@@ -2,8 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       this.element.scrollIntoView(false)
-    }, 0);
+    })
   }
 }
