@@ -176,10 +176,11 @@
             <fieldset>
               <legend class="text-base font-medium text-gray-900">
                 <div class="flex">
-                  <%= t(".search_status.title") %>
+                  <%= t(".remote_work.title") %>
                   <%= render Developers::NewFieldComponent.new(form.object, :remote_work_preference) %>
                 </div>
               </legend>
+              <p class="text-sm text-gray-500"><%= t(".remote_work.help_text") %></p>
               <div class="mt-4 space-y-4">
                 <div class="flex items-start">
                   <div class="h-5 flex items-center">
@@ -187,7 +188,6 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :remote_work_preference, value: :remote_only, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500"><%= t(".search_status.actively_looking_help_text") %></p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -196,7 +196,6 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :remote_work_preference, value: :remote_preferred, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500"><%= t(".search_status.open_help_text") %></p>
                   </div>
                 </div>
                 <div class="flex items-start">
@@ -205,7 +204,6 @@
                   </div>
                   <div class="ml-3 text-sm">
                     <%= form.label :remote_work_preference, value: :no_preference, class: "font-medium text-gray-700" %>
-                    <p class="text-gray-500"><%= t(".search_status.not_interested_help_text") %></p>
                   </div>
                 </div>
               </div>

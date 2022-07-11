@@ -147,6 +147,9 @@ es:
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
         open_help_text: Las empresas aún pueden encontrarte, pero no aparecerás en la página de inicio.
         title: Estado de búsqueda
+      remote_work:
+        title: Trabajo remoto
+        help_text: Seleccione su preferencia para el trabajo remoto.
       title: Tu perfil de desarrollador
       updating: Subiendo...
       work_preferences:
@@ -162,6 +165,8 @@ es:
       search_query_label: Buscar perfiles de desarrollador
       timezone:
         title: Zona horaria
+      remote_work:
+        title: Trabajo remoto
       title: Filtros del desarrollador
     search_status:
       actively_looking: Activamente buscando trabajo

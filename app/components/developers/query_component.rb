@@ -60,6 +60,10 @@ module Developers
       query.include_not_interested
     end
 
+    def remote_work_preferences
+      Developer.remote_work_preferences.map { |preference| [preference.first.humanize, preference.last] }
+    end
+
     def remote_work_preference_selected?(remote_work_preference)
       query.remote_work_preferences.include?(remote_work_preference.last.to_s)
     end
