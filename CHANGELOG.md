@@ -4,6 +4,7 @@
 
 ### July
 
+* July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
 * July 10 - Add privacy policy and terms & conditions
 * July 9 - In-app purchase support on iOS via RevenueCat
 * July 7 - Impersonate users as an admin
