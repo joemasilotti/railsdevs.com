@@ -148,6 +148,9 @@ pt-BR:
         upload_error_text: Aconteceu algo de errado ao enviar sua imagem. Por favor, tente novamente.
         upload_file: Enviar uma imagem
         upload_help_text: PNG, JPG, GIF de até 10MB
+      remote_work:
+        help_text: Selecione sua preferência para trabalho remoto.
+        title: Trabalho remoto
       role_level:
         help_text: Selecione todos os níveis de experiência que você consideraria fazer.
         title: Nível da função
@@ -160,9 +163,6 @@ pt-BR:
         not_interested_help_text: Seu perfil será claramente marcado que você não está buscando trabalho.
         open_help_text: Empresas podem achar você, mas você não aparecerá na página principal.
         title: Status de busca
-      remote_work:
-        title: Trabalho remoto
-        help_text: Selecione sua preferência para trabalho remoto.
       title: Seu perfil
       updating: Enviando...
       work_preferences:
@@ -175,10 +175,10 @@ pt-BR:
       apply: Aplicar
       close_menu: Fechar menu
       filters: Filtros
-      timezone:
-        title: Fuso Horário
       remote_work:
         title: Trabalho remoto
+      timezone:
+        title: Fuso Horário
       title: Filtros de desenvolvedores
       work_preference:
         title: Preferencia de trabalho

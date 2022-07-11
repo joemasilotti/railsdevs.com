@@ -135,6 +135,9 @@ es:
         upload_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
         upload_file: Sube un archivo
         upload_help_text: PNG, JPG, GIF hasta 10MB de tamaño
+      remote_work:
+        help_text: Seleccione su preferencia para el trabajo remoto.
+        title: Trabajo remoto
       role_level:
         help_text: Seleccione todos los niveles de experiencia que consideraría tomar.
         title: Nivel de rol
@@ -147,9 +150,6 @@ es:
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
         open_help_text: Las empresas aún pueden encontrarte, pero no aparecerás en la página de inicio.
         title: Estado de búsqueda
-      remote_work:
-        title: Trabajo remoto
-        help_text: Seleccione su preferencia para el trabajo remoto.
       title: Tu perfil de desarrollador
       updating: Subiendo...
       work_preferences:
@@ -162,11 +162,11 @@ es:
       apply: Aplicar
       close_menu: Cerrar menú
       filters: Filtros
+      remote_work:
+        title: Trabajo remoto
       search_query_label: Buscar perfiles de desarrollador
       timezone:
         title: Zona horaria
-      remote_work:
-        title: Trabajo remoto
       title: Filtros del desarrollador
     search_status:
       actively_looking: Activamente buscando trabajo

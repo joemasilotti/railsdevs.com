@@ -112,7 +112,7 @@ class DeveloperQuery
 
   def remote_work_filter_records
     return if remote_work_preferences.empty?
-    
+
     @_records.merge!(Developer.filter_by_remote_work_preferences(remote_work_preferences))
   end
 

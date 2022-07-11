@@ -251,6 +251,9 @@ en:
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
         upload_help_text: PNG, JPG, GIF up to 10MB
+      remote_work:
+        help_text: Select your preference for remote work.
+        title: Remote work
       role_level:
         help_text: Select all the experience levels you would consider taking.
         title: Role level
@@ -264,9 +267,6 @@ en:
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
-      remote_work:
-        title: Remote work
-        help_text: Select your preference for remote work.
       title: Your developer profile
       updating: Updating...
       work_preferences:
@@ -308,14 +308,14 @@ en:
       include_not_interested: Include developers not currently interested
       paywalled_search:
         title: Text search requires a paid account
+      remote_work:
+        title: Remote Work
       role_level:
         title: Role level
       search_query_label: Search profiles
       search_query_placeholder: Hotwire, React, Heroku, etc.
       timezone:
         title: Timezone
-      remote_work:
-        title: Remote Work
       title: Developer filters
       work_preference:
         title: Work preference
