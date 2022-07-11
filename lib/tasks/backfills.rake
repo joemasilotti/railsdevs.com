@@ -7,6 +7,8 @@ namespace :backfills do
       attachment.variant(:thumb_2x).processed
       attachment.variant(:medium).processed
       attachment.variant(:medium_2x).processed
+    rescue => error
+      puts "Error, skipping: #{error}"
     end
   end
 end
