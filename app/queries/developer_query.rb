@@ -14,6 +14,7 @@ class DeveloperQuery
     @role_types = options.delete(:role_types)
     @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
+    @remote_work_preferences = options.delete(:remote_work_preferences)
     @search_query = options.delete(:search_query)
   end
 
@@ -57,6 +58,10 @@ class DeveloperQuery
     @role_levels.to_a.reject(&:blank?).map(&:to_sym)
   end
 
+  def remote_work_preferences
+    @remote_work_preferences.to_a.reject(&:blank?)
+  end
+
   def search_query
     @search_query.to_s.strip
   end
@@ -71,6 +76,7 @@ class DeveloperQuery
     @_records = Developer.includes(:role_type).with_attached_avatar.visible
     sort_records
     country_filter_records
+    remote_work_filter_records
     utc_offset_filter_records
     role_type_filter_records
     role_level_filter_records
@@ -104,10 +110,14 @@ class DeveloperQuery
     @_records.merge!(Developer.filter_by_countries(countries)) if countries.any?
   end
 
+  def remote_work_filter_records
+    return if remote_work_preferences.empty?
+    
+    @_records.merge!(Developer.filter_by_remote_work_preferences(remote_work_preferences))
+  end
+
   def utc_offset_filter_records
-    if utc_offsets.any?
-      @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets))
-    end
+    @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets)) if utc_offsets.any?
   end
 
   def role_type_filter_records

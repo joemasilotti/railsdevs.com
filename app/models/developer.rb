@@ -61,6 +61,10 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
+  scope :filter_by_remote_work_preferences, ->(preferences) do
+    where(remote_work_preference: preferences)
+  end
+
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :newest_first, -> { order(created_at: :desc) }
