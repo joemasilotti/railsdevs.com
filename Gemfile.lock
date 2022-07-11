@@ -234,6 +234,8 @@ GEM
     inline_svg (1.7.2)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
+    invisible_captcha (2.0.0)
+      rails (>= 5.0)
     jmespath (1.6.1)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
@@ -474,6 +476,7 @@ DEPENDENCIES
   i18n-tasks
   image_processing (~> 1.2)
   inline_svg (~> 1.7)
+  invisible_captcha (~> 2.0.0)
   jsbundling-rails (~> 1.0)
   letter_opener_web
   minitest-reporters (~> 1.5)
