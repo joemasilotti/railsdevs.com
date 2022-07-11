@@ -17,3 +17,6 @@ bundle exec rails test:all
 
 # Ensure seeds work
 RAILS_ENV=test bundle exec rails db:reset
+
+# Ensure mailer previews work.
+bundle exec rake verify_mailer_previews

@@ -5,15 +5,16 @@ class API::V1::AuthenticationTest < ActionDispatch::IntegrationTest
     @user = users(:empty)
   end
 
-  test "signing in with valid credentials sets the cookies" do
+  test "signing in with valid credentials returns the authentication token and user ID" do
     post api_v1_auth_path, params: valid_credentials
     assert_response :ok
 
     json = JSON.parse(response.body)
     assert_equal @user.authentication_token, json["token"]
+    assert_equal @user.id, json["id"]
   end
 
-  test "signing in with valid credentials returns the authentication token" do
+  test "signing in with valid credentials sets the cookies" do
     post api_v1_auth_path, params: valid_credentials
     assert_equal [@user.id], session["warden.user.user.key"].first
   end

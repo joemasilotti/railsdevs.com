@@ -1,0 +1,21 @@
+shared:
+  legacy:
+    name: Legacy
+    price: 99
+    stripe_price_id: <%= stripe_price_id(:legacy) %>
+    revenue_cat_product_identifier:
+  part_time:
+    name: Part-time
+    price: 99
+    stripe_price_id: <%= stripe_price_id(:part_time) %>
+    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:part_time) %>
+  full_time:
+    name: Full-time
+    price: 299
+    stripe_price_id: <%= stripe_price_id(:full_time) %>
+    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:full_time) %>
+  free:
+    name: Free
+    price: 0
+    stripe_price_id: free
+    revenue_cat_product_identifier: free

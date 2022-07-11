@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Configure host for URL helpers.
   Rails.application.routes.default_url_options = {host: "www.example.com", locale: nil}
+
+  # Render mailer previews for `rake verify_mailer_previews` in test environment.
+  config.action_mailer.show_previews = true
 end

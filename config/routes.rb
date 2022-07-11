@@ -37,10 +37,16 @@ Rails.application.routes.draw do
       root to: "dashboard#show"
     end
 
+    namespace :policies do
+      resource :privacy, only: :show, controller: :privacy
+      resource :terms, only: :show
+    end
+
     root to: "home#show"
   end
 
   namespace :admin do
+    resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
 
@@ -76,6 +82,10 @@ Rails.application.routes.draw do
     namespace :ios do
       resource :path_configuration, only: :show
     end
+  end
+
+  namespace :webhooks do
+    resource :revenuecat, only: :create, controller: :revenue_cat
   end
 
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap

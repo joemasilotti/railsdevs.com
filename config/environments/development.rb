@@ -81,4 +81,7 @@ Rails.application.configure do
   # Watch additional directories for live reloading (outside of app/views, app/helpers, and app/javascript).
   directories = %w[app/assets/stylesheets app/assets/images app/components config/locales]
   config.hotwire_livereload.listen_paths += directories.map { |p| Rails.root.join(p) }
+
+  # Enable local development exposed via ngrok for webhook testing.
+  config.hosts << /.*\.ngrok\.io/
 end

@@ -1,0 +1,10 @@
+<%= button_to t(".title"),
+      stripe_checkout_path(plan: plan),
+      method: :post,
+      data: {
+        turbo: false,
+        controller: "turbo-native--in-app-purchases",
+        action: "turbo-native--in-app-purchases#purchase",
+        "turbo-native--in-app-purchases-plan-value": Businesses::Plan.with_identifier(plan).revenue_cat_product_identifier
+      },
+      class: "bg-gray-500 text-white hover:bg-gray-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium cursor-pointer" %>

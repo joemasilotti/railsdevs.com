@@ -1,0 +1,8 @@
+<div class="bg-blue-600">
+  <div class="py-3 px-3 lg:px-0">
+    <div class="flex items-center justify-between lg:justify-center space-x-4 flex-wrap">
+      <p class="ml-3 font-medium text-white truncate"><%= t(".title", email: helpers.current_user.email) %></p>
+      <%= link_to t(".cta"), admin_impersonate_path, data: {turbo_method: :delete}, class: "flex items-center justify-center px-2 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-blue-600 bg-white hover:bg-blue-50" %>
+    </div>
+  </div>
+</div>

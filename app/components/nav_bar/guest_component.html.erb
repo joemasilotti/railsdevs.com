@@ -27,9 +27,7 @@
             <div class="ml-4 flex items-center md:ml-6 space-x-4">
               <%= link_to t(".sign_in"), new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
-              <% unless helpers.turbo_native_app? %>
-                <%= link_to t(".register"), new_user_registration_path, class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
-              <% end %>
+              <%= link_to t(".register"), new_user_registration_path, class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
             </div>
           </div>
 
@@ -55,14 +53,10 @@
 
         <div class="pt-2">
           <div class="border-t border-gray-500 pt-6 pb-2">
-            <% if helpers.turbo_native_app? %>
-              <%= link_to t(".sign_in"), new_user_session_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
-            <% else %>
-              <%= link_to t(".register"), new_user_registration_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
-              <%= link_to new_user_session_path, class: "block mt-4 text-center text-gray-300 group" do %>
-                Have an account?
-                <span class="text-white font-medium group-hover:text-gray-500"><%= t(".sign_in") %></span>
-              <% end %>
+            <%= link_to t(".register"), new_user_registration_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
+            <%= link_to new_user_session_path, class: "block mt-4 text-center text-gray-300 group" do %>
+              Have an account?
+              <span class="text-white font-medium group-hover:text-gray-500"><%= t(".sign_in") %></span>
             <% end %>
           </div>
         </div>
