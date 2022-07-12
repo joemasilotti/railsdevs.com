@@ -4,6 +4,7 @@
 
 ### July
 
+* July 11 - Fix scroll to bottom and autofocus on conversation page - #521 @pkayokay
 * July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
 * July 10 - Add privacy policy and terms & conditions
 * July 9 - In-app purchase support on iOS via RevenueCat
@@ -12,7 +13,6 @@
 
 ### June
 
-* June 30 - Fix scroll to bottom on conversation page - #521 @pkayokay
 * June 28 - Add plain text devise emails - #516 @jamgar
 * June 28 - Long-tail SEO pages for /developers #507
 * June 28 - Display X of Y developers in search results - #502
