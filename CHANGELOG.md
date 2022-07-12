@@ -4,11 +4,13 @@
 
 ### July
 
+* July 11 - Invisible captcha when registering for an account - #563
 * July 11 - Fix scroll to bottom and autofocus on conversation page - #521 @pkayokay
 * July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
-* July 10 - Add privacy policy and terms & conditions
-* July 9 - In-app purchase support on iOS via RevenueCat
-* July 7 - Impersonate users as an admin
+* July 10 - 1x and 2x image size variants of avatars - #555 @adrienpoly
+* July 10 - Add privacy policy and terms & conditions - #557
+* July 9 - In-app purchase support on iOS via RevenueCat - #549
+* July 7 - Impersonate users as an admin - #544
 * July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
 
 ### June
