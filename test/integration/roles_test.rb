@@ -10,7 +10,7 @@ class RolesTest < ActionDispatch::IntegrationTest
 
   test "all svg elements have aria-hidden=true" do
     get new_role_path
-    
+
     svg_count = css_select("main svg").count
 
     assert_select "main" do
