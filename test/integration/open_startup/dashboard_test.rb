@@ -2,6 +2,7 @@ require "test_helper"
 
 class OpenStartup::DashboardTest < ActionDispatch::IntegrationTest
   test "shows MRR, contributions, and visitors" do
+    skip "Skip until PR #565."
     get open_startup_root_path
 
     assert_select "dd", "$1,000"

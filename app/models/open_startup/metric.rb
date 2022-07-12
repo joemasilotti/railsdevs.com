@@ -3,6 +3,7 @@ module OpenStartup
     self.table_name = "open_startup_metrics"
 
     store :data, accessors: %i[mrr visitors]
+    store :data_json, accessors: %i[mrr visitors], coder: JSON
 
     validates :occurred_on, presence: true
 
