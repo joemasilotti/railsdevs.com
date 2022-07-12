@@ -13,6 +13,12 @@ class Developer < ApplicationRecord
     invisible: 4
   }
 
+  enum remote_work_preference: {
+    remote_only: 1,
+    remote_preferred: 2,
+    no_preference: 3
+  }
+
   belongs_to :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
@@ -53,6 +59,10 @@ class Developer < ApplicationRecord
 
   scope :filter_by_countries, ->(countries) do
     joins(:location).where(locations: {country: countries})
+  end
+
+  scope :filter_by_remote_work_preferences, ->(preferences) do
+    where(remote_work_preference: preferences)
   end
 
   scope :available, -> { where(available_on: ..Time.current.to_date) }

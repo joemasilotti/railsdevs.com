@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_10_190840) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -107,6 +107,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
+    t.integer "remote_work_preference"
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
@@ -303,6 +304,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "remote_work_preferences", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.boolean "only"
+    t.boolean "preferred"
+    t.boolean "none"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_remote_work_preferences_on_developer_id", unique: true
+  end
+
   create_table "role_levels", force: :cascade do |t|
     t.bigint "developer_id"
     t.boolean "junior"
@@ -352,6 +363,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "remote_work_preferences", "developers"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
 end

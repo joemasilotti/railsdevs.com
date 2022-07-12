@@ -251,6 +251,9 @@ en:
         upload_error_text: Something went wrong uploading your image, please try again.
         upload_file: Upload a file
         upload_help_text: PNG, JPG, GIF up to 10MB
+      remote_work:
+        help_text: Select your preference for remote work.
+        title: Remote work
       role_level:
         help_text: Select all the experience levels you would consider taking.
         title: Role level
@@ -305,6 +308,8 @@ en:
       include_not_interested: Include developers not currently interested
       paywalled_search:
         title: Text search requires a paid account
+      remote_work:
+        title: Remote Work
       role_level:
         title: Role level
       search_query_label: Search profiles

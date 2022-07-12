@@ -18,7 +18,8 @@ module Developers
         role_levels: [],
         role_types: [],
         utc_offsets: [],
-        countries: []
+        countries: [],
+        remote_work_preferences: []
       ]
     end
 
