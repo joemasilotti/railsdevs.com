@@ -10,8 +10,13 @@ export default class extends Controller {
   connect() {
     requestAnimationFrame(() => {
       if (this.shouldScrollValue) {
-        if (this.onConnectValue) this.scrollIntoView()
-        if (this.focusValue) this.focus()
+        if (this.onConnectValue) {
+          this._scrollIntoView()
+        }
+
+        if (this.focusValue) {
+          this._focus()
+        }
       }
 
       // Persit scroll position when navigating backwards or forwards
@@ -21,11 +26,11 @@ export default class extends Controller {
     })
   }
 
-  scrollIntoView() {
+  _scrollIntoView() {
     this.element.scrollIntoView(false)
   }
 
-  focus() {
+  _focus() {
     // Focus on the first input , select or textarea in the element
     this.element.querySelector("input, select, textarea").focus()
   }
