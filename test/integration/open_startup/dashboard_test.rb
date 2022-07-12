@@ -2,7 +2,6 @@ require "test_helper"
 
 class OpenStartup::DashboardTest < ActionDispatch::IntegrationTest
   test "shows MRR, contributions, and visitors" do
-    skip "Until PR #566."
     get open_startup_root_path
 
     assert_select "dd", "$1,000"
@@ -11,7 +10,6 @@ class OpenStartup::DashboardTest < ActionDispatch::IntegrationTest
   end
 
   test "shows monthly balances" do
-    skip "Until PR #566."
     get open_startup_root_path
 
     jan = open_startup_monthly_balances(:january)
