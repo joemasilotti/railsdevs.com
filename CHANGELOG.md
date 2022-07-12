@@ -4,6 +4,7 @@
 
 ### July
 
+* July 12 - Update to rails 7.0.3.1
 * July 11 - Invisible captcha when registering for an account - #563
 * July 11 - Fix scroll to bottom and autofocus on conversation page - #521 @pkayokay
 * July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
