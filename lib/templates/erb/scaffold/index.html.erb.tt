@@ -1,0 +1,39 @@
+<div class="bg-gray-50 max-w-5xl mx-auto pt-12 sm:pt-16">
+  <div class="text-center px-4 sm:px-6 lg:px-8">
+    <h2 class="flex mx-auto justify-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+      <%= human_name.pluralize %>
+    </h2>
+  </div>
+
+  <div class="flex flex-col mt-10">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table id="<%= plural_table_name %>" class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+              <tr>
+                <% attributes.reject(&:password_digest?).each do |attribute| %>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <%= attribute.human_name %>
+                  </th>
+                <% end %>
+                <th scope="col" class="relative px-6 py-2 text-right">
+                  <span class="sr-only">Actions</span>
+                  <%%= link_to <%= new_helper(type: :path) %>, class: "inline-flex items-center p-0.5 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+                    <%%= inline_svg_tag "icons/solid/plus_sm.svg", class: "h-5 w-5" %>
+                    <span class="sr-only">Add <%= human_name.downcase %></span>
+                  <%% end %>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+                <%%= render <%= singular_table_name %> %>
+              <%% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
