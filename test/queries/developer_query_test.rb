@@ -131,12 +131,12 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "filtering by remote work preferences" do
-    remote_only = create_developer(remote_work_preference: 1)
-    remote_preferred = create_developer(remote_work_preference: 2)
-    no_preference = create_developer(remote_work_preference: 3)
+    remote_only = create_developer(location_preference: 1)
+    remote_preferred = create_developer(location_preference: 2)
+    no_preference = create_developer(location_preference: 3)
     blank = create_developer
 
-    records = DeveloperQuery.new(remote_work_preferences: ["1", "2"]).records
+    records = DeveloperQuery.new(location_preferences: ["1", "2"]).records
 
     assert_includes records, remote_only
     assert_includes records, remote_preferred

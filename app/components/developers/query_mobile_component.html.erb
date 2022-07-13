@@ -111,9 +111,9 @@
           </h3>
           <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">
-              <%= form.collection_check_boxes(:remote_work_preferences, remote_work_preferences, :last, :first, {include_hidden: false}) do |b| %>
+              <%= form.collection_check_boxes(:location_preferences, location_preferences, :last, :first, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
-                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: remote_work_preference_selected?(b.object) %>
+                  <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: location_preference_selected?(b.object) %>
                   <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
                 </div>
               <% end %>

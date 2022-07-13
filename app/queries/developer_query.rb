@@ -14,7 +14,7 @@ class DeveloperQuery
     @role_types = options.delete(:role_types)
     @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
-    @remote_work_preferences = options.delete(:remote_work_preferences)
+    @location_preferences = options.delete(:location_preferences)
     @search_query = options.delete(:search_query)
   end
 
@@ -58,8 +58,8 @@ class DeveloperQuery
     @role_levels.to_a.reject(&:blank?).map(&:to_sym)
   end
 
-  def remote_work_preferences
-    @remote_work_preferences.to_a.reject(&:blank?)
+  def location_preferences
+    @location_preferences.to_a.reject(&:blank?)
   end
 
   def search_query
@@ -111,9 +111,9 @@ class DeveloperQuery
   end
 
   def remote_work_filter_records
-    return if remote_work_preferences.empty?
+    return if location_preferences.empty?
 
-    @_records.merge!(Developer.filter_by_remote_work_preferences(remote_work_preferences))
+    @_records.merge!(Developer.filter_by_location_preferences(location_preferences))
   end
 
   def utc_offset_filter_records

@@ -13,10 +13,11 @@ class Developer < ApplicationRecord
     invisible: 4
   }
 
-  enum remote_work_preference: {
-    remote_only: 1,
-    remote_preferred: 2,
-    no_preference: 3
+  enum location_preference: {
+    in_person: 1,
+    remote: 2,
+    hybrid: 3,
+    willing_to_relocate: 4
   }
 
   belongs_to :user
@@ -61,8 +62,8 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
-  scope :filter_by_remote_work_preferences, ->(preferences) do
-    where(remote_work_preference: preferences)
+  scope :filter_by_location_preferences, ->(preferences) do
+    where(location_preference: preferences)
   end
 
   scope :available, -> { where(available_on: ..Time.current.to_date) }

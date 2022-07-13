@@ -9,7 +9,7 @@ module DevelopersHelper
         hero: "Hero",
         bio: "Bio",
         avatar: active_storage_blobs(:lovelace),
-        remote_work_preference: 3,
+        location_preference: 3,
         location_attributes: {
           city: "City",
           state: "ST"

@@ -70,7 +70,7 @@ class DevelopersController < ApplicationController
       :avatar,
       :cover_image,
       :search_status,
-      :remote_work_preference,
+      :location_preference,
       :search_query,
       :profile_reminder_notifications,
       location_attributes: [:city, :state, :country],
