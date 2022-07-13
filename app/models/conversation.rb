@@ -50,6 +50,11 @@ class Conversation < ApplicationRecord
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
   end
 
+  # TODO: Implement without creating an N+1 query.
+  def unread_messages_for?(user)
+    true
+  end
+
   private
 
   def developer_replied?
