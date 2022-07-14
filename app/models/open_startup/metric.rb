@@ -2,7 +2,7 @@ module OpenStartup
   class Metric < ApplicationRecord
     self.table_name = "open_startup_metrics"
 
-    store :data, accessors: %i[mrr visitors], coder: JSON
+    store_accessor :data, :mrr, :visitors
 
     validates :occurred_on, presence: true
 
