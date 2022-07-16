@@ -6,4 +6,12 @@ module LinksHelper
 
     link_to(name, options, html_options, &block)
   end
+
+  def normalized_href(href)
+    if href.start_with?("https://", "http://")
+      href
+    else
+      "https://#{href}"
+    end
+  end
 end
