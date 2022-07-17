@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_12_221754) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_17_044214) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -82,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_221754) do
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
     t.string "inbound_email_token"
+    t.integer "read_status"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
     t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
@@ -249,7 +251,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_221754) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -286,8 +288,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_221754) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"

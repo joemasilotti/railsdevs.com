@@ -30,4 +30,12 @@ class NewMessageNotification < ApplicationNotification
   def conversation
     params[:conversation]
   end
+
+  after_deliver do
+    if message.sender_type == 'Developer'
+      conversation.messages_for_business_unread!
+    else
+      conversation.messages_for_developer_unread!
+    end
+  end
 end

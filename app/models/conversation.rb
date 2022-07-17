@@ -9,6 +9,7 @@ class Conversation < ApplicationRecord
   has_noticed_notifications
 
   validates :developer_id, uniqueness: {scope: :business_id}
+  enum read_status: { all_messages_read: 0, messages_for_developer_unread: 1, messages_for_business_unread: 2 }
 
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
@@ -48,11 +49,11 @@ class Conversation < ApplicationRecord
 
   def mark_notifications_as_read(user)
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
+    all_messages_read!
   end
 
-  # TODO: Implement without creating an N+1 query.
   def unread_messages_for?(user)
-    true
+    business?(user) ? messages_for_business_unread? : messages_for_developer_unread?
   end
 
   private

@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = current_user.conversations.order(updated_at: :desc)
+    @conversations = current_user.conversations.includes(:business).order(updated_at: :desc)
   end
 
   def show
