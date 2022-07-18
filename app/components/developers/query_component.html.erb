@@ -57,9 +57,9 @@
     <div data-controller="toggle" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
-          <%= render CollapseControlComponent.new(t(".country.title"), collapsed: true) %>
+          <%= render CollapseControlComponent.new(t(".country.title"), collapsed: collapse_location?) %>
         </h3>
-        <div data-toggle-target="element" class="hidden">
+        <div data-toggle-target="element" id='location-accordion' class="<%= location_accordion_classes %>">
           <div class="space-y-4 pt-6">
             <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
               <div class="flex items-center">
