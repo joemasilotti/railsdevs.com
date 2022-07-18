@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_10_190840) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -356,6 +356,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_190840) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_locations", force: :cascade do |t|
+    t.bigint "developer_id"
+    t.boolean "in_person"
+    t.boolean "remote"
+    t.boolean "hybrid"
+    t.boolean "willing_to_relocate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_work_locations_on_developer_id", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "notification_tokens", "users"
@@ -366,4 +377,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_10_190840) do
   add_foreign_key "remote_work_preferences", "developers"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
+  add_foreign_key "work_locations", "developers"
 end

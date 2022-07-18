@@ -26,6 +26,7 @@ class Developer < ApplicationRecord
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
+  has_one :work_location, dependent: :destroy, autosave: true
   has_one_attached :cover_image
 
   has_noticed_notifications
