@@ -149,8 +149,8 @@ pt-BR:
         upload_file: Enviar uma imagem
         upload_help_text: PNG, JPG, GIF de até 10MB
       remote_work:
-        help_text: Selecione sua preferência para trabalho remoto.
-        title: Trabalho remoto
+        help_text:
+        title:
       role_level:
         help_text: Selecione todos os níveis de experiência que você consideraria fazer.
         title: Nível da função
@@ -176,7 +176,7 @@ pt-BR:
       close_menu: Fechar menu
       filters: Filtros
       remote_work:
-        title: Trabalho remoto
+        title: 
       timezone:
         title: Fuso Horário
       title: Filtros de desenvolvedores

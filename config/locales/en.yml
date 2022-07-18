@@ -252,8 +252,8 @@ en:
         upload_file: Upload a file
         upload_help_text: PNG, JPG, GIF up to 10MB
       remote_work:
-        help_text: Select your preference for remote work.
-        title: Remote work
+        help_text: Select your preference for work location.
+        title: Location
       role_level:
         help_text: Select all the experience levels you would consider taking.
         title: Role level
@@ -309,7 +309,7 @@ en:
       paywalled_search:
         title: Text search requires a paid account
       remote_work:
-        title: Remote Work
+        title: Location
       role_level:
         title: Role level
       search_query_label: Search profiles
