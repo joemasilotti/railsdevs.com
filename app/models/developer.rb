@@ -34,6 +34,7 @@ class Developer < ApplicationRecord
   accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
   accepts_nested_attributes_for :role_level, update_only: true
   accepts_nested_attributes_for :role_type, update_only: true
+  accepts_nested_attributes_for :work_location, update_only: true
 
   validates :bio, presence: true
   validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"], max_file_size: 10.megabytes
@@ -90,12 +91,17 @@ class Developer < ApplicationRecord
     super || build_role_type
   end
 
+  def work_location
+    super || build_work_location
+  end
+
   # If a check is added make sure to add a Developer::NewFieldComponent to the developer form.
   def missing_fields?
     search_status.blank? ||
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
+      work_location.missing_fields? ||
       available_on.blank?
   end
 

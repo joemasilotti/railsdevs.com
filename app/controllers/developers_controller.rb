@@ -75,7 +75,8 @@ class DevelopersController < ApplicationController
       :profile_reminder_notifications,
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
-      role_level_attributes: RoleLevel::TYPES
+      role_level_attributes: RoleLevel::TYPES,
+      work_location_attributes: WorkLocation::TYPES
     )
   end
 end
