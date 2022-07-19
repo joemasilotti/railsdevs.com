@@ -22,6 +22,8 @@ class SocialLinkComponent < ApplicationComponent
       "https://twitter.com/#{handle}"
     when :linkedin
       "https://www.linkedin.com/in/#{handle}"
+    when :stack_overflow
+      "https://stackoverflow.com/users/#{handle}"
     end
   end
 
