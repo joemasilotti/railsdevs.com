@@ -4,6 +4,7 @@
 
 ### July
 
+* July 19 - Add Stack Overflow link to developer profile - #581 @ypcethan
 * July 13 - Update to Pay 4.0.1 and Stripe 6.5.0 - #574
 * July 12 - Update to rails 7.0.3.1
 * July 11 - Invisible captcha when registering for an account - #563
