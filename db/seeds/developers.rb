@@ -67,7 +67,8 @@ SeedsHelper.create_developer!("developer", {
   website: Faker::Internet.url,
   github: Faker::Internet.username,
   twitter: Faker::Internet.username,
-  linkedin: Faker::Internet.username
+  linkedin: Faker::Internet.username,
+  stack_overflow: Faker::Number.number(digits: 6)
 })
 
 # Potential hire
