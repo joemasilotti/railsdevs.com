@@ -32,37 +32,38 @@ es:
     failure:
       already_authenticated: Ya has iniciado sesión.
       inactive: Tu cuenta aún no ha sido activada.
-      invalid: "%{authentication_keys} o contraseña inválidos."
+      invalid: '%{authentication_keys} o contraseña inválidos.'
       last_attempt: Tienes un intento más antes de que tu cuenta sea bloqueada.
       locked: Tu cuenta está bloqueada.
-      not_found_in_database: "%{authentication_keys} o contraseña inválidos."
+      not_found_in_database: '%{authentication_keys} o contraseña inválidos.'
       timeout: Tu sesión expiró. Por favor, inicia sesión nuevamente para continuar.
       unauthenticated: Tienes que iniciar sesión o registrarte para poder continuar.
       unconfirmed: Tienes que confirmar tu cuenta para poder continuar.
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
-        greeting: "¡Bienvenido %{recipient}!"
+        greeting: '¡Bienvenido %{recipient}!'
         instruction: 'Usted puede confirmar el correo electrónico de su cuenta a través de este enlace:'
         subject: Instrucciones de confirmación
       email_changed:
-        greeting: "¡Hola %{recipient}! "
+        greeting: '¡Hola %{recipient}! '
         message: Estamos contactando contigo para notificarte que tu correo electrónico ha sido cambiado a %{email}.
+        message_unconfirmed: We're contacting you to notify you that your email is being changed to %{email}.
         subject: Email cambiado
       password_change:
-        greeting: "¡Hola %{recipient}!"
+        greeting: '¡Hola %{recipient}!'
         message: Lo estamos contactando para notificarle que su contraseña ha sido cambiada.
         subject: Contraseña cambiada
       reset_password_instructions:
         action: Cambiar mi contraseña
-        greeting: "¡Hola %{recipient}!"
+        greeting: '¡Hola %{recipient}!'
         instruction: Alguien ha solicitado un enlace para cambiar su contraseña, lo que se puede realizar a través del siguiente enlace.
         instruction_2: Si usted no lo ha solicitado, por favor ignore este correo electrónico.
         instruction_3: Su contraseña no será cambiada hasta que usted acceda al enlace y cree una nueva.
         subject: Instrucciones de recuperación de contraseña
       unlock_instructions:
         action: Desbloquear mi cuenta
-        greeting: "¡Hola %{recipient}!"
+        greeting: '¡Hola %{recipient}!'
         instruction: 'Haga click en el siguiente enlace para desbloquear su cuenta:'
         message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos infructuosos para ingresar.
         subject: Instrucciones para desbloquear
@@ -76,7 +77,7 @@ es:
         confirm_new_password: Confirme la nueva contraseña
         new_password: Nueva contraseña
       new:
-        forgot_your_password: "¿Ha olvidado su contraseña?"
+        forgot_your_password: '¿Ha olvidado su contraseña?'
         send_me_reset_password_instructions: Envíeme las instrucciones para reestablecer mi contraseña
       no_token: No puedes acceder a esta página si no es a través de un enlace para reestablecer tu contraseña. Si has llegado hasta aquí desde el correo electrónico para reestablecer tu contraseña, por favor asegúrate de que la URL introducida está completa.
       send_instructions: Recibirás un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
@@ -84,14 +85,14 @@ es:
       updated: Se ha cambiado tu contraseña. Ya iniciaste sesión.
       updated_not_active: Tu contraseña fue cambiada.
     registrations:
-      destroyed: "¡Adiós! Tu cuenta ha sido cancelada correctamente. Esperamos verte pronto."
+      destroyed: '¡Adiós! Tu cuenta ha sido cancelada correctamente. Esperamos verte pronto.'
       edit:
-        are_you_sure: "¿Está usted seguro?"
+        are_you_sure: '¿Está usted seguro?'
         cancel_my_account: Anular mi cuenta
         currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmacion de: %{email} '
         leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarla
         title: Editar %{resource}
-        unhappy: "¿Disconforme?"
+        unhappy: '¿Disconforme?'
         update: Actualizar
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
       new:
@@ -112,9 +113,9 @@ es:
     shared:
       links:
         back: Atrás
-        didn_t_receive_confirmation_instructions: "¿No ha recibido las instrucciones de confirmación?"
-        didn_t_receive_unlock_instructions: "¿No ha recibido instrucciones para desbloquear?"
-        forgot_your_password: "¿Ha olvidado su contraseña?"
+        didn_t_receive_confirmation_instructions: '¿No ha recibido las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No ha recibido instrucciones para desbloquear?'
+        forgot_your_password: '¿Ha olvidado su contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Iniciar sesión con %{provider}
         sign_up: Registrarse
@@ -136,4 +137,4 @@ es:
       not_locked: no estaba bloqueada
       not_saved:
         one: 'Ocurrió un error al tratar de guardar %{resource}:'
-        other: 'Ocurrieron %{count} errores al tratar de guardar %{resource}:'
+        other: "Ocurrieron %{count} errores al tratar de guardar %{resource}:"
