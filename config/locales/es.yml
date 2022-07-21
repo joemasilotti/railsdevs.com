@@ -125,7 +125,7 @@ es:
       profile:
         avatar: Avatar
         avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
-        bio_help_text: Escribe algunas oraciones sobre ti.
+        bio_help_text: Escribe algunas oraciones sobre ti. Se eliminarán los enlaces y la información de identificación personal.
         change: Subir
         cover_image: Imagen de portada
         help_text: Esta información será pública, así que ten cuidado con lo que compartas.

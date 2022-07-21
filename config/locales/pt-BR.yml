@@ -138,7 +138,7 @@ pt-BR:
       profile:
         avatar: Imagem
         avatar_error_text: Aconteceu algo de errado ao enviar sua imagem. Por favor, tente novamente.
-        bio_help_text: Escreva algo sobre você.
+        bio_help_text: Escreva algumas frases sobre você. Links e informações de identificação pessoal serão removidos.
         change: Enviar
         cover_image: Imagem de capa
         help_text: Essa informação sera pública, portanto tenha cuidado com o que compartilha.
