@@ -68,6 +68,14 @@ module Developers
       collapse_location? ? "hidden" : ""
     end
 
+    def collapse_timezone?
+      query.utc_offsets.empty?
+    end
+
+    def timezone_classes
+      collapse_timezone? ? "hidden" : ""
+    end
+
     private
 
     def utc_offsets

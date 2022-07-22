@@ -107,6 +107,21 @@ module Developers
       assert_selector("#location-accordion")
     end
 
+    test "collapse timezone accordion when timezone is not in the search query" do
+      query = DeveloperQuery.new
+      render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+
+      assert_selector("#timezone-accordion", class: "hidden")
+    end
+
+    test "not to collapse timezone accordion when the timezone is in the search query" do
+      query = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET])
+      render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+
+      assert_no_selector("#timezone-accordion", class: "hidden")
+      assert_selector("#timezone-accordion")
+    end
+
     def build_input(name, type: nil, value: nil, checked: nil)
       input = "input"
       input += "[checked]" if checked
