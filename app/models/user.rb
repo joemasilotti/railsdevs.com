@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include APIAuthenticatable
   include PayCustomer
 
   devise :confirmable,
@@ -8,6 +9,7 @@ class User < ApplicationRecord
     :rememberable,
     :validatable
 
+  has_many :notification_tokens
   has_many :notifications, as: :recipient, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy

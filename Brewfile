@@ -5,8 +5,9 @@ brew "postgresql"
 # Redis
 brew "redis"
 
-# Imagemagick
+# Imagemagick & vips for image processing
 brew "imagemagick"
+brew "vips"
 
 # Overmind
 brew "tmux"

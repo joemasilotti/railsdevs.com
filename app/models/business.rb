@@ -16,4 +16,8 @@ class Business < ApplicationRecord
   validates :developer_notifications, inclusion: {in: developer_notifications.keys}
 
   alias_attribute :name, :contact_name
+
+  def visible?
+    !invisible?
+  end
 end

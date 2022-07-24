@@ -11,7 +11,7 @@ module SeedsHelper
 
       Developer.find_or_create_by!(user:) do |developer|
         developer.assign_attributes(attributes)
-        attach_avatar(developer, name: developer.hero)
+        attach_developer_avatar(developer)
       end
     end
 
@@ -34,7 +34,7 @@ module SeedsHelper
 
       Business.find_or_create_by!(company:) do |business|
         business.assign_attributes(attributes)
-        attach_avatar(business, name: business.company)
+        attach_business_avatar(business)
       end
     end
 
@@ -60,15 +60,36 @@ module SeedsHelper
       end
     end
 
-    def attach_avatar(record, name:)
-      url = "https://ui-avatars.com/api/?size=300&background=random&name=#{name.parameterize}"
-      uri = URI.parse(url)
+    def attach_developer_avatar(record)
+      attach_avatar(record, developer_avatar_urls)
+    end
+
+    def attach_business_avatar(record)
+      attach_avatar(record, business_avatar_urls)
+    end
+
+    def attach_avatar(record, avatars)
+      uri = URI.parse(avatars[record.class.count])
       file = uri.open
       record.avatar.attach(io: file, filename: "avatar.png")
     end
 
     def location_seeds
       @location_seeds ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "locations.yml"))
+    end
+
+    def developer_avatar_urls
+      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
+        .map { |image_id| unsplash_url_for(image_id) }
+    end
+
+    def business_avatar_urls
+      @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "business_avatars.yml"))
+        .map { |image_id| unsplash_url_for(image_id) }
+    end
+
+    def unsplash_url_for(image_id)
+      "https://images.unsplash.com/#{image_id}?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=512"
     end
   end
 end

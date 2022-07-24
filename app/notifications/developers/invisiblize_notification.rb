@@ -1,7 +1,7 @@
 module Developers
   class InvisiblizeNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "DeveloperMailer", method: :invisiblize
+    deliver_by :email, mailer: "InvisiblizeMailer", method: :to_developer
 
     param :developer
 
@@ -10,7 +10,7 @@ module Developers
     end
 
     def url
-      edit_developer_path(developer)
+      edit_developer_url(developer)
     end
 
     def developer

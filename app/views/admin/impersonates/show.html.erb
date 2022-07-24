@@ -1,0 +1,29 @@
+<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="max-w-lg mx-auto mt-8 w-full overflow-scroll">
+    <div class="px-4 sm:px-6 lg:px-8">
+      <%= form_with url: admin_impersonate_path do |form| %>
+        <div class="space-y-8 divide-y divide-gray-200">
+          <div class="pt-8">
+            <div>
+              <h1 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h1>
+              <p class="mt-1 text-sm text-gray-500"><%= t(".description") %></p>
+            </div>
+
+            <div class="sm:col-span-4 mt-8">
+              <%= form.label :email, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_field :email, type: "email", class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-5">
+          <div class="flex justify-end">
+            <%= form.submit t(".cta"), class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 cursor-pointer" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include DeviceFormat
   include HoneybadgerUserContext
   include Locales
   include Pundit::Authorization
@@ -8,6 +9,9 @@ class ApplicationController < ActionController::Base
 
   around_action :set_locale
   helper_method :resolve_locale
+  helper_method :turbo_native_app?
+
+  impersonates :user
 
   def after_sign_in_path_for(user)
     if (stored_location = stored_location_for(:user)).present?

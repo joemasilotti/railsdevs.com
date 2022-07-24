@@ -1,4 +1,6 @@
 class ExternalLinkComponent < ApplicationComponent
+  include LinksHelper
+
   def initialize(href)
     @href = href
   end
@@ -12,10 +14,6 @@ class ExternalLinkComponent < ApplicationComponent
   end
 
   def href
-    if @href.start_with?("https://", "http://")
-      @href
-    else
-      "https://#{@href}"
-    end
+    normalized_href(@href)
   end
 end

@@ -2,7 +2,9 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users
+    devise_for :users, controllers: {
+      registrations: "users"
+    }
 
     resource :about, only: :show, controller: :about
     resource :conduct, only: :show
@@ -37,10 +39,16 @@ Rails.application.routes.draw do
       root to: "dashboard#show"
     end
 
+    namespace :policies do
+      resource :privacy, only: :show, controller: :privacy
+      resource :terms, only: :show
+    end
+
     root to: "home#show"
   end
 
   namespace :admin do
+    resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
 
@@ -50,18 +58,36 @@ Rails.application.routes.draw do
 
     resources :businesses, only: [] do
       resources :conversations, only: :index, controller: :business_conversations
+      resources :invisiblizes, only: :create, module: :businesses
     end
 
     resources :developers, only: [] do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
-      resources :invisiblizes, only: :create
+      resources :invisiblizes, only: :create, module: :developers
+    end
+  end
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      resource :auth, only: [:create, :destroy]
+      resources :notification_tokens, only: :create
     end
   end
 
   namespace :stripe do
     resource :checkout, only: :create
     resource :portal, only: :show
+  end
+
+  namespace :turbo do
+    namespace :ios do
+      resource :path_configuration, only: :show
+    end
+  end
+
+  namespace :webhooks do
+    resource :revenuecat, only: :create, controller: :revenue_cat
   end
 
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap

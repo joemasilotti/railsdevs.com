@@ -24,14 +24,17 @@ brew bundle install --no-upgrade
 
 ...or manually:
 
-* Ruby 3.1.0
+* Ruby 3.1.2
 * [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
     * `libpg` is needed to use the native `pg` gem without Rosetta on M1 macs
-* [postgresql](https://www.postgresql.org) - `brew install postgresql` [Note: PostgreSQL 13+ is required]
+* [postgresql](https://www.postgresql.org) - `brew install postgresql` 
+    * Note 1: PostgreSQL 13+ is required
+    * Note 2: In case you're on Debian 11 and you have multiple versions (e.g. 9.x, 12.x, 14.x) of PostgreSQL installed, make sure that the server of the right version (13+) is listening on port `5432`. One could check/modify that in the `postgresql.conf` file, e.g. in case of version 13: `/etc/postgresql/13/main/postgresql.conf`.
 * [node](https://nodejs.org/en/) - `brew install node`
 * [Yarn](https://yarnpkg.com) - `brew install yarn`
 * [Redis](https://redis.io) - `brew install redis`
 * [Imagemagick](https://imagemagick.org) - `brew install imagemagick`
+* [libvips](https://www.libvips.org) - `brew install vips`
 * [Stripe CLI](https://stripe.com/docs/stripe-cli) - `brew install stripe/stripe-cli/stripe`
 * [foreman](https://github.com/ddollar/foreman) - `gem install foreman`
 * Google Chrome + Chromedriver for system tests - `brew install --cask google-chrome chromedriver`
@@ -114,6 +117,14 @@ Significant changes and product updates are documented in the [changelog](CHANGE
 
 railsdevs uses a free or discounted open source plan from the following companies. Thank you for the support!
 
+### Scout APM – application monitoring
+
 <a href="https://tracking.scoutapm.com/t/102858/c/24eac3db-39dd-4863-b972-a35a3e35b72b/NB2HI4DTHIXS65DFOIXGY2JPNA4GWMRZOI======/ter-li-h8k29r">
   <img src="https://user-images.githubusercontent.com/2092156/169346365-12f3806f-5a04-494a-a2d6-45611666c57c.png" width="250" alt="Scout APM logo">
+</a>
+
+### Papertrail – log management
+
+<a href="https://papertrailapp.com/?thank=87e5a8">
+  <img src="https://user-images.githubusercontent.com/2092156/174669135-16c80551-801d-4d5c-bde8-db81c66eb08f.png" width="250" alt="Papertrail logo">
 </a>

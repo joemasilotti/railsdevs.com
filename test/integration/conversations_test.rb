@@ -5,10 +5,10 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
   test "you must be signed in" do
     get conversations_path
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
 
     get conversation_path(conversations(:one))
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_session_path
   end
 
   test "you can view your conversations (as a business)" do

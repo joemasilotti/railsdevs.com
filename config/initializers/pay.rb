@@ -4,8 +4,6 @@ Pay.setup do |config|
   config.application_name = "railsdevs"
   config.support_email = Rails.configuration.emails.support_mailbox!
 
-  config.send_emails = true
-
   config.default_product_name = "railsdevs"
   config.default_plan_name = "Business subscription"
 

@@ -1,12 +1,13 @@
 <%= render "shared/error_messages", resource: business %>
 
-<div class="mt-8 lg:mt-16 flex flex-col space-y-6">
-  <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
-    <%= t(".your_business_profile") %>
-  </h1>
+<div class="flex flex-col space-y-6">
+  <% unless turbo_native_app? %>
+    <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0 mt-8 lg:mt-16">
+      <%= t(".your_business_profile") %>
+    </h1>
+  <% end %>
 
-  <%# This form can redirect to Stripe Checkout via ColdMessagesController. Turbo cannot redirect to an external URL. %>
-  <%= form_with model: business, data: {turbo: false} do |form| %>
+  <%= form_with model: business do |form| %>
     <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
@@ -44,7 +45,7 @@
               <span class="block text-sm font-medium text-gray-700"><%= t(".avatar") %></span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
-                  <%= render AvatarComponent.new(avatarable: business, data: {"file-upload-target": "image"}) %>
+                  <%= render AvatarComponent.new(avatarable: business, variant: :medium, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>

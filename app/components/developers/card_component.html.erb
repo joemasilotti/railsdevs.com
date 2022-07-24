@@ -1,7 +1,7 @@
 <%= tag.div class: "relative #{"border-b" if featured?}" do %>
   <%= link_to developer, class: "bg-white hover:bg-gray-50 #{"border-l-4 border-blue-400" if featured?} px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8" do %>
     <div class="shrink-0">
-      <%= render AvatarComponent.new(avatarable: developer) %>
+      <%= render AvatarComponent.new(avatarable: developer, variant: :medium) %>
     </div>
 
     <div class="self-start flex-1 min-w-0">

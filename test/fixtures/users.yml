@@ -2,27 +2,33 @@ empty:
   email: user@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
 
 developer:
   email: developer@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
 
 prospect_developer:
   email: prospect_developer@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
 
 business:
   email: business@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
 
 subscribed_business:
   email: customer@example.com
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
 
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
   admin: true

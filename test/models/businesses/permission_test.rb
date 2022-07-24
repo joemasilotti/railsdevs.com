@@ -13,6 +13,13 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     refute permission.active_subscription?
   end
 
+  test "no active_subscription? if paused" do
+    customer = pay_customers(:one)
+    pay_subscriptions(:full_time).update!(pause_behavior: "void")
+    permission = Businesses::Permission.new(customer.subscriptions)
+    refute permission.active_subscription?
+  end
+
   test "legacy_subscription? if any active subscriptions are legacy" do
     customer = pay_customers(:one)
     permission = Businesses::Permission.new(customer.subscriptions)

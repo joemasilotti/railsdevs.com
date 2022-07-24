@@ -1,4 +1,6 @@
 class NewMessageNotification < ApplicationNotification
+  include IosNotification
+
   deliver_by :database
   deliver_by :email, mailer: "MessageMailer", method: :new_message
 
@@ -13,8 +15,12 @@ class NewMessageNotification < ApplicationNotification
     t("notifications.new_message_notification.email_subject", sender: message.sender.name)
   end
 
+  def ios_subject
+    message.body
+  end
+
   def url
-    conversation_path(conversation)
+    conversation_url(conversation)
   end
 
   def message

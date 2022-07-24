@@ -1,9 +1,11 @@
 <%= render "shared/error_messages", resource: developer %>
 
-<div class="mt-8 lg:mt-16 flex flex-col space-y-6">
-  <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0">
-    <%= t(".title") %>
-  </h1>
+<div class="flex flex-col space-y-6">
+  <% unless turbo_native_app? %>
+    <h1 class="text-3xl font-bold leading-tight text-gray-900 mx-4 lg:mx-0 mt-8 lg:mt-16">
+      <%= t(".title") %>
+    </h1>
+  <% end %>
 
   <%= form_with model: developer do |form| %>
     <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
@@ -41,7 +43,7 @@
 
             <%= form.fields_for :location, include_id: false do |location| %>
               <div>
-                <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 md:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 gap-6">
                   <div class="sm:col-span-2">
                     <div class="flex items-center">
                       <%= location.label :city, class: "block text-sm font-medium text-gray-700" %>
@@ -72,7 +74,7 @@
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.avatar") %></span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
-                  <%= render AvatarComponent.new(avatarable: developer, data: {"file-upload-target": "image"}) %>
+                  <%= render AvatarComponent.new(avatarable: developer, variant: :medium, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
                   </div>
@@ -316,6 +318,16 @@
                   linkedin.com/in/
                 </span>
                 <%= form.text_field :linkedin, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+
+            <div class="sm:col-start-1 sm:col-end-4">
+              <%= form.label :stack_overflow, "Stack Overflow", class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  stackoverflow/users/
+                </span>
+                <%= form.text_field :stack_overflow, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
               </div>
             </div>
           </div>

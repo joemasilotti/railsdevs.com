@@ -4,6 +4,6 @@ class DeveloperPolicy < ApplicationPolicy
   end
 
   def show?
-    record.visible? || record_owner?
+    record.visible? || record_owner? || admin?
   end
 end

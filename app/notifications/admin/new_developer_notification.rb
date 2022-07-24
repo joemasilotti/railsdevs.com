@@ -14,7 +14,7 @@ module Admin
     end
 
     def url
-      developer_path(developer)
+      developer_url(developer)
     end
 
     def developer

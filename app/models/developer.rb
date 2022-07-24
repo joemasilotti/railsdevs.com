@@ -55,12 +55,13 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
+  scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
-  scope :newest_first, -> { order(created_at: :desc) }
-  scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
-  scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
+  scope :newest_first, -> { order(created_at: :desc) }
+  scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
+  scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   def visible?
     !invisible?

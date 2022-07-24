@@ -1,0 +1,14 @@
+<% if show_read? %>
+  <div class="flex justify-end my-3 mr-4">
+    <div class="flex items-center justify-center space-x-2 text-sm">
+      <%= inline_svg_tag "icons/solid/check.svg", class: "h-5 w-5 text-green-600" %>
+      <p class="text-gray-500"><%= t(".read") %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="flex justify-end my-3 mr-4">
+    <div class="flex items-center justify-center space-x-2 text-sm">
+      <p class="text-gray-500"><%= t(".unread") %></p>
+    </div>
+  </div>
+<% end %>

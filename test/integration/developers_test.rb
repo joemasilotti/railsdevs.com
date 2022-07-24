@@ -11,6 +11,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", developers(:one).hero
   end
 
+  test "no developers produce empty state" do
+    Developer.destroy_all
+    get developers_path
+    assert_select "h3", I18n.t("developers.index.empty_state.title")
+  end
+
   test "custom meta tags are rendered" do
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
@@ -26,6 +32,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "can see own developer profile when invisible" do
     developer = create_developer(search_status: :invisible)
     sign_in developer.user
+
+    get developer_path(developer)
+
+    assert_response :ok
+  end
+
+  test "admin can see invisible developer profile" do
+    developer = create_developer(search_status: :invisible)
+    user = users(:admin)
+    sign_in user
 
     get developer_path(developer)
 
@@ -303,6 +319,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "pagination" do
     get developers_path
     assert_select "#developers"
+  end
+
+  test "can't see a business profile when business is invisible" do
+    business = businesses(:one)
+    business.update(invisible: true)
+
+    sign_in developers(:one).user
+
+    get business_path(business)
+
+    assert_redirected_to root_path
   end
 
   def valid_developer_params

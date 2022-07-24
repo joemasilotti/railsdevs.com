@@ -2,8 +2,36 @@
 
 ## 2022
 
+### July
+
+* July 20 - Normalize business website link - #577 @ypcethan
+* July 19 - Add Stack Overflow link to developer profile - #581 @ypcethan
+* July 13 - Update to Pay 4.0.1 and Stripe 6.5.0 - #574
+* July 12 - Update to rails 7.0.3.1
+* July 11 - Invisible captcha when registering for an account - #563
+* July 11 - Fix scroll to bottom and autofocus on conversation page - #521 @pkayokay
+* July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
+* July 10 - 1x and 2x image size variants of avatars - #555 @adrienpoly
+* July 10 - Add privacy policy and terms & conditions - #557
+* July 9 - In-app purchase support on iOS via RevenueCat - #549
+* July 7 - Impersonate users as an admin - #544
+* July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
+
 ### June
 
+* June 28 - Add plain text devise emails - #516 @jamgar
+* June 28 - Long-tail SEO pages for /developers #507
+* June 28 - Display X of Y developers in search results - #502
+* June 28 - Site-wide banner indicating your profile is invisible - #509 @joshio1
+* June 24 - Added configuration to lazily load images - #520 @joshio1
+* June 23 - Added "Invisiblize" button on business profiles (for admins) - #510 @DRBragg
+* June 19 - Admins can view invisible developer profiles - #505 @kaushikhande
+* June 17 - Read indicators for messages - #485 @troyizzle
+* June 16 - Note hiring fees on `/open/revenue` #501
+* June 14 - Add support for iOS app powered by Turbo Native - #496
+* June 13 - Fix sorting on mobile - #495
+* June 13 - Add empty state for `/developers` - #484 @bensheldon
+* June 13 - Remove `turbo: false` from all non-Stripe forms - #483
 * June 9 - Order conversations by most recent message, not when they were started
 * June 8 - Add text search for developers (for paid accounts) - #470 @troyizzle
 * June 8 - Add country search for developers - #468 @troyizzle
