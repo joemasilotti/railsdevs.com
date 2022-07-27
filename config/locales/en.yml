@@ -240,7 +240,7 @@ en:
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
-        bio_help_text: Write a few sentences about yourself. Links and personally identifiable information will be removed.
+        bio_help_text: Write a few sentences about yourself. Please don't mention personally identifiable information.
         change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
