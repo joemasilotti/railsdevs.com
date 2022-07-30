@@ -28,7 +28,7 @@ class InboundEmailJob < ApplicationJob
   end
 
   def conversation
-    @conversation ||= user.conversations.find_by!(inbound_email_token: conversation_token)
+    @conversation ||= user.conversations.find_by_inbound_email_token!(conversation_token)
   end
 
   def user
