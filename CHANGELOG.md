@@ -4,6 +4,7 @@
 
 ### July
 
+* July 30 - Migrate from Action Mailbox to Postmark JSON API - #588
 * July 27 - Change developer bio text - #560 @kaushikhande
 * July 20 - Normalize business website link - #577 @ypcethan
 * July 19 - Add Stack Overflow link to developer profile - #581 @ypcethan

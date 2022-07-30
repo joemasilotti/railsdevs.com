@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_010731) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_30_035220) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -110,6 +110,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_010731) do
     t.string "stack_overflow"
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "inbound_emails", force: :cascade do |t|
+    t.bigint "message_id"
+    t.string "postmark_message_id", null: false
+    t.jsonb "payload", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_inbound_emails_on_message_id"
   end
 
   create_table "locations", force: :cascade do |t|
