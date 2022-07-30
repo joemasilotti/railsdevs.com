@@ -1,7 +1,5 @@
 module Webhooks
   class PostmarkController < ApplicationController
-    skip_before_action :verify_authenticity_token, only: :create
-
     def create
       InboundEmailJob.perform_later(payload)
     end
