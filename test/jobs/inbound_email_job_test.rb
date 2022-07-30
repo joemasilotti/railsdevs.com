@@ -5,6 +5,13 @@ class InboundEmailJobTest < ActiveJob::TestCase
 
   test "always creates an email" do
     assert_changes "InboundEmail.count", 1 do
+      InboundEmailJob.perform_now(payload(
+        id: "new-message-id",
+        from_email: users(:developer).email
+      ))
+    end
+
+    assert_changes "InboundEmail.count", 1 do
       InboundEmailJob.perform_now(payload)
     end
 
@@ -47,24 +54,26 @@ class InboundEmailJobTest < ActiveJob::TestCase
 
   test "doesn't send a message if not in conversation" do
     assert_no_changes "Message.count" do
-      InboundEmailJob.perform_now(payload(from_email: users(:developer)))
+      InboundEmailJob.perform_now(payload(from_email: users(:developer).email))
     end
   end
 
   test "doesn't send a message if already sent (duplicate Postmark email)" do
-    InboundEmailJob.perform_now(payload)
+    assert_changes "Message.count", 1 do
+      InboundEmailJob.perform_now(payload)
+    end
 
     assert_no_changes "Message.count" do
       InboundEmailJob.perform_now(payload)
     end
   end
 
-  def payload(from_email: users(:prospect_developer).email)
+  def payload(id: "7ca91d0d-cf10", from_email: users(:prospect_developer).email)
     {
       "FromFull" => {
         "Email" => from_email
       },
-      "MessageID" => "7ca91d0d-cf10",
+      "MessageID" => id,
       "MailboxHash" => conversations(:one).inbound_email_token,
       "StrippedTextReply" => "A reply via email."
     }
