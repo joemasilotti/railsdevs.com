@@ -10,13 +10,6 @@ This documents all of the configuration for the production environment.
 
 The following credentials are used in the production environment.
 
-[Inbound emails](https://guides.rubyonrails.org/action_mailbox_basics.html) are processed by Postmark and require a password.
-
-```
-action_mailbox:
-  ingress_password:
-```
-
 AWS credentials for Active Storage uploads. `sitemaps_bucket` is a different bucket exclusively for uploading the sitemaps.
 
 ```
