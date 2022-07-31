@@ -1,9 +1,14 @@
 <%= @sender %> sent you a message:
 
-<%= truncate_message_body(@body) %>
+<%= "–" * 100 %>
+
+<%= @message.body %>
+
+<%= "–" * 100 %>
 
 <%= notification_url(@notification.record) %>
 
 <% if Feature.enabled?(:reply_via_email, user: @recipient) %>
-You can continue the conversation by replying to this email. Please remove your signature before sending.
+You can continue the conversation by replying to this email.
+Please remove your signature before sending.
 <% end %>
