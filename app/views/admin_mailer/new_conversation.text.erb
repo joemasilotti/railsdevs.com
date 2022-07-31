@@ -1,8 +1,12 @@
 <%= @business.contact_name %> (<%= @business.company %>) started a conversation with <%= @developer.name %>:
 
-<%= truncate_message_body(@body) %>
+<%= "–" * 100 %>
+
+<%= @message.body %>
 
 <%= "–" * 100 %>
+
+<%= notification_url(@notification.record) %>
 <% @subscriptions.each do |subscription| %>
 
   Plan: <%= subscription.name.humanize %>
@@ -10,4 +14,3 @@
   Developer roles: <%= @developer.role_type.humanize %>
 <% end %>
 
-<%= notification_url(@notification.record) %>
