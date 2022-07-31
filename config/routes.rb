@@ -87,6 +87,7 @@ Rails.application.routes.draw do
   end
 
   namespace :webhooks do
+    resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
 
