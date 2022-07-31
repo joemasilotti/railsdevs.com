@@ -1,4 +1,4 @@
-<button type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle">
+<button type="button" class="px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" data-action="toggle#toggle accessibility#toggleAriaExpanded" aria-expanded="<%= !collapsed? %>" data-accessibility-target="button">
   <%= tag.span title, class: title_class %>
   <span class="ml-6 flex items-center">
     <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"} %>
