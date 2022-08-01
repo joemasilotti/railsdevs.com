@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :notification_tokens
   has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :user_business_roles, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
 
