@@ -20,8 +20,10 @@ module Railsdevs
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |generator|
+      generator.helper = false
+      generator.test_framework = nil
+    end
 
     # Load custom configuration.
     config.always_remember_me = true
