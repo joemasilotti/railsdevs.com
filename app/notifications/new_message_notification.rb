@@ -32,7 +32,7 @@ class NewMessageNotification < ApplicationNotification
   end
 
   after_deliver do
-    if message.sender_type == "Developer"
+    if message.sender_type == Developer.name
       conversation.messages_for_business_unread!
     else
       conversation.messages_for_developer_unread!
