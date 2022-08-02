@@ -18,7 +18,7 @@ class SortButtonComponent < ApplicationComponent
     end
   end
 
-  def dynamic_classes
-    !!@active ? "font-medium text-gray-900" : "font-normal text-gray-700"
+  def active?
+    !!@active
   end
 end

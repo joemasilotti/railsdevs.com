@@ -14,14 +14,6 @@ module Developers
       inline_svg_tag "icons/solid/#{icon}.svg", class: icon_classes.join(" ")
     end
 
-    def text_classes
-      if developer.actively_looking?
-        "text-green-700"
-      else
-        "text-gray-900"
-      end
-    end
-
     def humanize(enum_value)
       # i18n-tasks-use t('developers.search_status.actively_looking')
       # i18n-tasks-use t('developers.search_status.not_interested')

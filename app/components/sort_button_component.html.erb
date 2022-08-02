@@ -1,1 +1,1 @@
-<%= button_tag title, form: form_id, name: name, value: value, type: :submit, class: "block w-full text-left px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 #{dynamic_classes}" %>
+<%= button_tag title, form: form_id, name: name, value: value, type: :submit, class: ["block w-full text-left px-4 py-2 text-sm cursor-pointer hover:bg-gray-100", "font-medium text-gray-900": active?, "font-normal text-gray-700": !active?] %>
