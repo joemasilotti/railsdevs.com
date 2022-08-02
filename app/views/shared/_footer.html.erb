@@ -12,7 +12,7 @@
 
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
-        <%= link_to t(".about"), about_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".about"), page_path("about"), class: "text-base text-gray-500 hover:text-gray-900" %>
       </div>
 
       <div class="px-5 py-2">
@@ -34,11 +34,11 @@
 
     <nav class="-mx-5 mt-6 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
-        <%= link_to t(".privacy_policy"), policies_privacy_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".privacy_policy"), page_path("policies/privacy"), class: "text-base text-gray-500 hover:text-gray-900" %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".terms_and_conditions"), policies_terms_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".terms_and_conditions"), page_path("policies/terms"), class: "text-base text-gray-500 hover:text-gray-900" %>
       </div>
     </nav>
 

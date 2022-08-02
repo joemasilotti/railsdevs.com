@@ -1,14 +1,13 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  sitepress_pages
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users, controllers: {
       registrations: "users"
     }
 
-    resource :about, only: :show, controller: :about
-    resource :conduct, only: :show
-    resource :home, only: :show
     resource :pricing, only: :show, controller: :pricing
     resource :role, only: :new
 
@@ -37,11 +36,6 @@ Rails.application.routes.draw do
       resources :revenue, only: :index
 
       root to: "dashboard#show"
-    end
-
-    namespace :policies do
-      resource :privacy, only: :show, controller: :privacy
-      resource :terms, only: :show
     end
 
     root to: "home#show"
