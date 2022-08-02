@@ -48,8 +48,12 @@ class Conversation < ApplicationRecord
   end
 
   def mark_notifications_as_read(user)
+    if messages_for_business_unread?
+      business?(user) && all_messages_read!
+    else
+      developer?(user) && all_messages_read!
+    end
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
-    all_messages_read!
   end
 
   def unread_messages_for?(user)

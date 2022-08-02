@@ -122,7 +122,7 @@ class ConversationTest < ActiveSupport::TestCase
     message = conversation.latest_message
     NewMessageNotification.with(message:, conversation:).deliver(user)
 
-    assert conversation.unread_messages_for? user
+    assert conversation.unread_messages_for?(user)
   end
 
   test "unread notifications are marked as read" do
