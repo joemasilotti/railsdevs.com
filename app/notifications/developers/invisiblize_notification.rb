@@ -3,7 +3,7 @@ module Developers
     deliver_by :database
     deliver_by :email, mailer: "InvisiblizeMailer", method: :to_developer
 
-    param :developer
+    param :developer, :message, :next_steps
 
     def title
       t("notifications.developers.invisiblize_notification.title")
@@ -15,6 +15,14 @@ module Developers
 
     def developer
       params[:developer]
+    end
+
+    def message
+      params[:message]
+    end
+
+    def next_steps
+      params[:next_steps]
     end
   end
 end

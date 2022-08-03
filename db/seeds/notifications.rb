@@ -16,7 +16,12 @@ Notification.find_or_create_by!(type: Developers::ProfileReminderNotification.na
 
 # InvisiblizeMailer#to_developer
 invisible_developer = User.find_by(email: "invisible@example.com").developer
-Notification.find_or_create_by!(type: Developers::InvisiblizeNotification.name, recipient: invisible_developer.user, params: {developer: invisible_developer})
+reason = InvisibleProfile.with_reason(:incomplete)
+Notification.find_or_create_by!(type: Developers::InvisiblizeNotification.name, recipient: invisible_developer.user, params: {
+  developer: invisible_developer,
+  message: reason.message,
+  next_steps: reason.next_steps
+})
 
 # InvisiblizeMailer#to_business
 invisible_business = User.find_by(email: "invisible@example.com").business
