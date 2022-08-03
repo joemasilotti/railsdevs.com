@@ -1,5 +1,14 @@
 ---
 en:
+  invisible_profile:
+    incomplete:
+      help_text: Profile too short
+      message: it doesn't contain a lot of information (and kind of looks like spam)
+      next_steps: you add more details to your profile
+    not_responding:
+      help_text: Not responding to messages
+      message: you haven't been responding to messages from businesses
+      next_steps: you are ready to start replying
   about:
     show:
       caption_html: founder of <code class="text-gray-900 font-semibold">railsdevs</code>
@@ -88,6 +97,11 @@ en:
       invisiblizes:
         create:
           created: Profile set to invisible.
+        new:
+          invisiblize: Invisiblize
+          cancel: Cancel
+          message: Mark this developer as invisible and notify them via email?
+          title: Invisiblize developer
     features:
       create:
         created: Profile featured for one week.
@@ -410,7 +424,7 @@ en:
         title: Your profile on railsdevs was flagged
     developers:
       invisiblize_notification:
-        title: Your profile on railsdevs was flagged
+        title: Your profile on railsdevs is no longer visible
       profile_reminder_notification:
         email_subject: Is your railsdevs profile up to date?
         title: Is your developer profile up to date?

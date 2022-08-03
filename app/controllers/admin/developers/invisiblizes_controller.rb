@@ -1,8 +1,13 @@
 module Admin
   module Developers
     class InvisiblizesController < ApplicationController
+      def new
+        @developer = Developer.find(params[:developer_id])
+      end
+
       def create
-        Developer.find(params[:developer_id]).invisiblize_and_notify!
+        developer = Developer.find(params[:developer_id])
+        developer.invisiblize_and_notify!(params[:reason])
         redirect_to developers_path, notice: t(".created")
       end
     end

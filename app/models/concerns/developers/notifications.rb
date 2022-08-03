@@ -15,9 +15,9 @@ module Developers
       end
     end
 
-    def invisiblize_and_notify!
+    def invisiblize_and_notify!(reason)
       invisible!
-      send_invisiblize_notification
+      send_invisiblize_notification(reason)
     end
 
     def notify_as_stale
@@ -52,8 +52,13 @@ module Developers
       Admin::PotentialHireNotification.with(developer: self).deliver_later(User.admin)
     end
 
-    def send_invisiblize_notification
-      InvisiblizeNotification.with(developer: self).deliver_later(user)
+    def send_invisiblize_notification(reason)
+      reason = InvisibleProfile.with_reason(reason)
+      InvisiblizeNotification.with(
+        developer: self,
+        message: reason.message,
+        next_steps: reason.next_steps
+      ).deliver_later(user)
     end
   end
 end
