@@ -1,0 +1,5 @@
+files:
+  - source: /config/locales/en.yml
+    translation: /config/locales/%two_letters_code%.yml
+  - source: /config/locales/devise.views.en.yml
+    translation: /config/locales/devise.views.%two_letters_code%.yml
