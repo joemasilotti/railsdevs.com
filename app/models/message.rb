@@ -23,7 +23,7 @@ class Message < ApplicationRecord
   after_create_commit :cache_conversation_read_status
 
   def cache_conversation_read_status
-    conversation.update!(user_with_unread_messages: recipient.user)
+    conversation.update!(user_with_unread_messages: recipient&.user)
   end
 
   def self.first_message?(developer)

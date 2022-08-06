@@ -118,11 +118,10 @@ class ConversationTest < ActiveSupport::TestCase
 
   test "unread_messages_for? returns true if there are unread messages for current_user" do
     conversation = conversations(:one)
-    user = users(:business)
-    message = conversation.latest_message
-    NewMessageNotification.with(message:, conversation:).deliver(user)
+    user = users(:subscribed_business)
+    conversation.messages.create!(sender: conversation.developer, body: "<p>One Message.</p>")
 
-    assert conversation.unread_messages_for?(user)
+    assert conversation.reload.unread_messages_for?(user)
   end
 
   test "unread notifications are marked as read" do
