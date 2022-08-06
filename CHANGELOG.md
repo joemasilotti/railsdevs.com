@@ -2,6 +2,10 @@
 
 ## 2022
 
+## August
+
+* August 6 - Fixes a bug where responding to messages via email wouldn't send
+
 ### July
 
 * July 30 - Migrate from Action Mailbox to Postmark JSON API - #588

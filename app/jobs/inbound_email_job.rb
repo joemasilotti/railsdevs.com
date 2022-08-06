@@ -52,7 +52,7 @@ class InboundEmailJob < ApplicationJob
   end
 
   def conversation_token
-    payload["MailboxHash"]
+    payload["MailboxHash"]&.downcase
   end
 
   def body

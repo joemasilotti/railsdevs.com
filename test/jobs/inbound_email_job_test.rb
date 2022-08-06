@@ -74,7 +74,7 @@ class InboundEmailJobTest < ActiveJob::TestCase
         "Email" => from_email
       },
       "MessageID" => id,
-      "MailboxHash" => conversations(:one).inbound_email_token.downcase,
+      "MailboxHash" => conversations(:one).inbound_email_token,
       "StrippedTextReply" => "A reply via email."
     }
   end
