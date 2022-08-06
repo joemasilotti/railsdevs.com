@@ -8,7 +8,7 @@ class CollapseControlComponent < ApplicationComponent
   end
 
   def title_class
-    "font-medium text-gray-900 #{"text-xs" if @subcomponent}"
+    ["font-medium text-gray-900", "text-xs": @subcomponent]
   end
 
   def minus_icon_class
