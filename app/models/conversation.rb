@@ -58,7 +58,7 @@ class Conversation < ApplicationRecord
 
   private
 
-  def developer_replied?  
+  def developer_replied?
     messages.from_developer.any?
   end
 end
