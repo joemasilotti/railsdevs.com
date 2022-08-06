@@ -3,6 +3,7 @@ class Conversation < ApplicationRecord
 
   belongs_to :developer
   belongs_to :business
+  belongs_to :user_with_unread_messages, class_name: :User, inverse_of: :unread_conversations
 
   has_many :messages, -> { order(:created_at) }, dependent: :destroy
 
@@ -51,7 +52,7 @@ class Conversation < ApplicationRecord
   end
 
   def unread_messages_for?(user)
-    business?(user) ? messages_for_business_unread? : messages_for_developer_unread?
+    user_with_unread_messages == user
   end
 
   private
