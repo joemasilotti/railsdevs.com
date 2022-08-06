@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_044214) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_221754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -83,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_044214) do
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
     t.string "inbound_email_token"
-    t.integer "read_status"
     t.index ["business_id"], name: "index_conversations_on_business_id"
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
     t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
