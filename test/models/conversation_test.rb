@@ -108,6 +108,22 @@ class ConversationTest < ActiveSupport::TestCase
     assert conversation.latest_message_read_by_other_recipient?(sender)
   end
 
+  test "unread_messages_for? returns false if there are no unread notifications for current_user" do
+    conversation = conversations(:one)
+    user = users(:business)
+    conversation.latest_message.notifications_as_message.mark_as_read!
+
+    refute conversation.unread_messages_for? user
+  end
+
+  test "unread_messages_for? returns true if there are unread messages for current_user" do
+    conversation = conversations(:one)
+    user = users(:subscribed_business)
+    conversation.messages.create!(sender: conversation.developer, body: "<p>One Message.</p>")
+
+    assert conversation.reload.unread_messages_for?(user)
+  end
+
   test "unread notifications are marked as read" do
     refute notifications(:message_to_business).read?
     refute notifications(:message_to_developer).read?
@@ -122,6 +138,6 @@ class ConversationTest < ActiveSupport::TestCase
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,
-      params: {message:})
+      params: {message:, conversation: message.conversation})
   end
 end

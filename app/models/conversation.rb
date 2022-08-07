@@ -3,6 +3,7 @@ class Conversation < ApplicationRecord
 
   belongs_to :developer
   belongs_to :business
+  belongs_to :user_with_unread_messages, class_name: :User, inverse_of: :unread_conversations, optional: true
 
   has_many :messages, -> { order(:created_at) }, dependent: :destroy
 
@@ -52,6 +53,11 @@ class Conversation < ApplicationRecord
 
   def mark_notifications_as_read(user)
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
+    update(user_with_unread_messages: nil) if unread_messages_for?(user)
+  end
+
+  def unread_messages_for?(user)
+    user_with_unread_messages == user
   end
 
   private
