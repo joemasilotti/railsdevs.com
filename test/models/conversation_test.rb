@@ -111,7 +111,7 @@ class ConversationTest < ActiveSupport::TestCase
   test "unread_messages_for? returns false if there are no unread notifications for current_user" do
     conversation = conversations(:one)
     user = users(:business)
-    conversation.latest_message.notifications_as_message.destroy_all
+    conversation.latest_message.notifications_as_message.mark_as_read!
 
     refute conversation.unread_messages_for? user
   end
