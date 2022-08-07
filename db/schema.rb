@@ -109,8 +109,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_06_091758) do
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
+    t.string "stack_overflow"
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "inbound_emails", force: :cascade do |t|
+    t.bigint "message_id"
+    t.string "postmark_message_id", null: false
+    t.jsonb "payload", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_inbound_emails_on_message_id"
   end
 
   create_table "locations", force: :cascade do |t|

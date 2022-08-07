@@ -1,6 +1,4 @@
 class DeveloperMailer < ApplicationMailer
-  helper :messages
-
   def profile_reminder
     @notification = params[:record].to_notification
     recipient = params[:recipient]
