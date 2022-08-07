@@ -5,7 +5,7 @@ namespace :backfills do
     return if Conversation.where.not(user_with_unread_messages: nil).exists?
     Conversation.where(user_with_unread_messages: nil).includes(:messages).each do |conversation|
       last_notification = conversation.messages.last.notifications_as_message.last
-      if last_notification.unread?
+      if last_notification&.unread?
         conversation.update(user_with_unread_messages: last_notification.recipient)
       end
     end
