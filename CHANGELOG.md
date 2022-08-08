@@ -4,7 +4,8 @@
 
 ## August
 
-* August 6 - Fixes a bug where responding to messages via email wouldn't send
+* August 8 - railsdevs -> RailsDevs #595
+* August 6 - Fixes a bug where responding to messages via email wouldn't send #579 @benngarcia
 
 ### July
 
