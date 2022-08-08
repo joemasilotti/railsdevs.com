@@ -97,7 +97,7 @@
 * January 27 - Made links in messages clickable - #262 @djfpaagman
 * January 24 - Added role type filters - #251 @themudassarhassan
 * January 13 - Added email notifications of new developers - #212 @jacobdaddario
-* January 9 - Removed compensation from railsdevs - #231
+* January 9 - Removed compensation from RailsDevs - #231
 * January 8 - Added hourly rate, salary, and time zone filters - #225
 * January 7 - Added sorting of developers (newest or available) - #177
 * January 3 - Added CTA for paywalled content - #206 and #193 @jacobdaddario

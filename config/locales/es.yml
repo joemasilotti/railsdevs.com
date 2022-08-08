@@ -2,8 +2,8 @@
 es:
   about:
     show:
-      description: Soy Joe Masilotti. Estoy creando railsdevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
-      title_og: Acerca de railsdevs
+      description: Soy Joe Masilotti. Estoy creando RailsDevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
+      title_og: Acerca de RailsDevs
   activerecord:
     attributes:
       business:
@@ -69,7 +69,7 @@ es:
       change_avatar: Subir
       creating: Creando...
       developer_notifications:
-        help_text: Recibe notificaciones por correo electrónico cuando nuevos desarrolladores agreguen su perfil a railsdevs.
+        help_text: Recibe notificaciones por correo electrónico cuando nuevos desarrolladores agreguen su perfil a RailsDevs.
         legend: Notificaciones de desarrolladores
         values:
           daily: Diario
@@ -120,7 +120,7 @@ es:
       preferred_compensation:
         description: Desde mi experiencia como freelancer, la remuneración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
         more_info: Más información sobre esta decisión
-        subtitle: Remuneración preferida eliminada de railsdevs
+        subtitle: Remuneración preferida eliminada de RailsDevs
         title: Remuneración preferida
       profile:
         avatar: Avatar
@@ -186,7 +186,7 @@ es:
       get_started: Empezar
       learn_more: Aprender más
       more: Ver más desarrolladores
-      subtitle_1: railsdevs
+      subtitle_1: RailsDevs
       subtitle_2: empodera a los desarrolladores independientes disponibles para su próximo trabajo.
       subtitle_3: Deja de buscar en las bolsas de trabajo y relájate mientras las empresas se comunican contigo.
       title_1: La bolsa de trabajo inversa para
@@ -259,7 +259,7 @@ es:
       hiring_developers_help_text: Eres una empresa en búsqueda de desarrolladores freelance, medio tiempo o tiempo completo de Ruby on Rails.
       looking_for_work: Estoy en búsqueda de trabajo
       looking_for_work_help_text: Eres un desarrollador de Ruby on Rails en búsqueda de tu próximo trabajo.
-      what_brings_you_here: "¿Qué te trae a railsdevs?"
+      what_brings_you_here: "¿Qué te trae a RailsDevs?"
   shared:
     footer:
       about: Acerca de
