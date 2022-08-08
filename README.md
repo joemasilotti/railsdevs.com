@@ -1,10 +1,10 @@
-# Rails Devs
+# RailsDevs
 
 The reverse job board for Rails developers.
 
-![railsdevs homepage](https://user-images.githubusercontent.com/2092156/147028085-eea40303-c572-48c0-b107-0be93cce067c.png)
+![RailsDevs homepage](https://user-images.githubusercontent.com/2092156/147028085-eea40303-c572-48c0-b107-0be93cce067c.png)
 
-`railsdevs` empowers independent developers available for their next gig. It is being built around [three core values](https://railsdevs.com/about):
+RailsDevs empowers independent developers available for their next gig. It is being built around [three core values](https://railsdevs.com/about):
 
 1. Empowering the independent developer
 1. Doing everything in public
@@ -115,7 +115,7 @@ Significant changes and product updates are documented in the [changelog](CHANGE
 
 ## Open source support
 
-railsdevs uses a free or discounted open source plan from the following companies. Thank you for the support!
+RailsDevs uses a free or discounted open source plan from the following companies. Thank you for the support!
 
 ### Scout APM – application monitoring
 

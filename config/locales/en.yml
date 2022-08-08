@@ -2,11 +2,11 @@
 en:
   about:
     show:
-      caption_html: founder of <code class="text-gray-900 font-semibold">railsdevs</code>
-      description: I'm Joe Masilotti. I'm building railsdevs to make it easier for Ruby on Rails developers to find their next gig.
+      caption: founder of RailsDevs
+      description: I'm Joe Masilotti. I'm building RailsDevs to make it easier for Ruby on Rails developers to find their next gig.
       readtime: 1 minute read
       title: About
-      title_og: About railsdevs
+      title_og: About RailsDevs
   activerecord:
     attributes:
       business:
@@ -130,7 +130,7 @@ en:
       change_avatar: Upload
       creating: Creating...
       developer_notifications:
-        help_text: Receive daily or weekly email notifications when new developers add their profile to railsdevs.
+        help_text: Receive daily or weekly email notifications when new developers add their profile to RailsDevs.
         legend: Developer notifications
         values:
           daily: Daily
@@ -139,16 +139,16 @@ en:
       notifications:
         title: Email notifications
       personal:
-        help: Information about you, the contact point for your business on railsdevs.
+        help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
       save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
-      body: 'Hi Joe, I hired %{developer} via railsdevs and would like to coordinate paying the fee. Their starting salary is: '
+      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
-      subject: I hired a developer via railsdevs
+      subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
     primary_action_component:
       edit: Edit
@@ -199,7 +199,7 @@ en:
       month_year: "%B %Y"
   developer_mailer:
     first_message:
-      subject: Tips on responding to your first message on railsdevs
+      subject: Tips on responding to your first message on RailsDevs
   developers:
     admin_component:
       copy: Copy
@@ -235,7 +235,7 @@ en:
       preferred_compensation:
         description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
         more_info: More info on this decision
-        subtitle: Preferred compensation removed from railsdevs
+        subtitle: Preferred compensation removed from RailsDevs
         title: Preferred compensation
       profile:
         avatar: Avatar
@@ -342,24 +342,24 @@ en:
   home:
     show:
       available_developers: Developers available now
-      description_og: railsdevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
+      description_og: RailsDevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
       get_started: Get started
       learn_more: Learn more
       more: See more developers
-      subtitle_1: railsdevs
+      subtitle_1: RailsDevs
       subtitle_2: empowers independent developers available for their next gig.
       subtitle_3: Stop scouring job boards and sit back as companies reach out to you first.
       title_1: The reverse job board for
       title_2: Rails developers
       title_og: The reverse job board for Ruby on Rails developers
-      turbo_native_title: railsdevs
+      turbo_native_title: RailsDevs
   impersonating_banner_component:
     cta: Sign out
     title: Signed in as %{email}
   messages:
     form:
       help: Add your message
-      hiring_fee_agreement: I agree to pay railsdevs the 10% hiring fee if I hire this developer for a full-time role.
+      hiring_fee_agreement: I agree to pay RailsDevs the 10% hiring fee if I hire this developer for a full-time role.
       hiring_fee_cta: Questions?
       sending: Sending...
       submit: Send
@@ -407,15 +407,15 @@ en:
         title: "%{developer} may have been hired"
     businesses:
       invisiblize_notification:
-        title: Your profile on railsdevs was flagged
+        title: Your profile on RailsDevs was flagged
     developers:
       invisiblize_notification:
-        title: Your profile on railsdevs was flagged
+        title: Your profile on RailsDevs was flagged
       profile_reminder_notification:
-        email_subject: Is your railsdevs profile up to date?
+        email_subject: Is your RailsDevs profile up to date?
         title: Is your developer profile up to date?
       welcome_notification:
-        title: Welcome to railsdevs!
+        title: Welcome to RailsDevs!
     index:
       cta: View history
       empty_state:
@@ -424,7 +424,7 @@ en:
       mark_all_as_read: Mark all as read
       title: New notifications
     new_message_notification:
-      email_subject: "%{sender} sent you a message on railsdevs"
+      email_subject: "%{sender} sent you a message on RailsDevs"
       title: "%{sender} sent you a message"
     show:
       notice: Notification marked as read.
@@ -434,17 +434,17 @@ en:
         amount: Amount
         contributions: Contributions
         date: Date
-        description: railsdevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
+        description: RailsDevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
         open_startup: Open startup
         recipient: Recipient
-        title: railsdevs contributions
+        title: RailsDevs contributions
         to_co2_removal: to CO₂ removal
         to_communities: to communities
     dashboard:
       show:
         contributions: Contributions
         date: Date
-        description: railsdevs is an open startup with public metrics.
+        description: RailsDevs is an open startup with public metrics.
         expenses: Expenses
         mrr: MRR
         profit: Profit
@@ -455,20 +455,20 @@ en:
       index:
         amount: Amount
         date: Date
-        description: All monetary transactions associated with railsdevs, like hosting, fees, and purchases.
+        description: All monetary transactions associated with RailsDevs, like hosting, fees, and purchases.
         expenses: Expenses
         open_startup: Open startup
         source: Source
-        title: railsdevs expenses
+        title: RailsDevs expenses
     revenue:
       index:
         amount: Amount
         date: Date
-        description: All revenue railsdevs has generated since launching in November, 2021.
+        description: All revenue RailsDevs has generated since launching in November, 2021.
         open_startup: Open startup
         revenue: Revenue
         source: Source
-        title: railsdevs revenue
+        title: RailsDevs revenue
   policies:
     privacy:
       show:
@@ -491,16 +491,16 @@ en:
         a_html: Yes. You can cancel your subscription from the Billing link in the user drop-down. You will lose access to all paid features at the end of your billing period.
         q: Can I cancel my subscription at any time?
       developers:
-        a: No. railsdevs is free for developers.
-        q: Does railsdevs cost anything for developers?
+        a: No. RailsDevs is free for developers.
+        q: Does RailsDevs cost anything for developers?
       features:
-        a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
+        a: A business subscription allows you to reach out directly to developers on RailsDevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
         q: So what does the fee get me?
       fee:
-        a_html: You are required to pay railsdevs 10% of a developer's first year salary if you found them through railsdevs. This only applies to hiring full-time employees and not contract or freelance. Email the founder – that's me, Joe! – to coordinate payment at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        a_html: You are required to pay RailsDevs 10% of a developer's first year salary if you found them through RailsDevs. This only applies to hiring full-time employees and not contract or freelance. Email the founder – that's me, Joe! – to coordinate payment at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
         q: How does the 10% fee work for hiring a full-time developer?
       subscription:
-        a: No. The monthly/annual fee grants you business access to railsdevs. You have to externally pay the developers for the work they do.
+        a: No. The monthly/annual fee grants you business access to RailsDevs. You have to externally pay the developers for the work they do.
         q: Does the monthly/annual fee include the developer rate, too?
       support:
         a_html: Email the founder – that's me, Joe! – with any questions. You can reach me at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
@@ -519,11 +519,11 @@ en:
       profiles:
         description: Hundreds of Ruby on Rails developers looking for freelance, contract, and full-time work.
         title: Highly targeted profiles
-      subtitle: Message hundreds of Ruby on Rails developers with a railsdevs subscription. Save time by reaching out to the perfect candidates directly.
+      subtitle: Message hundreds of Ruby on Rails developers with a RailsDevs subscription. Save time by reaching out to the perfect candidates directly.
       support:
         description: Email the founder – that's me, Joe! – whenever you need help.
         title: Support from the founder
-      title: Level up your hiring with railsdevs
+      title: Level up your hiring with RailsDevs
       unlock:
         description: View hidden information, like the real names of developers and their portfolio links.
         title: Unlock full profiles
@@ -552,14 +552,14 @@ en:
       cta: Get started today
       faq:
         '1':
-          a: No. $99 a month grants you business access to railsdevs. You have to externally pay the developers for the work they do.
+          a: No. $99 a month grants you business access to RailsDevs. You have to externally pay the developers for the work they do.
           q: Does $99 a month include the developer rate, too?
         '2':
-          a: A business subscription allows you to reach out directly to developers on railsdevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
+          a: A business subscription allows you to reach out directly to developers on RailsDevs. It also unhides information that is hidden from the public, like the real names of developers and their portfolio links.
           q: So what does $99 a month get me?
         '3':
-          a: No. railsdevs is free for developers.
-          q: Does railsdevs cost anything for developers?
+          a: No. RailsDevs is free for developers.
+          q: Does RailsDevs cost anything for developers?
         '4':
           a_html: Email me, Joe, with any questions. You can reach me at <a href='mailto:joe@railsdevs.com'>joe@railsdevs.com</a>.
           q: Who can I contact for more specific questions?
@@ -580,7 +580,7 @@ en:
       title_2: "$99 a month"
       title_og: Pricing
     v2:
-      description: Subscribe to railsdevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
+      description: Subscribe to RailsDevs and directly connect with hundreds of Ruby on Rails developers who are looking for freelance, contract, and full-time work.
       title: Hire Ruby on Rails developers
       title_og: Pricing
       turbo_native_title: Hire Rails developers
@@ -609,7 +609,7 @@ en:
       hiring_developers_help_text: You're a business looking to hire a freelance, part-time, or full-time Ruby on Rails developer.
       looking_for_work: I'm looking for work
       looking_for_work_help_text: You're a Ruby on Rails developer looking for your next gig.
-      what_brings_you_here: What brings you to railsdevs?
+      what_brings_you_here: What brings you to RailsDevs?
   sessions:
     sign_in: Sign in
     sign_in_hero: Sign in to your account

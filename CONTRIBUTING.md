@@ -1,8 +1,8 @@
-# Contributing to railsdevs
+# Contributing to RailsDevs
 
-Welcome to [railsdevs](https://railsdevs.com)! I'm Joe, the solo-founder, and I'd love for you to contribute to the project.
+Welcome to [RailsDevs](https://railsdevs.com)! I'm Joe, the founder, and I'd love for you to contribute to the project.
 
-Lots of developers first open source contribution was to railsdevs. Let me help you make it yours, too.
+Lots of developers first open source contribution was to RailsDevs. Let me help you make it yours, too.
 
 ## What to work on?
 
