@@ -8,7 +8,7 @@
             <div class="flex-shrink-0">
               <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current hover:text-white" do %>
                 <span class="sr-only">RailsDevs</span>
-                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo" %>
+                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo", title: "RailsDevs logo" %>
               <% end %>
             </div>
 
@@ -34,9 +34,15 @@
           <div class="-mr-2 flex items-center md:hidden">
             <!-- Mobile menu button -->
             <button type="button" data-action="toggle#toggle" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <span data-toggle-target="element"><%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6" %></span>
-              <span data-toggle-target="element" class="hidden"><%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6" %></span>
+              <span data-toggle-target="element">
+                <span class="sr-only">Open main menu</span>
+                <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6", aria_hidden: true %>
+              </span>
+
+              <span data-toggle-target="element" class="hidden">
+                <span class="sr-only">Close main menu</span>
+                <%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6", aria_hidden: true %>
+              </span>
             </button>
           </div>
         </div>

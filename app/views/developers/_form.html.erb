@@ -76,7 +76,7 @@
                 <div class="relative">
                   <%= render AvatarComponent.new(avatarable: developer, variant: :medium, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+                    <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin", title: t(".loading") %>
                   </div>
                 </div>
                 <%= form.hidden_field :avatar, value: form.object.avatar.signed_id, id: "developer_avatar_hidden" if form.object.avatar.attached? %>
@@ -99,7 +99,7 @@
 
                 <%= render Developers::CoverImageComponent.new(developer: developer, data: {"file-upload-target": "image"}, classes: "rounded-md mb-4") %>
                 <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+                  <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin", title: t(".loading") %>
                 </div>
               </div>
               <div class="flex mt-2 text-sm text-gray-600">

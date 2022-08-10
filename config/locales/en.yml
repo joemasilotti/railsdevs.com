@@ -136,6 +136,7 @@ en:
           daily: Daily
           'no': Never
           weekly: Weekly
+      loading: Loading...
       notifications:
         title: Email notifications
       personal:
@@ -175,6 +176,8 @@ en:
       title:
         expired: Subscription expired
         upgrade: Upgrade required
+    website_link_component:
+      external_link: Open in new tab
   cold_messages:
     new:
       title: Start a conversation
@@ -225,6 +228,7 @@ en:
       title: Your developer profile
     form:
       creating: Creating...
+      loading: Loading...
       notifications:
         profile_reminder_notifications: Profile reminders
         profile_reminder_notifications_help: Periodically remind me to update my developer profile.
@@ -356,6 +360,8 @@ en:
   impersonating_banner_component:
     cta: Sign out
     title: Signed in as %{email}
+  loading_component:
+    loading: Loading...
   messages:
     form:
       help: Add your message
@@ -435,6 +441,7 @@ en:
         contributions: Contributions
         date: Date
         description: RailsDevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
+        external_link: Open in new tab
         open_startup: Open startup
         recipient: Recipient
         title: RailsDevs contributions
@@ -446,6 +453,7 @@ en:
         date: Date
         description: RailsDevs is an open startup with public metrics.
         expenses: Expenses
+        external_link: Open in new tab
         mrr: MRR
         profit: Profit
         revenue: Revenue

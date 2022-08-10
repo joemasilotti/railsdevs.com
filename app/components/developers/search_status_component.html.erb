@@ -1,10 +1,10 @@
 <div class="flex items-center space-x-2">
   <% if actively_looking? %>
-    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-green-500" %>
+    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-green-500", aria_hidden: true %>
   <% elsif open? %>
-    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-gray-500" %>
+    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-gray-500", aria_hidden: true %>
   <% else %>
-    <%= inline_svg_tag "icons/solid/x_circle.svg", class: "h-5 w-5 text-gray-500" %>
+    <%= inline_svg_tag "icons/solid/x_circle.svg", class: "h-5 w-5 text-gray-500", aria_hidden: true %>
   <% end %>
 
   <%= tag.span class: ["text-sm font-medium", "text-green-700": developer.actively_looking?, "text-gray-900": !developer.actively_looking?] do %>

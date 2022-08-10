@@ -27,7 +27,7 @@
                 <th scope="col" class="relative px-6 py-2 text-right">
                   <span class="sr-only">Actions</span>
                   <%= link_to new_admin_transaction_path, class: "inline-flex items-center p-0.5 border border-transparent rounded-full shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
-                    <%= inline_svg_tag "icons/solid/plus_sm.svg", class: "h-5 w-5" %>
+                    <%= inline_svg_tag "icons/solid/plus_sm.svg", class: "h-5 w-5", aria_hidden: true %>
                     <span class="sr-only">Add expense</span>
                   <% end %>
                 </th>

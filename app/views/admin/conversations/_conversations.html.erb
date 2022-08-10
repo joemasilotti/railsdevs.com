@@ -33,7 +33,7 @@
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <% if query.replied_to_conversation_ids.include?(conversation.id) %>
                     <span class="sr-only"><%= t(".replied") %></span>
-                    <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800" %>
+                    <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800", aria_hidden: true %>
                   <% else %>
                     <span class="sr-only"><%= t(".no_response") %></span>
                   <% end %>
@@ -42,7 +42,7 @@
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <% if query.potential_email_conversation_ids.include?(conversation.id) %>
                     <span class="sr-only"><%= t(".potential_email") %></span>
-                    <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800" %>
+                    <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800", aria_hidden: true %>
                   <% else %>
                     <span class="sr-only"><%= t(".no_potential_email") %></span>
                   <% end %>
