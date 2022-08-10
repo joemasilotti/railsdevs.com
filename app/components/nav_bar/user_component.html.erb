@@ -8,7 +8,7 @@
             <div class="flex-shrink-0">
               <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current hover:text-white" do %>
                 <span class="sr-only">RailsDevs</span>
-                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo" %>
+                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo", title: "RailsDevs logo" %>
               <% end %>
             </div>
 
@@ -27,14 +27,14 @@
             <div class="ml-4 flex items-center md:ml-6 space-x-4">
               <% if conversations? %>
                 <%= link_to conversations_path, class: "relative text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
-                  <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6" %>
+                  <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6", aria_hidden: true %>
                   <span class="sr-only"><%= t(".view_conversations") %></span>
                 <% end %>
               <% end %>
 
               <%= link_to notifications_path, class: "relative p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
                 <span class="sr-only"><%= t(".view_notifications") %></span>
-                <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6" %>
+                <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
 
                 <% if unread_notifications? %>
                   <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
@@ -75,14 +75,14 @@
             <!-- Mobile nav bar -->
             <% if conversations? %>
               <%= link_to conversations_path, class: "bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
-                <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6" %>
+                <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6", aria_hidden: true %>
                 <span class="sr-only"><%= t(".view_conversations") %></span>
               <% end %>
             <% end %>
 
             <%= link_to notifications_path, class: "relative bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
               <span class="sr-only">View notifications</span>
-              <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6" %>
+              <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
 
               <% if unread_notifications? %>
                 <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
@@ -92,9 +92,15 @@
 
             <!-- Mobile menu button -->
             <button type="button" data-action="toggle#toggle accessibility#toggleAriaExpanded" data-accessibility-target="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <span data-toggle-target="element"><%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6" %></span>
-              <span data-toggle-target="element" class="hidden"><%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6" %></span>
+              <span data-toggle-target="element">
+                <span class="sr-only">Open main menu</span>
+                <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6", aria_hidden: true %>
+              </span>
+
+              <span data-toggle-target="element" class="hidden">
+                <span class="sr-only">Close main menu</span>
+                <%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6", aria_hidden: true %>
+              </span>
             </button>
           </div>
         </div>

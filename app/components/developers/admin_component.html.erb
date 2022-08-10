@@ -3,19 +3,19 @@
 <span class="relative z-0 inline-flex shadow-sm rounded-md">
   <%= tag.div data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: "#{developer.hero} #{developer_url(developer)}", clipboard_html_content_value: link_to(developer.hero, developer_url(developer))} do %>
     <button data-action="clipboard#copy clipboard#toggle" type="button" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500">
-      <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", data: {clipboard_target: "toggleable"} %>
-      <%= inline_svg_tag "icons/solid/check.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400 hidden", data: {clipboard_target: "toggleable"} %>
+      <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
+      <%= inline_svg_tag "icons/solid/check.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400 hidden", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
       <%= t(".copy") %>
     </button>
   <% end %>
 
   <%= button_to admin_developer_invisiblizes_path(developer), method: :post, rel: "nofollow", class: "-ml-px relative inline-flex items-center px-3 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this developer as invisible and notify them via email?"}} do %>
-    <%= inline_svg_tag "icons/solid/eye_off.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
+    <%= inline_svg_tag "icons/solid/eye_off.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", aria_hidden: true %>
     <%= t(".invisiblize") %>
   <% end %>
 
   <%= button_to admin_developer_features_path(developer), method: :post, rel: "nofollow", class: "-ml-px relative inline-flex items-center px-3 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
-    <%= inline_svg_tag "icons/solid/star.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
+    <%= inline_svg_tag "icons/solid/star.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", aria_hidden: true %>
     <%= t(".feature") %>
   <% end %>
 </span>

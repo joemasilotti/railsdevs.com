@@ -4,7 +4,7 @@
     <% role_level_types.each do |role_level_type| %>
       <% if role_level.send("#{role_level_type}?") %>
         <li class="flex items-center space-x-2">
-          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-gray-400" %>
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-gray-400", aria_hidden: true %>
           <span class="text-gray-900 text-sm font-medium"><%= humanize(role_level_type) %></span>
         </li>
       <% end %>

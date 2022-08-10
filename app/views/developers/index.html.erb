@@ -20,7 +20,7 @@
       <div class="flex justify-end items-center md:hidden">
         <%= render Developers::QuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile", scope: "developer-filters-mobile") %>
         <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
-          <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5" %>
+          <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5", aria_hidden: true %>
           <span class="sr-only"><%= t("developers.query_component.filters") %></span>
         </button>
       </div>

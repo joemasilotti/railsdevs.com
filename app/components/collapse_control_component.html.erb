@@ -1,7 +1,7 @@
 <%= tag.button type: "button", data: {action: "toggle#toggle accessibility#toggleAriaExpanded", accessibility_target: "button"}, "aria-expanded": !collapsed?, class: "px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" do %>
   <%= tag.span title, class: ["font-medium text-gray-900", "text-xs": subcomponent?] %>
   <span class="ml-6 flex items-center">
-    <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"} %>
-    <%= inline_svg_tag "icons/solid/plus_sm.svg", class: plus_icon_class, data: {"toggle-target": "element"} %>
+    <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"}, title: "Open menu" %>
+    <%= inline_svg_tag "icons/solid/plus_sm.svg", class: plus_icon_class, data: {"toggle-target": "element"}, title: "Close menu" %>
   </span>
 <% end %>
