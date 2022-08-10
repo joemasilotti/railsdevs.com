@@ -17,7 +17,7 @@
               <%= image_tag "joe.jpg", class: "rounded-lg shadow-lg object-cover object-top", alt: "Photo of Joe Masilotti" %>
             </div>
             <figcaption class="mt-3 text-center text-sm text-gray-500">
-              <a href="https://masilotti.com" class="underline">Joe Masilotti</a>, <%= t(".caption_html") %>
+              <a href="https://masilotti.com" class="underline">Joe Masilotti</a>, <%= t(".caption") %>
             </figcaption>
           </figure>
         </div>
@@ -26,10 +26,6 @@
       <div class="mt-8 lg:mt-0 lg:col-span-3">
         <div class="prose prose-lg prose-gray text-gray-500 max-w-prose mx-auto lg:max-w-none">
           <%= render MarkdownComponent.about_hero %>
-        </div>
-
-        <div class="mt-8 prose prose-gray text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-          <%= render MarkdownComponent.about_body %>
         </div>
 
         <div class="mt-8 prose prose-gray text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">

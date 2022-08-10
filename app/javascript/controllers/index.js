@@ -3,6 +3,9 @@
 
 import { application } from "./application"
 
+import AccessibilityController from "./accessibility_controller.js"
+application.register("accessibility", AccessibilityController)
+
 import Analytics__EventsController from "./analytics/events_controller.js"
 application.register("analytics--events", Analytics__EventsController)
 

@@ -13,6 +13,7 @@ class StaleDevelopersQueryTest < ActiveSupport::TestCase
     records = StaleDevelopersQuery.new.stale_and_not_recently_notified
     assert_includes records, stale_developer
     assert_includes records, notified_developer
+
     stale_developer.notify_as_stale
     refute_includes StaleDevelopersQuery.new.stale_and_not_recently_notified, stale_developer
   end

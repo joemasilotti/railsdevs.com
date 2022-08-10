@@ -1,5 +1,5 @@
 <p><%= @business.first_name %>,</p>
-<p>Here are the new developer profiles on railsdevs:</p>
+<p>Here are the new developer profiles on RailsDevs:</p>
 <ul>
   <% @developers.each do |developer| %>
     <li><b><%= link_to developer.hero, developer %></b>: <%= developer.bio %></li>

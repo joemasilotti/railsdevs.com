@@ -2,12 +2,27 @@
 
 ## 2022
 
+## August
+
+* August 10 - Fixes an issue where uploaded avatars wouldn't render their preview #596
+* August 8 - railsdevs -> RailsDevs #595
+* August 6 - Fixes a bug where responding to messages via email wouldn't send #579 @benngarcia
+
 ### July
 
+* July 30 - Migrate from Action Mailbox to Postmark JSON API - #588
+* July 27 - Change developer bio text - #560 @kaushikhande
+* July 20 - Normalize business website link - #577 @ypcethan
+* July 19 - Add Stack Overflow link to developer profile - #581 @ypcethan
+* July 13 - Update to Pay 4.0.1 and Stripe 6.5.0 - #574
+* July 12 - Update to rails 7.0.3.1
+* July 11 - Invisible captcha when registering for an account - #563
+* July 11 - Fix scroll to bottom and autofocus on conversation page - #521 @pkayokay
 * July 10 - Seed developer and business avatar images from Unsplash - #530 @adrienpoly
-* July 10 - Add privacy policy and terms & conditions
-* July 9 - In-app purchase support on iOS via RevenueCat
-* July 7 - Impersonate users as an admin
+* July 10 - 1x and 2x image size variants of avatars - #555 @adrienpoly
+* July 10 - Add privacy policy and terms & conditions - #557
+* July 9 - In-app purchase support on iOS via RevenueCat - #549
+* July 7 - Impersonate users as an admin - #544
 * July 1 - Fixes a bug where creating an invisible developer would raise an error - #534 @joshio1
 
 ### June
@@ -84,7 +99,7 @@
 * January 27 - Made links in messages clickable - #262 @djfpaagman
 * January 24 - Added role type filters - #251 @themudassarhassan
 * January 13 - Added email notifications of new developers - #212 @jacobdaddario
-* January 9 - Removed compensation from railsdevs - #231
+* January 9 - Removed compensation from RailsDevs - #231
 * January 8 - Added hourly rate, salary, and time zone filters - #225
 * January 7 - Added sorting of developers (newest or available) - #177
 * January 3 - Added CTA for paywalled content - #206 and #193 @jacobdaddario

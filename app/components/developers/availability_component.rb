@@ -7,17 +7,6 @@ module Developers
       @show_unavailable_icon = show_unavailable_icon
     end
 
-    def availability_icon
-      return unless available? || show_unavailable_icon?
-
-      icon = available? ? :check_circle : :x_circle
-
-      css = %w[h-5 w-5]
-      css << (available? ? "text-green-500" : "text-gray-400")
-
-      inline_svg_tag "icons/solid/#{icon}.svg", class: css.join(" ")
-    end
-
     def date
       developer.available_on&.to_formatted_s(:db)
     end

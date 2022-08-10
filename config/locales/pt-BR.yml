@@ -2,11 +2,11 @@
 pt-BR:
   about:
     show:
-      caption_html: fundador do <code class="text-gray-900 font-semibold">railsdevs</code>
-      description: Eu sou Joe Masilotti. Estou construindo railsdevs para ser mais fácil para desenvolvedores Ruby on Rails acharem seu próximo trabalho.
+      caption: fundador do RailsDevs
+      description: Eu sou Joe Masilotti. Estou construindo RailsDevs para ser mais fácil para desenvolvedores Ruby on Rails acharem seu próximo trabalho.
       readtime: 1 minuto de leitura
       title: Sobre
-      title_og: Sobre railsdevs
+      title_og: Sobre RailsDevs
   activerecord:
     attributes:
       business:
@@ -79,7 +79,7 @@ pt-BR:
       change_avatar: Enviar
       creating: Criando...
       developer_notifications:
-        help_text: Receber notificações por e-mail diariamente ou semanalmente quando novos desenvolvedores adicionam seu perfil ao railsdevs.
+        help_text: Receber notificações por e-mail diariamente ou semanalmente quando novos desenvolvedores adicionam seu perfil ao RailsDevs.
         legend: Notificações de desenvolvedores
         values:
           daily: Diariamente
@@ -133,7 +133,7 @@ pt-BR:
       preferred_compensation:
         description: Na minha experiência como autônomo, a remuneração só deve ser discutida após os detalhes do projeto ou trabalho sejam conhecidos.
         more_info: Mais informações sobre essa decisão
-        subtitle: Remuneração preferida removida do railsdevs
+        subtitle: Remuneração preferida removida do RailsDevs
         title: Remuneração preferida
       profile:
         avatar: Imagem
@@ -200,7 +200,7 @@ pt-BR:
       get_started: Comece agora
       learn_more: Veja mais
       more: Ver mais desenvolvedores
-      subtitle_1: railsdevs
+      subtitle_1: RailsDevs
       subtitle_2: empodera desenvolvedores independentes disponíveis para o próximo trabalho.
       subtitle_3: Pare de vasculhar lista de empregos e sente-se enquanto as empresas entram em contato com você primeiro.
       title_1: A lista de trabalhos reversa para
@@ -263,17 +263,17 @@ pt-BR:
         amount: Montante
         contributions: Contribuições
         date: Data
-        description: railsdevs contribui com 10% dos lucros para comunidades focadas em mulheres e 2% da receita para remoção de CO₂.
+        description: RailsDevs contribui com 10% dos lucros para comunidades focadas em mulheres e 2% da receita para remoção de CO₂.
         open_startup: Open startup
         recipient: Recipient
-        title: contribuições do railsdevs
+        title: contribuições do RailsDevs
         to_co2_removal: para remoção de CO₂
         to_communities: para comunidades
     dashboard:
       show:
         contributions: Contribuições
         date: Data
-        description: railsdevs é uma startup aberta com métricas públicas.
+        description: RailsDevs é uma startup aberta com métricas públicas.
         expenses: Despesas
         mrr: MRR
         profit: Lucro
@@ -284,20 +284,20 @@ pt-BR:
       index:
         amount: Montante
         date: Data
-        description: Todas as transações monetárias do railsdevs, como hospedagem, taxas e compras.
+        description: Todas as transações monetárias do RailsDevs, como hospedagem, taxas e compras.
         expenses: Despesas
         open_startup: Open startup
         source: Fonte
-        title: despesas do railsdevs
+        title: despesas do RailsDevs
     revenue:
       index:
         amount: Montante
         date: Data
-        description: Toda as receitas do railsdevs gerada a partir do seu lançamento, em Novembro / 2021.
+        description: Toda as receitas do RailsDevs gerada a partir do seu lançamento, em Novembro / 2021.
         open_startup: Open startup
         revenue: Receitas
         source: Fonte
-        title: Receita do railsdevs
+        title: Receita do RailsDevs
   read_notifications:
     empty_state:
       body: Você não tem notificações de leitura.
@@ -321,7 +321,7 @@ pt-BR:
       hiring_developers_help_text: Você é uma empresa buscando contratar desenvolvedores Ruby on Rails autônomos, meio periodo ou tempo integral.
       looking_for_work: Estou buscando trabalho
       looking_for_work_help_text: Você é um desenvolvedor Ruby on Rails buscando seu próximo trabalho.
-      what_brings_you_here: O que te traz ao railsdevs?
+      what_brings_you_here: O que te traz ao RailsDevs?
   sessions:
     sign_in: Entrar
     sign_in_hero: Entrar na sua conta

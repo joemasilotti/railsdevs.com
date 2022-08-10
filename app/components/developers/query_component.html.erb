@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+    <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".role_level.title")) %>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+    <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".work_preference.title")) %>
@@ -54,7 +54,7 @@
       </div>
     </div>
 
-    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+    <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".country.title"), collapsed: true) %>
@@ -69,7 +69,7 @@
             <% end %>
           </div>
 
-          <div data-controller="toggle" data-toggle-visibility-class="hidden">
+          <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
             <div class="pt-6">
               <h5 class="-mx-2 -my-3 flow-root">
                 <%= render CollapseControlComponent.new(t(".all_countries.title"), collapsed: true, subcomponent: true) %>
@@ -90,7 +90,7 @@
       </div>
     </div>
 
-    <div data-controller="toggle" data-toggle-visibility-class="hidden">
+    <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".timezone.title"), collapsed: true) %>

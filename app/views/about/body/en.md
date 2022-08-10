@@ -4,11 +4,11 @@ I've been an independent developer for the past two years. And leads are rarely 
 
 And job boards are rarely helpful for freelance and contract work. They're focused on full-time roles.
 
-`railsdevs` strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles. That way, the power dynamic is reversed as companies have to reach out to developers first.
+RailsDevs strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles. That way, the power dynamic is reversed as companies have to reach out to developers first.
 
 ### Doing everything in public
 
-`railsdevs` is an Open Startup *and* open source. It operates fully transparent and shares its metrics, like revenue and traffic.
+RailsDevs is an Open Startup *and* open source. It operates fully transparent and shares its metrics, like revenue and traffic.
 
 * [Source code](https://github.com/joemasilotti/railsdevs.com/)
 * [Public analytics](https://app.usefathom.com/share/cacnfaan/railsdevs.com)

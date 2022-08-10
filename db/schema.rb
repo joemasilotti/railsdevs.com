@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_06_091758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,7 +82,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
     t.string "inbound_email_token"
+    t.integer "user_with_unread_messages_id"
     t.index ["business_id"], name: "index_conversations_on_business_id"
+    t.index ["developer_id", "business_id"], name: "index_conversations_on_developer_id_and_business_id", unique: true
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
     t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
   end
@@ -107,8 +109,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
+    t.string "stack_overflow"
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "inbound_emails", force: :cascade do |t|
+    t.bigint "message_id"
+    t.string "postmark_message_id", null: false
+    t.jsonb "payload", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_inbound_emails_on_message_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -180,9 +192,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_214631) do
 
   create_table "open_startup_metrics", force: :cascade do |t|
     t.date "occurred_on", null: false
-    t.jsonb "data", default: {}, null: false
+    t.jsonb "legacy_data", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "data", null: false
   end
 
   create_table "open_startup_monthly_balances", force: :cascade do |t|
