@@ -20,6 +20,10 @@ class User < ApplicationRecord
       .where("businesses.user_id = ? OR developers.user_id = ?", user.id, user.id)
       .visible
   }
+  has_many :unread_conversations,
+    class_name: :Conversation,
+    foreign_key: :user_with_unread_messages_id,
+    inverse_of: :user_with_unread_messages
 
   scope :admin, -> { where(admin: true) }
 

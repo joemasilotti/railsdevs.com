@@ -4,11 +4,11 @@ Eu tenho sido um desenvolvedor independente nos últimos dois anos. E os contato
 
 E os sites de empregos raramente são úteis para trabalhos autônomos e por contrato. Eles estão focados em funções em tempo integral.
 
-`railsdevs` se esforça para devolver o poder ao desenvolvedor independente. Em vez de empresas postando seus empregos, os desenvolvedores postam seus perfis. Dessa forma, a dinâmica do poder é revertida, pois as empresas precisam entrar em contato primeiro com os desenvolvedores.
+RailsDevs se esforça para devolver o poder ao desenvolvedor independente. Em vez de empresas postando seus empregos, os desenvolvedores postam seus perfis. Dessa forma, a dinâmica do poder é revertida, pois as empresas precisam entrar em contato primeiro com os desenvolvedores.
 
 ### Fazer tudo abertamente
 
-`railsdevs` é um Startup Aberta *e* de código livre. Ela opera de forma totalmente transparente e compartilha suas métricas, como receita e tráfego.
+RailsDevs é um Startup Aberta *e* de código livre. Ela opera de forma totalmente transparente e compartilha suas métricas, como receita e tráfego.
 
 * [Código fonte](https://github.com/joemasilotti/railsdevs.com/)
 * [Métricas públicas](https://app.usefathom.com/share/cacnfaan/railsdevs.com)

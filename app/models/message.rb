@@ -20,6 +20,12 @@ class Message < ApplicationRecord
   scope :from_developer, -> { where(sender_type: Developer.name) }
   scope :potential_email, -> { where("body LIKE ?", "%@%") }
 
+  after_create_commit :cache_conversation_read_status
+
+  def cache_conversation_read_status
+    conversation.update!(user_with_unread_messages: recipient&.user)
+  end
+
   def self.first_message?(developer)
     joins(:conversation).where(conversation: {developer:}).one?
   end
