@@ -115,6 +115,18 @@ It also requires some CORS configuration for direct uploads, copied from the [Ac
 ]
 ```
 
+## Heroku buildpacks for vips
+
+vips, the library used to process images, requires custom configuration on Heroku.
+
+Add the following buildpacks to your Heroku app, in order.
+
+1. https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku-community/apt.tgz
+1. heroku/ruby
+1. https://github.com/brandoncc/heroku-buildpack-vips
+
+Note that `heroku/ruby` might already be present if you've deployed before.
+
 ## Background jobs
 
 1. `bundle exec rake sitemap:refresh` - daily at 12:00 AM UTC
