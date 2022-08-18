@@ -4,6 +4,7 @@
 
 ## August
 
+* August 18 - Add basic admin user search #604
 * August 17 - Send admins notifications on subscription changes #600
 * August 10 - Fixes an issue where uploaded avatars wouldn't render their preview #596
 * August 8 - railsdevs -> RailsDevs #595

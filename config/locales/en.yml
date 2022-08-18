@@ -103,6 +103,14 @@ en:
         destroyed: Transaction deleted
       update:
         updated: Transaction updated
+    users:
+      index:
+        business: Business
+        developer: Developer
+        email: Email
+        search: Search
+        search_help: Filter users by email
+        title: Users
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -395,6 +403,7 @@ en:
       open_user_menu: Open user menu
       sign_out: Sign out
       transactions: Transactions
+      users: Users
       view_conversations: View conversations
       view_notifications: View notifications
   notifications:
