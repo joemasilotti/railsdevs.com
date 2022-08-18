@@ -40,4 +40,13 @@ class AdminMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: @notification.email_subject)
   end
+
+  def subscription_change
+    @notification = params[:record].to_notification
+    recipient = params[:recipient]
+
+    @business = @notification.subscription.customer.owner.business
+
+    mail(to: recipient.email, subject: @notification.title)
+  end
 end

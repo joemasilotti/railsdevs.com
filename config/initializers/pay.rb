@@ -10,3 +10,7 @@ Pay.setup do |config|
   config.automount_routes = true
   config.routes_path = "/pay"
 end
+
+Rails.application.config.to_prepare do
+  Pay::Subscription.include Pay::SubscriptionExtensions
+end
