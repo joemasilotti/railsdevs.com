@@ -51,6 +51,7 @@ Rails.application.routes.draw do
     resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
+    resources :users, only: [:index]
 
     namespace :conversations do
       resources :blocks, only: :index

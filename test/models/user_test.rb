@@ -26,4 +26,10 @@ class UserTest < ActiveSupport::TestCase
     user = users(:empty)
     assert_nil user.pay_customer_name
   end
+
+  test "searching via email" do
+    assert_equal [users(:empty)], User.filter_by_email("user@EXAMPLE.com")
+    assert_equal [users(:admin)], User.filter_by_email("admin@")
+    assert_empty User.filter_by_email("joe")
+  end
 end
