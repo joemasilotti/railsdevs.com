@@ -1,0 +1,1 @@
+<p><b><%= link_to @business.name, "mailto:#{@business.user.email}" %> (<%= @business.company %>)</b> updated <%= link_to "their subscription", notification_url(@notification.record) %>.</p>
