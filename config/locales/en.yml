@@ -108,9 +108,10 @@ en:
         business: Business
         developer: Developer
         email: Email
-        search: Search
-        search_help: Filter users by email
         title: Users
+      search:
+        cta: Search
+        help: Filter users by email
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
