@@ -56,6 +56,15 @@ class Pay::SubscriptionChangesTest < ActiveSupport::TestCase
     assert_equal :unpaused, change
   end
 
+  test "unknown changes -> error" do
+    subscription = create_subscription!(pause_behavior: :void)
+    subscription.update!(data: nil)
+
+    assert_raises Pay::SubscriptionChanges::UnknownSubscriptionChange do
+      Pay::SubscriptionChanges.new(subscription).change
+    end
+  end
+
   def create_subscription!(ends_at: nil, pause_behavior: nil)
     Pay::Subscription.create!(
       customer: pay_customers(:one),

@@ -11,6 +11,8 @@ module Pay
         subscription: self,
         change: SubscriptionChanges.new(self).change
       ).deliver_later(User.admin)
+    rescue Pay::SubscriptionChanges::UnknownSubscriptionChange => e
+      Honeybadger.notify(e)
     end
   end
 end

@@ -1,5 +1,11 @@
 module Pay
   class SubscriptionChanges
+    class UnknownSubscriptionChange < StandardError
+      def initialize(changes)
+        super("Unknown subscription change: #{changes}")
+      end
+    end
+
     private attr_reader :subscription
 
     def initialize(subscription)
@@ -20,6 +26,8 @@ module Pay
         :paused
       in data: [_, {pause_behavior: nil}]
         :unpaused
+      else
+        raise UnknownSubscriptionChange.new(subscription.previous_changes)
       end
     end
   end
