@@ -24,6 +24,5 @@ module Developers
     def twitter_card
       "summary"
     end
-
   end
 end
