@@ -1,19 +1,20 @@
 class Admin::BasicLinkComponent < ApplicationComponent
-  private attr_reader :title, :path, :external
+  private attr_reader :title, :path, :external, :data
 
-  def initialize(title, path, external: false)
+  def initialize(title, path, external: false, data: {})
     @title = title
     @path = path
     @external = external
+    @data = data
   end
 
   def call
-    link_to title, path, class: "hover:underline", target:
+    link_to title, path, class: "hover:underline", target:, data:
   end
 
   private
 
   def target
-    external ? "_blank" : "_self"
+    "_blank" if external
   end
 end

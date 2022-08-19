@@ -33,7 +33,7 @@
           <% row.with_cell align: :right do %>
             <%= render Admin::BasicLinkGroupComponent.new do |group| %>
               <% group.with_link "Edit", edit_admin_transaction_path(transaction) %>
-              <% group.with_link "Delete", admin_transaction_path(transaction) %>
+              <% group.with_link "Delete", admin_transaction_path(transaction), data: {turbo_method: :delete, turbo_confirm: t(".delete_confirmation")} %>
             <% end %>
           <% end %>
         <% end %>
