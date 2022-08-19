@@ -4,6 +4,7 @@
 
 ## August
 
+* August 19 - Removed Twitter method from developer Open Graph tags #603
 * August 18 - Add basic admin user search #604
 * August 17 - Send admins notifications on subscription changes #600
 * August 10 - Fixes an issue where uploaded avatars wouldn't render their preview #596
