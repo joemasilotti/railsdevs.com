@@ -1,10 +1,10 @@
 class Admin::LabeledAvatarComponent < ApplicationComponent
-  attr_reader :avatarable, :title, :title_path, :subtitle
+  attr_reader :avatarable, :title, :path, :subtitle
 
-  def initialize(avatarable, title:, title_path: nil, subtitle: nil)
+  def initialize(avatarable, title:, path: nil, subtitle: nil)
     @avatarable = avatarable
     @title = title
-    @title_path = title_path
+    @path = path
     @subtitle = subtitle
   end
 end
