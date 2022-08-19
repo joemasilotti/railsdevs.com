@@ -1,4 +1,4 @@
-class Admin::Forms::CancelButtonComponent < ApplicationComponent
+class Admin::Forms::ButtonLinkComponent < ApplicationComponent
   private attr_reader :title, :path
 
   def initialize(title, path)
