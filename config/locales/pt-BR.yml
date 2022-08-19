@@ -48,14 +48,6 @@ pt-BR:
         one: Usuário
         other: Usuários
   admin:
-    conversations:
-      blocks:
-        conversation:
-          blocked: Bloqueado
-        empty_state:
-          title: Nenhuma conversa bloqueada
-        index:
-          title: Conversas bloqueadas
     transactions:
       create:
         created: Transação criada
@@ -101,11 +93,11 @@ pt-BR:
       title: Iniciar uma conversa
       with: com
   conversations:
-    empty_state:
-      body: Comece buscando um desenvolvedor para enviar uma mensagem.
-      cta: Buscar um desenvolvedor
-      title: Nenhuma conversa
     index:
+      empty_state:
+        body: Comece buscando um desenvolvedor para enviar uma mensagem.
+        cta: Buscar um desenvolvedor
+        title: Nenhuma conversa
       title: Suas conversas
     show:
       flag: Sinalizar essa conversa
@@ -299,10 +291,9 @@ pt-BR:
         source: Fonte
         title: Receita do RailsDevs
   read_notifications:
-    empty_state:
-      body: Você não tem notificações de leitura.
-      title: Nenhuma notificação de leitura
     index:
+      empty_state_body: Você não tem notificações de leitura.
+      empty_state_title: Nenhuma notificação de leitura
       title: Notificações de leitura
   registrations:
     create_account: crie uma conta

@@ -1,0 +1,28 @@
+<%= form_with model: [:admin, @transaction] do |form| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), t(".description")) do |container| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :occurred_on) do |field| %>
+      <% field.with_input_text type: :date %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :transaction_type) do |field| %>
+      <% field.with_input_select options: OpenStartup::Transaction.transaction_types %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :description) do |field| %>
+      <% field.with_input_text %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :url, label: t(".URL")) do |field| %>
+      <% field.with_input_text %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :amount) do |field| %>
+      <% field.with_input_currency %>
+    <% end %>
+
+    <% container.with_button_group do %>
+      <%= render Admin::Forms::ButtonLinkComponent.new(t(".cancel"), admin_transactions_path) %>
+      <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: t(".saving"), button_classes: "ml-3") %>
+    <% end %>
+  <% end %>
+<% end %>

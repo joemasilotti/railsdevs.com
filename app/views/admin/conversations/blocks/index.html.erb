@@ -1,13 +1,17 @@
-<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <% if @conversations.any? %>
-    <h1 class="mt-6 text-center text-3xl font-extrabold"><%= t(".title") %></h1>
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
 
-    <ul class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-8">
-      <%= render partial: "conversation", collection: @conversations %>
-    </ul>
+  <% if @conversations.any? %>
+    <%= render Admin::ListComponent.new do |list| %>
+      <% @conversations.each do |conversation| %>
+        <% list.with_item conversation.developer.name, conversation.messages.last.body, path: conversation_path(conversation), subtitle: conversation.business.contact_name do |list_item| %>
+          <% list_item.with_aside do %>
+            <%= t(".blocked") %> <%= render TimeComponent.new(conversation.developer_blocked_at || conversation.business_blocked_at) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
   <% else %>
-    <div class="mt-8">
-      <%= render "empty_state" %>
-    </div>
+    <%= render EmptyStateComponent.new(t(".no_blocked_conversations"), "inbox") %>
   <% end %>
-</div>
+<% end %>

@@ -1,5 +1,17 @@
-<div class="text-center">
-  <%= inline_svg_tag icon, class: "mx-auto h-12 w-12 text-gray-400", aria_hidden: true %>
+<div class="text-center py-12">
+  <%= inline_svg_tag "icons/outline/#{icon}.svg", class: "mx-auto h-12 w-12 text-gray-400", aria_hidden: true %>
   <h3 class="mt-2 text-sm font-medium text-gray-900"><%= title %></h3>
-  <p class="mt-1 text-sm text-gray-500"><%= body %></p>
+
+  <% if body.present? %>
+    <p class="mt-1 text-sm text-gray-500"><%= body %></p>
+  <% end %>
+
+  <% if cta? %>
+    <div class="mt-6">
+      <%= link_to cta_path, class: "inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+        <%= inline_svg_tag "icons/solid/#{cta_icon}.svg", class: "-ml-1 mr-2 h-5 w-5", aria_hidden: true %>
+        <%= cta %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

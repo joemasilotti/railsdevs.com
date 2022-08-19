@@ -1,0 +1,24 @@
+<%= tag.li class: class_names("relative bg-white py-5 px-6", "hover:bg-gray-50": path.present?) do %>
+  <div class="flex justify-between space-x-3">
+    <div class="min-w-0 flex-1">
+      <% if path.present? %>
+        <%= link_to path, class: "block focus:outline-none" do %>
+          <span class="absolute inset-0" aria-hidden="true"></span>
+          <p class="text-sm font-medium text-gray-900 truncate"><%= title %></p>
+        <% end %>
+      <% else %>
+        <p class="text-sm font-medium text-gray-900 truncate"><%= title %></p>
+      <% end %>
+
+      <% if subtitle.present? %>
+        <p class="text-sm font-medium text-gray-900 truncate mt-1"><%= subtitle %></p>
+      <% end %>
+    </div>
+    <span class="shrink-0 whitespace-nowrap text-sm text-gray-500">
+      <%= aside %>
+    </span>
+  </div>
+  <div class="mt-4">
+    <p class="line-clamp-2 text-sm text-gray-600"><%= body %></p>
+  </div>
+<% end %>

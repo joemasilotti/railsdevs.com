@@ -62,28 +62,23 @@ en:
           created: Profile set to invisible.
     conversations:
       blocks:
-        conversation:
-          blocked: Blocked
-        empty_state:
-          title: No blocked conversations
         index:
+          blocked: Blocked
+          no_blocked_conversations: No blocked conversations
           title: Blocked conversations
-      conversations:
+      index:
         business: Business
+        conversations: "'s conversations"
         developer: Developer
         email: Email
         no_potential_email: No potential email
         no_response: No response
         potential_email: Potential email
         replied: Replied
-        started: Started
-        view: View
-      index:
-        title: Conversations
-        title_html: "%{href}'s conversations"
-      stats:
         reply_rate: Reply rate
         started: Started
+        title: Conversations
+        view: View
     developers:
       invisiblizes:
         create:
@@ -101,6 +96,16 @@ en:
         created: Transaction created
       destroy:
         destroyed: Transaction deleted
+      form:
+        URL: URL
+        cancel: Cancel
+        description: Expenses are paid services and products while contributions are donations and sponsorships.
+        save: Save
+        saving: Saving...
+        title: New expense or contribution
+      index:
+        delete_confirmation: Are you sure you want to delete this transaction?
+        title: Expenses and contributions
       update:
         updated: Transaction updated
     users:
@@ -108,9 +113,10 @@ en:
         business: Business
         developer: Developer
         email: Email
-        search: Search
-        search_help: Filter users by email
         title: Users
+      search:
+        cta: Search
+        help: Filter users by email
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -191,11 +197,11 @@ en:
       title: Start a conversation
       with: with
   conversations:
-    empty_state:
-      body: Get started by finding a developer to message.
-      cta: Find a developer
-      title: No conversations
     index:
+      empty_state:
+        body: Get started by finding a developer to message.
+        cta: Find a developer
+        title: No conversations
       title: Your conversations
     read_indicator_component:
       read: Message read.
@@ -604,10 +610,9 @@ en:
   read_notifications:
     create:
       notice: All notifications marked as read.
-    empty_state:
-      body: You have no read notifications.
-      title: No read notifications
     index:
+      empty_state_body: You have no read notifications.
+      empty_state_title: No read notifications
       title: Read notifications
   registrations:
     create_account: create an account

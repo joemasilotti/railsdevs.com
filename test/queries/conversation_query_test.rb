@@ -32,8 +32,8 @@ class ConversationQueryTest < ActiveSupport::TestCase
 
     query = ConversationQuery.new(nil)
 
-    assert_includes query.replied_to_conversation_ids, replied_to_conversation.id
-    refute_includes query.replied_to_conversation_ids, left_read_conversation.id
+    assert query.replied_to?(replied_to_conversation)
+    refute query.replied_to?(left_read_conversation)
   end
 
   test "conversations where a message contains an email address" do
@@ -46,8 +46,8 @@ class ConversationQueryTest < ActiveSupport::TestCase
 
     query = ConversationQuery.new(nil)
 
-    assert_includes query.potential_email_conversation_ids, conversation_with_email.id
-    refute_includes query.potential_email_conversation_ids, other_conversation.id
+    assert query.potential_email?(conversation_with_email)
+    refute query.potential_email?(other_conversation)
   end
 
   def create_conversation(developer: nil, business: nil)
