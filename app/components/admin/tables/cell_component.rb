@@ -1,6 +1,8 @@
 module Admin
   module Tables
     class CellComponent < ApplicationComponent
+      include CellAlignment
+
       private attr_reader :primary, :align
 
       def initialize(primary: false, align: :left)

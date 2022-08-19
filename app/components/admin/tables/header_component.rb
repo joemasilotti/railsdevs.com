@@ -1,6 +1,8 @@
 module Admin
   module Tables
     class HeaderComponent < ApplicationComponent
+      include CellAlignment
+
       attr_reader :title, :align
 
       def initialize(title = nil, align: :left)
