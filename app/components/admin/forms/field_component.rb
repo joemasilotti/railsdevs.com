@@ -1,0 +1,28 @@
+class Admin::Forms::FieldComponent < ApplicationComponent
+  renders_one :input, types: {
+    text: ->(**args) { Admin::Forms::TextInputComponent.new(form, field, classes:, **args) },
+    select: ->(**args) { Admin::Forms::SelectInputComponent.new(form, field, classes:, **args) },
+    currency: ->(**args) { Admin::Forms::CurrencyInputComponent.new(form, field, classes:, **args) }
+  }
+
+  attr_reader :form, :field, :label
+
+  def initialize(form, field, label: nil)
+    @form = form
+    @field = field
+    @label = label
+  end
+
+  def classes
+    class_names("block w-full sm:text-sm rounded-md", {
+      "focus:ring-red-500 focus:border-red-500 border-red-300": errors?,
+      "focus:ring-gray-500 focus:border-gray-500 border-gray-300": !errors?
+    })
+  end
+
+  private
+
+  def errors?
+    form.object.errors[field].any?
+  end
+end

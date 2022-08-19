@@ -1,14 +1,15 @@
 class Admin::TableCellComponent < ApplicationComponent
-  private attr_reader :first
+  private attr_reader :primary, :align
 
-  def initialize(first: false)
-    @first = first
+  def initialize(primary: false, align: :left)
+    @primary = primary
+    @align = align
   end
 
   def call
-    tag.td content, class: class_names("whitespace-nowrap py-4 text-sm", {
-      "pl-4 pr-3 font-medium sm:pl-6": first,
-      "pl-3 pr-4 text-gray-500 sm:pr-6": !first
+    tag.td content, class: class_names("px-6 py-4 whitespace-nowrap text-sm", align_class, {
+      "font-medium text-gray-900": primary,
+      "text-gray-500": !primary
     })
   end
 end

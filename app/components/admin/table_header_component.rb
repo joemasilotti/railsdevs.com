@@ -1,15 +1,12 @@
 class Admin::TableHeaderComponent < ApplicationComponent
-  attr_reader :title, :first
+  attr_reader :title, :align
 
-  def initialize(title = nil, first: false)
+  def initialize(title = nil, align: :left)
     @title = title
-    @first = first
+    @align = align
   end
 
   def call
-    tag.th title || content, scope: "col", class: class_names("py-3.5 text-left text-sm font-semibold text-gray-900", {
-      "pl-4 pr-3 sm:pl-6": first,
-      "px-3": !first
-    })
+    tag.th title || content, scope: "col", class: "px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider #{align_class}"
   end
 end

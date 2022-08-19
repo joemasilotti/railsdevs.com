@@ -5,13 +5,13 @@
     <%= render "search", query: @query %>
 
     <%= render Admin::TableComponent.new do |table| %>
-      <% table.with_header t(".email"), first: true %>
+      <% table.with_header t(".email") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".business") %>
 
       <% @users.each do |user| %>
         <% table.with_row do |row| %>
-          <%= row.with_cell first: true do %>
+          <%= row.with_cell primary: true do %>
             <%= render Admin::EmailLinkComponent.new(user.email) %>
           <% end %>
 

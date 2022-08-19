@@ -96,6 +96,15 @@ en:
         created: Transaction created
       destroy:
         destroyed: Transaction deleted
+      form:
+        URL: URL
+        cancel: Cancel
+        description: Expenses are paid services and products while contributions are donations and sponsorships.
+        save: Save
+        saving: Saving...
+        title: New expense or contribution
+      index:
+        title: Expenses and contributions
       update:
         updated: Transaction updated
     users:

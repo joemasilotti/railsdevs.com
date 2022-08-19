@@ -16,7 +16,7 @@
 
   <%= render Admin::ContentComponent.new do %>
     <%= render Admin::TableComponent.new do |table| %>
-      <% table.with_header t(".business"), first: true %>
+      <% table.with_header t(".business") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".started") %>
       <% table.with_header "#{t(".replied")}?" %>
@@ -27,7 +27,7 @@
 
       <% @context.query.records.each do |conversation| %>
         <% table.with_row do |row| %>
-          <% row.with_cell first: true do %>
+          <% row.with_cell primary: true do %>
             <%= render Admin::BasicLinkComponent.new("#{conversation.business.company} (#{conversation.business.contact_name})", admin_business_conversations_path(conversation.business)) %>
           <% end %>
 
