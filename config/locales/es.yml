@@ -237,6 +237,11 @@ es:
       format:
         format: "%u%n"
         unit: "$"
+  read_notifications:
+    index:
+      empty_state_body: No tienes notificaciones leídas.
+      empty_state_title: Sin noticaciones leídas
+      title: Ver notificaciones
   role_levels:
     component:
       interested_in_roles: Interesado en roles

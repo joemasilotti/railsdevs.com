@@ -290,6 +290,11 @@ pt-BR:
         revenue: Receitas
         source: Fonte
         title: Receita do RailsDevs
+  read_notifications:
+    index:
+      empty_state_body: Você não tem notificações de leitura.
+      empty_state_title: Nenhuma notificação de leitura
+      title: Notificações de leitura
   registrations:
     create_account: crie uma conta
     register: Registre-se
