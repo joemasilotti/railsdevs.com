@@ -57,9 +57,7 @@
           <%= render Developers::CardComponent.with_collection(@query.records) %>
         <% end %>
       <% else %>
-        <div class="my-16">
-          <%= render EmptyStateComponent.new(title: t(".empty_state.title"), body: t(".empty_state.body"), icon: "icons/outline/user_group.svg") %>
-        </div>
+        <%= render EmptyStateComponent.new(t(".empty_state.title"), "user_group", body: t(".empty_state.body")) %>
       <% end %>
     </div>
   </div>

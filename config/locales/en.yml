@@ -62,11 +62,9 @@ en:
           created: Profile set to invisible.
     conversations:
       blocks:
-        conversation:
-          blocked: Blocked
-        empty_state:
-          title: No blocked conversations
         index:
+          blocked: Blocked
+          no_blocked_conversations: No blocked conversations
           title: Blocked conversations
       index:
         business: Business
@@ -189,11 +187,11 @@ en:
       title: Start a conversation
       with: with
   conversations:
-    empty_state:
-      body: Get started by finding a developer to message.
-      cta: Find a developer
-      title: No conversations
     index:
+      empty_state:
+        body: Get started by finding a developer to message.
+        cta: Find a developer
+        title: No conversations
       title: Your conversations
     read_indicator_component:
       read: Message read.
@@ -602,10 +600,9 @@ en:
   read_notifications:
     create:
       notice: All notifications marked as read.
-    empty_state:
-      body: You have no read notifications.
-      title: No read notifications
     index:
+      empty_state_body: You have no read notifications.
+      empty_state_title: No read notifications
       title: Read notifications
   registrations:
     create_account: create an account

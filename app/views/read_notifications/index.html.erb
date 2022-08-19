@@ -10,8 +10,6 @@
       <%= render @notifications %>
     <% end %>
   <% else %>
-    <div class="mt-8">
-      <%= render "empty_state" %>
-    </div>
+    <%= render EmptyStateComponent.new(t(".empty_state_title"), "bell", body: t(".empty_state_body")) %>
   <% end %>
 </div>
