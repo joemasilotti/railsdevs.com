@@ -1,3 +1,5 @@
-class Admin::ListComponent < ApplicationComponent
-  renders_many :items, Admin::ListItemComponent
+module Admin
+  class ListComponent < ApplicationComponent
+    renders_many :items, ListItemComponent
+  end
 end

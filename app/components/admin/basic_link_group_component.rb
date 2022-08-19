@@ -1,3 +1,5 @@
-class Admin::BasicLinkGroupComponent < ApplicationComponent
-  renders_many :links, Admin::BasicLinkComponent
+module Admin
+  class BasicLinkGroupComponent < ApplicationComponent
+    renders_many :links, BasicLinkComponent
+  end
 end

@@ -1,10 +1,14 @@
-class Admin::Forms::ContainerComponent < ApplicationComponent
-  renders_one :button_group
+module Admin
+  module Forms
+    class ContainerComponent < ApplicationComponent
+      renders_one :button_group
 
-  attr_reader :title, :description
+      attr_reader :title, :description
 
-  def initialize(title, description)
-    @title = title
-    @description = description
+      def initialize(title, description)
+        @title = title
+        @description = description
+      end
+    end
   end
 end
