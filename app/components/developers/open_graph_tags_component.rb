@@ -25,8 +25,5 @@ module Developers
       "summary"
     end
 
-    def twitter
-      "@#{@developer.twitter}" if @developer.twitter.present?
-    end
   end
 end
