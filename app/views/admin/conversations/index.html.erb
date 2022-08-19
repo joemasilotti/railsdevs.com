@@ -15,7 +15,7 @@
   <% end %>
 
   <%= render Admin::ContentComponent.new do %>
-    <%= render Admin::TableComponent.new do |table| %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
       <% table.with_header t(".business") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".started") %>

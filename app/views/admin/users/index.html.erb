@@ -4,7 +4,7 @@
   <%= render Admin::ContentComponent.new do %>
     <%= render "search", query: @query %>
 
-    <%= render Admin::TableComponent.new do |table| %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
       <% table.with_header t(".email") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".business") %>
