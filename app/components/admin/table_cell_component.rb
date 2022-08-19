@@ -7,8 +7,8 @@ class Admin::TableCellComponent < ApplicationComponent
 
   def call
     tag.td content, class: class_names("whitespace-nowrap py-4 text-sm", {
-      "pl-4 pr-3 sm:pl-6": first,
-      "pl-3 pr-4 font-medium sm:pr-6": !first
+      "pl-4 pr-3 font-medium sm:pl-6": first,
+      "pl-3 pr-4 text-gray-500 sm:pr-6": !first
     })
   end
 end

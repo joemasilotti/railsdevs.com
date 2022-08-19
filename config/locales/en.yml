@@ -68,22 +68,19 @@ en:
           title: No blocked conversations
         index:
           title: Blocked conversations
-      conversations:
+      index:
         business: Business
+        conversations: "'s conversations"
         developer: Developer
         email: Email
         no_potential_email: No potential email
         no_response: No response
         potential_email: Potential email
         replied: Replied
-        started: Started
-        view: View
-      index:
-        title: Conversations
-        title_html: "%{href}'s conversations"
-      stats:
         reply_rate: Reply rate
         started: Started
+        title: Conversations
+        view: View
     developers:
       invisiblizes:
         create:

@@ -4,13 +4,13 @@
   <%= render Admin::ContentComponent.new do %>
     <%= render "search", query: @query %>
 
-    <%= render Admin::TableComponent.new do |component| %>
-      <% component.with_header t(".email"), first: true %>
-      <% component.with_header t(".developer") %>
-      <% component.with_header t(".business") %>
+    <%= render Admin::TableComponent.new do |table| %>
+      <% table.with_header t(".email"), first: true %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".business") %>
 
       <% @users.each do |user| %>
-        <% component.with_row do |row| %>
+        <% table.with_row do |row| %>
           <%= row.with_cell first: true do %>
             <%= render Admin::EmailLinkComponent.new(user.email) %>
           <% end %>
