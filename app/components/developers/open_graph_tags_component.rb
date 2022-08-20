@@ -24,9 +24,5 @@ module Developers
     def twitter_card
       "summary"
     end
-
-    def twitter
-      "@#{@developer.twitter}" if @developer.twitter.present?
-    end
   end
 end

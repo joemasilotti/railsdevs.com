@@ -20,7 +20,6 @@ module Developers
       render_inline OpenGraphTagsComponent.new(developer:)
 
       assert_meta property: "og:image", count: 0
-      assert_meta property: "twitter:site", count: 0
     end
 
     test "includes image when present" do
@@ -30,14 +29,6 @@ module Developers
       render_inline OpenGraphTagsComponent.new(developer:)
 
       assert_meta property: "og:image", content_end_with: "/avatar.jpg"
-    end
-
-    test "includes twitter when present" do
-      developer = Developer.new(id: 123, twitter: "me")
-
-      render_inline OpenGraphTagsComponent.new(developer:)
-
-      assert_meta property: "twitter:site", content: "@me"
     end
 
     test "Turbo Native requests" do
