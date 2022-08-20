@@ -207,7 +207,7 @@ GEM
     http-form_data (2.3.0)
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
-    i18n (1.11.0)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.0.10)
       activesupport (>= 4.0.2)
@@ -254,7 +254,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.2)
+    minitest (5.16.3)
     minitest-reporters (1.5.0)
       ansi
       builder
@@ -419,14 +419,15 @@ GEM
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.2.0)
-    view_component (2.53.0)
+    view_component (2.69.0)
       activesupport (>= 5.0.0, < 8.0)
+      concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -502,7 +503,7 @@ DEPENDENCIES
   timezone_finder (~> 1.5.7)
   turbo-rails (~> 1.0)
   tzinfo-data
-  view_component (~> 2.53)
+  view_component (~> 2.69)
   webdrivers
   webmock
 

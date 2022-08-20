@@ -5,10 +5,10 @@ class EmptyStateComponentTest < ViewComponent::TestCase
     title = "No notifications"
     body = "Nothing to see"
 
-    render_inline(EmptyStateComponent.new(title:, body:, icon: "icons/brands/github.svg"))
+    render_inline EmptyStateComponent.new(title, "clock", body:)
 
     assert_selector("h3", text: title)
     assert_selector("p", text: body)
-    assert_selector "svg[title='GitHub logo']"
+    assert_selector "svg[title='Clock']"
   end
 end

@@ -5,6 +5,7 @@
 ## August
 
 * August 19 - Removed developer Twitter handle from Open Graph tags #607
+* August 19 - Convert reusable `/admin` components to View Components #605
 * August 18 - Add basic admin user search #604
 * August 17 - Send admins notifications on subscription changes #600
 * August 10 - Fixes an issue where uploaded avatars wouldn't render their preview #596

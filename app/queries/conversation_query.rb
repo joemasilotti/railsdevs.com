@@ -22,6 +22,23 @@ class ConversationQuery
     @all_records ||= entity.present? ? entity.conversations : Conversation.all
   end
 
+  def replied_to?(conversation)
+    replied_to_conversation_ids.include?(conversation.id)
+  end
+
+  def potential_email?(conversation)
+    potential_email_conversation_ids.include?(conversation.id)
+  end
+
+  private
+
+  def query_and_paginate
+    records = all_records
+      .includes(:business, :developer)
+      .order(created_at: :desc)
+    @pagy, @records = build_pagy(records)
+  end
+
   def replied_to_conversation_ids
     @replied_to_conversation_ids ||=
       Message.where(sender_type: "Developer", conversation: records)
@@ -33,15 +50,6 @@ class ConversationQuery
       Message.where(conversation: records)
         .potential_email
         .distinct.pluck(:conversation_id)
-  end
-
-  private
-
-  def query_and_paginate
-    records = all_records
-      .includes(:business, :developer)
-      .order(created_at: :desc)
-    @pagy, @records = build_pagy(records)
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.

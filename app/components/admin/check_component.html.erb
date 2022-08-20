@@ -1,0 +1,6 @@
+<% if checked? %>
+  <span class="sr-only"><%= checked_title %></span>
+  <%= inline_svg_tag "icons/outline/check.svg", class: "w-4 h-4 text-gray-800", aria_hidden: true %>
+<% elsif unchecked_title.present? %>
+  <span class="sr-only"><%= unchecked_title %></span>
+<% end %>

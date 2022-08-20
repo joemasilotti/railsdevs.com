@@ -47,10 +47,6 @@ es:
   admin:
     conversations:
       blocks:
-        conversation:
-          blocked: Bloqueada
-        empty_state:
-          title: Ninguna conversación bloqueada
         index:
           title: Conversaciones bloqueadas
   blocks:
@@ -91,11 +87,11 @@ es:
       title: Empieza una conversación
       with: con
   conversations:
-    empty_state:
-      body: Comienza encontrando a desarrolladores para contactar.
-      cta: Encuentra a algún desarrollador
-      title: Sin conversaciones
     index:
+      empty_state:
+        body: Comienza encontrando a desarrolladores para contactar.
+        cta: Encuentra a algún desarrollador
+        title: Sin conversaciones
       title: Tus conversaciones
     show:
       flag: Marcar esta conversación
@@ -242,10 +238,9 @@ es:
         format: "%u%n"
         unit: "$"
   read_notifications:
-    empty_state:
-      body: No tienes notificaciones leídas.
-      title: Sin noticaciones leídas
     index:
+      empty_state_body: No tienes notificaciones leídas.
+      empty_state_title: Sin noticaciones leídas
       title: Ver notificaciones
   role_levels:
     component:
