@@ -116,7 +116,7 @@ en:
         title: Users
       search:
         cta: Search
-        help: Filter users by email
+        help: Filter users by name, company, or email
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
