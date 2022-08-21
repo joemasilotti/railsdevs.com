@@ -26,7 +26,15 @@ class User < ApplicationRecord
     inverse_of: :user_with_unread_messages
 
   scope :admin, -> { where(admin: true) }
-  scope :filter_by_email, ->(email) { where("email ILIKE ?", "%#{email}%") }
+
+  scope :search, ->(query) do
+    query = "%#{query}%"
+    left_outer_joins(:developer, :business)
+      .where("email ILIKE ?", query)
+      .or(where("developers.name ILIKE ?", query))
+      .or(where("businesses.contact_name ILIKE ?", query))
+      .or(where("businesses.company ILIKE ?", query))
+  end
 
   # Always remember when signing in with Devise.
   def remember_me
