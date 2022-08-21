@@ -28,11 +28,12 @@ class User < ApplicationRecord
   scope :admin, -> { where(admin: true) }
 
   scope :search, ->(query) do
+    query = "%#{query}%"
     left_outer_joins(:developer, :business)
-      .where("email ILIKE ?", "%#{query}%")
-      .or(where("developers.name ILIKE ?", "%#{query}%"))
-      .or(where("businesses.contact_name ILIKE ?", "%#{query}%"))
-      .or(where("businesses.company ILIKE ?", "%#{query}%"))
+      .where("email ILIKE ?", query)
+      .or(where("developers.name ILIKE ?", query))
+      .or(where("businesses.contact_name ILIKE ?", query))
+      .or(where("businesses.company ILIKE ?", query))
   end
 
   # Always remember when signing in with Devise.
