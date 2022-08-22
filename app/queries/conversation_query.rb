@@ -48,6 +48,7 @@ class ConversationQuery
   def potential_email_conversation_ids
     @potential_email_conversation_ids ||=
       Message.where(conversation: records)
+        .where(sender_type: Developer.name)
         .potential_email
         .distinct.pluck(:conversation_id)
   end

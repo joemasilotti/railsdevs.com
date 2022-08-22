@@ -38,16 +38,20 @@ class ConversationQueryTest < ActiveSupport::TestCase
 
   test "conversations where a message contains an email address" do
     developer = create_developer
+    business = create_business
 
-    conversation_with_email = create_conversation(developer:)
-    conversation_with_email.messages.create!(sender: developer, body: "me@example.com")
-    other_conversation = create_conversation
-    other_conversation.messages.create!(sender: developer, body: "Hi!")
+    with_developer_email = create_conversation(developer:)
+    with_developer_email.messages.create!(sender: developer, body: "dev@example.com")
+    with_business_email = create_conversation(business:)
+    with_business_email.messages.create!(sender: business, body: "biz@example.com")
+    other = create_conversation
+    other.messages.create!(sender: developer, body: "Hi!")
 
     query = ConversationQuery.new(nil)
 
-    assert query.potential_email?(conversation_with_email)
-    refute query.potential_email?(other_conversation)
+    assert query.potential_email?(with_developer_email)
+    refute query.potential_email?(with_business_email)
+    refute query.potential_email?(other)
   end
 
   def create_conversation(developer: nil, business: nil)
