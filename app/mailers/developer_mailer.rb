@@ -26,15 +26,14 @@ class DeveloperMailer < ApplicationMailer
   end
 
   def celebration_promotion
-    @notification = params[:record].to_notification
-    @developer = @notification.conversation.developer
-    @business = @notification.conversation.business
-    recipient = params[:recipient]
+    @conversation = params[:conversation]
+    @developer = @conversation.developer
+    @business = @conversation.business
 
     mail(
-      to: recipient.email,
+      to: @developer.user.email,
       from: Rails.configuration.emails.reminders_mailbox!,
-      subject: @notification.title,
+      subject: "How's your conversation going with #{@business.contact_name} at #{@business.company}?",
       message_stream: :broadcast
     )
   end

@@ -25,7 +25,7 @@ module Messages
     end
 
     def schedule_celebration_promotion
-      Developers::CelebrationPromotionNotification.with(conversation:).deliver_later(developer.user)
+      DeveloperMailer.with(conversation: conversation).celebration_promotion.deliver_later(wait: 30.days)
     end
 
     def first_message?
