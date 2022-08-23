@@ -1,9 +1,41 @@
-<div class="max-w-xl mx-auto mt-16">
-  <h1 class="text-3xl font-extrabold">Hired forms</h1>
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new("Celebration package requests") %>
 
-  <ul>
-    <% @forms.each do |form| %>
-      <li><%= link_to "Form", admin_hired_form_path(form) %></li>
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header "Developer" %>
+      <% table.with_header "Company" %>
+      <% table.with_header "Employment type" %>
+      <% table.with_header "Start date" %>
+      <% table.with_header align: :right do %>
+        <span class="sr-only">Actions</span>
+      <% end %>
+
+      <% @forms.each do |form| %>
+        <% table.with_row do |row| %>
+          <%= row.with_cell primary: true do %>
+            <%= render Admin::LabeledAvatarComponent.new(form.developer, title: form.developer.name, path: admin_developer_conversations_path(form.developer)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::BasicLinkComponent.new(form.company, admin_users_path(query: form.company)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= form.employment_type.humanize %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= form.start_date.to_formatted_s(:long) %>
+          <% end %>
+
+          <% row.with_cell align: :right do %>
+            <%= render Admin::BasicLinkGroupComponent.new do |group| %>
+              <% group.with_link "Details", admin_hired_form_path(form) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
     <% end %>
-  </ul>
-</div>
+  <% end %>
+<% end %>

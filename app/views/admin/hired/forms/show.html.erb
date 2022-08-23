@@ -1,3 +1,17 @@
-<div class="max-w-xl mx-auto mt-16">
-  <h1 class="text-3xl font-extrabold">Hired form</h1>
-</div>
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::DescriptionListComponent.new("Celebration package request", "Completed form from a hired developer.") do |list| %>
+      <% list.with_description "Full name" do %>
+        <%= render Admin::BasicLinkComponent.new(@form.developer.name, developer_path(@form.developer)) %>
+        <br>
+        <%= render Admin::EmailLinkComponent.new(@form.developer.user.email) %>
+      <% end %>
+      <% list.with_description "Mailing address", simple_format(@form.address) %>
+      <% list.with_description "Company name", @form.company %>
+      <% list.with_description "Position", @form.position %>
+      <% list.with_description "Start date", @form.start_date.to_formatted_s(:long) %>
+      <% list.with_description "Employment type", @form.employment_type.humanize %>
+      <% list.with_description "Feedback", @form.feedback, wide: true %>
+    <% end %>
+  <% end %>
+<% end %>
