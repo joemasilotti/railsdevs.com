@@ -4,6 +4,7 @@
 
 ## August
 
+* August 23 - Developer celebration flow #610
 * August 21 - Expand `User` filtering to developer & business #608
 * August 19 - Removed developer Twitter handle from Open Graph tags #607
 * August 19 - Convert reusable `/admin` components to View Components #605
