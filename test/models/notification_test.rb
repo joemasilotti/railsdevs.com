@@ -12,10 +12,23 @@ class NotificationTest < ActiveSupport::TestCase
   end
 
   test "message resolves correctly" do
-    assert @notification.to_notification.message == @message
+    assert_equal @message, @notification.to_notification.message
   end
 
   test "conversation resolves correctly" do
-    assert @notification.to_notification.conversation == @message.conversation
+    assert_equal @message.conversation, @notification.to_notification.conversation
+  end
+
+  test "celebreation promotion notifications are hidden from the UI" do
+    notification = create_celebration_promotion_notification
+    assert_includes Notification.all, notification
+    refute_includes Notification.visible, notification
+  end
+
+  def create_celebration_promotion_notification
+    Notification.create!(
+      type: Developers::CelebrationPromotionNotification,
+      recipient: users(:developer)
+    )
   end
 end
