@@ -135,6 +135,14 @@ class ConversationTest < ActiveSupport::TestCase
     refute notifications(:message_to_developer).reload.read?
   end
 
+  test "first reply when a developer has sent exactly one message in this conversation" do
+    conversation = conversations(:one)
+    assert conversation.first_reply?(conversation.developer)
+
+    conversation.messages.create!(sender: conversation.developer, body: "Second message.")
+    refute conversation.first_reply?(conversation.developer)
+  end
+
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,

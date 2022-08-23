@@ -25,6 +25,20 @@ class DeveloperMailer < ApplicationMailer
     )
   end
 
+  def celebration_promotion
+    @notification = params[:record].to_notification
+    @developer = @notification.conversation.developer
+    @business = @notification.conversation.business
+    recipient = params[:recipient]
+
+    mail(
+      to: recipient.email,
+      from: Rails.configuration.emails.reminders_mailbox!,
+      subject: @notification.title,
+      message_stream: :broadcast
+    )
+  end
+
   def first_message
     @developer = params[:developer]
 
