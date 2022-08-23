@@ -20,7 +20,7 @@
       <% field.with_input_select options: Hired::Form.employment_types, include_blank: true %>
     <% end %>
 
-    <%= render Admin::Forms::FieldComponent.new(form, :feedback) do |field| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :feedback, label: "Feedback (optional)", help: "Please let us know how we can improve RailsDevs or anything you'd like to share.") do |field| %>
       <% field.with_input_text_area rows: 3 %>
     <% end %>
 
