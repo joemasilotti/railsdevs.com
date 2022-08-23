@@ -10,7 +10,7 @@ module Hired
     def create
       @form = Hired::Form.new(form_params)
       if @form.save
-        redirect_to root_path, notice: "Thank you! Joe will reach out to you soon."
+        redirect_to root_path, notice: t(".success")
       else
         render :new, status: :unprocessable_entity
       end
@@ -20,7 +20,7 @@ module Hired
 
     def require_developer!
       if current_user.developer.blank?
-        redirect_to new_developer_path, notice: "Please create a developer profile first."
+        redirect_to new_developer_path, notice: I18n.t("errors.developer_blank")
       end
     end
 

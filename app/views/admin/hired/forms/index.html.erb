@@ -1,14 +1,14 @@
 <%= render Admin::ContainerComponent.new do %>
-  <%= render Admin::HeadingComponent.new("Celebration package requests") %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
 
   <%= render Admin::ContentComponent.new do %>
     <%= render Admin::Tables::TableComponent.new do |table| %>
-      <% table.with_header "Developer" %>
-      <% table.with_header "Company" %>
-      <% table.with_header "Employment type" %>
-      <% table.with_header "Start date" %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".company") %>
+      <% table.with_header t(".employment_type") %>
+      <% table.with_header t(".start_date") %>
       <% table.with_header align: :right do %>
-        <span class="sr-only">Actions</span>
+        <span class="sr-only"><%= t(".actions") %></span>
       <% end %>
 
       <% @forms.each do |form| %>
@@ -31,7 +31,7 @@
 
           <% row.with_cell align: :right do %>
             <%= render Admin::BasicLinkGroupComponent.new do |group| %>
-              <% group.with_link "Details", admin_hired_form_path(form) %>
+              <% group.with_link t(".details"), admin_hired_form_path(form) %>
             <% end %>
           <% end %>
         <% end %>

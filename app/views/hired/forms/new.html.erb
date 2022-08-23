@@ -1,10 +1,10 @@
 <%= form_with model: @form do |form| %>
-  <%= render Admin::Forms::ContainerComponent.new("Did you find a job through RailsDevs?", "Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.") do |container| %>
-    <%= render Admin::Forms::FieldComponent.new(form, :address, label: "Mailing address", help: "Where can we send your celebration package?") do |field| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), t(".description")) do |container| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :address, label: t(".mailing_address"), help: t(".mailing_address_help")) do |field| %>
       <% field.with_input_text_area rows: 3 %>
     <% end %>
 
-    <%= render Admin::Forms::FieldComponent.new(form, :company, label: "Company name") do |field| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :company, label: t(".company_name")) do |field| %>
       <% field.with_input_text type: :text %>
     <% end %>
 
@@ -20,12 +20,12 @@
       <% field.with_input_select options: Hired::Form.employment_types, include_blank: true %>
     <% end %>
 
-    <%= render Admin::Forms::FieldComponent.new(form, :feedback, label: "Feedback (optional)", help: "Please let us know how we can improve RailsDevs or anything you'd like to share.") do |field| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :feedback, label: t(".feedback"), help: t(".feedback_help")) do |field| %>
       <% field.with_input_text_area rows: 3 %>
     <% end %>
 
     <% container.with_button_group do %>
-      <%= render SubmitButtonComponent.new(text: "Request package", disable_with: "Requesting...") %>
+      <%= render SubmitButtonComponent.new(text: t(".request_package"), disable_with: t(".requesting")) %>
     <% end %>
   <% end %>
 <% end %>
