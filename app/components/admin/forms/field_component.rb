@@ -3,6 +3,7 @@ module Admin
     class Forms::FieldComponent < ApplicationComponent
       renders_one :input, types: {
         text: ->(**args) { TextInputComponent.new(form, field, classes:, **args) },
+        text_area: ->(**args) { TextAreaInputComponent.new(form, field, classes:, **args) },
         select: ->(**args) { SelectInputComponent.new(form, field, classes:, **args) },
         currency: ->(**args) { CurrencyInputComponent.new(form, field, classes:, **args) }
       }
