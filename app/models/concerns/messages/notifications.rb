@@ -5,6 +5,7 @@ module Messages
         send_recipient_notification
         send_first_message_email if first_message?
         send_admin_notification if cold_message
+        schedule_celebration_promotion if first_reply?
         true
       end
     end
@@ -23,8 +24,16 @@ module Messages
       DeveloperMailer.with(developer: conversation.developer).first_message.deliver_later
     end
 
+    def schedule_celebration_promotion
+      DeveloperMailer.with(conversation: conversation).celebration_promotion.deliver_later(wait: 30.days)
+    end
+
     def first_message?
       Message.first_message?(conversation.developer)
+    end
+
+    def first_reply?
+      conversation.first_reply?(conversation.developer)
     end
   end
 end

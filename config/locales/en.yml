@@ -86,6 +86,25 @@ en:
     features:
       create:
         created: Profile featured for one week.
+    hired:
+      forms:
+        index:
+          actions: Actions
+          company: Company
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Celebration package requests
+        show:
+          company_name: Company name
+          description: Completed form from a hired developer.
+          employment_type: Employment type
+          feedback: Feedback
+          mailing_address: Mailing address
+          position: Position
+          start_date: Start date
+          title: Celebration package request
     impersonates:
       show:
         cta: Impersonate
@@ -215,6 +234,8 @@ en:
     formats:
       month_year: "%B %Y"
   developer_mailer:
+    celebration_promotion:
+      subject: How's your conversation going with %{contact} at %{company}?
     first_message:
       subject: Tips on responding to your first message on RailsDevs
   developers:
@@ -352,11 +373,30 @@ en:
   errors:
     business_blank: Fill out your business profile to message developers.
     business_subscription_inactive: Sign up for a business subscription to message developers.
+    developer_blank: Please create a developer profile first.
     messages:
       attached: is not attached
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
+  hired:
+    forms:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        company_name: Company name
+        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        mailing_address: Mailing address
+        mailing_address_help: Where can we send your celebration package?
+        request_package: Request package
+        requesting: Requesting...
+        title: Did you find a job through RailsDevs?
+    show:
+      description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
+      image_alt: RailsDevs celebration package
+      title: Congrats on your new job!
   home:
     show:
       available_developers: Developers available now
@@ -400,11 +440,14 @@ en:
       billing: Billing
       blocked_conversations: Blocked conversations
       conversations: Conversations
+      found_a_job: Found a job?
       get_started: Get started
+      hired_forms: Hired forms
       impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
+      new: New!
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out

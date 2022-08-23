@@ -19,6 +19,10 @@ module NavBar
       user.admin?
     end
 
+    def hired?
+      user.developer&.persisted?
+    end
+
     def user_links
       @user_links ||= build_user_links
     end
@@ -28,6 +32,7 @@ module NavBar
         Link.new(t(".users"), admin_users_path),
         Link.new(t(".conversations"), admin_conversations_path),
         Link.new(t(".impersonate"), admin_impersonate_path),
+        Link.new(t(".hired_forms"), admin_hired_forms_path),
         Link.new(t(".transactions"), admin_transactions_path),
         Link.new(t(".blocked_conversations"), admin_conversations_blocks_path)
       ]

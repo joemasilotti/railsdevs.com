@@ -31,6 +31,10 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
+    resource :hired, only: :show, controller: :hired do
+      resources :forms, only: [:new, :create], module: :hired
+    end
+
     namespace :open_startup, path: "/open" do
       resources :contributions, only: :index
       resources :expenses, only: :index
@@ -66,6 +70,10 @@ Rails.application.routes.draw do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create, module: :developers
+    end
+
+    namespace :hired do
+      resources :forms, only: [:index, :show]
     end
   end
 

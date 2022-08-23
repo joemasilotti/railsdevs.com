@@ -18,6 +18,13 @@
                 <% links.each do |link| %>
                   <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                 <% end %>
+
+                <% if hired? %>
+                  <%= link_to hired_path, class: "hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do %>
+                    <span class="absolute -mt-2.5 -ml-6 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs -rotate-12"><%= t(".new") %></span>
+                    <span><%= t(".found_a_job") %></span>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>

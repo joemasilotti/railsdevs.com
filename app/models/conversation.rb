@@ -60,6 +60,10 @@ class Conversation < ApplicationRecord
     user_with_unread_messages == user
   end
 
+  def first_reply?(developer)
+    messages.where(sender: developer).one?
+  end
+
   private
 
   def developer_replied?

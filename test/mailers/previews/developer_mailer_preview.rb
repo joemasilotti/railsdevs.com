@@ -9,6 +9,10 @@ class DeveloperMailerPreview < ActionMailer::Preview
     DeveloperMailer.with(record: notification, recipient: notification.recipient).welcome
   end
 
+  def celebration_promotion
+    DeveloperMailer.with(conversation: Conversation.first).celebration_promotion
+  end
+
   def first_message
     DeveloperMailer.with(developer: Developer.first).first_message
   end
