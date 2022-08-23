@@ -7,12 +7,13 @@ module Admin
         currency: ->(**args) { CurrencyInputComponent.new(form, field, classes:, **args) }
       }
 
-      attr_reader :form, :field, :label
+      attr_reader :form, :field, :label, :help
 
-      def initialize(form, field, label: nil)
+      def initialize(form, field, label: nil, help: nil)
         @form = form
         @field = field
         @label = label
+        @help = help
       end
 
       def classes

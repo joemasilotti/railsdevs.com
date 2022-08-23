@@ -3,4 +3,8 @@
   <%= tag.div class: "mt-1 relative rounded-md shadow-sm" do %>
     <%= input %>
   <% end %>
+
+  <% if help.present? %>
+    <p class="mt-2 text-sm text-gray-500"><%= help %></p>
+  <% end %>
 </div>
