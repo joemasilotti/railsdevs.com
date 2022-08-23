@@ -19,6 +19,10 @@ module NavBar
       user.admin?
     end
 
+    def hired?
+      user.developer&.persisted?
+    end
+
     def user_links
       @user_links ||= build_user_links
     end
