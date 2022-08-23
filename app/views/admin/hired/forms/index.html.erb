@@ -1,0 +1,9 @@
+<div class="max-w-xl mx-auto mt-16">
+  <h1 class="text-3xl font-extrabold">Hired forms</h1>
+
+  <ul>
+    <% @forms.each do |form| %>
+      <li><%= link_to "Form", admin_hired_form_path(form) %></li>
+    <% end %>
+  </ul>
+</div>
