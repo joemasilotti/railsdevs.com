@@ -1,6 +1,4 @@
 class AdminMailer < ApplicationMailer
-  helper :messages
-
   def new_developer
     @notification = params[:record].to_notification
     recipient = params[:recipient]
@@ -27,7 +25,7 @@ class AdminMailer < ApplicationMailer
     @business = conversation.business
     @developer = conversation.developer
     @subscriptions = @business.user.subscriptions
-    @body = conversation.messages.first.body
+    @message = conversation.messages.first
 
     mail(to: recipient.email, subject: @notification.email_subject)
   end
@@ -41,5 +39,14 @@ class AdminMailer < ApplicationMailer
     @replies = @developer.messages.distinct.count(:conversation_id)
 
     mail(to: recipient.email, subject: @notification.email_subject)
+  end
+
+  def subscription_change
+    @notification = params[:record].to_notification
+    recipient = params[:recipient]
+
+    @business = @notification.subscription.customer.owner.business
+
+    mail(to: recipient.email, subject: @notification.title)
   end
 end

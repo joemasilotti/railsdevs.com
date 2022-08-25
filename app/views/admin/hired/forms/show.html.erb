@@ -1,0 +1,17 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::DescriptionListComponent.new(t(".title"), t(".description")) do |list| %>
+      <% list.with_description "Full name" do %>
+        <%= render Admin::BasicLinkComponent.new(@form.developer.name, developer_path(@form.developer)) %>
+        <br>
+        <%= render Admin::EmailLinkComponent.new(@form.developer.user.email) %>
+      <% end %>
+      <% list.with_description t(".mailing_address"), simple_format(@form.address) %>
+      <% list.with_description t(".company_name"), @form.company %>
+      <% list.with_description t(".position"), @form.position %>
+      <% list.with_description t(".start_date"), @form.start_date.to_formatted_s(:long) %>
+      <% list.with_description t(".employment_type"), @form.employment_type.humanize %>
+      <% list.with_description t(".feedback"), @form.feedback, wide: true %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -12,10 +12,10 @@ class NotificationTest < ActiveSupport::TestCase
   end
 
   test "message resolves correctly" do
-    assert @notification.to_notification.message == @message
+    assert_equal @message, @notification.to_notification.message
   end
 
   test "conversation resolves correctly" do
-    assert @notification.to_notification.conversation == @message.conversation
+    assert_equal @message.conversation, @notification.to_notification.conversation
   end
 end

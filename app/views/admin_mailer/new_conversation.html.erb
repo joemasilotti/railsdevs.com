@@ -1,6 +1,6 @@
 <p><%= link_to "#{@business.contact_name} (#{@business.company})", business_url(@business) %> started a conversation with <%= link_to @developer.name, developer_url(@developer) %>:</p>
 
-<%== html_truncate_message_body(@body) %>
+<blockquote><%== @message.body_html %></blockquote>
 
 <%= link_to "View conversation", notification_url(@notification.record) %>
 

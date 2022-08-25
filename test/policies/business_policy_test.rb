@@ -22,4 +22,26 @@ class BusinessPolicyTest < ActiveSupport::TestCase
     policy = BusinessPolicy.new(user, user.business)
     assert_includes policy.permitted_attributes, :developer_notifications
   end
+
+  test "view their own invisible business profile" do
+    business = businesses(:one)
+    business.update!(invisible: true)
+    assert BusinessPolicy.new(business.user, business).show?
+  end
+
+  test "cannot view another's invisible business profile" do
+    user = users(:empty)
+    business = businesses(:one)
+    business.update!(invisible: true)
+
+    refute BusinessPolicy.new(user, business).show?
+  end
+
+  test "admin can view another's invisible business profile" do
+    user = users(:admin)
+    business = businesses(:one)
+    business.update!(invisible: true)
+
+    assert BusinessPolicy.new(user, business).show?
+  end
 end

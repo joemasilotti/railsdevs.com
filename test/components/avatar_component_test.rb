@@ -2,6 +2,8 @@ require "test_helper"
 
 class AvatarComponentTest < ViewComponent::TestCase
   include ActionView::Helpers::AssetUrlHelper
+  include ActionView::Helpers::UrlHelper
+  include Rails.application.routes.url_helpers
 
   setup do
     @developer = developers(:one)
@@ -19,7 +21,15 @@ class AvatarComponentTest < ViewComponent::TestCase
     render_inline(avatar_component)
 
     assert_instance_of ActiveStorage::VariantWithRecord, avatar_component.image
-    assert_equal [64, 64], avatar_component.image.variation.transformations[:resize_to_limit]
+    assert_equal [32, 32], avatar_component.image.variation.transformations[:resize_to_limit]
+    assert_equal [64, 64], avatar_component.image_2x.variation.transformations[:resize_to_limit]
+  end
+
+  test "should render srcset for 2x images" do
+    avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
+    render_inline(avatar_component)
+
+    assert_selector("img[srcset$='#{url_for @developer.avatar.variant(:thumb_2x)} 2x']")
   end
 
   test "should fall back to default" do

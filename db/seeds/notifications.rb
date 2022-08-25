@@ -35,3 +35,7 @@ Notification.find_or_create_by!(type: Admin::NewDeveloperNotification.name, reci
 # AdminMailer#potential_hire
 developer = User.find_by(email: "hired@example.com").developer
 Notification.find_or_create_by!(type: Admin::PotentialHireNotification.name, recipient: admin, params: {developer:})
+
+# AdminMailer#subscription_change
+subscription = business.user.subscriptions.first
+Notification.find_or_create_by!(type: Admin::SubscriptionChangeNotification.name, recipient: admin, params: {subscription:, change: :subscribed})

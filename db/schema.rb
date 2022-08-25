@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_185956) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -82,7 +83,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
     t.datetime "developer_blocked_at"
     t.datetime "business_blocked_at"
     t.string "inbound_email_token"
+    t.integer "user_with_unread_messages_id"
     t.index ["business_id"], name: "index_conversations_on_business_id"
+    t.index ["developer_id", "business_id"], name: "index_conversations_on_developer_id_and_business_id", unique: true
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
     t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
   end
@@ -107,9 +110,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
     t.virtual "textsearchable_index_col", type: :tsvector, as: "to_tsvector('simple'::regconfig, (((COALESCE(hero, ''::character varying))::text || ' '::text) || COALESCE(bio, ''::text)))", stored: true
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
+    t.string "stack_overflow"
     t.integer "location_preference"
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "hired_forms", force: :cascade do |t|
+    t.bigint "developer_id", null: false
+    t.text "address", null: false
+    t.string "company", null: false
+    t.string "position", null: false
+    t.date "start_date", null: false
+    t.integer "employment_type", null: false
+    t.text "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_hired_forms_on_developer_id"
+  end
+
+  create_table "inbound_emails", force: :cascade do |t|
+    t.bigint "message_id"
+    t.string "postmark_message_id", null: false
+    t.jsonb "payload", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_inbound_emails_on_message_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -181,9 +207,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
 
   create_table "open_startup_metrics", force: :cascade do |t|
     t.date "occurred_on", null: false
-    t.jsonb "data", default: {}, null: false
+    t.jsonb "legacy_data", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "data", null: false
   end
 
   create_table "open_startup_monthly_balances", force: :cascade do |t|
@@ -249,7 +276,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -286,8 +313,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
@@ -302,16 +329,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
     t.jsonb "event"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "remote_work_preferences", force: :cascade do |t|
-    t.bigint "developer_id"
-    t.boolean "only"
-    t.boolean "preferred"
-    t.boolean "none"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["developer_id"], name: "index_remote_work_preferences_on_developer_id", unique: true
   end
 
   create_table "role_levels", force: :cascade do |t|
@@ -369,12 +386,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_18_185956) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "hired_forms", "developers"
   add_foreign_key "notification_tokens", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "remote_work_preferences", "developers"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
   add_foreign_key "work_locations", "developers"

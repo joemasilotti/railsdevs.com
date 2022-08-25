@@ -1,0 +1,35 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render "search", query: @query %>
+
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header t(".email") %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".business") %>
+
+      <% @users.each do |user| %>
+        <% table.with_row do |row| %>
+          <%= row.with_cell primary: true do %>
+            <%= render Admin::EmailLinkComponent.new(user.email) %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <% if (developer = user.developer) %>
+              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: admin_developer_conversations_path(developer)) %>
+            <% end %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <% if (business = user.business) %>
+              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_business_conversations_path(business), subtitle: business.name) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%== pagy_nav @pagy %>
+  <% end %>
+<% end %>

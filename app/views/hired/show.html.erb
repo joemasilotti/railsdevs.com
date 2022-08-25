@@ -1,0 +1,81 @@
+<%= open_graph_tags title: t(".title"), description: t(".description"), image: image_url("celebration.png") %>
+
+<div class="overflow-hidden max-w-3xl mx-auto">
+  <!-- Header -->
+  <div class="pt-16 lg:pt-24 pl-4 pr-8 sm:px-6 lg:px-8">
+    <div class="relative">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:tracking-tight lg:text-5xl lg:tracking-tight"><%= t(".title") %></h1>
+      <p class="mt-6 text-xl text-gray-600"><%= t(".description") %></p>
+    </div>
+  </div>
+
+  <!-- Celebration image -->
+  <%= image_tag "celebration.png", alt: t(".image_alt"), class: "mt-8 lg:mt-16 md:rounded-lg md:shadow-md" %>
+
+  <!-- Package details -->
+  <section class="mt-8 lg:mt-16 text-lg">
+    <p class="text-gray-600 max-w-3xl pl-4 pr-8 sm:px-6 lg:px-8">You'll get:</p>
+    <div class="mt-3 ml-4 text-gray-700">
+      <ul role="list" class="list-disc pl-5 space-y-2">
+        <li>A bunch of RailsDevs stickers.</li>
+        <li>A handwritten congratulations note on RailsDevs stationary.</li>
+        <li>A custom YETI 20oz tumbler with the RailsDevs logo (for full-time hires).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Eligibility requirements -->
+  <section class="mt-16 lg:mt-24">
+    <p class="text-gray-600 text-lg max-w-3xl pl-4 pr-8 sm:px-6 lg:px-8">Please see the details below to check if you're eligible:</p>
+    <div class="md:rounded-md bg-gray-100 p-5 mt-5">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <%= inline_svg_tag "icons/outline/information_circle.svg", class: "h-6 w-6 text-gray-400" %>
+        </div>
+        <div class="ml-4">
+          <h3 class="font-medium text-gray-800">Eligibility requirements</h3>
+          <div class="mt-3 text-gray-700">
+            <ul role="list" class="list-disc pl-5 space-y-2">
+              <li>I'll send the package after your first day at the new company.</li>
+              <li>You must have joined the company directly through a connection on RailsDevs.</li>
+              <li>You won't receive the package until your start date, but you can apply for it immediately after joining a company.</li>
+              <li>This campaign is funded by me (<%= link_to "Joe Masilotti", "mailto:joe@railsdevs.com", class: "hover:underline" %>, the founder of RailsDevs). I don't charge companies any fees for this program.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form CTA -->
+  <section class="text-gray-600 text-lg max-w-3xl pl-4 pr-8 sm:px-6 lg:px-8 mt-16 lg:mt-24">
+    <p>Please apply for your celebration package using this form. It takes &lt;3 minutes.</p>
+    <%= link_to new_hired_form_path, class: "inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 my-8" do %>
+      <%= inline_svg_tag "icons/outline/pencil_alt.svg", class: "-ml-1 mr-3 h-5 w-5", aria_hidden: true %>
+      Apply for my celebration package
+    <% end %>
+    <p>Thanks for helping support the growth of RailsDevs. <%= inline_svg_tag "icons/solid/heart.svg", class: "inline-block h-6 w-6 ml-1 mb-1" %></p>
+  </section>
+
+  <!-- More info -->
+  <section class="my-16 lg:my-24">
+    <div class="md:rounded-md bg-gray-100 p-5 mt-5">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <%= inline_svg_tag "icons/outline/information_circle.svg", class: "h-6 w-6 text-gray-400", aria_hidden: true %>
+        </div>
+        <div class="ml-4">
+          <h3 class="font-medium text-gray-800">More info</h3>
+          <div class="mt-3 text-gray-700">
+            <ul role="list" class="list-disc pl-5 space-y-2">
+              <li>It may take time to confirm your employment with the company, in which case there may be a delay in sending your package.</li>
+              <li>False or malicious responses will not be eligible.</li>
+              <li>The details of this offer are subject to change or termination without advance notice.</li>
+              <li>For any other questions, please contact me at <%= link_to "joe@railsdevs.com", "mailto:joe@railsdevs.com", class: "font-semibold hover:underline" %>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

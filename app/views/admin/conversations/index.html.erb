@@ -1,24 +1,58 @@
-<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-center">
-    <h1 class="mt-6 text-center text-3xl font-extrabold">
-      <% if @context.entity.present? %>
-        <%= t ".title_html", href: link_to(@context.title, polymorphic_path(@context.entity), class: "hover:underline") %>
-      <% else %>
-        <%= @context.title %>
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new do %>
+    <% if @context.entity.present? %>
+      <%= render Admin::BasicLinkComponent.new(@context.title, @context.entity) %><span><%= t(".conversations") %></span>
+    <% else %>
+      <%= @context.title %>
+    <% end %>
+  <% end %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::StatContainerComponent.new do |container| %>
+      <% container.with_stat title: t(".started"), value: @context.stats.sent, icon: "chat" %>
+      <% container.with_stat title: t(".reply_rate"), value: @context.stats.replied_rate, icon: "reply", percentage: true, secondary_value: @context.stats.replied %>
+    <% end %>
+  <% end %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header t(".business") %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".started") %>
+      <% table.with_header "#{t(".replied")}?" %>
+      <% table.with_header "#{t(".email")}?" %>
+      <% table.with_header do %>
+        <span class="sr-only"><%= t(".view") %></span>
       <% end %>
-    </h1>
-  </div>
 
-  <div class="max-w-sm sm:max-w-2xl mx-auto mt-8 w-full">
-    <div class="px-4 sm:px-6 lg:px-8">
-      <%= render "stats", stats: @context.stats %>
-    </div>
-  </div>
+      <% @context.query.records.each do |conversation| %>
+        <% table.with_row do |row| %>
+          <% row.with_cell primary: true do %>
+            <%= render Admin::BasicLinkComponent.new("#{conversation.business.company} (#{conversation.business.contact_name})", admin_business_conversations_path(conversation.business)) %>
+          <% end %>
 
-  <div class="max-w-5xl mx-auto mt-8 w-full overflow-scroll">
-    <div class="px-4 sm:px-6 lg:px-8">
-      <%= render "conversations", query: @context.query %>
-      <%== pagy_nav @context.query.pagy %>
-    </div>
-  </div>
-</div>
+          <% row.with_cell do %>
+            <%= render Admin::BasicLinkComponent.new(conversation.developer.name, admin_developer_conversations_path(conversation.developer)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= time_tag conversation.created_at, "#{time_ago_in_words(conversation.created_at)} ago", title: conversation.created_at.to_formatted_s(:long) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::CheckComponent.new(t(".replied"), t(".no_response"), checked: @context.query.replied_to?(conversation)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::CheckComponent.new(t(".potential_email"), t(".no_potential_email"), checked: @context.query.potential_email?(conversation)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::BasicLinkComponent.new(t(".view"), conversation_path(conversation)) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <%== pagy_nav @context.query.pagy %>
+  <% end %>
+<% end %>

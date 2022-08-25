@@ -1,10 +1,11 @@
 desc "These tasks are meant to be run once then removed"
 namespace :backfills do
-  desc "Generate avatar variants for developers and businesses"
-  task process_avatar_variants: :environment do
-    ActiveStorage::Attachment.where(name: "avatar").find_each do |attachment|
-      attachment.variant(:thumb).processed
-      attachment.variant(:medium).processed
+  task backfill_conversation_unread_status: :environment do
+    Conversation.where(user_with_unread_messages: nil).includes(:messages).each do |conversation|
+      last_notification = conversation.messages.last.notifications_as_message.last
+      if last_notification&.unread?
+        conversation.update(user_with_unread_messages: last_notification.recipient)
+      end
     end
   end
 end

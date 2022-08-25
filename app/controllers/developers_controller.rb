@@ -67,6 +67,7 @@ class DevelopersController < ApplicationController
       :github,
       :twitter,
       :linkedin,
+      :stack_overflow,
       :avatar,
       :cover_image,
       :search_status,

@@ -1,0 +1,17 @@
+<div class="flex items-center">
+  <div class="h-10 w-10 flex-shrink-0">
+    <%= render AvatarComponent.new(avatarable:, variant: :thumb, classes: "h-10 w-10 rounded-full") %>
+  </div>
+
+  <div class="ml-4">
+    <% if path.present? %>
+      <%= link_to title, path, class: "font-medium text-gray-900 hover:underline" %>
+    <% else %>
+      <div class="font-medium text-gray-900"><%= title %></div>
+    <% end %>
+
+    <% if subtitle.present? %>
+      <div class="text-gray-500"><%= subtitle %></div>
+    <% end %>
+  </div>
+</div>

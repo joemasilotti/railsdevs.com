@@ -6,10 +6,12 @@ module Admin
 
     def new
       @transaction = OpenStartup::Transaction.new
+      render :form
     end
 
     def edit
       @transaction = OpenStartup::Transaction.find(params[:id])
+      render :form
     end
 
     def create
@@ -17,7 +19,7 @@ module Admin
       if @transaction.save
         redirect_to admin_transactions_path, notice: t(".created")
       else
-        render :new, status: :unprocessable_entity
+        render :form, status: :unprocessable_entity
       end
     end
 
@@ -26,7 +28,7 @@ module Admin
       if @transaction.update(transaction_params)
         redirect_to admin_transactions_path, notice: t(".updated")
       else
-        render :edit, status: :unprocessable_entity
+        render :form, status: :unprocessable_entity
       end
     end
 

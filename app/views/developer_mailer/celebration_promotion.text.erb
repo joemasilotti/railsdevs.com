@@ -1,0 +1,15 @@
+Hey <%= @developer.first_name %>,
+
+I'm Joe, the founder of RailsDevs. I see that you've been speaking with <%= @business.contact_name %> at <%= @business.company %> – nice work!
+
+<%= conversation_url(@conversation) %>
+
+Have you moved on to the next step of the interview process? I'd love to hear how it's going.
+
+Also, don't forget that if you're hired you are eligible for a celebration package with free swag! Fill out this short form if you've been hired by a company on RailsDevs.
+
+<%= hired_url %>
+
+Don't hesitate to reach out if you run into issues or need help using RailsDevs.
+
+<%= render "shared/signature" %>

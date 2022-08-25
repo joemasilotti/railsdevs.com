@@ -2,7 +2,9 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users
+    devise_for :users, controllers: {
+      registrations: "users"
+    }
 
     resource :about, only: :show, controller: :about
     resource :conduct, only: :show
@@ -29,12 +31,21 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
+    resource :hired, only: :show, controller: :hired do
+      resources :forms, only: [:new, :create], module: :hired
+    end
+
     namespace :open_startup, path: "/open" do
       resources :contributions, only: :index
       resources :expenses, only: :index
       resources :revenue, only: :index
 
       root to: "dashboard#show"
+    end
+
+    namespace :policies do
+      resource :privacy, only: :show, controller: :privacy
+      resource :terms, only: :show
     end
 
     root to: "home#show"
@@ -44,6 +55,7 @@ Rails.application.routes.draw do
     resource :impersonate, only: [:create, :show, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
+    resources :users, only: [:index]
 
     namespace :conversations do
       resources :blocks, only: :index
@@ -58,6 +70,10 @@ Rails.application.routes.draw do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create, module: :developers
+    end
+
+    namespace :hired do
+      resources :forms, only: [:index, :show]
     end
   end
 
@@ -80,6 +96,7 @@ Rails.application.routes.draw do
   end
 
   namespace :webhooks do
+    resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
 

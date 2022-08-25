@@ -17,7 +17,7 @@
 
     <%= link_to new_conversation_block_path(@conversation), data: {"turbo-frame": "modal"}, class: "mt-2 mr-2 flex items-center text-gray-400 hover:text-gray-600" do %>
       <span class="sr-only"><%= t(".flag") %></span>
-      <%= inline_svg_tag "icons/solid/flag.svg", class: "h-5 w-5" %>
+      <%= inline_svg_tag "icons/solid/flag.svg", class: "h-5 w-5", aria_hidden: true %>
     <% end %>
   </div>
 
