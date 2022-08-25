@@ -20,4 +20,5 @@ end
 SeedsHelper.create_business!("lead")
 
 # Invisible business
-SeedsHelper.create_business!("invisible", {invisible: true})
+business = SeedsHelper.create_business!("invisible")
+business.invisiblize_and_notify! if business.visible?

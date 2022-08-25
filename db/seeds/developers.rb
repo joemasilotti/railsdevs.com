@@ -17,7 +17,7 @@ developer = SeedsHelper.create_developer!("invisible", {
   hero: "Invisible developer",
   location: SeedsHelper.locations[:new_york]
 })
-developer.invisible! unless developer.invisible?
+developer.invisiblize_and_notify! unless developer.invisible?
 
 # Stale developer
 developer = SeedsHelper.create_developer!("stale", {
@@ -26,6 +26,7 @@ developer = SeedsHelper.create_developer!("stale", {
 })
 long_time_ago = 31.days.ago
 developer.update!(created_at: long_time_ago, updated_at: long_time_ago)
+developer.notify_as_stale unless Notification.exists?(type: Developers::ProfileReminderNotification.name)
 
 # Featured developer
 developer = SeedsHelper.create_developer!("featured", {
@@ -79,4 +80,4 @@ developer = SeedsHelper.create_developer!("hired", {
   role_type: RoleType.new(RoleType::TYPES.map { |t| [t, true] }.to_h),
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h)
 })
-developer.update!(search_status: :not_interested) unless developer.not_interested?
+developer.update_and_notify(search_status: :not_interested) unless developer.not_interested?

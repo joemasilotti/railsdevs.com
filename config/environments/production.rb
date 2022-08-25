@@ -105,4 +105,7 @@ Rails.application.configure do
 
   # Upload sitemap to S3.
   config.upload_sitemap = true
+
+  # Delay delivery of celebration promotion email to developers.
+  config.deliver_celebration_promotion_after = 2.weeks
 end

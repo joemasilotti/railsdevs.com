@@ -31,6 +31,7 @@ module Railsdevs
     config.plans = config_for(:plans)
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
     config.upload_sitemap = false
+    config.deliver_celebration_promotion_after = nil
 
     # Run background jobs via sidekiq.
     config.active_job.queue_adapter = :sidekiq
