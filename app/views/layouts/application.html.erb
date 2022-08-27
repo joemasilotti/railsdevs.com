@@ -17,7 +17,7 @@
     <%= hotwire_livereload_tags %>
   </head>
 
-  <body class="min-h-full flex flex-col">
+  <body class="min-h-full flex flex-col" data-controller="safari-image-fix">
     <div class="flex-1">
       <%= render ImpersonatingBannerComponent.new %>
       <%= render NavBar::BaseComponent.new(current_user) %>
