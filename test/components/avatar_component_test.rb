@@ -29,7 +29,7 @@ class AvatarComponentTest < ViewComponent::TestCase
     avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
     render_inline(avatar_component)
 
-    assert_selector("img[srcset$='#{url_for @developer.avatar.variant(:thumb_2x)} 2x']")
+    assert_selector("source[srcset$='#{url_for @developer.avatar.variant(:thumb_2x)}']")
   end
 
   test "should fall back to default" do
