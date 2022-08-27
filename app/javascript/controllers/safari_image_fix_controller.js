@@ -21,7 +21,6 @@ export default class extends Controller {
   refreshImages(event) {
     if (this.isSafari) {
       this.imageTagsWithSrcSet(event.target).forEach(img => {
-        console.debug("Fixing <img>...")
         img.outerHTML = img.outerHTML
       })
     }
