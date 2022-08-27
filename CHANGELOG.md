@@ -4,6 +4,7 @@
 
 ## August
 
+* August 27 - Fixes an issue where Safari would never load retina images #619
 * August 25 - Create and deliver all notifications when seeding database #616
 * August 23 - Developer celebration flow #610
 * August 21 - Expand `User` filtering to developer & business #608
