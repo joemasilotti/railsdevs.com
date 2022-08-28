@@ -33,5 +33,13 @@ module Admin
     def plan
       ::Businesses::Plan.with_processor_plan(subscription.processor_plan)
     end
+
+    def url
+      admin_business_conversations_url(business)
+    end
+
+    def business
+      subscription.customer.owner.business
+    end
   end
 end
