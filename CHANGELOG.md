@@ -4,6 +4,7 @@
 
 ## August
 
+* August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
 * August 27 - Fixes an issue where Safari would never load retina images #619
 * August 25 - Create and deliver all notifications when seeding database #616
 * August 23 - Developer celebration flow #610
