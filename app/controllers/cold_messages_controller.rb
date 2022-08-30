@@ -47,7 +47,7 @@ class ColdMessagesController < ApplicationController
   def require_signed_hiring_agreement!
     if HiringAgreements::Term.active? && !current_user.signed_hiring_agreement?
       store_location!
-      redirect_to new_hiring_agreement_signature_path, notice: "Please sign the latest hiring agreement before messaging developers."
+      redirect_to new_hiring_agreement_signature_path, notice: I18n.t("errors.hiring_agreements.cold_message")
     end
   end
 

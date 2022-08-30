@@ -3,9 +3,9 @@
     <% container.aside do %>
       <% if @term.active? %>
         <%= render Admin::BadgeComponent.new("Active") %>
-        <%= render Admin::Forms::ButtonLinkComponent.new("Deactivate", form: "deactivate-form") %>
+        <%= render Admin::Forms::ButtonLinkComponent.new(t(".deactivate"), form: "deactivate-form") %>
       <% else %>
-        <%= render Admin::Forms::ButtonLinkComponent.new("Activate", form: "activate-form") %>
+        <%= render Admin::Forms::ButtonLinkComponent.new(t(".activate"), form: "activate-form") %>
       <% end %>
     <% end %>
 
