@@ -25,13 +25,6 @@ class AvatarComponentTest < ViewComponent::TestCase
     assert_equal [64, 64], avatar_component.image_2x.variation.transformations[:resize_to_limit]
   end
 
-  test "should render srcset for 2x images" do
-    avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
-    render_inline(avatar_component)
-
-    assert_selector("source[srcset$='#{url_for @developer.avatar.variant(:thumb_2x)}']")
-  end
-
   test "should fall back to default" do
     @developer.avatar.detach
     render_inline(AvatarComponent.new(avatarable: @developer))
