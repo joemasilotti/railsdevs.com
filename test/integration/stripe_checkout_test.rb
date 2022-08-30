@@ -5,6 +5,7 @@ class StripeCheckoutTest < ActionDispatch::IntegrationTest
 
   setup do
     @user = users(:business)
+    @user.hiring_agreement_signatures.create!(term: HiringAgreements::Term.active)
   end
 
   test "passes along the plan and redirects to the Stripe Checkout URL" do
