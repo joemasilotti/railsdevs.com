@@ -33,6 +33,7 @@ module NavBar
         Link.new(t(".conversations"), admin_conversations_path),
         Link.new(t(".impersonate"), admin_impersonate_path),
         Link.new(t(".hired_forms"), admin_hired_forms_path),
+        Link.new(t(".hiring_agreement_terms"), admin_hiring_agreements_terms_path),
         Link.new(t(".transactions"), admin_transactions_path),
         Link.new(t(".blocked_conversations"), admin_conversations_blocks_path)
       ]

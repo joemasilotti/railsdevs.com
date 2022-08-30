@@ -105,6 +105,24 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+    hiring_agreements:
+      terms:
+        create:
+          created: Hiring agreement terms added.
+        update:
+          updated: Hiring agreement terms updated.
+        edit:
+          cancel: Cancel
+          title: Hiring agreement
+        new:
+          cancel: Cancel
+          title: Hiring agreement
+        index:
+          title: Hiring agreement terms
+          new: New terms
+        show:
+          body: Body
+          title: Hiring agreement
     impersonates:
       show:
         cta: Impersonate
@@ -439,6 +457,7 @@ en:
       found_a_job: Found a job?
       get_started: Get started
       hired_forms: Hired forms
+      hiring_agreement_terms: Hiring agreement terms
       impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
