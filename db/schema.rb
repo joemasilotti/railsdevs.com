@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_161153) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_195050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -125,6 +125,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_161153) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id"], name: "index_hired_forms_on_developer_id"
+  end
+
+  create_table "hiring_agreements_signatures", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "hiring_agreements_term_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hiring_agreements_term_id"], name: "index_hiring_agreements_signatures_on_hiring_agreements_term_id"
+    t.index ["user_id"], name: "index_hiring_agreements_signatures_on_user_id"
+  end
+
+  create_table "hiring_agreements_terms", force: :cascade do |t|
+    t.text "body", null: false
+    t.boolean "active", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "inbound_emails", force: :cascade do |t|
@@ -374,6 +390,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_161153) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "hired_forms", "developers"
+  add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
+  add_foreign_key "hiring_agreements_signatures", "users"
   add_foreign_key "notification_tokens", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
