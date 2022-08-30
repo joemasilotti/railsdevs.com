@@ -22,7 +22,7 @@
 
     <% container.with_button_group do %>
       <%= render Admin::Forms::ButtonLinkComponent.new(t(".cancel"), admin_transactions_path) %>
-      <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: t(".saving"), button_classes: "ml-3") %>
+      <%= render SubmitButtonComponent.new(button_classes: "ml-3") %>
     <% end %>
   <% end %>
 <% end %>

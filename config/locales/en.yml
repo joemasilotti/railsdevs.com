@@ -119,8 +119,6 @@ en:
         URL: URL
         cancel: Cancel
         description: Expenses are paid services and products while contributions are donations and sponsorships.
-        save: Save
-        saving: Saving...
         title: New expense or contribution
       index:
         delete_confirmation: Are you sure you want to delete this transaction?
@@ -175,7 +173,6 @@ en:
       personal:
         help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
-      save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
@@ -296,7 +293,6 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
-      save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
         invisible_help_text: Your profile is hidden and can only be seen by yourself.
@@ -700,6 +696,9 @@ en:
     million: M
     thousand: K
     unit: ''
+  submit_button_component:
+    save: Save
+    saving: Saving...
   users:
     paywalled_component:
       description: Information that is only visible with a business subscription.

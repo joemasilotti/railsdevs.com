@@ -359,7 +359,7 @@
     </div>
 
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
-      <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: developer.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
+      <%= render SubmitButtonComponent.new(disable_with: developer.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
     </div>
   <% end %>
 </div>

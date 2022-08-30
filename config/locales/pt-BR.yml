@@ -79,7 +79,6 @@ pt-BR:
           weekly: Semanalmente
       notifications:
         title: Notificações por E-mail
-      save: Salvar
       something_went_wrong: Ocorreu um erro ao enviar sua imagem. Por favor, tente novamente.
       updating: Atualizando...
       your_business_profile: Perfil da sua empresa
@@ -146,7 +145,6 @@ pt-BR:
       role_type:
         help_text: Selecione todas as funções que você consideraria aceitar.
         title: Função
-      save: Salvar
       search_status:
         actively_looking_help_text: Seu perfil pode ser destacado na página principal.
         not_interested_help_text: Seu perfil será claramente marcado que você não está buscando trabalho.
