@@ -109,20 +109,20 @@ en:
       terms:
         create:
           created: Hiring agreement terms added.
-        update:
-          updated: Hiring agreement terms updated.
         edit:
           cancel: Cancel
           title: Hiring agreement
+        index:
+          new: New terms
+          title: Hiring agreement terms
         new:
           cancel: Cancel
           title: Hiring agreement
-        index:
-          title: Hiring agreement terms
-          new: New terms
         show:
           body: Body
           title: Hiring agreement
+        update:
+          updated: Hiring agreement terms updated.
     impersonates:
       show:
         cta: Impersonate
