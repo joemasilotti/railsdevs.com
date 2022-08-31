@@ -144,7 +144,7 @@ GEM
       rainbow
       rubocop
       smart_properties
-    erubi (1.10.0)
+    erubi (1.11.0)
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
     faraday (1.9.3)
@@ -281,10 +281,10 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nokogiri (1.13.7)
+    nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.7-x86_64-darwin)
+    nokogiri (1.13.8-x86_64-darwin)
       racc (~> 1.4)
     noticed (1.5.9)
       http (>= 4.0.0)
@@ -294,7 +294,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    pay (4.0.1)
+    pay (5.0.3)
       rails (>= 6.0.0)
     pg (1.2.3)
     pg_search (2.3.6)
@@ -407,8 +407,8 @@ GEM
       rubocop-performance (= 1.13.3)
     stimulus-rails (0.7.2)
       rails (>= 6.0.0)
-    stripe (6.5.0)
-    strscan (3.0.3)
+    stripe (7.1.0)
+    strscan (3.0.4)
     tarpon (0.4.0)
       http (~> 4.4)
     terminal-table (3.0.2)
@@ -478,7 +478,7 @@ DEPENDENCIES
   minitest-reporters-pride_reporter (~> 0.0.2)
   noticed (~> 1.5.9)
   pagy (~> 5.2)
-  pay (~> 4.0.1)
+  pay (~> 5.0.3)
   pg (~> 1.1)
   pg_search
   postmark-rails (~> 0.22.0)
@@ -498,7 +498,7 @@ DEPENDENCIES
   sprockets-rails (~> 3.4)
   standard
   stimulus-rails (~> 0.7)
-  stripe (~> 6.5.0)
+  stripe (~> 7.1.0)
   tarpon (~> 0.4.0)
   timezone_finder (~> 1.5.7)
   turbo-rails (~> 1.0)
