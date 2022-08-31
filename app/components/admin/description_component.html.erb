@@ -1,4 +1,4 @@
 <%= tag.div class: class_names("sm:col-span-2": wide?, "sm:col-span-1": !wide?) do %>
   <dt class="text-sm font-medium text-gray-500"><%= term %></dt>
-  <dd class="mt-1 text-sm text-gray-900"><%= definition || content %></dd>
+  <%= tag.dd definition || content, class: class_names("mt-1", "prose-sm max-w-prose": wide?, "text-sm text-gray-900": !wide?) %>
 <% end %>

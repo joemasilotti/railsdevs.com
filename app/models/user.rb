@@ -9,7 +9,8 @@ class User < ApplicationRecord
     :rememberable,
     :validatable
 
-  has_many :notification_tokens
+  has_many :hiring_agreement_signatures, class_name: "HiringAgreements::Signature", dependent: :destroy
+  has_many :notification_tokens, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
@@ -39,5 +40,9 @@ class User < ApplicationRecord
   # Always remember when signing in with Devise.
   def remember_me
     Rails.configuration.always_remember_me
+  end
+
+  def signed_hiring_agreement?
+    HiringAgreements::Term.signed_by?(self)
   end
 end

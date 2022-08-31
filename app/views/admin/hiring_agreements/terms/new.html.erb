@@ -1,0 +1,12 @@
+<%= form_with model: [:admin, @term] do |form| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), @term.created_at&.to_formatted_s(:calendar)) do |container| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :body) do |field| %>
+      <% field.with_input_text_area rows: 25 %>
+    <% end %>
+
+    <% container.with_button_group do %>
+      <%= render Admin::Forms::ButtonLinkComponent.new(t(".cancel"), admin_hiring_agreements_terms_path) %>
+      <%= render SubmitButtonComponent.new(button_classes: "ml-3") %>
+    <% end %>
+  <% end %>
+<% end %>

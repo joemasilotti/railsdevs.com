@@ -73,7 +73,6 @@ es:
           weekly: Semanal
       notifications:
         title: Notificaciones por correo electrónico
-      save: Guardar
       something_went_wrong: Algo falló al subir tu imagen. Por favor intenta de nuevo.
       updating: Actualizando...
       your_business_profile: Perfil de tu empresa
@@ -137,7 +136,6 @@ es:
       role_type:
         help_text: Selecciona todos los roles que considerarías aceptar.
         title: Tipo de rol
-      save: Guardar
       search_status:
         actively_looking_help_text: Tu perfil puede aparecer como destacado en la página de inicio.
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.

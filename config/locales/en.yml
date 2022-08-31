@@ -105,6 +105,29 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+    hiring_agreements:
+      terms:
+        create:
+          created: Hiring agreement terms added.
+        edit:
+          activate: Activate
+          active: Active
+          cancel: Cancel
+          deactivate: Deactivate
+          title: Hiring agreement
+        index:
+          active: Active
+          new: New terms
+          title: Hiring agreement terms
+        new:
+          cancel: Cancel
+          title: Hiring agreement
+        show:
+          body: Body
+          edit: Edit
+          title: Hiring agreement
+        update:
+          updated: Hiring agreement terms updated.
     impersonates:
       show:
         cta: Impersonate
@@ -119,8 +142,6 @@ en:
         URL: URL
         cancel: Cancel
         description: Expenses are paid services and products while contributions are donations and sponsorships.
-        save: Save
-        saving: Saving...
         title: New expense or contribution
       index:
         delete_confirmation: Are you sure you want to delete this transaction?
@@ -175,7 +196,6 @@ en:
       personal:
         help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
-      save: Save
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
@@ -296,7 +316,6 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
-      save: Save
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
         invisible_help_text: Your profile is hidden and can only be seen by yourself.
@@ -374,6 +393,9 @@ en:
     business_blank: Fill out your business profile to message developers.
     business_subscription_inactive: Sign up for a business subscription to message developers.
     developer_blank: Please create a developer profile first.
+    hiring_agreements:
+      cold_message: Please sign the latest hiring agreement before messaging developers.
+      payment: Please sign the latest hiring agreement before subscribing.
     messages:
       attached: is not attached
       content_type_invalid: image format not supported
@@ -397,6 +419,17 @@ en:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
       title: Congrats on your new job!
+  hiring_agreements:
+    signatures:
+      create:
+        created: Hiring agreement signed.
+      new:
+        accept: Accept agreement
+        accepting: Accepting...
+        agreement: I agree to these terms
+        description: Last updated %{last_updated}
+        questions_html: Questions? Email the founder – that's me, Joe! – at <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
+        title: RailsDevs hiring agreement
   home:
     show:
       available_developers: Developers available now
@@ -443,6 +476,7 @@ en:
       found_a_job: Found a job?
       get_started: Get started
       hired_forms: Hired forms
+      hiring_agreement_terms: Hiring agreement terms
       impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -700,6 +734,9 @@ en:
     million: M
     thousand: K
     unit: ''
+  submit_button_component:
+    save: Save
+    saving: Saving...
   users:
     paywalled_component:
       description: Information that is only visible with a business subscription.

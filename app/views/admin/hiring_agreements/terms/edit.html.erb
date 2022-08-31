@@ -1,0 +1,26 @@
+<%= form_with model: [:admin, @term] do |form| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), @term.created_at&.to_formatted_s(:calendar)) do |container| %>
+    <% container.aside do %>
+      <% if @term.active? %>
+        <%= render Admin::BadgeComponent.new(t(".active")) %>
+        <%= render Admin::Forms::ButtonLinkComponent.new(t(".deactivate"), form: "deactivate-form") %>
+      <% else %>
+        <%= render Admin::Forms::ButtonLinkComponent.new(t(".activate"), form: "activate-form") %>
+      <% end %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :body) do |field| %>
+      <% field.with_input_text_area rows: 25 %>
+    <% end %>
+
+    <% container.with_button_group do %>
+      <%= render Admin::Forms::ButtonLinkComponent.new(t(".cancel"), admin_hiring_agreements_terms_path) %>
+      <%= render SubmitButtonComponent.new(button_classes: "ml-3") %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= form_with url: admin_hiring_agreements_term_activation_path(@term), method: :post, id: "activate-form" do %>
+<% end %>
+<%= form_with url: admin_hiring_agreements_term_activation_path(@term), method: :delete, id: "deactivate-form" do %>
+<% end %>

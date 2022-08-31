@@ -35,6 +35,10 @@ Rails.application.routes.draw do
       resources :forms, only: [:new, :create], module: :hired
     end
 
+    namespace :hiring_agreement, module: :hiring_agreements do
+      resource :signature, only: %i[new create]
+    end
+
     namespace :open_startup, path: "/open" do
       resources :contributions, only: :index
       resources :expenses, only: :index
@@ -74,6 +78,12 @@ Rails.application.routes.draw do
 
     namespace :hired do
       resources :forms, only: [:index, :show]
+    end
+
+    namespace :hiring_agreements do
+      resources :terms, except: :destroy do
+        resource :activation, only: %i[create destroy], module: :terms
+      end
     end
   end
 
