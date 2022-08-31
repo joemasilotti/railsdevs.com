@@ -111,10 +111,12 @@ en:
           created: Hiring agreement terms added.
         edit:
           activate: Activate
+          active: Active
           cancel: Cancel
           deactivate: Deactivate
           title: Hiring agreement
         index:
+          active: Active
           new: New terms
           title: Hiring agreement terms
         new:

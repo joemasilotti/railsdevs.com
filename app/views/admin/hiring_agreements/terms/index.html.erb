@@ -8,7 +8,7 @@
       <% @terms.each do |term| %>
         <% list.with_item term.created_at.strftime("%b %d, %Y"), term.body, path: admin_hiring_agreements_term_path(term), id: dom_id(term) do |list_item| %>
           <% list_item.aside do %>
-            <%= render Admin::BadgeComponent.new("Active") if term == @active_term %>
+            <%= render Admin::BadgeComponent.new(t(".active")) if term == @active_term %>
           <% end %>
         <% end %>
       <% end %>

@@ -2,7 +2,7 @@
   <%= render Admin::Forms::ContainerComponent.new(t(".title"), @term.created_at&.strftime("%b %d, %Y")) do |container| %>
     <% container.aside do %>
       <% if @term.active? %>
-        <%= render Admin::BadgeComponent.new("Active") %>
+        <%= render Admin::BadgeComponent.new(t(".active")) %>
         <%= render Admin::Forms::ButtonLinkComponent.new(t(".deactivate"), form: "deactivate-form") %>
       <% else %>
         <%= render Admin::Forms::ButtonLinkComponent.new(t(".activate"), form: "activate-form") %>
