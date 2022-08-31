@@ -8,7 +8,7 @@
           <div class="px-4 py-5 sm:px-6 flex">
             <div class="flex-grow">
               <h3 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h3>
-              <p class="mt-1 text-sm text-gray-500"><%= t(".description", last_updated: @signature.term.created_at.strftime("%b %d, %Y")) %></p>
+              <p class="mt-1 text-sm text-gray-500"><%= t(".description", last_updated: @signature.term.created_at.to_formatted_s(:calendar)) %></p>
             </div>
           </div>
 

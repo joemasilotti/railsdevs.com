@@ -1,5 +1,5 @@
 <%= form_with model: [:admin, @term] do |form| %>
-  <%= render Admin::Forms::ContainerComponent.new(t(".title"), @term.created_at&.strftime("%b %d, %Y")) do |container| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), @term.created_at&.to_formatted_s(:calendar)) do |container| %>
     <% container.aside do %>
       <% if @term.active? %>
         <%= render Admin::BadgeComponent.new(t(".active")) %>
