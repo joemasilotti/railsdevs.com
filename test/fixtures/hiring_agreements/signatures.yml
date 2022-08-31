@@ -1,3 +1,4 @@
 one:
   user: subscribed_business
   term: active
+  created_at: <%= Date.new(2022, 9, 1) %>

@@ -10,7 +10,12 @@
         <%= form.check_box :hiring_fee_agreement, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded mt-1" %>
         <span class="text-sm text-gray-600">
           <%= form.label :hiring_fee_agreement, t(".hiring_fee_agreement"), required: true %>
-          <%= link_to t(".hiring_fee_cta"), pricing_path(anchor: "full-time-fee"), class: "underline font-medium" %>
+
+          <% if HiringAgreements::Term.active? %>
+            <%= link_to t(".terms"), hiring_agreement_terms_path, class: "underline font-medium" %>
+          <% else %>
+            <%= link_to t(".hiring_fee_cta"), pricing_path(anchor: "full-time-fee"), class: "underline font-medium" %>
+          <% end %>
         </span>
       </div>
       <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>

@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     end
 
     namespace :hiring_agreement, module: :hiring_agreements do
+      resource :terms, only: :show
       resource :signature, only: %i[new create]
     end
 
