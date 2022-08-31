@@ -4,6 +4,7 @@
 
 ## August
 
+* August 31 - Fix for paused subscriptions losing access too quickly #623
 * August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
 * August 27 - Fixes an issue where Safari would never load retina images #619
 * August 25 - Create and deliver all notifications when seeding database #616
