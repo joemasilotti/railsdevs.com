@@ -31,7 +31,7 @@ module Users
     private
 
     def customer?
-      Businesses::Permission.new(@user&.subscriptions).active_subscription?
+      Businesses::Permission.new(@user&.payment_processor).active_subscription?
     end
 
     def owner?

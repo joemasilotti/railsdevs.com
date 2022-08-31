@@ -41,7 +41,7 @@ module Businesses
     private
 
     def permission
-      Businesses::Permission.new(user.subscriptions)
+      Businesses::Permission.new(user.payment_processor)
     end
   end
 end

@@ -1,7 +1,7 @@
 module Developers
   class QueryPolicy < ApplicationPolicy
     def permitted_attributes
-      if Businesses::Permission.new(user&.subscriptions).active_subscription?
+      if Businesses::Permission.new(user&.payment_processor).active_subscription?
         default_attributes + paywalled_attributes
       else
         default_attributes

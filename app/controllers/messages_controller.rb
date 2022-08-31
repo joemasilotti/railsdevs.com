@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
   private
 
   def require_active_subscription!
-    if conversation.business?(current_user) && !Businesses::Permission.new(current_user.subscriptions).active_subscription?
+    if conversation.business?(current_user) && !Businesses::Permission.new(current_user.payment_processor).active_subscription?
       redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
     end
   end

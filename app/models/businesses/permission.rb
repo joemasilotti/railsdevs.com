@@ -1,17 +1,17 @@
 module Businesses
   class Permission
-    private attr_reader :subscriptions
+    private attr_reader :customer
 
-    def initialize(subscriptions)
-      @subscriptions = subscriptions || Pay::Subscription.none
+    def initialize(payment_processor)
+      @customer = payment_processor || Pay::Customer.new
     end
 
     def active_subscription?
-      active_subscriptions.any?
+      subscribed?
     end
 
     def legacy_subscription?
-      active_subscriptions(:legacy).any?
+      subscribed?(to: :legacy)
     end
 
     def pays_hiring_fee?
@@ -30,23 +30,29 @@ module Businesses
 
     private
 
-    def active_subscriptions(subscription_identifier = nil)
-      return subscriptions.active.reject(&:paused?) unless subscription_identifier.present?
+    def subscribed?(to: nil)
+      if (plan_identifier = to)
+        processor_plans = processor_plans_for(plan_identifier)
+        customer.subscriptions.where(processor_plan: processor_plans).active.exists?
+      else
+        customer.subscriptions.active.exists?
+      end
+    end
 
-      processor_plans = Plan.with_identifier(subscription_identifier).processor_plans
-      subscriptions.active.where(processor_plan: processor_plans).reject(&:paused?)
+    def processor_plans_for(plan_identifier)
+      Plan.with_identifier(plan_identifier).processor_plans
     end
 
     def full_time_subscription?
-      active_subscriptions(:full_time).any?
+      subscribed?(to: :full_time)
     end
 
     def part_time_subscription?
-      active_subscriptions(:part_time).any?
+      subscribed?(to: :part_time)
     end
 
     def free_subscription?
-      active_subscriptions(:free).any?
+      subscribed?(to: :free)
     end
   end
 end

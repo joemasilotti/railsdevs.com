@@ -33,7 +33,7 @@ class EmailDigests::NewDevelopers
   def send_emails(developers:, businesses:)
     developers = developers.to_a
     businesses.find_each do |business|
-      next unless Businesses::Permission.new(business.user.subscriptions).active_subscription?
+      next unless Businesses::Permission.new(business.user.payment_processor).active_subscription?
       BusinessMailer.with(business:, developers:).developer_profiles.deliver_later
     end
   end

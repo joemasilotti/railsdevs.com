@@ -44,7 +44,7 @@ class ColdMessagesController < ApplicationController
   end
 
   def permission
-    @permission = Businesses::Permission.new(current_user.subscriptions)
+    @permission = Businesses::Permission.new(current_user.payment_processor)
   end
 
   def conversation

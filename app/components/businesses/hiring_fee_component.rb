@@ -8,7 +8,7 @@ module Businesses
     end
 
     def render?
-      Businesses::Permission.new(user.subscriptions).pays_hiring_fee? &&
+      Businesses::Permission.new(user.payment_processor).pays_hiring_fee? &&
         conversation.hiring_fee_eligible?
     end
 
