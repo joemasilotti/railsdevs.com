@@ -127,6 +127,8 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    impersonate_component:
+      submit: Impersonate
     impersonates:
       show:
         cta: Impersonate
@@ -150,6 +152,7 @@ en:
     users:
       index:
         business: Business
+        impersonate: Impersonate
         developer: Developer
         email: Email
         title: Users

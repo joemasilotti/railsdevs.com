@@ -49,6 +49,11 @@ es:
       blocks:
         index:
           title: Conversaciones bloqueadas
+    impersonate_component:
+      submit: Ver como el sujeto
+    users:
+      index:
+        impersonate: Ver como
   blocks:
     create:
       notice: "%{other_recipient} fue bloqueado."
