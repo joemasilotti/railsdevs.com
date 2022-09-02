@@ -1,7 +1,7 @@
 module Admin
   class NewHiredFormNotification < ApplicationNotification
     deliver_by :database
-    #deliver_by :email, mailer: "AdminMailer", method: :new_hired_form
+    deliver_by :email, mailer: "AdminMailer", method: :new_hired_form
 
     param :developer, :form
 
