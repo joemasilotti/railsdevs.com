@@ -9,7 +9,7 @@ module Hired
 
     def create
       @form = Hired::Form.new(form_params)
-      if @form.save
+      if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else
         render :new, status: :unprocessable_entity
