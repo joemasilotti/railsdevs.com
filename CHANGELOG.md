@@ -2,6 +2,10 @@
 
 ## 2022
 
+## September
+
+* September 2 - Send admins a notification when a Hired::Form is created #614 @sarvaiyanidhi
+
 ## August
 
 * August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
