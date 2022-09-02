@@ -56,7 +56,7 @@ class AdminMailer < ApplicationMailer
 
     @developer = @notification.developer
     @form = @notification.form
-    
+
     mail(to: recipient.email, subject: @notification.title)
   end
 end

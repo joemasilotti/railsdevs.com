@@ -504,12 +504,12 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
+      new_hired_form_notification:
+        email_subject: New Hired Form added
+        title: A %{developer} was hired via RailsDevs!
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"
-      new_hired_form_notification:
-        email_subject: New Hired Form added
-        title: "A %{developer} was hired via RailsDevs!"  
     businesses:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
