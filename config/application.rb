@@ -55,7 +55,7 @@ module Railsdevs
     # Defer loading of images until it reaches a calculated distance from the viewport
     config.action_view.image_loading = "lazy"
 
-    config.view_component.default_preview_layout = "components_previews"
+    config.view_component.default_preview_layout = "component_preview"
     config.view_component.preview_paths << "#{Rails.root}/app/components/previews"
   end
 end
