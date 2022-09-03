@@ -56,8 +56,9 @@ module Railsdevs
     config.action_view.image_loading = "lazy"
 
     config.view_component.default_preview_layout = "component_preview"
-    config.view_component.preview_paths << "#{Rails.root}/app/components/previews"
     config.lookbook.project_name = "railsdevs component library"
+
+    # Tweak to Lookbook theme to render the header with the same colors as the site
     config.lookbook.ui_theme_overrides = {
       tw_bg_gray_800: "rgb(31 41 55 / 1)",
       tw_text_gray_300: "rgb(209 213 219 / 1)",
