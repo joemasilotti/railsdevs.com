@@ -57,5 +57,13 @@ module Railsdevs
 
     config.view_component.default_preview_layout = "component_preview"
     config.view_component.preview_paths << "#{Rails.root}/app/components/previews"
+    config.lookbook.project_name = "railsdevs component library"
+    config.lookbook.ui_theme_overrides = {
+      tw_bg_gray_800: "rgb(31 41 55 / 1)",
+      tw_text_gray_300: "rgb(209 213 219 / 1)",
+      header_bg: "var(--lookbook-tw-bg-gray-800)",
+      header_text: "var(--lookbook-tw-text-gray-300)",
+      header_border: "var(--lookbook-bg-gray-800)"
+    }
   end
 end
