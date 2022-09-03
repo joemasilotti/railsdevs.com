@@ -56,5 +56,6 @@ module Railsdevs
     config.action_view.image_loading = "lazy"
 
     config.view_component.default_preview_layout = "components_previews"
+    config.view_component.preview_paths << "#{Rails.root}/app/components/previews"
   end
 end
