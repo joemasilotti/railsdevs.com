@@ -125,4 +125,9 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
     mount Sidekiq::Web => "/sidekiq"
   end
+
+  namespace :docs do
+    mount Lookbook::Engine, at: "/components"
+  end
+  get "/lookbook", to: redirect("/docs/components")
 end
