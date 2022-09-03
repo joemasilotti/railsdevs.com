@@ -51,5 +51,10 @@ module Railsdevs
 
     # Use default language as fallback if translation is missing
     config.i18n.fallbacks = true
+
+    # Defer loading of images until it reaches a calculated distance from the viewport
+    config.action_view.image_loading = "lazy"
+
+    config.view_component.default_preview_layout = "components_previews"
   end
 end
