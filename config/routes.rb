@@ -126,8 +126,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 
-  namespace :docs do
-    mount Lookbook::Engine, at: "/components"
+  if Rails.env.development?
+    namespace :docs do
+      mount Lookbook::Engine, at: "/components"
+    end
+    get "/lookbook", to: redirect("/docs/components")
   end
-  get "/lookbook", to: redirect("/docs/components")
 end
