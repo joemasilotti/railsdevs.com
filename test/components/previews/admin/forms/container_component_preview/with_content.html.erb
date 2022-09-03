@@ -1,0 +1,5 @@
+<%= render(Admin::Forms::ContainerComponent.new(title, description)) do |container| %>
+  <%= form_with url: "#" do |f| %>
+    <%= f.text_field :text %>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<%= render(Admin::Forms::ContainerComponent.new(title, description)) do |container| %>
+  <% container.with_aside do %>
+    <%= render Admin::BadgeComponent.new("active") %>
+    <%= render Admin::Forms::ButtonLinkComponent.new("deactivate", "#") %>
+  <% end %>
+
+  <% container.with_button_group do %>
+    <%= render Admin::Forms::ButtonLinkComponent.new("Cancel", "#") %>
+    <%= render SubmitButtonComponent.new(button_classes: "ml-3") %>
+  <% end %>
+<% end %>
