@@ -14,6 +14,7 @@ gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "view_component"
+gem "lookbook", "~> 0.9.6"
 
 group :development, :test do
   gem "faker"
