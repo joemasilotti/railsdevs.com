@@ -7,6 +7,7 @@ Hired::Form.find_or_create_by!(developer:) do |form|
   form.start_date = Date.today
   form.employment_type = :full_time
   form.feedback = "Keep up the great work with RailsDevs!"
+  form.save_and_notify
 end
 
 HiringAgreements::Term.first_or_create! do |term|
