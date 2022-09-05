@@ -1,9 +1,8 @@
 module Admin
   module Forms
     class ContainerComponentPreview < ViewComponent::Preview
-      # Form Container
+      # Default Form Container
       # ---------------
-      # This is the form container
       #
       # @param title text
       # @param description textarea
@@ -13,7 +12,6 @@ module Admin
 
       # Form Container with aside
       # ---------------
-      # This is the form container with an aside
       #
       # @param title text
       # @param description textarea
@@ -26,7 +24,6 @@ module Admin
 
       # Form Container with button_group
       # ---------------
-      # This is the form container a button group
       #
       # @param title text
       # @param description textarea
@@ -39,7 +36,6 @@ module Admin
 
       # Form Container with content
       # ---------------
-      # This is the form container with an aside and button group
       #
       # @param title text
       # @param description textarea
@@ -52,7 +48,6 @@ module Admin
 
       # Form Container with content, aside and button_group
       # ---------------
-      # This is the form container with an aside and button group
       #
       # @param title text
       # @param description textarea
