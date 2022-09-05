@@ -37,19 +37,6 @@ module Admin
         })
       end
 
-      # Form Container with aside and button_group
-      # ---------------
-      # This is the form container with an aside and button group
-      #
-      # @param title text
-      # @param description textarea
-      def with_aside_and_button_group(title: "title", description: "description")
-        render_with_template(locals: {
-          title: title,
-          description: description
-        })
-      end
-
       # Form Container with content
       # ---------------
       # This is the form container with an aside and button group
