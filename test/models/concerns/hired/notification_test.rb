@@ -18,5 +18,4 @@ class Hired::NotificationsTest < ActiveSupport::TestCase
       refute hired_form.save_and_notify
     end
   end
-
 end

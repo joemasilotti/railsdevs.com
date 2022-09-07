@@ -10,5 +10,4 @@ module HiredFormsHelper
       feedback: "Keep up the great work with RailsDevs!"
     }
   end
-
 end
