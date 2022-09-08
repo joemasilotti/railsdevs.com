@@ -1,0 +1,19 @@
+shared:
+  -
+    image: tate.jpg
+    name: Tate Johnson
+    testimonial: It's like the convenience of working with a recruiter but half the placement fee.
+    title: CTO, The Lookout Way
+    url: https://testimonial.to/share/railsdevs-hiring/t/5nDZ3xmVezbr8NEkzy2qpdWj9
+  -
+    image: aatash.jpg
+    name: Aatash Parikh
+    testimonial: We made our first developer hire on RailsDevs and he started contributing on day 1.
+    title: Founder, Inkwire
+    url: https://testimonial.to/share/railsdevs-hiring/t/KPbegp4noQkRj1dW6lVkN03vE
+  -
+    image: phil.jpg
+    name: Phil
+    testimonial: My lead developer gave notice and I found a replacement in under a week through RailsDevs.
+    title: Founder, Theatre Digs Booker
+    url: https://testimonial.to/share/railsdevs-hiring/t/5nDZ3xmVezbr8NvNzy2qpdWj9

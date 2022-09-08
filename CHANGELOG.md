@@ -2,6 +2,10 @@
 
 ## 2022
 
+## September
+
+* September 8 – Remove part-time hiring plan from pricing page #628
+
 ## August
 
 * August 27 - Add a URL to Admin::SubscriptionChangeNotification #612

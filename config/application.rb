@@ -26,12 +26,13 @@ module Railsdevs
     # Load custom configuration.
     config.always_remember_me = true
     config.analytics = config_for(:analytics)
+    config.deliver_celebration_promotion_after = nil
     config.emails = config_for(:emails)
     config.fathom = config_for(:fathom)
     config.plans = config_for(:plans)
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
+    config.testimonials = config_for(:testimonials)
     config.upload_sitemap = false
-    config.deliver_celebration_promotion_after = nil
 
     # Run background jobs via sidekiq.
     config.active_job.queue_adapter = :sidekiq
