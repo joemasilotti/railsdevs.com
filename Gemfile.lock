@@ -72,7 +72,11 @@ GEM
     apnotic (1.7.0)
       connection_pool (~> 2)
       net-http2 (>= 0.18.3, < 2)
+    ar_lazy_preload (1.0.0)
+      rails (>= 5.2)
     ast (2.4.2)
+    audited (5.0.2)
+      activerecord (>= 5.0, < 7.1)
     auto_html (2.1.0)
       gemoji (~> 4.0.0.rc2)
       redcarpet (~> 3.5)
@@ -103,6 +107,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     builder (3.2.4)
+    cancancan (3.4.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -145,6 +150,8 @@ GEM
       rubocop
       smart_properties
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     faker (2.20.0)
       i18n (>= 1.8.11, < 2)
     faraday (1.9.3)
@@ -179,6 +186,9 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    fugit (1.6.0)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     gemoji (4.0.0.rc3)
     geocoder (1.7.3)
     globalid (1.0.0)
@@ -263,6 +273,12 @@ GEM
     minitest-reporters-pride_reporter (0.0.2)
       minitest (~> 5)
       minitest-reporters (~> 1)
+    motor-admin (0.3.11)
+      ar_lazy_preload (~> 1.0)
+      audited (~> 5.0)
+      cancancan (~> 3.0)
+      fugit (~> 1.0)
+      rails (>= 5.2)
     multipart-post (2.1.1)
     net-http2 (0.18.4)
       http-2 (~> 0.11)
@@ -317,6 +333,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.2.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -476,6 +493,7 @@ DEPENDENCIES
   letter_opener_web
   minitest-reporters (~> 1.5)
   minitest-reporters-pride_reporter (~> 0.0.2)
+  motor-admin (~> 0.3.11)
   noticed (~> 1.5.9)
   pagy (~> 5.2)
   pay (~> 4.0.1)
