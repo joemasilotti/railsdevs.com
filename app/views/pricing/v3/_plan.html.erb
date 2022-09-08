@@ -1,0 +1,41 @@
+<div class="mt-8 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
+  <div class="relative">
+    <div class="absolute inset-0 h-1/3 bg-gray-50"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-lg overflow-hidden rounded-lg shadow-lg lg:flex lg:max-w-none">
+        <div class="flex-1 bg-white px-6 py-8 lg:p-12">
+          <h3 class="text-2xl font-bold text-gray-900 sm:text-3xl sm:tracking-tight"><%= t(".title_html") %></h3>
+          <p class="mt-6 text-base text-gray-500 max-w-prose"><%= t(".description") %></p>
+          <div class="mt-8">
+            <div class="flex items-center">
+              <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-gray-600"><%= t(".features.title") %></h4>
+              <div class="flex-1 border-t-2 border-gray-200"></div>
+            </div>
+            <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
+              <%= render "pricing/v3/plan_feature", title: t(".features.rails") %>
+              <%= render "pricing/v3/plan_feature", title: t(".features.message") %>
+              <%= render "pricing/v3/plan_feature", title: t(".features.hand_selected_matches") %>
+              <%= render "pricing/v3/plan_feature", title: t(".features.email_updates") %>
+              <%= render "pricing/v3/plan_feature", title: t(".features.support") %>
+              <%= render "pricing/v3/plan_feature", title: t(".features.oss") %>
+            </ul>
+          </div>
+        </div>
+        <div class="bg-white w-full lg:max-w-sm py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
+          <div class="mt-4 flex items-center justify-center text-5xl font-bold tracking-tight text-gray-900">
+            <span>$299</span>
+            <span class="ml-2 text-xl font-medium tracking-normal text-gray-500"><%= t(".per_month") %></span>
+          </div>
+          <p class="mt-4 text-sm">
+            <a href="#hiring-fee" class="font-medium text-gray-500 underline"><%= t(".hiring_fee") %></a>
+          </p>
+          <div class="mt-6">
+            <div class="rounded-md shadow">
+              <%= render "pricing/v2/purchase_button", plan: :full_time, classes: "block w-full flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
