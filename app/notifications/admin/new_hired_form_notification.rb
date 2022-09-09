@@ -3,18 +3,14 @@ module Admin
     deliver_by :database
     deliver_by :email, mailer: "AdminMailer", method: :new_hired_form
 
-    param :developer, :form
+    param :form
 
     def title
-      t("notifications.admin.new_hired_form_notification.title", developer: developer.name)
+      t("notifications.admin.new_hired_form_notification.title", developer: form.developer.name)
     end
 
     def url
       admin_hired_form_path(form)
-    end
-
-    def developer
-      params[:developer]
     end
 
     def form

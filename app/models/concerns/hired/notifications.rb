@@ -8,7 +8,7 @@ module Hired
     end
 
     def send_admin_notification
-      Admin::NewHiredFormNotification.with(developer: developer, form: self).deliver_later(User.admin)
+      Admin::NewHiredFormNotification.with(form: self).deliver_later(User.admin)
     end
   end
 end
