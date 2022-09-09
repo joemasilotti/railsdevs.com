@@ -98,7 +98,6 @@ en:
           title: Celebration package requests
         show:
           company_name: Company name
-          description: Completed form from a hired developer.
           employment_type: Employment type
           feedback: Feedback
           mailing_address: Mailing address
