@@ -9,10 +9,6 @@ module Admin
       t("notifications.admin.new_hired_form_notification.title", developer: developer.name)
     end
 
-    def email_subject
-      t("notifications.admin.new_hired_form_notification.email_subject")
-    end
-
     def url
       admin_hired_form_path(form)
     end

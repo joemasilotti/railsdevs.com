@@ -1,2 +1,2 @@
-<p>A <b><%= link_to @developer.name, "mailto:#{@developer.user.email}" %></b> was hired via RailsDevs!</p>
-<%= link_to "View Hired Form", notification_url(@notification.record) %>
+<p><b><%= link_to @developer.name, "mailto:#{@developer.user.email}" %></b> was hired via RailsDevs!</p>
+<%= link_to "View request", notification_url(@notification.record) %>
