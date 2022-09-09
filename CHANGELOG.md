@@ -4,7 +4,7 @@
 
 ## September
 
-* September 8 – Update license year and note non-code usage #629
+* September 8 – Update license year and note non-code usage #630
 * September 8 – Remove part-time hiring plan from pricing page #628
 
 ## August
