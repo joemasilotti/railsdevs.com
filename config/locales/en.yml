@@ -98,7 +98,6 @@ en:
           title: Celebration package requests
         show:
           company_name: Company name
-          description: Completed form from a hired developer.
           employment_type: Employment type
           feedback: Feedback
           mailing_address: Mailing address
@@ -504,6 +503,8 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
+      new_hired_form_notification:
+        title: "%{developer} requested a celebration package"
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"

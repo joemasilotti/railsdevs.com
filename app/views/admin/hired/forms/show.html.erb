@@ -1,6 +1,6 @@
 <%= render Admin::ContainerComponent.new do %>
   <%= render Admin::ContentComponent.new do %>
-    <%= render Admin::DescriptionListComponent.new(t(".title"), description: t(".description")) do |list| %>
+    <%= render Admin::DescriptionListComponent.new(t(".title")) do |list| %>
       <% list.with_description "Full name" do %>
         <%= render Admin::BasicLinkComponent.new(@form.developer.name, developer_path(@form.developer)) %>
         <br>

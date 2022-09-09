@@ -1,5 +1,7 @@
 module Hired
   class Form < ApplicationRecord
+    include Hired::Notifications
+
     self.table_name = "hired_forms"
 
     enum employment_type: {
