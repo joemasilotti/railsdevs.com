@@ -1,5 +1,0 @@
-<% if Feature.enabled?(:pricing_v2, user: current_user) %>
-  <%= render "v2" %>
-<% else %>
-  <%= render "v1" %>
-<% end %>

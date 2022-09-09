@@ -18,7 +18,7 @@
         <div class="mt-2 relative text-gray-900 font-medium ml-1 flex items-center">
           <p><%= t(".full_time.fees") %></p>
 
-          <a href="#full-time-fee" class="ml-1.5">
+          <a href="#hiring-fee" class="ml-1.5">
             <%= inline_svg_tag "icons/solid/question_mark_circle.svg", class: "h-5 w-5 text-gray-500 hover:text-gray-700", aria_hidden: true %>
             <span class="sr-only"><%= t(".full_time.help") %></span>
           </a>
@@ -54,7 +54,7 @@
         </ul>
       </div>
 
-      <%= render "purchase_button", plan: :full_time %>
+      <%= render "pricing/v2/purchase_button", plan: :full_time %>
     </div>
 
     <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col lg:order-first">
@@ -90,7 +90,7 @@
         </ul>
       </div>
 
-      <%= render "purchase_button", plan: :part_time %>
+      <%= render "pricing/v2/purchase_button", plan: :part_time %>
     </div>
   </div>
 </section>

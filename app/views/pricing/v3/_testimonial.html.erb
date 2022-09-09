@@ -1,0 +1,20 @@
+<%= link_to testimonial.url, target: "_blank", class: "block bg-white shadow-lg rounded-lg p-6 space-y-4 hover:bg-gray-50 hover:shadow-xl" do %>
+  <div class="flex">
+    <%= image_tag "testimonials/#{testimonial.image}", class: "rounded-full object-cover w-10 h-10", alt: testimonial.name %>
+
+    <div class="ml-4 text-sm">
+      <p class="text-gray-800 font-medium"><%= testimonial.name %></p>
+      <p class="text-gray-600"><%= testimonial.title %></p>
+    </div>
+  </div>
+
+  <div class="flex">
+    <%= inline_svg_tag "icons/solid/star.svg", class: "h-6 w-6 text-yellow-500" %>
+    <%= inline_svg_tag "icons/solid/star.svg", class: "h-6 w-6 text-yellow-500" %>
+    <%= inline_svg_tag "icons/solid/star.svg", class: "h-6 w-6 text-yellow-500" %>
+    <%= inline_svg_tag "icons/solid/star.svg", class: "h-6 w-6 text-yellow-500" %>
+    <%= inline_svg_tag "icons/solid/star.svg", class: "h-6 w-6 text-yellow-500" %>
+  </div>
+
+  <p class="text-gray-700"><%= testimonial.testimonial %></p>
+<% end %>
