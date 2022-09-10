@@ -152,9 +152,9 @@ en:
     users:
       index:
         business: Business
-        impersonate: Impersonate
         developer: Developer
         email: Email
+        impersonate: Impersonate
         title: Users
       search:
         cta: Search
