@@ -49,8 +49,6 @@ es:
       blocks:
         index:
           title: Conversaciones bloqueadas
-    impersonate_component:
-      submit: Ver como el sujeto
     users:
       index:
         impersonate: Ver como
