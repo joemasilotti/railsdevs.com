@@ -29,7 +29,7 @@
           <% end %>
 
           <%= row.with_cell do %>
-            <%= render Admin::BasicLinkPostComponent.new(t(".impersonate"), admin_impersonate_path, name: :email, val: user.email) %>
+            <%= render Admin::BasicLinkPostComponent.new(t(".impersonate"), admin_impersonate_path, name: :email, value: user.email) %>
           <% end %>
         <% end %>
       <% end %>

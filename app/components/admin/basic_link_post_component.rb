@@ -1,18 +1,16 @@
 module Admin
   class BasicLinkPostComponent < ApplicationComponent
-    private attr_reader :title, :path, :name, :val
+    private attr_reader :title, :path, :name, :value
 
-    def initialize(title, path, name:, val:)
+    def initialize(title, path, name:, value:)
       @title = title
       @path = path
-      @val = val
+      @value = value
       @name = name
     end
 
     def call
-      form_with url: path do |form|
-        form.hidden_field(name, value: val) + form.submit(title, class: "hover:underline")
-      end
+      button_to(title, path, {class: "hover:underline", params: {name => value}})
     end
   end
 end
