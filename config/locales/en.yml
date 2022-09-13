@@ -16,7 +16,6 @@ en:
         name: Your name
       developer:
         available_on: Available to start on
-        bio: Bio
         email: E-mail
         github: Github
         hero: Hero
@@ -281,6 +280,18 @@ en:
     edit:
       title: Your developer profile
     form:
+      bio:
+        description: Share a few paragraphs on what makes you unique as a developer. This is your chance to market yourself to potential employers – sell yourself a little!
+        examples:
+          accomplishment: A recent milestone or accomplishment
+          help: How you can help where others can't
+          learned: Something new you learned
+          origin: Your developer origin story
+          passion: What you're passionate about
+          title: Example topics
+          unique: Your unique skills that make you awesome
+        help_text: Personally identifiable information will be removed.
+        title: Bio
       creating: Creating...
       loading: Loading...
       notifications:
@@ -298,7 +309,6 @@ en:
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
-        bio_help_text: Write a few sentences about yourself. Please don't mention personally identifiable information.
         change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
