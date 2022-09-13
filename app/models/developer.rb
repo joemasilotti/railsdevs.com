@@ -6,14 +6,6 @@ class Developer < ApplicationRecord
   include PersonName
   include PgSearch::Model
 
-  BIO_EXAMPLE_TEXT = [
-    "A recent milestone or accomplishment",
-    "Something new you learned",
-    "What you're passionate about",
-    "How you can help where others can't",
-    "Your unique skills that make you awesome"
-  ]
-
   enum search_status: {
     actively_looking: 1,
     open: 2,

@@ -113,12 +113,17 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <div class="md:col-span-1">
-            <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.bio") %></h2>
-            <p class="mt-1 text-sm text-gray-500"><%= t(".profile.bio_description") %></p>
+            <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".bio.title") %></h2>
+            <p class="mt-1 text-sm text-gray-500"><%= t(".bio.description") %></p>
+
+            <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".bio.examples.title") %></h4>
             <ul class="text-sm text-gray-500 list-disc list-inside">
-              <% Developer::BIO_EXAMPLE_TEXT.each do |sentence| %>
-                <li class="mt-1"><%= sentence %></li>
-              <% end %>
+              <li class="mt-1"><%= t(".bio.examples.origin") %></li>
+              <li class="mt-1"><%= t(".bio.examples.accomplishment") %></li>
+              <li class="mt-1"><%= t(".bio.examples.learned") %></li>
+              <li class="mt-1"><%= t(".bio.examples.passion") %></li>
+              <li class="mt-1"><%= t(".bio.examples.help") %></li>
+              <li class="mt-1"><%= t(".bio.examples.unique") %></li>
             </ul>
           </div>
         </div>
@@ -130,7 +135,7 @@
               <div class="mt-1">
                 <%= form.text_area :bio, rows: 20, class: field_classes(form, :bio) %>
               </div>
-              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.bio_help_text") %></p>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".bio.help_text") %></p>
             </div>
           </div>
         </div>

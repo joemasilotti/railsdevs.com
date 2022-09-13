@@ -11,7 +11,6 @@ es:
         name: Tu nombre
       developer:
         available_on: Disponible para empezar el
-        bio: Bio
         email: Correo Electrónico
         github: Github
         hero: Hero
@@ -108,6 +107,9 @@ es:
     details:
       title: Detalles
     form:
+      bio:
+        help_text: Escribe algunas oraciones sobre ti.
+        title: Bio
       creating: Creando...
       online_presence:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
@@ -120,7 +122,6 @@ es:
       profile:
         avatar: Avatar
         avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
-        bio_help_text: Escribe algunas oraciones sobre ti.
         change: Subir
         cover_image: Imagen de portada
         help_text: Esta información será pública, así que ten cuidado con lo que compartas.
