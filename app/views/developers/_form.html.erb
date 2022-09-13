@@ -116,7 +116,7 @@
             <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.bio") %></h2>
             <p class="mt-1 text-sm text-gray-500"><%= t(".profile.bio_description") %></p>
             <ul class="text-sm text-gray-500 list-disc list-inside">
-              <% ["A recent milestone or accomplishment", "Something new you learned", "What you're passionate about", "How you can help where others can't", "Your unique skills that make you awesome"].each do |sentence| %>
+              <% Developer::BIO_EXAMPLE_TEXT.each do |sentence| %>
                 <li class="mt-1"><%= sentence %></li>
               <% end %>
             </ul>
