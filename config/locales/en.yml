@@ -298,8 +298,8 @@ en:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
         bio: Bio
+        bio_description: 'Share what makes you unique as a developer. This is your chance to market yourself to potential employers – sell yourself a little! Examples:'
         bio_help_text: Write a few sentences about yourself. Please don't mention personally identifiable information.
-        bio_description: "Share what makes you unique as a developer. This is your chance to market yourself to potential employers – sell yourself a little! Examples:"
         change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
