@@ -33,14 +33,6 @@
               <p class="mt-2 text-sm text-gray-500"><%= t(".profile.hero_help_text") %></p>
             </div>
 
-            <div class="sm:col-span-6">
-              <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
-              </div>
-              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.bio_help_text") %></p>
-            </div>
-
             <%= form.fields_for :location, include_id: false do |location| %>
               <div>
                 <div class="grid grid-cols-1 sm:grid-cols-5 sm:col-span-3 gap-6">
@@ -111,6 +103,34 @@
                   <p class="text-sm text-red-700"><%= t(".profile.upload_error_text") %></p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <div class="md:col-span-1">
+            <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.bio") %></h2>
+            <p class="mt-1 text-sm text-gray-500"><%= t(".profile.bio_description") %></p>
+            <ul class="text-sm text-gray-500 list-disc list-inside">
+              <% ["A recent milestone or accomplishment", "Something new you learned", "What you're passionate about", "How you can help where others can't", "Your unique skills that make you awesome"].each do |sentence| %>
+                <li class="mt-1"><%= sentence %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="space-y-6">
+            <div class="sm:col-span-6">
+              <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1">
+                <%= form.text_area :bio, rows: 3, class: field_classes(form, :bio) %>
+              </div>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".profile.bio_help_text") %></p>
             </div>
           </div>
         </div>
