@@ -48,6 +48,9 @@ es:
       blocks:
         index:
           title: Conversaciones bloqueadas
+    users:
+      index:
+        impersonate: Ver como
   blocks:
     create:
       notice: "%{other_recipient} fue bloqueado."

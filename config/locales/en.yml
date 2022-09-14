@@ -126,11 +126,6 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
-    impersonates:
-      show:
-        cta: Impersonate
-        description: Sign in and act as a different person.
-        title: Impersonate a user
     transactions:
       create:
         created: Transaction created
@@ -151,6 +146,7 @@ en:
         business: Business
         developer: Developer
         email: Email
+        impersonate: Impersonate
         title: Users
       search:
         cta: Search
@@ -490,7 +486,6 @@ en:
       get_started: Get started
       hired_forms: Hired forms
       hiring_agreement_terms: Hiring agreement terms
-      impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile
