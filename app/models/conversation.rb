@@ -61,7 +61,7 @@ class Conversation < ApplicationRecord
   end
 
   def first_reply?(developer)
-    messages.where(sender: developer).one?
+    messages.where(sender: developer).one? && latest_message.sender == developer
   end
 
   private
