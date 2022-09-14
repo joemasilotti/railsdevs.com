@@ -4,7 +4,7 @@
 
 ## September
 
-* September 10 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
+* September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
 * September 8 - Send admins a notification when a `Hired::Form` is created #614 @sarvaiyanidhi
 * September 8 – Update license year and note non-code usage #630
 * September 8 – Remove part-time hiring plan from pricing page #628
