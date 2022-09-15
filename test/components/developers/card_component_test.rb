@@ -31,14 +31,22 @@ module Developers
       assert_selector("span", text: "Available now")
     end
 
-    test "renders the accent border and badge if featured" do
-      render_inline(CardComponent.new(developer: @developer, featured: true))
-      assert_selector "a.border-l-4.border-blue-400"
-      assert_text I18n.t("developers.card_component.featured")
-
+    test "renders the badge if featured" do
+      @developer.feature!
       render_inline(CardComponent.new(developer: @developer))
+      assert_text I18n.t("developers.card_component.featured")
+    end
+
+    test "highlights the border if featured and the option is set" do
+      render_inline(CardComponent.new(developer: @developer, highlight_featured: true))
       assert_no_selector "a.border-l-4.border-blue-400"
-      assert_no_text I18n.t("developers.card_component.featured")
+
+      @developer.feature!
+      render_inline(CardComponent.new(developer: @developer, highlight_featured: false))
+      assert_no_selector "a.border-l-4.border-blue-400"
+
+      render_inline(CardComponent.new(developer: @developer, highlight_featured: true))
+      assert_selector "a.border-l-4.border-blue-400"
     end
   end
 end
