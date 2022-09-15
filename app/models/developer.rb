@@ -6,6 +6,8 @@ class Developer < ApplicationRecord
   include PersonName
   include PgSearch::Model
 
+  FEATURE_LENGTH = 1.week
+
   enum search_status: {
     actively_looking: 1,
     open: 2,
@@ -58,7 +60,7 @@ class Developer < ApplicationRecord
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
-  scope :featured, -> { where("featured_at >= ?", 1.week.ago).order(featured_at: :desc) }
+  scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
@@ -90,5 +92,9 @@ class Developer < ApplicationRecord
 
   def feature!
     touch(:featured_at)
+  end
+
+  def featured?
+    featured_at? && featured_at >= FEATURE_LENGTH.ago
   end
 end
