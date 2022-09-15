@@ -1,6 +1,6 @@
 module Developers
   module RichText
-    require 'redcarpet/render_strip'
+    require "redcarpet/render_strip"
 
     def rich_text_bio
       @rich_text_bio ||= markdown.render(bio).strip
