@@ -4,7 +4,7 @@
 
 ## September
 
-* September 15 - Allow rich text for Develoepr#bio #638 @rayhanw
+* September 15 - Allow rich text for developer#bio #638 @rayhanw
 * September 14 - Only ever send one Celebration Promotion email #617 @sarvaiyanidhi
 * September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
 * September 13 - Move developer bio to own card in form and add more instructions #635 @rayhanw
