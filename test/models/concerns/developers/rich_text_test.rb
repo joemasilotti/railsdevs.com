@@ -33,7 +33,7 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     MD
     developer.update!(bio:)
 
-    assert_match developer.rich_text_bio, ""
+    assert_equal developer.rich_text_bio, "<p>[Text](https://example.com)</p>"
   end
 
   test "ignores images" do
@@ -43,6 +43,6 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     MD
     developer.update!(bio:)
 
-    assert_match developer.rich_text_bio, ""
+    assert_equal developer.rich_text_bio, "<p>![Image](https://example.com)</p>"
   end
 end
