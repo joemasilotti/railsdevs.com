@@ -23,7 +23,7 @@ module Developers
     }.freeze
 
     def renderer
-      @renderer ||= DeveloperBioRender.new(RENDER_OPTIONS)
+      @renderer ||= Redcarpet::Render::HTML.new(RENDER_OPTIONS)
     end
 
     def markdown
