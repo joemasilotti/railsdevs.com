@@ -1,7 +1,7 @@
 require "test_helper"
 
 class Developers::RichTextTest < ActiveSupport::TestCase
-  test "parses bio correctly" do
+  test "#rich_text_bio parses bio correctly" do
     developer = developers(:one)
     bio = <<~MD
       # H1
@@ -15,7 +15,7 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     assert_match "<code>Inline code block</code>", developer.rich_text_bio
   end
 
-  test "disallows manually written HTML tags" do
+  test "#rich_text_bio disallows manually written HTML tags" do
     developer = developers(:one)
     bio = <<~MD
       <h1>Hello world</h1>
@@ -26,7 +26,7 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     assert_match(/<p>Hello world<\/p>/, developer.rich_text_bio)
   end
 
-  test "ignores links" do
+  test "#rich_text_bio ignores links" do
     developer = developers(:one)
     bio = <<~MD
       [Text](https://example.com)
@@ -36,7 +36,7 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     assert_equal developer.rich_text_bio, "<p>[Text](https://example.com)</p>"
   end
 
-  test "ignores images" do
+  test "#rich_text_bio ignores images" do
     developer = developers(:one)
     bio = <<~MD
       ![Image](https://example.com)
@@ -44,5 +44,15 @@ class Developers::RichTextTest < ActiveSupport::TestCase
     developer.update!(bio:)
 
     assert_equal developer.rich_text_bio, "<p>![Image](https://example.com)</p>"
+  end
+
+  test "#plain_text_bio strips to plaintext" do
+    developer = developers(:one)
+    bio = <<~MD
+      **hi** _bye_
+    MD
+    developer.update!(bio:)
+
+    assert_equal developer.plain_text_bio, "hi bye"
   end
 end

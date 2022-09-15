@@ -1,7 +1,13 @@
 module Developers
   module RichText
+    require 'redcarpet/render_strip'
+
     def rich_text_bio
       @rich_text_bio ||= markdown.render(bio).strip
+    end
+
+    def plain_text_bio
+      @plain_text_bio ||= plain_text_markdown.render(bio).strip
     end
 
     private
@@ -29,6 +35,14 @@ module Developers
 
     def markdown
       @markdown ||= Redcarpet::Markdown.new(renderer, MARKDOWN_OPTIONS)
+    end
+
+    def plain_text_renderer
+      @plain_text_renderer ||= Redcarpet::Render::StripDown
+    end
+
+    def plain_text_markdown
+      @plain_text_markdown ||= Redcarpet::Markdown.new(plain_text_renderer, MARKDOWN_OPTIONS)
     end
   end
 end
