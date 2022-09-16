@@ -17,10 +17,10 @@
 
      <div class="mt-1 pb-1">
         <% if featured? %>
-          <%= render Developers::BadgeComponent.new(t(".featured"), classes: "inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium bg-blue-100 text-blue-800") %>
+          <%= render Developers::BadgeComponent.new(t(".featured"), color: "blue") %>
         <% end %>
         <% if recently_active? %>
-          <%= render Developers::BadgeComponent.new(t(".recently_active"), classes: "inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium bg-green-100 text-green-800") %>
+          <%= render Developers::BadgeComponent.new(t(".recently_active"), color: "green") %>
         <% end %>
       </div>
 
