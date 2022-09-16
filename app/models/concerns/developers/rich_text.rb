@@ -12,7 +12,7 @@ module Developers
 
     private
 
-    # https://github.com/vmg/redcarpet#darling-i-packed-you-a-couple-renderers-for-lunch
+    # https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
     MARKDOWN_OPTIONS = {
       disable_indented_code_blocks: true,
       fenced_code_blocks: true,
@@ -21,6 +21,8 @@ module Developers
       superscript: true,
       underline: true
     }.freeze
+
+    # https://github.com/vmg/redcarpet#darling-i-packed-you-a-couple-renderers-for-lunch
     RENDER_OPTIONS = {
       filter_html: true,
       hard_wrap: true,
