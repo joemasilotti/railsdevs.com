@@ -2,6 +2,7 @@ class Developer < ApplicationRecord
   include Availability
   include Avatarable
   include Developers::Notifications
+  include Developers::RichText
   include HasSocialProfiles
   include PersonName
   include PgSearch::Model

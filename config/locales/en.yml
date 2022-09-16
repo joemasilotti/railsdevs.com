@@ -287,6 +287,7 @@ en:
           title: Example topics
           unique: Your unique skills that make you awesome
         help_text: Personally identifiable information will be removed.
+        markdown: Markdown is supported but links and images are removed.
         title: Bio
       creating: Creating...
       loading: Loading...
