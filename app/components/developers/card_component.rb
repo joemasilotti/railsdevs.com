@@ -3,6 +3,7 @@ module Developers
     with_collection_parameter :developer
 
     delegate :featured?, to: :developer
+    delegate :recently_active?, to: :developer
 
     private attr_reader :developer, :highlight_featured
 
@@ -21,10 +22,6 @@ module Developers
 
     def highlight?
       !!highlight_featured && featured?
-    end
-
-    def recently_active?
-      developer.recently_active?
     end
   end
 end
