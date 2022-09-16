@@ -48,5 +48,19 @@ module Developers
       render_inline(CardComponent.new(developer: @developer, highlight_featured: true))
       assert_selector "a.border-l-4.border-blue-400"
     end
+
+    test "renders recently active badge if developer is active in last 7 days" do
+      @developer.update!(bio: "I am the first developer")
+      @developer.recently_active?
+      render_inline(CardComponent.new(developer: @developer))
+      assert_text I18n.t("developers.card_component.recently_active")
+    end
+
+    test "doesn't render recently active badge if developer is active more than 7 days ago" do
+      @developer.update!(updated_at: 2.weeks.ago)
+      @developer.recently_active?
+      render_inline(CardComponent.new(developer: @developer))
+      assert_no_text I18n.t("developers.card_component.recently_active")
+    end
   end
 end

@@ -8,7 +8,7 @@ module Developers
     end
 
     def call
-      tag.span title, class: "inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium bg-#{@color}-100 text-#{@color}-800"
+      tag.span title, class: "inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-medium bg-#{color}-100 text-#{color}-800"
     end
   end
 end
