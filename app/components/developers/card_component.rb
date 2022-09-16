@@ -22,5 +22,9 @@ module Developers
     def highlight?
       !!highlight_featured && featured?
     end
+
+    def recently_active?
+      developer.recently_active?
+    end
   end
 end
