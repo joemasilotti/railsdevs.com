@@ -16,7 +16,7 @@ module Developers
     MARKDOWN_OPTIONS = {
       disable_indented_code_blocks: true,
       fenced_code_blocks: true,
-      highlight: true,
+      highlight: false,
       strikethrough: true,
       superscript: true,
       underline: true
