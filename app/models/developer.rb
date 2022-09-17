@@ -8,6 +8,7 @@ class Developer < ApplicationRecord
   include PgSearch::Model
 
   FEATURE_LENGTH = 1.week
+  RECENTLY_ACTIVE_LENGTH = 1.week
 
   enum search_status: {
     actively_looking: 1,
@@ -97,5 +98,9 @@ class Developer < ApplicationRecord
 
   def featured?
     featured_at? && featured_at >= FEATURE_LENGTH.ago
+  end
+
+  def recently_active?
+    updated_at >= RECENTLY_ACTIVE_LENGTH.ago
   end
 end

@@ -215,4 +215,14 @@ class DeveloperTest < ActiveSupport::TestCase
 
     travel_back
   end
+
+  test "recently active developers within last one week" do
+    @developer = developers(:one)
+
+    @developer.updated_at = 2.weeks.ago
+    refute @developer.recently_active?
+
+    @developer.updated_at = Date.current
+    assert @developer.recently_active?
+  end
 end

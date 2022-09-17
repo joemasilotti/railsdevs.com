@@ -264,6 +264,7 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+      recently_active: Recently Active
     count_component:
       cta: Reset filters
       title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
