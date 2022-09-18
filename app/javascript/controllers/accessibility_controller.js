@@ -43,4 +43,10 @@ export default class extends Controller {
 
     firstFocusableElement.focus()
   }
+
+  focusBackToFilter() {
+    const filterButton = document.querySelector("#filterButton")
+
+    filterButton.focus()
+  }
 }
