@@ -8,7 +8,7 @@ class Message < ApplicationRecord
   )
 
   belongs_to :conversation, touch: true
-  belongs_to :sender, polymorphic: true
+  belongs_to :sender, polymorphic: true, touch: true
   has_one :developer, through: :conversation
   has_one :business, through: :conversation
 

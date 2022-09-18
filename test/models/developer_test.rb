@@ -198,17 +198,31 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "featured developers were featured within the last week" do
     developer = developers(:one)
+    refute developer.featured?
     refute_includes Developer.featured, developer
 
     developer.feature!
+    assert developer.featured?
     assert_includes Developer.featured, developer
 
     travel 7.days
+    assert developer.featured?
     assert_includes Developer.featured, developer
 
     travel 1.second
+    refute developer.featured?
     refute_includes Developer.featured, developer
 
     travel_back
+  end
+
+  test "recently active developers within last one week" do
+    @developer = developers(:one)
+
+    @developer.updated_at = 2.weeks.ago
+    refute @developer.recently_active?
+
+    @developer.updated_at = Date.current
+    assert @developer.recently_active?
   end
 end

@@ -3,7 +3,10 @@ require "test_helper"
 class OpenStartup::ReportingTest < ActiveSupport::TestCase
   include StripeHelper
 
-  test "refreshes Revenue records (grouped by month and description)" do
+  test "refreshes Revenue records (grouped by month and description and keeping manual entries)" do
+    create_existing_revenue_record(manual: false, amount: 500)
+    create_existing_revenue_record(manual: true, amount: 1000)
+
     @balance_transactions = [
       charge(amount: 1000, created: january, description: "New subscription"),
       charge(amount: 2000, created: january, description: "New subscription"),
@@ -15,10 +18,12 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     refresh_metrics
 
     revenue = OpenStartup::Revenue.pluck(:occurred_on, :description, :amount)
-    assert_equal 4, revenue.count
+    assert_equal 5, revenue.count
     assert_includes revenue, [Date.new(2022, 1, 1), "New subscriptions", 30]
     assert_includes revenue, [Date.new(2022, 2, 1), "New subscriptions", 40]
     assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 99]
+    refute_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 500]
+    assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 1000]
     assert_includes revenue, [Date.new(2022, 2, 1), "Update subscriptions", 50]
   end
 
@@ -104,6 +109,15 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
         end
       end
     end
+  end
+
+  def create_existing_revenue_record(manual:, amount:)
+    OpenStartup::Revenue.create!(
+      occurred_on: today,
+      amount:,
+      description: "Hiring fees",
+      manual:
+    )
   end
 
   def balance_transactions

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_26_195050) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_13_131207) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -242,6 +242,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_26_195050) do
     t.decimal "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "manual", default: false, null: false
   end
 
   create_table "open_startup_stripe_transactions", force: :cascade do |t|

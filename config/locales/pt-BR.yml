@@ -14,7 +14,6 @@ pt-BR:
         name: Seu nome
       developer:
         available_on: Disponível para iniciar em
-        bio: Sobre
         email: E-mail
         github: Github
         hero: Descrição
@@ -117,6 +116,9 @@ pt-BR:
     details:
       title: Detalhes
     form:
+      bio:
+        help_text: Escreva algo sobre você.
+        title: Sobre
       creating: Criando...
       online_presence:
         help_text: Onde as pessoas podem saber mais sobre você e seu trabalho?
@@ -129,7 +131,6 @@ pt-BR:
       profile:
         avatar: Imagem
         avatar_error_text: Aconteceu algo de errado ao enviar sua imagem. Por favor, tente novamente.
-        bio_help_text: Escreva algo sobre você.
         change: Enviar
         cover_image: Imagem de capa
         help_text: Essa informação sera pública, portanto tenha cuidado com o que compartilha.

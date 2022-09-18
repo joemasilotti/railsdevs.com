@@ -16,7 +16,6 @@ en:
         name: Your name
       developer:
         available_on: Available to start on
-        bio: Bio
         email: E-mail
         github: Github
         hero: Hero
@@ -127,11 +126,6 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
-    impersonates:
-      show:
-        cta: Impersonate
-        description: Sign in and act as a different person.
-        title: Impersonate a user
     transactions:
       create:
         created: Transaction created
@@ -152,6 +146,7 @@ en:
         business: Business
         developer: Developer
         email: Email
+        impersonate: Impersonate
         title: Users
       search:
         cta: Search
@@ -269,6 +264,7 @@ en:
       unspecified_html: Currently unavailable
     card_component:
       featured: Featured developer
+      recently_active: Recently Active
     count_component:
       cta: Reset filters
       title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
@@ -281,6 +277,19 @@ en:
     edit:
       title: Your developer profile
     form:
+      bio:
+        description: Share a few paragraphs on what makes you unique as a developer. This is your chance to market yourself to potential employers – sell yourself a little!
+        examples:
+          accomplishment: A recent milestone or accomplishment
+          help: How you can help where others can't
+          learned: Something new you learned
+          origin: Your developer origin story
+          passion: What you're passionate about
+          title: Example topics
+          unique: Your unique skills that make you awesome
+        help_text: Personally identifiable information will be removed.
+        markdown: Markdown is supported but links and images are removed.
+        title: Bio
       creating: Creating...
       loading: Loading...
       notifications:
@@ -298,7 +307,6 @@ en:
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
-        bio_help_text: Write a few sentences about yourself. Please don't mention personally identifiable information.
         change: Upload
         cover_image: Cover image
         help_text: This information will be displayed publicly so be careful what you share.
@@ -480,7 +488,6 @@ en:
       get_started: Get started
       hired_forms: Hired forms
       hiring_agreement_terms: Hiring agreement terms
-      impersonate: Impersonate
       my_business_profile: My business profile
       my_conversations: My conversations
       my_developer_profile: My developer profile

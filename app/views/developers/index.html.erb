@@ -46,7 +46,7 @@
       <%= render Developers::CountComponent.new(count: @query.pagy.count, total: @developers_count) %>
 
       <% if @query.records.any? %>
-        <%= render Developers::CardComponent.with_collection(@query.featured_records, featured: true) %>
+        <%= render Developers::CardComponent.with_collection(@query.featured_records, highlight_featured: true) %>
 
         <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
           <% component.loading_icon do %>

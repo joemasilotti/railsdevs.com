@@ -8,6 +8,7 @@
       <% table.with_header t(".email") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".business") %>
+      <% table.with_header t(".impersonate") %>
 
       <% @users.each do |user| %>
         <% table.with_row do |row| %>
@@ -25,6 +26,10 @@
             <% if (business = user.business) %>
               <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_business_conversations_path(business), subtitle: business.name) %>
             <% end %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <%= render Admin::BasicLinkPostComponent.new(t(".impersonate"), admin_impersonate_path, name: :email, value: user.email) %>
           <% end %>
         <% end %>
       <% end %>
