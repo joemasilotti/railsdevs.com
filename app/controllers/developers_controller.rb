@@ -25,12 +25,12 @@ class DevelopersController < ApplicationController
   end
 
   def edit
-    @developer = Developer.find(params[:id])
+    @developer = Developer.find_by_hashid!(params[:id])
     authorize @developer
   end
 
   def update
-    @developer = Developer.find(params[:id])
+    @developer = Developer.find_by_hashid!(params[:id])
     authorize @developer
 
     if @developer.update_and_notify(developer_params)
@@ -41,7 +41,7 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = Developer.find(params[:id])
+    @developer = Developer.find_by_hashid!(params[:id])
     authorize @developer
   end
 

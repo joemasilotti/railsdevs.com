@@ -48,6 +48,30 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
+  test "developers are only found by their hashid" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_response :ok
+
+    get developer_path(developer.hashid)
+    assert_response :ok
+
+    assert_raises ActiveRecord::RecordNotFound do
+      get developer_path(developer.id)
+    end
+
+    sign_in users(:developer)
+    assert_raises ActiveRecord::RecordNotFound do
+      get edit_developer_path(developer.id)
+    end
+
+    sign_in users(:developer)
+    assert_raises ActiveRecord::RecordNotFound do
+      patch developer_path(developer.id)
+    end
+  end
+
   test "developers are sorted newest first" do
     create_developer(hero: "Oldest")
     create_developer(hero: "Newest")

@@ -21,6 +21,13 @@ aws:
   sitemaps_bucket:
 ```
 
+[Hashids](https://github.com/jcypret/hashid-rails) are used to obfuscate developer profile URLs. [Set your own salt](https://github.com/jcypret/hashid-rails#configuration-optional) to ensure IDs are not guessable.
+
+```
+hashid:
+  salt:
+```
+
 Error reporting is done via [Honeybadger](https://www.honeybadger.io).
 
 ```
