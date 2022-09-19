@@ -1,8 +1,8 @@
 <%= open_graph_tags title: @meta.title, turbo_native_title: t(".title"), description: @meta.description %>
 
-<div data-controller="toggle" data-toggle-visibility-class="hidden" class="max-w-7xl bg-white mx-auto lg:mt-16 mb-16 overflow-auto sm:rounded-md sm:shadow">
-  <div class="pt-12 px-4 sm:px-6 mb-4">
-    <div class="md:flex md:space-x-8 justify-between items-center">
+<div data-controller="toggle" data-toggle-visibility-class="hidden" class="mx-auto mb-16 overflow-auto bg-white max-w-7xl lg:mt-16 sm:rounded-md sm:shadow">
+  <div class="px-4 pt-12 mb-4 sm:px-6">
+    <div class="items-center justify-between md:flex md:space-x-8">
       <% unless turbo_native_app? %>
         <h1 class="text-3xl font-extrabold tracking-tight text-gray-900"><%= @meta.title %></h1>
       <% end %>
@@ -10,16 +10,16 @@
     </div>
 
     <!-- Sort and mobile filter button -->
-    <div class="md:flex justify-between items-center">
-      <p class="mt-4 pb-4 max-w-xl text-sm text-gray-700"><%= @meta.description %></p>
+    <div class="items-center justify-between md:flex">
+      <p class="max-w-xl pb-4 mt-4 text-sm text-gray-700"><%= @meta.description %></p>
 
       <div class="hidden md:block">
         <%= render Developers::QuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
 
-      <div class="flex justify-end items-center md:hidden">
+      <div class="flex items-center justify-end md:hidden">
         <%= render Developers::QuerySortButtonComponent.new(query: @query, user: current_user, form_id: "developer-filters-mobile", scope: "developer-filters-mobile") %>
-        <button type="button" data-action="toggle#toggle" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500" aria-expanded="false">
+        <button type="button" data-action="toggle#toggle" class="p-2 ml-4 -m-2 text-gray-400 sm:ml-6 hover:text-gray-500" aria-expanded="false">
           <%= inline_svg_tag "icons/solid/filter.svg", class: "h-5 w-5", aria_hidden: true %>
           <span class="sr-only"><%= t("developers.query_component.filters") %></span>
         </button>
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Paginated list of developers -->
-    <div class="col-span-12 md:col-span-9 border-l">
+    <div class="border-l col-span-12 md:col-span-9">
       <%= render Developers::CountComponent.new(count: @query.pagy.count, total: @developers_count) %>
 
       <% if @query.records.any? %>
@@ -54,7 +54,10 @@
               <%= render LoadingComponent.new %>
             </div>
           <% end %>
-          <%= render Developers::CardComponent.with_collection(@query.records) %>
+
+          <%= render Developers::ResultsVisibilityComponent.new(query: @query, user: current_user) do |component| %>
+            <%= component.results_set records: component.records %>
+          <% end %>
         <% end %>
       <% else %>
         <%= render EmptyStateComponent.new(t(".empty_state.title"), "user_group", body: t(".empty_state.body")) %>

@@ -27,7 +27,7 @@ class ScrollTest < ApplicationSystemTestCase
     refute_text "Developer number one"
 
     scroll_to_bottom_of_page
-    assert_text "Developer number one"
+    assert_text "Private information"
   end
 
   def scroll_to_bottom_of_page
