@@ -1,0 +1,8 @@
+<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-start">
+  <% if featured? %>
+    <%= render BadgeComponent.new(t(".featured"), color: "blue") %>
+  <% end %>
+  <% if recently_active? %>
+    <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
+  <% end %>
+</div>

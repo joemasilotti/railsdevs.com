@@ -4,7 +4,7 @@
       <%= render AvatarComponent.new(avatarable: developer, variant: :medium) %>
     </div>
 
-    <div class="self-start flex-1 min-w-0">
+    <div class="self-start flex-1 min-w-0 space-y-3">
       <div class="flex items-baseline">
         <h2 class="text-lg sm:text-xl font-medium text-gray-900 line-clamp-2 break-word" title="<%= hero %>">
           <%= hero %>
@@ -15,16 +15,9 @@
         </div>
       </div>
 
-     <div class="mt-3 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-start">
-        <% if featured? %>
-          <%= render Developers::BadgeComponent.new(t(".featured"), color: "blue") %>
-        <% end %>
-        <% if recently_active? %>
-          <%= render Developers::BadgeComponent.new(t(".recently_active"), color: "green") %>
-        <% end %>
-      </div>
+      <%= render Developers::BadgesComponent.new(developer) %>
 
-      <div class="mt-3 text-sm sm:text-base text-gray-700 space-y-4">
+      <div class="text-sm sm:text-base text-gray-700 space-y-4">
         <p class="line-clamp-3 break-words"><%= developer.plain_text_bio %></p>
       </div>
     </div>
