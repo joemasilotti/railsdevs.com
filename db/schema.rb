@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_13_131207) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_170633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -110,6 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_13_131207) do
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
     t.string "stack_overflow"
+    t.string "public_profile_key"
+    t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
