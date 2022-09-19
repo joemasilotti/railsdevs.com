@@ -34,7 +34,7 @@ module Developers
     test "renders the badge if featured" do
       @developer.feature!
       render_inline(CardComponent.new(developer: @developer))
-      assert_text I18n.t("developers.card_component.featured")
+      assert_text I18n.t("developers.badges_component.featured")
     end
 
     test "highlights the border if featured and the option is set" do
@@ -53,7 +53,7 @@ module Developers
       @developer.update!(bio: "I am the first developer")
       @developer.recently_active?
       render_inline(CardComponent.new(developer: @developer))
-      assert_text I18n.t("developers.card_component.recently_active")
+      assert_text I18n.t("developers.badges_component.recently_active")
     end
 
     test "doesn't render recently active badge if developer is active more than 7 days ago" do
