@@ -7,6 +7,10 @@ class DeveloperTest < ActiveSupport::TestCase
     @developer = developers(:one)
   end
 
+  test "obfuscated profile URLs" do
+    assert_equal @developer.hashid.to_s, @developer.to_param
+  end
+
   test "unspecified availability" do
     @developer.available_on = nil
 
