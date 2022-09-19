@@ -25,12 +25,12 @@ class DevelopersController < ApplicationController
   end
 
   def edit
-    @developer = Developer.find(params[:id])
+    @developer = find_developer!
     authorize @developer
   end
 
   def update
-    @developer = Developer.find(params[:id])
+    @developer = find_developer!
     authorize @developer
 
     if @developer.update_and_notify(developer_params)
@@ -41,11 +41,19 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = Developer.find(params[:id])
+    @developer = find_developer!
     authorize @developer
   end
 
   private
+
+  def find_developer!
+    if Feature.enabled?(:obfuscate_developer_urls, user: nil)
+      Developer.find_by_hashid!(params[:id])
+    else
+      Developer.find(params[:id])
+    end
+  end
 
   def pundit_params_for(_record)
     params["developer-filters-mobile"] || params

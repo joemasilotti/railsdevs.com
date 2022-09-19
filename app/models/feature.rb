@@ -11,6 +11,8 @@ class Feature
       true
     when :reply_via_email
       true
+    when :obfuscate_developer_urls
+      !Rails.env.production?
     end
   end
 end

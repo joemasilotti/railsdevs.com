@@ -4,6 +4,7 @@ class Developer < ApplicationRecord
   include Developers::Notifications
   include Developers::RichText
   include HasSocialProfiles
+  include Hashid::Rails
   include PersonName
   include PgSearch::Model
 
@@ -16,6 +17,8 @@ class Developer < ApplicationRecord
     not_interested: 3,
     invisible: 4
   }
+
+  hashid_config override_to_param: Feature.enabled?(:obfuscate_developer_urls, user: nil)
 
   belongs_to :user
   has_many :conversations, -> { visible }

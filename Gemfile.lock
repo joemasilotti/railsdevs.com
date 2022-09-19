@@ -186,6 +186,10 @@ GEM
     groupdate (6.0.1)
       activesupport (>= 5.2)
     hashdiff (1.0.1)
+    hashid-rails (1.4.1)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
+    hashids (1.0.6)
     highline (2.0.3)
     honeybadger (4.9.0)
     hotwire-livereload (1.2.0)
@@ -465,6 +469,7 @@ DEPENDENCIES
   fathom_api (~> 0.1.2)
   geocoder (~> 1.7.3)
   groupdate (~> 6.0.1)
+  hashid-rails (~> 1.0)
   honeybadger (~> 4.0)
   hotwire-livereload
   hotwire-rails (~> 0.1)
