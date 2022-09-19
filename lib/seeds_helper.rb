@@ -77,7 +77,7 @@ module SeedsHelper
     end
 
     def attach_avatar(record, avatars)
-      uri = URI.parse(avatars[record.class.count])
+      uri = URI.parse(avatars[record.class.count % 20])
       file = uri.open
       record.avatar.attach(io: file, filename: "avatar.png")
     end
