@@ -3,6 +3,7 @@ module Developers
     with_collection_parameter :developer
 
     delegate :featured?, to: :developer
+    delegate :source_contributor?, to: :developer
 
     private attr_reader :developer, :highlight_featured
 

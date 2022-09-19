@@ -62,7 +62,7 @@ module Developers
       render_inline(CardComponent.new(developer: @developer))
       assert_no_text I18n.t("developers.card_component.recently_active")
     end
-    
+
     test "renders source_contributor badge if developer is a source contributor" do
       @developer.source_contributor = true
       render_inline(CardComponent.new(developer: @developer))

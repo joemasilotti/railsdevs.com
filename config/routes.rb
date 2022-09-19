@@ -75,6 +75,7 @@ Rails.application.routes.draw do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create, module: :developers
+      resource :source_contributors, only: %i[create destroy], module: :developers
     end
 
     namespace :hired do
