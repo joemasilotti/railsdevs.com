@@ -262,7 +262,7 @@ en:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
       now_html: Available now
       unspecified_html: Currently unavailable
-    card_component:
+    badges_component:
       featured: Featured developer
       recently_active: Recently Active
     count_component:

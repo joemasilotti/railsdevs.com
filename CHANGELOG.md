@@ -4,6 +4,7 @@
 
 ## September
 
+* September 18 - Add badges to developer profile pages #657
 * September 18 - Obfuscate developer profiles URLs #656
 * September 16 - Show "Recently Active" badge for developers active in last 7 days #640 @sarvaiyanidhi
 * September 15 - Allow rich text for developer bios #638 @rayhanw
