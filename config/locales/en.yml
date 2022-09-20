@@ -691,6 +691,9 @@ en:
   submit_button_component:
     save: Save
     saving: Saving...
+  subscription_cta_component:
+    description: You need a buisness subscription to see the profile of %{developers_count}+ developers.
+    title: Private information
   users:
     paywalled_component:
       description: Information that is only visible with a business subscription.
