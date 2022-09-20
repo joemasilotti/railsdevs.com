@@ -3,5 +3,4 @@ class PricingController < ApplicationController
     @stats = Pricing::Stats.new
     @testimonials = Testimonial.all
   end
-  
 end
