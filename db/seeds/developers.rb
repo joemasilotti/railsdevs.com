@@ -1,5 +1,5 @@
 # Random developers
-RANDOM_DEVELOPERS = 100
+RANDOM_DEVELOPERS = 20
 if Developer.count < RANDOM_DEVELOPERS
   (RANDOM_DEVELOPERS - Developer.count).times do
     SeedsHelper.create_random_developer!
