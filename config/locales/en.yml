@@ -644,9 +644,6 @@ en:
         fee:
           a_html: You are required to pay a 10% hiring fee of a developer's first year salary if you find them through RailsDevs. This only applies to hiring full-time employees and not contractors or freelancers. Email Joe to coordinate payment at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
           q: How does the 10% hiring fee work?
-        part_time:
-          a_html: A cheaper, less robust plan is available. Email Joe to see if you are a good fit at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
-          q: What if I only need to hire freelancers or contractors?
         subscription:
           a: No. The monthly/annual fee grants you business access to RailsDevs. You have to externally pay the developers for the work they do.
           q: Does the monthly/annual fee include the developer rate, too?
