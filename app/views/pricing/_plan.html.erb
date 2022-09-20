@@ -12,12 +12,12 @@
               <div class="flex-1 border-t-2 border-gray-200"></div>
             </div>
             <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
-              <%= render "pricing/v3/plan_feature", title: t(".features.rails") %>
-              <%= render "pricing/v3/plan_feature", title: t(".features.message") %>
-              <%= render "pricing/v3/plan_feature", title: t(".features.hand_selected_matches") %>
-              <%= render "pricing/v3/plan_feature", title: t(".features.email_updates") %>
-              <%= render "pricing/v3/plan_feature", title: t(".features.support") %>
-              <%= render "pricing/v3/plan_feature", title: t(".features.oss") %>
+              <%= render "pricing/plan_feature", title: t(".features.rails") %>
+              <%= render "pricing/plan_feature", title: t(".features.message") %>
+              <%= render "pricing/plan_feature", title: t(".features.hand_selected_matches") %>
+              <%= render "pricing/plan_feature", title: t(".features.email_updates") %>
+              <%= render "pricing/plan_feature", title: t(".features.support") %>
+              <%= render "pricing/plan_feature", title: t(".features.oss") %>
             </ul>
           </div>
         </div>
@@ -31,7 +31,7 @@
           </p>
           <div class="mt-6">
             <div class="rounded-md shadow">
-              <%= render "pricing/v2/purchase_button", plan: :full_time, classes: "block w-full flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900" %>
+              <%= render "pricing/purchase_button", plan: :full_time, classes: "block w-full flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-5 py-3 text-base font-medium text-white hover:bg-gray-900" %>
             </div>
           </div>
         </div>
