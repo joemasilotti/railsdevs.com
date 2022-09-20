@@ -82,11 +82,15 @@ class DeveloperQuery
     pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
     results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
 
-    unless @user&.permissions&.active_subscription?
+    unless subscribed_business?
       results = [pagy, []] if pagy.page > 1
     end
 
     results
+  end
+
+  def subscribed_business?
+    Businesses::Permission.new(@user&.subscriptions).active_subscription?
   end
 
   def items_per_page

@@ -11,6 +11,10 @@ class SubscriptionCTAComponent < ApplicationComponent
   end
 
   def render?
-    !user&.permissions&.active_subscription?
+    !customer?
+  end
+
+  def customer?
+    Businesses::Permission.new(user&.subscriptions).active_subscription?
   end
 end
