@@ -82,8 +82,10 @@ class DeveloperQuery
     pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
     results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
 
-    unless subscribed_business?
-      results = [pagy, []] if pagy.page > 1
+    if Feature.enabled?(:paywalled_search_results, user: @user)
+      unless subscribed_business?
+        results = [pagy, []] if pagy.page > 1
+      end
     end
 
     results
