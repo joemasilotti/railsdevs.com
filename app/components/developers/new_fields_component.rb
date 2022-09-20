@@ -13,6 +13,7 @@ module Developers
     end
 
     private
+    
     def editing?
       user&.developer&.persisted?
     end
