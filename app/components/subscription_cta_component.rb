@@ -1,22 +1,16 @@
 class SubscriptionCTAComponent < ApplicationComponent
-  def initialize(user:, developers_count:)
+  private attr_reader :user
+
+  def initialize(user:, developers:)
     @user = user
-    @developers_count = developers_count
+    @developers = developers
+  end
+
+  def developers
+    SignificantFigure.new(@developers).rounded
   end
 
   def render?
-    if @user&.permissions&.active_subscription?
-      false
-    else
-      true
-    end
-  end
-
-  def title
-    t("subscription_cta_component.title")
-  end
-
-  def description
-    t("subscription_cta_component.description", developers_count: @developers_count)
+    !user&.permissions&.active_subscription?
   end
 end
