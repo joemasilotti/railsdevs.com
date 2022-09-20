@@ -27,21 +27,10 @@ class ScrollTest < ApplicationSystemTestCase
     sign_in(user)
 
     visit developers_path
-    refute_text "Developer number one"
+    refute_text developers(:one).hero
 
     scroll_to_bottom_of_page
-    assert_text "Developer number one"
-  end
-
-  test "scrolling to bottom of the developers page shows a CTA for non-subscribers" do
-    # Create more developers to trigger pagination.
-    20.times { create_developer }
-
-    visit developers_path
-    refute_text "Developer number one"
-
-    scroll_to_bottom_of_page
-    assert_text "Private information"
+    assert_text developers(:one).hero
   end
 
   def scroll_to_bottom_of_page

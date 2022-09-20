@@ -356,6 +356,27 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "page 2 of search results only renders for subscribers" do
+    20.times { create_developer }
+
+    get developers_path(page: 2)
+    assert_text I18n.t("subscription_cta_component.title")
+    refute_text developers(:one).hero
+
+    sign_in users(:subscribed_business)
+    get developers_path(page: 2)
+    refute_text I18n.t("subscription_cta_component.title")
+    assert_text developers(:one).hero
+  end
+
+  def assert_text(text)
+    assert_select "*", text:
+  end
+
+  def refute_text(text)
+    assert_select "*", text:, count: 0
+  end
+
   def valid_developer_params
     {
       developer: {
