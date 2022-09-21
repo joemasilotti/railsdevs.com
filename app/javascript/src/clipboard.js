@@ -1,8 +1,8 @@
 class Clipboard {
   static copy({text, html}) {
     const data = [
-      this.clipboardItem({type: "text/plain", content: text}),
-      this.clipboardItem({type: "text/html", content: html})
+      this.clipboardItem({type: "text/plain", content: text})
+     // this.clipboardItem({type: "text/html", content: html})
     ]
 
     navigator.clipboard.write(data).then(

@@ -7,6 +7,7 @@ class Developer < ApplicationRecord
   include Hashid::Rails
   include PersonName
   include PgSearch::Model
+  include PublicProfile
 
   FEATURE_LENGTH = 1.week
   RECENTLY_ACTIVE_LENGTH = 1.week

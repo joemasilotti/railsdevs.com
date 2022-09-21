@@ -42,6 +42,7 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = find_developer!
+    @public_key = params[:key]
     authorize @developer
   end
 
