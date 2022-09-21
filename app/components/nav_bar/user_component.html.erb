@@ -124,8 +124,8 @@
 
         <% if hired? %>
           <%= link_to hired_path, class: "md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do %>
-            <span class="absolute -mt-2.5 -ml-4 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs -rotate-12"><%= t(".new") %></span>
             <span><%= t(".found_a_job") %></span>
+            <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
           <% end %>
         <% end %>
       </div>
