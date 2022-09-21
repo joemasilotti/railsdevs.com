@@ -393,6 +393,7 @@ en:
       edit: Edit
       hire: Hire me
       message: Message
+      redirection: Links to developer profiles have changed. Please update your bookmark to %{url}.
     update:
       updated: Your profile was updated!
   dir: ltr
