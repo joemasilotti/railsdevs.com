@@ -48,7 +48,7 @@ class DevelopersController < ApplicationController
   private
 
   def find_developer!
-    if Feature.enabled?(:obfuscate_developer_urls, user: nil)
+    if Feature.enabled?(:obfuscate_developer_urls)
       Developer.find_by_hashid!(params[:id])
     else
       Developer.find(params[:id])

@@ -25,10 +25,8 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <% if Feature.enabled?(:message_read_indicator, user: current_user) %>
-    <%= turbo_frame_tag "message_read_indicator" do %>
-      <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
-    <% end %>
+  <%= turbo_frame_tag "message_read_indicator" do %>
+    <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
   <% end %>
 
   <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
