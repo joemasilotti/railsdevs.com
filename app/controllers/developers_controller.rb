@@ -41,7 +41,18 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = find_developer!
+    if Feature.enabled?(:obfuscate_developer_urls, user: nil)
+      # Checks if :id contains non-Integer characters (hashid)
+      if /\D+/.match?(params[:id])
+        @developer = Developer.find_by_hashid!(params[:id])
+      else
+        @developer = Developer.find(params[:id])
+        redirect_to @developer, status: 302, notice: t(".redirection", url: developer_url(@developer))
+      end
+    else
+      @developer = Developer.find(params[:id])
+    end
+
     authorize @developer
   end
 
