@@ -691,6 +691,9 @@ en:
   submit_button_component:
     save: Save
     saving: Saving...
+  subscription_cta_component:
+    description: Subscribe to RailsDevs to unlock %{developers}+ developer profiles.
+    title: Subscription required
   users:
     paywalled_component:
       description: Information that is only visible with a business subscription.
