@@ -11,7 +11,7 @@ class SubscriptionCTAComponent < ApplicationComponent
   end
 
   def render?
-    !customer?
+    Feature.enabled?(:paywalled_search_results) && !customer?
   end
 
   def customer?
