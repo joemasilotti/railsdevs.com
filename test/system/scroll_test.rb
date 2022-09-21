@@ -19,15 +19,18 @@ class ScrollTest < ApplicationSystemTestCase
     refute find("#message_body").obscured?
   end
 
-  test "scrolling to bottom of of the developers page loads more results" do
+  test "scrolling to bottom of the developers page loads more results for subscribers" do
     # Create more developers to trigger pagination.
     20.times { create_developer }
 
+    user = users(:subscribed_business)
+    sign_in(user)
+
     visit developers_path
-    refute_text "Developer number one"
+    refute_text developers(:one).hero
 
     scroll_to_bottom_of_page
-    assert_text "Developer number one"
+    assert_text developers(:one).hero
   end
 
   def scroll_to_bottom_of_page

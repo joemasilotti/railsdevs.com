@@ -4,20 +4,15 @@ module Developers
 
     attr_reader :user
 
-    def initialize(user, enabled: true)
+    def initialize(user)
       @user = user
-      @enabled = enabled
     end
 
     def render?
-      enabled? && editing? && missing_fields?
+      editing? && missing_fields?
     end
 
     private
-
-    def enabled?
-      !!@enabled
-    end
 
     def editing?
       user&.developer&.persisted?
