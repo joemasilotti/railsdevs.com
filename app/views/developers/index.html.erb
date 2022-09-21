@@ -1,6 +1,6 @@
 <%= open_graph_tags title: @meta.title, turbo_native_title: t(".title"), description: @meta.description %>
 
-<div data-controller="toggle" data-toggle-visibility-class="hidden" class="max-w-7xl bg-white mx-auto lg:mt-16 mb-16 overflow-auto sm:rounded-md sm:shadow">
+<div data-controller="toggle" data-toggle-visibility-class="hidden" class="max-w-7xl bg-white mx-auto lg:mt-16 mb-16 sm:rounded-md sm:shadow">
   <div class="pt-12 px-4 sm:px-6 mb-4">
     <div class="md:flex md:space-x-8 justify-between items-center">
       <% unless turbo_native_app? %>
@@ -32,7 +32,7 @@
   <div class="grid grid-cols-12">
     <!-- Desktop and mobile filters -->
     <div class="col-span-12 md:col-span-3 sm:pt-4">
-      <div class="hidden md:block">
+      <div class="hidden md:block sticky top-5">
         <%= render Developers::QueryComponent.new(query: @query, user: current_user, form_id: "developer-filters-desktop") %>
       </div>
 
