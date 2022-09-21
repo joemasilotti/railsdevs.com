@@ -21,7 +21,7 @@ SitemapGenerator::Sitemap.create do
   add about_path, changefreq: "monthly", priority: 0.9
 
   Developer.visible.newest_first.find_each do |developer|
-    add developer_path(id: developer.id), changefreq: "always", priority: 0.8, lastmod: developer.updated_at
+    add developer_path(id: developer.hashid), changefreq: "always", priority: 0.8, lastmod: developer.updated_at
   end
 
   add new_user_session_path, changefreq: "weekly", priority: 0.7
