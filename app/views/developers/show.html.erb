@@ -31,7 +31,7 @@
             <%= render Developers::BadgesComponent.new(@developer) %>
 
             <aside class="mt-8 lg:hidden">
-              <%= render "details", developer: @developer %>
+              <%= render "details", developer: @developer, public_key: @public_key %>
             </aside>
 
             <div class="pb-3 lg:pb-0">
@@ -44,7 +44,7 @@
         </div>
 
         <aside class="hidden lg:block lg:pl-8">
-          <%= render "details", developer: @developer %>
+          <%= render "details", developer: @developer, public_key: @public_key %>
         </aside>
       </div>
     </div>
