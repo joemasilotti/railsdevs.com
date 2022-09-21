@@ -5,7 +5,7 @@ Hired::Form.find_or_create_by!(developer:) do |form|
   form.company = "Rails for All"
   form.position = "Rails Developer"
   form.start_date = Date.today
-  form.employment_type = :full_time
+  form.employment_type = :full_time_employment
   form.feedback = "Keep up the great work with RailsDevs!"
   form.save_and_notify
 end
