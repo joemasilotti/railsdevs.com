@@ -18,7 +18,7 @@ class Developers::FinderTest < ActiveSupport::TestCase
     assert_equal finder.should_redirect?, true
   end
 
-  test "should find a developer by ID if Feature is disabled" do
+  test "should find a developer if feature is disabled" do
     Feature.stub(:enabled?, false) do
       finder = Developers::Finder.new(id: @developer.id)
 
