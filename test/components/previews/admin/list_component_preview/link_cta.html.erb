@@ -1,0 +1,6 @@
+<%= render Admin::ListComponent.new do |list| %>
+  <%= list.with_cta title, "#" %>
+
+  <%= list.with_item "title", "body", path: "#", id: "id" %>
+  <%= list.with_item "title", "body", path: "#", id: "id" %>
+<% end %>

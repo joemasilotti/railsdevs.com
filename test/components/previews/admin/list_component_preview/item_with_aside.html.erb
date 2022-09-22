@@ -1,0 +1,7 @@
+<%= render Admin::ListComponent.new do |list| %>
+  <%= list.with_item "title", "body", subtitle: "subtitle", path: "#", id: "id" do |list_item| %>
+    <% list_item.aside do %>
+      <%= render Admin::BadgeComponent.new("active") %>
+    <% end %>
+  <% end %>
+<% end %>

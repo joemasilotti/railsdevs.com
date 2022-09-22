@@ -1,0 +1,9 @@
+<%= form_with url: "#", id: "form" do |form| %>
+<% end %>
+
+<%= render Admin::ListComponent.new do |list| %>
+  <%= list.with_cta title, form: "form" %>
+
+  <%= list.with_item "title", "body", path: "#", id: "id" %>
+  <%= list.with_item "title", "body", path: "#", id: "id" %>
+<% end %>
