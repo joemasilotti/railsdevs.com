@@ -1,8 +1,6 @@
 class DeveloperQuery
   include Pagy::Backend
 
-  alias_method :build_pagy, :pagy
-
   attr_reader :options
 
   def initialize(options = {})
@@ -15,6 +13,7 @@ class DeveloperQuery
     @role_levels = options.delete(:role_levels)
     @include_not_interested = options.delete(:include_not_interested)
     @search_query = options.delete(:search_query)
+    @user = options.delete(:user)
   end
 
   def filters
@@ -77,6 +76,23 @@ class DeveloperQuery
     search_status_filter_records
     search_query_filter_records
     @pagy, @records = build_pagy(@_records, items: items_per_page)
+  end
+
+  def build_pagy(collection, options = {})
+    pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
+    results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
+
+    if Feature.enabled?(:paywalled_search_results)
+      unless subscribed_business?
+        results = [pagy, []] if pagy.page > 1
+      end
+    end
+
+    results
+  end
+
+  def subscribed_business?
+    Businesses::Permission.new(@user&.subscriptions).active_subscription?
   end
 
   def items_per_page

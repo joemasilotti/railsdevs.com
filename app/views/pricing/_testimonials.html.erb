@@ -4,7 +4,7 @@
       <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
         <% testimonials.each_with_index do |testimonial, index| %>
           <%= tag.div class: class_names("hidden md:block": index == 0) do %>
-            <%= render "pricing/v3/testimonial", testimonial: testimonial %>
+            <%= render "pricing/testimonial", testimonial: testimonial %>
           <% end %>
         <% end %>
       </div>
