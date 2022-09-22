@@ -61,10 +61,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to developer_path(developer.hashid)
 
     sign_in users(:developer)
-    get developer_path(developer.id)
-    assert_redirected_to developer_path(developer.hashid)
-
-    sign_in users(:developer)
     assert_raises ActiveRecord::RecordNotFound do
       patch developer_path(developer.id)
     end
