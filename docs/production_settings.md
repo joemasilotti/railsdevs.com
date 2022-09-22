@@ -10,6 +10,8 @@ This documents all of the configuration for the production environment.
 
 The following credentials are used in the production environment.
 
+### AWS
+
 AWS credentials for Active Storage uploads. `sitemaps_bucket` is a different bucket exclusively for uploading the sitemaps.
 
 ```
@@ -21,12 +23,16 @@ aws:
   sitemaps_bucket:
 ```
 
+### Hashids
+
 [Hashids](https://github.com/jcypret/hashid-rails) are used to obfuscate developer profile URLs. [Set your own salt](https://github.com/jcypret/hashid-rails#configuration-optional) to ensure IDs are not guessable.
 
 ```
 hashid:
   salt:
 ```
+
+### Honeybadger
 
 Error reporting is done via [Honeybadger](https://www.honeybadger.io).
 
@@ -35,18 +41,27 @@ honeybadger:
   api_key:
 ```
 
+### iOS push notifications
+
+Set any key under the `ios:` namespace to enable push notifications via APNS. All of the following keys need to be set to send notifications.
+
+```
+ios:
+  bundle_identifier:
+  key_id:
+  team_id:
+  apns_token_cert:
+```
+
+### Postmark
+
 Transactional emails are sent via [Postmark](https://postmarkapp.com).
 
 ```
 postmark_api_token:
 ```
 
-Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
-
-```
-scout:
-  key:
-```
+### RevenueCat
 
 RevenueCat powers in-app purchases on the iOS app. Configuration requires a product identifier for each plan, API keys, and a webhook authorization. See below for more information on setting up RevenueCat.
 
@@ -59,6 +74,17 @@ revenue_cat:
     part_time:
     full_time:
 ```
+
+### Scout APM
+
+Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
+
+```
+scout:
+  key:
+```
+
+### Stripe
 
 Stripe requires a few different keys, the credentials and the price for the business subscriptions. The signing secret is for webhooks. See below for more information on setting up Stripe.
 
