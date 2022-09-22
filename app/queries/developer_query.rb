@@ -92,7 +92,7 @@ class DeveloperQuery
   end
 
   def subscribed_business?
-    Businesses::Permission.new(@user&.subscriptions).active_subscription?
+    @user&.permissions&.active_subscription?
   end
 
   def items_per_page
