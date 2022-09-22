@@ -1,0 +1,5 @@
+<%= render Admin::Tables::TableComponent.new do |table| %>
+  <% table.with_row do |row| %>
+    <%= row.with_cell { Faker::Name.name } %>
+  <% end %>
+<% end %>
