@@ -4,6 +4,7 @@
 
 ## September
 
+* September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
 * September 18 - Add badges to developer profile pages #657
 * September 18 - Obfuscate developer profiles URLs #656
 * September 16 - Show "Recently Active" badge for developers active in last 7 days #640 @sarvaiyanidhi
