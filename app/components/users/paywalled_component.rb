@@ -23,6 +23,10 @@ module Users
       @size == :large
     end
 
+    def smallest?
+      @size == :smallest
+    end
+
     def title
       @title || t(".title")
     end

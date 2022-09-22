@@ -17,14 +17,14 @@ module Developers
         :sort,
         role_levels: [],
         role_types: [],
-        utc_offsets: [],
-        countries: []
       ]
     end
 
     def paywalled_attributes
       [
-        :search_query
+        :search_query,
+        utc_offsets: [],
+        countries: []
       ]
     end
   end

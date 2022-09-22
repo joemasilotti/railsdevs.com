@@ -78,5 +78,9 @@ module Developers
     def utc_offsets
       Location.order(:utc_offset).distinct.pluck(:utc_offset)
     end
+
+    def customer?
+      Businesses::Permission.new(user&.subscriptions).active_subscription?
+    end
   end
 end
