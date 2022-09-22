@@ -41,7 +41,7 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    finder = Developers::Finder.new(id: params[:id]).call
+    finder = Developers::Finder.new(id: params[:id])
     @developer = finder.developer
 
     if finder.should_redirect?
