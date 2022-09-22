@@ -16,7 +16,7 @@ module Developers
         :include_not_interested,
         :sort,
         role_levels: [],
-        role_types: [],
+        role_types: []
       ]
     end
 
