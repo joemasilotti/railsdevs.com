@@ -11,7 +11,7 @@ module Businesses
     end
 
     def expired?
-      !permissions.active_subscription?
+      !user.permissions.active_subscription?
     end
 
     def title
@@ -36,12 +36,6 @@ module Businesses
       else
         t(".cta.upgrade")
       end
-    end
-
-    private
-
-    def permissions
-      user.permissions
     end
   end
 end
