@@ -11,7 +11,7 @@ module Businesses
     end
 
     def expired?
-      !permission.active_subscription?
+      !permissions.active_subscription?
     end
 
     def title
@@ -40,8 +40,8 @@ module Businesses
 
     private
 
-    def permission
-      Businesses::Permission.new(user.subscriptions)
+    def permissions
+      user.permissions
     end
   end
 end
