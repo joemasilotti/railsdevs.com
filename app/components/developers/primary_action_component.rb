@@ -17,7 +17,7 @@ module Developers
     end
 
     def share_url
-      developer.share_url(developer_url(@developer))
+      developer.share_url
     end
   end
 end
