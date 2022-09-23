@@ -1,8 +1,6 @@
 class DeveloperQuery
   include Pagy::Backend
 
-  alias_method :build_pagy, :pagy
-
   attr_reader :options
 
   def initialize(options = {})
@@ -80,17 +78,17 @@ class DeveloperQuery
     @pagy, @records = build_pagy(@_records, items: items_per_page)
   end
 
-  if Feature.enabled?(:paywalled_search_results)
-    def build_pagy(collection, options = {})
-      pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
-      results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
+  def build_pagy(collection, options = {})
+    pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
+    results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
 
+    if Feature.enabled?(:paywalled_search_results)
       unless subscribed_business?
         results = [pagy, []] if pagy.page > 1
       end
-
-      results
     end
+
+    results
   end
 
   def subscribed_business?
