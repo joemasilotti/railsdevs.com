@@ -57,7 +57,7 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true, paywalled: { user: user }) %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true, paywalled: {user: user}) %>
           </h3>
           <div id="top-countries-filter-section"<%= toggle_target_attribute %> class="hidden pt-6">
             <div class="space-y-6">
@@ -91,7 +91,7 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true, paywalled: { user: user }) %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true, paywalled: {user: user}) %>
           </h3>
           <div id="timezone-filter-section"<%= toggle_target_attribute %> class="hidden pt-6">
             <div class="space-y-6">
