@@ -9,8 +9,10 @@
         </span>
       <% end %>
     <% else %>
-      <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"}, title: "Open menu" %>
-      <%= inline_svg_tag "icons/solid/plus_sm.svg", class: plus_icon_class, data: {"toggle-target": "element"}, title: "Close menu" %>
+      <span class="ml-6 flex items-center">
+        <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"}, title: "Open menu" %>
+        <%= inline_svg_tag "icons/solid/plus_sm.svg", class: plus_icon_class, data: {"toggle-target": "element"}, title: "Close menu" %>
+      </span>
     <% end %>
   <% end %>
 
