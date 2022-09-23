@@ -20,7 +20,7 @@ module Admin
     # @param path url
     # @param external toggle
     # @param data [Hash] text
-    def with_data(title: "title", path: "#", external: true, data: {})
+    def with_data(title: "title", path: "#", external: true, data: "")
       render_with_template(locals: {title:, path:, external:, data:})
     end
   end
