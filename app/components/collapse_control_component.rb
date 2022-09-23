@@ -2,12 +2,12 @@ class CollapseControlComponent < ApplicationComponent
   attr_reader :title
   private attr_reader :user
 
-  def initialize(title, collapsed: false, subcomponent: false, paywalled: false, user: nil)
+  def initialize(title, collapsed: false, subcomponent: false, paywalled: nil)
     @title = title
     @collapsed = collapsed
     @subcomponent = subcomponent
     @paywalled = paywalled
-    @user = user
+    @user = paywalled[:user] if paywalled
   end
 
   def minus_icon_class
