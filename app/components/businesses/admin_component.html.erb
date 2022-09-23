@@ -1,6 +1,6 @@
 <h2 class="text-sm font-medium text-gray-500"><%= t(".title") %></h2>
 
-<div class="relative z-0 grid grid-flow-row grid-cols-2 gap-3">
+<div class="relative z-0 grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-3">
   <div class="w-full">
     <%= button_to admin_business_invisiblizes_path(business), method: :post, rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this business as invisible and notify them via email?"}} do %>
       <span>
