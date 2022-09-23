@@ -9,13 +9,13 @@ class Developers::FinderTest < ActiveSupport::TestCase
     finder = Developers::Finder.new(id: @developer.hashid)
 
     assert_equal finder.developer, @developer
-    assert_equal finder.should_redirect?, false
+    refute finder.should_redirect?
   end
 
   test "redirect should be true when given an id" do
     finder = Developers::Finder.new(id: @developer.id)
 
-    assert_equal finder.should_redirect?, true
+    assert finder.should_redirect?
   end
 
   test "should find a developer if feature is disabled" do
@@ -23,12 +23,12 @@ class Developers::FinderTest < ActiveSupport::TestCase
       finder = Developers::Finder.new(id: @developer.id)
 
       assert_equal finder.developer, @developer
-      assert_equal finder.should_redirect?, false
+      refute finder.should_redirect?
 
       finder = Developers::Finder.new(id: @developer.hashid)
 
       assert_equal finder.developer, @developer
-      assert_equal finder.should_redirect?, false
+      refute finder.should_redirect?
     end
   end
 end
