@@ -369,6 +369,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_text developers(:one).hero
   end
 
+  test "developer hidden profile information is rendered with public profile key" do
+    sign_in users(:empty)
+    developer = developers(:one)
+    developer.share_url
+    get polymorphic_path(developer, key: developer.public_profile_key)
+
+    refute_text I18n.t("subscription_cta_component.title")
+  end
+
   def assert_text(text)
     assert_select "*", text:
   end
