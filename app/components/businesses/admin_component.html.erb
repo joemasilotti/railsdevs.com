@@ -1,8 +1,21 @@
 <h2 class="text-sm font-medium text-gray-500"><%= t(".title") %></h2>
 
-<span class="relative z-0 inline-flex shadow-sm rounded-md mt-3">
-  <%= button_to admin_business_invisiblizes_path(business), method: :post, rel: "nofollow", class: "relative inline-flex items-center px-4 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this business as invisible and notify them via email?"}} do %>
-    <%= inline_svg_tag "icons/solid/eye_off.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400" %>
-    <%= t(".invisiblize") %>
-  <% end %>
-</span>
+<div class="relative z-0 grid grid-flow-row grid-cols-2 gap-3">
+  <div class="w-full">
+    <%= button_to admin_business_invisiblizes_path(business), method: :post, rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this business as invisible and notify them via email?"}} do %>
+      <span>
+        <%= inline_svg_tag "icons/solid/eye_off.svg", class: "h-5 w-5 text-gray-400" %>
+      </span>
+      <span class="w-full"><%= t(".invisiblize") %></span>
+    <% end %>
+  </div>
+
+  <div class="w-full">
+    <%= link_to admin_business_conversations_path(business), rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
+      <span>
+        <%= inline_svg_tag "icons/outline/chat.svg", class: "h-[20px] w-[20px] text-gray-400", aria_hidden: true %>
+      </span>
+      <span class="w-full"><%= t(".conversations") %></span>
+    <% end %>
+  </div>
+</div>

@@ -29,7 +29,7 @@
             <div class="mt-1 text-gray-700 space-y-3"><%= simple_format @business.bio %></div>
           </div>
         </section>
-        <section>
+        <section class="space-y-3 py-4">
           <%= render Businesses::AdminComponent.new(@business, user: current_user) %>
         </section>
       </div>

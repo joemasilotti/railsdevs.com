@@ -18,13 +18,13 @@
 
           <%= row.with_cell do %>
             <% if (developer = user.developer) %>
-              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: admin_developer_conversations_path(developer)) %>
+              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: developer_path(developer)) %>
             <% end %>
           <% end %>
 
           <%= row.with_cell do %>
             <% if (business = user.business) %>
-              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_business_conversations_path(business), subtitle: business.name) %>
+              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: business_path(business), subtitle: business.name) %>
             <% end %>
           <% end %>
 
