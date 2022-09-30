@@ -21,7 +21,7 @@ class ScrollTest < ApplicationSystemTestCase
 
   test "scrolling to bottom of the developers page loads more results for subscribers" do
     # Create more developers to trigger pagination.
-    20.times { create_developer }
+    DeveloperQuery::DEFAULT_ITEMS_PER_PAGE.times { create_developer }
 
     user = users(:subscribed_business)
     sign_in(user)

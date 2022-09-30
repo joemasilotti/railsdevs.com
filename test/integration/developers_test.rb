@@ -147,10 +147,10 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     developers(:prospect).update!(available_on: Date.yesterday, search_status: :open)
 
     with_pagy_default_items(1) do
-      get developers_path(sort: :availability)
+      get developers_path(sort: :availability, items_per_page: 1)
       assert_select "#developers h2", count: 1
       assert_select "#mobile-filters h2", count: 1
-      assert_select "a[href=?]", "/developers?sort=availability&page=2"
+      assert_select "a[href=?]", "/developers?items_per_page=1&sort=availability&page=2"
     end
   end
 
@@ -351,7 +351,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "page 2 of search results only renders for subscribers" do
-    20.times { create_developer }
+    DeveloperQuery::DEFAULT_ITEMS_PER_PAGE.times { create_developer }
 
     get developers_path(page: 2)
     assert_text I18n.t("subscription_cta_component.title")

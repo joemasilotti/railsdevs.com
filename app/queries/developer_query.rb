@@ -1,6 +1,8 @@
 class DeveloperQuery
   include Pagy::Backend
 
+  DEFAULT_ITEMS_PER_PAGE = 10
+
   attr_reader :options
 
   def initialize(options = {})
@@ -96,7 +98,7 @@ class DeveloperQuery
   end
 
   def items_per_page
-    @items_per_page || Pagy::DEFAULT[:items]
+    @items_per_page || DEFAULT_ITEMS_PER_PAGE
   end
 
   def empty_search?
