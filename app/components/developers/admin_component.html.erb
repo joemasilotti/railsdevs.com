@@ -1,40 +1,39 @@
 <h2 class="text-sm font-medium text-gray-500"><%= t(".title") %></h2>
 
-<div class="relative z-0 grid grid-flow-row grid-cols-1 gap-3">
-  <%= tag.div class: "w-full", data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: "#{developer.hero} #{developer_url(developer)}", clipboard_html_content_value: link_to(developer.hero, developer_url(developer))} do %>
-    <button data-action="clipboard#copy clipboard#toggle" type="button" class="flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500">
-      <span>
-        <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "h-5 w-5 text-gray-400", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
-        <%= inline_svg_tag "icons/solid/check.svg", class: "h-5 w-5 text-gray-400 hidden", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
-      </span>
-      <span class="w-full"><%= t(".copy") %></span>
-    </button>
-  <% end %>
+<div class="relative z-0 grid grid-flow-row gap-3">
+  <div class="grid grid-cols-2">
+    <%= tag.div data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: "#{developer.hero} #{developer_url(developer)}", clipboard_html_content_value: link_to(developer.hero, developer_url(developer))} do %>
+      <button data-action="clipboard#copy clipboard#toggle" type="button" class="flex items-start w-full text-left gap-x-2 lg:gap-x-1 shadow-sm rounded-l-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500">
+        <span>
+          <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "text-gray-400", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
+          <%= inline_svg_tag "icons/solid/check.svg", class: "text-gray-400 hidden", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
+        </span>
+        <span><%= t(".copy") %></span>
+      </button>
+    <% end %>
 
-  <div class="w-full">
-    <%= button_to admin_developer_features_path(developer), method: :post, rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
+    <%= button_to admin_developer_features_path(developer), method: :post, rel: "nofollow", class: "-ml-px flex items-start w-full text-left gap-x-2 lg:gap-x-1 shadow-sm rounded-r-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
       <span>
-        <%= inline_svg_tag "icons/solid/star.svg", class: "h-5 w-5 text-gray-400", aria_hidden: true %>
+        <%= inline_svg_tag "icons/solid/star.svg", class: "text-gray-400", aria_hidden: true %>
       </span>
-      <span class="w-full"><%= t(".feature") %></span>
+      <span><%= t(".feature") %></span>
     <% end %>
   </div>
 
-  <div class="w-full">
-    <%= button_to admin_developer_invisiblizes_path(developer), method: :post, rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this developer as invisible and notify them via email?"}} do %>
+  <div class="grid grid-cols-2">
+    <%= button_to admin_developer_invisiblizes_path(developer), method: :post, rel: "nofollow", class: "flex items-start w-full text-left gap-x-2 lg:gap-x-1 shadow-sm rounded-l-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500", form: {data: {turbo_confirm: "Mark this developer as invisible and notify them via email?"}} do %>
       <span>
-        <%= inline_svg_tag "icons/solid/eye_off.svg", class: "h-5 w-5 text-gray-400", aria_hidden: true %>
+        <%= inline_svg_tag "icons/solid/eye_off.svg", class: "text-gray-400", aria_hidden: true %>
       </span>
-      <span class="w-full"><%= t(".invisiblize") %></span>
+      <span><%= t(".invisiblize") %></span>
     <% end %>
-  </div>
 
-  <div class="w-full">
-    <%= link_to admin_developer_conversations_path(developer), rel: "nofollow", class: "flex items-start w-full text-left gap-x-3 shadow-sm rounded-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
+    <%= link_to admin_developer_conversations_path(developer), rel: "nofollow", class: "-ml-px flex items-start w-full text-left gap-x-2 lg:gap-x-1 shadow-sm rounded-r-md px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500" do %>
       <span>
         <%= inline_svg_tag "icons/outline/chat.svg", class: "h-[20px] w-[20px] text-gray-400", aria_hidden: true %>
       </span>
-      <span class="w-full"><%= t(".conversations") %></span>
+      <span><%= t(".conversations") %></span>
     <% end %>
+    </div>
   </div>
 </div>

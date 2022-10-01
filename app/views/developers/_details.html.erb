@@ -30,7 +30,7 @@
     <%= render Locations::TimeZoneComponent.new(developer.location) %>
   <% end %>
 
-  <%= render RenderableComponent.new("space-y-3 py-4") do %>
+  <%= render RenderableComponent.new("space-y-3 pt-4 pb-4 lg:pb-0") do %>
     <%= render Developers::AdminComponent.new(developer, user: current_user) %>
   <% end %>
 </div>
