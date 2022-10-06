@@ -2,6 +2,10 @@
 
 ## 2022
 
+## October
+
+* October 7 - Bring back 1x and 2x avatar variants and remove lazy image loading #680 @jkostolansky
+
 ## September
 
 * September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
@@ -14,8 +18,8 @@
 * September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
 * September 13 - Move developer bio to own card in form and add more instructions #635 @rayhanw
 * September 8 - Send admins a notification when a `Hired::Form` is created #614 @sarvaiyanidhi
-* September 8 – Update license year and note non-code usage #630
-* September 8 – Remove part-time hiring plan from pricing page #628
+* September 8 – Update license year and note non-code usage #630
+* September 8 – Remove part-time hiring plan from pricing page #628
 
 ## August
 
