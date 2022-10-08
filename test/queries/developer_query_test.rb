@@ -160,4 +160,24 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end
+
+  test "should show developers on page 2+ for subscribers" do
+    2.times { create_developer }
+
+    user = users(:subscribed_business)
+    query = DeveloperQuery.new(page: 2, items_per_page: 1, user:)
+    records = query.records
+
+    assert records.any?
+  end
+
+  test "should not show developers on page 2+ for non-subscribers" do
+    2.times { create_developer }
+
+    user = users(:business)
+    query = DeveloperQuery.new(page: 2, items_per_page: 1, user:)
+    records = query.records
+
+    refute records.any?
+  end
 end

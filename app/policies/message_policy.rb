@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
     elsif developer_sender?
       true
     elsif business_sender?
-      permission.can_message_developer?(role_type: developer.role_type)
+      user.permissions.can_message_developer?(role_type: developer.role_type)
     end
   end
 
@@ -25,9 +25,5 @@ class MessagePolicy < ApplicationPolicy
 
   def developer
     record.conversation.developer
-  end
-
-  def permission
-    Businesses::Permission.new(user.subscriptions)
   end
 end
