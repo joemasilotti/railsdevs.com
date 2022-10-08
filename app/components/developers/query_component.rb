@@ -64,16 +64,8 @@ module Developers
       query.countries.empty?
     end
 
-    def location_accordion_classes
-      collapse_location? ? "hidden" : ""
-    end
-
     def collapse_timezone?
       query.utc_offsets.empty?
-    end
-
-    def timezone_classes
-      collapse_timezone? ? "hidden" : ""
     end
 
     private

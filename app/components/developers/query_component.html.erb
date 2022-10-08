@@ -59,7 +59,7 @@
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".country.title"), collapsed: collapse_location?) %>
         </h3>
-        <div data-toggle-target="element" id='location-accordion' class="<%= location_accordion_classes %>">
+        <%= tag.div id: "location-accordion", "data-toggle-target": "element", class: [hidden: collapse_location?] do %>
           <div class="space-y-4 pt-6">
             <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
               <div class="flex items-center">
@@ -86,7 +86,7 @@
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
@@ -95,7 +95,7 @@
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".timezone.title"), collapsed: collapse_timezone?) %>
         </h3>
-        <div data-toggle-target="element" id='timezone-accordion' class="<%= timezone_classes %>">
+        <%= tag.div id: "timezone-accordion", "data-toggle-target": "element", class: [hidden: collapse_timezone?] do %>
           <div class="space-y-4 pt-6">
             <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
               <div class="flex items-center">
@@ -104,7 +104,7 @@
               </div>
             <% end %>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
 
