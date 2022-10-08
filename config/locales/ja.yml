@@ -1,0 +1,704 @@
+---
+ja:
+  about:
+    show:
+      caption: RailsDevsの創設者
+      description: 私はJoe Masilottiです。 Ruby on Railsのエンジニアが次の仕事を見つけやすくするために、RailsDevsを作成しています。
+      readtime: 1分で読めます
+      title: About
+      title_og: RailsDevsについて
+  activerecord:
+    attributes:
+      business:
+        company: 会社名
+        contact_name: 名前
+        contact_role: 役職
+        name: 名前
+      developer:
+        available_on: 開始可能日
+        email: メールアドレス
+        github: GitHub
+        hero: Hero
+        linkedin: Linkedin
+        name: Name
+        twitter: Twitter
+        website: Website
+      location:
+        country_code: 国
+      role_level:
+        c_level: CTO
+        junior: ジュニア
+        mid: ミドル
+        principal: リードエンジニア
+        senior: シニア
+      role_type:
+        full_time_contract: 業務委託
+        full_time_employment: 正社員
+        part_time_contract: 副業
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワードを再度入力
+        remember_me: ログイン情報を保持する
+    errors:
+      models:
+        location:
+          invalid_coordinates: 見つかりませんでした
+    models:
+      business:
+        one: ビジネス
+        other: ビジネス
+      developer:
+        one: エンジニア
+        other: エンジニア
+      user:
+        one: ユーザー
+        other: ユーザー
+  admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: プロフィールを非公開に設定
+    conversations:
+      blocks:
+        index:
+          blocked: ブロック済み
+          no_blocked_conversations: ブロックしたメッセージはありません
+          title: ブロックしたメッセージ
+      index:
+        business: Business
+        conversations: 'のメッセージ'
+        developer: Developer
+        email: Email
+        no_potential_email: 回答なし
+        no_response: 返信なし
+        potential_email: 見込みメール
+        replied: 返信
+        reply_rate: 返信率
+        started: 開始
+        title: メッセージ
+        view: View
+    developers:
+      invisiblizes:
+        create:
+          created: プロフィールを公開する
+    features:
+      create:
+        created: プロフィールを1週間掲載する
+    hired:
+      forms:
+        index:
+          actions: アクション
+          company: 会社
+          details: 詳細
+          developer: エンジニア
+          employment_type: 契約形態
+          start_date: 開始日
+          title: お祝いパッケージのリクエスト
+        show:
+          company_name: 会社名
+          employment_type: 契約形態
+          feedback: フィードバック
+          mailing_address: メールアドレス
+          position: ポジション
+          start_date: 開始日
+          title: お祝いパッケージのリクエスト
+    hiring_agreements:
+      terms:
+        create:
+          created: 雇用契約条項を追加しました
+        edit:
+          activate: 有効化
+          active: 有効
+          cancel: キャンセル
+          deactivate: 無効化
+          title: 雇用契約
+        index:
+          active: 有効
+          new: 新規作成
+          title: 雇用契約条件
+        new:
+          cancel: キャンセル
+          title: 雇用契約
+        show:
+          body: 内容
+          edit: 編集
+          title: 雇用契約
+        update:
+          updated: 更新しました
+    transactions:
+      create:
+        created: 作成されました
+      destroy:
+        destroyed: 削除されました
+      form:
+        URL: URL
+        cancel: キャンセル
+        description: 費用は有償のサービスおよび製品で、寄付は寄付金および協賛金です。
+        title: 新規費用または寄付金
+      index:
+        delete_confirmation: 本当にこの取引を削除しますか？
+        title: 費用および寄付金
+      update:
+        updated: 更新しました
+    users:
+      index:
+        business: ビジネス
+        developer: エンジニア
+        email: Email
+        impersonate: なりすまし
+        title: ユーザー
+      search:
+        cta: 検索
+        help: 名前、会社、メールアドレスでユーザーを検索
+  blocks:
+    create:
+      notice: '%{other_recipient} をブロックしました'
+    new:
+      block: ブロック
+      cancel: キャンセル
+      message: この送信者をブロックしてもよろしいですか？これでメッセージは非表示になり、相手は二度とあなたに連絡できなくなります。
+      title: 送信者をブロック
+  businesses:
+    admin_component:
+      invisiblize: 非公開
+      title: Admin
+    create:
+      created: 作成しました
+    edit:
+      title: あなたのビジネスプロフィール
+    expired_subscription_component:
+      cta: メッセージを送るにはビジネスプランをアップグレードしてください
+      title: ビジネスプランの有効期限が切れています
+    form:
+      avatar: 会社のロゴ
+      business:
+        help: あなたのビジネスに関する情報です。採用候補者に自分を売り込むチャンスです!
+        title: 詳細
+      change_avatar: アップロード
+      creating: 作成中...
+      developer_notifications:
+        help_text: 新しいエンジニアがRailsDevsにプロフィールを追加した際に、毎日または毎週メールで通知を受け取ることができます。更新直後は転職意欲が高い方が多いです。
+        legend: エンジニアのプロフィール更新を通知
+        values:
+          daily: 毎日
+          'no': なし
+          weekly: 週次
+      loading: 読み込み中...
+      notifications:
+        title: メール通知
+      personal:
+        help: RailsDevsでのあなたに関する情報です。
+        title: 個人情報
+      something_went_wrong: 画像のアップロードに失敗しました。もう一度やり直してください。
+      updating: 更新中...
+      your_business_profile: あなたのビジネスプロフィール
+    hiring_fee_component:
+      body: 'Joeさん、RailsDevsで%{developer}を雇ったのですが、報酬の支払いを調整したいのですが。彼らの初任給は'
+      cta: 採用費の支払い
+      subject: RailsDev経由でエンジニアを採用しました
+      title: '%{developer}を雇いましたか？'
+    primary_action_component:
+      edit: 編集
+    show:
+      bio: プロフィール
+    subscriptions_component:
+      expires_on: 期限切れ
+      plan: プラン
+      status: ステータス
+      title: ビジネスプラン
+    update:
+      updated: 更新しました
+    upgrade_account_component:
+      cta: アップグレード
+      title: ビジネスプランの契約が必要です
+    upgrade_required_component:
+      body:
+        expired: ビジネスプランの有効期限が切れています。エンジニアとメッセージをやり取りするには、アカウントを再有効化してください。
+        upgrade: 現在のプランでは、副業の仕事を探している開発者にしかメッセージを送ることができません。この開発者にメッセージを送るには、アカウントをアップグレードしてください。
+      cta:
+        expired: 再有効化する
+        upgrade: アップグレード
+      details: 価格の詳細
+      title:
+        expired: ビジネスプランの期限切れ
+        upgrade: アップグレードが必要です
+    website_link_component:
+      external_link: 新しいタブで開く
+  cold_messages:
+    new:
+      title: メッセージを始める
+      with: と
+  conversations:
+    index:
+      empty_state:
+        body: まずはメッセージを送るエンジニアを探すことから始めましょう。
+        cta: エンジニアを探す
+        title: メッセージがありません
+      title: メッセージ一覧
+    read_indicator_component:
+      read: 既読
+      unread: 未読
+    show:
+      flag: このメッセージにフラグを立てる
+      og_title: '%{with}とメッセージ'
+      title: メッセージ
+      with: と
+  date:
+    formats:
+      month_year: '%B %Y'
+  developer_mailer:
+    celebration_promotion:
+      subject: '%{company}とのメッセージはいかがですか?'
+    first_message:
+      subject: RailsDevsで初めてのメッセージに返信するときのコツ
+  developers:
+    admin_component:
+      copy: コピー
+      feature: 機能
+      invisiblize: 非表示
+      title: Admin
+    availability_component:
+      in_future_html: <time datetime="%{date}">%{date_in_words}</time>で対応可能です。
+      now_html: 受付中
+      unspecified_html: 受け付けていません
+    badges_component:
+      featured: 人気
+      recently_active: 最近の活動
+    count_component:
+      cta: 検索をリセット
+      title_html: <span class='font-bold'>%{count}</span>+ の開発者を表示しています
+    cover_image_component:
+      alt: カバーイメージ
+    create:
+      created: 追加しました
+    details:
+      title: 詳細
+    edit:
+      title: あなたのプロフィール
+    form:
+      bio:
+        description: エンジニアとしてのあなたのユニークな点について、いくつかの記述してください。これは、エンジニアを探している会社に自分を売り込むチャンスです。
+        examples:
+          accomplishment: 最近達成したこと
+          help: 他の人にはない強み
+          learned: 新しく学んだこと
+          origin: エンジニアとして原点となるストーリー
+          passion: 情熱を注いでいること
+          title: トピックの例
+          unique: あなたならではのすごいスキル
+        help_text: 個人を特定できる情報は削除されます
+        markdown: Markdownに対応していますが、リンクや画像は削除されます
+        title: 自己紹介
+      creating: 作成中...
+      loading: 送信中...
+      notifications:
+        profile_reminder_notifications: プロフィールのリマインダー
+        profile_reminder_notifications_help: エンジニアのプロフィール更新を定期的にリマインドします
+        title: メール通知
+      online_presence:
+        help_text: あなたやあなたの作品についてもっと知ることができる場所は？
+        title: オンラインでの共有
+      preferred_compensation:
+        description: フリーランサーとしての経験から、報酬の話はプロジェクトや仕事の詳細が分かってからにした方が良いと思います
+        more_info: この決定に関する詳細
+        subtitle: RailsDevsから希望する報酬が削除されました
+        title: 希望する報酬
+      profile:
+        avatar: アバター
+        avatar_error_text: 画像のアップロードに失敗しました。もう一度やり直してください
+        change: アップロード
+        cover_image: カバー画像
+        help_text: この情報は公開されるため、内容には注意が必要です
+        hero_help_text: エンジニアとしての自分を一言で表現してください
+        location_help_text: 所在地を提供することで、地元のビジネスにつながりやすくなります
+        name_help_text_html: 公開プロフィールには、あなたの名前は<i>表示されません</i>
+        title: プロフィール
+        upload_error_text: 画像のアップロードに失敗しました。もう一度やり直してください
+        upload_file: ファイルアップロード
+        upload_help_text: PNG, JPG, GIF で 10MB まで
+      role_level:
+        help_text: 応募を検討する経験を全て選択してください
+        title: 役割
+      role_type:
+        help_text: あなたが受けたいと思う役割をすべて選んでください
+        title: 役割
+      search_status:
+        actively_looking_help_text: あなたのプロフィールがトップページに掲載されることがあります
+        invisible_help_text: プロフィールは非表示になっており、自分だけが見ることができます
+        not_interested_help_text: 検索結果にプロフィールが表示されなくなります
+        open_help_text: 企業はあなたを見つけることができますが、トップページに表示されることはありません
+        title: 検索ステータス
+      title: あなたのプロフィール
+      updating: 更新中...
+      work_preferences:
+        help_text: 次はどんな仕事をお探しですか？
+        title: 仕事への意欲
+    index:
+      empty_state:
+        body: 検索条件を変えて再度お試しください
+        title: エンジニアが見つかりませんでした
+      title: Ruby on Rails エンジニア
+    invisible_banner_component:
+      cta: プロフィールを編集
+      title: あなたのプロフィールは非公開中です。あなたのみ閲覧可能です。
+    meta:
+      description: '次の仕事を探している%{count}+人の Ruby on Rails エンジニアがいます。ジュニアからシニア、そしてその間にいるすべての人を見つけることができます'
+      freelance: freelance
+      hire: ''
+      in_country: in %{country}
+      ruby_on_rails_developers: Ruby on Rails エンジニア一覧
+    new_field_component:
+      new: New!
+    new_fields_component:
+      cta: プロフィールの作成を完了する
+      title: 新しい項目を追加しました
+    open_graph_tags_component:
+      turbo_native_title: プロフィール
+    profile_action_component:
+      add_profile: プロフィールを追加する
+      edit_profile: プロフィールを更新する
+    query_component:
+      all_countries:
+        title: 全ての地域
+      apply: 検索
+      clear: クリア
+      close_menu: 閉じる
+      country:
+        title: 地域
+      filters: 検索
+      include_not_interested: スカウトに関心のないエンジニアも含める
+      paywalled_search:
+        title: テキスト検索にはビジネスプランの契約が必要です。
+      role_level:
+        title: 役割
+      search_query_label: プロフィールを検索
+      search_query_placeholder: Hotwire, React, Heroku, etc.
+      timezone:
+        title: タイムゾーン
+      title: エンジニア検索
+      work_preference:
+        title: 希望する仕事内容
+    query_sort_button_component:
+      sort:
+        availability: 受付中
+        newest: 最新
+        title: 絞り込み
+    search_status:
+      actively_looking: 積極的に仕事を探している
+      not_interested: 今は仕事探しに関心がない
+      open: 受け付けるが、積極的に探していない
+    show:
+      description: 説明
+      edit: 編集
+      hire: 採用する
+      message: メッセージ
+      redirection: プロフィールへのリンクが変更されました。ブックマークを%{url}に更新してください。
+    update:
+      updated: 更新しました
+  dir: ltr
+  errors:
+    business_blank: プロフィールを記入し、エンジニアにメッセージを送る
+    business_subscription_inactive: エンジニアにメッセージを送るためにビジネスプランに登録する
+    developer_blank: 最初にプロフィールを登録してください
+    hiring_agreements:
+      cold_message: 雇用契約書を更新しました。エンジニアにメッセージを送る前に、同意してください
+      payment: 雇用契約書を更新しました。同意の上、お申し込みください
+    messages:
+      attached: が添付されていません
+      content_type_invalid: 画像形式がサポートされていません
+      max_file_size_invalid: 画像サイズは %{size} までです
+    unauthorized: アクセスできません
+  hired:
+    forms:
+      create:
+        success: ありがとうございました。ジョーがすぐに連絡します。
+      new:
+        company_name: 会社名
+        description: おめでとうございます！RailsDevsのカスタムお祝いパッケージを無料でお届けします。
+        feedback: フィードバック (任意)
+        feedback_help: RailsDevsをより良くするための工夫や、共有したいことがあれば、ぜひ教えてください
+        mailing_address: メールアドレス
+        mailing_address_help: お祝いのパッケージはどこに送ればいいのですか？
+        request_package: パッケージをリクエストする
+        requesting: リクエスト中...
+        title: RailsDevsを通して仕事を見つけられましたか？
+    show:
+      description: RailsDevsでは、プラットフォームを通じて入社をお祝いするパッケージが用意されています
+      image_alt: RailsDevs記念パッケージ
+      title: 新しい仕事の獲得、おめでとうございます！
+  hiring_agreements:
+    signatures:
+      create:
+        created: 雇用契約にサインしました
+      new:
+        accept: 同意する
+        accepting: 同意中...
+        agreement: 本規約に同意する
+        description: 最終更新 %{last_updated}
+        questions_html: ''
+        title: RailsDevsの雇用契約書
+    terms:
+      show:
+        signed_on: '%{date}に同意'
+  home:
+    show:
+      available_developers: 受付中のエンジニア
+      description_og: RailsDevs は、次の仕事を探しているエンジニアを支援します。求人情報サイトを探し回るのをやめて、企業があなたにコンタクトを取るのを待ちましょう。
+      get_started: 始める
+      learn_more: もっと読む
+      more: もっと見る
+      subtitle_1: RailsDevs
+      subtitle_2: は、次の仕事を探しているエンジニアを支援します。
+      subtitle_3: 求人情報サイトを探し回るのをやめて、企業があなたにコンタクトを取るのを待ちましょう。
+      title_1: Rails エンジニアに特化した
+      title_2: 逆求人サイト
+      title_og: Ruby on Rails エンジニアのための逆求人サイト
+      turbo_native_title: RailsDevs
+  impersonating_banner_component:
+    cta: ログアウト
+    title: '%{email}でログイン'
+  loading_component:
+    loading: 読み込み中...
+  messages:
+    form:
+      help: メッセージを追加する
+      hiring_fee_agreement: 私は、この開発者を正社員として採用した場合、RailsDevsに10%の採用手数料を支払うことに同意します。
+      hiring_fee_cta: 質問がありますか？
+      sending: 送信中...
+      submit: 送信
+      terms: 全て見る
+    message:
+      wrote: が投稿
+      you: あなた
+  nav_bar:
+    base_component:
+      about: About
+      developers: エンジニア一覧
+      home: ホーム
+      pricing: 価格
+    guest_component:
+      register: 登録
+      sign_in: ログイン
+    user_component:
+      admin: Admin
+      billing: 支払い
+      blocked_conversations: ブロックしたメッセージ
+      conversations: メッセージ
+      found_a_job: 仕事を探していますか?
+      get_started: 開始しましょう
+      hired_forms: 採用フォーム
+      hiring_agreement_terms: 雇用契約条件
+      my_business_profile: 会社プロフィール
+      my_conversations: メッセージ
+      my_developer_profile: プロフィール
+      new: New!
+      new_notifications: 新しい通知があります
+      open_user_menu: メニューを開く
+      sign_out: ログアウト
+      transactions: 取引
+      users: ユーザー
+      view_conversations: メッセージを見る
+      view_notifications: 通知を見る
+  notifications:
+    admin:
+      new_business_notification:
+        email_subject: 新しいビジネスが登録されました
+        title: '%{business} が追加されました'
+      new_conversation_notification:
+        email_subject: 新しいメッセージが開始されました
+        title: '%{name} (%{company}) は %{developer} とメッセージを開始しました'
+      new_developer_notification:
+        email_subject: 新しいエンジニアのプロフィールが公開されました
+        title: '%{developer}がプロフィールを追加しました'
+      new_hired_form_notification:
+        title: ''
+      potential_hire_notification:
+        email_subject: 新規採用候補者
+        title: '%{developer} は採用されたかもしれません'
+    businesses:
+      invisiblize_notification:
+        title: RailsDevsのあなたのプロフィールが非表示になりました
+    developers:
+      invisiblize_notification:
+        title: RailsDevsのあなたのプロフィールが非表示になりました
+      profile_reminder_notification:
+        email_subject: Is your RailsDevs profile up to date?
+        title: Is your developer profile up to date?
+      welcome_notification:
+        title: RailsDevsへようこそ!
+    index:
+      cta: 履歴を見る
+      empty_state:
+        body: 未読の通知はありません
+        title: 新しい通知はありません
+      mark_all_as_read: 全て既読にする
+      title: 新しい通知
+    new_message_notification:
+      email_subject: '%{sender}がメッセージを送信しました'
+      title: '%{sender}がメッセージを送信しました'
+    show:
+      notice: 全ての通知を既読にしました
+  open_startup:
+    contributions:
+      index:
+        amount: 金額
+        contributions: 貢献
+        date: 日付
+        description: RailsDevsは、利益の10％を女性にフォーカスしたコミュニティに、売上の2％をCO₂除去に寄付しています
+        external_link: 新しいタブで開く
+        open_startup: オープンスタートアップ
+        recipient: 受取人
+        title: RailsDevsへの貢献
+        to_co2_removal: をCO₂除去に活用
+        to_communities: コミュニティへ
+    dashboard:
+      show:
+        contributions: 貢献
+        date: 日付
+        description: RailsDevsは、メトリクスを公開したオープンなスタートアップです。
+        expenses: 費用
+        external_link: 新しいタブで開く
+        mrr: MRR
+        profit: 利益
+        revenue: 収益
+        title: オープンスタートアップ
+        visitors: 訪問者 (直近 30 日)
+    expenses:
+      index:
+        amount: 金額
+        date: 日付
+        description: ホスティング、料金、購入など、RailsDevsに関連するすべての金銭的取引
+        expenses: 費用
+        open_startup: オープンスタートアップ
+        source: ソース
+        title: RailsDevs の費用
+    revenue:
+      index:
+        amount: 金額
+        date: 日付
+        description: 2021年11月のローンチ以来、RailsDevsが生み出したすべての収益
+        open_startup: オープンスタートアップ
+        revenue: 収益
+        source: ソース
+        title: RailsDevsの収益
+  policies:
+    privacy:
+      show:
+        title: プライバシーポリシー
+    terms:
+      show:
+        title: 利用規約
+  pricing:
+    cta:
+      cta: 今日から始める
+      subtitle: いますぐ次のRailsエンジニアを探す
+      title: 採用を開始する準備はできていますか？
+    faq:
+      annual:
+        a_html: はい。<a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a> で、Joeにメールして年間割引請求の設定をすることができます。
+        q: 年払い、年額払いは可能ですか？
+      cancellation:
+        a_html: はい、ユーザーのドロップダウンメニューにある「課金」リンクから、購読をキャンセルできます。課金期間が終了すると、すべての有料機能にアクセスできなくなります。
+        q: いつでも解約できるのですか？
+      developers:
+        a: いいえ、RailsDevsはエンジニア向けには無料で提供されています。
+        q: RailsDevs はエンジニアは料金を支払いますか？
+      fee:
+        a_html: RailsDevsを通じて開発者を見つけた場合、開発者の初年度給与の10%の採用手数料を支払う必要があります。これは正社員の雇用にのみ適用され、契約社員やフリーランサーには適用されません。Joeにメールして、<a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a> で支払いの調整をしてください。
+        q: 採用手数料10％の仕組みは？
+      support:
+        a_html: ご質問は、創設者のJoeにメールしてください。- にメールを送ってください。<a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a> にご連絡ください。
+        q: 具体的な質問については、どこに問い合わせればよいですか？
+      title: よくある質問
+    hero:
+      description: 次の仕事を探している多くのRuby on Railsエンジニアと直接つながることができます。
+      title: Ruby on Rails エンジニアを採用する
+    plan:
+      description: 正式な求人広告や仲介業者を省き、若手からCTOレベルまでのRuby on Rails開発者の候補者から直接採用することができます。
+      features:
+        email_updates: 新着候補者の情報をメールでお知らせ
+        hand_selected_matches: 毎月の厳選されたマッチング
+        message: エンジニアとの直接メッセージ
+        oss: 開発者、OSSのサポート
+        rails: Ruby on Rails開発者限定
+        support: 創業者からのメールやビデオによるサポート
+        title: RailsDevs限定コンテンツ
+      hiring_fee: '+ 10%の初年度給与'
+      per_month: '/月'
+      title_html: 1<sup>回目</sup>以降の採用の場合
+    purchase_button:
+      title: 今日から始める
+    show:
+      description: RailsDevs に登録すると、フリーランス、副業、正社員の仕事を探している多くの Ruby on Rails エンジニアと直接連絡を取ることができます。
+      title_og: 価格設定
+      turbo_native_title: Railsエンジニアを採用する
+    stats:
+      description: LinkedInやコールドメールよりも高い返信率があります
+      new_devs: 1ヶ月の新規開発者数
+      rails_developers: Railsエンジニア
+      response_rate: 返信率
+      title: Rails専用の採用プラットフォーム
+  read_notifications:
+    create:
+      notice: 既読になった通知
+    index:
+      empty_state_body: 通知はありません
+      empty_state_title: 通知はありません
+      title: 通知一覧
+  registrations:
+    create_account: アカウントを作成する
+    register: 登録する
+    sign_up_hero: アカウントの作成
+    sign_up_html: または %{link}
+  role_levels:
+    component:
+      interested_in_roles: 興味があるポジション
+  role_types:
+    component:
+      interested_in_roles: 興味がある契約形態
+  roles:
+    new:
+      hiring_developers: エンジニアを探しています
+      hiring_developers_help_text: フリーランス、副業、または正社員の Ruby on Rails エンジニアを探している企業です。
+      looking_for_work: 仕事を探しています
+      looking_for_work_help_text: あなたは次の仕事を探しているRailsエンジニアです
+      what_brings_you_here: RailsDevs に来た理由は何ですか?
+  sessions:
+    sign_in: ログイン
+    sign_in_hero: ログイン
+    sign_in_link: ログイン
+    sign_in_link_html: または %{link}
+  shared:
+    footer:
+      about: About
+      analytics: アナリティクス
+      copyright: All rights reserved.
+      email: Email
+      github: GitHub
+      language_name_of_locale: 日本語
+      masilotti_com: Masilotti.com
+      open_source: オープンソース
+      open_startup: オープンなスタートアップ
+      privacy_policy: プライバシーポリシー
+      support: サポート
+      terms_and_conditions: 利用規約
+      twitter: Twitter
+  size:
+    billion: 億
+    million: 百万
+    thousand: 千
+    unit: ''
+  submit_button_component:
+    save: 保存
+    saving: 保存中...
+  subscription_cta_component:
+    description: ビジネスプランの契約をして %{developers}+ のプロフィールを閲覧しましょう.
+    title: ビジネスプランの契約が必要です
+  users:
+    paywalled_component:
+      description: 会社側にのみ表示されます
+      title: 個人情報
+  utc_offsets:
+    component:
+      gmt: GMT
