@@ -2,8 +2,8 @@
 es:
   about:
     show:
-      description: Soy Joe Masilotti. Estoy creando railsdevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
-      title_og: Acerca de railsdevs
+      description: Soy Joe Masilotti. Estoy creando RailsDevs para que desarrolladores de Ruby on Rails puedan encontrar su próximo trabajo.
+      title_og: Acerca de RailsDevs
   activerecord:
     attributes:
       business:
@@ -11,7 +11,6 @@ es:
         name: Tu nombre
       developer:
         available_on: Disponible para empezar el
-        bio: Bio
         email: Correo Electrónico
         github: Github
         hero: Hero
@@ -47,12 +46,11 @@ es:
   admin:
     conversations:
       blocks:
-        conversation:
-          blocked: Bloqueada
-        empty_state:
-          title: Ninguna conversación bloqueada
         index:
           title: Conversaciones bloqueadas
+    users:
+      index:
+        impersonate: Ver como
   blocks:
     create:
       notice: "%{other_recipient} fue bloqueado."
@@ -69,7 +67,7 @@ es:
       change_avatar: Subir
       creating: Creando...
       developer_notifications:
-        help_text: Recibe notificaciones por correo electrónico cuando nuevos desarrolladores agreguen su perfil a railsdevs.
+        help_text: Recibe notificaciones por correo electrónico cuando nuevos desarrolladores agreguen su perfil a RailsDevs.
         legend: Notificaciones de desarrolladores
         values:
           daily: Diario
@@ -77,7 +75,6 @@ es:
           weekly: Semanal
       notifications:
         title: Notificaciones por correo electrónico
-      save: Guardar
       something_went_wrong: Algo falló al subir tu imagen. Por favor intenta de nuevo.
       updating: Actualizando...
       your_business_profile: Perfil de tu empresa
@@ -91,11 +88,11 @@ es:
       title: Empieza una conversación
       with: con
   conversations:
-    empty_state:
-      body: Comienza encontrando a desarrolladores para contactar.
-      cta: Encuentra a algún desarrollador
-      title: Sin conversaciones
     index:
+      empty_state:
+        body: Comienza encontrando a desarrolladores para contactar.
+        cta: Encuentra a algún desarrollador
+        title: Sin conversaciones
       title: Tus conversaciones
     show:
       flag: Marcar esta conversación
@@ -113,6 +110,9 @@ es:
     details:
       title: Detalles
     form:
+      bio:
+        help_text: Escribe algunas oraciones sobre ti.
+        title: Bio
       creating: Creando...
       online_presence:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
@@ -120,12 +120,11 @@ es:
       preferred_compensation:
         description: Desde mi experiencia como freelancer, la remuneración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
         more_info: Más información sobre esta decisión
-        subtitle: Remuneración preferida eliminada de railsdevs
+        subtitle: Remuneración preferida eliminada de RailsDevs
         title: Remuneración preferida
       profile:
         avatar: Avatar
         avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
-        bio_help_text: Escribe algunas oraciones sobre ti.
         change: Subir
         cover_image: Imagen de portada
         help_text: Esta información será pública, así que ten cuidado con lo que compartas.
@@ -141,7 +140,6 @@ es:
       role_type:
         help_text: Selecciona todos los roles que considerarías aceptar.
         title: Tipo de rol
-      save: Guardar
       search_status:
         actively_looking_help_text: Tu perfil puede aparecer como destacado en la página de inicio.
         not_interested_help_text: Tu perfil estará claramente marcado de que no estás buscando trabajo.
@@ -186,7 +184,7 @@ es:
       get_started: Empezar
       learn_more: Aprender más
       more: Ver más desarrolladores
-      subtitle_1: railsdevs
+      subtitle_1: RailsDevs
       subtitle_2: empodera a los desarrolladores independientes disponibles para su próximo trabajo.
       subtitle_3: Deja de buscar en las bolsas de trabajo y relájate mientras las empresas se comunican contigo.
       title_1: La bolsa de trabajo inversa para
@@ -242,10 +240,9 @@ es:
         format: "%u%n"
         unit: "$"
   read_notifications:
-    empty_state:
-      body: No tienes notificaciones leídas.
-      title: Sin noticaciones leídas
     index:
+      empty_state_body: No tienes notificaciones leídas.
+      empty_state_title: Sin noticaciones leídas
       title: Ver notificaciones
   role_levels:
     component:
@@ -259,7 +256,7 @@ es:
       hiring_developers_help_text: Eres una empresa en búsqueda de desarrolladores freelance, medio tiempo o tiempo completo de Ruby on Rails.
       looking_for_work: Estoy en búsqueda de trabajo
       looking_for_work_help_text: Eres un desarrollador de Ruby on Rails en búsqueda de tu próximo trabajo.
-      what_brings_you_here: "¿Qué te trae a railsdevs?"
+      what_brings_you_here: "¿Qué te trae a RailsDevs?"
   shared:
     footer:
       about: Acerca de

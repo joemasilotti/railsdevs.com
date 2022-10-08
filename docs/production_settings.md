@@ -4,18 +4,13 @@ This documents all of the configuration for the production environment.
 
 ## Environment variables
 
-* `HOST` - Set to the production URL for route helpers, like `root_url`. railsdevs uses `railsdevs.com`.
+* `HOST` - Set to the production URL for route helpers, like `root_url`. RailsDevs uses `railsdevs.com`.
 
 ## Credentials
 
 The following credentials are used in the production environment.
 
-[Inbound emails](https://guides.rubyonrails.org/action_mailbox_basics.html) are processed by Postmark and require a password.
-
-```
-action_mailbox:
-  ingress_password:
-```
+### AWS
 
 AWS credentials for Active Storage uploads. `sitemaps_bucket` is a different bucket exclusively for uploading the sitemaps.
 
@@ -28,6 +23,17 @@ aws:
   sitemaps_bucket:
 ```
 
+### Hashids
+
+[Hashids](https://github.com/jcypret/hashid-rails) are used to obfuscate developer profile URLs. [Set your own salt](https://github.com/jcypret/hashid-rails#configuration-optional) to ensure IDs are not guessable.
+
+```
+hashid:
+  salt:
+```
+
+### Honeybadger
+
 Error reporting is done via [Honeybadger](https://www.honeybadger.io).
 
 ```
@@ -35,18 +41,27 @@ honeybadger:
   api_key:
 ```
 
+### iOS push notifications
+
+Set any key under the `ios:` namespace to enable push notifications via APNS. All of the following keys need to be set to send notifications.
+
+```
+ios:
+  bundle_identifier:
+  key_id:
+  team_id:
+  apns_token_cert:
+```
+
+### Postmark
+
 Transactional emails are sent via [Postmark](https://postmarkapp.com).
 
 ```
 postmark_api_token:
 ```
 
-Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
-
-```
-scout:
-  key:
-```
+### RevenueCat
 
 RevenueCat powers in-app purchases on the iOS app. Configuration requires a product identifier for each plan, API keys, and a webhook authorization. See below for more information on setting up RevenueCat.
 
@@ -59,6 +74,17 @@ revenue_cat:
     part_time:
     full_time:
 ```
+
+### Scout APM
+
+Monitoring is provided by [Scout APM](https://scoutapm.com). Reach out to [support@scoutapm.com](mailto: support@scoutapm.com) for a free plan for open source apps.
+
+```
+scout:
+  key:
+```
+
+### Stripe
 
 Stripe requires a few different keys, the credentials and the price for the business subscriptions. The signing secret is for webhooks. See below for more information on setting up Stripe.
 
@@ -122,11 +148,23 @@ It also requires some CORS configuration for direct uploads, copied from the [Ac
 ]
 ```
 
+## Heroku buildpacks for vips
+
+vips, the library used to process images, requires custom configuration on Heroku.
+
+Add the following buildpacks to your Heroku app, in order.
+
+1. https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku-community/apt.tgz
+1. heroku/ruby
+1. https://github.com/brandoncc/heroku-buildpack-vips
+
+Note that `heroku/ruby` might already be present if you've deployed before.
+
 ## Background jobs
 
 1. `bundle exec rake sitemap:refresh` - daily at 12:00 AM UTC
 2. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
-3. `bundle exec rake developers:utc_offset` - daily at 5:00 AM UTC
+3. `bundle exec rake locations:utc_offset` - daily at 5:00 AM UTC
 4. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
 5. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
 6. `bundle exec rake developers:notify_stale_profiles` - daily at 8:00 AM UTC
@@ -164,7 +202,7 @@ It also requires the following ACL where `SITEMAPS-BUCKET-NAME` is the name of t
 
 ## Analytics
 
-railsdevs uses [Fathom](https://usefathom.com/ref/HBTNVR) for GDPR-compliant analytics. The sites keys are identified in `config/fathom.yml`.
+RailsDevs uses [Fathom](https://usefathom.com/ref/HBTNVR) for GDPR-compliant analytics. The sites keys are identified in `config/fathom.yml`.
 
 ```
 # config/fathom.yml
@@ -178,7 +216,7 @@ production: CACNFAAN
 
 A few settings need to be configured in [RevenueCat](https://www.revenuecat.com) for in-app purchases to work.
 
-1. A project - railsdevs names this "railsdevs"
+1. A project - RailsDevs names this "railsdevs"
 1. Two products (to match the subscription tiers)
 1. An App Store (iOS) app configured with the name and bundle identifier
 1. The App Store Connect App-Specific Shared Secret copied to App Store Connect
@@ -189,8 +227,8 @@ A few settings need to be configured in [RevenueCat](https://www.revenuecat.com)
 
 A few settings need to be configured in [Stripe](https://stripe.com) for payments to work.
 
-1. A product - railsdevs names this "Business subscription"
-1. A recurring price for the product - railsdevs sets this to $99/mo to match the copy on `/pricing`
+1. A product - RailsDevs names this "Business subscription"
+1. A recurring price for the product - RailsDevs sets this to $99/mo to match the copy on `/pricing`
 1. All the [webhooks Pay requires](https://github.com/pay-rails/pay/blob/master/docs/stripe/5_webhooks.md), sent to `/pay/webhooks/stripe`
 
 ## Open startup

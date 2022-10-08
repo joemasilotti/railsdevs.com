@@ -9,7 +9,7 @@ module Businesses
 
     def render_content?
       if user.business == business
-        Businesses::Permission.new(user.subscriptions).active_subscription?
+        user.permissions.active_subscription?
       else
         true
       end

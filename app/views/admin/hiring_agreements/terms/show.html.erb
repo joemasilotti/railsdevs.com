@@ -1,0 +1,8 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::ContentComponent.new(width: "max-w-3xl") do %>
+    <%= render Admin::DescriptionListComponent.new(t(".title"), @term.created_at.to_formatted_s(:calendar)) do |list| %>
+      <% list.with_link t(".edit"), edit_admin_hiring_agreements_term_path(@term) %>
+      <% list.with_description t(".body"), simple_format(@term.body), wide: true %>
+    <% end %>
+  <% end %>
+<% end %>

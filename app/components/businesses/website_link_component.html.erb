@@ -1,7 +1,7 @@
 <% if website_present? %>
   <%= link_to website_url, target: "_blank", class: "text-3xl font-bold text-gray-900 flex items-center group hover:underline" do %>
     <h1><%= company_name %></h1>
-    <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 ml-1" %>
+    <%= inline_svg_tag "icons/solid/external_link.svg", class: "h-6 w-6 flex-shrink-0 text-gray-500 group-hover:text-gray-700 ml-1", title: t(".external_link") %>
   <% end %>
 <% else %>
   <h1 class="text-3xl font-bold text-gray-900"><%= company_name %></h1>

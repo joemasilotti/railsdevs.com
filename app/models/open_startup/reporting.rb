@@ -44,7 +44,7 @@ module OpenStartup
     def normalize_revenue
       log "Normalizing revenue..."
       Revenue.transaction do
-        Revenue.delete_all
+        Revenue.automated.delete_all
 
         monthly_charges = StripeTransaction.charge
           .group_by_month(:created).group(:description)

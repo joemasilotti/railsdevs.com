@@ -7,10 +7,6 @@ class CollapseControlComponent < ApplicationComponent
     @subcomponent = subcomponent
   end
 
-  def title_class
-    "font-medium text-gray-900 #{"text-xs" if @subcomponent}"
-  end
-
   def minus_icon_class
     "hidden" if collapsed?
   end
@@ -23,5 +19,9 @@ class CollapseControlComponent < ApplicationComponent
 
   def collapsed?
     !!@collapsed
+  end
+
+  def subcomponent?
+    !!@subcomponent
   end
 end

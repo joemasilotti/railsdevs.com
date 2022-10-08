@@ -3,6 +3,7 @@ class Conversation < ApplicationRecord
 
   belongs_to :developer
   belongs_to :business
+  belongs_to :user_with_unread_messages, class_name: :User, inverse_of: :unread_conversations, optional: true
 
   has_many :messages, -> { order(:created_at) }, dependent: :destroy
 
@@ -12,6 +13,10 @@ class Conversation < ApplicationRecord
 
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
+
+  def self.find_by_inbound_email_token!(token)
+    where("lower(inbound_email_token) = ?", token).first!
+  end
 
   def other_recipient(user)
     developer == user.developer ? business : developer
@@ -48,6 +53,15 @@ class Conversation < ApplicationRecord
 
   def mark_notifications_as_read(user)
     notifications_as_conversation.where(recipient: user).unread.mark_as_read!
+    update(user_with_unread_messages: nil) if unread_messages_for?(user)
+  end
+
+  def unread_messages_for?(user)
+    user_with_unread_messages == user
+  end
+
+  def first_reply?(developer)
+    messages.where(sender: developer).one? && latest_message.sender == developer
   end
 
   private

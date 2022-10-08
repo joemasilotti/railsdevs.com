@@ -2,8 +2,40 @@
 
 ## 2022
 
+## September
+
+* September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
+* September 18 - Add badges to developer profile pages #657
+* September 18 - Obfuscate developer profiles URLs #656
+* September 16 - Show "Recently Active" badge for developers active in last 7 days #640 @sarvaiyanidhi
+* September 15 - Allow rich text for developer bios #638 @rayhanw
+* September 15 - Show "Featured" badge in search results #642
+* September 14 - Only ever send one Celebration Promotion email #617 @sarvaiyanidhi
+* September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
+* September 13 - Move developer bio to own card in form and add more instructions #635 @rayhanw
+* September 8 - Send admins a notification when a `Hired::Form` is created #614 @sarvaiyanidhi
+* September 8 – Update license year and note non-code usage #630
+* September 8 – Remove part-time hiring plan from pricing page #628
+
+## August
+
+* August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
+* August 27 - Fixes an issue where Safari would never load retina images #619
+* August 25 - Create and deliver all notifications when seeding database #616
+* August 23 - Developer celebration flow #610
+* August 21 - Expand `User` filtering to developer & business #608
+* August 19 - Removed developer Twitter handle from Open Graph tags #607
+* August 19 - Convert reusable `/admin` components to View Components #605
+* August 18 - Add basic admin user search #604
+* August 17 - Send admins notifications on subscription changes #600
+* August 10 - Fixes an issue where uploaded avatars wouldn't render their preview #596
+* August 8 - railsdevs -> RailsDevs #595
+* August 6 - Fixes a bug where responding to messages via email wouldn't send #579 @benngarcia
+
 ### July
 
+* July 30 - Migrate from Action Mailbox to Postmark JSON API - #588
+* July 27 - Change developer bio text - #560 @kaushikhande
 * July 20 - Normalize business website link - #577 @ypcethan
 * July 19 - Add Stack Overflow link to developer profile - #581 @ypcethan
 * July 13 - Update to Pay 4.0.1 and Stripe 6.5.0 - #574
@@ -91,7 +123,7 @@
 * January 27 - Made links in messages clickable - #262 @djfpaagman
 * January 24 - Added role type filters - #251 @themudassarhassan
 * January 13 - Added email notifications of new developers - #212 @jacobdaddario
-* January 9 - Removed compensation from railsdevs - #231
+* January 9 - Removed compensation from RailsDevs - #231
 * January 8 - Added hourly rate, salary, and time zone filters - #225
 * January 7 - Added sorting of developers (newest or available) - #177
 * January 3 - Added CTA for paywalled content - #206 and #193 @jacobdaddario

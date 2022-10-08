@@ -5,7 +5,7 @@
     <h2 class="sm:flex mx-auto justify-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
       <%= link_to t(".open_startup"), open_startup_root_path, class: "text-gray-500 hover:text-gray-700" %>
       <div class="flex items-center">
-        <%= inline_svg_tag "icons/solid/chevron_right.svg", class: "hidden sm:block flex-shrink-0 h-8 w-8 text-gray-400" %>
+        <%= inline_svg_tag "icons/solid/chevron_right.svg", class: "hidden sm:block flex-shrink-0 h-8 w-8 text-gray-400", aria_hidden: true %>
         <span class="w-full"><%= t(".expenses") %></span>
       </div>
     </h2>

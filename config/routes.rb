@@ -31,6 +31,15 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
+    resource :hired, only: :show, controller: :hired do
+      resources :forms, only: [:new, :create], module: :hired
+    end
+
+    namespace :hiring_agreement, module: :hiring_agreements do
+      resource :terms, only: :show
+      resource :signature, only: %i[new create]
+    end
+
     namespace :open_startup, path: "/open" do
       resources :contributions, only: :index
       resources :expenses, only: :index
@@ -48,9 +57,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resource :impersonate, only: [:create, :show, :destroy]
+    resource :impersonate, only: [:create, :destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
+    resources :users, only: [:index]
 
     namespace :conversations do
       resources :blocks, only: :index
@@ -65,6 +75,16 @@ Rails.application.routes.draw do
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create, module: :developers
+    end
+
+    namespace :hired do
+      resources :forms, only: [:index, :show]
+    end
+
+    namespace :hiring_agreements do
+      resources :terms, except: :destroy do
+        resource :activation, only: %i[create destroy], module: :terms
+      end
     end
   end
 
@@ -87,6 +107,7 @@ Rails.application.routes.draw do
   end
 
   namespace :webhooks do
+    resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
 

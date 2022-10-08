@@ -1,5 +1,13 @@
-<% if Feature.enabled?(:pricing_v2, user: current_user) %>
-  <%= render "v2" %>
-<% else %>
-  <%= render "v1" %>
-<% end %>
+<%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".turbo_native_title"), description: t(".description"), image: image_url("opengraph/pricing.png") %>
+
+<div class="bg-gray-50">
+  <%= render "hero" %>
+  <%= render "plan" %>
+  <%= render "stats", stats: @stats %>
+</div>
+
+<div class="bg-white pb-20 lg:pb-30">
+  <%= render "testimonials", testimonials: @testimonials %>
+  <%= render "faq" %>
+  <%= render "cta" %>
+</div>

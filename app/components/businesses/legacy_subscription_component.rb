@@ -7,7 +7,7 @@ module Businesses
     end
 
     def render?
-      Businesses::Permission.new(user&.subscriptions).legacy_subscription?
+      user&.permissions&.legacy_subscription?
     end
   end
 end

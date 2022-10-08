@@ -47,7 +47,7 @@
                 <div class="relative">
                   <%= render AvatarComponent.new(avatarable: business, variant: :medium, data: {"file-upload-target": "image"}) %>
                   <div data-file-upload-target="activity" class="hidden absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin" %>
+                    <%= inline_svg_tag "icons/outline/refresh.svg", class: "w-8 h-8 text-gray-900 animate-reverse-spin", title: t(".loading") %>
                   </div>
                 </div>
                 <%= form.hidden_field :avatar, value: form.object.avatar.signed_id, id: "business_avatar_hidden" if form.object.avatar.attached? %>
@@ -123,7 +123,7 @@
     </div>
 
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
-      <%= render SubmitButtonComponent.new(text: t(".save"), disable_with: business.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
+      <%= render SubmitButtonComponent.new(disable_with: business.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
     </div>
   <% end %>
 </div>

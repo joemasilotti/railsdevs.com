@@ -31,6 +31,27 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
     assert_redirected_to pricing_path
   end
 
+  test "must have signed the active hiring agreement" do
+    user = @business.user
+    user.hiring_agreement_signatures.destroy_all
+    sign_in user
+
+    get new_developer_message_path(@developer)
+
+    assert_redirected_to new_hiring_agreement_signature_path
+  end
+
+  test "signing an agreement is not required if no active terms" do
+    user = @business.user
+    user.hiring_agreement_signatures.destroy_all
+    hiring_agreements_terms(:active).deactivate!
+    sign_in user
+
+    get new_developer_message_path(@developer)
+
+    assert_select "form[action=?]", developer_messages_path(@developer)
+  end
+
   test "stores the location if no active business subscription" do
     sign_in businesses(:one).user
     get new_developer_message_path(@developer)

@@ -2,7 +2,10 @@ module IosNotification
   extend ActiveSupport::Concern
 
   included do
-    deliver_by :ios, format: :ios_format, cert_path: :ios_cert_path, development: :development?
+    # See docs/producuction_settings.md#ios-push-notifications for more information.
+    if Rails.application.credentials.ios.present?
+      deliver_by :ios, format: :ios_format, cert_path: :ios_cert_path, development: :development?
+    end
   end
 
   def ios_format(apn)

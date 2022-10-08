@@ -1,5 +1,1 @@
-<%= image_tag image,
-      srcset: {"#{url_for image_2x}": "2x"},
-      alt: "#{name} avatar",
-      data: data,
-      class: "#{classes} object-cover bg-gray-300 rounded-full" %>
+<%= image_tag image_2x, alt: "#{name} avatar", data:, class: "#{classes || "h-24 w-24 sm:h-32 sm:w-32 ring-4 ring-white"} object-cover bg-gray-300 rounded-full" %>

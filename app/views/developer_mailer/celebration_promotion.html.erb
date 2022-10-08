@@ -1,0 +1,6 @@
+<p>Hey <%= @developer.first_name %>,</p>
+<p>I'm Joe, the founder of RailsDevs. I see that you've been <%= link_to "speaking with #{@business.contact_name} at #{@business.company}", conversation_url(@conversation) %> – nice work!</p>
+<p>Have you moved on to the next step of the interview process? I'd love to hear how it's going.</p>
+<p>Also, don't forget that if you're hired you are eligible for a celebration package with free swag! <%= link_to "Fill out this short form", hired_url %> if you've been hired by a company on RailsDevs.</p>
+<p>Don't hesitate to reach out if you run into issues or need help using RailsDevs.</p>
+<%= render "shared/signature" %>

@@ -1,21 +1,17 @@
 class Clipboard {
   static copy({text, html}) {
-    const data = [
-      this.clipboardItem({type: "text/plain", content: text}),
-      this.clipboardItem({type: "text/html", content: html})
-    ]
+    const clipboardItem = new ClipboardItem({
+        ["text/plain"]: new Blob([text], { type: "text/plain" }),
+        ["text/html"]: new Blob([html], { type: "text/html" }),
+      })
 
-    navigator.clipboard.write(data).then(
+    navigator.clipboard.write([clipboardItem]).then(
       () => { /* Success */ },
       (error) => {
-        console.error(error)
+        console.error(error);
         alert("Failed to copy to clipboard.")
       }
     )
-  }
-
-  static clipboardItem({type, content}) {
-    return new ClipboardItem({[type]: new Blob([content], {type})})
   }
 }
 

@@ -1,0 +1,13 @@
+<% if testimonials.any? %>
+  <div class="pt-20 lg:pt-40">
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <% testimonials.each_with_index do |testimonial, index| %>
+          <%= tag.div class: class_names("hidden md:block": index == 0) do %>
+            <%= render "pricing/testimonial", testimonial: testimonial %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

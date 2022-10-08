@@ -22,17 +22,12 @@ class ConversationQuery
     @all_records ||= entity.present? ? entity.conversations : Conversation.all
   end
 
-  def replied_to_conversation_ids
-    @replied_to_conversation_ids ||=
-      Message.where(sender_type: "Developer", conversation: records)
-        .distinct.pluck(:conversation_id)
+  def replied_to?(conversation)
+    replied_to_conversation_ids.include?(conversation.id)
   end
 
-  def potential_email_conversation_ids
-    @potential_email_conversation_ids ||=
-      Message.where(conversation: records)
-        .potential_email
-        .distinct.pluck(:conversation_id)
+  def potential_email?(conversation)
+    potential_email_conversation_ids.include?(conversation.id)
   end
 
   private
@@ -42,6 +37,20 @@ class ConversationQuery
       .includes(:business, :developer)
       .order(created_at: :desc)
     @pagy, @records = build_pagy(records)
+  end
+
+  def replied_to_conversation_ids
+    @replied_to_conversation_ids ||=
+      Message.where(sender_type: "Developer", conversation: records)
+        .distinct.pluck(:conversation_id)
+  end
+
+  def potential_email_conversation_ids
+    @potential_email_conversation_ids ||=
+      Message.where(conversation: records)
+        .where(sender_type: Developer.name)
+        .potential_email
+        .distinct.pluck(:conversation_id)
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.

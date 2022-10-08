@@ -7,6 +7,10 @@ class DeveloperTest < ActiveSupport::TestCase
     @developer = developers(:one)
   end
 
+  test "obfuscated profile URLs" do
+    assert_equal @developer.hashid.to_s, @developer.to_param
+  end
+
   test "unspecified availability" do
     @developer.available_on = nil
 
@@ -198,17 +202,31 @@ class DeveloperTest < ActiveSupport::TestCase
 
   test "featured developers were featured within the last week" do
     developer = developers(:one)
+    refute developer.featured?
     refute_includes Developer.featured, developer
 
     developer.feature!
+    assert developer.featured?
     assert_includes Developer.featured, developer
 
     travel 7.days
+    assert developer.featured?
     assert_includes Developer.featured, developer
 
     travel 1.second
+    refute developer.featured?
     refute_includes Developer.featured, developer
 
     travel_back
+  end
+
+  test "recently active developers within last one week" do
+    @developer = developers(:one)
+
+    @developer.updated_at = 2.weeks.ago
+    refute @developer.recently_active?
+
+    @developer.updated_at = Date.current
+    assert @developer.recently_active?
   end
 end

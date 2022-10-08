@@ -5,7 +5,7 @@
     <h2 class="sm:flex mx-auto justify-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
       <%= link_to t(".open_startup"), open_startup_root_path, class: "text-gray-500 hover:text-gray-700" %>
       <div class="flex items-center">
-        <%= inline_svg_tag "icons/solid/chevron_right.svg", class: "hidden sm:block flex-shrink-0 h-8 w-8 text-gray-400" %>
+        <%= inline_svg_tag "icons/solid/chevron_right.svg", class: "hidden sm:block flex-shrink-0 h-8 w-8 text-gray-400", aria_hidden: true %>
         <span class="w-full"><%= t(".contributions") %></span>
       </div>
     </h2>
@@ -27,7 +27,7 @@
               </dd>
             </div>
             <%= link_to "https://climate.stripe.com/hJkEY9", target: "_blank", class: "relative flex flex-col border-b border-gray-100 p-6 text-center bg-white rounded-lg overflow-hidden shadow-lg group hover:bg-gray-50" do %>
-              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600" %>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600", title: t(".external_link") %>
               <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
                 <%= t(".to_co2_removal") %>
               </dt>

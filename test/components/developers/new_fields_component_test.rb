@@ -29,10 +29,5 @@ module Developers
       render_inline NewFieldsComponent.new(nil)
       refute_component_rendered
     end
-
-    test "doesn't render if disabled" do
-      render_inline NewFieldsComponent.new(users(:developer), enabled: false)
-      refute_component_rendered
-    end
   end
 end

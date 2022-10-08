@@ -1,0 +1,17 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::ListComponent.new do |list| %>
+      <% list.with_cta t(".new"), new_admin_hiring_agreements_term_path %>
+
+      <% @terms.each do |term| %>
+        <% list.with_item term.created_at.to_formatted_s(:calendar), term.body, path: admin_hiring_agreements_term_path(term), id: dom_id(term) do |list_item| %>
+          <% list_item.aside do %>
+            <%= render Admin::BadgeComponent.new(t(".active")) if term == @active_term %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -13,7 +13,7 @@
         <div class="max-w-4xl mx-auto">
           <dl class="space-y-6 sm:space-y-0 sm:grid sm:grid-cols-3 sm:space-x-6">
             <%= link_to open_startup_revenue_index_path, class: "relative flex flex-col border-b border-gray-100 p-6 text-center bg-white rounded-lg overflow-hidden shadow-lg group hover:bg-gray-50" do %>
-              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600" %>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600", title: t(".external_link") %>
               <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
                 <%= t(".mrr") %>
               </dt>
@@ -22,7 +22,7 @@
               </dd>
             <% end %>
             <%= link_to open_startup_contributions_path, class: "relative flex flex-col border-b border-gray-100 p-6 text-center bg-white rounded-lg overflow-hidden shadow-lg group hover:bg-gray-50" do %>
-              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600" %>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600", title: t(".external_link") %>
               <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
                 <%= t(".contributions") %>
               </dt>
@@ -31,7 +31,7 @@
               </dd>
             <% end %>
             <%= link_to "https://app.usefathom.com/share/cacnfaan/railsdevs.com#/?filters=%5B%5D&range=last_30_days&site=1125899910004402", target: "_blank", class: "relative flex flex-col border-b border-gray-100 p-6 text-center bg-white rounded-lg overflow-hidden shadow-lg group hover:bg-gray-50" do %>
-              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600" %>
+              <%= inline_svg_tag "icons/solid/external_link.svg", class: "w-5 h-5 text-gray-400 absolute top-0 right-0 mt-2 mr-3 group-hover:text-gray-600", title: t(".external_link") %>
               <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
                 <%= t(".visitors") %>
               </dt>

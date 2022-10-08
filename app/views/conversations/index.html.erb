@@ -11,7 +11,7 @@
     </ul>
   <% else %>
     <div class="mt-8">
-      <%= render "empty_state" %>
+      <%= render EmptyStateComponent.new(t(".empty_state.title"), "inbox", body: t(".empty_state.body"), cta: t(".empty_state.cta"), cta_path: developers_path, cta_icon: "search") %>
     </div>
   <% end %>
 </div>

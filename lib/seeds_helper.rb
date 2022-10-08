@@ -12,6 +12,7 @@ module SeedsHelper
       Developer.find_or_create_by!(user:) do |developer|
         developer.assign_attributes(attributes)
         attach_developer_avatar(developer)
+        developer.save_and_notify
       end
     end
 
@@ -35,6 +36,13 @@ module SeedsHelper
       Business.find_or_create_by!(company:) do |business|
         business.assign_attributes(attributes)
         attach_business_avatar(business)
+        business.save_and_notify
+      end
+    end
+
+    def create_message!(conversation:, sender:, body:, cold_message: false)
+      Message.find_or_create_by!(conversation:, sender:, body:) do |message|
+        message.save_and_notify(cold_message:)
       end
     end
 
