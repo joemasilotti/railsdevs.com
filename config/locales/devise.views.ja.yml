@@ -1,0 +1,140 @@
+---
+en:
+  activerecord:
+    attributes:
+      user:
+        confirmation_sent_at: 確認の送信日時
+        confirmation_token: 確認トークン
+        confirmed_at: 確認日時
+        created_at: 作成日時
+        current_password: 現在のパスワード
+        current_sign_in_at: 現在のログイン日時
+        current_sign_in_ip: 現在のログインIP
+        encrypted_password: 暗号化されたパスワード
+        failed_attempts: 失敗しました
+        last_sign_in_at: 最終ログイン日時
+        last_sign_in_ip: 最終ログインIP
+        locked_at: ロック時間
+        remember_created_at: ログイン保持日時
+        reset_password_sent_at: パスワードリセットの送信日時
+        reset_password_token: パスワードリセットトークン
+        sign_in_count: ログイン数
+        unconfirmed_email: 未確認のメール
+        unlock_token: ロック解除トークン
+        updated_at: 更新日時
+  devise:
+    confirmations:
+      confirmed: メールアドレスの確認に成功しました
+      new:
+        resend_confirmation_instructions: 確認メールの再送信
+      send_instructions: 数分後、確認メールが届きます
+      send_paranoid_instructions: お客様のメールアドレスがデータベースに存在する場合、数分後に確認メールをお送りします
+    failure:
+      already_authenticated: すでにログインしています
+      inactive: アカウントがまだ有効ではありません
+      invalid: '%{authentication_keys}かパスワードが正しくありません'
+      last_attempt: アカウントがロックされるまで、あと1回だけ試すことができます
+      locked: アカウントがロックされました
+      not_found_in_database: '%{authentication_keys}かパスワードが正しくありません'
+      timeout: セッションが終了しました。続行するには、再度ログインしてください
+      unauthenticated: 続行するには、ログインか新規登録が必要です
+      unconfirmed: メールアドレスの確認が必要です
+    mailer:
+      confirmation_instructions:
+        action: アカウントを有効化
+        greeting: '%{recipient}さん、ようこそ!'
+        instruction: 下記のリンクからアカウントの有効化ができます
+        subject: アカウントの有効化
+      email_changed:
+        greeting: '%{recipient}さん、こんにちは！'
+        message: メールアドレスが%{email}に変更されたことをお知らせするためにご連絡しています
+        message_unconfirmed: メールアドレスが%{email}に変更されたことをお知らせするためにご連絡しています
+        subject: メールアドレスが変更されました
+      password_change:
+        greeting: '%{recipient}さん、こんにちは!'
+        message: パスワードが変更されたことをお知らせするためにご連絡しています
+        subject: パスワード変更
+      reset_password_instructions:
+        action: パスワードを変更
+        greeting: '%{recipient}さん、こんにちは!'
+        instruction: パスワードを変更がリクエストされました。変更は以下のリンクから行うことができます
+        instruction_2: このメールに覚えのない方は、このメールを無視してください
+        instruction_3: パスワードは上記のリンクにアクセスし、新しいものを作成するまで変更されません
+        subject: パスワード再設定方法
+      unlock_instructions:
+        action: アカウントのロックを解除する
+        greeting: '%{recipient}さん、こんにちは!'
+        instruction: 以下のリンクをクリックして、アカウントのロックを解除してください
+        message: ログインに失敗した回数が多すぎるため、アカウントがロックされました
+        subject: ロック解除の方法
+    omniauth_callbacks:
+      failure: '%{reason}により %{kind} からあなたを認証できませんでした'
+      success: '%{kind}アカウントから認証に成功しました'
+    passwords:
+      edit:
+        change_my_password: パスワードを変更
+        change_your_password: パスワードを変更
+        confirm_new_password: 新しいパスワードを確認
+        new_password: 新しいパスワード
+      new:
+        forgot_your_password: パスワードを忘れましたか？
+        send_me_reset_password_instructions: パスワード再設定リンクを送信
+      no_token: パスワードリセットメールからでないと、このページにはアクセスできません。パスワードリセットメールからアクセスされる場合は、必ず記載されているURLの全文を使用してください
+      send_instructions: 数分後にパスワードの再設定方法を記載したメールが届きます
+      send_paranoid_instructions: あなたのメールアドレスがデータベースに存在する場合、数分後に指定のメールアドレス宛にパスワード復旧用のリンクが届きます
+      updated: パスワードが正常に変更されました。ログイン完了です
+      updated_not_active: パスワードを変更しました
+    registrations:
+      destroyed: お客様のアカウントは正常に削除されました。またのご利用をお待ちしております
+      edit:
+        are_you_sure: 本当に？
+        cancel_my_account: アカウントを削除
+        currently_waiting_confirmation_for_email: '現在、確認待ちです。: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: 変更しない場合は空白にしてください
+        title: '%{resource}を編集'
+        unhappy: 何か問題が発生しましたか?
+        update: 更新
+        we_need_your_current_password_to_confirm_your_changes: 変更を確認するために、現在のパスワードが必要です
+      new:
+        sign_up: 新規登録
+      signed_up: ようこそ! 登録に成功しました
+      signed_up_but_inactive: 登録に成功しました。しかし、あなたのアカウントがまだ有効になっていないため、ログインすることができませんでした。
+      signed_up_but_locked: 登録に成功しました。しかし、あなたのアカウントがロックされているため、ログインすることができませんでした。
+      signed_up_but_unconfirmed: メールアドレスに確認用リンクを送信しました。リンクに従って、アカウントを有効化してください。
+      update_needs_confirmation: アカウントの更新は正常に行われましたが、新しいメールアドレスの確認が必要です。メールを確認し、確認リンクから新しいメールアドレスの有効化行ってください
+      updated: アカウントは更新されました
+      updated_but_not_signed_in: アカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインする必要があります
+    sessions:
+      already_signed_out: ログアウトに成功しました
+      new:
+        sign_in: ログイン
+      signed_in: ログインに成功しました
+      signed_out: ログアウトに成功しました
+    shared:
+      links:
+        back: 戻る
+        didn_t_receive_confirmation_instructions: 確認メールが届いていない場合
+        didn_t_receive_unlock_instructions: ロック解除の手順が届いていない場合
+        forgot_your_password: パスワードを忘れましたか？
+        sign_in: ログイン
+        sign_in_with_provider: '%{provider}でログイン'
+        sign_up: 新規登録
+      minimum_password_length:
+        one: '(最小文字数 %{count})'
+        other: '(最小文字数 %{count})'
+    unlocks:
+      new:
+        resend_unlock_instructions: ロック解除方法を再送信
+      send_instructions: 数分後、ロック解除の方法を記載したメールをお送りします
+      send_paranoid_instructions: アカウントが存在する場合は、数分後にロック解除の方法を記載したメールをお送りします
+      unlocked: アカウントのロックが解除されました。続行するにはログインしてください
+  errors:
+    messages:
+      already_confirmed: はすでに有効化されているので、ログインしてください
+      confirmation_period_expired: は%{期間}以内に確認が必要です、再度新規にリクエストしてください
+      expired: の有効期限が切れているため、新しくリクエストしてください
+      not_found: 見つかりませんでした
+      not_locked: ロックされていません
+      not_saved:
+        one: '1つのエラーにより、この %{resource} は保存されませんでした'
+        other: 'この %{resource} は %{count} エラーにより保存されませんでした'
