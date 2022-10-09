@@ -7,13 +7,13 @@ shared:
   part_time:
     name: Part-time
     price: 99
-    stripe_price_id: <%= stripe_price_id(:part_time) %>
-    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:part_time) %>
+    stripe_price_id: <%= stripe_price_id(:part_time_plan) %>
+    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:part_time_plan) %>
   full_time:
     name: Full-time
     price: 299
-    stripe_price_id: <%= stripe_price_id(:full_time) %>
-    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:full_time) %>
+    stripe_price_id: <%= stripe_price_id(:full_time_plan) %>
+    revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:full_time_plan) %>
   free:
     name: Free
     price: 0

@@ -41,10 +41,10 @@ module Railsdevs
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
 
     # Permitted locales available for the application
-    config.i18n.available_locales = [:en, :es, :"zh-TW", :"pt-BR"]
+    config.i18n.available_locales = %i[ja en es zh-TW pt-BR]
 
     # Set default locale
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ja
 
     # Use default language as fallback if translation is missing
     config.i18n.fallbacks = true
