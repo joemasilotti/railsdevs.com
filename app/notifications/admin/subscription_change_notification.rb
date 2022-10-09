@@ -1,7 +1,7 @@
 module Admin
   class SubscriptionChangeNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "AdminMailer", method: :subscription_change
+    deliver_by :email, mailer: 'AdminMailer', method: :subscription_change
 
     param :subscription, :change
 

@@ -9,9 +9,10 @@ module OpenStartup
     end
 
     def persist
-      log "Fetching and persisting Stripe::BalanceTransaction records..."
+      log 'Fetching and persisting Stripe::BalanceTransaction records...'
       Stripe.balance_transactions.each do |transaction|
         next unless StripeTransaction.transaction_types.key?(transaction.type)
+
         create_or_update_transaction(transaction)
       end
     end
@@ -33,32 +34,33 @@ module OpenStartup
     def create_or_update_transaction(t)
       transaction = StripeTransaction.find_or_initialize_by(stripe_id: t.id)
       transaction.update!({
-        amount: t.amount.fdiv(100).abs,
-        created: Time.zone.at(t.created),
-        description: t.description,
-        fee: t.fee.fdiv(100).abs,
-        transaction_type: t.type
-      })
+                            amount: t.amount.fdiv(100).abs,
+                            created: Time.zone.at(t.created),
+                            description: t.description,
+                            fee: t.fee.fdiv(100).abs,
+                            transaction_type: t.type
+                          })
     end
 
     def normalize_revenue
-      log "Normalizing revenue..."
+      log 'Normalizing revenue...'
       Revenue.transaction do
         Revenue.automated.delete_all
 
         monthly_charges = StripeTransaction.charge
-          .group_by_month(:created).group(:description)
-          .sum(:amount)
+                                           .group_by_month(:created).group(:description)
+                                           .sum(:amount)
         monthly_charges.each do |(occurred_on, description), amount|
           next if amount.zero?
-          description = "Hiring fees" if description == "Payment for Invoice"
+
+          description = 'Hiring fees' if description == 'Payment for Invoice'
           Revenue.create!(occurred_on:, description: description.pluralize, amount:)
         end
       end
     end
 
     def normalize_expenses
-      log "Normalizing expenses..."
+      log 'Normalizing expenses...'
       Expense.transaction do
         Expense.delete_all
 
@@ -66,7 +68,7 @@ module OpenStartup
         stripe_fees = StripeTransaction.stripe_fee.group_by_month(:created).sum(:amount)
         charge_fees.each do |created, amount|
           amount += (stripe_fees[created] || 0)
-          Expense.create!(occurred_on: created, description: "Stripe fees", amount:)
+          Expense.create!(occurred_on: created, description: 'Stripe fees', amount:)
         end
 
         Transaction.expense.find_each do |transaction|
@@ -77,12 +79,12 @@ module OpenStartup
     end
 
     def normalize_contributions
-      log "Normalizing contributions..."
+      log 'Normalizing contributions...'
       Contribution.transaction do
         Contribution.delete_all
 
         StripeTransaction.contribution.group_by_month(:created).sum(:amount).each do |month, amount|
-          Contribution.create!(occurred_on: month, description: "Climate contribution", amount:)
+          Contribution.create!(occurred_on: month, description: 'Climate contribution', amount:)
         end
 
         Transaction.contribution.find_each do |transaction|
@@ -93,7 +95,7 @@ module OpenStartup
     end
 
     def normalize_monthly_balances
-      log "Normalizing monthly balances..."
+      log 'Normalizing monthly balances...'
       MonthlyBalance.transaction do
         MonthlyBalance.delete_all
 
@@ -114,12 +116,13 @@ module OpenStartup
     end
 
     def calculate_mrr
-      log "Calculating MRR..."
+      log 'Calculating MRR...'
       mrr = 0
       Stripe.subscriptions.each do |subscription|
         next if subscription.cancel_at_period_end?
         next if subscription.pause_collection.present?
-        next unless subscription.status == "active"
+        next unless subscription.status == 'active'
+
         mrr += subscription.items.first.price.unit_amount.fdiv(100)
       end
 
@@ -127,7 +130,7 @@ module OpenStartup
     end
 
     def fetch_visitors
-      log "Fetching visitors..."
+      log 'Fetching visitors...'
       visitors = Visitors.fetch
       metric.update!(visitors:)
     end

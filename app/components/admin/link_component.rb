@@ -8,7 +8,8 @@ module Admin
     end
 
     def call
-      link_to title, path, class: "rounded-md bg-white font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+      link_to title, path,
+              class: 'rounded-md bg-white font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
     end
   end
 end

@@ -3,11 +3,11 @@ module SeedsHelper
     def create_developer!(name, attributes = {})
       user = create_user!(name)
       attributes.merge!({
-        user:,
-        name: Faker::Name.name,
-        hero: attributes.delete(:hero) || Faker::Lorem.sentence,
-        bio: Faker::Lorem.paragraph(sentence_count: 10)
-      })
+                          user:,
+                          name: Faker::Name.name,
+                          hero: attributes.delete(:hero) || Faker::Lorem.sentence,
+                          bio: Faker::Lorem.paragraph(sentence_count: 10)
+                        })
 
       Developer.find_or_create_by!(user:) do |developer|
         developer.assign_attributes(attributes)
@@ -18,20 +18,20 @@ module SeedsHelper
 
     def create_random_developer!
       create_developer!(Faker::Internet.username, {
-        location: locations[:portland],
-        search_status: :open,
-        available_on: Faker::Date.between(from: 30.days.ago, to: 30.days.from_now)
-      })
+                          location: locations[:portland],
+                          search_status: :open,
+                          available_on: Faker::Date.between(from: 30.days.ago, to: 30.days.from_now)
+                        })
     end
 
     def create_business!(name, attributes = {})
       company = "#{name.titleize} Company"
       attributes.merge!({
-        user: create_user!(name),
-        contact_name: Faker::Name.name,
-        company:,
-        bio: Faker::Lorem.paragraph(sentence_count: 10)
-      })
+                          user: create_user!(name),
+                          contact_name: Faker::Name.name,
+                          company:,
+                          bio: Faker::Lorem.paragraph(sentence_count: 10)
+                        })
 
       Business.find_or_create_by!(company:) do |business|
         business.assign_attributes(attributes)
@@ -58,8 +58,8 @@ module SeedsHelper
       email = "#{name}@example.com"
       attributes = {
         email:,
-        password: "password",
-        password_confirmation: "password",
+        password: 'password',
+        password_confirmation: 'password',
         confirmed_at: DateTime.current
       }
 
@@ -79,21 +79,21 @@ module SeedsHelper
     def attach_avatar(record, avatars)
       uri = URI.parse(avatars[record.class.count])
       file = uri.open
-      record.avatar.attach(io: file, filename: "avatar.png")
+      record.avatar.attach(io: file, filename: 'avatar.png')
     end
 
     def location_seeds
-      @location_seeds ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "locations.yml"))
+      @location_seeds ||= YAML.load_file(File.join(Rails.root, 'db', 'seeds', 'locations.yml'))
     end
 
     def developer_avatar_urls
-      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
-        .map { |image_id| unsplash_url_for(image_id) }
+      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, 'db', 'seeds', 'avatars.yml'))
+                                     .map { |image_id| unsplash_url_for(image_id) }
     end
 
     def business_avatar_urls
-      @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "business_avatars.yml"))
-        .map { |image_id| unsplash_url_for(image_id) }
+      @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, 'db', 'seeds', 'business_avatars.yml'))
+                                    .map { |image_id| unsplash_url_for(image_id) }
     end
 
     def unsplash_url_for(image_id)

@@ -18,13 +18,13 @@ class BusinessPolicy < ApplicationPolicy
   private
 
   def default_attributes
-    [
-      :contact_name,
-      :company,
-      :bio,
-      :avatar,
-      :website,
-      :contact_role
+    %i[
+      contact_name
+      company
+      bio
+      avatar
+      website
+      contact_role
     ]
   end
 

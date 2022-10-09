@@ -3,7 +3,7 @@ module StripeHelper
     attr_reader :id, :amount, :created, :description, :fee, :type
 
     def initialize(amount:, created:, description:, fee:, type:)
-      @id = "ch_#{rand(1...10000)}"
+      @id = "ch_#{rand(1...10_000)}"
       @amount = amount
       @created = created
       @description = description
@@ -27,7 +27,7 @@ module StripeHelper
     end
 
     def status
-      @trialing ? "trialing" : "active"
+      @trialing ? 'trialing' : 'active'
     end
 
     def pause_collection

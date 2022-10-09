@@ -17,7 +17,7 @@ module Admin
     def create
       @transaction = OpenStartup::Transaction.new(transaction_params)
       if @transaction.save
-        redirect_to admin_transactions_path, notice: t(".created")
+        redirect_to admin_transactions_path, notice: t('.created')
       else
         render :form, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Admin
     def update
       @transaction = OpenStartup::Transaction.find(params[:id])
       if @transaction.update(transaction_params)
-        redirect_to admin_transactions_path, notice: t(".updated")
+        redirect_to admin_transactions_path, notice: t('.updated')
       else
         render :form, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Admin
 
     def destroy
       OpenStartup::Transaction.find(params[:id]).destroy
-      redirect_to admin_transactions_path, notice: t(".destroyed")
+      redirect_to admin_transactions_path, notice: t('.destroyed')
     end
 
     private

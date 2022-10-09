@@ -1,9 +1,9 @@
-require "test_helper"
+require 'test_helper'
 
 class DeveloperPolicyTest < ActiveSupport::TestCase
   include DevelopersHelper
 
-  test "update their own developer profile" do
+  test 'update their own developer profile' do
     user = users(:developer)
     assert DeveloperPolicy.new(user, user.developer).update?
   end
@@ -12,10 +12,10 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
     user = users(:developer)
     developer = developers(:prospect)
 
-    refute DeveloperPolicy.new(user, developer).update?
+    assert_not DeveloperPolicy.new(user, developer).update?
   end
 
-  test "view their own invisible developer profile" do
+  test 'view their own invisible developer profile' do
     developer = create_invisible_developer!
     assert DeveloperPolicy.new(developer.user, developer).show?
   end
@@ -23,7 +23,7 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
   test "cannot view another's invisible developer profile" do
     user = users(:developer)
     developer = create_invisible_developer!
-    refute DeveloperPolicy.new(user, developer).show?
+    assert_not DeveloperPolicy.new(user, developer).show?
   end
 
   test "admin can view another's invisible developer profile" do

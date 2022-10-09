@@ -15,7 +15,7 @@ class NotificationsController < ApplicationController
     if (url = notification.to_notification.url)
       redirect_to url
     else
-      redirect_to notifications_path, notice: t(".notice")
+      redirect_to notifications_path, notice: t('.notice')
     end
   end
 end

@@ -10,7 +10,7 @@ module Admin
       end
 
       def call
-        form.select field, options.keys.map { |w| [w.humanize, w] }, {include_blank: include_blank}, {class: classes}
+        form.select field, options.keys.map { |w| [w.humanize, w] }, { include_blank: }, { class: classes }
       end
     end
   end

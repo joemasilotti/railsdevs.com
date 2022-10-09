@@ -1,23 +1,23 @@
-require "test_helper"
+require 'test_helper'
 
 class Messages::NotificationsTest < ActiveSupport::TestCase
   include NotificationsHelper
 
-  test "sends a notification to the recipient" do
+  test 'sends a notification to the recipient' do
     developer = developers(:one)
     business = businesses(:one)
 
-    message = Message.new(developer:, business:, sender: business, body: "Hello!")
+    message = Message.new(developer:, business:, sender: business, body: 'Hello!')
     assert_sends_notification NewMessageNotification do
       assert message.save_and_notify
     end
   end
 
-  test "sends a notifciation to admins if this started a new conversation" do
+  test 'sends a notifciation to admins if this started a new conversation' do
     developer = developers(:one)
     business = businesses(:one)
 
-    message = Message.new(developer:, business:, sender: business, body: "Hello!")
+    message = Message.new(developer:, business:, sender: business, body: 'Hello!')
 
     assert_sends_notification Admin::NewConversationNotification do
       assert message.save_and_notify(cold_message: true)
@@ -32,7 +32,7 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
   test "invalid records don't send notifications" do
     message = Message.new
     refute_sends_notifications do
-      refute message.save_and_notify
+      assert_not message.save_and_notify
     end
   end
 end

@@ -20,11 +20,11 @@ module Businesses
     end
 
     def subject
-      t(".subject")
+      t('.subject')
     end
 
     def body
-      t(".body", developer:)
+      t('.body', developer:)
     end
   end
 end

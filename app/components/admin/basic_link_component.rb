@@ -10,13 +10,13 @@ module Admin
     end
 
     def call
-      link_to title, path, class: "hover:underline", target:, data:
+      link_to title, path, class: 'hover:underline', target:, data:
     end
 
     private
 
     def target
-      "_blank" if external
+      '_blank' if external
     end
   end
 end

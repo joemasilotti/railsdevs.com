@@ -18,7 +18,7 @@ module API
     end
 
     def token
-      request.headers.fetch("Authorization", "").split(" ").last
+      request.headers.fetch('Authorization', '').split(' ').last
     end
   end
 end

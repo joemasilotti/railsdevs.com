@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
 class AlternatePageLinksTest < ActionDispatch::IntegrationTest
-  test "all available locales are shown in <head> with correct hreflang" do
+  test 'all available locales are shown in <head> with correct hreflang' do
     get root_path(locale: I18n.default_locale)
     assert_select "head link[href='http://www.example.com/'][hreflang='x-default']"
 

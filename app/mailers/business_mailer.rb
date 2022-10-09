@@ -1,11 +1,11 @@
 class BusinessMailer < ApplicationMailer
   default from: Rails.configuration.emails.updates_mailbox!
-  delegate :pluralize, to: "ActionController::Base.helpers"
+  delegate :pluralize, to: 'ActionController::Base.helpers'
 
   def developer_profiles
     @business = params[:business]
     @developers = params[:developers]
-    subject = "#{pluralize(@developers.count, "new developer profile")} added to RailsDevs"
+    subject = "#{pluralize(@developers.count, 'new developer profile')} added to RailsDevs"
 
     mail(to: @business.user.email, subject:)
   end

@@ -10,7 +10,7 @@ module Analytics
 
     def data
       {
-        controller: "analytics--events",
+        controller: 'analytics--events',
         "analytics--events-goal-value": goal,
         "analytics--events-value-value": value
       }
@@ -19,11 +19,11 @@ module Analytics
     private
 
     def goal
-      event["goal"]
+      event['goal']
     end
 
     def value
-      event["value"]
+      event['value']
     end
 
     def event

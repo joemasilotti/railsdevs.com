@@ -2,7 +2,7 @@ module Admin
   class DeveloperConversationsController < ConversationsController
     def index
       super
-      render "admin/conversations/index"
+      render 'admin/conversations/index'
     end
 
     private

@@ -5,7 +5,7 @@ module Analytics
 
       unless event.tracked?
         event.track!
-        flash[:event] = {goal: event.goal, value: event.value}
+        flash[:event] = { goal: event.goal, value: event.value }
       end
 
       flash.keep

@@ -2,7 +2,7 @@ module Hired
   class Form < ApplicationRecord
     include Hired::Notifications
 
-    self.table_name = "hired_forms"
+    self.table_name = 'hired_forms'
 
     enum employment_type: {
       freelance_or_contract: 1,

@@ -7,7 +7,7 @@ module Admin
     end
 
     def call
-      link_to email, "mailto:#{email}", class: "hover:underline"
+      link_to email, "mailto:#{email}", class: 'hover:underline'
     end
   end
 end

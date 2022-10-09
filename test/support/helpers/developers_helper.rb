@@ -5,21 +5,19 @@ module DevelopersHelper
     def developer_attributes
       {
         user: users(:empty),
-        name: "Name",
-        hero: "Hero",
-        bio: "Bio",
+        name: 'Name',
+        hero: 'Hero',
+        bio: 'Bio',
         avatar: active_storage_blobs(:lovelace),
         location_attributes: {
-          city: "City",
-          state: "ST"
+          city: 'City',
+          state: 'ST'
         }
       }
     end
 
     def create_developer(options = {})
-      unless options.has_key?(:search_status)
-        options[:search_status] = :open
-      end
+      options[:search_status] = :open unless options.has_key?(:search_status)
 
       if (location_attributes = options.delete(:location_attributes))
         options[:location_attributes] = default_location_attributes.merge(location_attributes)
@@ -34,8 +32,8 @@ module DevelopersHelper
       {
         latitude: 1,
         longitude: 2,
-        country: "United States",
-        time_zone: "Fake Time Zone",
+        country: 'United States',
+        time_zone: 'Fake Time Zone',
         utc_offset: -8 * 60 * 60
       }
     end

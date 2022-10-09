@@ -1,23 +1,15 @@
 module NotificationsHelper
-  def assert_sends_notification(notification_class, to: nil, &block)
-    assert_difference "Notification.where(type: #{notification_class}.name).count", 1 do
-      yield
-    end
+  def assert_sends_notification(notification_class, to: nil)
+    assert_difference "Notification.where(type: #{notification_class}.name).count", 1, &block
 
-    if to.present?
-      assert_equal Notification.where(type: notification_class.name).last.recipient, to
-    end
+    assert_equal Notification.where(type: notification_class.name).last.recipient, to if to.present?
   end
 
-  def refute_sends_notification(notification_class, &block)
-    assert_no_difference "Notification.where(type: #{notification_class}.name).count" do
-      yield
-    end
+  def refute_sends_notification(notification_class)
+    assert_no_difference "Notification.where(type: #{notification_class}.name).count", &block
   end
 
-  def refute_sends_notifications
-    assert_no_difference "Notification.count" do
-      yield
-    end
+  def refute_sends_notifications(&block)
+    assert_no_difference 'Notification.count', &block
   end
 end

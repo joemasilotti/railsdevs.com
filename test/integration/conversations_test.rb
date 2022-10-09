@@ -1,9 +1,9 @@
-require "test_helper"
+require 'test_helper'
 
 class ConversationsTest < ActionDispatch::IntegrationTest
   include SubscriptionsHelper
 
-  test "you must be signed in" do
+  test 'you must be signed in' do
     get conversations_path
     assert_redirected_to new_user_session_path
 
@@ -11,19 +11,19 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end
 
-  test "you can view your conversations (as a business)" do
+  test 'you can view your conversations (as a business)' do
     sign_in users(:subscribed_business)
     get conversations_path
-    assert_select "h2", developers(:prospect).name
+    assert_select 'h2', developers(:prospect).name
   end
 
-  test "you can view your conversations (as a developer)" do
+  test 'you can view your conversations (as a developer)' do
     sign_in users(:prospect_developer)
     get conversations_path
-    assert_select "h2", businesses(:subscriber).contact_name
+    assert_select 'h2', businesses(:subscriber).contact_name
   end
 
-  test "you can view your own conversation (as a business)" do
+  test 'you can view your own conversation (as a business)' do
     conversation = conversations(:one)
     sign_in conversation.business.user
 
@@ -32,7 +32,7 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
-  test "you can view your own conversation (as a developer)" do
+  test 'you can view your own conversation (as a developer)' do
     conversation = conversations(:one)
     sign_in conversation.developer.user
 
@@ -50,10 +50,10 @@ class ConversationsTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test "unread notifictions are marked as read" do
+  test 'unread notifictions are marked as read' do
     sign_in users(:subscribed_business)
     notification = notifications(:message_to_business)
-    refute notification.read?
+    assert_not notification.read?
 
     get conversation_path(conversations(:one))
 
@@ -72,6 +72,6 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     get conversation_path(conversation)
 
-    assert_select "h3", text: I18n.t("businesses.upgrade_required_component.title.upgrade")
+    assert_select 'h3', text: I18n.t('businesses.upgrade_required_component.title.upgrade')
   end
 end

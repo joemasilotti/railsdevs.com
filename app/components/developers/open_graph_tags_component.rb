@@ -6,7 +6,7 @@ module Developers
     end
 
     def turbo_native_title
-      t(".turbo_native_title")
+      t('.turbo_native_title')
     end
 
     def description
@@ -22,7 +22,7 @@ module Developers
     end
 
     def twitter_card
-      "summary"
+      'summary'
     end
   end
 end

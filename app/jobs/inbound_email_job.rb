@@ -44,18 +44,18 @@ class InboundEmailJob < ApplicationJob
   end
 
   def postmark_message_id
-    payload["MessageID"]
+    payload['MessageID']
   end
 
   def email
-    payload.dig("FromFull", "Email")
+    payload.dig('FromFull', 'Email')
   end
 
   def conversation_token
-    payload["MailboxHash"]&.downcase
+    payload['MailboxHash']&.downcase
   end
 
   def body
-    payload["StrippedTextReply"]
+    payload['StrippedTextReply']
   end
 end

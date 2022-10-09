@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:alert] = I18n.t("errors.unauthorized")
+    flash[:alert] = I18n.t('errors.unauthorized')
     redirect_back_or_to root_path, allow_other_host: false
   rescue ActionController::Redirecting::UnsafeRedirectError
     redirect_to root_path

@@ -10,7 +10,7 @@ module Admin
     end
 
     def call
-      button_to(title, path, {class: "hover:underline", params: {name => value}})
+      button_to(title, path, { class: 'hover:underline', params: { name => value } })
     end
   end
 end

@@ -1,10 +1,10 @@
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ScrollTest < ApplicationSystemTestCase
   include DevelopersHelper
   include Devise::Test::IntegrationHelpers
 
-  test "scrolling to the message form at the bottom of the conversation page on page load" do
+  test 'scrolling to the message form at the bottom of the conversation page on page load' do
     user = users(:prospect_developer)
     conversation = conversations(:one)
 
@@ -16,10 +16,10 @@ class ScrollTest < ApplicationSystemTestCase
 
     visit conversation_path(id: conversation.id)
 
-    refute find("#message_body").obscured?
+    assert_not find('#message_body').obscured?
   end
 
-  test "scrolling to bottom of the developers page loads more results for subscribers" do
+  test 'scrolling to bottom of the developers page loads more results for subscribers' do
     # Create more developers to trigger pagination.
     20.times { create_developer }
 
@@ -34,6 +34,6 @@ class ScrollTest < ApplicationSystemTestCase
   end
 
   def scroll_to_bottom_of_page
-    page.execute_script "window.scrollBy(0,10000)"
+    page.execute_script 'window.scrollBy(0,10000)'
   end
 end

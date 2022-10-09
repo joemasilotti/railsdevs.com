@@ -1,15 +1,15 @@
-require "test_helper"
+require 'test_helper'
 
 class DeveloperMailerTest < ActionMailer::TestCase
-  test "stale" do
+  test 'stale' do
     Developers::ProfileReminderNotification.with(developer:).deliver(recipient)
   end
 
-  test "welcome" do
+  test 'welcome' do
     Developers::WelcomeNotification.with(developer:).deliver(recipient)
   end
 
-  test "first message" do
+  test 'first message' do
     DeveloperMailer.with(developer:).first_message
   end
 

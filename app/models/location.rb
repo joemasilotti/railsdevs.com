@@ -1,36 +1,36 @@
 class Location < ApplicationRecord
   belongs_to :developer
 
-  scope :top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
+  scope :top_countries, lambda { |limit = ENV.fetch('TOP_COUNTRIES', 5)|
     group(:country)
       .where.not(country: nil)
-      .order("count_all DESC")
+      .order('count_all DESC')
       .limit(limit)
       .count
       .keys
-  end
+  }
 
-  scope :not_top_countries, ->(limit = ENV.fetch("TOP_COUNTRIES", 5)) do
+  scope :not_top_countries, lambda { |limit = ENV.fetch('TOP_COUNTRIES', 5)|
     where.not(country: top_countries(limit))
-      .select(:country)
-      .distinct
-      .order(:country)
-      .pluck(:country)
-  end
+         .select(:country)
+         .distinct
+         .order(:country)
+         .pluck(:country)
+  }
 
   validates :time_zone, presence: true
   validates :utc_offset, presence: true
   validate :valid_coordinates
 
   before_validation :geocode,
-    if: ->(location) do
-      location.will_save_change_to_city? ||
-        location.will_save_change_to_state? ||
-        location.will_save_change_to_country?
-    end,
-    unless: ->(location) do
-      location.new_record? && latitude.present? && longitude.present?
-    end
+                    if: lambda { |location|
+                      location.will_save_change_to_city? ||
+                        location.will_save_change_to_state? ||
+                        location.will_save_change_to_country?
+                    },
+                    unless: lambda { |location|
+                      location.new_record? && latitude.present? && longitude.present?
+                    }
 
   def missing_fields?
     country.blank?
@@ -63,6 +63,6 @@ class Location < ApplicationRecord
   end
 
   def query
-    [city, state, country].join(" ").squish
+    [city, state, country].join(' ').squish
   end
 end

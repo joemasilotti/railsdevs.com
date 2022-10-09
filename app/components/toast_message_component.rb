@@ -14,7 +14,7 @@ class ToastMessageComponent < ApplicationComponent
 
   def messages_classes
     messages_classes = yass(message: @color)
-    messages_classes << " mt-2 pl-5" unless @messages_tag == :div
+    messages_classes << ' mt-2 pl-5' unless @messages_tag == :div
 
     messages_classes
   end

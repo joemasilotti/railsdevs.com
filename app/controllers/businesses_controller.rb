@@ -13,7 +13,7 @@ class BusinessesController < ApplicationController
     if @business.save_and_notify
       url = stored_location_for(:user) || developers_path
       event = Analytics::Event.added_business_profile(url)
-      redirect_to event, notice: t(".created")
+      redirect_to event, notice: t('.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class BusinessesController < ApplicationController
     authorize @business
 
     if @business.update(permitted_attributes(@business))
-      redirect_to developers_path, notice: t(".updated")
+      redirect_to developers_path, notice: t('.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,8 +43,6 @@ class BusinessesController < ApplicationController
   private
 
   def require_new_business!
-    if current_user.business.present?
-      redirect_to edit_business_path(current_user.business)
-    end
+    redirect_to edit_business_path(current_user.business) if current_user.business.present?
   end
 end

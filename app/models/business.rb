@@ -13,7 +13,7 @@ class Business < ApplicationRecord
   validates :contact_name, presence: true
   validates :company, presence: true
   validates :bio, presence: true
-  validates :developer_notifications, inclusion: {in: developer_notifications.keys}
+  validates :developer_notifications, inclusion: { in: developer_notifications.keys }
 
   alias_attribute :name, :contact_name
 

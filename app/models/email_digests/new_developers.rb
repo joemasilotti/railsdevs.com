@@ -34,6 +34,7 @@ class EmailDigests::NewDevelopers
     developers = developers.to_a
     businesses.find_each do |business|
       next unless business.user.permissions.active_subscription?
+
       BusinessMailer.with(business:, developers:).developer_profiles.deliver_later
     end
   end

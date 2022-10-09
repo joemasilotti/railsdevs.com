@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -15,12 +15,12 @@ Rails.application.configure do
   # Eager loading loads your whole application. When running a single test locally,
   # this probably isn't necessary. It's a good idea to do in a continuous integration
   # system, or in some way before deploying your code.
-  config.eager_load = ENV["CI"].present?
+  config.eager_load = ENV['CI'].present?
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
   config.public_file_server.headers = {
-    "Cache-Control" => "public, max-age=#{1.hour.to_i}"
+    'Cache-Control' => "public, max-age=#{1.hour.to_i}"
   }
 
   # Show full error reports and disable caching.
@@ -38,7 +38,7 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   # Devise mailer.
-  config.action_mailer.default_url_options = {host: "www.example.com", locale: nil}
+  config.action_mailer.default_url_options = { host: 'www.example.com', locale: nil }
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
@@ -66,7 +66,7 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Configure host for URL helpers.
-  Rails.application.routes.default_url_options = {host: "www.example.com", locale: nil}
+  Rails.application.routes.default_url_options = { host: 'www.example.com', locale: nil }
 
   # Render mailer previews for `rake verify_mailer_previews` in test environment.
   config.action_mailer.show_previews = true

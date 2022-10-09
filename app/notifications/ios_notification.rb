@@ -9,8 +9,8 @@ module IosNotification
   end
 
   def ios_format(apn)
-    apn.alert = {title:, body: ios_subject}
-    apn.custom_payload = {url:}
+    apn.alert = { title:, body: ios_subject }
+    apn.custom_payload = { url: }
   end
 
   def ios_cert_path
@@ -23,7 +23,7 @@ module IosNotification
   end
 
   def ios_device_tokens(recipient)
-    recipient.notification_tokens.where(platform: "iOS").pluck(:token)
+    recipient.notification_tokens.where(platform: 'iOS').pluck(:token)
   end
 
   def cleanup_device_token(token:, platform:)

@@ -3,7 +3,7 @@ class Message < ApplicationRecord
 
   FORMAT = AutoHtml::Pipeline.new(
     AutoHtml::HtmlEscape.new,
-    AutoHtml::Link.new(target: "_blank"),
+    AutoHtml::Link.new(target: '_blank'),
     AutoHtml::SimpleFormat.new
   )
 
@@ -18,7 +18,7 @@ class Message < ApplicationRecord
   validates :hiring_fee_agreement, acceptance: true
 
   scope :from_developer, -> { where(sender_type: Developer.name) }
-  scope :potential_email, -> { where("body LIKE ?", "%@%") }
+  scope :potential_email, -> { where('body LIKE ?', '%@%') }
 
   after_create_commit :cache_conversation_read_status
 
@@ -27,7 +27,7 @@ class Message < ApplicationRecord
   end
 
   def self.first_message?(developer)
-    joins(:conversation).where(conversation: {developer:}).one?
+    joins(:conversation).where(conversation: { developer: }).one?
   end
 
   def sender?(user)

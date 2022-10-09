@@ -1,12 +1,12 @@
 module Businesses
   class InvisiblizeNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "InvisiblizeMailer", method: :to_business
+    deliver_by :email, mailer: 'InvisiblizeMailer', method: :to_business
 
     param :business
 
     def title
-      t("notifications.businesses.invisiblize_notification.title")
+      t('notifications.businesses.invisiblize_notification.title')
     end
 
     def url

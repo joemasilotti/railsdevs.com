@@ -13,11 +13,11 @@ class FieldErrorTagBuilder
   end
 
   def closing_tag_index
-    color_free_tag.index("</label>")
+    color_free_tag.index('</label>')
   end
 
   def color_free_tag
-    @color_free_tag ||= @html_tag.gsub(text_color_regex, "")
+    @color_free_tag ||= @html_tag.gsub(text_color_regex, '')
   end
 
   private
@@ -36,6 +36,6 @@ class FieldErrorTagBuilder
   end
 
   def text_color_regex
-    @text_color_regex ||= %r{text-\w*-\d*[^\s"]}
+    @text_color_regex ||= /text-\w*-\d*[^\s"]/
   end
 end

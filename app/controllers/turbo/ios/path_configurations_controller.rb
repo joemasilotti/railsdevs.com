@@ -6,46 +6,46 @@ module Turbo
           settings: {
             tabs: [
               {
-                title: "Home",
-                path: "/",
-                ios_system_image_name: "house"
+                title: 'Home',
+                path: '/',
+                ios_system_image_name: 'house'
               },
               {
-                title: "Conversations",
-                path: "/conversations",
-                ios_system_image_name: "envelope"
+                title: 'Conversations',
+                path: '/conversations',
+                ios_system_image_name: 'envelope'
               },
               {
-                title: "Notifications",
-                path: "/notifications",
-                ios_system_image_name: "bell"
+                title: 'Notifications',
+                path: '/notifications',
+                ios_system_image_name: 'bell'
               }
             ]
           },
           rules: [
             {
               patterns: [
-                "/new$",
-                "/edit$"
+                '/new$',
+                '/edit$'
               ],
               properties: {
-                presentation: "modal"
+                presentation: 'modal'
               }
             },
             {
               patterns: [
-                "/users/sign_up"
+                '/users/sign_up'
               ],
               properties: {
-                flow: "safari"
+                flow: 'safari'
               }
             },
             {
               patterns: [
-                "/users/sign_in"
+                '/users/sign_in'
               ],
               properties: {
-                flow: "authentication"
+                flow: 'authentication'
               }
             }
           ]

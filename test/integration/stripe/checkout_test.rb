@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class Stripe::CheckoutTest < ActionDispatch::IntegrationTest
   include PayHelper
@@ -7,18 +7,18 @@ class Stripe::CheckoutTest < ActionDispatch::IntegrationTest
     @user = users(:business)
   end
 
-  test "passes along the plan and redirects to the Stripe Checkout URL" do
+  test 'passes along the plan and redirects to the Stripe Checkout URL' do
     sign_in @user
     sign_active_agreement!
 
     full_time_price_id = Businesses::Plan.with_identifier(:full_time).stripe_price_id
     stub_pay(@user, plan_price_id: full_time_price_id) do
       post stripe_checkout_path(plan: :full_time)
-      assert_redirected_to "checkout.stripe.com"
+      assert_redirected_to 'checkout.stripe.com'
     end
   end
 
-  test "redirects to the stored location on success" do
+  test 'redirects to the stored location on success' do
     success_path = new_developer_message_path(Developer.first)
     sign_active_agreement!
 
@@ -31,7 +31,7 @@ class Stripe::CheckoutTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "requires a signed hiring agreement when active" do
+  test 'requires a signed hiring agreement when active' do
     sign_in @user
 
     post stripe_checkout_path(plan: :part_time)
@@ -44,7 +44,7 @@ class Stripe::CheckoutTest < ActionDispatch::IntegrationTest
 
     stub_pay(@user) do
       post stripe_checkout_path(plan: :part_time)
-      assert_redirected_to "checkout.stripe.com"
+      assert_redirected_to 'checkout.stripe.com'
     end
   end
 

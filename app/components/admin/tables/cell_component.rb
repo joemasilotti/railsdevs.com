@@ -11,10 +11,10 @@ module Admin
       end
 
       def call
-        tag.td content, class: class_names("px-6 py-4 whitespace-nowrap text-sm", align_class, {
-          "font-medium text-gray-900": primary,
-          "text-gray-500": !primary
-        })
+        tag.td content, class: class_names('px-6 py-4 whitespace-nowrap text-sm', align_class, {
+                                             "font-medium text-gray-900": primary,
+                                             "text-gray-500": !primary
+                                           })
       end
     end
   end

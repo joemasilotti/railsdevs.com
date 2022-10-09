@@ -1,33 +1,33 @@
-require "test_helper"
+require 'test_helper'
 
 class OpenStartup::ReportingTest < ActiveSupport::TestCase
   include StripeHelper
 
-  test "refreshes Revenue records (grouped by month and description and keeping manual entries)" do
+  test 'refreshes Revenue records (grouped by month and description and keeping manual entries)' do
     create_existing_revenue_record(manual: false, amount: 500)
     create_existing_revenue_record(manual: true, amount: 1000)
 
     @balance_transactions = [
-      charge(amount: 1000, created: january, description: "New subscription"),
-      charge(amount: 2000, created: january, description: "New subscription"),
-      charge(amount: 4000, created: february, description: "New subscription"),
-      charge(amount: 5000, created: february, description: "Update subscription"),
-      charge(amount: 9900, created: february, description: "Payment for Invoice")
+      charge(amount: 1000, created: january, description: 'New subscription'),
+      charge(amount: 2000, created: january, description: 'New subscription'),
+      charge(amount: 4000, created: february, description: 'New subscription'),
+      charge(amount: 5000, created: february, description: 'Update subscription'),
+      charge(amount: 9900, created: february, description: 'Payment for Invoice')
     ]
 
     refresh_metrics
 
     revenue = OpenStartup::Revenue.pluck(:occurred_on, :description, :amount)
     assert_equal 5, revenue.count
-    assert_includes revenue, [Date.new(2022, 1, 1), "New subscriptions", 30]
-    assert_includes revenue, [Date.new(2022, 2, 1), "New subscriptions", 40]
-    assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 99]
-    refute_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 500]
-    assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 1000]
-    assert_includes revenue, [Date.new(2022, 2, 1), "Update subscriptions", 50]
+    assert_includes revenue, [Date.new(2022, 1, 1), 'New subscriptions', 30]
+    assert_includes revenue, [Date.new(2022, 2, 1), 'New subscriptions', 40]
+    assert_includes revenue, [Date.new(2022, 2, 1), 'Hiring fees', 99]
+    assert_not_includes revenue, [Date.new(2022, 2, 1), 'Hiring fees', 500]
+    assert_includes revenue, [Date.new(2022, 2, 1), 'Hiring fees', 1000]
+    assert_includes revenue, [Date.new(2022, 2, 1), 'Update subscriptions', 50]
   end
 
-  test "refreshes Expense records (grouped by month and merged with additional fees) and adds manual expenses" do
+  test 'refreshes Expense records (grouped by month and merged with additional fees) and adds manual expenses' do
     @balance_transactions = [
       charge(created: january, fee: -100),
       charge(created: january, fee: -200),
@@ -41,13 +41,13 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     refresh_metrics
 
     assert_equal OpenStartup::Expense.pluck(:occurred_on, :description, :amount), [
-      [Date.new(2022, 1, 1), "Stripe fees", 3.30],
-      [Date.new(2022, 2, 1), "Stripe fees", 4.40],
-      [Date.new(2021, 12, 30), "Expense", 9.99]
+      [Date.new(2022, 1, 1), 'Stripe fees', 3.30],
+      [Date.new(2022, 2, 1), 'Stripe fees', 4.40],
+      [Date.new(2021, 12, 30), 'Expense', 9.99]
     ]
   end
 
-  test "refreshes Contribution records (grouped by month) and adds manual expenses" do
+  test 'refreshes Contribution records (grouped by month) and adds manual expenses' do
     @balance_transactions = [
       contribution(created: january, amount: 10),
       contribution(created: january, amount: 20),
@@ -57,13 +57,13 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     refresh_metrics
 
     assert_equal OpenStartup::Contribution.pluck(:occurred_on, :description, :amount), [
-      [Date.new(2022, 1, 1), "Climate contribution", 5.30], # 5.00 from stripe_transactions fixtures
-      [Date.new(2022, 2, 1), "Climate contribution", 2.40], # 2.00 from stripe_transactions fixtures
-      [Date.new(2022, 1, 30), "Donation", 100.00] # 100 from transactions fixtures
+      [Date.new(2022, 1, 1), 'Climate contribution', 5.30], # 5.00 from stripe_transactions fixtures
+      [Date.new(2022, 2, 1), 'Climate contribution', 2.40], # 2.00 from stripe_transactions fixtures
+      [Date.new(2022, 1, 30), 'Donation', 100.00] # 100 from transactions fixtures
     ]
   end
 
-  test "refreshes MonthlyBalance records" do
+  test 'refreshes MonthlyBalance records' do
     @balance_transactions = [
       charge(amount: 1000, created: january),
       fee(created: january, amount: -10),
@@ -83,7 +83,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     ]
   end
 
-  test "creates a Metric record for today with MRR and visitors" do
+  test 'creates a Metric record for today with MRR and visitors' do
     @subscriptions = [
       Subscription.new(amount: 9900),
       Subscription.new(amount: 9900),
@@ -96,8 +96,8 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     refresh_metrics
 
     assert_equal OpenStartup::Metric.most_recent.data, {
-      "mrr" => 198,
-      "visitors" => 2500
+      'mrr' => 198,
+      'visitors' => 2500
     }
   end
 
@@ -115,7 +115,7 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     OpenStartup::Revenue.create!(
       occurred_on: today,
       amount:,
-      description: "Hiring fees",
+      description: 'Hiring fees',
       manual:
     )
   end
@@ -144,15 +144,15 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
     Date.new(2022, 2, 1)
   end
 
-  def charge(created:, description: "A balance transaction", amount: 0, fee: 0)
-    BalanceTransaction.new(amount:, created:, description:, fee:, type: "charge")
+  def charge(created:, description: 'A balance transaction', amount: 0, fee: 0)
+    BalanceTransaction.new(amount:, created:, description:, fee:, type: 'charge')
   end
 
-  def fee(created:, description: "An additional fee", amount: 0, fee: 0)
-    BalanceTransaction.new(amount:, created:, description:, fee:, type: "stripe_fee")
+  def fee(created:, description: 'An additional fee', amount: 0, fee: 0)
+    BalanceTransaction.new(amount:, created:, description:, fee:, type: 'stripe_fee')
   end
 
-  def contribution(created:, description: "An additional fee", amount: 0, fee: 0)
-    BalanceTransaction.new(amount:, created:, description:, fee:, type: "contribution")
+  def contribution(created:, description: 'An additional fee', amount: 0, fee: 0)
+    BalanceTransaction.new(amount:, created:, description:, fee:, type: 'contribution')
   end
 end

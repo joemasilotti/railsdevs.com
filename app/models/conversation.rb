@@ -9,13 +9,13 @@ class Conversation < ApplicationRecord
 
   has_noticed_notifications
 
-  validates :developer_id, uniqueness: {scope: :business_id}
+  validates :developer_id, uniqueness: { scope: :business_id }
 
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
 
   def self.find_by_inbound_email_token!(token)
-    where("lower(inbound_email_token) = ?", token).first!
+    where('lower(inbound_email_token) = ?', token).first!
   end
 
   def other_recipient(user)

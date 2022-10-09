@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to conversation }
       end
     else
-      render "conversations/show", status: :unprocessable_entity
+      render 'conversations/show', status: :unprocessable_entity
     end
   end
 
@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.permissions.active_subscription?
-      redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
+      redirect_to pricing_path, alert: t('errors.business_subscription_inactive')
     end
   end
 

@@ -7,19 +7,19 @@ class MarkdownComponent < ApplicationComponent
   end
 
   def self.messaging_tips
-    new("cold_messages/tips")
+    new('cold_messages/tips')
   end
 
   def self.about_hero
-    new("about/hero")
+    new('about/hero')
   end
 
   def self.about_body
-    new("about/body")
+    new('about/body')
   end
 
   def self.code_of_coduct
-    new("CODE_OF_CONDUCT.md", localize: false)
+    new('CODE_OF_CONDUCT.md', localize: false)
   end
 
   def rendered_markdown

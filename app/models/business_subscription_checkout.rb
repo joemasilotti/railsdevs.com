@@ -9,16 +9,14 @@ class BusinessSubscriptionCheckout
     @success_path = success_path
   end
 
-  def url
-    checkout.url
-  end
+  delegate :url, to: :checkout
 
   private
 
   def checkout
     user.set_payment_processor(:stripe)
     user.payment_processor.checkout(
-      mode: "subscription",
+      mode: 'subscription',
       line_items: plan.stripe_price_id,
       success_url: analytics_event_url(event)
     )

@@ -1,25 +1,25 @@
-require "test_helper"
+require 'test_helper'
 
 class API::V1::NotificationTokensTest < ActionDispatch::IntegrationTest
-  test "requires valid authentication token" do
+  test 'requires valid authentication token' do
     post api_v1_notification_tokens_path, params: valid_params, headers: {}
     assert_response :unauthorized
   end
 
-  test "persists the notification token" do
-    assert_changes "NotificationToken.count", 1 do
+  test 'persists the notification token' do
+    assert_changes 'NotificationToken.count', 1 do
       post api_v1_notification_tokens_path, params: valid_params, headers: valid_headers
       assert_response :created
     end
 
     token = NotificationToken.last
     assert_equal users(:empty), token.user
-    assert_equal "some-token", token.token
-    assert_equal "iOS", token.platform
+    assert_equal 'some-token', token.token
+    assert_equal 'iOS', token.platform
   end
 
   test "doesn't create duplicates" do
-    assert_no_changes "NotificationToken.count" do
+    assert_no_changes 'NotificationToken.count' do
       post api_v1_notification_tokens_path, params: existing_token_params, headers: valid_headers
       assert_response :created
     end
@@ -27,8 +27,8 @@ class API::V1::NotificationTokensTest < ActionDispatch::IntegrationTest
 
   def valid_params
     {
-      token: "some-token",
-      platform: "iOS"
+      token: 'some-token',
+      platform: 'iOS'
     }
   end
 

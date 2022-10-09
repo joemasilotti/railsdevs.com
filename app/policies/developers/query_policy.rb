@@ -15,10 +15,10 @@ module Developers
         :page,
         :include_not_interested,
         :sort,
-        role_levels: [],
-        role_types: [],
-        utc_offsets: [],
-        countries: []
+        { role_levels: [],
+          role_types: [],
+          utc_offsets: [],
+          countries: [] }
       ]
     end
 

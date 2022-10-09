@@ -2,10 +2,10 @@ module HasSocialProfiles
   extend ActiveSupport::Concern
 
   PREFIXES = {
-    github: "github.com/",
-    twitter: "twitter.com/",
-    linkedin: "linkedin.com/in/",
-    stack_overflow: "stackoverflow.com/users/"
+    github: 'github.com/',
+    twitter: 'twitter.com/',
+    linkedin: 'linkedin.com/in/',
+    stack_overflow: 'stackoverflow.com/users/'
   }
 
   included do
@@ -24,9 +24,7 @@ module HasSocialProfiles
         send(handle)&.delete_prefix!("http://www.#{prefix}")
         send(handle)&.delete_prefix!("https://www.#{prefix}")
 
-        if handle === :stack_overflow
-          self.stack_overflow = stack_overflow&.split("/")&.first
-        end
+        self.stack_overflow = stack_overflow&.split('/')&.first if handle === :stack_overflow
       end
     end
   end

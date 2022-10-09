@@ -1,11 +1,11 @@
-require "test_helper"
+require 'test_helper'
 
 class Admin::HiringAgreements::TermsTest < ActionDispatch::IntegrationTest
-  test "must be signed in as an admin" do
+  test 'must be signed in as an admin' do
     assert Admin::HiringAgreements::TermsController < Admin::ApplicationController
   end
 
-  test "viewing all terms" do
+  test 'viewing all terms' do
     sign_in users(:admin)
 
     get admin_hiring_agreements_terms_path
@@ -14,45 +14,45 @@ class Admin::HiringAgreements::TermsTest < ActionDispatch::IntegrationTest
     assert_term_li(active_term, active: true)
   end
 
-  test "creating new terms" do
+  test 'creating new terms' do
     sign_in users(:admin)
     get new_admin_hiring_agreements_term_path
 
-    assert_changes "HiringAgreements::Term.count", 1 do
+    assert_changes 'HiringAgreements::Term.count', 1 do
       post admin_hiring_agreements_terms_path, params: {
         hiring_agreements_term: {
-          body: "New terms."
+          body: 'New terms.'
         }
       }
     end
-    assert_equal "New terms.", HiringAgreements::Term.last.body
+    assert_equal 'New terms.', HiringAgreements::Term.last.body
   end
 
-  test "viewing terms" do
+  test 'viewing terms' do
     sign_in users(:admin)
 
     terms = hiring_agreements_terms(:active)
     get admin_hiring_agreements_term_path(terms)
 
-    assert_select "dd", text: terms.body
+    assert_select 'dd', text: terms.body
   end
 
-  test "editing terms" do
+  test 'editing terms' do
     sign_in users(:admin)
     terms = hiring_agreements_terms(:active)
 
     patch admin_hiring_agreements_term_path(terms), params: {
       hiring_agreements_term: {
-        body: "Updated terms."
+        body: 'Updated terms.'
       }
     }
-    assert_equal "Updated terms.", terms.reload.body
+    assert_equal 'Updated terms.', terms.reload.body
   end
 
   def assert_term_li(term, active: false)
     assert_select "li##{dom_id(term)}" do
-      assert_select "p", text: term.body
-      assert_select "span", text: "Active" if active
+      assert_select 'p', text: term.body
+      assert_select 'span', text: 'Active' if active
     end
   end
 end

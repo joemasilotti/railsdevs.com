@@ -11,7 +11,7 @@ module Admin
     end
 
     def title
-      t("admin.conversations.index.title")
+      t('admin.conversations.index.title')
     end
   end
 end

@@ -6,12 +6,12 @@ module GeocoderHelper
   Geocoder::Lookup::Test.set_default_stub(
     [
       {
-        "city" => "New York",
-        "state" => "New York",
-        "country" => "United States",
-        "country_code" => "US",
-        "coordinates" => [40.7143528, -74.0059731],
-        "data" => {}
+        'city' => 'New York',
+        'state' => 'New York',
+        'country' => 'United States',
+        'country_code' => 'US',
+        'coordinates' => [40.7143528, -74.0059731],
+        'data' => {}
       }
     ]
   )

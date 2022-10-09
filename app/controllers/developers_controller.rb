@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = SignificantFigure.new(Developer.visible.count).rounded
-    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]).merge(user: current_user))
+    @query = DeveloperQuery.new(permitted_attributes(%i[developers query]).merge(user: current_user))
     @meta = Developers::Meta.new(query: @query, count: @developers_count)
   end
 
@@ -18,7 +18,7 @@ class DevelopersController < ApplicationController
     if @developer.save_and_notify
       url = developer_path(@developer)
       event = Analytics::Event.added_developer_profile(url)
-      redirect_to event, notice: t(".created")
+      redirect_to event, notice: t('.created')
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class DevelopersController < ApplicationController
     authorize @developer
 
     if @developer.update_and_notify(developer_params)
-      redirect_to @developer, notice: t(".updated")
+      redirect_to @developer, notice: t('.updated')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class DevelopersController < ApplicationController
     @developer = finder.developer
 
     if finder.should_redirect?
-      redirect_to @developer, status: 302, notice: t(".redirection", url: developer_url(@developer))
+      redirect_to @developer, status: :found, notice: t('.redirection', url: developer_url(@developer))
     end
 
     authorize @developer
@@ -62,13 +62,11 @@ class DevelopersController < ApplicationController
   end
 
   def pundit_params_for(_record)
-    params["developer-filters-mobile"] || params
+    params['developer-filters-mobile'] || params
   end
 
   def require_new_developer!
-    if current_user.developer.present?
-      redirect_to edit_developer_path(current_user.developer)
-    end
+    redirect_to edit_developer_path(current_user.developer) if current_user.developer.present?
   end
 
   def developer_params
@@ -87,7 +85,7 @@ class DevelopersController < ApplicationController
       :search_status,
       :search_query,
       :profile_reminder_notifications,
-      location_attributes: [:city, :state, :country],
+      location_attributes: %i[city state country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES
     )

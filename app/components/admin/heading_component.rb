@@ -7,8 +7,8 @@ module Admin
     end
 
     def call
-      tag.div class: "flex items-center justify-center" do
-        tag.h1 title || content, class: "mt-6 text-center text-3xl font-extrabold"
+      tag.div class: 'flex items-center justify-center' do
+        tag.h1 title || content, class: 'mt-6 text-center text-3xl font-extrabold'
       end
     end
   end

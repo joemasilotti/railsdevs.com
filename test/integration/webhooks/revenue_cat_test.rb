@@ -1,8 +1,8 @@
-require "test_helper"
+require 'test_helper'
 
 class Webhooks::RevenueCatControllerTest < ActionDispatch::IntegrationTest
-  test "valid authorization header enqueues the sync job" do
-    assert_enqueued_with(job: RevenueCatSubscriptionsSyncJob, args: ["42"]) do
+  test 'valid authorization header enqueues the sync job' do
+    assert_enqueued_with(job: RevenueCatSubscriptionsSyncJob, args: ['42']) do
       post webhooks_revenuecat_path, params:, headers: {
         Authorization: valid_authorization
       }
@@ -11,10 +11,10 @@ class Webhooks::RevenueCatControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
-  test "invalid authorization is unauthorized" do
+  test 'invalid authorization is unauthorized' do
     assert_no_enqueued_jobs do
       post webhooks_revenuecat_path, params:, headers: {
-        Authorization: "invalid-auth-token"
+        Authorization: 'invalid-auth-token'
       }
     end
 

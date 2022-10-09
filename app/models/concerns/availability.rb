@@ -2,7 +2,8 @@ module Availability
   extend ActiveSupport::Concern
 
   included do
-    enum availability_status: [:unspecified, :now, :in_future], _default: :unspecified, _prefix: :available
+    enum availability_status: { unspecified: 0, now: 1, in_future: 2 }, _default: :unspecified,
+         _prefix: :available
 
     after_initialize :derive_availability_status
   end
@@ -16,12 +17,12 @@ module Availability
 
   def derive_availability_status
     status = if available_on.nil?
-      :unspecified
-    elsif available_on.future?
-      :in_future
-    else
-      :now
-    end
+               :unspecified
+             elsif available_on.future?
+               :in_future
+             else
+               :now
+             end
 
     self.availability_status = status
   end
