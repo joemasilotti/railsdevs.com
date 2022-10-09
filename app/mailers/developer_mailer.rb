@@ -33,7 +33,7 @@ class DeveloperMailer < ApplicationMailer
     mail(
       to: @developer.user.email,
       from: Rails.configuration.emails.reminders_mailbox!,
-      subject: t(".subject", contact: @business.contact_name, company: @business.company),
+      subject: t('.subject', contact: @business.contact_name, company: @business.company),
       message_stream: :broadcast
     )
   end
@@ -43,7 +43,7 @@ class DeveloperMailer < ApplicationMailer
 
     mail(
       to: @developer.user.email,
-      subject: t(".subject")
+      subject: t('.subject')
     )
   end
 end

@@ -19,7 +19,8 @@ module Businesses
       def with_identifier(identifier)
         identifier = identifier.to_s.to_sym
         data = plan_data[identifier]
-        raise UnknownPlan.new("Unknown identifier: #{identifier}") unless data.present?
+        raise UnknownPlan, "Unknown identifier: #{identifier}" unless data.present?
+
         Plan.new(**data)
       end
 
@@ -27,7 +28,8 @@ module Businesses
         data = plan_data.values.find do |data|
           [data[:stripe_price_id], data[:revenue_cat_product_identifier]].include?(processor_plan)
         end
-        raise UnknownPlan.new("Unknown processor plan: #{processor_plan}") unless data.present?
+        raise UnknownPlan, "Unknown processor plan: #{processor_plan}" unless data.present?
+
         Plan.new(**data)
       end
 

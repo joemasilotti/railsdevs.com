@@ -11,7 +11,7 @@ module HiringAgreements
       @signature = Signature.new(signature_params.merge(term: Term.active, user: current_user))
 
       if @signature.save
-        redirect_to (stored_location || pricing_path), notice: t(".created")
+        redirect_to (stored_location || pricing_path), notice: t('.created')
       else
         render :new, status: :unprocessable_entity
       end

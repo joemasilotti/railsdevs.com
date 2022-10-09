@@ -35,37 +35,38 @@ class Developer < ApplicationRecord
   accepts_nested_attributes_for :role_type, update_only: true
 
   validates :bio, presence: true
-  validates :cover_image, content_type: ["image/png", "image/jpeg", "image/jpg"], max_file_size: 10.megabytes
+  validates :cover_image, content_type: ['image/png', 'image/jpeg', 'image/jpg'], max_file_size: 10.megabytes
   validates :hero, presence: true
   validates :location, presence: true, on: :create
   validates :name, presence: true
 
-  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+  pg_search_scope :filter_by_search_query, against: %i[bio hero],
+                                           using: { tsearch: { tsvector_column: :textsearchable_index_col } }
 
-  scope :filter_by_role_types, ->(role_types) do
-    RoleType::TYPES.filter_map { |type|
-      where(role_type: {type => true}) if role_types.include?(type)
-    }.reduce(:or).joins(:role_type)
-  end
+  scope :filter_by_role_types, lambda { |role_types|
+    RoleType::TYPES.filter_map do |type|
+      where(role_type: { type => true }) if role_types.include?(type)
+    end.reduce(:or).joins(:role_type)
+  }
 
-  scope :filter_by_role_levels, ->(role_levels) do
-    RoleLevel::TYPES.filter_map { |level|
-      where(role_level: {level => true}) if role_levels.include?(level)
-    }.reduce(:or).joins(:role_level)
-  end
+  scope :filter_by_role_levels, lambda { |role_levels|
+    RoleLevel::TYPES.filter_map do |level|
+      where(role_level: { level => true }) if role_levels.include?(level)
+    end.reduce(:or).joins(:role_level)
+  }
 
-  scope :filter_by_utc_offsets, ->(utc_offsets) do
-    joins(:location).where(locations: {utc_offset: utc_offsets})
-  end
+  scope :filter_by_utc_offsets, lambda { |utc_offsets|
+    joins(:location).where(locations: { utc_offset: utc_offsets })
+  }
 
-  scope :filter_by_countries, ->(countries) do
-    joins(:location).where(locations: {country: countries})
-  end
+  scope :filter_by_countries, lambda { |countries|
+    joins(:location).where(locations: { country: countries })
+  }
 
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
-  scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
+  scope :featured, -> { where('featured_at >= ?', FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }

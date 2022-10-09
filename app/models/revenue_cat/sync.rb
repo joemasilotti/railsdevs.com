@@ -43,7 +43,7 @@ module RevenueCat
 
     def find_existing_subscription(subscription)
       user.payment_processor.subscriptions
-        .find_by(processor_plan: subscription.revenue_cat_product_identifier)
+          .find_by(processor_plan: subscription.revenue_cat_product_identifier)
     end
   end
 end

@@ -15,9 +15,7 @@ module NavBar
       user.notifications.unread.any?
     end
 
-    def admin?
-      user.admin?
-    end
+    delegate :admin?, to: :user
 
     def hired?
       user.developer&.persisted?
@@ -29,12 +27,12 @@ module NavBar
 
     def admin_links
       @admin_links ||= [
-        Link.new(t(".users"), admin_users_path),
-        Link.new(t(".conversations"), admin_conversations_path),
-        Link.new(t(".hired_forms"), admin_hired_forms_path),
-        Link.new(t(".hiring_agreement_terms"), admin_hiring_agreements_terms_path),
-        Link.new(t(".transactions"), admin_transactions_path),
-        Link.new(t(".blocked_conversations"), admin_conversations_blocks_path)
+        Link.new(t('.users'), admin_users_path),
+        Link.new(t('.conversations'), admin_conversations_path),
+        Link.new(t('.hired_forms'), admin_hired_forms_path),
+        Link.new(t('.hiring_agreement_terms'), admin_hiring_agreements_terms_path),
+        Link.new(t('.transactions'), admin_transactions_path),
+        Link.new(t('.blocked_conversations'), admin_conversations_blocks_path)
       ]
     end
 
@@ -42,11 +40,11 @@ module NavBar
 
     def build_user_links
       links = []
-      links << Link.new(t(".get_started"), new_role_path) if neither?
-      links << Link.new(t(".my_business_profile"), business_path(user.business)) if business?
-      links << Link.new(t(".my_developer_profile"), developer_path(user.developer)) if developer?
-      links << Link.new(t(".my_conversations"), conversations_path) if conversations?
-      links << Link.new(t(".billing"), stripe_portal_path) if customer?
+      links << Link.new(t('.get_started'), new_role_path) if neither?
+      links << Link.new(t('.my_business_profile'), business_path(user.business)) if business?
+      links << Link.new(t('.my_developer_profile'), developer_path(user.developer)) if developer?
+      links << Link.new(t('.my_conversations'), conversations_path) if conversations?
+      links << Link.new(t('.billing'), stripe_portal_path) if customer?
       links
     end
 

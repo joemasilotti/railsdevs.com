@@ -1,7 +1,7 @@
 module Developers
   class WelcomeNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "DeveloperMailer", method: :welcome
+    deliver_by :email, mailer: 'DeveloperMailer', method: :welcome
 
     param :developer
 
@@ -10,7 +10,7 @@ module Developers
     end
 
     def title
-      t("notifications.developers.welcome_notification.title")
+      t('notifications.developers.welcome_notification.title')
     end
 
     def url

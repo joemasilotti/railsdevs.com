@@ -1,8 +1,8 @@
-email = "admin@example.com"
+email = 'admin@example.com'
 attributes = {
   email:,
-  password: "password",
-  password_confirmation: "password",
+  password: 'password',
+  password_confirmation: 'password',
   confirmed_at: DateTime.current,
   admin: true
 }

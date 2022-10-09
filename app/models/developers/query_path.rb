@@ -41,7 +41,7 @@ module Developers
       options = {}
       options[:role_levels] = [role_level] if role_level.present?
       options[:countries] = [country] if country.present?
-      options[:role_types] = [:part_time_contract, :full_time_contract] if freelance
+      options[:role_types] = %i[part_time_contract full_time_contract] if freelance
       developers_path(options)
     end
   end

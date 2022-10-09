@@ -1,15 +1,15 @@
-require "test_helper"
+require 'test_helper'
 
 module Developers
   class QueryPolicyTest < ActiveSupport::TestCase
-    test "search query are permitted for active business subscriptions" do
+    test 'search query are permitted for active business subscriptions' do
       user = nil
       policy = Developers::QueryPolicy.new(user, nil)
-      refute_includes policy.permitted_attributes, :search_query
+      assert_not_includes policy.permitted_attributes, :search_query
 
       user = users(:business)
       policy = Developers::QueryPolicy.new(user, nil)
-      refute_includes policy.permitted_attributes, :search_query
+      assert_not_includes policy.permitted_attributes, :search_query
 
       user = users(:subscribed_business)
       policy = Developers::QueryPolicy.new(user, nil)

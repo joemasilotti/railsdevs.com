@@ -8,11 +8,11 @@ class CollapseControlComponent < ApplicationComponent
   end
 
   def minus_icon_class
-    "hidden" if collapsed?
+    'hidden' if collapsed?
   end
 
   def plus_icon_class
-    "hidden" unless collapsed?
+    'hidden' unless collapsed?
   end
 
   private

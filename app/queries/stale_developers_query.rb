@@ -3,8 +3,8 @@ class StaleDevelopersQuery
 
   def stale_and_not_recently_notified
     Developer.actively_looking_or_open
-      .where(updated_at: ..EARLIEST_TIME)
-      .where(no_recent_notifications)
+             .where(updated_at: ..EARLIEST_TIME)
+             .where(no_recent_notifications)
   end
 
   private
@@ -22,7 +22,7 @@ class StaleDevelopersQuery
   end
 
   def user_recipient
-    notifications_table[:recipient_type].eq("User")
+    notifications_table[:recipient_type].eq('User')
   end
 
   def stale_notification_type

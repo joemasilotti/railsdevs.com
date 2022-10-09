@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class BusinessTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
@@ -10,10 +10,10 @@ class BusinessTest < ActiveSupport::TestCase
     assert_includes business.conversations, conversation
 
     conversation.touch(:developer_blocked_at)
-    refute_includes business.conversations, conversation
+    assert_not_includes business.conversations, conversation
   end
 
-  test "should accept avatars of valid file formats" do
+  test 'should accept avatars of valid file formats' do
     business = businesses(:one)
     valid_formats = %w[image/png image/jpeg image/jpg]
 
@@ -24,36 +24,36 @@ class BusinessTest < ActiveSupport::TestCase
     end
   end
 
-  test "should reject avatars of invalid file formats" do
+  test 'should reject avatars of invalid file formats' do
     business = businesses(:one)
     invalid_formats = %w[image/bmp image/gif video/mp4]
 
     invalid_formats.each do |file_format|
       business.avatar.stub :content_type, file_format do
-        refute business.valid?, "#{file_format} should be an invalid format"
+        assert_not business.valid?, "#{file_format} should be an invalid format"
       end
     end
   end
 
-  test "should enforce a maximum avatar file size" do
+  test 'should enforce a maximum avatar file size' do
     business = businesses(:one)
     business.avatar.blob.stub :byte_size, 3.megabytes do
-      refute business.valid?
+      assert_not business.valid?
     end
   end
 
-  test "anonymizes the filename of the avatar" do
+  test 'anonymizes the filename of the avatar' do
     business = Business.create!(business_attributes)
-    assert_equal business.avatar.filename, "avatar.png"
+    assert_equal business.avatar.filename, 'avatar.png'
   end
 
-  test "should require new developer notifications" do
+  test 'should require new developer notifications' do
     business = businesses(:one)
     business.developer_notifications = nil
-    refute business.valid?
+    assert_not business.valid?
   end
 
-  test "should require new developer notifications in the given enum" do
+  test 'should require new developer notifications in the given enum' do
     business = businesses(:one)
     invalid_values = [-1, 3, 4]
 
@@ -72,7 +72,7 @@ class BusinessTest < ActiveSupport::TestCase
     end
   end
 
-  test "should respond to expected states for new developer notifications" do
+  test 'should respond to expected states for new developer notifications' do
     business = businesses(:one)
 
     business.developer_notifications = 0
@@ -85,7 +85,7 @@ class BusinessTest < ActiveSupport::TestCase
     assert business.weekly_developer_notifications?
   end
 
-  test "should define a default enum value for developer notifications" do
+  test 'should define a default enum value for developer notifications' do
     business = Business.new
 
     assert business.no_developer_notifications?

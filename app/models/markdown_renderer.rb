@@ -37,6 +37,6 @@ class MarkdownRenderer
   end
 
   def file_path(locale)
-    Rails.root.join("app/views", view_directory, "#{locale}.md")
+    Rails.root.join('app/views', view_directory, "#{locale}.md")
   end
 end

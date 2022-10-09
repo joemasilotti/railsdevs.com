@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class DeveloperTest < ActiveSupport::TestCase
   include DevelopersHelper
@@ -7,85 +7,85 @@ class DeveloperTest < ActiveSupport::TestCase
     @developer = developers(:one)
   end
 
-  test "obfuscated profile URLs" do
+  test 'obfuscated profile URLs' do
     assert_equal @developer.hashid.to_s, @developer.to_param
   end
 
-  test "unspecified availability" do
+  test 'unspecified availability' do
     @developer.available_on = nil
 
-    assert_equal "unspecified", @developer.availability_status
+    assert_equal 'unspecified', @developer.availability_status
     assert @developer.available_unspecified?
   end
 
-  test "available in a future date" do
+  test 'available in a future date' do
     @developer.available_on = Date.current + 2.weeks
 
-    assert_equal "in_future", @developer.availability_status
+    assert_equal 'in_future', @developer.availability_status
     assert @developer.available_in_future?
   end
 
-  test "available from a past date" do
+  test 'available from a past date' do
     @developer.available_on = Date.current - 3.weeks
 
-    assert_equal "now", @developer.availability_status
+    assert_equal 'now', @developer.availability_status
     assert @developer.available_now?
   end
 
-  test "available from today" do
+  test 'available from today' do
     @developer.available_on = Date.current
 
-    assert_equal "now", @developer.availability_status
+    assert_equal 'now', @developer.availability_status
     assert @developer.available_now?
   end
 
-  test "is valid" do
+  test 'is valid' do
     assert Developer.new(developer_attributes).valid?
   end
 
-  test "invalid without user" do
+  test 'invalid without user' do
     developer = Developer.new(user: nil)
 
-    refute developer.valid?
+    assert_not developer.valid?
     assert_not_nil developer.errors[:user]
   end
 
-  test "invalid without name" do
+  test 'invalid without name' do
     user = users(:empty)
     developer = Developer.new(user:, name: nil)
 
-    refute developer.valid?
+    assert_not developer.valid?
     assert_not_nil developer.errors[:name]
   end
 
-  test "invalid without hero" do
+  test 'invalid without hero' do
     user = users(:empty)
     developer = Developer.new(user:, hero: nil)
 
-    refute developer.valid?
+    assert_not developer.valid?
     assert_not_nil developer.errors[:hero]
   end
 
-  test "invalid without bio" do
+  test 'invalid without bio' do
     user = users(:empty)
     developer = Developer.new(user:, bio: nil)
 
-    refute developer.valid?
+    assert_not developer.valid?
     assert_not_nil developer.errors[:bio]
   end
 
-  test "available scope is only developers available today or earlier" do
+  test 'available scope is only developers available today or earlier' do
     developers(:one).update!(available_on: Time.zone.local(2021, 1, 1))
     developers(:prospect).update!(available_on: Time.zone.local(2022, 1, 1))
 
     travel_to Time.zone.local(2021, 5, 4) do
       developers = Developer.available
       assert_includes developers, developers(:one)
-      refute_includes developers, developers(:prospect)
+      assert_not_includes developers, developers(:prospect)
     end
   end
 
-  test "should accept avatars of valid file formats" do
+  test 'should accept avatars of valid file formats' do
     valid_formats = %w[image/png image/jpeg image/jpg]
 
     valid_formats.each do |file_format|
@@ -95,28 +95,28 @@ class DeveloperTest < ActiveSupport::TestCase
     end
   end
 
-  test "should reject avatars of invalid file formats" do
+  test 'should reject avatars of invalid file formats' do
     invalid_formats = %w[image/bmp image/gif video/mp4]
 
     invalid_formats.each do |file_format|
       @developer.avatar.stub :content_type, file_format do
-        refute @developer.valid?, "#{file_format} should be an invalid format"
+        assert_not @developer.valid?, "#{file_format} should be an invalid format"
       end
     end
   end
 
-  test "should enforce a maximum avatar file size" do
+  test 'should enforce a maximum avatar file size' do
     @developer.avatar.blob.stub :byte_size, 3.megabytes do
-      refute @developer.valid?
+      assert_not @developer.valid?
     end
   end
 
-  test "anonymizes the filename of the avatar" do
+  test 'anonymizes the filename of the avatar' do
     developer = Developer.create!(developer_attributes)
-    assert_equal developer.avatar.filename, "avatar.jpg"
+    assert_equal developer.avatar.filename, 'avatar.jpg'
   end
 
-  test "should accept cover images of valid file formats" do
+  test 'should accept cover images of valid file formats' do
     valid_formats = %w[image/png image/jpeg image/jpg]
 
     valid_formats.each do |file_format|
@@ -126,19 +126,19 @@ class DeveloperTest < ActiveSupport::TestCase
     end
   end
 
-  test "should reject cover images of invalid file formats" do
+  test 'should reject cover images of invalid file formats' do
     invalid_formats = %w[image/bmp video/mp4]
 
     invalid_formats.each do |file_format|
       @developer.cover_image.stub :content_type, file_format do
-        refute @developer.valid?, "#{file_format} should be an invalid format"
+        assert_not @developer.valid?, "#{file_format} should be an invalid format"
       end
     end
   end
 
-  test "should enforce a maximum cover image file size" do
+  test 'should enforce a maximum cover image file size' do
     @developer.cover_image.blob.stub :byte_size, 11.megabytes do
-      refute @developer.valid?
+      assert_not @developer.valid?
     end
   end
 
@@ -148,43 +148,43 @@ class DeveloperTest < ActiveSupport::TestCase
     assert @developer.valid?
   end
 
-  test "normalizes social media profile input" do
+  test 'normalizes social media profile input' do
     developer = Developer.new(developer_attributes)
-    developer.github = "https://github.com/joemasilotti"
+    developer.github = 'https://github.com/joemasilotti'
     developer.save!
-    assert_equal developer.github, "joemasilotti"
+    assert_equal developer.github, 'joemasilotti'
   end
 
-  test "missing fields when search status is blank" do
-    refute @developer.missing_fields?
+  test 'missing fields when search status is blank' do
+    assert_not @developer.missing_fields?
 
     @developer.search_status = nil
     assert @developer.missing_fields?
   end
 
-  test "missing fields when location country is blank" do
-    refute @developer.missing_fields?
+  test 'missing fields when location country is blank' do
+    assert_not @developer.missing_fields?
 
     @developer.location.country = nil
     assert @developer.missing_fields?
   end
 
-  test "missing fields when role level is all blank" do
-    refute @developer.missing_fields?
+  test 'missing fields when role level is all blank' do
+    assert_not @developer.missing_fields?
 
     @developer.build_role_level
     assert @developer.missing_fields?
   end
 
-  test "missing fields when role type is all blank" do
-    refute @developer.missing_fields?
+  test 'missing fields when role type is all blank' do
+    assert_not @developer.missing_fields?
 
     @developer.build_role_type
     assert @developer.missing_fields?
   end
 
-  test "missing fields available on is blank" do
-    refute @developer.missing_fields?
+  test 'missing fields available on is blank' do
+    assert_not @developer.missing_fields?
 
     @developer.available_on = nil
     assert @developer.missing_fields?
@@ -194,16 +194,16 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes Developer.visible, developers(:one)
 
     developers(:one).update!(search_status: :invisible)
-    refute_includes Developer.visible, developers(:one)
+    assert_not_includes Developer.visible, developers(:one)
 
     developers(:one).update!(search_status: nil)
     assert_includes Developer.visible, developers(:one)
   end
 
-  test "featured developers were featured within the last week" do
+  test 'featured developers were featured within the last week' do
     developer = developers(:one)
-    refute developer.featured?
-    refute_includes Developer.featured, developer
+    assert_not developer.featured?
+    assert_not_includes Developer.featured, developer
 
     developer.feature!
     assert developer.featured?
@@ -214,17 +214,17 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_includes Developer.featured, developer
 
     travel 1.second
-    refute developer.featured?
-    refute_includes Developer.featured, developer
+    assert_not developer.featured?
+    assert_not_includes Developer.featured, developer
 
     travel_back
   end
 
-  test "recently active developers within last one week" do
+  test 'recently active developers within last one week' do
     @developer = developers(:one)
 
     @developer.updated_at = 2.weeks.ago
-    refute @developer.recently_active?
+    assert_not @developer.recently_active?
 
     @developer.updated_at = Date.current
     assert @developer.recently_active?

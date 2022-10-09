@@ -1,23 +1,23 @@
-require "test_helper"
+require 'test_helper'
 
 module Developers
   class BannerComponentTest < ViewComponent::TestCase
-    test "renders new fields component title if none of the other banner renders" do
+    test 'renders new fields component title if none of the other banner renders' do
       developers(:one).update!(available_on: nil)
       new_fields_component = NewFieldsComponent.new(users(:developer))
       invisible_banner_component = InvisibleBannerComponent.new(users(:developer))
       unseeded_warning_component = UnseededWarningComponent.new(seedable: true)
       render_inline BannerComponent.new([unseeded_warning_component, invisible_banner_component, new_fields_component])
-      assert_text I18n.t("developers.new_fields_component.title")
+      assert_text I18n.t('developers.new_fields_component.title')
     end
 
     test "renders invisible banner component's title if new fields component and invisible banner component can be rendered" do
-      developers(:one).update!(available_on: nil, search_status: "invisible")
+      developers(:one).update!(available_on: nil, search_status: 'invisible')
       new_fields_component = NewFieldsComponent.new(users(:developer))
       invisible_banner_component = InvisibleBannerComponent.new(users(:developer))
       unseeded_warning_component = UnseededWarningComponent.new(seedable: true)
       render_inline BannerComponent.new([unseeded_warning_component, invisible_banner_component, new_fields_component])
-      assert_text I18n.t("developers.invisible_banner_component.title")
+      assert_text I18n.t('developers.invisible_banner_component.title')
     end
 
     test "doesn't render any banner if none of the banners can be rendered" do
@@ -28,13 +28,13 @@ module Developers
       refute_component_rendered
     end
 
-    test "renders unseeded data warning if it can be rendered" do
+    test 'renders unseeded data warning if it can be rendered' do
       Developer.destroy_all
       new_fields_component = NewFieldsComponent.new(nil)
       invisible_banner_component = InvisibleBannerComponent.new(nil)
       unseeded_warning_component = UnseededWarningComponent.new(seedable: true)
       render_inline BannerComponent.new([unseeded_warning_component, invisible_banner_component, new_fields_component])
-      assert_text "Run bin/rails db:seed"
+      assert_text 'Run bin/rails db:seed'
     end
   end
 end

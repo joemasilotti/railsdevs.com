@@ -1,22 +1,22 @@
-ENV["RAILS_ENV"] ||= "test"
-require_relative "../config/environment"
-require "minitest/autorun"
-require "minitest/mock"
-require "rails/test_help"
-require "capybara"
-require "minitest/reporters"
-require "minitest/reporters/pride_reporter"
-require "webmock/minitest"
+ENV['RAILS_ENV'] ||= 'test'
+require_relative '../config/environment'
+require 'minitest/autorun'
+require 'minitest/mock'
+require 'rails/test_help'
+require 'capybara'
+require 'minitest/reporters'
+require 'minitest/reporters/pride_reporter'
+require 'webmock/minitest'
 
-Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
 
-options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count: 5} : {}
+options = ENV['REPORTER'].to_s.downcase == 'slow' ? { fast_fail: true, slow_count: 5 } : {}
 Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
 
 WebMock.disable_net_connect!({
-  allow_localhost: true,
-  allow: "chromedriver.storage.googleapis.com"
-})
+                               allow_localhost: true,
+                               allow: 'chromedriver.storage.googleapis.com'
+                             })
 
 class ActiveSupport::TestCase
   include GeocoderHelper
@@ -31,7 +31,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
   setup do
-    ActiveStorage::Current.url_options = {protocol: "https://", host: "example.com", port: nil}
+    ActiveStorage::Current.url_options = { protocol: 'https://', host: 'example.com', port: nil }
   end
 
   teardown do
@@ -52,4 +52,4 @@ class ViewComponent::TestCase
   include MetaTagsHelper
 end
 
-ActiveStorage::FixtureSet.file_fixture_path = File.expand_path("fixtures/files", __dir__)
+ActiveStorage::FixtureSet.file_fixture_path = File.expand_path('fixtures/files', __dir__)

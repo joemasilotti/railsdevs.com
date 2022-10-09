@@ -1,12 +1,12 @@
 module Developers
   class InvisiblizeNotification < ApplicationNotification
     deliver_by :database
-    deliver_by :email, mailer: "InvisiblizeMailer", method: :to_developer
+    deliver_by :email, mailer: 'InvisiblizeMailer', method: :to_developer
 
     param :developer
 
     def title
-      t("notifications.developers.invisiblize_notification.title")
+      t('notifications.developers.invisiblize_notification.title')
     end
 
     def url

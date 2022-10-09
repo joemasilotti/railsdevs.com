@@ -13,7 +13,7 @@ module Admin
       def create
         @term = ::HiringAgreements::Term.new(term_params)
         if @term.save
-          redirect_to admin_hiring_agreements_term_path(@term), notice: t(".created")
+          redirect_to admin_hiring_agreements_term_path(@term), notice: t('.created')
         else
           render :new, status: :unprocessable_entity
         end
@@ -30,7 +30,7 @@ module Admin
       def update
         @term = ::HiringAgreements::Term.find(params[:id])
         if @term.update(term_params)
-          redirect_to admin_hiring_agreements_term_path(@term), notice: t(".updated")
+          redirect_to admin_hiring_agreements_term_path(@term), notice: t('.updated')
         else
           render :edit, status: :unprocessable_entity
         end

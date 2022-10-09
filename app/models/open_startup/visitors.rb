@@ -7,10 +7,10 @@ module OpenStartup
     def fetch
       client.aggregations.list(
         entity_id:,
-        entity: "pageview",
-        aggregates: "visits",
+        entity: 'pageview',
+        aggregates: 'visits',
         date_from: 30.days.ago
-      ).first["visits"]
+      ).first['visits']
     end
 
     private

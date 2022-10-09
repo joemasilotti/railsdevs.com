@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
 class Admin::Developers::InvisiblizesTest < ActionDispatch::IntegrationTest
-  test "makes a developer invisible" do
+  test 'makes a developer invisible' do
     developer = developers(:one)
     sign_in users(:admin)
 
@@ -10,12 +10,12 @@ class Admin::Developers::InvisiblizesTest < ActionDispatch::IntegrationTest
     assert developer.reload.invisible?
   end
 
-  test "must be an admin" do
+  test 'must be an admin' do
     developer = developers(:one)
     sign_in users(:empty)
 
     post admin_developer_invisiblizes_path(developer)
 
-    refute developer.reload.invisible?
+    assert_not developer.reload.invisible?
   end
 end

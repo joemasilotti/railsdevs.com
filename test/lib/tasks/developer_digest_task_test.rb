@@ -1,10 +1,10 @@
-require "test_helper"
+require 'test_helper'
 
 class DeveloperDigestTaskTest < ActionMailer::TestCase
   include DevelopersHelper
   include RakeTaskHelper
 
-  test "sends appropriate emails for developer digests" do
+  test 'sends appropriate emails for developer digests' do
     load_rake_tasks_once
 
     travel_to monday do
@@ -12,12 +12,12 @@ class DeveloperDigestTaskTest < ActionMailer::TestCase
 
       businesses(:subscriber).update!(developer_notifications: :daily)
       assert_emails 1 do
-        Rake::Task["developer_digest:daily"].invoke
+        Rake::Task['developer_digest:daily'].invoke
       end
 
       businesses(:subscriber).update!(developer_notifications: :weekly)
       assert_emails 1 do
-        Rake::Task["developer_digest:weekly"].invoke
+        Rake::Task['developer_digest:weekly'].invoke
       end
     end
   end

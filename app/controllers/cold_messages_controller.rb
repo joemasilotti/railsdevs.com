@@ -29,7 +29,7 @@ class ColdMessagesController < ApplicationController
   def require_business!
     unless business.present?
       store_location!
-      redirect_to new_business_path, notice: I18n.t("errors.business_blank")
+      redirect_to new_business_path, notice: I18n.t('errors.business_blank')
     end
   end
 
@@ -47,7 +47,7 @@ class ColdMessagesController < ApplicationController
   def require_signed_hiring_agreement!
     if HiringAgreements::Term.active? && !current_user.signed_hiring_agreement?
       store_location!
-      redirect_to new_hiring_agreement_signature_path, notice: I18n.t("errors.hiring_agreements.cold_message")
+      redirect_to new_hiring_agreement_signature_path, notice: I18n.t('errors.hiring_agreements.cold_message')
     end
   end
 

@@ -381,6 +381,12 @@ GEM
     rubocop-performance (1.13.3)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.15.2)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.7.0, < 2.0)
+    rubocop-rspec (2.11.1)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
@@ -496,6 +502,10 @@ DEPENDENCIES
   redcarpet (~> 3.5)
   redis
   rexml (~> 3.2, >= 3.2.5)
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   scout_apm (~> 5.1)
   selenium-webdriver
   sidekiq (~> 6.4)

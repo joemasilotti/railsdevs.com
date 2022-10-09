@@ -1,11 +1,11 @@
-require "test_helper"
+require 'test_helper'
 
 module Developers
   class NewFieldsComponentTest < ViewComponent::TestCase
     test "renders if the user's developer profile is missing fields" do
       developers(:one).update!(available_on: nil)
       render_inline NewFieldsComponent.new(users(:developer))
-      assert_text I18n.t("developers.new_fields_component.title")
+      assert_text I18n.t('developers.new_fields_component.title')
     end
 
     test "doesn't render if the developer profile is filled in" do

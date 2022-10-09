@@ -1,7 +1,7 @@
-require_relative "boot"
-require_relative "subscriptions"
+require_relative 'boot'
+require_relative 'subscriptions'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -30,7 +30,10 @@ module Railsdevs
     config.emails = config_for(:emails)
     config.fathom = config_for(:fathom)
     config.plans = config_for(:plans)
-    config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
+    config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws,
+                                                                        :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(
+                                                                          :aws, :region
+                                                                        )}.amazonaws.com/"
     config.testimonials = config_for(:testimonials)
     config.upload_sitemap = false
 
@@ -38,7 +41,7 @@ module Railsdevs
     config.active_job.queue_adapter = :sidekiq
 
     # Search nested folders in config/locales for better organization
-    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
     # Permitted locales available for the application
     config.i18n.available_locales = %i[ja en es zh-TW pt-BR]
@@ -50,6 +53,6 @@ module Railsdevs
     config.i18n.fallbacks = true
 
     # Defer loading of images until it reaches a calculated distance from the viewport
-    config.action_view.image_loading = "lazy"
+    config.action_view.image_loading = 'lazy'
   end
 end

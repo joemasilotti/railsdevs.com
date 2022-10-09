@@ -17,7 +17,7 @@ class DeveloperQuery
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:}
+    @filters = { sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries: }
   end
 
   def pagy
@@ -82,11 +82,7 @@ class DeveloperQuery
     pagy = Pagy.new(count: collection.count(:all), page: params[:page], **options)
     results = [pagy, collection.offset(pagy.offset).limit(pagy.items)]
 
-    if Feature.enabled?(:paywalled_search_results)
-      unless subscribed_business?
-        results = [pagy, []] if pagy.page > 1
-      end
-    end
+    results = [pagy, []] if Feature.enabled?(:paywalled_search_results) && !subscribed_business? && (pagy.page > 1)
 
     results
   end
@@ -121,9 +117,7 @@ class DeveloperQuery
   end
 
   def utc_offset_filter_records
-    if utc_offsets.any?
-      @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets))
-    end
+    @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets)) if utc_offsets.any?
   end
 
   def role_type_filter_records

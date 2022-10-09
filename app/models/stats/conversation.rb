@@ -12,8 +12,8 @@ module Stats
 
     def replied
       @replied ||= Message.from_developer.where(conversation: conversations)
-        .group(:conversation_id)
-        .count.count
+                          .group(:conversation_id)
+                          .count.count
     end
 
     def replied_rate

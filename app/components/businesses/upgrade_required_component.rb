@@ -16,25 +16,25 @@ module Businesses
 
     def title
       if expired?
-        t(".title.expired")
+        t('.title.expired')
       else
-        t(".title.upgrade")
+        t('.title.upgrade')
       end
     end
 
     def body
       if expired?
-        t(".body.expired")
+        t('.body.expired')
       else
-        t(".body.upgrade")
+        t('.body.upgrade')
       end
     end
 
     def cta
       if expired?
-        t(".cta.expired")
+        t('.cta.expired')
       else
-        t(".cta.upgrade")
+        t('.cta.upgrade')
       end
     end
   end

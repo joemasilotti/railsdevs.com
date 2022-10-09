@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class SocialLinkComponentTest < ViewComponent::TestCase
   test "doesn't render if no handle" do
@@ -6,36 +6,36 @@ class SocialLinkComponentTest < ViewComponent::TestCase
     refute_component_rendered
   end
 
-  test "github" do
-    render_inline SocialLinkComponent.new("gh", :github)
+  test 'github' do
+    render_inline SocialLinkComponent.new('gh', :github)
     assert_selector "a[href='https://github.com/gh']"
     assert_selector "svg[title='GitHub logo']"
-    assert_text "gh"
+    assert_text 'gh'
   end
 
-  test "twitter" do
-    render_inline SocialLinkComponent.new("tw", :twitter)
+  test 'twitter' do
+    render_inline SocialLinkComponent.new('tw', :twitter)
     assert_selector "a[href='https://twitter.com/tw']"
     assert_selector "svg[title='Twitter logo']"
-    assert_text "tw"
+    assert_text 'tw'
   end
 
-  test "linkedin" do
-    render_inline SocialLinkComponent.new("li", :linkedin)
+  test 'linkedin' do
+    render_inline SocialLinkComponent.new('li', :linkedin)
     assert_selector "a[href='https://www.linkedin.com/in/li']"
     assert_selector "svg[title='LinkedIn logo']"
-    assert_text "li"
+    assert_text 'li'
   end
 
-  test "stack overflow" do
-    render_inline SocialLinkComponent.new("12345", :stack_overflow)
+  test 'stack overflow' do
+    render_inline SocialLinkComponent.new('12345', :stack_overflow)
     assert_selector "a[href='https://stackoverflow.com/users/12345']"
     assert_selector "svg[title='Stack Overflow logo']"
-    assert_text "12345"
+    assert_text '12345'
   end
 
-  test "sanitizes the handle" do
-    render_inline SocialLinkComponent.new("<script>gh</script>", :github)
+  test 'sanitizes the handle' do
+    render_inline SocialLinkComponent.new('<script>gh</script>', :github)
     assert_selector "a[href='https://github.com/gh']"
   end
 end

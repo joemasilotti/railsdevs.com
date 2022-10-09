@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
   include DevelopersHelper
@@ -7,17 +7,17 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     @business = businesses(:subscriber)
   end
 
-  test "daily emails for developers who signed up yesterday" do
+  test 'daily emails for developers who signed up yesterday' do
     create_developers
     @business.update!(developer_notifications: :daily)
 
-    args = {business: @business, developers: [@yesterday]}
+    args = { business: @business, developers: [@yesterday] }
     assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
       EmailDigests::NewDevelopers.new.send_daily_digest
     end
   end
 
-  test "do not send daily emails if no new developers signed up yesterday" do
+  test 'do not send daily emails if no new developers signed up yesterday' do
     create_developer(2.days.ago)
     @business.update!(developer_notifications: :daily)
 
@@ -26,20 +26,20 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     end
   end
 
-  test "weekly emails for developers who signed up last week" do
+  test 'weekly emails for developers who signed up last week' do
     travel_to monday do
       create_developers
       @business.update!(developer_notifications: :weekly)
 
       developers = [@seven_days_ago, @two_days_ago, @yesterday]
-      args = {business: @business, developers:}
+      args = { business: @business, developers: }
       assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
         EmailDigests::NewDevelopers.new.send_weekly_digest
       end
     end
   end
 
-  test "weekly emails are only sent on Mondays" do
+  test 'weekly emails are only sent on Mondays' do
     travel_to monday + 1.day do
       create_developers
       @business.update!(developer_notifications: :weekly)
@@ -50,7 +50,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     end
   end
 
-  test "do not send weekly emails if no new developers signed up this week" do
+  test 'do not send weekly emails if no new developers signed up this week' do
     travel_to monday do
       create_developer(8.days.ago)
       @business.update!(developer_notifications: :weekly)
@@ -75,7 +75,7 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     @yesterday = create_developer(1.day.ago)
     @two_days_ago = create_developer(2.days.ago)
     @seven_days_ago = create_developer(7.days.ago)
-    @invisible = create_developer(1.days.ago, search_status: :invisible)
+    @invisible = create_developer(1.day.ago, search_status: :invisible)
     create_developer(8.days.ago)
   end
 

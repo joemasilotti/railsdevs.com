@@ -1,7 +1,7 @@
-require "test_helper"
+require 'test_helper'
 
 class PricingTest < ActionDispatch::IntegrationTest
-  test "sees the pricing page" do
+  test 'sees the pricing page' do
     get pricing_path
     assert_response :ok
   end

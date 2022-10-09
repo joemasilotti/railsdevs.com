@@ -1,26 +1,26 @@
 # Postgres
-brew "libpq" # M1 macs need libpq for pg gem
-brew "postgresql"
+brew 'libpq' # M1 macs need libpq for pg gem
+brew 'postgresql'
 
 # Redis
-brew "redis"
+brew 'redis'
 
 # Imagemagick & vips for image processing
-brew "imagemagick"
-brew "vips"
+brew 'imagemagick'
+brew 'vips'
 
 # Overmind
-brew "tmux"
-brew "overmind"
+brew 'tmux'
+brew 'overmind'
 
 # Yarn
-brew "node"
-brew "yarn"
+brew 'node'
+brew 'yarn'
 
 # Stripe CLI
-tap "stripe/stripe-cli"
-brew "stripe/stripe-cli/stripe"
+tap 'stripe/stripe-cli'
+brew 'stripe/stripe-cli/stripe'
 
 # Google Chrome & Chromedriver for Browser Testing
-cask "google-chrome"
-cask "chromedriver"
+cask 'google-chrome'
+cask 'chromedriver'

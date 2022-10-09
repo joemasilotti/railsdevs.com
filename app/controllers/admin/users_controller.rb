@@ -11,8 +11,8 @@ module Admin
 
     def users(query)
       User.search(query)
-        .includes(developer: {avatar_attachment: :blob}, business: {avatar_attachment: :blob})
-        .order(:email)
+          .includes(developer: { avatar_attachment: :blob }, business: { avatar_attachment: :blob })
+          .order(:email)
     end
   end
 end

@@ -34,7 +34,7 @@ module Businesses
     end
 
     def live?
-      customer.processor_id.starts_with?("cus_")
+      customer.processor_id.starts_with?('cus_')
     end
   end
 end

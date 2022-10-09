@@ -16,12 +16,12 @@ class OpenGraphTagsComponent < ApplicationComponent
     elsif @title.present?
       "#{@title} · RailsDevs"
     else
-      "RailsDevs"
+      'RailsDevs'
     end
   end
 
   def description
-    @description || t("home.show.title_og")
+    @description || t('home.show.title_og')
   end
 
   def url
@@ -29,14 +29,14 @@ class OpenGraphTagsComponent < ApplicationComponent
   end
 
   def image
-    @image || helpers.image_url("opengraph/default.png")
+    @image || helpers.image_url('opengraph/default.png')
   end
 
   def twitter_card
-    "summary_large_image"
+    'summary_large_image'
   end
 
   def twitter
-    "@joemasilotti"
+    '@joemasilotti'
   end
 end

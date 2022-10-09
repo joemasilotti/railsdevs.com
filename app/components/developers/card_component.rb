@@ -11,13 +11,9 @@ module Developers
       @highlight_featured = highlight_featured
     end
 
-    def hero
-      developer.hero
-    end
+    delegate :hero, to: :developer
 
-    def bio
-      developer.bio
-    end
+    delegate :bio, to: :developer
 
     def highlight?
       !!highlight_featured && featured?

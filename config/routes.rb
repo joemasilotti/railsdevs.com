@@ -1,9 +1,9 @@
-require "sidekiq/web"
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users, controllers: {
-      registrations: "users"
+      registrations: 'users'
     }
 
     resource :about, only: :show, controller: :about
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :businesses, except: :destroy
 
     # /notifications/read must come before /notifications/:id.
-    resources :read_notifications, only: [:index, :create], path: "/notifications/read"
+    resources :read_notifications, only: %i[index create], path: '/notifications/read'
     resources :notifications, only: %i[index show]
 
     namespace :analytics do
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
 
     resource :hired, only: :show, controller: :hired do
-      resources :forms, only: [:new, :create], module: :hired
+      resources :forms, only: %i[new create], module: :hired
     end
 
     namespace :hiring_agreement, module: :hiring_agreements do
@@ -40,12 +40,12 @@ Rails.application.routes.draw do
       resource :signature, only: %i[new create]
     end
 
-    namespace :open_startup, path: "/open" do
+    namespace :open_startup, path: '/open' do
       resources :contributions, only: :index
       resources :expenses, only: :index
       resources :revenue, only: :index
 
-      root to: "dashboard#show"
+      root to: 'dashboard#show'
     end
 
     namespace :policies do
@@ -53,11 +53,11 @@ Rails.application.routes.draw do
       resource :terms, only: :show
     end
 
-    root to: "home#show"
+    root to: 'home#show'
   end
 
   namespace :admin do
-    resource :impersonate, only: [:create, :destroy]
+    resource :impersonate, only: %i[create destroy]
     resources :conversations, only: :index
     resources :transactions, except: :show
     resources :users, only: [:index]
@@ -78,7 +78,7 @@ Rails.application.routes.draw do
     end
 
     namespace :hired do
-      resources :forms, only: [:index, :show]
+      resources :forms, only: %i[index show]
     end
 
     namespace :hiring_agreements do
@@ -88,9 +88,9 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api, defaults: {format: :json} do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resource :auth, only: [:create, :destroy]
+      resource :auth, only: %i[create destroy]
       resources :notification_tokens, only: :create
     end
   end
@@ -111,10 +111,10 @@ Rails.application.routes.draw do
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
 
-  get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
-  get "robots.:format" => "robots#index"
+  get '/sitemap.xml.gz', to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
+  get 'robots.:format' => 'robots#index'
 
-  authenticate :user, lambda { |user| SidekiqPolicy.new(user).visible? } do
-    mount Sidekiq::Web => "/sidekiq"
+  authenticate :user, ->(user) { SidekiqPolicy.new(user).visible? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 end

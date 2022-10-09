@@ -17,11 +17,11 @@ module RoleTypes
     end
 
     def icon(enabled)
-      enabled ? "icons/solid/check_circle.svg" : "icons/solid/x_circle.svg"
+      enabled ? 'icons/solid/check_circle.svg' : 'icons/solid/x_circle.svg'
     end
 
     def css(enabled)
-      "text-green-700" if enabled
+      'text-green-700' if enabled
     end
 
     private

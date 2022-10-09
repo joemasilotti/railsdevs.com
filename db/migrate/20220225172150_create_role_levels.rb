@@ -1,7 +1,7 @@
 class CreateRoleLevels < ActiveRecord::Migration[7.0]
   def change
     create_table :role_levels do |t|
-      t.belongs_to :developer, index: {unique: true}, foreign_key: true
+      t.belongs_to :developer, index: { unique: true }, foreign_key: true
 
       t.boolean :junior
       t.boolean :mid

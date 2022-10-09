@@ -27,7 +27,7 @@ module Pay
       in data: [_, {pause_behavior: nil}]
         :unpaused
       else
-        raise UnknownSubscriptionChange.new(subscription.previous_changes)
+        raise UnknownSubscriptionChange, subscription.previous_changes
       end
     end
   end
