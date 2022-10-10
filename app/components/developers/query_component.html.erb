@@ -72,9 +72,9 @@
           <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
             <div class="pt-6">
               <h5 class="-mx-2 -my-3 flow-root">
-                <%= render CollapseControlComponent.new(t(".all_countries.title"), collapsed: true, subcomponent: true) %>
+                <%= render CollapseControlComponent.new(t(".all_countries.title"), collapsed: collapse_all_locations?, subcomponent: true) %>
               </h5>
-              <div data-toggle-target="element" class="hidden">
+              <%= tag.div id: "all-locations-accordion", "data-toggle-target": "element", class: [hidden: collapse_all_locations?] do %>
                 <div class="space-y-4 pt-6">
                   <%= form.collection_check_boxes(:countries, countries, :first, :last, {include_hidden: false}) do |b| %>
                     <div class="flex items-center">
@@ -83,7 +83,7 @@
                     </div>
                   <% end %>
                 </div>
-              </div>
+              <% end %>
             </div>
           </div>
         <% end %>

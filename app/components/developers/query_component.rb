@@ -64,6 +64,11 @@ module Developers
       query.countries.empty?
     end
 
+    def collapse_all_locations?
+      @collapse_all_locations ||=
+        (Location.not_top_countries & query.countries).none?
+    end
+
     def collapse_timezone?
       query.utc_offsets.empty?
     end
