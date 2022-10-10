@@ -5,13 +5,13 @@ module Developers
     include TurboNativeHelper
 
     test "always includes basic tags" do
-      developer = Developer.new(id: 123, hero: "hero text", bio: "bio text")
+      developer = developers(:one)
 
       render_inline OpenGraphTagsComponent.new(developer:)
 
-      assert_meta property: "og:title", content: "hero text · RailsDevs"
-      assert_meta property: "og:description", content: "bio text"
-      assert_meta property: "og:url", content: "http://test.host/developers/123"
+      assert_meta property: "og:title", content: "#{developer.hero} · RailsDevs"
+      assert_meta property: "og:description", content: developer.bio
+      assert_meta property: "og:url", content: "http://test.host/developers/#{developer.hashid}"
     end
 
     test "excludes special tags when not present" do

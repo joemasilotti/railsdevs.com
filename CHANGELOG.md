@@ -2,6 +2,21 @@
 
 ## 2022
 
+## September
+
+* September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
+* September 18 - Add badges to developer profile pages #657
+* September 18 - Obfuscate developer profiles URLs #656
+* September 16 - Show "Recently Active" badge for developers active in last 7 days #640 @sarvaiyanidhi
+* September 15 - Allow rich text for developer bios #638 @rayhanw
+* September 15 - Show "Featured" badge in search results #642
+* September 14 - Only ever send one Celebration Promotion email #617 @sarvaiyanidhi
+* September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
+* September 13 - Move developer bio to own card in form and add more instructions #635 @rayhanw
+* September 8 - Send admins a notification when a `Hired::Form` is created #614 @sarvaiyanidhi
+* September 8 – Update license year and note non-code usage #630
+* September 8 – Remove part-time hiring plan from pricing page #628
+
 ## August
 
 * August 31 - Fix for paused subscriptions losing access too quickly #623

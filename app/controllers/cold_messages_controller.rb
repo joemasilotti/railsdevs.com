@@ -3,6 +3,7 @@ class ColdMessagesController < ApplicationController
   before_action :require_business!
   before_action :require_new_conversation!
   before_action :require_active_subscription!
+  before_action :require_signed_hiring_agreement!
 
   def new
     message = Message.new(conversation:)
@@ -22,7 +23,7 @@ class ColdMessagesController < ApplicationController
   private
 
   def cold_message(message)
-    ColdMessage.new(message:, show_hiring_fee_terms: permission.pays_hiring_fee?)
+    ColdMessage.new(message:, show_hiring_fee_terms: permissions.pays_hiring_fee?)
   end
 
   def require_business!
@@ -37,14 +38,21 @@ class ColdMessagesController < ApplicationController
   end
 
   def require_active_subscription!
-    unless permission.active_subscription?
+    unless permissions.active_subscription?
       store_location!
       redirect_to pricing_path
     end
   end
 
-  def permission
-    @permission = Businesses::Permission.new(current_user.payment_processor)
+  def require_signed_hiring_agreement!
+    if HiringAgreements::Term.active? && !current_user.signed_hiring_agreement?
+      store_location!
+      redirect_to new_hiring_agreement_signature_path, notice: I18n.t("errors.hiring_agreements.cold_message")
+    end
+  end
+
+  def permissions
+    @permissions = current_user.permissions
   end
 
   def conversation

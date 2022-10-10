@@ -7,7 +7,7 @@ module Businesses
     end
 
     def render_content?
-      Businesses::Permission.new(user.payment_processor).active_subscription?
+      user.permissions.active_subscription?
     end
   end
 end

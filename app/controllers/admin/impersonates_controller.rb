@@ -6,9 +6,6 @@ module Admin
       redirect_to root_path
     end
 
-    def show
-    end
-
     def destroy
       stop_impersonating_user
       redirect_to root_path

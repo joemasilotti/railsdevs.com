@@ -1,9 +1,9 @@
 module Businesses
   class Permission
-    private attr_reader :customer
+    private attr_reader :subscriptions
 
-    def initialize(payment_processor)
-      @customer = payment_processor || Pay::Customer.new
+    def initialize(subscriptions)
+      @subscriptions = subscriptions || Pay::Subscription.none
     end
 
     def active_subscription?
@@ -33,9 +33,9 @@ module Businesses
     def subscribed?(to: nil)
       if (plan_identifier = to)
         processor_plans = processor_plans_for(plan_identifier)
-        customer.subscriptions.where(processor_plan: processor_plans).active.exists?
+        subscriptions.where(processor_plan: processor_plans).active.exists?
       else
-        customer.subscriptions.active.exists?
+        subscriptions.active.exists?
       end
     end
 

@@ -49,4 +49,14 @@ class AdminMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: @notification.title)
   end
+
+  def new_hired_form
+    @notification = params[:record].to_notification
+    recipient = params[:recipient]
+
+    @form = @notification.form
+    @developer = @form.developer
+
+    mail(to: recipient.email, subject: @notification.title)
+  end
 end

@@ -1,0 +1,34 @@
+<div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">
+  <div class="mx-auto mt-8">
+    <div class="px-0 sm:px-6 lg:px-8">
+      <div class="mt-8 sm:px-6">
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+          <div class="px-4 py-5 sm:px-6 flex">
+            <div class="flex-grow">
+              <h3 class="text-lg leading-6 font-medium text-gray-900"><%= t("hiring_agreements.signatures.new.title") %></h3>
+              <p class="mt-1 text-sm text-gray-500"><%= t("hiring_agreements.signatures.new.description", last_updated: @term.created_at.to_formatted_s(:calendar)) %></p>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+            <div class="prose-sm max-w-prose">
+              <%= simple_format @term.body %>
+            </div>
+          </div>
+
+          <% if @signature.present? %>
+            <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+              <div class="prose-sm max-w-prose">
+                <span class="text-sm text-gray-600">
+                  <%= t(".signed_on", date: @signature.created_at.to_formatted_s(:calendar)) %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <p class="mt-8 px-6 prose"><%= t("hiring_agreements.signatures.new.questions_html") %></p>
+    </div>
+  </div>
+</div>

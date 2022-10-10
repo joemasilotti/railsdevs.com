@@ -137,9 +137,15 @@ class ConversationTest < ActiveSupport::TestCase
 
   test "first reply when a developer has sent exactly one message in this conversation" do
     conversation = conversations(:one)
+    conversation.messages.destroy_all
+
+    conversation.messages.create!(sender: conversation.business, body: "From business #1")
+    refute conversation.first_reply?(conversation.developer)
+
+    conversation.messages.create!(sender: conversation.developer, body: "From developer #1")
     assert conversation.first_reply?(conversation.developer)
 
-    conversation.messages.create!(sender: conversation.developer, body: "Second message.")
+    conversation.messages.create!(sender: conversation.business, body: "From business #2")
     refute conversation.first_reply?(conversation.developer)
   end
 
