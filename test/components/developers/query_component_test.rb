@@ -2,6 +2,8 @@ require "test_helper"
 
 module Developers
   class QueryComponentTest < ViewComponent::TestCase
+    include DevelopersHelper
+
     setup do
       @user = users(:empty)
     end
@@ -92,34 +94,35 @@ module Developers
       assert_selector build_input("include_not_interested", type: "checkbox", checked: true)
     end
 
-    test "collapse location accordion when countries is not in the serach query" do
+    test "collapse location accordion when location is not being queried" do
+      create_developer(location_attributes: {country: "Australia"})
+
+      Location.stub :top_countries, ["United States"] do
+        query = DeveloperQuery.new
+        render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+        assert_selector("#location-accordion.hidden")
+        assert_selector("#all-locations-accordion.hidden")
+
+        query = DeveloperQuery.new(countries: ["United States"])
+        render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+        assert_selector("#location-accordion:not(.hidden)")
+        assert_selector("#all-locations-accordion.hidden")
+
+        query = DeveloperQuery.new(countries: ["Australia"])
+        render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+        assert_selector("#location-accordion:not(.hidden)")
+        assert_selector("#all-locations-accordion:not(.hidden)")
+      end
+    end
+
+    test "collapse timezone accordion when timezone is not being queried" do
       query = DeveloperQuery.new
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+      assert_selector("#timezone-accordion", visible: false)
 
-      assert_selector("#location-accordion", class: "hidden")
-    end
-
-    test "not to collapse location accordion when the countries is presented the search query" do
-      query = DeveloperQuery.new(countries: ["Australia", "Taiwan"])
+      query = DeveloperQuery.new(utc_offsets: [EASTERN_UTC_OFFSET])
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
-
-      assert_no_selector("#location-accordion", class: "hidden")
-      assert_selector("#location-accordion")
-    end
-
-    test "collapse timezone accordion when timezone is not in the search query" do
-      query = DeveloperQuery.new
-      render_inline QueryComponent.new(query:, user: @user, form_id: nil)
-
-      assert_selector("#timezone-accordion", class: "hidden")
-    end
-
-    test "not to collapse timezone accordion when the timezone is in the search query" do
-      query = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET])
-      render_inline QueryComponent.new(query:, user: @user, form_id: nil)
-
-      assert_no_selector("#timezone-accordion", class: "hidden")
-      assert_selector("#timezone-accordion")
+      assert_selector("#timezone-accordion", visible: true)
     end
 
     def build_input(name, type: nil, value: nil, checked: nil)
