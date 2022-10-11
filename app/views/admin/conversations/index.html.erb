@@ -36,7 +36,7 @@
           <% end %>
 
           <% row.with_cell do %>
-            <%= time_tag conversation.created_at, "#{time_ago_in_words(conversation.created_at)}", title: conversation.created_at.to_formatted_s(:long) %>
+            <%= time_tag conversation.created_at, "#{time_ago_in_words(conversation.created_at)} ago", title: conversation.created_at.to_formatted_s(:long) %>
           <% end %>
 
           <% row.with_cell do %>
