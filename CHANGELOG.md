@@ -4,7 +4,7 @@
 
 ## October
 
-* October 11 - Added French translations @5andu
+* October 11 - Added French translations #686 @5andu 
 
 ## September
 
