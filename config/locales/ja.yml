@@ -18,9 +18,9 @@ ja:
         available_on: 開始可能日
         email: メールアドレス
         github: GitHub
-        hero: Hero
+        hero: 一言
         linkedin: Linkedin
-        name: Name
+        name: 名前
         twitter: Twitter
         website: Website
       location:
@@ -178,7 +178,7 @@ ja:
       change_avatar: アップロード
       creating: 作成中...
       developer_notifications:
-        help_text: 新しいエンジニアがRailsDevsにプロフィールを追加した際に、毎日または毎週メールで通知を受け取ることができます。更新直後は転職意欲が高い方が多いです。
+        help_text: エンジニアがRailsDevsでプロフィールを更新した際に、毎日または毎週メールで通知を受け取ることができます。更新直後は転職意欲が高い方が多いです。
         legend: エンジニアのプロフィール更新を通知
         values:
           daily: 毎日
@@ -293,8 +293,8 @@ ja:
       creating: 作成中...
       loading: 送信中...
       notifications:
-        profile_reminder_notifications: プロフィールのリマインダー
-        profile_reminder_notifications_help: エンジニアのプロフィール更新を定期的にリマインドします
+        profile_reminder_notifications: プロフィールの更新リマインダー
+        profile_reminder_notifications_help: プロフィールを定期的更新することで、最新の情報を企業に伝えることができます
         title: メール通知
       online_presence:
         help_text: あなたやあなたの作品についてもっと知ることができる場所は？
@@ -450,7 +450,7 @@ ja:
       more: もっと見る
       subtitle_1: RailsDevs
       subtitle_2: は、次の仕事を探しているエンジニアを支援します。
-      subtitle_3: 求人情報サイトを探し回るのをやめて、企業があなたにコンタクトを取るのを待ちましょう。
+      subtitle_3: 求人サイトを探し回るのをやめて、企業からのコンタクトを待ちましょう。
       title_1: Rails エンジニアに特化した
       title_2: 逆求人サイト
       title_og: Ruby on Rails エンジニアのための逆求人サイト
@@ -612,10 +612,10 @@ ja:
         q: 具体的な質問については、どこに問い合わせればよいですか？
       title: よくある質問
     hero:
-      description: 次の仕事を探している多くのRuby on Railsエンジニアと直接つながることができます。
+      description: 次の仕事を探している多くの Rails エンジニアと直接つながることができます。
       title: Ruby on Rails エンジニアを採用する
     plan:
-      description: 正式な求人広告や仲介業者を省き、若手からCTOレベルまでのRuby on Rails開発者の候補者から直接採用することができます。
+      description: 求人広告を打つことや仲介業者を挟むことなく、若手からCTOレベルまでの Ruby on Rails エンジニアを直接採用することができます。
       features:
         email_updates: 新着候補者の情報をメールでお知らせ
         hand_selected_matches: 毎月の厳選されたマッチング
@@ -660,9 +660,9 @@ ja:
   roles:
     new:
       hiring_developers: エンジニアを探しています
-      hiring_developers_help_text: フリーランス、副業、または正社員の Ruby on Rails エンジニアを探している企業です。
+      hiring_developers_help_text: フリーランス、副業、正社員の Rails エンジニアを探している企業はコチラ
       looking_for_work: 仕事を探しています
-      looking_for_work_help_text: あなたは次の仕事を探しているRailsエンジニアです
+      looking_for_work_help_text: 次の仕事を探している Rails エンジニアはコチラ
       what_brings_you_here: RailsDevs に来た理由は何ですか?
   sessions:
     sign_in: ログイン
