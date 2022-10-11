@@ -31,9 +31,9 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
-    resource :hired, only: :show, controller: :hired do
-      resources :forms, only: %i[new create], module: :hired
-    end
+    # resource :hired, only: :show, controller: :hired do
+    #   resources :forms, only: %i[new create], module: :hired
+    # end
 
     namespace :hiring_agreement, module: :hiring_agreements do
       resource :terms, only: :show
