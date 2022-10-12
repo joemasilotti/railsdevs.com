@@ -3,20 +3,22 @@ require "test_helper"
 class OpenStartup::ReportingTest < ActiveSupport::TestCase
   include StripeHelper
 
-  test "refreshes Revenue records (grouped by month and description)" do
+  test "refreshes Revenue (charges and payments) records (grouped by month and description)" do
     @balance_transactions = [
       charge(amount: 1000, created: january, description: "New subscription"),
       charge(amount: 2000, created: january, description: "New subscription"),
       charge(amount: 4000, created: february, description: "New subscription"),
       charge(amount: 5000, created: february, description: "Update subscription"),
-      charge(amount: 9900, created: february, description: "Payment for Invoice")
+      charge(amount: 9900, created: february, description: "Payment for Invoice"),
+      payment(amount: 1_000_000, created: january, description: "Payment for Invoice")
     ]
 
     refresh_metrics
 
     revenue = OpenStartup::Revenue.pluck(:occurred_on, :description, :amount)
-    assert_equal 4, revenue.count
+    assert_equal 5, revenue.count
     assert_includes revenue, [Date.new(2022, 1, 1), "New subscriptions", 30]
+    assert_includes revenue, [Date.new(2022, 1, 1), "Hiring fees", 10_000]
     assert_includes revenue, [Date.new(2022, 2, 1), "New subscriptions", 40]
     assert_includes revenue, [Date.new(2022, 2, 1), "Hiring fees", 99]
     assert_includes revenue, [Date.new(2022, 2, 1), "Update subscriptions", 50]
@@ -132,6 +134,10 @@ class OpenStartup::ReportingTest < ActiveSupport::TestCase
 
   def charge(created:, description: "A balance transaction", amount: 0, fee: 0)
     BalanceTransaction.new(amount:, created:, description:, fee:, type: "charge")
+  end
+
+  def payment(created:, description: "A balance transaction", amount: 0, fee: 0)
+    BalanceTransaction.new(amount:, created:, description:, fee:, type: "payment")
   end
 
   def fee(created:, description: "An additional fee", amount: 0, fee: 0)
