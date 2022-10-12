@@ -4,6 +4,7 @@
 
 ### October
 
+* October 12 - Remove manual payments and account for payments made via ACH #681
 * October 12 - Update to rails 7.0.4 #682 @kaushikhande
 
 ### September
