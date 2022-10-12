@@ -4,7 +4,7 @@
 
 ### October
 
-* October 10 - Update to rails 7.0.4 #682 @kaushikhande
+* October 12 - Update to rails 7.0.4 #682 @kaushikhande
 
 ### September
 
