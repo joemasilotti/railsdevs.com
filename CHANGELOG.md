@@ -2,10 +2,6 @@
 
 ## 2022
 
-## October
-
-* October 11 - Added French translations #686 @5andu 
-
 ## September
 
 * September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
