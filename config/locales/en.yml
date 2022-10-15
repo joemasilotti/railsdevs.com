@@ -230,6 +230,7 @@ en:
       title: Start a conversation
       with: with
   conversations:
+    ago: ago
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -244,7 +245,6 @@ en:
       og_title: Conversation with %{with}
       title: Conversation
       with: with
-    ago: ago
   date:
     formats:
       month_year: "%B %Y"
