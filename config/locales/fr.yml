@@ -244,6 +244,7 @@ fr:
       og_title: Conversation avec %{with}
       title: Conversation
       with: avec
+    ago: auparavant
   date:
     formats:
       month_year: "%B %Y"
