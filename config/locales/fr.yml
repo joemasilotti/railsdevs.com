@@ -182,7 +182,7 @@ fr:
         legend: Notifications de nouveaux candidats
         values:
           daily: Quotidiennes
-          "no": Jamais
+          'no': Jamais
           weekly: Hebdomadaires
       loading: Chargement...
       notifications:
@@ -194,7 +194,7 @@ fr:
       updating: Mise à jour...
       your_business_profile: Votre profil d'entreprise
     hiring_fee_component:
-      body: "Salut Joe, j'ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : "
+      body: 'Salut Joe, j''ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : '
       cta: Payer les frais d'embauche
       subject: J'ai embauché un candidat via RailsDevs
       title: Avez-vous embauché %{developer}?
@@ -260,7 +260,7 @@ fr:
       invisiblize: Rendre invisible
       title: Admin
     availability_component:
-      in_future_html: Disponible dans <time datetime="%{date}">%{date_in_words}</time> # TODO Improve this
+      in_future_html: Disponible dans <time datetime="%{date}">%{date_in_words}</time>
       now_html: Disponible maintenant
       unspecified_html: Actuellement indisponible
     badges_component:
@@ -387,10 +387,10 @@ fr:
         title: Trier
     search_status:
       actively_looking: Recherche activement un job ou une mission
-      not_interested: Pas intéressé en ce moment
-      open: Disponible, mais pas en recherche active
       actively_looking_tag: Recherche active
+      not_interested: Pas intéressé en ce moment
       not_interested_tag: Pas disponible
+      open: Disponible, mais pas en recherche active
       open_tag: Disponible
     show:
       description: Description
@@ -692,7 +692,7 @@ fr:
     billion: B
     million: M
     thousand: K
-    unit: ""
+    unit: ''
   submit_button_component:
     save: Sauvegarder
     saving: Sauvegarde...

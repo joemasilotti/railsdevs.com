@@ -43,7 +43,7 @@ fr:
       confirmation_instructions:
         action: Confirmer mon compte
         greeting: Bienvenue %{recipient} !
-        instruction: "Vous pouvez confirmer l'email de votre compte en cliquant sur le lien ci-dessous :"
+        instruction: 'Vous pouvez confirmer l''email de votre compte en cliquant sur le lien ci-dessous :'
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient} !
@@ -64,7 +64,7 @@ fr:
       unlock_instructions:
         action: Déverrouiller mon compte
         greeting: Bonjour %{recipient} !
-        instruction: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte :"
+        instruction: 'Cliquez sur le lien ci-dessous pour déverrouiller votre compte :'
         message: Votre compte a été verrouillé en raison d'un nombre excessif de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
@@ -89,7 +89,7 @@ fr:
       edit:
         are_you_sure: Etes-vous sûr ?
         cancel_my_account: Supprimer mon compte
-        currently_waiting_confirmation_for_email: "Actuellement en attente de confirmation de : %{email}"
+        currently_waiting_confirmation_for_email: 'Actuellement en attente de confirmation de : %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laissez vide si vous ne voulez pas la changer
         title: Modifier %{resource}
         unhappy: Insatisfait?
@@ -136,5 +136,5 @@ fr:
       not_found: non trouvé
       not_locked: n'était pas verrouillé
       not_saved:
-        one: "1 erreur a empêché la sauvegarde de %{resource} :"
+        one: '1 erreur a empêché la sauvegarde de %{resource} :'
         other: "%{count} erreurs ont empêché l'enregistrement de %{resource}.:"
