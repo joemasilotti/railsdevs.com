@@ -2,11 +2,13 @@
 
 ## 2022
 
-## October
+### October
 
+* October 12 - Remove manual payments and account for payments made via ACH #681
+* October 12 - Update to rails 7.0.4 #682 @kaushikhande
 * October 7 - Bring back 1x and 2x avatar variants and remove lazy image loading #680 @jkostolansky
 
-## September
+### September
 
 * September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
 * September 18 - Add badges to developer profile pages #657
@@ -21,7 +23,7 @@
 * September 8 – Update license year and note non-code usage #630
 * September 8 – Remove part-time hiring plan from pricing page #628
 
-## August
+### August
 
 * August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
 * August 27 - Fixes an issue where Safari would never load retina images #619
