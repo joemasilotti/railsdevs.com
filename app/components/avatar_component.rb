@@ -10,14 +10,14 @@ class AvatarComponent < ViewComponent::Base
     @data = data
   end
 
-  def image
-    return DEFAULT_AVATAR unless avatarable&.avatar&.attached?
-    variant ? avatarable.avatar.variant(variant) : avatarable.avatar
+  def avatar_image_url
+    return image_path(DEFAULT_AVATAR) unless avatarable&.avatar&.attached?
+    url_for variant ? avatarable.avatar.variant(variant) : avatarable.avatar
   end
 
-  def image_2x
-    return DEFAULT_AVATAR unless avatarable&.avatar&.attached?
-    variant ? avatarable.avatar.variant("#{variant}_2x".to_sym) : avatarable.avatar
+  def avatar_image_2x_url
+    return image_path(DEFAULT_AVATAR) unless avatarable&.avatar&.attached?
+    url_for variant ? avatarable.avatar.variant("#{variant}_2x".to_sym) : avatarable.avatar
   end
 
   def name

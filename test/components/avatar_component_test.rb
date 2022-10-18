@@ -17,12 +17,12 @@ class AvatarComponentTest < ViewComponent::TestCase
   end
 
   test "should render user avatar at specified variant" do
-    avatar_component = AvatarComponent.new(avatarable: @developer, variant: :thumb)
-    render_inline(avatar_component)
+    avatar_1x_url = url_for(@developer.avatar.variant(:thumb))
+    avatar_2x_url = url_for(@developer.avatar.variant(:thumb_2x))
+    render_inline(AvatarComponent.new(avatarable: @developer, variant: :thumb))
 
-    assert_instance_of ActiveStorage::VariantWithRecord, avatar_component.image
-    assert_equal [32, 32], avatar_component.image.variation.transformations[:resize_to_limit]
-    assert_equal [64, 64], avatar_component.image_2x.variation.transformations[:resize_to_limit]
+    assert_selector("picture img[src$='#{avatar_1x_url}']")
+    assert_selector("picture source[srcset$='#{avatar_2x_url}']")
   end
 
   test "should fall back to default" do
