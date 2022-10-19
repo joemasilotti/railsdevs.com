@@ -1,0 +1,708 @@
+---
+fr:
+  about:
+    show:
+      caption: fondateur de RailsDevs
+      description: Je m'appelle Joe Masilotti. J'ai créé RailsDevs pour permettre aux développeurs Ruby on Rails de trouver plus facilement leur prochain emploi.
+      readtime: 1 minute à lire
+      title: À propos
+      title_og: À propos de RailsDevs
+  activerecord:
+    attributes:
+      business:
+        company: Nom d'entreprise
+        contact_name: Votre prénom et nom
+        contact_role: Votre poste au sein de l'entreprise
+        name: Votre nom
+      developer:
+        available_on: Disponible à partir du
+        email: E-mail
+        github: Github
+        hero: Titre / Poste
+        linkedin: Linkedin
+        name: Prénom et nom
+        twitter: Twitter
+        website: Votre site ou portfolio
+      location:
+        country_code: Pays
+      role_level:
+        c_level: C-level
+        junior: Junior
+        mid: Avancé
+        principal: Management
+        senior: Senior
+      role_type:
+        full_time_contract: Prestataire à temps plein
+        full_time_employment: Emploi à temps plein
+        part_time_contract: Prestataire à temps partiel
+      user:
+        email: E-mail
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        remember_me: Se rappeler de moi
+    errors:
+      models:
+        location:
+          invalid_coordinates: ne peut pas être trouvé
+    models:
+      business:
+        one: Entreprise
+        other: Entreprises
+      developer:
+        one: Développeur
+        other: Développeurs
+      user:
+        one: Utilisateur
+        other: Utilisateurs
+  admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: Profil réglé sur invisible.
+    conversations:
+      blocks:
+        index:
+          blocked: Bloquée
+          no_blocked_conversations: Pas de conversation bloquée
+          title: Conversations bloquées
+      index:
+        business: Entreprise
+        conversations: " : conversations"
+        developer: Développeur
+        email: E-mail
+        no_potential_email: Pas d'e-mail potentiel
+        no_response: Pas de réponse
+        potential_email: E-mail potentiel
+        replied: A répondu
+        reply_rate: Taux de réponse
+        started: Démarrée
+        title: Conversations
+        view: Voir
+    developers:
+      invisiblizes:
+        create:
+          created: Profil réglé sur invisible.
+    features:
+      create:
+        created: Profil réglé sur invisible.
+    hired:
+      forms:
+        index:
+          actions: Actions
+          company: Entreprise
+          details: Details
+          developer: Développeur
+          employment_type: Type d'emploi
+          start_date: Date de démarrage
+          title: Célébration de votre nouvel emploi
+        show:
+          company_name: Nom de l'entreprise
+          employment_type: Type d'emploi
+          feedback: Commentaires
+          mailing_address: Adresse postale
+          position: Rôle
+          start_date: Date de début
+          title: Demander un pack de célébration
+    hiring_agreements:
+      terms:
+        create:
+          created: Ajout des termes de l'accord de recrutement.
+        edit:
+          activate: Activer
+          active: Actif
+          cancel: Annuler
+          deactivate: Désactiver
+          title: Accord d'embauche
+        index:
+          active: Actif
+          new: Nouvelles modalités
+          title: Conditions de l'accord d'embauche
+        new:
+          cancel: Annuler
+          title: Accord de recrutement
+        show:
+          body: Termes
+          edit: Modifier
+          title: Accord de recrutement
+        update:
+          updated: Mise à jour des termes d'embauche.
+    transactions:
+      create:
+        created: Transaction créée
+      destroy:
+        destroyed: Transaction supprimée
+      form:
+        URL: URL
+        cancel: Annuler
+        description: Les dépenses sont des services et des produits payés, tandis que les contributions sont des dons et des parrainages.
+        title: Nouvelle dépense ou contribution
+      index:
+        delete_confirmation: Êtes-vous sûr de vouloir supprimer cette transaction ?
+        title: Dépenses et contributions
+      update:
+        updated: Transaction mise à jour
+    users:
+      index:
+        business: Entreprise
+        developer: Développeur
+        email: E-mail
+        impersonate: Prendre contrôle
+        title: Utilisateurs
+      search:
+        cta: Rechercher
+        help: Filtrer les utilisateurs par nom, entreprise ou e-mail
+  blocks:
+    create:
+      notice: "%{other_recipient} est bloqué."
+    new:
+      block: Bloquer
+      cancel: Annuler
+      message: Êtes-vous sûr de vouloir signaler cette conversation et bloquer l'expéditeur ? Cela masquera la conversation et l'expéditeur ne pourra plus vous contacter.
+      title: Bloquer l'expéditeur
+  businesses:
+    admin_component:
+      invisiblize: Masquer
+      title: Admin
+    create:
+      created: Votre entreprise a été ajoutée !
+    edit:
+      title: Votre profil d'entreprise
+    expired_subscription_component:
+      cta: Passez à un compte premium pour envoyer des messages aux candidats
+      title: Votre abonnement a expiré.
+    form:
+      avatar: Le logo de votre entreprise
+      business:
+        help: Informations sur votre entreprise. C'est l'occasion de vous vendre aux candidats potentiels !
+        title: Détails de l'entreprise
+      change_avatar: Charger
+      creating: Chargement...
+      developer_notifications:
+        help_text: Recevez des notifications quotidiennes ou hebdomadaires par e-mail lorsque de nouveaux candidats ajoutent leur profil à RailsDevs.
+        legend: Notifications de nouveaux candidats
+        values:
+          daily: Quotidiennes
+          'no': Jamais
+          weekly: Hebdomadaires
+      loading: Chargement...
+      notifications:
+        title: Notifications E-mail
+      personal:
+        help: Des informations sur vous, le point de contact de votre entreprise sur RailsDevs.
+        title: Informations personnelles
+      something_went_wrong: Un problème est survenu lors du téléchargement de votre image, veuillez réessayer.
+      updating: Mise à jour...
+      your_business_profile: Votre profil d'entreprise
+    hiring_fee_component:
+      body: 'Salut Joe, j''ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : '
+      cta: Payer les frais d'embauche
+      subject: J'ai embauché un candidat via RailsDevs
+      title: Avez-vous embauché %{developer}?
+    primary_action_component:
+      edit: Modifier
+    show:
+      bio: Bio
+    subscriptions_component:
+      expires_on: Expire le
+      plan: Plan
+      status: Statut
+      title: Abonnement d'entreprise
+    update:
+      updated: Votre entreprise a été mise à jour !
+    upgrade_account_component:
+      cta: Passer à un compte premium
+      title: Requiert un abonnement premium.
+    upgrade_required_component:
+      body:
+        expired: Votre abonnement a expiré. Réactivez votre compte pour continuer à envoyer des messages aux développeurs.
+        upgrade: Avec votre plan actuel, vous ne pouvez envoyer des messages qu'aux candidats à la recherche d'un emploi à temps partiel. Mettez votre compte à niveau pour envoyer des messages à ce développeur.
+      cta:
+        expired: Réactiver mon compte
+        upgrade: Passer à un compte premium
+      details: En savoir plus sur RailsDevs premium
+      title:
+        expired: Abonnement expiré
+        upgrade: Abonnement premium requis
+    website_link_component:
+      external_link: Ouvrir dans un nouvel onglet
+  cold_messages:
+    new:
+      title: Commencer une conversation
+      with: avec
+  conversations:
+    ago: auparavant
+    index:
+      empty_state:
+        body: Commencez par trouver un développeur à qui envoyer un message.
+        cta: Trouver un développeur
+        title: Aucune conversation
+      title: Vos conversations
+    read_indicator_component:
+      read: Message lu.
+      unread: Message non lu.
+    show:
+      flag: Signaler cette conversation
+      og_title: Conversation avec %{with}
+      title: Conversation
+      with: avec
+  date:
+    formats:
+      month_year: "%B %Y"
+  developer_mailer:
+    celebration_promotion:
+      subject: Comment se passe votre conversation avec %{contact} de l'entreprise %{company}?
+    first_message:
+      subject: Conseils pour répondre à votre premier message sur RailsDevs
+  developers:
+    admin_component:
+      copy: Copier
+      feature: Mettre en avant
+      invisiblize: Rendre invisible
+      title: Admin
+    availability_component:
+      in_future_html: Disponible dans <time datetime="%{date}">%{date_in_words}</time>
+      now_html: Disponible maintenant
+      unspecified_html: Actuellement indisponible
+    badges_component:
+      featured: En vedette
+      recently_active: Actif depuis peu
+    count_component:
+      cta: Réinitialiser les filtres
+      title_html: Affichage de <span class='font-bold'>%{count}</span> sur <span class='font-bold'>%{total}</span>+ développeurs.
+    cover_image_component:
+      alt: Image de couverture du développeur
+    create:
+      created: Votre profil a été ajouté !
+    details:
+      title: Détails
+    edit:
+      title: Votre profil de développeur
+    form:
+      bio:
+        description: Expliquez en quelques paragraphes ce qui vous rend unique en tant que professionnel de la création de contenu. C'est l'occasion d'impressioner des employeurs potentiels - vendez votre savoir-faire !
+        examples:
+          accomplishment: Une étape importante de votre carrière ou un accomplissement récent
+          help: Comment vous pouvez aider là où les autres ne peuvent pas
+          learned: Une nouvelle chose que vous avez appris
+          origin: Votre histoire
+          passion: Ce qui vous passionne
+          title: Exemples
+          unique: Vos compétences uniques qui vous rendent génial
+        help_text: Les informations personnelles permettant de vous identifier seront supprimées.
+        markdown: Le format Markdown est pris en charge mais les liens et les images sont supprimés.
+        title: Bio
+      creating: Création...
+      loading: Chargement...
+      notifications:
+        profile_reminder_notifications: Rappels de profil
+        profile_reminder_notifications_help: Me rappeler périodiquement de mettre à jour mon profil.
+        title: Notifications e-mail
+      online_presence:
+        help_text: Où peut-on en apprendre davantage sur vous et votre travail ?
+        title: Présence en ligne
+      preferred_compensation:
+        description: D'après mon expérience en tant que freelance, la rémunération ne doit être discutée qu'une fois les détails du projet ou du travail connus.
+        more_info: Plus d'informations sur cette décision
+        subtitle: Les souhaits de rémunération ont été retirés de RailsDevs
+        title: Compensation souhaitée
+      profile:
+        avatar: Avatar
+        avatar_error_text: Un problème est survenu lors du téléchargement de votre image, veuillez réessayer.
+        change: Charger
+        cover_image: Image de couverture
+        help_text: Ces informations seront affichées publiquement ; faites donc attention à ce que vous partagez.
+        hero_help_text: Présentez-vous en tant que développeur en quelques mots.
+        location_help_text: Indiquer votre localisation facilite la mise en relation avec les entreprises locales.
+        name_help_text_html: Votre prénom et nom ne seront <i>pas</i> affichés sur votre profil public.
+        title: Profil
+        upload_error_text: Un problème est survenu lors du téléchargement de votre image, veuillez réessayer.
+        upload_file: Charger un fichier
+        upload_help_text: PNG, JPG, GIF jusqu'à 10MB
+      role_level:
+        help_text: Sélectionnez les niveaux d'expérience requis pour un job que vous seriez prêt à accepter.
+        title: Expérience
+      role_type:
+        help_text: Sélectionnez les types d'activité que vous recherchez.
+        title: Type d'activité
+      search_status:
+        actively_looking_help_text: Votre profil peut figurer sur la page d'accueil.
+        invisible_help_text: Votre profil est caché et ne peut être vu que par vous-même.
+        not_interested_help_text: Votre profil n'apparaîtra pas dans les résultats de recherche.
+        open_help_text: Les entreprises peuvent toujours vous trouver, mais vous n'apparaîtrez pas sur la page d'accueil.
+        title: Statut de recherche
+      title: Votre profil de développeur
+      updating: Mise à jour...
+      work_preferences:
+        help_text: Quel type de travail recherchez-vous pour la suite ?
+        title: Préférences de travail
+    index:
+      empty_state:
+        body: Essayez de changer ou d'enlever vos filtres.
+        title: Aucun résultat trouvé
+      title: Développeurs Ruby on Rails
+    invisible_banner_component:
+      cta: Modifier mon profil
+      title: Votre profil de développeur est invisible - vous seul pouvez le voir.
+    meta:
+      description: "%{count}+ développeurs Ruby on Rails à la recherche de leur prochain emploi. Allant de junior à senior, vous les trouverez tous ici."
+      freelance: freelance
+      hire: Recrutez
+      in_country: en %{country}
+      ruby_on_rails_developers: développeurs Ruby on Rails
+    new_field_component:
+      new: Nouveau!
+    new_fields_component:
+      cta: Compléter mon profil
+      title: Il vous reste encore des champs à remplir sur votre profil !
+    open_graph_tags_component:
+      turbo_native_title: Profil de développeur
+    profile_action_component:
+      add_profile: Ajouter mon profil
+      edit_profile: Modifier mon profil
+    query_component:
+      all_countries:
+        title: Tous les lieux
+      apply: Appliquer
+      clear: Effacer
+      close_menu: Fermer le menu
+      country:
+        title: Lieu
+      filters: Filtres
+      include_not_interested: Inclure les développeurs qui ne sont pas intéressés actuellement
+      paywalled_search:
+        title: La recherche requiert un compte premium
+      role_level:
+        title: Expérience
+      search_query_label: Recherche de profils
+      search_query_placeholder: Hotwire, React, Heroku, etc.
+      timezone:
+        title: Fuseau horaire
+      title: Filtres pour les candidats
+      work_preference:
+        title: Préférence de travail
+    query_sort_button_component:
+      sort:
+        availability: Disponibilité
+        newest: Le plus récent
+        title: Trier
+    search_status:
+      actively_looking: Recherche activement un job ou une mission
+      actively_looking_tag: Recherche active
+      not_interested: Pas intéressé en ce moment
+      not_interested_tag: Pas disponible
+      open: Disponible, mais pas en recherche active
+      open_tag: Disponible
+    show:
+      description: Description
+      edit: Modifier
+      hire: Recruter
+      message: Message
+      redirection: Les liens vers les profils des candidats ont changé. Veuillez mettre à jour votre favori pour %{url}.
+    update:
+      updated: Votre profil a été mis à jour !
+  dir: ltr
+  errors:
+    business_blank: Remplissez votre profil d'entreprise pour envoyer des messages aux candidats.
+    business_subscription_inactive: Souscrivez un abonnement premium pour pouvoir envoyer des messages aux candidats.
+    developer_blank: Veuillez d'abord créer un profil.
+    hiring_agreements:
+      cold_message: L'accord de recrutement a été mis à jour. Veuillez l'accepter avant d'envoyer des messages aux candidats.
+      payment: Le contrat de recrutement a été mis à jour. Veuillez l'accepter avant de vous inscrire.
+    messages:
+      attached: n'est pas joint
+      content_type_invalid: format d'image non pris en charge
+      max_file_size_invalid: image supérieure à %{size}
+    unauthorized: Vous n'avez pas accès à ça.
+  hired:
+    forms:
+      create:
+        success: Merci ! Joe vous contactera bientôt.
+      new:
+        company_name: Nom d'entreprise
+        description: Félicitations pour votre nouvel emploi !
+        feedback: Commentaires (facultatif)
+        feedback_help: N'hésitez pas à nous dire comment nous pouvons améliorer RailsDevs ou à nous faire part de tout ce que vous souhaitez partager.
+        mailing_address: Adresse postale
+        mailing_address_help: Où pouvons-nous envoyer votre colis de célébration ?
+        request_package: Demande de colis
+        requesting: Chargement...
+        title: Avez-vous trouvé un emploi grâce à RailsDevs ?
+    show:
+      description: RailsDevs offre un pack de célébration pour vous féliciter d'avoir rejoint une entreprise par le biais de la plateforme.
+      image_alt: Pack de célébration RailsDevs
+      title: Félicitations pour votre nouveau job !
+  hiring_agreements:
+    signatures:
+      create:
+        created: Accord de recrutement signé.
+      new:
+        accept: Accepter l'accord
+        accepting: Acceptation...
+        agreement: J'accepte ces conditions
+        description: Dernière mise à jour %{last_updated}
+        questions_html: Vous avez des questions ? Envoyez un e-mail au fondateur - c'est moi, Joe ! à <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
+        title: Contrat de recrutement - RailsDevs
+    terms:
+      show:
+        signed_on: Signé le %{date}
+  home:
+    show:
+      available_developers: Candidats disponibles maintenant
+      description_og: RailsDevs permet aux développeurs indépendants de trouver leur prochain emploi. Arrêtez de parcourir les sites d'offres d'emploi et attendez tranquillement que les entreprises vous contactent en premier.
+      get_started: Créer un compte
+      learn_more: En savoir plus
+      more: Voir plus de développeurs
+      subtitle_1: RailsDevs
+      subtitle_2: aide les développeurs indépendants à trouver leur prochain emploi.
+      subtitle_3: Oubliez les sites d'offres d'emploi et attendez que les entreprises vous contactent en premier.
+      title_1: Le job board inversé pour
+      title_2: les développeurs Rails
+      title_og: Le job board inversé pour les développeurs Ruby on Rails
+      turbo_native_title: RailsDevs
+  impersonating_banner_component:
+    cta: Se déconnecter
+    title: Connecté avec l'adresse %{email}
+  loading_component:
+    loading: Chargement...
+  messages:
+    form:
+      help: Ajoutez votre message
+      hiring_fee_agreement: J'accepte de payer à RailsDevs les 10 % de frais de recrutement si j'engage ce développeur pour un poste à temps plein.
+      hiring_fee_cta: Des questions?
+      sending: Envoi...
+      submit: Envoyer
+      terms: Voir tous les termes
+    message:
+      wrote: " "
+      you: Vous
+  nav_bar:
+    base_component:
+      about: À propos
+      developers: Candidats
+      home: Accueil
+      pricing: Tarif
+    guest_component:
+      register: Créer un compte
+      sign_in: Se connecter
+    user_component:
+      admin: Admin
+      billing: Facturation
+      blocked_conversations: Conversations bloquées
+      conversations: Conversations
+      found_a_job: Vous avez trouvé un emploi ?
+      get_started: Commencer
+      hired_forms: Formulaires d'embauche
+      hiring_agreement_terms: Conditions de l'accord de recrutement
+      my_business_profile: Profil d'entreprise
+      my_conversations: Conversations
+      my_developer_profile: Profil de développeur
+      new: Nouveau!
+      new_notifications: Vous avez une nouvelle notification
+      open_user_menu: Ouvrir le menu utilisateur
+      sign_out: Se déconnecter
+      transactions: Transactions
+      users: Utilisateurs
+      view_conversations: Voir conversations
+      view_notifications: Voir notifications
+  notifications:
+    admin:
+      new_business_notification:
+        email_subject: Nouvelle entreprise ajoutée
+        title: "%{business} ont ajouté leur entreprise"
+      new_conversation_notification:
+        email_subject: Nouvelle conversation lancée
+        title: "%{name} (%{company}) a commencé une conversation avec %{developer}"
+      new_developer_notification:
+        email_subject: Nouveau profil ajouté
+        title: "%{developer} a ajouté son profil de développeur"
+      new_hired_form_notification:
+        title: "%{developer} a demandé un pack de célébration"
+      potential_hire_notification:
+        email_subject: Nouvelle embauche potentielle
+        title: "%{developer} a peut-être été embauché"
+    businesses:
+      invisiblize_notification:
+        title: Votre profil RailsDevs a été signalé
+    developers:
+      invisiblize_notification:
+        title: Votre profil RailsDevs a été signalé
+      profile_reminder_notification:
+        email_subject: Est-ce que votre profil RailsDevs est à jour ?
+        title: Est-ce que votre profil de développeur est à jour ?
+      welcome_notification:
+        title: Bienvenue sur RailsDevs!
+    index:
+      cta: Voir l'historique
+      empty_state:
+        body: Vous n'avez pas de notifications non lues.
+        title: Pas de nouvelles notifications
+      mark_all_as_read: Marquer tout comme lu
+      title: Nouvelles notifications
+    new_message_notification:
+      email_subject: "%{sender} vous a envoyé un message sur RailsDevs"
+      title: "%{sender} vous a envoyé un message"
+    show:
+      notice: Notification marquée comme lue.
+  open_startup:
+    contributions:
+      index:
+        amount: Montant
+        contributions: Contributions
+        date: Date
+        description: RailsDevs contribue à hauteur de 10% de ses revenus à des communautés de développeuses et 2% de ses revenus à l'élimination du CO₂
+        external_link: Ouvrir dans un nouvel onglet
+        open_startup: Open startup
+        recipient: Recipient
+        title: Contributions de RailsDevs
+        to_co2_removal: pour l'élimination du CO₂
+        to_communities: aux communautés
+    dashboard:
+      show:
+        contributions: Contributions
+        date: Date
+        description: RailsDevs est une open startup avec des données publiques.
+        expenses: Dépenses
+        external_link: Ouvrir dans un nouvel onglet
+        mrr: MRR
+        profit: Profit
+        revenue: Chiffre d'affaires
+        title: Open startup
+        visitors: Visiteurs (30 derniers jours)
+    expenses:
+      index:
+        amount: Montant
+        date: Date
+        description: Toutes les transactions associées à RailsDevs, comme l'hébergement, les frais et les achats.
+        expenses: Dépenses
+        open_startup: Open startup
+        source: Source
+        title: Dépenses de RailsDevs
+    revenue:
+      index:
+        amount: Montant
+        date: Date
+        description: Tous le CA que RailsDevs a généré depuis son lancement en novembre 2021.
+        open_startup: Open startup
+        revenue: Chiffre d'affaires
+        source: Source
+        title: chiffre d'affaires de RailsDevs
+  policies:
+    privacy:
+      show:
+        title: Politique de confidentialité
+    terms:
+      show:
+        title: Termes et conditions
+  pricing:
+    cta:
+      cta: Commencer aujourd'hui
+      subtitle: Trouvez votre prochain coéquipier aujourd'hui.
+      title: Prêt à embaucher ?
+    faq:
+      annual:
+        a_html: Oui. Envoyez un e-mail à Joe pour mettre en place une facturation annuelle à prix réduit à l'adresse suivante <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        q: Puis-je payer annuellement ?
+      cancellation:
+        a_html: Oui. Vous pouvez annuler votre abonnement à partir du lien "Facturation" dans la liste déroulante de votre profil en haut à droite. Vous perdrez l'accès à toutes les fonctionnalités payantes à la fin de votre période de facturation.
+        q: Puis-je annuler mon abonnement à tout moment ?
+      developers:
+        a: Non. RailsDevs est gratuit pour les développeurs.
+        q: RailsDevs coûte-t-il quelque chose aux développeurs ?
+      fee:
+        a_html: Vous êtes tenu de payer des frais de recrutement correspondant à 10 % du salaire de la première année d'un développeur si vous le trouvez par l'intermédiaire de RailsDevs. Cela ne s'applique qu'à l'embauche d'employés à temps plein et non de prestataires ou de freelances. Envoyez un e-mail à Joe pour coordonner le paiement à <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        q: Comment fonctionne la commission d'embauche de 10 % ?
+      support:
+        a_html: EEnvoyez un e-mail au fondateur - c'est moi, Joe ! - pour toute question. Vous pouvez me joindre à <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        q: Qui puis-je contacter pour des questions plus spécifiques ?
+      title: Questions fréquemment posées
+    hero:
+      description: Entrez directement en contact avec des centaines de développeurs Ruby on Rails à la recherche de leur prochain emploi.
+      title: Recrutez des développeurs Ruby on Rails
+    plan:
+      description: Oubliez les offres d'emploi formelles et les intermédiaires - embauchez directement à partir d'un répertoire de développeurs Ruby on Rails, avec des niveaux d'expérience allant de junior à cadre supérieur.
+      features:
+        email_updates: Mise à jour par e-mail des nouveaux candidats
+        hand_selected_matches: Des candidats sélectionnés à la main chaque mois
+        message: Contactez des développeurs depuis RailsDevs
+        oss: Soutenir les développeurs indépendants et les logiciels libres
+        rails: Exclusivement des développeurs Ruby on Rails
+        support: Soutien par e-mail et vidéo du fondateur
+        title: Exclusivités RailsDevs premium
+      hiring_fee: "+ 10 % du salaire de la première année"
+      per_month: "/mois"
+      title_html: Pour votre 1<sup>ère</sup> embauche et au-delà
+    purchase_button:
+      title: S'abonner
+    show:
+      description: Inscrivez-vous à RailsDevs et entrez directement en contact avec des centaines de développeurs Ruby on Rails à la recherche d'un emploi ou mission à temps plein ou temps partiel.
+      title_og: Tarif
+      turbo_native_title: Recrutez des développeurs Rails
+    stats:
+      description: Des conversations organiques et authentiques avec des taux de réponse plus élevés que LinkedIn ou du cold emailing.
+      new_devs: Nouveaux candidats/mois
+      rails_developers: Développeurs Rails
+      response_rate: Taux de réponse
+      title: La plateforme d'embauche réservée aux développeurs Rails
+  read_notifications:
+    create:
+      notice: Toutes les notifications sont marquées comme lues.
+    index:
+      empty_state_body: Vous n'avez pas de notifications lues.
+      empty_state_title: Pas de notifications lues
+      title: Notifications lues
+  registrations:
+    create_account: créer un compte
+    register: S'inscrire
+    sign_up_hero: Créez votre compte
+    sign_up_html: ou %{link}
+  role_levels:
+    component:
+      interested_in_roles: Intéressé par les rôles
+  role_types:
+    component:
+      interested_in_roles: Intéressé par les rôles
+  roles:
+    new:
+      hiring_developers: Je recrute des développeurs
+      hiring_developers_help_text: Vous êtes une entreprise qui cherche à recruter un développeur Ruby on Rails à la mission, à temps partiel ou à temps plein.
+      looking_for_work: Je suis à la recherche d'un emploi ou mission
+      looking_for_work_help_text: Vous êtes un développeur Ruby on Rails à la recherche de votre prochain emploi ou mission.
+      what_brings_you_here: Qu'est-ce qui vous amène sur RailsDevs?
+  sessions:
+    sign_in: Se connecter
+    sign_in_hero: Connectez-vous à votre compte
+    sign_in_link: connectez-vous à votre compte
+    sign_in_link_html: ou %{link}
+  shared:
+    footer:
+      about: À propos
+      analytics: Analytics
+      copyright: Tous droits réservés.
+      email: Email
+      github: GitHub
+      language_name_of_locale: Français
+      masilotti_com: Masilotti.com
+      open_source: Open source
+      open_startup: Open startup
+      privacy_policy: Politique de confidentialité
+      support: Support
+      terms_and_conditions: Termes et conditions
+      twitter: Twitter
+  size:
+    billion: B
+    million: M
+    thousand: K
+    unit: ''
+  submit_button_component:
+    save: Sauvegarder
+    saving: Sauvegarde...
+  subscription_cta_component:
+    description: Abonnez vous à RailsDevs pour débloquer %{developers}+ profils des candidats.
+    title: Abonnement requis
+  users:
+    paywalled_component:
+      description: Données qui ne sont visibles qu'avec un abonnement premium.
+      title: Informations privées
+  utc_offsets:
+    component:
+      gmt: GMT

@@ -10,8 +10,10 @@ require "webmock/minitest"
 
 Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
-options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count: 5} : {}
-Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
+unless ENV["RM_INFO"] # Disable reporters for RubyMine
+  options = ENV["REPORTER"].to_s.downcase == "slow" ? {fast_fail: true, slow_count: 5} : {}
+  Minitest::Reporters.use!([Minitest::Reporters::PrideReporter.new(options)])
+end
 
 WebMock.disable_net_connect!({
   allow_localhost: true,

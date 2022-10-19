@@ -41,15 +41,12 @@ module Railsdevs
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
 
     # Permitted locales available for the application
-    config.i18n.available_locales = [:en, :es, :"zh-TW", :"pt-BR"]
+    config.i18n.available_locales = [:en, :fr, :es, :"zh-TW", :"pt-BR"]
 
     # Set default locale
     config.i18n.default_locale = :en
 
     # Use default language as fallback if translation is missing
     config.i18n.fallbacks = true
-
-    # Defer loading of images until it reaches a calculated distance from the viewport
-    config.action_view.image_loading = "lazy"
   end
 end

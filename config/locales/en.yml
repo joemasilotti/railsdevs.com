@@ -230,6 +230,7 @@ en:
       title: Start a conversation
       with: with
   conversations:
+    ago: ago
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -386,8 +387,11 @@ en:
         title: Sort
     search_status:
       actively_looking: Actively looking for work
+      actively_looking_tag: Actively looking
       not_interested: Not interested in work right now
+      not_interested_tag: Not interested
       open: Open, but not actively looking
+      open_tag: Open
     show:
       description: Description
       edit: Edit
