@@ -57,9 +57,13 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true, paywalled: {user: user}) %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: collapse_location?) do |c| %>
+              <%= c.cta do %>
+                <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small) %>
+              <% end %>
+            <% end %>
           </h3>
-          <div id="top-countries-filter-section"<%= toggle_target_attribute %> class="hidden pt-6">
+          <%= tag.div id: "location-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_location?] do %>
             <div class="space-y-6">
               <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
@@ -86,14 +90,18 @@
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true, paywalled: {user: user}) %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: collapse_location?) do |c| %>
+              <%= c.cta do %>
+                <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small) %>
+              <% end %>
+            <% end %>
           </h3>
-          <div id="timezone-filter-section"<%= toggle_target_attribute %> class="hidden pt-6">
+          <%= tag.div id: "timezone-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_timezone?] do %>
             <div class="space-y-6">
               <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
@@ -102,7 +110,7 @@
                 </div>
               <% end %>
             </div>
-          </div>
+          <% end %>
         </div>
 
         <div class="border-t border-gray-200 px-4 py-6">
