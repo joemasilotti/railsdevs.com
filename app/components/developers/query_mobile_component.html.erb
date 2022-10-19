@@ -61,7 +61,7 @@
               <%= c.cta user: user %>
             <% end %>
           </h3>
-          <%= tag.div id: "location-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_location?] do %>
+          <div id="top-countries-filter-section" data-toggle-target="<%= toggle_target %>" class="hidden pt-6">
             <div class="space-y-6">
               <%= form.collection_check_boxes(:countries, top_countries, :first, :last, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-          <% end %>
+          </div>
         </div>
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
@@ -97,7 +97,7 @@
               <%= c.cta user: user %>
             <% end %>
           </h3>
-          <%= tag.div id: "timezone-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_timezone?] do %>
+          <div id="timezone-filter-section" data-toggle-target="<%= toggle_target %>" class="hidden pt-6">
             <div class="space-y-6">
               <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
                 <div class="flex items-center">
@@ -106,7 +106,7 @@
                 </div>
               <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
 
         <div class="border-t border-gray-200 px-4 py-6">
