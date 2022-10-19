@@ -1,5 +1,5 @@
 class CollapseControlComponent < ApplicationComponent
-  renders_one :cta, -> (user:) do
+  renders_one :cta, ->(user:) do
     Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small)
   end
 
