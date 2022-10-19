@@ -58,9 +58,7 @@
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".country.title"), collapsed: collapse_location?) do |c| %>
-            <%= c.cta do %>
-              <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small) %>
-            <% end %>
+            <%= c.cta user: user %>
           <% end %>
         </h3>
         <%= tag.div id: "location-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_location?] do %>
@@ -98,9 +96,7 @@
       <div class="border-t border-gray-200 py-6">
         <h3 class="-mx-2 -my-3 flow-root">
           <%= render CollapseControlComponent.new(t(".timezone.title"), collapsed: collapse_timezone?) do |c| %>
-            <%= c.cta do %>
-              <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small) %>
-            <% end %>
+            <%= c.cta user: user %>
           <% end %>
         </h3>
         <%= tag.div id: "timezone-accordion", "data-toggle-target": toggle_target, class: [hidden: collapse_timezone?] do %>
