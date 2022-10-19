@@ -2,7 +2,14 @@
 
 ## 2022
 
-## September
+### October
+
+* October 19 - Upgrade to Turbo 7.2.2 #683 @sarvaiyanidhi
+* October 12 - Remove manual payments and account for payments made via ACH #681
+* October 12 - Update to rails 7.0.4 #682 @kaushikhande
+* October 7 - Bring back 1x and 2x avatar variants and remove lazy image loading #680 @jkostolansky
+
+### September
 
 * September 22  - Display developer private information with publicly shared URL #646 @sarvaiyanidhi
 * September 21 - Only show page 1 of search results to non-subscribers #661 @mansakondo
@@ -15,10 +22,10 @@
 * September 13 - Impersonate users directly from `/admin/users` #627 @KarlHeitmann
 * September 13 - Move developer bio to own card in form and add more instructions #635 @rayhanw
 * September 8 - Send admins a notification when a `Hired::Form` is created #614 @sarvaiyanidhi
-* September 8 – Update license year and note non-code usage #630
-* September 8 – Remove part-time hiring plan from pricing page #628
+* September 8 – Update license year and note non-code usage #630
+* September 8 – Remove part-time hiring plan from pricing page #628
 
-## August
+### August
 
 * August 27 - Add a URL to Admin::SubscriptionChangeNotification #612
 * August 27 - Fixes an issue where Safari would never load retina images #619

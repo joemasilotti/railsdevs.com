@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
-gem "rails", "~> 7.0.3.1"
+gem "rails", "~> 7.0.4"
 
 gem "cssbundling-rails", "~> 1.0"
 gem "hotwire-rails", "~> 0.1"
@@ -12,7 +12,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.6"
 gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
-gem "turbo-rails", "~> 1.0"
+gem "turbo-rails", "~> 1.3.1"
 gem "view_component", "~> 2.69"
 
 group :development, :test do
