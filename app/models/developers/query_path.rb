@@ -2,7 +2,7 @@ module Developers
   class QueryPath
     include UrlHelpersWithDefaultUrlOptions
 
-    attr_accessor :paywalled_search_results
+    private attr_reader :paywalled_search_results
 
     def initialize
       @paywalled_search_results = Feature.enabled?(:paywalled_search_results)
