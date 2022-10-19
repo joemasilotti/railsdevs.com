@@ -23,8 +23,8 @@ module Users
       @size == :large
     end
 
-    def smallest?
-      @size == :smallest
+    def extra_small?
+      @size == :extra_small
     end
 
     def title

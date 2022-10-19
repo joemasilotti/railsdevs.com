@@ -15,7 +15,7 @@
       <span class="mt-2 block text-sm text-gray-500"><%= description %></span>
     <% end %>
   </div>
-<% elsif smallest? %>
+<% elsif extra_small? %>
   <%= link_to pricing_path, class: "group flex items-center bg-gray-50 max-w-sm border border-gray-300 hover:border-gray-400 border-dashed rounded-lg p-1.5 px-2.5" do %>
     <%= inline_svg_tag "icons/solid/lock_closed.svg", class: "h-4 w-4 text-gray-400 group-hover:hidden", aria_hidden: true %>
     <%= inline_svg_tag "icons/solid/lock_open.svg", class: "h-4 w-4 text-gray-500 rotate-[-8deg] transition hidden group-hover:block", title: "You need a paid subscription to unlock this feature", aria_hidden: true %>
