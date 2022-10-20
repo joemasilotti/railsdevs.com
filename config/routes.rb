@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       resources :messages, only: %i[new create], controller: :cold_messages
     end
 
-    get 'developers/:id/:key', to: 'developers#show', as: :developer_public
+    get "developers/:id/:key", to: "developers#show", as: :developer_public
 
     resource :hired, only: :show, controller: :hired do
       resources :forms, only: [:new, :create], module: :hired

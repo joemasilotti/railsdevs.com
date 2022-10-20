@@ -65,6 +65,7 @@ module Users
       render_inline(PaywalledComponent.new(user:, paywalled: developer, size: :large, public_key: "randomkey")) { "Test text" }
       assert_text I18n.t("users.paywalled_component.title")
       assert_text I18n.t("users.paywalled_component.description")
+      assert_no_text "Test text"
     end
   end
 end
