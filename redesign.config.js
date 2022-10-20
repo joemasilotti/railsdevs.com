@@ -20,10 +20,40 @@ module.exports = {
   ],
 
   theme: {
-    extend: {
-      colors: {
-        red: colors.rose,
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      gray: colors.neutral,
+      white: colors.white,
+      navy: {
+        DEFAULT: "#141B2F",
+        mid: "#898D97",
+        lightest: "#E7E8EA"
       },
+      salmon: {
+        dark: "#E71A04",
+        DEFAULT: "#FC6250",
+        mid: "#FEB1A7",
+        light: "#FFE7E5",
+        lighest: "#FFF7F6"
+      },
+      teal: {
+        dark: "#18766F",
+        DEFAULT: "#1E9188",
+        mid: "#8EC8C3",
+        lightest: "#E8F4F3"
+      },
+      green: {
+        dark: "#3B6039",
+        DEFAULT: "#80CB7B",
+        mid: "#BFE5BD",
+        lightest: "#DFF2DE"
+      },
+      typography: {
+        DEFAULT: "#333333"
+      }
+    },
+    extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         serif: ["Merriweather", "serif"],
