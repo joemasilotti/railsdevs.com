@@ -25,8 +25,8 @@
     <% end %>
   <% end %>
 
-  <%= render Users::PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>  
-    <%= render RenderableComponent.new("space-y-3 pt-4") do %> 
+  <%= render Users::PaywalledComponent.new(user: current_user, paywalled: developer, size: :large) do %>
+    <%= render RenderableComponent.new("space-y-3 pt-4") do %>
       <%= render TechStackComponent.new(developer.tech_stack) %>
     <% end %>
   <% end %>

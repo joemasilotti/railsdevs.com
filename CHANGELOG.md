@@ -4,6 +4,7 @@
 
 ### October
 
+* October 20 - Add "Tech Stack" to your developer profile
 * October 19 - Upgrade to Turbo 7.2.2 #683 @sarvaiyanidhi
 * October 12 - Remove manual payments and account for payments made via ACH #681
 * October 12 - Update to rails 7.0.4 #682 @kaushikhande

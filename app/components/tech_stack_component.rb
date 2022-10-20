@@ -9,7 +9,5 @@ class TechStackComponent < ApplicationComponent
     @body.present?
   end
 
-  def body
-    @body
-  end
+  attr_reader :body
 end
