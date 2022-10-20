@@ -180,15 +180,4 @@ class DeveloperQueryTest < ActiveSupport::TestCase
 
     refute records.any?
   end
-
-  test "default items per page" do
-    query = DeveloperQuery.new
-    assert_equal DeveloperQuery::DEFAULT_ITEMS_PER_PAGE, query.send(:items_per_page)
-  end
-
-  test "custom items per page" do
-    items_per_page = 23
-    query = DeveloperQuery.new(items_per_page: 23)
-    assert_equal items_per_page, query.send(:items_per_page)
-  end
 end

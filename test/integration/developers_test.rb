@@ -5,6 +5,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   include MetaTagsHelper
   include NotificationsHelper
   include PagyHelper
+  include StubHelper
 
   test "can view developer profiles" do
     get developers_path
@@ -146,11 +147,11 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   test "paginating filtered developers respects the filters" do
     developers(:prospect).update!(available_on: Date.yesterday, search_status: :open)
 
-    with_pagy_default_items(1) do
-      get developers_path(sort: :availability, items_per_page: 1)
+    stub_const(DeveloperQuery, :DEFAULT_ITEMS_PER_PAGE, 1) do
+      get developers_path(sort: :availability)
       assert_select "#developers h2", count: 1
       assert_select "#mobile-filters h2", count: 1
-      assert_select "a[href=?]", "/developers?items_per_page=1&sort=availability&page=2"
+      assert_select "a[href=?]", "/developers?sort=availability&page=2"
     end
   end
 
