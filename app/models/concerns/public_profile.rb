@@ -7,7 +7,7 @@ module PublicProfile
 
   def share_url
     update_public_profile_key if public_profile_key.blank?
-    polymorphic_url(self, key: public_profile_key)
+    developer_public_url(self, public_profile_key)
   end
 
   def valid_public_profile_access?(resource, profile_key)
