@@ -35,5 +35,14 @@ module Developers
       render_inline PrimaryActionComponent.new(user:, developer:, business:)
       assert_text "Message"
     end
+
+    test "renders Share button to owner of profile" do
+      render_inline PrimaryActionComponent.new(user: nil, developer: @developer, business: nil)
+      refute_text "Share"
+
+      user = users(:developer)
+      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil)
+      assert_text "Share"
+    end
   end
 end

@@ -49,5 +49,23 @@ module Users
       assert_text I18n.t("users.paywalled_component.title")
       assert_text I18n.t("users.paywalled_component.description")
     end
+
+    test "should show paywall content if valid profile access key" do
+      user = users(:business)
+      developer = developers(:one)
+      developer.share_url
+      render_inline(PaywalledComponent.new(user:, paywalled: developer, size: :large, public_key: developer.public_profile_key)) { "Test text" }
+      assert_text "Test text"
+    end
+
+    test "should show small CTA if profile access key does not match" do
+      user = users(:business)
+      developer = developers(:one)
+      developer.share_url
+      render_inline(PaywalledComponent.new(user:, paywalled: developer, size: :large, public_key: "randomkey")) { "Test text" }
+      assert_text I18n.t("users.paywalled_component.title")
+      assert_text I18n.t("users.paywalled_component.description")
+      assert_no_text "Test text"
+    end
   end
 end

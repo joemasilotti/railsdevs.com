@@ -15,5 +15,9 @@ module Developers
     def conversation
       Conversation.find_by(developer:, business:)
     end
+
+    def share_url
+      developer.share_url
+    end
   end
 end

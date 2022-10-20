@@ -43,6 +43,7 @@ class DevelopersController < ApplicationController
   def show
     finder = Developers::Finder.new(id: params[:id])
     @developer = finder.developer
+    @public_key = params[:key]
 
     if finder.should_redirect?
       redirect_to @developer, status: 302, notice: t(".redirection", url: developer_url(@developer))

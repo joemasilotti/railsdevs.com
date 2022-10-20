@@ -111,6 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_145250) do
     t.datetime "featured_at"
     t.boolean "profile_reminder_notifications", default: true
     t.string "stack_overflow"
+    t.string "public_profile_key"
+    t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
