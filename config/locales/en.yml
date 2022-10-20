@@ -300,9 +300,6 @@ en:
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
-      tech_stack:
-        help_text: Which Ruby, Rails, Javascript, Database, Devops, etc technologies are you familiar with?
-        title: Tech Stack
       preferred_compensation:
         description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
         more_info: More info on this decision
@@ -333,6 +330,9 @@ en:
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
+      tech_stack:
+        help_text: Which Ruby, Rails, Javascript, Database, Devops, etc technologies are you familiar with?
+        title: Tech Stack
       title: Your developer profile
       updating: Updating...
       work_preferences:

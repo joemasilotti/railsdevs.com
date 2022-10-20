@@ -300,9 +300,6 @@ fr:
       online_presence:
         help_text: Où peut-on en apprendre davantage sur vous et votre travail ?
         title: Présence en ligne
-      tech_stack:
-        help_text: Quelles technologies Ruby, Rails, Javascript, Database, Devops, etc. connaissez-vous ? 
-        title: Pile technologique
       preferred_compensation:
         description: D'après mon expérience en tant que freelance, la rémunération ne doit être discutée qu'une fois les détails du projet ou du travail connus.
         more_info: Plus d'informations sur cette décision
@@ -333,6 +330,9 @@ fr:
         not_interested_help_text: Votre profil n'apparaîtra pas dans les résultats de recherche.
         open_help_text: Les entreprises peuvent toujours vous trouver, mais vous n'apparaîtrez pas sur la page d'accueil.
         title: Statut de recherche
+      tech_stack:
+        help_text: Quelles technologies Ruby, Rails, Javascript, Database, Devops, etc. connaissez-vous ?
+        title: Pile technologique
       title: Votre profil de développeur
       updating: Mise à jour...
       work_preferences:
