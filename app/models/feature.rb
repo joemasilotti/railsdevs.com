@@ -5,6 +5,8 @@ class Feature
       !Rails.env.production?
     when :paywalled_search_results
       !Rails.env.production?
+    when :redesign
+      false
     end
   end
 end
