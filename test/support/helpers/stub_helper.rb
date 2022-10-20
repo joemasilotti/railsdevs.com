@@ -13,7 +13,6 @@ module StubHelper
       silence_warnings { object.send(:const_set, name, val) }
 
       yield
-
     ensure
       if original_values.key?(name)
         silence_warnings { object.send(:const_set, name, original_values[name]) }
