@@ -6,7 +6,7 @@ class Feature
     when :paywalled_search_results
       !Rails.env.production?
     when :redesign
-      false
+      ENV.fetch("REDESIGN", false)
     end
   end
 end
