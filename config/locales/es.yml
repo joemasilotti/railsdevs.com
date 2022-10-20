@@ -117,6 +117,9 @@ es:
       online_presence:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
         title: Presencia en línea
+      tech_stack:
+        help_text: ¿Con qué tecnologías Ruby, Rails, Javascript, Database, Devops, etc. está familiarizado?
+        title: Pila de tecnología
       preferred_compensation:
         description: Desde mi experiencia como freelancer, la remuneración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
         more_info: Más información sobre esta decisión

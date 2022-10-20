@@ -87,6 +87,7 @@ class DevelopersController < ApplicationController
       :search_status,
       :search_query,
       :profile_reminder_notifications,
+      :tech_stack,
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES
