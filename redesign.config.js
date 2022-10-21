@@ -53,11 +53,12 @@ module.exports = {
         DEFAULT: "#333333"
       }
     },
+    fontFamily: {
+      sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
+      mono: ["Source Code Pro", "serif"],
+      heading: ["Poppins", ...defaultTheme.fontFamily.sans]
+    },
     extend: {
-      fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        serif: ["Merriweather", "serif"],
-      },
       animation: {
         "reverse-spin": "reverse-spin 1.5s linear infinite"
       },

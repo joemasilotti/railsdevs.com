@@ -3,8 +3,14 @@ module ApplicationHelper
     super if Rails.env.development?
   end
 
-  def stylesheet_design_tag
-    stylesheet = Feature.enabled?(:redesign) ? "redesign" : "application"
-    stylesheet_link_tag stylesheet, media: "all", "data-turbo-track": "reload"
+  def stylesheet_link_tags
+    stylesheets =
+      if Feature.enabled?(:redesign)
+        ["redesign", "fonts"]
+      else
+        ["application", "inter"]
+      end
+
+    stylesheet_link_tag(*stylesheets, media: "all", "data-turbo-track": "reload")
   end
 end
