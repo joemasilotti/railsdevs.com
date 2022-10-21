@@ -66,6 +66,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "viewing a profile with a public key (valid or not) doesn't get tracked" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_select "#ignorePageView", count: 0
+
+    get developer_path(developer, key: "some-key")
+    assert_select "#ignorePageView"
+  end
+
   test "developers are sorted newest first" do
     create_developer(hero: "Oldest")
     create_developer(hero: "Newest")

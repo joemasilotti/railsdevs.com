@@ -9,6 +9,9 @@ application.register("accessibility", AccessibilityController)
 import Analytics__EventsController from "./analytics/events_controller.js"
 application.register("analytics--events", Analytics__EventsController)
 
+import Analytics__PageViewsController from "./analytics/page_views_controller.js"
+application.register("analytics--page-views", Analytics__PageViewsController)
+
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 

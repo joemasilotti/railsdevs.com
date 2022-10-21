@@ -1,5 +1,7 @@
 <%= open_graph_tags component: Developers::OpenGraphTagsComponent, developer: @developer %>
 
+<%= tag.meta id: "ignorePageView" if @public_key.present? %>
+
 <div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
   <%= render Developers::CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 
