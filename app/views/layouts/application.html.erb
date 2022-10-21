@@ -10,7 +10,8 @@
     <%= render "shared/favicon_tags" %>
     <%= render AlternateLinksComponent.new %>
 
-    <%= stylesheet_link_tag "fonts", "application", media: "all", "data-turbo-track": "reload" %>
+    <%= stylesheet_design_tag %>
+    <%= stylesheet_link_tag "fonts", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= analytics_tag %>
