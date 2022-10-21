@@ -13,7 +13,7 @@
 
         <div class="mx-4 pb-4">
           <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
-          <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
+          <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
               <%= form.text_field :search_query, value: search_query, placeholder: t("developers.query_component.search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           <% end %>
         </div>

@@ -1,8 +1,10 @@
 module Users
   class PaywalledComponent < ApplicationComponent
-    def initialize(user:, paywalled:, size: nil, title: nil, description: nil, public_key: nil)
+    private attr_reader :user, :resource, :public_key
+
+    def initialize(user, resource, size: nil, title: nil, description: nil, public_key: nil)
       @user = user
-      @paywalled = paywalled
+      @resource = resource
       @size = size
       @title = title
       @description = description
@@ -10,7 +12,7 @@ module Users
     end
 
     def render_content?
-      customer? || owner? || valid_public_profile_access?
+      Users::Permission.new(user, resource, public_key:).authorized?
     end
 
     def small?
@@ -27,20 +29,6 @@ module Users
 
     def description
       @description || t(".description")
-    end
-
-    private
-
-    def customer?
-      @user&.permissions&.active_subscription?
-    end
-
-    def owner?
-      @paywalled&.user == @user && @user.present?
-    end
-
-    def valid_public_profile_access?
-      @paywalled&.valid_public_profile_access?(@paywalled, @public_key)
     end
   end
 end

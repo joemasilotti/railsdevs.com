@@ -5,6 +5,7 @@ one:
   hero: Developer number one
   bio: I am the first developer.
   search_status: actively_looking
+  public_profile_key: abc123
 
 prospect:
   user: prospect_developer
