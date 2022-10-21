@@ -58,6 +58,15 @@ module.exports = {
       mono: ["Source Code Pro", "serif"],
       heading: ["Poppins", ...defaultTheme.fontFamily.sans]
     },
+    fontSize: {
+      "xs": ["12px", "18px"],
+      "base": ["16px", "24px"],
+      "xl": ["20px", "30px"],
+      "2xl": ["24px", "36px"],
+      "3xl": ["30px", "45px"],
+      "4xl": ["36px", "54px"],
+      "5xl": ["54px", "81px"]
+    },
     extend: {
       animation: {
         "reverse-spin": "reverse-spin 1.5s linear infinite"
