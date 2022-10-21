@@ -10,8 +10,8 @@ module PublicProfile
     developer_public_url(self, public_profile_key)
   end
 
-  def valid_public_profile_access?(resource, profile_key)
-    resource&.public_profile_key.present? && resource.public_profile_key == profile_key
+  def valid_public_profile_access?(profile_key)
+    public_profile_key.present? && public_profile_key == profile_key
   end
 
   private

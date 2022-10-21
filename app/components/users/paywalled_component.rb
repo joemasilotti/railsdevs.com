@@ -40,7 +40,7 @@ module Users
     end
 
     def valid_public_profile_access?
-      @paywalled&.valid_public_profile_access?(@paywalled, @public_key)
+      @paywalled&.valid_public_profile_access?(@public_key)
     end
   end
 end

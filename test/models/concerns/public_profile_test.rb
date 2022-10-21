@@ -15,11 +15,11 @@ class PublicProfileTest < ActiveSupport::TestCase
   test "Should return true if valid public profile key" do
     public_profile_key = SecureRandom.hex(4)
     @developer.update!(public_profile_key: public_profile_key)
-    assert @developer.valid_public_profile_access?(@developer, public_profile_key)
+    assert @developer.valid_public_profile_access?(public_profile_key)
   end
 
   test "Should return false if public profile key does not match" do
     public_profile_key = SecureRandom.hex(4)
-    refute @developer.valid_public_profile_access?(@developer, public_profile_key)
+    refute @developer.valid_public_profile_access?(public_profile_key)
   end
 end
