@@ -2,8 +2,7 @@ require "test_helper"
 
 class Developers::QueryPathTest < ActiveSupport::TestCase
   test "generates unique URL paths for combinations of role levels, location, and freelance" do
-    query_path = Developers::QueryPath.new
-    query_path.instance_variable_set(:@paywalled_search_results, false)
+    query_path = Developers::QueryPath.new(paywalled_search_results: false)
 
     paths = query_path.all
 

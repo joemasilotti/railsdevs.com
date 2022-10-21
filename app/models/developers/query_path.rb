@@ -4,8 +4,8 @@ module Developers
 
     private attr_reader :paywalled_search_results
 
-    def initialize
-      @paywalled_search_results = Feature.enabled?(:paywalled_search_results)
+    def initialize(paywalled_search_results: Feature.enabled?(:paywalled_search_results))
+      @paywalled_search_results = paywalled_search_results
     end
 
     def self.all
