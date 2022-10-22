@@ -1,8 +1,4 @@
 class CollapseControlComponent < ApplicationComponent
-  renders_one :cta, ->(user:) do
-    Users::PaywalledComponent.new(user: user, paywalled: nil, size: :extra_small)
-  end
-
   attr_reader :title
 
   def initialize(title, collapsed: false, subcomponent: false)
@@ -27,9 +23,5 @@ class CollapseControlComponent < ApplicationComponent
 
   def subcomponent?
     !!@subcomponent
-  end
-
-  def render_content?
-    !cta? || cta&.render_content?
   end
 end
