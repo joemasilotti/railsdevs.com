@@ -1,8 +1,6 @@
-@config "./../../../redesign.config.js";
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "tailwindcss/overrides";
+@import "./tailwindcss/overrides.css";
 
-@import "components/pagy";
+@import "./components/pagy.css";
