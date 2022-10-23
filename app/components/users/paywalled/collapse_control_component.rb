@@ -1,5 +1,11 @@
-class Users::Paywalled::CollapseControlComponent < CollapseControlComponent
-  renders_one :cta, ->(user:) do
-    Users::PaywalledComponent.new(user, nil, size: :extra_small)
+module Users
+  module Paywalled
+    class CollapseControlComponent < ApplicationComponent
+      attr_reader :title
+
+      def initialize(title)
+        @title = title
+      end
+    end
   end
 end

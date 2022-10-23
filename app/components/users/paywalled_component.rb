@@ -1,5 +1,7 @@
 module Users
   class PaywalledComponent < ApplicationComponent
+    renders_one :custom_paywall
+
     private attr_reader :user, :resource, :public_key
 
     def initialize(user, resource, size: nil, title: nil, description: nil, public_key: nil)
@@ -21,10 +23,6 @@ module Users
 
     def large?
       @size == :large
-    end
-
-    def extra_small?
-      @size == :extra_small
     end
 
     def title

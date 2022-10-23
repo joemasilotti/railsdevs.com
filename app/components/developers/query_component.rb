@@ -82,9 +82,5 @@ module Developers
     def customer?
       user&.permissions&.active_subscription?
     end
-
-    def toggle_target
-      "element" if Feature.enabled?(:paywalled_search_results) && customer?
-    end
   end
 end

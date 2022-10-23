@@ -1,13 +1,8 @@
-<div class="flex items-center">
-  <%= tag.button type: "button", data: {action: "toggle#toggle accessibility#toggleAriaExpanded", accessibility_target: "button"}, "aria-expanded": !collapsed?, class: "px-2 py-3 w-full flex items-center justify-between text-gray-400 hover:text-gray-500 text-sm" do %>
-    <%= tag.span title, class: ["font-medium text-gray-900", "text-xs": subcomponent?] %>
-    <% if cta.render_content? %>
-      <span class="ml-6 flex items-center">
-        <%= inline_svg_tag "icons/solid/minus_sm.svg", class: minus_icon_class, data: {"toggle-target": "element"}, title: "Open menu" %>
-        <%= inline_svg_tag "icons/solid/plus_sm.svg", class: plus_icon_class, data: {"toggle-target": "element"}, title: "Close menu" %>
-      </span>
-    <% end %>
-  <% end %>
+<div class="px-2 py-3 w-full flex items-center justify-between text-sm">
+  <span class="font-medium text-gray-900"><%= title %></span>
 
-  <%= cta %>
+  <%= link_to pricing_path, class: "group flex items-center bg-gray-50 max-w-sm border border-gray-300 hover:border-gray-400 border-dashed rounded-lg p-1.5 px-2.5" do %>
+    <%= inline_svg_tag "icons/solid/lock_closed.svg", class: "h-4 w-4 text-gray-400 group-hover:hidden", aria_hidden: true %>
+    <%= inline_svg_tag "icons/solid/lock_open.svg", class: "h-4 w-4 text-gray-500 rotate-[-8deg] transition hidden group-hover:block", title: "You need a paid subscription to unlock this feature", aria_hidden: true %>
+  <% end %>
 </div>
