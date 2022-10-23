@@ -704,6 +704,9 @@ en:
     paywalled_component:
       description: Information that is only visible with a business subscription.
       title: Private information
+    paywalled:
+      collapse_control_component:
+        title: You need a paid subscription to unlock this feature.
   utc_offsets:
     component:
       gmt: GMT
