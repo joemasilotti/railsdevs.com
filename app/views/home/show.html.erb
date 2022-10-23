@@ -1,22 +1,26 @@
 <%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".turbo_native_title"), description: t(".description_og") %>
 
-<div class="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
-  <div class="text-center">
-    <h1 class="text-3xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
-      <span class="block text-gray-600"><%= t(".title_1") %></span>
-      <span class="block text-gray-800"><%= t(".title_2") %></span>
-    </h1>
-    <p class="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-      <%= t(".subtitle_1") %>
-      <span><%= t(".subtitle_2") %></span>
-      <span class="md:block"><%= t(".subtitle_3") %></span>
-    </p>
-    <div class="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-      <div class="rounded-md shadow">
-        <%= link_to t(".get_started"), new_role_path, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 md:py-4 md:text-lg md:px-10" %>
-      </div>
-      <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-        <%= link_to t(".learn_more"), about_path, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10" %>
+<div class="bg-navy">
+  <div class="flex items-start justify-center max-w-6xl mx-auto px-8 py-32 -mt-24 bg-gradient-radial from-navy-gradient via-navy to-navy sm:-mt-36 sm:pt-48">
+    <div class="hidden flex-shrink-0 h-80 w-80 bg-gray-300 lg:block xl:h-86 xl:w-86"></div>
+    <div class="lg:ml-16 xl:ml-28">
+      <h1 class="text-3xl tracking-tight font-heading text-white lg:text-4xl xl:text-5xl">
+        <%= t(".title_1") %>
+        <span class="text-teal"><%= t(".title_accent") %></span>
+        <%= t(".title_2") %>
+      </h1>
+      <p class="mt-3 text-sm text-white font-light leading-8 md:text-base md:mt-5">
+        <%= t(".subtitle_1") %>
+        <span><%= t(".subtitle_2") %></span>
+        <span class="md:block"><%= t(".subtitle_3") %></span>
+      </p>
+      <div class="mt-5 md:mt-8">
+        <div class="rounded-md shadow">
+          <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading text-typography text-lg bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+            <%= t(".get_started") %>
+            <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

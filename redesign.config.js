@@ -27,6 +27,7 @@ module.exports = {
       white: colors.white,
       navy: {
         DEFAULT: "#141B2F",
+        gradient: "#2C3244",
         mid: "#898D97",
         lightest: "#E7E8EA"
       },
@@ -78,6 +79,9 @@ module.exports = {
             transform: "rotate(360deg)"
           },
         },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
