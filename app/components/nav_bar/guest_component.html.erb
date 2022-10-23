@@ -1,12 +1,12 @@
 <div class="min-h-full">
-  <%= tag.nav data: {controller: "toggle", "toggle-visibility-class": "hidden", action: "toggle-nav-bar@window->toggle#toggle"}, class: "bg-gray-800 #{"fixed top-0 left-0 right-0 z-50" if helpers.turbo_native_app?}" do %>
+  <%= tag.nav data: {controller: "toggle", "toggle-visibility-class": "hidden", action: "toggle-nav-bar@window->toggle#toggle"}, class: "bg-navy #{"fixed top-0 left-0 right-0 z-50" if helpers.turbo_native_app?}" do %>
     <% unless helpers.turbo_native_app? %>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
+        <div class="flex items-center justify-between h-28">
           <div class="flex items-center">
             <!-- Logo -->
             <div class="flex-shrink-0">
-              <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current hover:text-white" do %>
+              <%= link_to root_path, class: "shrink-0 flex items-center text-white fill-current" do %>
                 <span class="sr-only">RailsDevs</span>
                 <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo", title: "RailsDevs logo" %>
               <% end %>
@@ -14,9 +14,9 @@
 
             <!-- Navigation links -->
             <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
+              <div class="ml-16 flex items-baseline space-x-12">
                 <% links.each do |link| %>
-                  <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                  <%= helpers.link_to_active link.title, link.path, active_class: "border-salmon", class: "text-gray-300 border-b border-transparent py-1 hover:border-salmon hover:text-white" %>
                 <% end %>
               </div>
             </div>
@@ -24,16 +24,16 @@
 
           <!-- Desktop nav bar -->
           <div class="hidden md:block">
-            <div class="ml-4 flex items-center md:ml-6 space-x-4">
-              <%= link_to t(".sign_in"), new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <div class="ml-4 flex items-center md:ml-6 space-x-12">
+              <%= link_to t(".sign_in"), new_user_session_path, class: "text-gray-300 border-b border-transparent py-1 hover:border-salmon hover:text-white" %>
 
-              <%= link_to t(".register"), new_user_registration_path, class: "relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
+              <%= link_to t(".register"), new_user_registration_path, class: "relative inline-flex items-center px-8 py-3 text-typography bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" %>
             </div>
           </div>
 
           <div class="-mr-2 flex items-center md:hidden">
             <!-- Mobile menu button -->
-            <button type="button" data-action="toggle#toggle" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+            <button type="button" data-action="toggle#toggle" class="bg-navy inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
               <span data-toggle-target="element">
                 <span class="sr-only">Open main menu</span>
                 <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6", aria_hidden: true %>
@@ -54,15 +54,15 @@
       <!-- Navigation links -->
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <% links.each do |link| %>
-          <%= helpers.link_to_active link.title, link.path, "data-turbo-action": "replace", active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
+          <%= helpers.link_to_active link.title, link.path, "data-turbo-action": "replace", active_class: "text-white", class: "text-white block px-3 py-2 rounded-md text-base font-medium" %>
         <% end %>
 
         <div class="pt-2">
-          <div class="border-t border-gray-500 pt-6 pb-2">
-            <%= link_to t(".register"), new_user_registration_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-gray-500" %>
-            <%= link_to new_user_session_path, class: "block mt-4 text-center text-gray-300 group" do %>
+          <div class="border-t border-navy-mid pt-6 pb-2">
+            <%= link_to t(".register"), new_user_registration_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 bg-green font-medium rounded-md text-typography focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" %>
+            <%= link_to new_user_session_path, class: "block mt-4 text-center text-white group" do %>
               Have an account?
-              <span class="text-white font-medium group-hover:text-gray-500"><%= t(".sign_in") %></span>
+              <span class="text-green underline font-semibold"><%= t(".sign_in") %></span>
             <% end %>
           </div>
         </div>
