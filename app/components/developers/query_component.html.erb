@@ -62,7 +62,7 @@
               <%= render Users::Paywalled::CollapseControlComponent.new(t(".country.title")) %>
             <% end %>
 
-            <%= render CollapseControlComponent.new(t(".country.title"), collapsed: collapse_timezone?) %>
+            <%= render CollapseControlComponent.new(t(".country.title"), collapsed: collapse_location?) %>
           <% end %>
         </h3>
         <%= tag.div id: "location-accordion", "data-toggle-target": "element", class: [hidden: collapse_location?] do %>
