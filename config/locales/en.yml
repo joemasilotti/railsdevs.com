@@ -448,8 +448,11 @@ en:
         signed_on: Signed on %{date}
   home:
     show:
-      available_developers: Developers available now
+      reviews_header: What Others are Saying
+      reviews_subtitle_1: Because RailsDevs brings a unique approach, the platform can facilitate different
+      reviews_subtitle_2: conversations and bring value to developers looking for their next gig.
       description_og: RailsDevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
+      explain_title: How it Works
       get_started: Get started
       learn_more: Learn more
       more: See more developers
