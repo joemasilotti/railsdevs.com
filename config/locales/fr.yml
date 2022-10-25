@@ -700,6 +700,9 @@ fr:
     description: Abonnez vous à RailsDevs pour débloquer %{developers}+ profils des candidats.
     title: Abonnement requis
   users:
+    paywalled:
+      collapse_control_component:
+        title: Vous avez besoin d'un abonnement payant pour débloquer cette fonctionnalité.
     paywalled_component:
       description: Données qui ne sont visibles qu'avec un abonnement premium.
       title: Informations privées

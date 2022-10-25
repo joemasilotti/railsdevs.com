@@ -2,6 +2,12 @@ module Developers
   class QueryPath
     include UrlHelpersWithDefaultUrlOptions
 
+    private attr_reader :paywalled_search_results
+
+    def initialize(paywalled_search_results: Feature.enabled?(:paywalled_search_results))
+      @paywalled_search_results = paywalled_search_results
+    end
+
     def self.all
       new.all
     end
@@ -12,13 +18,17 @@ module Developers
       RoleLevel::TYPES.each do |role_level|
         paths += build_paths(role_level:)
 
-        top_countries.each do |country|
-          paths += build_paths(role_level:, country:)
+        unless paywalled_search_results
+          top_countries.each do |country|
+            paths += build_paths(role_level:, country:)
+          end
         end
       end
 
-      top_countries.each do |country|
-        paths += build_paths(country:)
+      unless paywalled_search_results
+        top_countries.each do |country|
+          paths += build_paths(country:)
+        end
       end
 
       paths

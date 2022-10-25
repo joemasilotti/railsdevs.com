@@ -16,15 +16,15 @@ module Developers
         :include_not_interested,
         :sort,
         role_levels: [],
-        role_types: [],
-        utc_offsets: [],
-        countries: []
+        role_types: []
       ]
     end
 
     def paywalled_attributes
       [
-        :search_query
+        :search_query,
+        utc_offsets: [],
+        countries: []
       ]
     end
   end
