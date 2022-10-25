@@ -10,6 +10,7 @@
     "@tailwindcss/line-clamp": "^0.3.0",
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.0",
+    "cssnano": "^5.1.13",
     "esbuild": "^0.13.8",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
