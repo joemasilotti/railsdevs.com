@@ -448,35 +448,35 @@ en:
         signed_on: Signed on %{date}
   home:
     show:
-      available_developers: Developers available now
-      reviews_header: What Others are Saying
-      reviews_subtitle_1: RailsDevs brings a unique approach and can facilitate different
-      reviews_subtitle_2: conversations that bring value to developers looking for their next gig.
-      about_title: About RailsDevs
+      about_card_1_content: RailsDevs strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles.
+      about_card_1_title: Empowering the developer
+      about_card_2_content: RailsDevs is an Open Startup and open source. It operates fully transparent and shares its metrics, like revenue and traffic.
+      about_card_2_title: Doing everything in public
+      about_card_3_content: The platform is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level that follow the code of conduct.
+      about_card_3_title: Creating a safe, inclusive environment
       about_subtitle_1: RailsDevs is making it easier for Rails developers to find their next gig.
       about_subtitle_2: It's built around three core values.
-      about_card_1_title: Empowering the developer
-      about_card_1_content: RailsDevs strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles.
-      about_card_2_title: Doing everything in public
-      about_card_2_content: RailsDevs is an Open Startup and open source. It operates fully transparent and shares its metrics, like revenue and traffic.
-      about_card_3_title: Creating a safe, inclusive environment
-      about_card_3_content: The platform is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level that follow the code of conduct.
+      about_title: About RailsDevs
+      available_developers: Developers available now
       bottom_of_page_cta_1: Find
       bottom_of_page_cta_2: your next
       bottom_of_page_cta_3: Rails gig.
       description_og: RailsDevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
       explain_title: How it Works
       get_started: Get started
+      hero_title_1: The
+      hero_title_2: job board for Rails developers
+      hero_title_accent: reverse
       learn_more: Learn more
       more: See more developers
+      reviews_header: What Others are Saying
+      reviews_subtitle_1: RailsDevs brings a unique approach and can facilitate different
+      reviews_subtitle_2: conversations that bring value to developers looking for their next gig.
       subtitle_1: RailsDevs
       subtitle_2: empowers independent developers available for their next gig.
       subtitle_3: Stop scouring job boards and sit back as companies reach out to you first.
       title_1: The reverse job board for
       title_2: Rails developers
-      hero_title_1: The
-      hero_title_accent: reverse
-      hero_title_2: job board for Rails developers
       title_og: The reverse job board for Ruby on Rails developers
       turbo_native_title: RailsDevs
   impersonating_banner_component:
