@@ -1,9 +1,9 @@
-<footer>
+<%= tag.footer class: {"bg-teal-lightest": Feature.enabled?(:redesign)} do %>
   <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
     <nav class="mb-6 -mx-5 -mt-2 flex flex-wrap justify-center" aria-label="Language links">
       <% I18n.available_locales.each do |locale| %>
         <div class="px-5 py-2">
-          <%= link_to request.params.merge(locale: resolve_locale(locale)), class: "text-base text-gray-500 hover:text-gray-900", "aria-label": t(".language_name_of_locale", locale: locale) do %>
+          <%= link_to request.params.merge(locale: resolve_locale(locale)), class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)}, "aria-label": t(".language_name_of_locale", locale: locale) do %>
             <span><%= t(".language_name_of_locale", locale: locale) %></span>
           <% end %>
         </div>
@@ -12,55 +12,55 @@
 
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
-        <%= link_to t(".about"), about_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".about"), about_path, class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".support"), "mailto:joe@railsdevs.com", class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".support"), "mailto:joe@railsdevs.com", class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".open_source"), "https://github.com/joemasilotti/railsdevs.com", target: "_blank", class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".open_source"), "https://github.com/joemasilotti/railsdevs.com", target: "_blank", class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".open_startup"), open_startup_root_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".open_startup"), open_startup_root_path, class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".analytics"), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", target: "_blank", class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".analytics"), "https://app.usefathom.com/share/cacnfaan/railsdevs.com", target: "_blank", class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
     </nav>
 
     <nav class="-mx-5 mt-6 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
-        <%= link_to t(".privacy_policy"), policies_privacy_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".privacy_policy"), policies_privacy_path, class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
 
       <div class="px-5 py-2">
-        <%= link_to t(".terms_and_conditions"), policies_terms_path, class: "text-base text-gray-500 hover:text-gray-900" %>
+        <%= link_to t(".terms_and_conditions"), policies_terms_path, class: {"text-base": true, "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} %>
       </div>
     </nav>
 
     <div class="mt-8 flex justify-center space-x-6">
-      <%= link_to "https://twitter.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
+      <%= link_to "https://twitter.com/joemasilotti", target: "_blank", class: {"text-gray-400 hover:text-gray-500": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} do %>
         <span class="sr-only"><%= t(".twitter") %></span>
         <%= inline_svg_tag "icons/brands/twitter.svg", class: "h-6 w-6", aria_hidden: true %>
       <% end %>
 
-      <%= link_to "https://github.com/joemasilotti", target: "_blank", class: "text-gray-400 hover:text-gray-500" do %>
+      <%= link_to "https://github.com/joemasilotti", target: "_blank", class: {"text-gray-400 hover:text-gray-500": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} do %>
         <span class="sr-only"><%= t(".github") %></span>
         <%= inline_svg_tag "icons/brands/github.svg", class: "h-6 w-6", aria_hidden: true %>
       <% end %>
 
-      <%= link_to "mailto:joe@railsdevs.com", class: "text-gray-400 hover:text-gray-500" do %>
+      <%= link_to "mailto:joe@railsdevs.com", class: {"text-gray-400 hover:text-gray-500": !Feature.enabled?(:redesign), "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)} do %>
         <span class="sr-only"><%= t(".email") %></span>
         <%= inline_svg_tag "icons/outline/mail.svg", class: "h-6 w-6", aria_hidden: true %>
       <% end %>
     </div>
 
-    <p class="mt-8 text-center text-base text-gray-400">
-      &copy; <%= Date.today.year %> <%= link_to t(".masilotti_com"), "https://masilotti.com", target: "_blank", class: "hover:text-gray-500" %>. <%= t(".copyright") %>
-    </p>
+    <%= tag.p class: {"mt-8 text-center text-base": true, "text-gray-400": !Feature.enabled?(:redesign), "text-typography": Feature.enabled?(:redesign)} do %>
+      &copy; <%= Date.today.year %> <%= link_to t(".masilotti_com"), "https://masilotti.com", target: "_blank", class: {"hover:text-gray-500": !Feature.enabled?(:redesign), "hover:text-navy-mid": Feature.enabled?(:redesign)} %>. <%= t(".copyright") %>
+    <% end %>
   </div>
-</footer>
+<% end %>
