@@ -2,10 +2,10 @@
 
 <div class="bg-navy">
   <div class="flex items-start justify-center max-w-6xl mx-auto px-8 py-48 -mt-24 bg-gradient-radial from-navy-gradient via-navy to-navy sm:-mt-48 sm:pt-72">
-    <div class="hidden flex-shrink-0 h-80 w-80 bg-gray-300 lg:block xl:h-86 xl:w-86">
+    <div class="hidden flex-shrink-0 h-80 w-80 bg-gray-300 lg:block xl:h-96 xl:w-96">
       <%# Image placeholder %>
     </div>
-    <div class="lg:ml-16 xl:ml-28">
+    <div class="mt-4 lg:ml-16 xl:ml-28">
       <h1 class="text-3xl tracking-tight font-heading text-white lg:text-4xl xl:text-5xl">
         <%= t(".title_1") %>
         <span class="text-teal"><%= t(".title_accent") %></span>
@@ -17,12 +17,10 @@
         <span class="md:block"><%= t(".subtitle_3") %></span>
       </p>
       <div class="mt-5 md:mt-8">
-        <div class="rounded-md shadow">
-          <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading text-typography text-lg bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
-            <%= t(".get_started") %>
-            <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
-          <% end %>
-        </div>
+        <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading text-typography text-lg bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+          <%= t(".get_started") %>
+          <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -38,7 +36,7 @@
       <%= tag.span(t(".reviews_subtitle_2"), class: "block") %>
     </p>
   </div>
-  <div class="flex flex-col space-y-12 items-center px-2 mt-[78px] md:px-8 lg:items-stretch lg:flex-row lg:space-y-0 lg:space-x-12">
+  <div class="flex flex-col space-y-12 items-center px-2 mt-20 md:px-8 lg:items-stretch lg:flex-row lg:space-y-0 lg:space-x-12">
     <div class="flex flex-col w-full">
       <div class="flex-grow border-2 p-12 border-green">
         <div class="flex">
@@ -136,3 +134,47 @@
     <%# Image placeholder %>
   </div>
 </div>
+
+<div class="max-w-6xl w-full mx-auto my-24 sm:my-32">
+  <h2 class="text-3xl tracking-tight text-typography font-heading text-center lg:text-4xl xl:text-5xl">
+    <%= t(".about_title") %>
+  </h2>
+  <p class="mt-3 text-sm text-typography text-light text-center leading-8 md:text-base md:mt-5 lg:leading-10">
+    <%= tag.span(t(".about_subtitle_1"), class: "block") %>
+    <%= tag.span(t(".about_subtitle_2"), class: "block") %>
+  </p>
+  <div class="flex flex-col space-y-12 mt-20 px-2 lg:items-stretch lg:flex-row lg:space-y-0 lg:space-x-12 xl:px-0">
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+      <%= tag.h3 t(".about_card_1_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-semibold font-heading leading-relaxed w-[12.5rem] px-3 bg-gray-50" %>
+      <%= tag.p t(".about_card_1_content"), class: "mt-4 mx-1 text-typography leading-loose font-light"%>
+    </div>
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+      <%= tag.h3 t(".about_card_2_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-semibold font-heading leading-relaxed w-52 px-3 bg-gray-50" %>
+      <%= tag.p t(".about_card_2_content"), class: "mt-4 mx-1 text-typography leading-loose font-light"%>
+    </div>
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+      <%= tag.h3 t(".about_card_3_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-semibold font-heading leading-relaxed w-[17rem] px-3 bg-gray-50" %>
+      <%= tag.p t(".about_card_3_content"), class: "mt-4 mx-1 text-typography leading-loose font-light"%>
+    </div>
+  </div>
+</div>
+
+<div class="w-full bg-navy my-24 pt-24 pb-80 sm:my-32">
+  <div class="relative flex flex-col items-end space-y-4 max-w-6xl w-full mx-auto px-8 sm:flex-row sm:justify-between sm:items-center sm:space-y-0 md:px-16">
+    <h2 class="text-3xl tracking-tight text-white font-heading text-center lg:text-5xl">
+      <%= t(".bottom_of_page_cta_1") %>
+      <span class="text-teal"><%= t(".bottom_of_page_cta_2") %></span>
+      <%= t(".bottom_of_page_cta_3") %>
+    </h2>
+    <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading text-typography text-lg bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+      <%= t(".get_started") %>
+      <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
+    <% end %>
+
+    <div class="absolute bg-gray-300 inset-x-0 h-[28rem] top-48">
+      <%# Image placeholder %>
+    </div>
+  </div>
+</div>
+
+<div class="w-full h-52"></div>
