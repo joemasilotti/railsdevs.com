@@ -16,6 +16,7 @@ module.exports = {
     "./app/javascript/**/*.js",
     "./app/models/field_error_tag_builder.rb",
     "./app/views/**/*.html.erb",
+    "./app/views/**/*.html+redesign.erb",
     "./config/utility_classes.yml"
   ],
 
