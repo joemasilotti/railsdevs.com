@@ -647,10 +647,10 @@ en:
   public_profiles:
     new:
       cancel: Cancel
-      copy_link: Copy Link
+      copy_link: Copy link
       disclaimer: Please note that your email address will also get revealed.
-      message: Share your profile privately with hiring manager revealing all hidden information. Just click on Copy Link button and get your public URL to share now.
-      title: Share Profile
+      message: Share your developer profile privately with someone. This will reveal hidden information like your real name, social links, and email address to them.
+      title: Share your profile
   read_notifications:
     create:
       notice: All notifications marked as read.
