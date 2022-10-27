@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [ "*" ]
+    branches: ["*"]
   push:
-    branches: [ main ]
+    branches: [main]
 
 concurrency: ci-${{ github.ref }}
 
@@ -18,7 +18,7 @@ jobs:
     services:
       postgres:
         image: postgres:13
-        ports: [ "5432:5432" ]
+        ports: ["5432:5432"]
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
@@ -30,8 +30,7 @@ jobs:
 
       redis:
         image: redis
-        ports:
-          - "6379:6379"
+        ports: ["6379:6379"]
 
     steps:
       - name: Checkout Commit
