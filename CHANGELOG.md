@@ -4,6 +4,7 @@
 
 ### October
 
+* October 27 - Publicly shareable URLs polish #647 @sarvaiyanidhi
 * October 21 - Option to ignore pages from being tracked in Fathom #706
 * October 20 - Upgrade Tailwind CSS to v3.2 #700
 * October 19 - Upgrade to Turbo 7.2.2 #683 @sarvaiyanidhi
