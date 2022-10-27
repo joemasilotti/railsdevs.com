@@ -2,58 +2,22 @@ name: CI
 
 on:
   pull_request:
-    branches:
-      - "*"
+    branches: ["*"]
   push:
-    branches:
-      - main
+    branches: [main]
 
 concurrency: ci-${{ github.ref }}
 
 jobs:
-  install-cache:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    strategy:
-      matrix:
-        node-version: [14]
-    steps:
-      - name: Checkout Commit
-        uses: actions/checkout@v2
-
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          bundler-cache: true
-
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Cache yarn dependencies
-        uses: actions/cache@v2
-        id: cache-dependencies
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      - name: Install yarn dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: |
-          yarn install --force --non-interactive
-
   test:
+    name: Test
+
     runs-on: ubuntu-latest
-    needs: install-cache
     timeout-minutes: 10
 
     services:
-      db:
-        image: postgres:12.10
+      postgres:
+        image: postgres:13
         ports: ["5432:5432"]
         env:
           POSTGRES_USER: postgres
@@ -66,36 +30,39 @@ jobs:
 
       redis:
         image: redis
-        ports:
-          - "6379:6379"
+        ports: ["6379:6379"]
 
     steps:
       - name: Checkout Commit
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
-      - name: Install system dependencies
-        run: |
-          sudo apt-get -y update
-          sudo apt-get install -yqq libvips
-
-      - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 16
 
-      - name: Restore yarn dependencies
-        uses: actions/cache@v2
+      - name: Cache yarn dependencies
+        uses: actions/cache@v3
         id: cache-dependencies
         with:
           path: node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+
+      - name: Install yarn dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: yarn install --force --non-interactive --frozen-lockfile
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get -y update
+          sudo apt-get install -yqq libvips
 
       - name: Standardize
         run: bundle exec standardrb
@@ -106,6 +73,21 @@ jobs:
       - name: i18n-tasks
         run: bundle exec i18n-tasks health en
 
+      - name: Build assets
+        run: |
+          bin/rails javascript:build
+          bin/rails css:build
+
+      - name: Prepare database
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:password@localhost:5432/railsdevs_test
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          TZ: America/New_York
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+
       - name: Run tests
         env:
           RAILS_ENV: test
@@ -113,10 +95,6 @@ jobs:
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           TZ: America/New_York
         run: |
-          bin/rails javascript:build
-          bin/rails css:build
-          bin/rails db:create
-          bin/rails db:schema:load
           bin/rails test --fail-fast
           bin/rails test:system
 
@@ -126,7 +104,7 @@ jobs:
           DATABASE_URL: postgres://postgres:password@localhost:5432/railsdevs_test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           TZ: America/New_York
-        run: bundle exec rails db:reset
+        run: bin/rails db:reset
 
       - name: Verify mailer previews
         env:
@@ -134,4 +112,4 @@ jobs:
           DATABASE_URL: postgres://postgres:password@localhost:5432/railsdevs_test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
           TZ: America/New_York
-        run: bundle exec rake verify_mailer_previews
+        run: bin/rails verify_mailer_previews
