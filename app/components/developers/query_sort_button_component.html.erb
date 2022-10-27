@@ -4,7 +4,7 @@
     <%= inline_svg_tag "icons/solid/chevron_down.svg", class: "flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500", aria_hidden: true %>
   </button>
 
-  <div data-toggle-target="element" class=<%= class_names({"hidden origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-opacity-5 focus:outline-none z-10": true, "ring-black": !Feature.enabled?(:redesign), "ring-gray-900": Feature.enabled?(:redesign)})%> role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
+  <div data-toggle-target="element" class=<%= class_names({"hidden origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-2xl bg-white ring-1 ring-opacity-5 focus:outline-none z-10": true, "ring-black": !Feature.enabled?(:redesign), "ring-gray-900": Feature.enabled?(:redesign)}) %>role="menu" aria-orientation="vertical" aria-labelledby="mobile-menu-button" tabindex="-1">
     <%= render SortButtonComponent.new(title: t(".sort.newest"), name: :sort, value: :newest, active: sort == :newest, form_id: form_id, scope: scope) %>
     <%= render SortButtonComponent.new(title: t(".sort.availability"), name: :sort, value: :availability, active: sort == :availability, form_id: form_id, scope: scope) %>
   </div>

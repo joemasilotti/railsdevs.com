@@ -11,12 +11,10 @@ module.exports = {
 
   content: [
     "./app/assets/**/*.svg",
-    "./app/components/**/*.{rb,html,html.erb,yml}",
     "./app/components/**/*.{rb,html,html.erb,html+redesign.erb,yml}",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
     "./app/models/field_error_tag_builder.rb",
-    "./app/views/**/*.html.erb",
     "./app/views/**/*.html.erb",
     "./config/utility_classes.yml"
   ],
