@@ -3,12 +3,12 @@ class PublicProfilesController < ApplicationController
 
   def new
     @developer = developer
+    authorize @developer, :share_profile?
   end
 
   private
 
   def developer
-    finder = Developers::Finder.new(id: params[:developer_id])
-    finder.developer
+    Developers::Finder.new(id: params[:developer_id]).developer
   end
 end

@@ -648,7 +648,6 @@ en:
     new:
       cancel: Cancel
       copy_link: Copy link
-      disclaimer: Please note that your email address will also get revealed.
       message: Share your developer profile privately with someone. This will reveal hidden information like your real name, social links, and email address to them.
       title: Share your profile
   read_notifications:
