@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     end
 
     resources :conversations, only: %i[index show] do
-      resources :messages, only: :create
       resource :block, only: %i[new create]
+      resources :messages, only: :create
     end
 
     resources :developers, except: :destroy do
@@ -74,6 +74,7 @@ Rails.application.routes.draw do
     end
 
     resources :developers, only: [] do
+      resource :source_contributors, only: %i[create destroy], module: :developers
       resources :conversations, only: :index, controller: :developer_conversations
       resources :features, only: :create
       resources :invisiblizes, only: :create, module: :developers

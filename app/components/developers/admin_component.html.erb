@@ -19,3 +19,5 @@
     <%= t(".feature") %>
   <% end %>
 </span>
+
+<%= render ToggleComponent.new(developer.source_contributor?, title: t(".source_contributor"), url: admin_developer_source_contributors_path(developer)) %>

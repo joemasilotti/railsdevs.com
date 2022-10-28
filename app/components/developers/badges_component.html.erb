@@ -5,4 +5,7 @@
   <% if recently_active? %>
     <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
   <% end %>
+  <% if source_contributor? %>
+    <%= render BadgeComponent.new(t(".source_contributor"), color: "gray") %>
+  <% end %>
 </div>
