@@ -9,7 +9,6 @@
       <% table.with_header t(".developer") %>
       <% table.with_header t(".business") %>
       <% table.with_header t(".impersonate") %>
-      <% table.with_header t(".source_contributor") %>
 
       <% @users.each do |user| %>
         <% table.with_row do |row| %>
@@ -31,12 +30,6 @@
 
           <%= row.with_cell do %>
             <%= render Admin::BasicLinkPostComponent.new(t(".impersonate"), admin_impersonate_path, name: :email, value: user.email) %>
-          <% end %>
-
-          <%= row.with_cell do %>
-            <% if (developer = user.developer) %>
-              <%= render Admin::SourceContributorToggleComponent.new(developer) %>
-             <% end %>
           <% end %>
         <% end %>
       <% end %>

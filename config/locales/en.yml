@@ -126,10 +126,6 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
-    source_contributor_toggle_component:
-      activate: Activate
-      active: Source Contributor
-      deactivate: Deactivate
     transactions:
       create:
         created: Transaction created
@@ -151,7 +147,6 @@ en:
         developer: Developer
         email: Email
         impersonate: Impersonate
-        source_contributor: Source Contributor
         title: Users
       search:
         cta: Search
@@ -263,6 +258,7 @@ en:
       copy: Copy
       feature: Feature
       invisiblize: Invisiblize
+      source_contributor: Source contributor
       title: Admin
     availability_component:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
