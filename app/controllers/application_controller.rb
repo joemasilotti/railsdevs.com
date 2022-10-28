@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   around_action :set_locale
+  before_action :set_variant
+
   helper_method :resolve_locale
   helper_method :turbo_native_app?
 
@@ -28,5 +30,11 @@ class ApplicationController < ActionController::Base
     redirect_back_or_to root_path, allow_other_host: false
   rescue ActionController::Redirecting::UnsafeRedirectError
     redirect_to root_path
+  end
+
+  def set_variant
+    if Feature.enabled?(:redesign)
+      request.variant = :redesign
+    end
   end
 end

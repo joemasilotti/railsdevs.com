@@ -10,14 +10,14 @@
     <%= render "shared/favicon_tags" %>
     <%= render AlternateLinksComponent.new %>
 
-    <%= stylesheet_link_tag "fonts", "application", media: "all", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= analytics_tag %>
     <%= hotwire_livereload_tags %>
   </head>
 
-  <body class="min-h-full flex flex-col">
+  <body data-controller="analytics--page-views" class="min-h-full flex flex-col">
     <div class="flex-1">
       <%= render ImpersonatingBannerComponent.new %>
       <%= render NavBar::BaseComponent.new(current_user) %>

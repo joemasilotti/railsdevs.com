@@ -2,6 +2,4 @@
 
 <blockquote><%== @message.body_html %></blockquote>
 
-<% if Feature.enabled?(:reply_via_email, user: @recipient) %>
-  <p><small>You can continue the conversation by replying to this email.<br>Please remove your signature before sending.</small></p>
-<% end %>
+<p><small>You can continue the conversation by replying to this email.<br>Please remove your signature before sending.</small></p>

@@ -1,5 +1,7 @@
 <% if render_content? %>
   <%= content %>
+<% elsif custom_paywall? %>
+  <%= custom_paywall %>
 <% elsif small? %>
   <%= link_to pricing_path, class: "group flex items-center bg-gray-50 max-w-sm border border-gray-300 hover:border-gray-400 border-dashed rounded-lg mt-2 p-1.5 px-2.5" do %>
     <%= inline_svg_tag "icons/solid/lock_closed.svg", class: "h-4 w-4 text-gray-400 mr-2 group-hover:hidden", aria_hidden: true %>

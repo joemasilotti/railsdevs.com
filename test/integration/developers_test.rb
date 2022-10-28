@@ -57,19 +57,23 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     get developer_path(developer.hashid)
     assert_response :ok
 
-    assert_raises ActiveRecord::RecordNotFound do
-      get developer_path(developer.id)
-    end
-
-    sign_in users(:developer)
-    assert_raises ActiveRecord::RecordNotFound do
-      get edit_developer_path(developer.id)
-    end
+    get developer_path(developer.id)
+    assert_redirected_to developer_path(developer.hashid)
 
     sign_in users(:developer)
     assert_raises ActiveRecord::RecordNotFound do
       patch developer_path(developer.id)
     end
+  end
+
+  test "viewing a profile with a public key (valid or not) doesn't get tracked" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_select "#ignorePageView", count: 0
+
+    get developer_path(developer, key: "some-key")
+    assert_select "#ignorePageView"
   end
 
   test "developers are sorted newest first" do
@@ -91,13 +95,47 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Available"
   end
 
-  test "developers can be filtered by time zone" do
+  test "subscribers can filter developers by time zone" do
     create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
+    user = users(:subscribed_business)
+
+    sign_in user
 
     get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
 
     assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']"
     assert_select "h2", "Pacific"
+  end
+
+  test "non-subscribers cannot filter developers by time zone" do
+    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
+
+    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
+
+    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']", false
+  end
+
+  test "subscribers can filter developers by countries" do
+    country = "United States"
+    create_developer(hero: "Pacific", location_attributes: {country: country})
+    user = users(:subscribed_business)
+
+    sign_in user
+
+    get developers_path(countries: [country])
+
+    assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']"
+    assert_text "Hire Ruby on Rails developers in #{country}"
+  end
+
+  test "non-subscribers cannot filter developers by countries" do
+    country = "United States"
+    create_developer(hero: "Pacific", location_attributes: {country: country})
+
+    get developers_path(countries: [country])
+
+    assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']", false
+    refute_text "Hire Ruby on Rails developers in #{country}"
   end
 
   test "developers can be filtered by role type" do
@@ -354,6 +392,36 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     get business_path(business)
 
     assert_redirected_to root_path
+  end
+
+  test "page 2 of search results only renders for subscribers" do
+    20.times { create_developer }
+
+    get developers_path(page: 2)
+    assert_text I18n.t("subscription_cta_component.title")
+    refute_text developers(:one).hero
+
+    sign_in users(:subscribed_business)
+    get developers_path(page: 2)
+    refute_text I18n.t("subscription_cta_component.title")
+    assert_text developers(:one).hero
+  end
+
+  test "developer hidden profile information is rendered with public profile key" do
+    sign_in users(:empty)
+    developer = developers(:one)
+    developer.share_url
+    get developer_public_url(developer, developer.public_profile_key)
+
+    refute_text I18n.t("subscription_cta_component.title")
+  end
+
+  def assert_text(text)
+    assert_select "*", text:
+  end
+
+  def refute_text(text)
+    assert_select "*", text:, count: 0
   end
 
   def valid_developer_params

@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = SignificantFigure.new(Developer.visible.count).rounded
-    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]))
+    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]).merge(user: current_user))
     @meta = Developers::Meta.new(query: @query, count: @developers_count)
   end
 
@@ -41,14 +41,21 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    @developer = find_developer!
+    finder = Developers::Finder.new(id: params[:id])
+    @developer = finder.developer
+    @public_key = params[:key]
+
+    if finder.should_redirect?
+      redirect_to @developer, status: 302, notice: t(".redirection", url: developer_url(@developer))
+    end
+
     authorize @developer
   end
 
   private
 
   def find_developer!
-    if Feature.enabled?(:obfuscate_developer_urls, user: nil)
+    if Feature.enabled?(:obfuscate_developer_urls)
       Developer.find_by_hashid!(params[:id])
     else
       Developer.find(params[:id])

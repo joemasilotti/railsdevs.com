@@ -13,7 +13,7 @@
 
         <div class="mx-4 pb-4">
           <%= form.label :search_query, t("developers.query_component.search_query_label"), class: "block text-sm font-medium text-gray-700" %>
-          <%= render Users::PaywalledComponent.new(user: user, paywalled: nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
+          <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do %>
               <%= form.text_field :search_query, value: search_query, placeholder: t("developers.query_component.search_query_placeholder"), class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
           <% end %>
         </div>
@@ -57,7 +57,13 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true) %>
+            <%= render Users::PaywalledComponent.new(user, nil) do |component| %>
+              <% component.custom_paywall do %>
+                <%= render Users::Paywalled::CollapseControlComponent.new(t("developers.query_component.country.title")) %>
+              <% end %>
+
+              <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: collapse_location?) %>
+            <% end %>
           </h3>
           <div id="top-countries-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">
@@ -91,7 +97,13 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true) %>
+            <%= render Users::PaywalledComponent.new(user, nil) do |component| %>
+              <% component.custom_paywall do %>
+                <%= render Users::Paywalled::CollapseControlComponent.new(t("developers.query_component.timezone.title")) %>
+              <% end %>
+
+              <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: collapse_timezone?) %>
+            <% end %>
           </h3>
           <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">

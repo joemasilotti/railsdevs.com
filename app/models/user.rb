@@ -45,4 +45,8 @@ class User < ApplicationRecord
   def signed_hiring_agreement?
     HiringAgreements::Term.signed_by?(self)
   end
+
+  def permissions
+    Businesses::Permission.new(subscriptions)
+  end
 end

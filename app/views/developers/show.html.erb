@@ -1,5 +1,7 @@
 <%= open_graph_tags component: Developers::OpenGraphTagsComponent, developer: @developer %>
 
+<%= tag.meta id: "ignorePageView" if @public_key.present? %>
+
 <div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
   <%= render Developers::CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
 
@@ -17,7 +19,7 @@
             <div class="md:flex md:items-start md:justify-between md:space-x-4 lg:border-b lg:pb-6">
               <div class="w-full">
                 <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
-                <%= render Users::PaywalledComponent.new(user: current_user, paywalled: @developer, size: :small) do %>
+                <%= render Users::PaywalledComponent.new(current_user, @developer, size: :small, public_key: @public_key) do %>
                   <div class="mt-2 flex items-center text-sm font-medium text-gray-500">
                     <%= inline_svg_tag "icons/solid/user.svg", class: "flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400", aria_hidden: true %>
                     <%= @developer.name %>
@@ -31,7 +33,7 @@
             <%= render Developers::BadgesComponent.new(@developer) %>
 
             <aside class="mt-8 lg:hidden">
-              <%= render "details", developer: @developer %>
+              <%= render "details", developer: @developer, public_key: @public_key %>
             </aside>
 
             <div class="pb-3 lg:pb-0">
@@ -44,7 +46,7 @@
         </div>
 
         <aside class="hidden lg:block lg:pl-8">
-          <%= render "details", developer: @developer %>
+          <%= render "details", developer: @developer, public_key: @public_key %>
         </aside>
       </div>
     </div>

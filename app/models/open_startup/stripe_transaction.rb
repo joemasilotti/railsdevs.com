@@ -5,7 +5,8 @@ module OpenStartup
     enum transaction_type: {
       charge: "charge",
       contribution: "contribution",
-      stripe_fee: "stripe_fee"
+      stripe_fee: "stripe_fee",
+      payment: "payment"
     }
 
     validates :stripe_id, presence: true

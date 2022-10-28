@@ -2,11 +2,22 @@ require "test_helper"
 
 class Developers::QueryPathTest < ActiveSupport::TestCase
   test "generates unique URL paths for combinations of role levels, location, and freelance" do
-    paths = Developers::QueryPath.all
+    query_path = Developers::QueryPath.new(paywalled_search_results: false)
+
+    paths = query_path.all
 
     expected_path_count = (role_level_combinations * freelance_or_not) +
       (role_level_by_location_combinations * freelance_or_not) +
       (location_combinations * freelance_or_not)
+
+    assert_equal expected_path_count, paths.count
+    assert paths.uniq
+  end
+
+  test "only generate unique URL paths for combinations of role levels and freelance when search results are paywalled" do
+    paths = Developers::QueryPath.all
+
+    expected_path_count = (role_level_combinations * freelance_or_not)
 
     assert_equal expected_path_count, paths.count
     assert paths.uniq

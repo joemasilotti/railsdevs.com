@@ -15,4 +15,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym "API"
   inflect.acronym "MRR"
   inflect.acronym "UTC"
+  inflect.acronym "CTA"
 end

@@ -7,6 +7,7 @@ class Developer < ApplicationRecord
   include Hashid::Rails
   include PersonName
   include PgSearch::Model
+  include PublicProfile
 
   FEATURE_LENGTH = 1.week
   RECENTLY_ACTIVE_LENGTH = 1.week
@@ -18,7 +19,7 @@ class Developer < ApplicationRecord
     invisible: 4
   }
 
-  hashid_config override_to_param: Feature.enabled?(:obfuscate_developer_urls, user: nil)
+  hashid_config override_to_param: Feature.enabled?(:obfuscate_developer_urls)
 
   belongs_to :user
   has_many :conversations, -> { visible }
