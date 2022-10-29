@@ -33,19 +33,19 @@
           <div class="hidden md:block">
             <div class="ml-4 flex items-center md:ml-6 space-x-6">
               <% if conversations? %>
-                <%= link_to conversations_path, class: "relative text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+                <%= link_to conversations_path, class: "relative text-gray-300 p-1 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
                   <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6", aria_hidden: true %>
                   <span class="sr-only"><%= t(".view_conversations") %></span>
                 <% end %>
               <% end %>
 
-              <%= link_to notifications_path, class: "flex items-center justify-center h-10 w-10 text-typography rounded-full bg-green hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+              <%= link_to notifications_path, class: "group text-gray-300 p-1 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
                 <div class="relative">
                   <span class="sr-only"><%= t(".view_notifications") %></span>
                   <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
 
                   <% if unread_notifications? %>
-                    <span class="absolute top-1 right-0 block h-2 w-2 rounded-full ring-2 ring-typography group-hover:ring-white bg-salmon"></span>
+                    <span class="absolute top-1 right-0 block h-2 w-2 rounded-full ring-2 ring-gray-300 bg-salmon group-hover:ring-white"></span>
                     <span class="sr-only"><%= t(".new_notifications") %></span>
                   <% end %>
                 </div>
@@ -83,19 +83,19 @@
           <div class="-mr-2 flex items-center md:hidden space-x-4">
             <!-- Mobile nav bar -->
             <% if conversations? %>
-              <%= link_to conversations_path, class: "bg-navy flex-shrink-0 p-1 rounded-full text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+              <%= link_to conversations_path, class: "flex-shrink-0 p-1 rounded-full text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
                 <%= inline_svg_tag "icons/outline/mail.svg", class: "mx-auto h-6 w-6", aria_hidden: true %>
                 <span class="sr-only"><%= t(".view_conversations") %></span>
               <% end %>
             <% end %>
 
-            <%= link_to notifications_path, class: "flex items-center justify-center h-10 w-10 text-typography rounded-full bg-green hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+            <%= link_to notifications_path, class: "group text-gray-300 p-1 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
               <div class="relative">
                 <span class="sr-only">View notifications</span>
                 <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
 
                 <% if unread_notifications? %>
-                  <span class="absolute top-1 right-0 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
+                  <span class="absolute top-1 right-0 block h-2 w-2 rounded-full ring-2 ring-gray-300 bg-salmon group-hover:ring-white"></span>
                   <span class="sr-only"><%= t(".new_notifications") %></span>
                 <% end %>
               </div>
