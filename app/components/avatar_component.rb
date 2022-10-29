@@ -6,7 +6,8 @@ class AvatarComponent < ViewComponent::Base
   def initialize(avatarable:, variant: nil, classes: nil, data: {})
     @avatarable = avatarable
     @variant = variant
-    @classes = classes
+    @classes = (classes || "h-24 w-24 sm:h-32 sm:w-32 ring-4 ring-white")
+      .concat(" ", "object-cover rounded-full")
     @data = data
   end
 
