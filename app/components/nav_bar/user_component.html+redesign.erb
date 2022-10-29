@@ -121,13 +121,13 @@
     <!-- Mobile menu -->
     <div data-toggle-target="element" class="hidden md:hidden" id="mobile-menu">
       <!-- Navigation links -->
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div class="px-2 pt-2 pb-3 space-y-2 sm:px-3">
         <% links.each do |link| %>
-          <%= helpers.link_to_active link.title, link.path, active_class: "text-white", class: "text-white block px-3 py-2 rounded-md text-base font-medium" %>
+          <%= helpers.link_to_active link.title, link.path, active_class: "border-salmon", class: "text-gray-300 border-b border-transparent block w-max mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white" %>
         <% end %>
 
         <% if hired? %>
-          <%= link_to hired_path, class: "text-white block px-3 py-2 rounded-md text-base font-medium" do %>
+          <%= link_to hired_path, class: "text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:border-salmon hover:text-white" do %>
             <span><%= t(".found_a_job") %></span>
             <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
           <% end %>
@@ -144,23 +144,23 @@
             <div class="text-base font-medium leading-none text-white"><%= user.email %></div>
           </div>
         </div>
-        <div class="mt-3 px-2 space-y-1">
+        <div class="mt-4 px-2 space-y-2">
           <% user_links.each do |link| %>
-            <%= helpers.link_to_active link.title, link.path, active_class: "text-white", class: "text-white block px-3 py-2 rounded-md text-base font-medium" %>
+            <%= helpers.link_to_active link.title, link.path, active_class: "border-salmon", class: "text-gray-300 border-b border-transparent block w-max mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white" %>
           <% end %>
 
           <% if admin? %>
             <div class="py-2">
-              <div class="border-0.5 border-y border-navy-mid py-2">
+              <div class="border-0.5 border-y border-navy-mid space-y-2 py-2">
                 <span class="block mx-4 text-xs uppercase text-gray-400 font-medium py-2"><%= t(".admin") %></span>
                 <% admin_links.each_with_index do |link, index| %>
-                  <%= helpers.link_to_active link.title, link.path, active_class: "text-white", class: "text-white block px-3 py-2 rounded-md text-base font-medium", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index + user_links.count}" %>
+                  <%= helpers.link_to_active link.title, link.path, active_class: "border-salmon", class: "text-gray-300 border-b border-transparent block w-max mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index + user_links.count}" %>
                 <% end %>
               </div>
             </div>
           <% end %>
 
-          <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {controller: "turbo-native--sign-out", action: "turbo-native--sign-out#signOut"}, class: "block w-full text-left text-white block px-3 py-2 rounded-md text-base font-medium" %>
+          <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {controller: "turbo-native--sign-out", action: "turbo-native--sign-out#signOut"}, class: "block border-b border-transparent text-left text-gray-300 block mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white" %>
         </div>
       </div>
     </div>
