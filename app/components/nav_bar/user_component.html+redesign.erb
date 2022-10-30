@@ -127,7 +127,7 @@
         <% end %>
 
         <% if hired? %>
-          <%= link_to hired_path, class: "text-gray-300 block px-3 py-2 rounded-md text-base font-medium hover:border-salmon hover:text-white" do %>
+          <%= link_to hired_path, class: "text-gray-300 border-b border-transparent block w-max mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white" do %>
             <span><%= t(".found_a_job") %></span>
             <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
           <% end %>
