@@ -11,7 +11,7 @@ module.exports = {
 
   content: [
     "./app/assets/**/*.svg",
-    "./app/components/**/*.{rb,html,html.erb,yml}",
+    "./app/components/**/*.{rb,html,yml}?(+*)?(.erb)",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
     "./app/models/field_error_tag_builder.rb",
@@ -46,6 +46,7 @@ module.exports = {
       green: {
         dark: "#3B6039",
         DEFAULT: "#80CB7B",
+        hover: "#93D28E",
         mid: "#BFE5BD",
         lightest: "#DFF2DE"
       },
