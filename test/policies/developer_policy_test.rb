@@ -32,9 +32,25 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
     assert DeveloperPolicy.new(user, developer).show?
   end
 
+  test "Cannot view developer profile without valid public profile key" do
+    developer = developers(:prospect)
+    refute DeveloperPolicy.new(developer.user, developer).valid_public_access?
+  end
+
+  test "Can view developer profile with valid public profile key" do
+    developer = developers(:prospect)
+    developer.public_profile_key = SecureRandom.hex(4)
+    assert DeveloperPolicy.new(developer.user, developer).valid_public_access?
+  end
+
   test "Share their own developer profile" do
     user = users(:developer)
     assert DeveloperPolicy.new(user, user.developer).share_profile?
+  end
+
+  def generate_public_profile_key!
+    public_key = SecureRandom.hex(4)
+    Developer.create!(developer_attributes.merge(public_profile_key: public_key))
   end
 
   def create_invisible_developer!

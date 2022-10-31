@@ -41,4 +41,8 @@ class ApplicationPolicy
   def record_owner?
     user == record.user
   end
+
+  def valid_public_access?
+    record.valid_public_profile_access?(record.public_profile_key)
+  end
 end
