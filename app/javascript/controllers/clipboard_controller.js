@@ -3,7 +3,7 @@ import Clipboard from "../src/clipboard"
 
 export default class extends Controller {
   static classes = ["visibility"]
-  static targets = ["toggleable", "modal"]
+  static targets = ["toggleable"]
   static values = {
     content: String,
     htmlContent: String,
@@ -29,12 +29,5 @@ export default class extends Controller {
     this.toggleableTargets.forEach((toggleable) => {
       toggleable.classList.toggle(this.visibilityClass)
     })
-  }
-
-  hideModal() {
-    // Remove src reference from parent frame element
-    // Without this, turbo won't re-open the modal on subsequent click
-    this.element.parentElement.removeAttribute("src")
-    this.modalTarget.remove()
   }
 }
