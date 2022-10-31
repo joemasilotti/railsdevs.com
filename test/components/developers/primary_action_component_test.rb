@@ -7,41 +7,41 @@ module Developers
     end
 
     test "renders Hire me button by default" do
-      render_inline PrimaryActionComponent.new(user: nil, developer: @developer, business: nil)
+      render_inline PrimaryActionComponent.new(user: nil, developer: @developer, business: nil, public_key: nil)
       assert_text "Hire me"
       refute_text "Edit"
 
       user = users(:business)
-      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil)
+      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil, public_key: nil)
       assert_text "Hire me"
     end
 
     test "renders Edit button to owner of profile" do
       user = users(:developer)
-      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil)
+      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil, public_key: nil)
       assert_text "Edit"
     end
 
     test "renders Message button if conversation already started" do
       user = users(:subscribed_business)
       business = user.business
-      render_inline PrimaryActionComponent.new(user:, developer: @developer, business:)
+      render_inline PrimaryActionComponent.new(user:, developer: @developer, business:, public_key: nil)
       assert_text "Hire me"
 
       conversation = conversations(:one)
       business = conversation.business
       developer = conversation.developer
       user = business.user
-      render_inline PrimaryActionComponent.new(user:, developer:, business:)
+      render_inline PrimaryActionComponent.new(user:, developer:, business:, public_key: nil)
       assert_text "Message"
     end
 
     test "renders Share button to owner of profile" do
-      render_inline PrimaryActionComponent.new(user: nil, developer: @developer, business: nil)
+      render_inline PrimaryActionComponent.new(user: nil, developer: @developer, business: nil, public_key: nil)
       refute_text "Share"
 
       user = users(:developer)
-      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil)
+      render_inline PrimaryActionComponent.new(user:, developer: @developer, business: nil, public_key: nil)
       assert_text "Share"
     end
   end

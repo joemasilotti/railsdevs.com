@@ -2,10 +2,11 @@ module Developers
   class PrimaryActionComponent < ApplicationComponent
     attr_reader :user, :developer, :business
 
-    def initialize(user:, developer:, business:)
+    def initialize(user:, developer:, business:, public_key:)
       @user = user
       @developer = developer
       @business = business
+      @public_key = public_key
     end
 
     def owner?
