@@ -1,0 +1,72 @@
+<div class="min-h-full">
+  <%= tag.nav data: {controller: "toggle", "toggle-visibility-class": "hidden", action: "toggle-nav-bar@window->toggle#toggle"}, class: "bg-navy #{"fixed top-0 left-0 right-0 z-50" if helpers.turbo_native_app?}" do %>
+    <% unless helpers.turbo_native_app? %>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-28">
+          <div class="flex items-center">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <%= link_to root_path, class: "shrink-0 flex items-center text-white fill-current" do %>
+                <span class="sr-only">RailsDevs</span>
+                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo", title: "RailsDevs logo" %>
+              <% end %>
+            </div>
+
+            <!-- Navigation links -->
+            <div class="hidden md:block">
+              <div class="ml-16 flex items-baseline space-x-12">
+                <% links.each do |link| %>
+                  <%= helpers.link_to_active link.title, link.path, active_class: "border-salmon", class: "text-gray-300 border-b border-transparent py-1 hover:border-salmon hover:text-white" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop nav bar -->
+          <div class="hidden md:block">
+            <div class="ml-4 flex items-center md:ml-6 space-x-12">
+              <%= link_to t(".sign_in"), new_user_session_path, class: "text-gray-300 border-b border-transparent py-1 hover:border-salmon hover:text-white" %>
+
+              <%= link_to t(".register"), new_user_registration_path, class: "relative inline-flex items-center px-8 py-3 text-typography bg-green rounded-full font-semibold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" %>
+            </div>
+          </div>
+
+          <div class="-mr-2 flex items-center md:hidden">
+            <!-- Mobile menu button -->
+            <button type="button" data-action="toggle#toggle" class="bg-navy inline-flex items-center justify-center p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span data-toggle-target="element">
+                <span class="sr-only">Open main menu</span>
+                <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6", aria_hidden: true %>
+              </span>
+
+              <span data-toggle-target="element" class="hidden">
+                <span class="sr-only">Close main menu</span>
+                <%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6", aria_hidden: true %>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Mobile menu -->
+    <div data-toggle-target="element" class="hidden md:hidden" id="mobile-menu">
+      <!-- Navigation links -->
+      <div class="px-2 pt-2 pb-3 space-y-2 sm:px-3">
+        <% links.each do |link| %>
+          <%= helpers.link_to_active link.title, link.path, "data-turbo-action": "replace", active_class: "border-salmon", class: "text-gray-300 border-b border-transparent block w-max mx-3 py-2 text-base font-medium hover:border-salmon hover:text-white" %>
+        <% end %>
+
+        <div class="pt-2">
+          <div class="border-t border-navy-mid pt-6 pb-2">
+            <%= link_to t(".register"), new_user_registration_path, class: "w-full flex items-center justify-center relative inline-flex items-center px-4 py-2 bg-green font-medium rounded-md text-typography hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" %>
+            <%= link_to new_user_session_path, class: "block mt-4 text-center text-white group" do %>
+              Have an account?
+              <span class="text-green underline font-semibold"><%= t(".sign_in") %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

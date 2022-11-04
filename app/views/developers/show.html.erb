@@ -27,7 +27,7 @@
                 <% end %>
               </div>
 
-              <%= render Developers::PrimaryActionComponent.new(user: current_user, developer: @developer, business: current_user&.business) %>
+              <%= render Developers::PrimaryActionComponent.new(user: current_user, developer: @developer, business: current_user&.business, public_key: @public_key) %>
             </div>
 
             <%= render Developers::BadgesComponent.new(@developer) %>

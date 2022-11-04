@@ -209,11 +209,11 @@ class DeveloperTest < ActiveSupport::TestCase
     assert developer.featured?
     assert_includes Developer.featured, developer
 
-    travel 7.days
+    travel 7.days - 1.hour
     assert developer.featured?
     assert_includes Developer.featured, developer
 
-    travel 1.second
+    travel 2.hours
     refute developer.featured?
     refute_includes Developer.featured, developer
 

@@ -6,12 +6,9 @@
     <% end %>
 
     <% if Feature.enabled?(:obfuscate_developer_urls) %>
-      <%= tag.div data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: share_url, clipboard_html_content_value: share_url} do %>
-        <button data-action="clipboard#copy clipboard#toggle" type="button" class="shrink-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
-          <%= inline_svg_tag "icons/solid/document-duplicate.svg", class: "-ml-1 mr-2 h-5 w-5", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
-          <%= inline_svg_tag "icons/solid/check.svg", class: "-ml-1 mr-2 h-5 w-5 hidden", data: {clipboard_target: "toggleable"}, aria_hidden: true %>
-          <%= t("developers.show.share") %>
-        </button>
+      <%= link_to new_developer_public_profile_path(@developer), data: {"turbo-frame": "modal"}, class: "shrink-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+        <%= inline_svg_tag "icons/solid/share.svg", class: "-ml-1 mr-3 h-5 w-5", aria_hidden: true %>
+        <%= t("developers.show.share") %>
       <% end %>
     <% end %>
   </div>
@@ -19,6 +16,11 @@
   <%= link_to conversation_path(conversation), class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
     <%= inline_svg_tag "icons/solid/mail.svg", class: "-ml-1 mr-3 h-5 w-5", aria_hidden: true %>
     <%= t("developers.show.message") %>
+  <% end %>
+<% elsif @developer.valid_public_profile_access?(@public_key) %>
+  <%= mail_to @developer.user.email, rel: "nofollow", class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
+    <%= inline_svg_tag "icons/solid/briefcase.svg", class: "-ml-1 mr-3 h-5 w-5", aria_hidden: true %>
+    <%= t("developers.show.hire") %>
   <% end %>
 <% else %>
   <%= link_to new_developer_message_path(@developer), rel: "nofollow", class: "shrink-0 mt-4 md:mt-0 inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" do %>
