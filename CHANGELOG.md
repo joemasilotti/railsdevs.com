@@ -2,9 +2,12 @@
 
 ## 2022
 
+#### November
+
+* November 3 - Publicly shareable URLs via modal #647 @sarvaiyanidhi
+
 ### October
 
-* October 31 - Publicly shareable URLs via modal #647 @sarvaiyanidhi
 * October 28 - Tag for source RailsDevs source code contributors #677 @benmercerdev
 * October 21 - Option to ignore pages from being tracked in Fathom #706
 * October 20 - Upgrade Tailwind CSS to v3.2 #700
