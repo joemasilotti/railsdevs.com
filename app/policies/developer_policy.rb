@@ -4,7 +4,7 @@ class DeveloperPolicy < ApplicationPolicy
   end
 
   def show?
-    record.visible? || record_owner? || admin? || valid_public_access?
+    record.visible? || record_owner? || admin?
   end
 
   def share_profile?
