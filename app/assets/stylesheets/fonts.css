@@ -35,6 +35,15 @@
 }
 
 @font-face {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("Poppins-Regular.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Source Code Pro";
   font-weight: 400;
   font-display: swap;
