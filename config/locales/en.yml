@@ -646,6 +646,12 @@ en:
       rails_developers: Rails developers
       response_rate: Response rate
       title: The Rails-only hiring platform
+  public_profiles:
+    new:
+      cancel: Cancel
+      copy_link: Copy link
+      message: Share your developer profile privately with someone. This will reveal hidden information like your real name, social links, and email address to them.
+      title: Share your profile
   read_notifications:
     create:
       notice: All notifications marked as read.

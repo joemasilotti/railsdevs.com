@@ -2,6 +2,10 @@
 
 ## 2022
 
+### November
+
+* November 3 - Publicly shareable URLs via modal #647 @sarvaiyanidhi
+
 ### October
 
 * October 28 - Tag for source RailsDevs source code contributors #677 @benmercerdev

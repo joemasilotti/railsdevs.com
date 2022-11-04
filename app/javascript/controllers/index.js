@@ -24,6 +24,9 @@ application.register("form", FormController)
 import KeyboardShortcutController from "./keyboard_shortcut_controller.js"
 application.register("keyboard-shortcut", KeyboardShortcutController)
 
+import ModalController from "./modal_controller.js"
+application.register("modal", ModalController)
+
 import PageScrollController from "./page_scroll_controller.js"
 application.register("page-scroll", PageScrollController)
 

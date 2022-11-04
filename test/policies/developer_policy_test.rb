@@ -32,6 +32,11 @@ class DeveloperPolicyTest < ActiveSupport::TestCase
     assert DeveloperPolicy.new(user, developer).show?
   end
 
+  test "can share their own developer profile" do
+    user = users(:developer)
+    assert DeveloperPolicy.new(user, user.developer).share_profile?
+  end
+
   def create_invisible_developer!
     Developer.create!(developer_attributes.merge(search_status: :invisible))
   end
