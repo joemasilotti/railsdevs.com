@@ -2,7 +2,7 @@
 
 ## 2022
 
-#### November
+### November
 
 * November 3 - Publicly shareable URLs via modal #647 @sarvaiyanidhi
 
