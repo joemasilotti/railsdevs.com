@@ -1,21 +1,21 @@
 <%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".turbo_native_title"), description: t(".description_og") %>
 
 <div class="bg-navy">
-  <div class="flex flex-col md:flex-row items-center justify-center max-w-6xl mx-auto p-8 pb-48 bg-gradient-radial from-navy-gradient via-navy to-navy">
-    <%= image_tag "hero.png", class: "flex-shrink-0 h-52 lg:h-72 xl:h-auto xl:w-[400px]" %>
-    <div class="mt-8 md:ml-16 xl:ml-28 text-center md:text-left">
-      <h1 class="text-3xl tracking-tight font-heading font-bold text-white lg:text-4xl xl:text-5xl lg:leading-tight xl:leading-tight">
+  <div class="flex items-center justify-center max-w-6xl mx-auto p-8 pb-48 bg-gradient-radial from-navy-gradient via-navy to-navy">
+    <%= image_tag "hero.png", class: "flex-shrink-0 w-[400px]" %>
+    <div class="mt-8 ml-28">
+      <h1 class="text-3xl tracking-tight font-heading font-bold text-white text-5xl leading-tight">
         <%= t(".hero_title_1") %>
         <span class="text-highlight"><%= t(".hero_title_accent") %></span>
         <%= t(".hero_title_2") %>
-        <span class="md:block"><%= t(".hero_title_3") %></span>
+        <span class="block"><%= t(".hero_title_3") %></span>
       </h1>
-      <p class="mt-3 text-sm text-white font-light md:leading-relaxed md:text-base md:mt-5">
+      <p class="mt-3 text-white font-light leading-relaxed mt-5">
         <%= t(".subtitle_1") %>
         <span><%= t(".subtitle_2") %></span>
-        <span class="lg:block"><%= t(".subtitle_3") %></span>
+        <span class="block"><%= t(".subtitle_3") %></span>
       </p>
-      <div class="mt-5 md:mt-8">
+      <div class="mt-8">
         <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading font-bold text-typography bg-green rounded-full font-bold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
           <%= t(".get_started") %>
           <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
@@ -25,17 +25,17 @@
   </div>
 </div>
 
-<div class="max-w-6xl mx-auto my-24 sm:my-32">
+<div class="max-w-6xl mx-auto my-32">
   <div class="pb-5 px-4 w-full">
-    <h2 class="text-3xl tracking-tight text-typography font-heading font-bold text-center lg:text-4xl xl:text-5xl">
+    <h2 class="text-5xl tracking-tight text-typography font-heading font-bold text-center">
       <%= t(".reviews_header") %>
     </h2>
-    <p class="mt-3 text-sm text-typography text-light text-center leading-8 md:text-base md:mt-5 lg:leading-10">
+    <p class="text-typography leading-10 text-center leading-8 mt-5">
       <%= tag.span(t(".reviews_subtitle_1"), class: "block") %>
       <%= tag.span(t(".reviews_subtitle_2"), class: "block") %>
     </p>
   </div>
-  <div class="flex flex-col space-y-12 items-center px-2 mt-20 md:px-8 lg:items-stretch lg:flex-row lg:space-y-0 lg:space-x-12">
+  <div class="flex space-y-12 items-center items-stretch space-y-0 space-x-12 px-8 mt-20">
     <div class="flex flex-col w-full">
       <div class="flex-grow border-2 p-12 border-green">
         <div class="flex">
@@ -95,9 +95,9 @@
   </div>
 </div>
 
-<div class="bg-green-lightest pb-48 px-12 my-24 sm:my-32">
-  <div class="flex flex-col items-center max-w-6xl mx-auto pt-[86px] lg:flex-row lg:items-start lg:justify-between">
-    <h2 class="text-3xl tracking-tight text-typography font-heading font-bold lg:text-5xl">
+<div class="bg-green-lightest pb-48 px-12 my-32">
+  <div class="flex items-start justify-between items-center max-w-6xl mx-auto pt-[86px]">
+    <h2 class="text-5xl tracking-tight text-typography font-heading font-bold">
       <%= t(".explain_title") %>
     </h2>
     <ul class="space-y-4 mt-6">
@@ -116,7 +116,7 @@
     </ul>
   </div>
 </div>
-<div class="hidden max-w-6xl h-[30rem] mx-auto -mt-48 md:grid md:grid-flow-col md:grid-cols-3 md:grid-rows-3 md:gap-6">
+<div class="hidden max-w-6xl h-[30rem] mx-auto -mt-48 grid grid-flow-col grid-cols-3 grid-rows-3 gap-6">
   <div class="col-span-1 row-span-1 bg-salmon"></div>
   <div class="bg-gray-300 col-span-1 row-span-2">
     <%# Image placeholder %>
@@ -131,33 +131,33 @@
   </div>
 </div>
 
-<div class="max-w-6xl w-full mx-auto my-24 sm:my-32">
-  <h2 class="text-3xl tracking-tight text-typography font-heading font-bold text-center lg:text-4xl xl:text-5xl">
+<div class="max-w-6xl w-full mx-auto my-32">
+  <h2 class="text-5xl tracking-tight text-typography font-heading font-bold text-center">
     <%= t(".about_title") %>
   </h2>
-  <p class="mt-3 text-sm text-typography text-light text-center leading-8 md:text-base md:mt-5 lg:leading-10">
+  <p class="mt-5 text-sm text-typography text-center leading-10">
     <%= tag.span(t(".about_subtitle_1"), class: "block") %>
     <%= tag.span(t(".about_subtitle_2"), class: "block") %>
   </p>
-  <div class="flex flex-col space-y-12 mt-20 px-2 lg:items-stretch lg:flex-row lg:space-y-0 lg:space-x-12 xl:px-0">
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+  <div class="flex items-stretch space-y-0 space-x-12 space-y-12 mt-20">
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
       <%= tag.h3 t(".about_card_1_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-[12.5rem] px-3 bg-gray-50" %>
       <%= tag.p t(".about_card_1_content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
     </div>
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
       <%= tag.h3 t(".about_card_2_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-52 px-3 bg-gray-50" %>
       <%= tag.p t(".about_card_2_content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
     </div>
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-10 border-green lg:pt-12">
+    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
       <%= tag.h3 t(".about_card_3_title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-[17rem] px-3 bg-gray-50" %>
       <%= tag.p t(".about_card_3_content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
     </div>
   </div>
 </div>
 
-<div class="w-full bg-navy my-24 pt-24 pb-80 sm:my-32">
-  <div class="relative flex flex-col items-end space-y-4 max-w-6xl w-full mx-auto px-8 sm:flex-row sm:justify-between sm:items-center sm:space-y-0 md:px-16">
-    <h2 class="text-3xl tracking-tight text-white font-heading font-bold text-center lg:text-5xl">
+<div class="w-full bg-navy my-24 pt-24 pb-80 my-32">
+  <div class="relative flex justify-between items-center space-y-0 items-end space-y-4 max-w-6xl w-full mx-auto px-8 px-16">
+    <h2 class="text-5xl tracking-tight text-white font-heading font-bold text-center">
       <%= t(".bottom_of_page_cta_1") %>
       <span class="text-teal"><%= t(".bottom_of_page_cta_2") %></span>
       <%= t(".bottom_of_page_cta_3") %>
