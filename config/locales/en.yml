@@ -467,7 +467,8 @@ en:
       explain_title: How it Works
       get_started: Get started
       hero_title_1: The
-      hero_title_2: job board for Rails developers
+      hero_title_2: job board
+      hero_title_3: for Rails developers
       hero_title_accent: reverse
       learn_more: Learn more
       more: See more developers
