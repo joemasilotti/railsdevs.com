@@ -4,3 +4,14 @@
 @import "./tailwindcss/overrides.css";
 
 @import "./components/pagy.css";
+
+@layer components {
+  .text-highlight {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+    --tw-gradient-from: #A1D39E;
+    --tw-gradient-to: #21B6AA;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+}
