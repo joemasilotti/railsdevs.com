@@ -1,28 +1,7 @@
 <%= open_graph_tags title: t(".title_og"), turbo_native_title: t(".turbo_native_title"), description: t(".description_og") %>
 
 <div class="bg-navy">
-  <div class="flex items-center justify-center max-w-6xl mx-auto p-8 pb-48 bg-gradient-radial from-navy-gradient via-navy to-navy">
-    <%= image_tag "hero.png", class: "flex-shrink-0 w-[400px]" %>
-    <div class="mt-8 ml-28">
-      <h1 class="text-3xl tracking-tight font-heading font-bold text-white text-5xl leading-tight">
-        <%= t(".hero_title_1") %>
-        <span class="text-highlight"><%= t(".hero_title_accent") %></span>
-        <%= t(".hero_title_2") %>
-        <span class="block"><%= t(".hero_title_3") %></span>
-      </h1>
-      <p class="mt-3 text-white font-light leading-relaxed mt-5">
-        <%= t(".subtitle_1") %>
-        <span><%= t(".subtitle_2") %></span>
-        <span class="block"><%= t(".subtitle_3") %></span>
-      </p>
-      <div class="mt-8">
-        <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading font-bold text-typography bg-green rounded-full font-bold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
-          <%= t(".get_started") %>
-          <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <%= render "hero" %>
 </div>
 
 <div class="max-w-6xl mx-auto my-32">

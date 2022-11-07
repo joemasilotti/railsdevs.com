@@ -1,0 +1,22 @@
+<div class="flex items-center justify-center max-w-6xl mx-auto p-8 pb-48 bg-gradient-radial from-navy-gradient via-navy to-navy">
+  <%= image_tag "hero.png", class: "flex-shrink-0 w-[400px]" %>
+  <div class="mt-8 ml-28">
+    <h1 class="tracking-tight font-heading font-bold text-white text-5xl leading-tight">
+      <%= t("home.show.hero_title_1") %>
+      <span class="text-highlight"><%= t("home.show.hero_title_accent") %></span>
+      <%= t("home.show.hero_title_2") %>
+      <span class="block"><%= t("home.show.hero_title_3") %></span>
+    </h1>
+    <p class="text-white font-light leading-relaxed mt-5">
+      <%= t("home.show.subtitle_1") %>
+      <span><%= t("home.show.subtitle_2") %></span>
+      <span class="block"><%= t("home.show.subtitle_3") %></span>
+    </p>
+    <div class="mt-8">
+      <%= link_to new_role_path, class: "relative inline-flex items-center px-10 py-4 font-heading font-bold text-typography bg-green rounded-full font-bold hover:bg-green-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-navy focus:ring-white" do %>
+        <%= t("home.show.get_started") %>
+        <%= inline_svg_tag "icons/solid/arrow_long_right.svg", class: "text-typography ml-3 -mr-1 h-6 w-6", aria_hidden: true %>
+      <% end %>
+    </div>
+  </div>
+</div>
