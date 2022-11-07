@@ -450,12 +450,15 @@ en:
         signed_on: Signed on %{date}
   home:
     show:
-      about_card_1_content: RailsDevs strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles.
-      about_card_1_title: Empowering the developer
-      about_card_2_content: RailsDevs is an Open Startup and open source. It operates fully transparent and shares its metrics, like revenue and traffic.
-      about_card_2_title: Doing everything in public
-      about_card_3_content: The platform is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level that follow the code of conduct.
-      about_card_3_title: Creating a safe, inclusive environment
+      about_card_1:
+        content: RailsDevs strives to give power back to the independent developer. Instead of companies posting their jobs, developers post their profiles.
+        title: Empowering the developer
+      about_card_2:
+        content: RailsDevs is an Open Startup and open source. It operates fully transparent and shares its metrics, like revenue and traffic.
+        title: Doing everything in public
+      about_card_3:
+        content: The platform is open to all developers, regardless of race, color, national origin, religion, gender, age, disability, or skill level that follow the code of conduct.
+        title: Creating a safe, inclusive environment
       about_subtitle_1: RailsDevs is making it easier for Rails developers to find their next gig.
       about_subtitle_2: It's built around three core values.
       about_title: About RailsDevs
