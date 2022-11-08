@@ -23,7 +23,11 @@
           <% end %>
 
           <% row.with_cell do %>
-            <%= render Admin::BasicLinkComponent.new(transaction.description, transaction.url, external: true) %>
+            <% if transaction.url.present? %>
+              <%= render Admin::BasicLinkComponent.new(transaction.description, transaction.url, external: true) %>
+            <% else %>
+              <%= transaction.description %>
+            <% end %>
           <% end %>
 
           <% row.with_cell align: :right do %>
