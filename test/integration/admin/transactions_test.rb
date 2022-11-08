@@ -15,8 +15,11 @@ class TransactionsTest < ActionDispatch::IntegrationTest
   test "lists all transactions" do
     sign_in users(:admin)
     get admin_transactions_path
-    assert_select "td", text: "Donation"
-    assert_select "td", text: "Expense"
+    assert_select "tr td", text: open_startup_transactions(:expense).description
+    assert_select "tr td" do
+      assert_select "a[href=?]", open_startup_transactions(:donation).url,
+        text: open_startup_transactions(:donation).description
+    end
   end
 
   test "builds a new transaction" do
