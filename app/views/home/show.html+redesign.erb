@@ -15,62 +15,11 @@
     </p>
   </div>
   <div class="flex items-stretch space-y-0 space-x-12 px-8 mt-20">
-    <div class="flex flex-col w-full">
-      <div class="flex-grow border-2 p-12 border-green">
-        <div class="flex">
-          <% 5.times do %>
-            <span>
-              <%= inline_svg_tag "icons/solid/star.svg", class: "text-teal h-6 w-6", aria_hidden: true %>
-            </span>
-          <% end %>
-          <span class="sr-only">5 star rating</span>
-        </div>
-        <p class="mt-4 mx-1 text-sm text-typography leading-relaxed font-light">
-          Switching jobs and overcoming the period between contracts was extremely painful. <span class="font-bold">railsdevs.com is precisely what I needed</span>. Now companies come to me instead of me chasing the work. I am incredibly grateful Joe did such a favor to the Rails community and built this platform.
-        </p>
-      </div>
-      <div class="relative flex flex-col justify-center mt-4 pl-[184px] h-16 w-full bg-teal-lightest">
-        <div class="absolute left-12 -bottom-2 h-28 w-28 bg-gray-300 rounded-lg">
-          <%# Image placeholder %>
-        </div>
-        <dl>
-          <dt class="text-sm text-typography font-bold">
-            Dusan
-          </dt>
-          <dd class="text-sm text-typography">
-            Freelancer
-          </dd>
-        </dl>
-      </div>
-    </div>
-    <div class="flex flex-col w-full">
-      <div class="flex-grow border-2 p-12 border-green">
-        <div class="flex">
-          <% 5.times do %>
-            <span>
-              <%= inline_svg_tag "icons/solid/star.svg", class: "text-teal h-6 w-6", aria_hidden: true %>
-            </span>
-          <% end %>
-          <span class="sr-only">5 star rating</span>
-        </div>
-        <p class="mt-4 mx-1 text-sm text-typography leading-relaxed font-light">
-          During my search for my first dev job, out of all the many platforms and channels where I looked for work, railsdevs was the place where I had the <span class="font-bold">most human and friendly interactions with potential employers</span>. It was a breath of fresh air!
-        </p>
-      </div>
-      <div class="relative flex flex-col justify-center mt-4 pl-[184px] h-16 w-full bg-teal-lightest">
-        <div class="absolute left-12 -bottom-2 h-28 w-28 bg-gray-300 rounded-lg">
-          <%# Image placeholder %>
-        </div>
-        <dl>
-          <dt class="text-sm text-typography font-bold">
-            Felipe Vogel
-          </dt>
-          <dd class="text-sm text-typography">
-            Found First Dev Job
-          </dd>
-        </dl>
-      </div>
-    </div>
+    <% @testimonials.each do |testimonial| %>
+      <%= render Marketing::TestimonialComponent.new(
+            testimonial: testimonial.testimonial, name: testimonial.name, title: testimonial.title
+          ) %>
+    <% end %>
   </div>
 </div>
 
