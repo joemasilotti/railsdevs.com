@@ -5,15 +5,10 @@
 </div>
 
 <div class="max-w-6xl mx-auto my-32">
-  <div class="pb-5 px-4 w-full">
-    <h2 class="text-5xl tracking-tight text-typography font-heading font-bold text-center">
-      <%= t(".reviews_header") %>
-    </h2>
-    <p class="text-typography leading-10 text-center mt-5">
-      <%= tag.span(t(".reviews_subtitle_1"), class: "block") %>
-      <%= tag.span(t(".reviews_subtitle_2"), class: "block") %>
-    </p>
-  </div>
+  <%= render Marketing::HeroComponent.new(
+        title: t(".reviews_header") , subtitle_1: t(".reviews_subtitle_1"), subtitle_2: t(".reviews_subtitle_2")
+      ) %>
+
   <div class="flex items-stretch space-y-0 space-x-12 px-8 mt-20">
     <% @testimonials.each do |testimonial| %>
       <%= render Marketing::TestimonialComponent.new(
@@ -47,13 +42,10 @@
 <%= render "image_collage" %>
 
 <div class="max-w-6xl w-full mx-auto my-32">
-  <h2 class="text-5xl tracking-tight text-typography font-heading font-bold text-center">
-    <%= t(".about_title") %>
-  </h2>
-  <p class="mt-5 text-sm text-typography text-center leading-10">
-    <%= tag.span(t(".about_subtitle_1"), class: "block") %>
-    <%= tag.span(t(".about_subtitle_2"), class: "block") %>
-  </p>
+  <%= render Marketing::HeroComponent.new(
+        title: t(".about_title") , subtitle_1: t(".about_subtitle_1"), subtitle_2: t(".about_subtitle_2")
+      ) %>
+
   <div class="flex items-stretch space-y-0 space-x-12 mt-20">
     <%= render Marketing::TextCardComponent.new(title: t(".about_card_1.title"), text: t(".about_card_1.content")) %>
     <%= render Marketing::TextCardComponent.new(title: t(".about_card_2.title"), text: t(".about_card_2.content")) %>

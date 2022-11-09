@@ -1,0 +1,10 @@
+  <div class="pb-5 px-4 w-full">
+    <%= tag.h2 @title, class: "text-5xl tracking-tight text-typography font-heading font-bold text-center" %>
+
+    <% if @subtitle_1 || @subtitle_2 %>
+      <p class="text-typography leading-10 text-center mt-5">
+        <%= tag.span(@subtitle_1, class: "block") if @subtitle_1 %>
+        <%= tag.span(@subtitle_2, class: "block") if @subtitle_2 %>
+      </p>
+    <% end %>
+  </div>
