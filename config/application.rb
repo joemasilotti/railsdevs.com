@@ -34,7 +34,8 @@ module Railsdevs
     config.fathom = config_for(:fathom)
     config.plans = config_for(:plans)
     config.sitemaps_host = "https://#{Rails.application.credentials.dig(:aws, :sitemaps_bucket)}.s3.#{Rails.application.credentials.dig(:aws, :region)}.amazonaws.com/"
-    config.testimonials = config_for(:testimonials)
+    config.business_testimonials = config_for("testimonials/businesses")
+    config.developer_testimonials = config_for("testimonials/developers")
     config.upload_sitemap = false
 
     # Run background jobs via sidekiq.

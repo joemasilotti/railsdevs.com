@@ -5,5 +5,6 @@ class HomeController < ApplicationController
       .includes(:role_type).with_attached_avatar
       .actively_looking.newest_first.available
       .limit(10)
+    @testimonials = DeveloperTestimonial.all
   end
 end

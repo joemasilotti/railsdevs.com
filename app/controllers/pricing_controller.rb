@@ -1,6 +1,6 @@
 class PricingController < ApplicationController
   def show
     @stats = Pricing::Stats.new
-    @testimonials = Testimonial.all
+    @testimonials = BusinessTestimonial.all
   end
 end
