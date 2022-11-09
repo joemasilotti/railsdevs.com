@@ -106,18 +106,9 @@
     <%= tag.span(t(".about_subtitle_2"), class: "block") %>
   </p>
   <div class="flex items-stretch space-y-0 space-x-12 mt-20">
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
-      <%= tag.h3 t(".about_card_1.title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-[12.5rem] px-3 bg-gray-50" %>
-      <%= tag.p t(".about_card_1.content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
-    </div>
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
-      <%= tag.h3 t(".about_card_2.title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-52 px-3 bg-gray-50" %>
-      <%= tag.p t(".about_card_2.content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
-    </div>
-    <div class="relative flex-grow flex-1 border-2 px-6 pb-6 pt-12 border-green">
-      <%= tag.h3 t(".about_card_3.title"), class: "absolute left-4 -top-5 text-typography text-xl tracking-tight font-bold font-heading leading-relaxed w-[17rem] px-3 bg-gray-50" %>
-      <%= tag.p t(".about_card_3.content"), class: "mt-4 mx-1 text-typography leading-loose font-light" %>
-    </div>
+    <%= render Marketing::TextCardComponent.new(title: t(".about_card_1.title"), text: t(".about_card_1.content")) %>
+    <%= render Marketing::TextCardComponent.new(title: t(".about_card_2.title"), text: t(".about_card_2.content")) %>
+    <%= render Marketing::TextCardComponent.new(title: t(".about_card_3.title"), text: t(".about_card_3.content"), xl_title: true) %>
   </div>
 </div>
 
