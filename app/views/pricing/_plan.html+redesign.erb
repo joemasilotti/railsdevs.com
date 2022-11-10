@@ -11,14 +11,6 @@
               <h4 class="flex-shrink-0 bg-white pr-4 text-base font-semibold text-gray-600"><%= t(".features.title") %></h4>
               <div class="flex-1 border-t-2 border-gray-200"></div>
             </div>
-            <ul role="list" class="mt-8 space-y-5 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:gap-y-5 lg:space-y-0">
-              <%= render "pricing/plan_feature", title: t(".features.rails.title") %>
-              <%= render "pricing/plan_feature", title: t(".features.message.title") %>
-              <%= render "pricing/plan_feature", title: t(".features.hand_selected_matches.title") %>
-              <%= render "pricing/plan_feature", title: t(".features.email_updates.title") %>
-              <%= render "pricing/plan_feature", title: t(".features.support.title") %>
-              <%= render "pricing/plan_feature", title: t(".features.oss.title") %>
-            </ul>
           </div>
         </div>
         <div class="bg-white w-full lg:max-w-sm py-8 px-6 text-center lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-12">
@@ -38,4 +30,10 @@
       </div>
     </div>
   </div>
+  <dl class="grid grid-cols-2 gap-x-28 gap-y-24 max-w-5xl mx-auto mt-32">
+    <%= render "pricing/plan_feature", title: t(".features.rails.title"), description: t(".features.rails.description"), svg_path: "icons/outline/user_group.svg" %>
+    <%= render "pricing/plan_feature", title: t(".features.message.title"), description: t(".features.message.description"), svg_path: "icons/outline/chat.svg" %>
+    <%= render "pricing/plan_feature", title: t(".features.hand_selected_matches.title"), description: t(".features.hand_selected_matches.description"), svg_path: "icons/outline/thumb_up.svg" %>
+    <%= render "pricing/plan_feature", title: t(".features.email_updates.title"), description: t(".features.email_updates.description"), svg_path: "icons/outline/airplane.svg" %>
+  </dl>
 </div>

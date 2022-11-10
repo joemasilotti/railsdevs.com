@@ -652,12 +652,22 @@ en:
     plan:
       description: Skip the formal job postings and middlemen – hire directly from a candidate pool of Ruby on Rails developers, from juniors to C-level.
       features:
-        email_updates: Email updates of new candidates
-        hand_selected_matches: Hand-selected matches every month
-        message: Message directly with developers
-        oss: Support independent developers and OSS
-        rails: Exclusively Ruby on Rails developers
-        support: Email and video support from the founder
+        email_updates:
+          title: Email updates of new candidates
+          description: The newest talent on RailsDevs sent right to your inbox, daily or weekly.
+        hand_selected_matches:
+          title: Hand-selected matches every month
+          description: Kick off your search with a manually curated list of 5-10 developers based on your specific requirements.
+        message:
+          title: Message directly with developers
+          description: Skip the formal job postings and middlemen. Start organic conversations with candidates in one click.
+        oss:
+          title: Support independent developers and OSS
+        rails:
+          title: Exclusively Ruby on Rails developers
+          description: Cut through the noise and save time with a candidate pool where everyone is a Ruby on Rails developer.
+        support:
+          title: Email and video support from the founder
         title: RailsDevs exclusives
       hiring_fee: "+ 10% first year salary"
       per_month: "/month"
