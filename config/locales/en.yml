@@ -646,6 +646,8 @@ en:
       title: Frequently asked questions
     hero:
       description: Directly connect with hundreds of Ruby on Rails developers looking for their next job.
+      description_1: Directly connect with hundreds of Ruby on Rails
+      description_2: developers looking for their next job.
       title: Hire Ruby on Rails developers
     plan:
       description: Skip the formal job postings and middlemen – hire directly from a candidate pool of Ruby on Rails developers, from juniors to C-level.

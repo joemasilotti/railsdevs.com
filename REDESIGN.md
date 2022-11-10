@@ -10,3 +10,4 @@ Notes as [the redesign](https://github.com/joemasilotti/railsdevs.com/milestone/
 
 * Medium-sized buttons use 12px of padding instead of 16px
 * I've increased the spacing between mobile menu items so that the active state is more clear
+* On the pricing page, the space between the bottom of the hero needed to be a bit larger than shown on Figma to look correct

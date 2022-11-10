@@ -1,0 +1,15 @@
+<div class="w-full bg-navy">
+  <div class="flex flex-col items-center justify-center max-w-6xl mx-auto p-8 pb-32">
+    <div class="mt-8">
+      <%= render Marketing::HeroComponent.new(
+        title: t(".title"), subtitle_1: t(".description_1"), subtitle_2: t(".description_2"),
+        dark_bg: true
+      ) %>
+    </div>
+    <div class="flex mt-9">
+      <div class="h-2.5 w-56 bg-salmon"></div>
+      <div class="h-2.5 w-56 bg-teal"></div>
+      <div class="h-2.5 w-56 bg-green"></div>
+    </div>
+  </div>
+</div>
