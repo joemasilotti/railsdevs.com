@@ -672,6 +672,7 @@ en:
       hiring_fee: "+ 10% first year salary"
       per_month: "/month"
       title_html: For your 1<sup>st</sup> hire and beyond
+      title: The Rails-only hiring platform
     purchase_button:
       title: Get started today
     show:
