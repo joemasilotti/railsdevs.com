@@ -10,7 +10,7 @@ class FooterLinkComponent < ApplicationComponent
       class: [
         "text-base",
         "text-gray-500 hover:text-gray-900": !Feature.enabled?(:redesign),
-        "text-typography hover:text-navy-mid": Feature.enabled?(:redesign)
+        "hover:text-navy-mid": Feature.enabled?(:redesign)
       ]
     }
     standard_options.merge(**@options) unless @options.nil?

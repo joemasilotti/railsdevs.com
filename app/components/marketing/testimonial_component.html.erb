@@ -8,15 +8,15 @@
       <% end %>
       <span class="sr-only">5 star rating</span>
     </div>
-    <%= tag.p @testimonial, class: "mt-4 mx-1 text-sm text-typography leading-relaxed font-light" %>
+    <%= tag.p @testimonial, class: "mt-4 mx-1 text-sm leading-relaxed font-light" %>
   </div>
   <div class="relative flex flex-col justify-center mt-4 pl-[184px] h-16 w-full bg-teal-lightest">
     <div class="absolute left-12 -bottom-2 h-28 w-28 bg-gray-300 rounded-lg">
       <%# Image placeholder %>
     </div>
     <dl>
-      <%= tag.dt @name, class: "text-sm text-typography font-bold" %>
-      <%= tag.dd @title, class: "text-sm text-typography" %>
+      <%= tag.dt @name, class: "text-sm font-bold" %>
+      <%= tag.dd @title, class: "text-sm" %>
     </dl>
   </div>
 </div>

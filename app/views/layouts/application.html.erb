@@ -17,7 +17,7 @@
     <%= hotwire_livereload_tags %>
   </head>
 
-  <body data-controller="analytics--page-views" class="min-h-full flex flex-col">
+  <%= tag.body data: {controller: "analytics--page-views"}, class: ["min-h-full flex flex-col", "text-typography": Feature.enabled?(:redesign)] do %>
     <div class="flex-1">
       <%= render ImpersonatingBannerComponent.new %>
       <%= render NavBar::BaseComponent.new(current_user) %>
@@ -28,5 +28,5 @@
     <%= render "shared/footer" unless turbo_native_app? %>
     <%= turbo_frame_tag "modal" %>
     <%= render Analytics::EventComponent.new(flash) %>
-  </body>
+  <% end %>
 </html>

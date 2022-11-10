@@ -73,7 +73,7 @@
       <% end %>
     </div>
 
-    <%= tag.p class: ["mt-8 text-center text-base", "text-gray-400": !Feature.enabled?(:redesign), "text-typography": Feature.enabled?(:redesign)] do %>
+    <%= tag.p class: ["mt-8 text-center text-base", "text-gray-400": !Feature.enabled?(:redesign)] do %>
       &copy; <%= Date.today.year %> <%= render(FooterLinkComponent.new(link: "https://masilotti.com", external: true)) { t(".masilotti_com") } %>. <%= t(".copyright") %>
     <% end %>
   </div>
