@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include HoneybadgerUserContext
   include Locales
   include Pundit::Authorization
+  include Referrals
   include StoredLocation
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

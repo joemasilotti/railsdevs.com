@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
+  has_one :referral, dependent: :destroy
 
   has_many :conversations, ->(user) {
     unscope(where: :user_id)

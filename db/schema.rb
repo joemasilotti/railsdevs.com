@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_145250) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_025600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -349,6 +349,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_145250) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "referrals", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "code", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_referrals_on_user_id"
+  end
+
   create_table "role_levels", force: :cascade do |t|
     t.bigint "developer_id"
     t.boolean "junior"
@@ -401,6 +409,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_145250) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "referrals", "users"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
 end
