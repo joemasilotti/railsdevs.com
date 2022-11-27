@@ -9,6 +9,6 @@ class PublicProfilesController < ApplicationController
   private
 
   def developer
-    Developers::Finder.new(id: params[:developer_id]).developer
+    Developer.find_by_hashid!(params[:developer_id])
   end
 end
