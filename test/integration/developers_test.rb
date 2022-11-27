@@ -415,16 +415,18 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "page 2 of search results only renders for subscribers" do
-    20.times { create_developer }
+    with_pagy_default_items(5) do
+      5.times { create_developer }
 
-    get developers_path(page: 2)
-    assert_text I18n.t("subscription_cta_component.title")
-    refute_text developers(:one).hero
+      get developers_path(page: 2)
+      assert_text I18n.t("subscription_cta_component.title")
+      refute_text developers(:one).hero
 
-    sign_in users(:subscribed_business)
-    get developers_path(page: 2)
-    refute_text I18n.t("subscription_cta_component.title")
-    assert_text developers(:one).hero
+      sign_in users(:subscribed_business)
+      get developers_path(page: 2)
+      refute_text I18n.t("subscription_cta_component.title")
+      assert_text developers(:one).hero
+    end
   end
 
   def assert_text(text)
