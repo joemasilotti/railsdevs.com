@@ -17,6 +17,10 @@ module Developers
       developer_url(@developer)
     end
 
+    def canonical
+      developer_url(@developer)
+    end
+
     def image
       rails_blob_url(@developer.avatar) if @developer.avatar.attached?
     end

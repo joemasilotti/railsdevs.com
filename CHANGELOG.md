@@ -4,6 +4,7 @@
 
 ### November
 
+* November 26 - Obfuscate developer profile URLs #731
 * November 23 - Save referral code when creating an account #730
 * November 8 - Do not add hrefs for transaction without urls #722 @kaushikhande
 * November 3 - Publicly shareable URLs via modal #647 @sarvaiyanidhi
