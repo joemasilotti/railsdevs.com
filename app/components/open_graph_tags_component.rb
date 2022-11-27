@@ -24,6 +24,10 @@ class OpenGraphTagsComponent < ApplicationComponent
     @description || t("home.show.title_og")
   end
 
+  def canonical
+    nil
+  end
+
   def url
     root_url
   end
