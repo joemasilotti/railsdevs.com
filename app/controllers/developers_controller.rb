@@ -25,12 +25,12 @@ class DevelopersController < ApplicationController
   end
 
   def edit
-    @developer = find_developer!
+    @developer = Developer.find_by_hashid!(params[:id])
     authorize @developer
   end
 
   def update
-    @developer = find_developer!
+    @developer = Developer.find_by_hashid!(params[:id])
     authorize @developer
 
     if @developer.update_and_notify(developer_params)
@@ -41,24 +41,22 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    finder = Developers::Finder.new(id: params[:id])
-    @developer = finder.developer
-    @public_key = params[:key]
-
-    if finder.should_redirect?
-      redirect_to @developer, status: 302, notice: t(".redirection", url: developer_url(@developer))
+    if (developer = developer_to_redirect_to_hashid)
+      return redirect_to developer, status: :moved_permanently,
+        notice: t(".redirection", url: developer_url(developer))
+    else
+      @developer = Developer.find_by_hashid!(params[:id])
     end
 
+    @public_key = params[:key]
     authorize @developer
   end
 
   private
 
-  def find_developer!
-    if Feature.enabled?(:obfuscate_developer_urls)
-      Developer.find_by_hashid!(params[:id])
-    else
-      Developer.find(params[:id])
+  def developer_to_redirect_to_hashid
+    if Feature.enabled?(:redirect_db_id_profiles)
+      Developer.find_by(id: params[:id])
     end
   end
 

@@ -48,22 +48,13 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
-  test "developers are only found by their hashid" do
+  test "developer hidden profile information is rendered with public profile key" do
+    sign_in users(:empty)
     developer = developers(:one)
+    developer.share_url
+    get developer_public_url(developer, developer.public_profile_key)
 
-    get developer_path(developer)
-    assert_response :ok
-
-    get developer_path(developer.hashid)
-    assert_response :ok
-
-    get developer_path(developer.id)
-    assert_redirected_to developer_path(developer.hashid)
-
-    sign_in users(:developer)
-    assert_raises ActiveRecord::RecordNotFound do
-      patch developer_path(developer.id)
-    end
+    refute_text I18n.t("subscription_cta_component.title")
   end
 
   test "viewing a profile with a public key (valid or not) doesn't get tracked" do
@@ -74,6 +65,35 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     get developer_path(developer, key: "some-key")
     assert_select "#ignorePageView"
+  end
+
+  test "developers are found via hashid" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_response :ok
+
+    get developer_path(developer.hashid)
+    assert_response :ok
+  end
+
+  test "developers are redirected when found via db ID" do
+    Feature.stub(:enabled?, true) do
+      developer = developers(:one)
+
+      get developer_path(developer.id)
+      assert_redirected_to developer_path(developer.hashid)
+    end
+  end
+
+  test "developers are 404ed when found via db ID" do
+    Feature.stub(:enabled?, false) do
+      developer = developers(:one)
+
+      assert_raises ActiveRecord::RecordNotFound do
+        get developer_path(developer.id)
+      end
+    end
   end
 
   test "developers are sorted newest first" do
@@ -405,15 +425,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     get developers_path(page: 2)
     refute_text I18n.t("subscription_cta_component.title")
     assert_text developers(:one).hero
-  end
-
-  test "developer hidden profile information is rendered with public profile key" do
-    sign_in users(:empty)
-    developer = developers(:one)
-    developer.share_url
-    get developer_public_url(developer, developer.public_profile_key)
-
-    refute_text I18n.t("subscription_cta_component.title")
   end
 
   def assert_text(text)
