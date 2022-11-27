@@ -55,11 +55,11 @@
             </div>
           <% end %>
           <%= render Developers::CardComponent.with_collection(@query.records) %>
-          <%= render SubscriptionCTAComponent.new(user: current_user, developers: @developers_count) %>
+          <%= render SubscriptionCTAComponent.new(user: current_user) %>
         <% end %>
       <% else %>
         <% if @query.pagy.in > 0 %>
-          <%= render SubscriptionCTAComponent.new(user: current_user, developers: @developers_count) %>
+          <%= render SubscriptionCTAComponent.new(user: current_user) %>
         <% else %>
           <%= render EmptyStateComponent.new(t(".empty_state.title"), "user_group", body: t(".empty_state.body")) %>
         <% end %>
