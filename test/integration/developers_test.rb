@@ -2,6 +2,7 @@ require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
   include DevelopersHelper
+  include FeatureHelper
   include MetaTagsHelper
   include NotificationsHelper
   include PagyHelper
@@ -129,14 +130,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "pagination only appears for subscribed businesses" do
-    # :paywalled_search_results
-    Feature.stub(:enabled?, true) do
+    stub_feature_flag(:paywalled_search_results, true) do
       get developers_path
       assert_select "#developers", count: 0
     end
 
-    # :paywalled_search_results
-    Feature.stub(:enabled?, false) do
+    stub_feature_flag(:paywalled_search_results, false) do
       get developers_path
       assert_select "#developers"
     end
@@ -150,8 +149,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     with_pagy_default_items(5) do
       5.times { create_developer }
 
-      # :paywalled_search_results
-      Feature.stub(:enabled?, true) do
+      stub_feature_flag(:paywalled_search_results, true) do
         get developers_path
         assert_text I18n.t("subscription_cta_component.title")
 
@@ -286,8 +284,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers are redirected when found via db ID" do
-    # :redirect_db_id_profiles
-    Feature.stub(:enabled?, true) do
+    stub_feature_flag(:redirect_db_id_profiles, true) do
       developer = developers(:one)
 
       get developer_path(developer.id)
@@ -296,8 +293,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers are 404ed when found via db ID" do
-    # :redirect_db_id_profiles
-    Feature.stub(:enabled?, false) do
+    stub_feature_flag(:redirect_db_id_profiles, false) do
       developer = developers(:one)
 
       assert_raises ActiveRecord::RecordNotFound do
