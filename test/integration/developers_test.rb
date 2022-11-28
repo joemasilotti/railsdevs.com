@@ -54,14 +54,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Pacific"
   end
 
-  test "non-subscribers cannot filter developers by time zone" do
-    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
-
-    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
-
-    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']", false
-  end
-
   test "subscribers can filter developers by countries" do
     country = "United States"
     create_developer(hero: "Pacific", location_attributes: {country: country})
@@ -73,16 +65,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']"
     assert_text "Hire Ruby on Rails developers in #{country}"
-  end
-
-  test "non-subscribers cannot filter developers by countries" do
-    country = "United States"
-    create_developer(hero: "Pacific", location_attributes: {country: country})
-
-    get developers_path(countries: [country])
-
-    assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']", false
-    refute_text "Hire Ruby on Rails developers in #{country}"
   end
 
   test "developers can be filtered by role type" do
