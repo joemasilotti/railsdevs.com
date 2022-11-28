@@ -26,7 +26,7 @@ class EmailDigests::NewDevelopers
   private
 
   def log(digest, businesses:, developers:)
-    Rails.logger.info "#{self.class}##{digest}: "\
+    Rails.logger.info "#{self.class}##{digest}: " \
       "Sending #{businesses} businesse(s) emails about #{developers} new developer(s)."
   end
 
