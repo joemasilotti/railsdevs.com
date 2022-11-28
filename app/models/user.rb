@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include APIAuthenticatable
+  include Hashid::Rails
   include PayCustomer
 
   devise :confirmable,
