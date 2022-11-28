@@ -170,6 +170,27 @@ class BusinessesTest < ActionDispatch::IntegrationTest
     assert business.reload.no_developer_notifications?
   end
 
+  test "can't see a business profile when business is invisible" do
+    business = businesses(:one)
+    business.update(invisible: true)
+
+    sign_in developers(:one).user
+
+    get business_path(business)
+
+    assert_redirected_to root_path
+  end
+
+  test "can see own business profile when invisible" do
+    business = businesses(:one)
+    business.update(invisible: true)
+    sign_in business.user
+
+    get business_path(business)
+
+    assert_response :ok
+  end
+
   def valid_business_params
     {
       business: {
@@ -181,15 +202,5 @@ class BusinessesTest < ActionDispatch::IntegrationTest
         website: "http://www.example.com"
       }
     }
-  end
-
-  test "can see own business profile when invisible" do
-    business = businesses(:one)
-    business.update(invisible: true)
-    sign_in business.user
-
-    get business_path(business)
-
-    assert_response :ok
   end
 end
