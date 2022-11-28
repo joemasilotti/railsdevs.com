@@ -59,7 +59,7 @@ class DevelopersController < ApplicationController
   private
 
   def developer_to_redirect_to_hashid
-    if Feature.enabled?(:redirect_db_id_profiles)
+    if Feature.enabled?(:redirect_db_id_profiles) && params[:id].match?(/^\d+$/)
       Developer.find_by(id: params[:id])
     end
   end
