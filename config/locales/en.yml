@@ -706,7 +706,7 @@ en:
     save: Save
     saving: Saving...
   subscription_cta_component:
-    description: Subscribe to RailsDevs to unlock %{developers}+ developer profiles.
+    description: Subscribe to RailsDevs to unlock all %{developers}+ developer profiles.
     title: Subscription required
   users:
     paywalled:

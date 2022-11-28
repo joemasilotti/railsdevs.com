@@ -2,6 +2,7 @@ require "test_helper"
 
 class DevelopersTest < ActionDispatch::IntegrationTest
   include DevelopersHelper
+  include FeatureHelper
   include MetaTagsHelper
   include NotificationsHelper
   include PagyHelper
@@ -21,79 +22,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     get developers_path
     assert_title_contains "Hire Ruby on Rails developers"
     assert_description_contains "looking for their"
-  end
-
-  test "can't view developer with invisible profile" do
-    developer = create_developer(search_status: :invisible)
-    get developer_path(developer)
-    assert_redirected_to root_path
-  end
-
-  test "can see own developer profile when invisible" do
-    developer = create_developer(search_status: :invisible)
-    sign_in developer.user
-
-    get developer_path(developer)
-
-    assert_response :ok
-  end
-
-  test "admin can see invisible developer profile" do
-    developer = create_developer(search_status: :invisible)
-    user = users(:admin)
-    sign_in user
-
-    get developer_path(developer)
-
-    assert_response :ok
-  end
-
-  test "developer hidden profile information is rendered with public profile key" do
-    sign_in users(:empty)
-    developer = developers(:one)
-    developer.share_url
-    get developer_public_url(developer, developer.public_profile_key)
-
-    refute_text I18n.t("subscription_cta_component.title")
-  end
-
-  test "viewing a profile with a public key (valid or not) doesn't get tracked" do
-    developer = developers(:one)
-
-    get developer_path(developer)
-    assert_select "#ignorePageView", count: 0
-
-    get developer_path(developer, key: "some-key")
-    assert_select "#ignorePageView"
-  end
-
-  test "developers are found via hashid" do
-    developer = developers(:one)
-
-    get developer_path(developer)
-    assert_response :ok
-
-    get developer_path(developer.hashid)
-    assert_response :ok
-  end
-
-  test "developers are redirected when found via db ID" do
-    Feature.stub(:enabled?, true) do
-      developer = developers(:one)
-
-      get developer_path(developer.id)
-      assert_redirected_to developer_path(developer.hashid)
-    end
-  end
-
-  test "developers are 404ed when found via db ID" do
-    Feature.stub(:enabled?, false) do
-      developer = developers(:one)
-
-      assert_raises ActiveRecord::RecordNotFound do
-        get developer_path(developer.id)
-      end
-    end
   end
 
   test "developers are sorted newest first" do
@@ -127,14 +55,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Pacific"
   end
 
-  test "non-subscribers cannot filter developers by time zone" do
-    create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
-
-    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
-
-    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']", false
-  end
-
   test "subscribers can filter developers by countries" do
     country = "United States"
     create_developer(hero: "Pacific", location_attributes: {country: country})
@@ -146,16 +66,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']"
     assert_text "Hire Ruby on Rails developers in #{country}"
-  end
-
-  test "non-subscribers cannot filter developers by countries" do
-    country = "United States"
-    create_developer(hero: "Pacific", location_attributes: {country: country})
-
-    get developers_path(countries: [country])
-
-    assert_select "input[checked][type=checkbox][value='#{country}'][name='countries[]']", false
-    refute_text "Hire Ruby on Rails developers in #{country}"
   end
 
   test "developers can be filtered by role type" do
@@ -208,6 +118,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "paginating filtered developers respects the filters" do
+    sign_in users(:subscribed_business)
     developers(:prospect).update!(available_on: Date.yesterday, search_status: :open)
 
     with_pagy_default_items(1) do
@@ -215,6 +126,41 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       assert_select "#developers h2", count: 1
       assert_select "#mobile-filters h2", count: 1
       assert_select "a[href=?]", "/developers?sort=availability&page=2"
+    end
+  end
+
+  test "pagination only appears for subscribed businesses" do
+    stub_feature_flag(:paywalled_search_results, true) do
+      get developers_path
+      assert_select "#developers", count: 0
+    end
+
+    stub_feature_flag(:paywalled_search_results, false) do
+      get developers_path
+      assert_select "#developers"
+    end
+
+    sign_in(users(:subscribed_business))
+    get developers_path
+    assert_select "#developers"
+  end
+
+  test "page 2 of search results only renders for subscribers" do
+    with_pagy_default_items(5) do
+      5.times { create_developer }
+
+      stub_feature_flag(:paywalled_search_results, true) do
+        get developers_path
+        assert_text I18n.t("subscription_cta_component.title")
+
+        get developers_path(page: 2)
+        assert_redirected_to developers_path
+      end
+
+      sign_in users(:subscribed_business)
+      get developers_path(page: 2)
+      refute_text I18n.t("subscription_cta_component.title")
+      assert_text developers(:one).hero
     end
   end
 
@@ -283,15 +229,77 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains developer.bio
   end
 
-  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
-    developer = developers(:one)
-    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+  test "can't view developer with invisible profile" do
+    developer = create_developer(search_status: :invisible)
+    get developer_path(developer)
+    assert_redirected_to root_path
+  end
+
+  test "can see own developer profile when invisible" do
+    developer = create_developer(search_status: :invisible)
+    sign_in developer.user
 
     get developer_path(developer)
 
-    assert_select "p", text: "Line one"
-    assert_select "p", text: "Line two"
-    assert_select "p", text: "Header"
+    assert_response :ok
+  end
+
+  test "admin can see invisible developer profile" do
+    developer = create_developer(search_status: :invisible)
+    user = users(:admin)
+    sign_in user
+
+    get developer_path(developer)
+
+    assert_response :ok
+  end
+
+  test "developer hidden profile information is rendered with public profile key" do
+    sign_in users(:empty)
+    developer = developers(:one)
+    developer.share_url
+    get developer_public_url(developer, developer.public_profile_key)
+
+    refute_text I18n.t("subscription_cta_component.title")
+  end
+
+  test "viewing a profile with a public key (valid or not) doesn't get tracked" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_select "#ignorePageView", count: 0
+
+    get developer_path(developer, key: "some-key")
+    assert_select "#ignorePageView"
+  end
+
+  test "developers are found via hashid" do
+    developer = developers(:one)
+
+    get developer_path(developer)
+    assert_response :ok
+
+    get developer_path(developer.hashid)
+    assert_response :ok
+  end
+
+  test "developers are redirected when found via db ID" do
+    stub_feature_flag(:redirect_db_id_profiles, true) do
+      developer = developers(:one)
+
+      get developer_path(developer.id)
+      assert_redirected_to developer_path(developer.hashid)
+    end
+  end
+
+  test "developers are 404ed when found via db ID" do
+    stub_feature_flag(:redirect_db_id_profiles, false) do
+      developer = developers(:one)
+
+      assert_raises ActiveRecord::RecordNotFound do
+        get developer_path(developer.id)
+      end
+    end
   end
 
   test "successful edit to profile" do
@@ -385,6 +393,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "developer bios are stripped of HTML tags and new lines are converted to <p> tags" do
+    developer = developers(:one)
+    developer.update!(bio: "Line one\n\nLine two\n\n<h1>Header</h1>")
+
+    get developer_path(developer)
+
+    assert_select "p", text: "Line one"
+    assert_select "p", text: "Line two"
+    assert_select "p", text: "Header"
+  end
+
   test "invalid form changes label color" do
     sign_in users(:empty)
 
@@ -396,37 +415,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select %(div.text-red-600 label[for="developer_name"])
     assert_select %(div.text-red-600 label[for="developer_hero"])
     assert_select %(div.text-red-600 label[for="developer_bio"])
-  end
-
-  test "pagination" do
-    get developers_path
-    assert_select "#developers"
-  end
-
-  test "can't see a business profile when business is invisible" do
-    business = businesses(:one)
-    business.update(invisible: true)
-
-    sign_in developers(:one).user
-
-    get business_path(business)
-
-    assert_redirected_to root_path
-  end
-
-  test "page 2 of search results only renders for subscribers" do
-    with_pagy_default_items(5) do
-      5.times { create_developer }
-
-      get developers_path(page: 2)
-      assert_text I18n.t("subscription_cta_component.title")
-      refute_text developers(:one).hero
-
-      sign_in users(:subscribed_business)
-      get developers_path(page: 2)
-      refute_text I18n.t("subscription_cta_component.title")
-      assert_text developers(:one).hero
-    end
   end
 
   def assert_text(text)

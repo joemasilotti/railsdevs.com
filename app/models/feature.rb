@@ -2,7 +2,7 @@ class Feature
   def self.enabled?(feature_name)
     case feature_name.to_sym
     when :paywalled_search_results
-      !Rails.env.production?
+      true
     when :redirect_db_id_profiles
       # Remove 2 weeks after deploy to let Google index.
       true
