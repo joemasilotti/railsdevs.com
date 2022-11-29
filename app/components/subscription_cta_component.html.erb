@@ -1,8 +1,9 @@
-<div class="p-4 sm:py-8 sm:px-16">
-  <%= link_to pricing_path, class: "block group bg-gray-50 w-full border-2 border-gray-300 hover:border-gray-400 border-dashed rounded-lg py-6 sm:py-8 px-4 sm:px-10 text-center" do %>
-    <%= inline_svg_tag "icons/outline/lock_closed.svg", class: "mx-auto h-8 w-8 sm:h-10 h-8 w-8 sm:w-10 text-gray-400 group-hover:hidden", aria_hidden: true %>
-    <%= inline_svg_tag "icons/outline/lock_open.svg", class: "mx-auto h-8 w-8 sm:h-10 sm:w-10 text-gray-600 rotate-[-8deg] transition hidden group-hover:block", aria_hidden: true %>
-    <span class="block mt-4 sm:text-lg font-medium text-gray-600"><%= t("subscription_cta_component.title") %></span>
-    <span class="block mt-2 text-sm sm:text-base text-gray-500"><%= t("subscription_cta_component.description", developers: developers) %></span>
-  <% end %>
+<div class="p-4">
+  <div class="bg-gray-50 w-full border-2 border-gray-300 border-dashed rounded-lg py-6 sm:py-12 px-4 sm:px-10 text-center">
+    <h3 class="text-2xl font-medium text-gray-900"><%= t(".title") %></h3>
+    <p class="mt-2 text-lg text-gray-600"><%= t(".description", developers:) %></p>
+    <div class="mt-6">
+      <%= link_to t(".cta", developers:), pricing_path, class: "inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-12 py-3 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+    </div>
+  </div>
 </div>
