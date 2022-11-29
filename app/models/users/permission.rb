@@ -2,7 +2,7 @@ module Users
   class Permission
     private attr_reader :user, :resource, :public_key
 
-    def initialize(user, resource, public_key: nil)
+    def initialize(user, resource = nil, public_key: nil)
       @user = user
       @resource = resource
       @public_key = public_key

@@ -48,21 +48,21 @@
       <% if @query.records.any? %>
         <%= render Developers::CardComponent.with_collection(@query.featured_records, highlight_featured: true) %>
 
-        <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
-          <% component.loading_icon do %>
-            <div class="py-4">
-              <%= render LoadingComponent.new %>
-            </div>
-          <% end %>
+        <% if @paywall_results %>
           <%= render Developers::CardComponent.with_collection(@query.records) %>
-          <%= render SubscriptionCTAComponent.new(user: current_user, developers: @developers_count) %>
+          <%= render SubscriptionCTAComponent.new(user: current_user) %>
+        <% else %>
+          <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
+            <% component.loading_icon do %>
+              <div class="py-4">
+                <%= render LoadingComponent.new %>
+              </div>
+            <% end %>
+            <%= render Developers::CardComponent.with_collection(@query.records) %>
+          <% end %>
         <% end %>
       <% else %>
-        <% if @query.pagy.in > 0 %>
-          <%= render SubscriptionCTAComponent.new(user: current_user, developers: @developers_count) %>
-        <% else %>
-          <%= render EmptyStateComponent.new(t(".empty_state.title"), "user_group", body: t(".empty_state.body")) %>
-        <% end %>
+        <%= render EmptyStateComponent.new(t(".empty_state.title"), "user_group", body: t(".empty_state.body")) %>
       <% end %>
     </div>
   </div>

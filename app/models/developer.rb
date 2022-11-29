@@ -19,8 +19,6 @@ class Developer < ApplicationRecord
     invisible: 4
   }
 
-  hashid_config override_to_param: Feature.enabled?(:obfuscate_developer_urls)
-
   belongs_to :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations

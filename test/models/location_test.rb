@@ -63,7 +63,7 @@ class LocationTest < ActiveSupport::TestCase
 
   test "top_countries does not include least common countries (or nil)" do
     stub_geocoder("Shanghai", country: "China")
-    (0..5).each { |_n| create_location!(city: "Shanghai") }
+    6.times { |_n| create_location!(city: "Shanghai") }
     stub_geocoder("Mumbai", country: "India")
     create_location!(city: "Atlantis").update!(country: nil)
 

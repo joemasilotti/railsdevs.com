@@ -57,13 +57,7 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render Users::PaywalledComponent.new(user, nil) do |component| %>
-              <% component.custom_paywall do %>
-                <%= render Users::Paywalled::CollapseControlComponent.new(t("developers.query_component.country.title")) %>
-              <% end %>
-
-              <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: collapse_location?) %>
-            <% end %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.country.title"), collapsed: true) %>
           </h3>
           <div id="top-countries-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">
@@ -97,13 +91,7 @@
 
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
-            <%= render Users::PaywalledComponent.new(user, nil) do |component| %>
-              <% component.custom_paywall do %>
-                <%= render Users::Paywalled::CollapseControlComponent.new(t("developers.query_component.timezone.title")) %>
-              <% end %>
-
-              <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: collapse_timezone?) %>
-            <% end %>
+            <%= render CollapseControlComponent.new(t("developers.query_component.timezone.title"), collapsed: true) %>
           </h3>
           <div id="timezone-filter-section" data-toggle-target="element" class="hidden pt-6">
             <div class="space-y-6">

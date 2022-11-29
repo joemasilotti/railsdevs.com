@@ -16,9 +16,9 @@ module Analytics
     test "renders the Stimulus controller with goal and value values" do
       event = {"goal" => "ABC123", "value" => 4200}
       render_inline EventComponent.new(event:)
-      assert_selector ""\
-        "[data-controller=analytics--events]"\
-        "[data-analytics--events-goal-value=ABC123]"\
+      assert_selector "" \
+        "[data-controller=analytics--events]" \
+        "[data-analytics--events-goal-value=ABC123]" \
         "[data-analytics--events-value-value=4200]"
     end
   end

@@ -1,20 +1,11 @@
 class SubscriptionCTAComponent < ApplicationComponent
   private attr_reader :user
 
-  def initialize(user:, developers:)
+  def initialize(user:)
     @user = user
-    @developers = developers
   end
 
   def developers
-    SignificantFigure.new(@developers).rounded
-  end
-
-  def render?
-    Feature.enabled?(:paywalled_search_results) && !customer?
-  end
-
-  def customer?
-    user&.permissions&.active_subscription?
+    SignificantFigure.new(Developer.visible.count).rounded
   end
 end

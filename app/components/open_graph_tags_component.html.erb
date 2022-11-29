@@ -1,6 +1,10 @@
 <title><%= title %></title>
 <%= tag.meta property: "description", content: description %>
 
+<% if canonical.present? %>
+  <%= tag.link rel: "canonical", href: canonical %>
+<% end %>
+
 <%= tag.meta property: "og:type", content: "website" %>
 <%= tag.meta property: "og:title", content: title %>
 <%= tag.meta property: "og:description", content: description %>
