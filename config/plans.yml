@@ -11,8 +11,12 @@ shared:
     revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:part_time) %>
   full_time:
     name: Full-time
-    price: 299
-    stripe_price_id: <%= stripe_price_id(:full_time) %>
+    prices:
+      monthly: 299
+      annual: 2990
+    stripe_price_ids:
+      monthly: <%= stripe_price_id(:full_time, :monthly) %>
+      annual: <%= stripe_price_id(:full_time, :annual) %>
     revenue_cat_product_identifier: <%= revenue_cat_product_identifier(:full_time) %>
   free:
     name: Free

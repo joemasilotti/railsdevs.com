@@ -1,10 +1,10 @@
-def stripe_price_id(subscription)
+def stripe_price_id(*subscription)
   credentials = Rails.application.credentials
   if Rails.env.development?
-    credentials.dig(:stripe, :price_ids, subscription) ||
+    credentials.dig(:stripe, :price_ids, *subscription) ||
       "#{subscription}_dummy_stripe_price_id"
   else
-    credentials.stripe[:price_ids][subscription]
+    credentials.stripe.dig!(:price_ids, *subscription)
   end
 end
 
