@@ -31,10 +31,10 @@ module Businesses
     private
 
     def active_subscriptions(subscription_identifier = nil)
-      return subscriptions.active.reject(&:paused?) unless subscription_identifier.present?
+      return subscriptions.active unless subscription_identifier.present?
 
       processor_plans = Plan.with_identifier(subscription_identifier).processor_plans
-      subscriptions.active.where(processor_plan: processor_plans).reject(&:paused?)
+      subscriptions.active.where(processor_plan: processor_plans)
     end
 
     def full_time_subscription?

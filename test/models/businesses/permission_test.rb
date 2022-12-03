@@ -13,11 +13,18 @@ class Businesses::PermissionTest < ActiveSupport::TestCase
     refute permission.active_subscription?
   end
 
-  test "no active_subscription? if paused" do
+  test "no active_subscription? if paused and current_period_end don't have grace period" do
     customer = pay_customers(:one)
-    pay_subscriptions(:full_time).update!(pause_behavior: "void")
+    pay_subscriptions(:full_time).update!(pause_behavior: "void", pause_resumes_at: nil, current_period_end: 1.day.ago, pause_starts_at: 1.day.ago)
     permission = Businesses::Permission.new(customer.subscriptions)
     refute permission.active_subscription?
+  end
+
+  test "active_subscription? if paused and current_period_end has grace period" do
+    customer = pay_customers(:one)
+    pay_subscriptions(:full_time).update!(pause_behavior: "void", pause_resumes_at: nil, current_period_end: 1.day.from_now, pause_starts_at: 1.day.from_now)
+    permission = Businesses::Permission.new(customer.subscriptions)
+    assert permission.active_subscription?
   end
 
   test "legacy_subscription? if any active subscriptions are legacy" do

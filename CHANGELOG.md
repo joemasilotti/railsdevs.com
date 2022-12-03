@@ -4,6 +4,7 @@
 
 ### November
 
+* November 30 - Update Pay gem to v6.1.0, Strope to v8.0.0 and clean pause subscription logic #726 @sarvaiyanidhi
 * November 27 - Paywall page 2+ of developer search results #734
 * November 26 - Obfuscate developer profile URLs #731
 * November 23 - Save referral code when creating an account #730

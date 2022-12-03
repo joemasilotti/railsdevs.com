@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_025600) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_26_042109) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -338,7 +338,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_025600) do
     t.jsonb "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "current_period_start"
+    t.datetime "current_period_end"
+    t.boolean "metered"
+    t.string "pause_behavior"
+    t.datetime "pause_starts_at"
+    t.datetime "pause_resumes_at"
     t.index ["customer_id", "processor_id"], name: "index_pay_subscriptions_on_customer_id_and_processor_id", unique: true
+    t.index ["metered"], name: "index_pay_subscriptions_on_metered"
+    t.index ["pause_starts_at"], name: "index_pay_subscriptions_on_pause_starts_at"
   end
 
   create_table "pay_webhooks", force: :cascade do |t|
