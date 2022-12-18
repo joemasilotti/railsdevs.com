@@ -4,8 +4,7 @@ class Feature
     when :paywalled_search_results
       true
     when :redirect_db_id_profiles
-      # Remove 2 weeks after deploy to let Google index.
-      true
+      false
     when :redesign
       ENV.fetch("REDESIGN", false)
     else
