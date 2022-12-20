@@ -45,13 +45,13 @@ class Developer < ApplicationRecord
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
       where(role_type: {type => true}) if role_types.include?(type)
-    }.reduce(:or).joins(:role_type)
+    }.reduce(:or)&.joins(:role_type)
   end
 
   scope :filter_by_role_levels, ->(role_levels) do
     RoleLevel::TYPES.filter_map { |level|
       where(role_level: {level => true}) if role_levels.include?(level)
-    }.reduce(:or).joins(:role_level)
+    }.reduce(:or)&.joins(:role_level)
   end
 
   scope :filter_by_utc_offsets, ->(utc_offsets) do
