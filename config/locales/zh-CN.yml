@@ -5,6 +5,9 @@ zh-CN:
       about: 关于
       developers: 开发者们
       pricing: 价格
+    guest_component:
+      register: 注册
+      sign_in: 登录
   shared:
     footer:
       language_name_of_locale: 简体中文
