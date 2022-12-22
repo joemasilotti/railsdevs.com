@@ -2,6 +2,10 @@
 
 ## 2022
 
+### December
+
+* December 21 - Revamp CTA design with blurred out developers #743 @izaguirrejoe
+
 ### November
 
 * November 30 - Update Pay gem to v6.1.0, Strope to v8.0.0 and clean pause subscription logic #726 @sarvaiyanidhi
