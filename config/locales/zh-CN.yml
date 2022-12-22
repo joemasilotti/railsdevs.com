@@ -1,0 +1,10 @@
+---
+zh-CN:
+  nav_bar:
+    base_component:
+      about: 关于
+      developers: 开发者们
+      pricing: 价格
+  shared:
+    footer:
+      language_name_of_locale: 简体中文
