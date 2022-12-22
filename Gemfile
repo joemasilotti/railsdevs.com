@@ -14,9 +14,9 @@ gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
 gem "turbo-rails", "~> 1.3.1"
 gem "view_component", "~> 2.69"
+gem "faker"
 
 group :development, :test do
-  gem "faker"
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
