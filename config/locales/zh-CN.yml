@@ -48,23 +48,22 @@ zh-CN:
       title: 详情
     edit:
       title: 你的开发者资料
-    form:
-      search_status:
-        actively_looking: 积极寻找工作中
-        actively_looking_tag: 积极寻找中
-        not_interested: 现在对工作不感兴趣
-        not_interested_tag: 不感兴趣
-        open: 持开放态度，但不积极寻找
-        open_tag: 持开放态度
-      show:
-        description: 描述
-        edit: 编辑
-        hire: 雇佣我
-        message: 发消息
-        redirection: 开发人员资料的链接已更改。请将您的书签更新为 %{url}.
-        share: 分享
-      update:
-        updated: 你的个人资料已更新！
+    search_status:
+      actively_looking: 积极寻找工作中
+      actively_looking_tag: 积极寻找中
+      not_interested: 现在对工作不感兴趣
+      not_interested_tag: 不感兴趣
+      open: 持开放态度，但不积极寻找
+      open_tag: 持开放态度
+    show:
+      description: 描述
+      edit: 编辑
+      hire: 雇佣我
+      message: 发消息
+      redirection: 开发人员资料的链接已更改。请将您的书签更新为 %{url}.
+      share: 分享
+    update:
+      updated: 你的个人资料已更新！
   shared:
     footer:
       language_name_of_locale: 简体中文
