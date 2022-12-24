@@ -8,6 +8,63 @@ zh-CN:
     guest_component:
       register: 注册
       sign_in: 登录
+  home:
+    show:
+      available_developers: 现在有空的开发者
+      description_og: RailsDevs 帮助独立开发者为他们的下一份工作做好准备。坐等公司与你联系，不用再去招聘网站搜寻。
+      get_started: 开始
+      learn_more: 了解更多
+      more: 查看更多开发者
+      subtitle_1: RailsDevs
+      subtitle_2: 帮助独立开发者为他们的下一份工作做好准备
+      subtitle_3: 坐等公司与你联系，不用再去招聘网站搜寻。
+      title_1: 面向 Rails 开发人员的工作台
+      title_2: ''
+      title_og: Ruby on Rails 开发人员的工作台
+      turbo_native_title: RailsDevs
+  developers:
+    admin_component:
+      copy: 复制
+      feature: 特征
+      invisiblize: 隐形化
+      source_contributor: 来源贡献者
+      title: 管理员
+    availability_component:
+      in_future_html: 在 <time datetime="%{date}">%{date_in_words}</time> 后有空
+      now_html: 目前有空
+      unspecified_html: 目前离线
+    badges_component:
+      featured: 出色开发者
+      recently_active: 最近活跃
+      source_contributor: 来源贡献者
+    count_component:
+      cta: 重置过滤条件
+      title_html: 展示 <span class='font-bold'>%{count}</span> / 总计 <span class='font-bold'>%{total}</span>+ 位开发者.
+    cover_image_component:
+      alt: 开发者的封面图片
+    create:
+      created: 你的个人资料已添加！
+    details:
+      title: 详情
+    edit:
+      title: 你的开发者资料
+    form:
+      search_status:
+        actively_looking: 积极寻找工作中
+        actively_looking_tag: 积极寻找中
+        not_interested: 现在对工作不感兴趣
+        not_interested_tag: 不感兴趣
+        open: 持开放态度，但不积极寻找
+        open_tag: 持开放态度
+      show:
+        description: 描述
+        edit: 编辑
+        hire: 雇佣我
+        message: 发消息
+        redirection: 开发人员资料的链接已更改。请将您的书签更新为 %{url}.
+        share: 分享
+      update:
+        updated: 你的个人资料已更新！
   shared:
     footer:
       language_name_of_locale: 简体中文
