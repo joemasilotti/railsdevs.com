@@ -2,20 +2,20 @@
 zh-CN:
   about:
     show:
-      caption: founder of RailsDevs
+      caption: RailsDevs 的创立者
       description: I'm Joe Masilotti. I'm building RailsDevs to make it easier for Ruby on Rails developers to find their next gig.
-      readtime: 1 minute read
-      title: About
-      title_og: About RailsDevs
+      readtime: 1 分钟阅读时间
+      title: 关于
+      title_og: 关于 RailsDevs
   activerecord:
     attributes:
       business:
-        company: Company name
-        contact_name: Your name
-        contact_role: Your job title or role
-        name: Your name
+        company: 公司名称
+        contact_name: 你的名称
+        contact_role: 你的 job title 或者角色
+        name: 你的名称
       developer:
-        available_on: Available to start on
+        available_on: 何时可开始
         email: E-mail
         github: Github
         hero: Hero
@@ -43,7 +43,7 @@ zh-CN:
     errors:
       models:
         location:
-          invalid_coordinates: can't be found
+          invalid_coordinates: 无法找到
     models:
       business:
         one: Business
@@ -58,33 +58,33 @@ zh-CN:
     businesses:
       invisiblizes:
         create:
-          created: Profile set to invisible.
+          created: 个人资料已设置为隐藏.
     conversations:
       blocks:
         index:
-          blocked: Blocked
-          no_blocked_conversations: No blocked conversations
-          title: Blocked conversations
+          blocked: 已屏蔽
+          no_blocked_conversations: 没有已屏蔽的对话
+          title: 已屏蔽的对话
       index:
         business: Business
         conversations: "'s conversations"
-        developer: Developer
+        developer: 开发者
         email: Email
-        no_potential_email: No potential email
-        no_response: No response
-        potential_email: Potential email
-        replied: Replied
-        reply_rate: Reply rate
-        started: Started
-        title: Conversations
-        view: View
+        no_potential_email: 没有潜在可能的邮件
+        no_response: 没有回复
+        potential_email: 有潜在可能的邮件
+        replied: 已回复
+        reply_rate: 回复率
+        started: 已开始
+        title: 对话
+        view: 查看
     developers:
       invisiblizes:
         create:
-          created: Profile set to invisible.
+          created: 个人资料已设置为隐藏.
     features:
       create:
-        created: Profile featured for one week.
+        created: 本周个人资料精选
     hired:
       forms:
         index:
@@ -134,13 +134,13 @@ zh-CN:
       form:
         URL: URL
         cancel: Cancel
-        description: Expenses are paid services and products while contributions are donations and sponsorships.
-        title: New expense or contribution
+        description: 费用是有偿服务和产品，而捐款是捐赠和赞助。
+        title: 新的费用或捐款
       index:
-        delete_confirmation: Are you sure you want to delete this transaction?
-        title: Expenses and contributions
+        delete_confirmation: 您确定要删除此交易吗？
+        title: 费用和捐款
       update:
-        updated: Transaction updated
+        updated: 交易已更新
     users:
       index:
         business: Business
@@ -153,33 +153,33 @@ zh-CN:
         help: Filter users by name, company, or email
   blocks:
     create:
-      notice: "%{other_recipient} was blocked."
+      notice: "%{other_recipient} 已被屏蔽."
     new:
-      block: Block
-      cancel: Cancel
-      message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
-      title: Block sender
+      block: 屏蔽
+      cancel: 取消
+      message: 您确定要标记此对话并阻止发件人吗？这将隐藏对话，他们将无法再次与您联系。
+      title: 屏蔽发送者
   businesses:
     admin_component:
       invisiblize: Invisiblize
       title: Admin
     create:
-      created: Your business was added!
+      created: 你的公司已添加！
     edit:
-      title: Your business profile
+      title: 你的业务简介
     expired_subscription_component:
-      cta: Upgrade your account to message developers
-      title: Your subscription expired.
+      cta: 升级你的账户以给开发者发送消息
+      title: 你的订阅已过期。
     form:
-      avatar: Your company logo
+      avatar: 你的公司 logo
       business:
-        help: Information about your business. Here's your chance to sell yourself to potential hires!
-        title: Business details
-      change_avatar: Upload
-      creating: Creating...
+        help: 有关你的业务的信息。这是你向潜在雇员推销自己的机会！
+        title: 业务详情
+      change_avatar: 上传
+      creating: 创建中...
       developer_notifications:
-        help_text: Receive daily or weekly email notifications when new developers add their profile to RailsDevs.
-        legend: Developer notifications
+        help_text: 当新开发人员将他们的个人资料添加到 RailsDevs 时，每天或每周收到电子邮件通知。
+        legend: 开发者消息通知
         values:
           daily: Daily
           'no': Never
@@ -188,10 +188,10 @@ zh-CN:
       notifications:
         title: Email notifications
       personal:
-        help: Information about you, the contact point for your business on RailsDevs.
-        title: Personal details
-      something_went_wrong: Something went wrong uploading your image, please try again.
-      updating: Updating...
+        help: 关于您的信息，您在 RailsDevs 上的业务联络点。
+        title: 个人资料
+      something_went_wrong: 上传图片过程中出错了，请重试。
+      updating: 更新中...
       your_business_profile: Your business profile
     hiring_fee_component:
       body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
@@ -214,15 +214,15 @@ zh-CN:
       title: Requires an active business subscription.
     upgrade_required_component:
       body:
-        expired: Your subscription has expired. Reactivate your account to continue messaging developers.
-        upgrade: With your current plan you can only message developers looking for part-time work. Upgrade your account to message this developer.
+        expired: 您的订阅已过期。重新激活您的帐户以继续向开发人员发送消息。
+        upgrade: 根据您当前的计划，您只能向寻找兼职工作的开发人员发送消息。升级您的帐户以向此开发者发送消息。
       cta:
-        expired: Reactivate my account
-        upgrade: Upgrade my account
-      details: View pricing details
+        expired: 重新激活我的账户
+        upgrade: 升级我的账户
+      details: 查看价格详情
       title:
-        expired: Subscription expired
-        upgrade: Upgrade required
+        expired: 订阅已过期
+        upgrade: 需要升级
     website_link_component:
       external_link: Open in new tab
   cold_messages:
