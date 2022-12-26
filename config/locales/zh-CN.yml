@@ -3,7 +3,6 @@ zh-CN:
   about:
     show:
       caption: RailsDevs 的创立者
-      description: I'm Joe Masilotti. I'm building RailsDevs to make it easier for Ruby on Rails developers to find their next gig.
       readtime: 1 分钟阅读时间
       title: 关于
       title_og: 关于 RailsDevs
@@ -12,48 +11,21 @@ zh-CN:
       business:
         company: 公司名称
         contact_name: 你的名称
-        contact_role: 你的 job title 或者角色
+        contact_role: 你的职称或者角色
         name: 你的名称
       developer:
         available_on: 何时可开始
-        email: E-mail
-        github: Github
-        hero: Hero
-        linkedin: Linkedin
-        name: Name
-        twitter: Twitter
-        website: Website
       location:
-        country_code: Country
-      role_level:
-        c_level: C-level
-        junior: Junior
-        mid: Mid-level
-        principal: Principal / staff
-        senior: Senior
-      role_type:
-        full_time_contract: Full-time contract
-        full_time_employment: Full-time employment
-        part_time_contract: Part-time contract
+        country_code: 国家
       user:
         email: E-mail
-        password: Password
-        password_confirmation: Password Confirmation
-        remember_me: Remember me
+        password: 密码
+        password_confirmation: 确认密码
+        remember_me: 记住我
     errors:
       models:
         location:
           invalid_coordinates: 无法找到
-    models:
-      business:
-        one: Business
-        other: Businesses
-      developer:
-        one: Developer
-        other: Developers
-      user:
-        one: User
-        other: Users
   admin:
     businesses:
       invisiblizes:
@@ -66,8 +38,6 @@ zh-CN:
           no_blocked_conversations: 没有已屏蔽的对话
           title: 已屏蔽的对话
       index:
-        business: Business
-        conversations: "'s conversations"
         developer: 开发者
         email: Email
         no_potential_email: 没有潜在可能的邮件
@@ -85,55 +55,14 @@ zh-CN:
     features:
       create:
         created: 本周个人资料精选
-    hired:
-      forms:
-        index:
-          actions: Actions
-          company: Company
-          details: Details
-          developer: Developer
-          employment_type: Employment type
-          start_date: Start date
-          title: Celebration package requests
-        show:
-          company_name: Company name
-          employment_type: Employment type
-          feedback: Feedback
-          mailing_address: Mailing address
-          position: Position
-          start_date: Start date
-          title: Celebration package request
-    hiring_agreements:
-      terms:
-        create:
-          created: Hiring agreement terms added.
-        edit:
-          activate: Activate
-          active: Active
-          cancel: Cancel
-          deactivate: Deactivate
-          title: Hiring agreement
-        index:
-          active: Active
-          new: New terms
-          title: Hiring agreement terms
-        new:
-          cancel: Cancel
-          title: Hiring agreement
-        show:
-          body: Body
-          edit: Edit
-          title: Hiring agreement
-        update:
-          updated: Hiring agreement terms updated.
     transactions:
       create:
-        created: Transaction created
+        created: 交易已创建
       destroy:
-        destroyed: Transaction deleted
+        destroyed: 交易已删除
       form:
         URL: URL
-        cancel: Cancel
+        cancel: 取消
         description: 费用是有偿服务和产品，而捐款是捐赠和赞助。
         title: 新的费用或捐款
       index:
@@ -142,15 +71,9 @@ zh-CN:
       update:
         updated: 交易已更新
     users:
-      index:
-        business: Business
-        developer: Developer
-        email: Email
-        impersonate: Impersonate
-        title: Users
       search:
-        cta: Search
-        help: Filter users by name, company, or email
+        cta: 搜索
+        help: 通过名称、公司或邮件筛选用户
   blocks:
     create:
       notice: "%{other_recipient} 已被屏蔽."
@@ -161,8 +84,8 @@ zh-CN:
       title: 屏蔽发送者
   businesses:
     admin_component:
-      invisiblize: Invisiblize
-      title: Admin
+      invisiblize: 设为隐藏
+      title: 管理员
     create:
       created: 你的公司已添加！
     edit:
@@ -181,37 +104,18 @@ zh-CN:
         help_text: 当新开发人员将他们的个人资料添加到 RailsDevs 时，每天或每周收到电子邮件通知。
         legend: 开发者消息通知
         values:
-          daily: Daily
-          'no': Never
-          weekly: Weekly
-      loading: Loading...
+          daily: 每天
+          'no': 从不
+          weekly: 每周
+      loading: 加载中...
       notifications:
-        title: Email notifications
+        title: 邮件提醒
       personal:
         help: 关于您的信息，您在 RailsDevs 上的业务联络点。
         title: 个人资料
       something_went_wrong: 上传图片过程中出错了，请重试。
       updating: 更新中...
-      your_business_profile: Your business profile
-    hiring_fee_component:
-      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
-      cta: Pay hiring fee
-      subject: I hired a developer via RailsDevs
-      title: Have you hired %{developer}?
-    primary_action_component:
-      edit: Edit
-    show:
-      bio: Bio
-    subscriptions_component:
-      expires_on: Expires on
-      plan: Plan
-      status: Status
-      title: Business subscription
-    update:
-      updated: Your business was updated!
-    upgrade_account_component:
-      cta: Upgrade your account
-      title: Requires an active business subscription.
+      your_business_profile: 你的企业资料
     upgrade_required_component:
       body:
         expired: 您的订阅已过期。重新激活您的帐户以继续向开发人员发送消息。
@@ -224,35 +128,11 @@ zh-CN:
         expired: 订阅已过期
         upgrade: 需要升级
     website_link_component:
-      external_link: Open in new tab
+      external_link: 在新 tab 中打开
   cold_messages:
     new:
-      title: Start a conversation
-      with: with
-  conversations:
-    ago: ago
-    index:
-      empty_state:
-        body: Get started by finding a developer to message.
-        cta: Find a developer
-        title: No conversations
-      title: Your conversations
-    read_indicator_component:
-      read: Message read.
-      unread: Message unread.
-    show:
-      flag: Flag this conversation
-      og_title: Conversation with %{with}
-      title: Conversation
-      with: with
-  date:
-    formats:
-      month_year: "%B %Y"
-  developer_mailer:
-    celebration_promotion:
-      subject: How's your conversation going with %{contact} at %{company}?
-    first_message:
-      subject: Tips on responding to your first message on RailsDevs
+      title: 开始一个新的对话
+      with: 和
   developers:
     admin_component:
       copy: 复制
@@ -292,7 +172,7 @@ zh-CN:
           unique: 你擅长的技能
         help_text: 涉及暴露个人身份的信息将被删除。
         markdown: Markdown 是支持的，但不能使用链接和图片。
-        title: Bio
+        title: 简介
       creating: 创建中...
       loading: 加载中...
       notifications:
@@ -341,13 +221,13 @@ zh-CN:
       empty_state:
         body: 请尝试修改或清空筛选条件。
         title: 未找到相关开发者
-      title: Ruby on Rails developers
+      title: Ruby on Rails 开发者
     invisible_banner_component:
       cta: 编辑我的资料
       title: 你的开发者资料已隐藏 - 仅你自己可见。
     meta:
       description: "%{count}+ Ruby on Rails 开发者正在寻找他们的下一份工作. 初级到高级开发者，你都可以在这里找到。"
-      freelance: freelance
+      freelance: 自由职业
       hire: 招聘
       in_country: 在 %{country}
       ruby_on_rails_developers: Ruby on Rails 开发者
@@ -403,51 +283,6 @@ zh-CN:
       share: 分享
     update:
       updated: 你的个人资料已更新！
-  dir: ltr
-  errors:
-    business_blank: Fill out your business profile to message developers.
-    business_subscription_inactive: Sign up for a business subscription to message developers.
-    developer_blank: Please create a developer profile first.
-    hiring_agreements:
-      cold_message: The hiring agreement has been updated. Please agree before messaging developers.
-      payment: The hiring agreement has been updated. Please agree before subscribing.
-    messages:
-      attached: is not attached
-      content_type_invalid: image format not supported
-      max_file_size_invalid: image over %{size}
-    unauthorized: You don't have access to that.
-  hired:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        company_name: Company name
-        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        mailing_address: Mailing address
-        mailing_address_help: Where can we send your celebration package?
-        request_package: Request package
-        requesting: Requesting...
-        title: Did you find a job through RailsDevs?
-    show:
-      description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
-      image_alt: RailsDevs celebration package
-      title: Congrats on your new job!
-  hiring_agreements:
-    signatures:
-      create:
-        created: Hiring agreement signed.
-      new:
-        accept: Accept agreement
-        accepting: Accepting...
-        agreement: I agree to these terms
-        description: Last updated %{last_updated}
-        questions_html: Questions? Email the founder – that's me, Joe! – at <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
-        title: RailsDevs hiring agreement
-    terms:
-      show:
-        signed_on: Signed on %{date}
   home:
     show:
       available_developers: 现在有空的开发者
@@ -463,21 +298,10 @@ zh-CN:
       title_og: Ruby on Rails 开发人员的工作台
       turbo_native_title: RailsDevs
   impersonating_banner_component:
-    cta: Sign out
-    title: Signed in as %{email}
+    cta: 登出
+    title: 以 %{email} 登录
   loading_component:
-    loading: Loading...
-  messages:
-    form:
-      help: Add your message
-      hiring_fee_agreement: I agree to pay RailsDevs the 10% hiring fee if I hire this developer for a full-time role.
-      hiring_fee_cta: Questions?
-      sending: Sending...
-      submit: Send
-      terms: View full terms
-    message:
-      wrote: wrote
-      you: You
+    loading: 加载中...
   nav_bar:
     base_component:
       about: 关于
@@ -507,95 +331,13 @@ zh-CN:
       users: 用户
       view_conversations: 查看对话
       view_notifications: 查看通知
-  notifications:
-    admin:
-      new_business_notification:
-        email_subject: New business added
-        title: "%{business} added their business"
-      new_conversation_notification:
-        email_subject: New conversation started
-        title: "%{name} (%{company}) started a conversation with %{developer}"
-      new_developer_notification:
-        email_subject: New developer profile added
-        title: "%{developer} added their developer profile"
-      new_hired_form_notification:
-        title: "%{developer} requested a celebration package"
-      potential_hire_notification:
-        email_subject: New potential hire
-        title: "%{developer} may have been hired"
-    businesses:
-      invisiblize_notification:
-        title: Your profile on RailsDevs was flagged
-    developers:
-      invisiblize_notification:
-        title: Your profile on RailsDevs was flagged
-      profile_reminder_notification:
-        email_subject: Is your RailsDevs profile up to date?
-        title: Is your developer profile up to date?
-      welcome_notification:
-        title: Welcome to RailsDevs!
-    index:
-      cta: View history
-      empty_state:
-        body: You have no unread notifications.
-        title: No new notifications
-      mark_all_as_read: Mark all as read
-      title: New notifications
-    new_message_notification:
-      email_subject: "%{sender} sent you a message on RailsDevs"
-      title: "%{sender} sent you a message"
-    show:
-      notice: Notification marked as read.
-  open_startup:
-    contributions:
-      index:
-        amount: Amount
-        contributions: Contributions
-        date: Date
-        description: RailsDevs contributes 10% of profits to women-focused communities and 2% of revenue to CO₂ removal.
-        external_link: Open in new tab
-        open_startup: Open startup
-        recipient: Recipient
-        title: RailsDevs contributions
-        to_co2_removal: to CO₂ removal
-        to_communities: to communities
-    dashboard:
-      show:
-        contributions: Contributions
-        date: Date
-        description: RailsDevs is an open startup with public metrics.
-        expenses: Expenses
-        external_link: Open in new tab
-        mrr: MRR
-        profit: Profit
-        revenue: Revenue
-        title: Open startup
-        visitors: Visitors (last 30 days)
-    expenses:
-      index:
-        amount: Amount
-        date: Date
-        description: All monetary transactions associated with RailsDevs, like hosting, fees, and purchases.
-        expenses: Expenses
-        open_startup: Open startup
-        source: Source
-        title: RailsDevs expenses
-    revenue:
-      index:
-        amount: Amount
-        date: Date
-        description: All revenue RailsDevs has generated since launching in November, 2021.
-        open_startup: Open startup
-        revenue: Revenue
-        source: Source
-        title: RailsDevs revenue
   policies:
     privacy:
       show:
-        title: Privacy policy
+        title: 隐私政策
     terms:
       show:
-        title: Terms and conditions
+        title: 条款
   pricing:
     cta:
       cta: 立即开始
@@ -646,30 +388,11 @@ zh-CN:
       rails_developers: Rails 开发者
       response_rate: 回复率
       title: Rails-only 招聘平台
-  public_profiles:
-    new:
-      cancel: Cancel
-      copy_link: Copy link
-      message: Share your developer profile privately with someone. This will reveal hidden information like your real name, social links, and email address to them.
-      title: Share your profile
-  read_notifications:
-    create:
-      notice: All notifications marked as read.
-    index:
-      empty_state_body: You have no read notifications.
-      empty_state_title: No read notifications
-      title: Read notifications
   registrations:
     create_account: 创建一个账号
     register: 注册
     sign_up_hero: 创建账号
     sign_up_html: 或者 %{link}
-  role_levels:
-    component:
-      interested_in_roles: Interested in roles
-  role_types:
-    component:
-      interested_in_roles: Interested in roles
   roles:
     new:
       hiring_developers: 我在招聘开发者
@@ -686,7 +409,7 @@ zh-CN:
     footer:
       about: 关于
       analytics: 数据分析
-      copyright: All rights reserved.
+      copyright: 版权所有
       email: Email
       github: GitHub
       language_name_of_locale: 简体中文
@@ -697,11 +420,6 @@ zh-CN:
       support: 帮助
       terms_and_conditions: 条款
       twitter: Twitter
-  size:
-    billion: B
-    million: M
-    thousand: K
-    unit: ''
   submit_button_component:
     save: 保存
     saving: 保存中...
@@ -716,6 +434,3 @@ zh-CN:
     paywalled_component:
       description: 仅商业订阅可见的信息。
       title: 隐私信息
-  utc_offsets:
-    component:
-      gmt: GMT
