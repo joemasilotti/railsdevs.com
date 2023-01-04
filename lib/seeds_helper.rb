@@ -52,11 +52,6 @@ module SeedsHelper
       end.to_h
     end
 
-    def developer_avatar_urls
-      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
-        .map { |image_id| unsplash_url_for(image_id) }
-    end
-
     private
 
     def create_user!(name)
@@ -89,6 +84,11 @@ module SeedsHelper
 
     def location_seeds
       @location_seeds ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "locations.yml"))
+    end
+
+    def developer_avatar_urls
+      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
+        .map { |image_id| unsplash_url_for(image_id) }
     end
 
     def business_avatar_urls
