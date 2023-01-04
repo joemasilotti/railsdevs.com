@@ -10,7 +10,8 @@ module Developers
 
     class << self
       FOLDER_PREFIX = "paywalled_developers"
-      AVATAR_FILE_NAMES = %w[paywalled-dev-1.jpeg paywalled-dev-2.jpeg paywalled-dev-3.jpeg]
+      AVATARS_FULL_PATH = File.join(Rails.root, "app", "assets", "images", FOLDER_PREFIX)
+      AVATAR_FILE_NAMES = Dir.children(AVATARS_FULL_PATH)
 
       def generate(num = 1)
         generated_devs = []
