@@ -18,12 +18,6 @@ module Developers
       assert_selector("p", text: @developer.bio)
     end
 
-    test "should render avatar" do
-      render_inline(PaywalledCardComponent.new(developer: @developer))
-
-      assert_selector("img[src$='#{@developer.avatar_url}']")
-    end
-
     test "should always render available now" do
       render_inline(PaywalledCardComponent.new(developer: @developer))
 

@@ -17,8 +17,8 @@ module Developers
       ]
     end
 
-    def avatar_image_url
-      developer.avatar_url
+    def avatar_file_name
+      developer.avatar_file_name
     end
 
     def hero
