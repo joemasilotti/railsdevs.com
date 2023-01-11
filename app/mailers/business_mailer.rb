@@ -9,4 +9,11 @@ class BusinessMailer < ApplicationMailer
 
     mail(to: @business.user.email, subject:)
   end
+
+  def new_terms
+    @business = params[:business]
+    from = Rails.configuration.emails.support_mailbox!
+    subject = "Updated RailsDevs terms of use and hiring agreement"
+    mail(to: @business.user.email, from:, subject:)
+  end
 end

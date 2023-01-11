@@ -4,7 +4,7 @@
 
 ### January
 
-* January 1 - Clean up hiring agreements for launch
+* January 1 - Hiring agreement announcement email
 
 ## 2022
 
