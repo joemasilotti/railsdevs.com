@@ -612,7 +612,7 @@ en:
         a: No. RailsDevs is free for developers.
         q: Does RailsDevs cost anything for developers?
       fee:
-        a_html: If you hire a full-time employee through RailsDevs you agree to pay a placement fee equal to 10% of the their salary.
+        a_html: If you hire a full-time employee through RailsDevs you agree to pay a placement fee equal to 10% of their salary.
         q: How does the 10% hiring fee work?
       support:
         a_html: Email the founder – that's me, Joe! – with any questions. You can reach me at <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
