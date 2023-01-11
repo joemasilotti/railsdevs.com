@@ -4,7 +4,7 @@
 
 ### January
 
-* January 1 - Hiring agreement announcement email
+* January 1 - Hiring agreement announcement email #749
 
 ## 2022
 
