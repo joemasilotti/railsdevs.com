@@ -1,5 +1,11 @@
 # Changelog
 
+# 2023
+
+### January
+
+* January 1 - Clean up hiring agreements for launch
+
 ## 2022
 
 ### November

@@ -20,7 +20,7 @@ module HiringAgreements
     private
 
     def require_new_signature!
-      redirect_to root_path if current_user.signed_hiring_agreement?
+      redirect_to root_path if HiringAgreements::Term.signed_by?(current_user)
     end
 
     def signature_params
