@@ -5,4 +5,9 @@ class BusinessMailerPreview < ActionMailer::Preview
 
     BusinessMailer.with(business:, developers:).developer_profiles
   end
+
+  def new_terms
+    business = Business.first
+    BusinessMailer.with(business:).new_terms
+  end
 end

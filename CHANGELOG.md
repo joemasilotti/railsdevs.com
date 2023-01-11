@@ -1,5 +1,11 @@
 # Changelog
 
+# 2023
+
+### January
+
+* January 1 - Hiring agreement announcement email #749
+
 ## 2022
 
 ### November

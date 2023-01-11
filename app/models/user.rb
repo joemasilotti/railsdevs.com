@@ -44,8 +44,11 @@ class User < ApplicationRecord
     Rails.configuration.always_remember_me
   end
 
-  def signed_hiring_agreement?
-    HiringAgreements::Term.signed_by?(self)
+  # Includes non-subscribers for Stripe checkout.
+  def needs_to_sign_hiring_agreement?
+    HiringAgreements::Term.active? &&
+      !permissions.legacy_subscription? &&
+      !HiringAgreements::Term.signed_by?(self)
   end
 
   def permissions

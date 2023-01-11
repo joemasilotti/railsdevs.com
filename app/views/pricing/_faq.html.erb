@@ -9,7 +9,15 @@
         </dd>
         <dt id="hiring-fee" class="text-base font-medium text-gray-900 md:col-span-5 mt-8 md:mt-0"><%= t("pricing.faq.fee.q") %></dt>
         <dd class="mt-2 md:mt-0 md:col-span-7">
-          <p class="text-base text-gray-500"><%= t("pricing.faq.fee.a_html") %></p>
+          <p class="text-base text-gray-500">
+            <%= t("pricing.faq.fee.a_html") %>
+
+            <% if HiringAgreements::Term.active? %>
+              Read the full <%= link_to "hiring agreement", hiring_agreement_terms_path, class: "underline" %> for more details.
+            <% else %>
+              Email Joe to coordinate payment at <a href="mailto:joe@railsdevs.com" class="underline">joe@railsdevs.com</a>.
+            <% end %>
+          </p>
         </dd>
         <dt class="text-base font-medium text-gray-900 md:col-span-5 mt-8 md:mt-0"><%= t("pricing.faq.annual.q") %></dt>
         <dd class="mt-2 md:mt-0 md:col-span-7">
