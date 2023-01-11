@@ -1,6 +1,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  include SubscriptionsHelper
+
   test "conversations where the user is the developer" do
     user = users(:prospect_developer)
     assert_equal user.conversations, [conversations(:one)]
