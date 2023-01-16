@@ -33,6 +33,9 @@ application.register("page-scroll", PageScrollController)
 import ToggleController from "./toggle_controller.js"
 application.register("toggle", ToggleController)
 
+import MobileTabbingController from "./mobile_tabbing_controller.js"
+application.register("viewPortWidth", MobileTabbingController)
+
 import TurboNative__InAppPurchasesController from "./turbo_native/in_app_purchases_controller.js"
 application.register("turbo-native--in-app-purchases", TurboNative__InAppPurchasesController)
 
