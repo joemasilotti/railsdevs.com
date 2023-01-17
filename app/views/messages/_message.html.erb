@@ -2,7 +2,7 @@
   <div class="sm:flex sm:justify-between sm:items-baseline">
     <h3 class="text-base font-medium">
       <% if message.deleted_sender? %>
-        Deleted account
+        <%= t(".deleted_account") %>
       <% else %>
         <span class="text-gray-900"><%= message.sender?(current_user) ? t(".you") : message.sender.name %></span>
         <span class="text-gray-600"><%= t(".wrote") %></span>

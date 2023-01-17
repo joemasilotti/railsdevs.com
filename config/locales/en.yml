@@ -476,6 +476,7 @@ en:
       submit: Send
       terms: View full terms
     message:
+      deleted_account: (deleted account)
       wrote: wrote
       you: You
   nav_bar:
