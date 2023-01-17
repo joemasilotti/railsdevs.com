@@ -29,7 +29,9 @@
     <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
   <% end %>
 
-  <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
+  <% if @conversation.developer %>
+    <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
+  <% end %>
 
   <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <% if policy(@message).create? %>
