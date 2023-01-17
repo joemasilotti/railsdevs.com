@@ -14,7 +14,7 @@ module Stripe
     private
 
     def require_signed_hiring_agreement!
-      if HiringAgreements::Term.active? && !current_user.signed_hiring_agreement?
+      if current_user.needs_to_sign_hiring_agreement?
         redirect_to new_hiring_agreement_signature_path, notice: I18n.t("errors.hiring_agreements.payment")
       end
     end

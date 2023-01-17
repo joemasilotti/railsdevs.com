@@ -1,0 +1,436 @@
+---
+zh-CN:
+  about:
+    show:
+      caption: RailsDevs 的创立者
+      readtime: 1 分钟阅读时间
+      title: 关于
+      title_og: 关于 RailsDevs
+  activerecord:
+    attributes:
+      business:
+        company: 公司名称
+        contact_name: 你的名称
+        contact_role: 你的职称或者角色
+        name: 你的名称
+      developer:
+        available_on: 何时可开始
+      location:
+        country_code: 国家
+      user:
+        email: E-mail
+        password: 密码
+        password_confirmation: 确认密码
+        remember_me: 记住我
+    errors:
+      models:
+        location:
+          invalid_coordinates: 无法找到
+  admin:
+    businesses:
+      invisiblizes:
+        create:
+          created: 个人资料已设置为隐藏.
+    conversations:
+      blocks:
+        index:
+          blocked: 已屏蔽
+          no_blocked_conversations: 没有已屏蔽的对话
+          title: 已屏蔽的对话
+      index:
+        developer: 开发者
+        email: Email
+        no_potential_email: 没有潜在可能的邮件
+        no_response: 没有回复
+        potential_email: 有潜在可能的邮件
+        replied: 已回复
+        reply_rate: 回复率
+        started: 已开始
+        title: 对话
+        view: 查看
+    developers:
+      invisiblizes:
+        create:
+          created: 个人资料已设置为隐藏.
+    features:
+      create:
+        created: 本周个人资料精选
+    transactions:
+      create:
+        created: 交易已创建
+      destroy:
+        destroyed: 交易已删除
+      form:
+        URL: URL
+        cancel: 取消
+        description: 费用是有偿服务和产品，而捐款是捐赠和赞助。
+        title: 新的费用或捐款
+      index:
+        delete_confirmation: 您确定要删除此交易吗？
+        title: 费用和捐款
+      update:
+        updated: 交易已更新
+    users:
+      search:
+        cta: 搜索
+        help: 通过名称、公司或邮件筛选用户
+  blocks:
+    create:
+      notice: "%{other_recipient} 已被屏蔽."
+    new:
+      block: 屏蔽
+      cancel: 取消
+      message: 您确定要标记此对话并阻止发件人吗？这将隐藏对话，他们将无法再次与您联系。
+      title: 屏蔽发送者
+  businesses:
+    admin_component:
+      invisiblize: 设为隐藏
+      title: 管理员
+    create:
+      created: 你的公司已添加！
+    edit:
+      title: 你的业务简介
+    expired_subscription_component:
+      cta: 升级你的账户以给开发者发送消息
+      title: 你的订阅已过期。
+    form:
+      avatar: 你的公司 logo
+      business:
+        help: 有关你的业务的信息。这是你向潜在雇员推销自己的机会！
+        title: 业务详情
+      change_avatar: 上传
+      creating: 创建中...
+      developer_notifications:
+        help_text: 当新开发人员将他们的个人资料添加到 RailsDevs 时，每天或每周收到电子邮件通知。
+        legend: 开发者消息通知
+        values:
+          daily: 每天
+          'no': 从不
+          weekly: 每周
+      loading: 加载中...
+      notifications:
+        title: 邮件提醒
+      personal:
+        help: 关于您的信息，您在 RailsDevs 上的业务联络点。
+        title: 个人资料
+      something_went_wrong: 上传图片过程中出错了，请重试。
+      updating: 更新中...
+      your_business_profile: 你的企业资料
+    upgrade_required_component:
+      body:
+        expired: 您的订阅已过期。重新激活您的帐户以继续向开发人员发送消息。
+        upgrade: 根据您当前的计划，您只能向寻找兼职工作的开发人员发送消息。升级您的帐户以向此开发者发送消息。
+      cta:
+        expired: 重新激活我的账户
+        upgrade: 升级我的账户
+      details: 查看价格详情
+      title:
+        expired: 订阅已过期
+        upgrade: 需要升级
+    website_link_component:
+      external_link: 在新 tab 中打开
+  cold_messages:
+    new:
+      title: 开始一个新的对话
+      with: 和
+  developers:
+    admin_component:
+      copy: 复制
+      feature: 特征
+      invisiblize: 隐形化
+      source_contributor: 来源贡献者
+      title: 管理员
+    availability_component:
+      in_future_html: 在 <time datetime="%{date}">%{date_in_words}</time> 后有空
+      now_html: 目前有空
+      unspecified_html: 目前离线
+    badges_component:
+      featured: 出色开发者
+      recently_active: 最近活跃
+      source_contributor: 来源贡献者
+    count_component:
+      cta: 重置过滤条件
+      title_html: 展示 <span class='font-bold'>%{count}</span> / 总计 <span class='font-bold'>%{total}</span>+ 位开发者.
+    cover_image_component:
+      alt: 开发者的封面图片
+    create:
+      created: 你的个人资料已添加！
+    details:
+      title: 详情
+    edit:
+      title: 你的开发者资料
+    form:
+      bio:
+        description: 分享几段关于你作为一名开发者的独特之处。这是你向潜在雇主推销自己的机会！
+        examples:
+          accomplishment: 最近的里程碑或成就
+          help: 你如何在别人无法提供帮助的地方提供帮助
+          learned: 你学到的新东西
+          origin: 你的开发者起源故事
+          passion: 你热衷于什么
+          title: 示例
+          unique: 你擅长的技能
+        help_text: 涉及暴露个人身份的信息将被删除。
+        markdown: Markdown 是支持的，但不能使用链接和图片。
+        title: 简介
+      creating: 创建中...
+      loading: 加载中...
+      notifications:
+        profile_reminder_notifications: 个人资料提醒
+        profile_reminder_notifications_help: 定期提醒我更新我的开发者资料。
+        title: 邮件提醒
+      online_presence:
+        help_text: 人们可以从哪里更多地了解您和您的工作？
+        title: 在线状态
+      preferred_compensation:
+        description: 根据我作为自由职业者的经验，只有在了解项目或工作的细节后才能讨论薪酬问题。
+        more_info: 有关此决定的更多信息
+        subtitle: RailsDevs 已经删除了期望薪资
+        title: 期望薪资
+      profile:
+        avatar: 头像
+        avatar_error_text: 上传图片过程中出错了，请重试。
+        change: 上传
+        cover_image: 封面图片
+        help_text: 此信息将公开显示，因此请谨慎分享。
+        hero_help_text: 用几句话总结一下自己作为开发者的身份。
+        location_help_text: 提供您的位置可以更轻松地与当地企业建立联系。
+        name_help_text_html: 你的姓名<i>不会</i>被展示在你的公开资料中。
+        title: 个人资料
+        upload_error_text: 上传图片过程中出错了，请重试。
+        upload_file: 上传一个文件
+        upload_help_text: PNG, JPG, GIF, 最大 10MB
+      role_level:
+        help_text: 选择你的所有经验级别。
+        title: 个人级别
+      role_type:
+        help_text: 选择你会考虑担任的所有角色。
+        title: 角色类型
+      search_status:
+        actively_looking_help_text: 您的个人资料可以出现在主页上。
+        invisible_help_text: 您的个人资料是隐藏的，只有您自己可以看到。
+        not_interested_help_text: 您的个人资料不会出现在搜索结果中。
+        open_help_text: 公司仍然可以找到你，但你不会出现在主页上。
+        title: 搜索状态
+      title: 你的开发者资料
+      updating: 更新中...
+      work_preferences:
+        help_text: 你接下来想找什么样的工作？
+        title: 工作偏好
+    index:
+      empty_state:
+        body: 请尝试修改或清空筛选条件。
+        title: 未找到相关开发者
+      title: Ruby on Rails 开发者
+    invisible_banner_component:
+      cta: 编辑我的资料
+      title: 你的开发者资料已隐藏 - 仅你自己可见。
+    meta:
+      description: "%{count}+ Ruby on Rails 开发者正在寻找他们的下一份工作. 初级到高级开发者，你都可以在这里找到。"
+      freelance: 自由职业
+      hire: 招聘
+      in_country: 在 %{country}
+      ruby_on_rails_developers: Ruby on Rails 开发者
+    new_field_component:
+      new: 新!
+    new_fields_component:
+      cta: 完善我的个人资料
+      title: 开发者资料中添加了新字段！
+    open_graph_tags_component:
+      turbo_native_title: 开发者个人资料
+    profile_action_component:
+      add_profile: 创建我的个人资料
+      edit_profile: 更新我的个人资料
+    query_component:
+      all_countries:
+        title: 所有地区
+      apply: 应用
+      clear: 清除
+      close_menu: 关闭菜单
+      country:
+        title: 地区
+      filters: 筛选条件
+      include_not_interested: 包含目前不感兴趣的开发者
+      paywalled_search:
+        title: 仅付费账户支持文本搜索
+      role_level:
+        title: 等级
+      search_query_label: 搜索个人资料
+      search_query_placeholder: Hotwire, React, Heroku, 等等.
+      timezone:
+        title: 时区
+      title: 开发者筛选条件
+      work_preference:
+        title: 工作偏好
+    query_sort_button_component:
+      sort:
+        availability: 有空与否
+        newest: 最新的
+        title: 排序
+    search_status:
+      actively_looking: 积极寻找工作中
+      actively_looking_tag: 积极寻找中
+      not_interested: 现在对工作不感兴趣
+      not_interested_tag: 不感兴趣
+      open: 持开放态度，但不积极寻找
+      open_tag: 持开放态度
+    show:
+      description: 描述
+      edit: 编辑
+      hire: 雇佣我
+      message: 发消息
+      redirection: 开发人员资料的链接已更改。请将您的书签更新为 %{url}.
+      share: 分享
+    update:
+      updated: 你的个人资料已更新！
+  home:
+    show:
+      available_developers: 现在有空的开发者
+      description_og: RailsDevs 帮助独立开发者为他们的下一份工作做好准备。坐等公司与你联系，不用再去招聘网站搜寻。
+      get_started: 开始
+      learn_more: 了解更多
+      more: 查看更多开发者
+      subtitle_1: RailsDevs
+      subtitle_2: 帮助独立开发者为他们的下一份工作做好准备
+      subtitle_3: 坐等公司与你联系，不用再去招聘网站搜寻。
+      title_1: 面向 Rails 开发人员的工作台
+      title_2: ''
+      title_og: Ruby on Rails 开发人员的工作台
+      turbo_native_title: RailsDevs
+  impersonating_banner_component:
+    cta: 登出
+    title: 以 %{email} 登录
+  loading_component:
+    loading: 加载中...
+  nav_bar:
+    base_component:
+      about: 关于
+      developers: 开发者们
+      home: 主页
+      pricing: 价格
+    guest_component:
+      register: 注册
+      sign_in: 登录
+    user_component:
+      admin: 管理员
+      billing: 账单
+      blocked_conversations: 已屏蔽的对话
+      conversations: 对话
+      found_a_job: 已找到工作？
+      get_started: 开始
+      hired_forms: 聘用表格
+      hiring_agreement_terms: 雇佣协议条款
+      my_business_profile: 我的企业简介
+      my_conversations: 我的对话
+      my_developer_profile: 我的开发者资料
+      new: 新!
+      new_notifications: 你有一条新消息通知
+      open_user_menu: 打开用户菜单
+      sign_out: 登出
+      transactions: 交易
+      users: 用户
+      view_conversations: 查看对话
+      view_notifications: 查看通知
+  policies:
+    privacy:
+      show:
+        title: 隐私政策
+    terms:
+      show:
+        title: 条款
+  pricing:
+    cta:
+      cta: 立即开始
+      subtitle: 立即寻找你的下一个 Rails 开发者
+      title: 准备好开始招聘了吗？
+    faq:
+      annual:
+        a_html: 可以的。发邮件给 Joe 以获取打折后的账单 <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        q: 我可以按季度或者按年付费吗？
+      cancellation:
+        a_html: 是的。您可以从用户下拉菜单中的账单链接取消订阅。在结算期结束时，您将无法使用所有付费功能。
+        q: 我可以随时取消我的套餐吗？
+      developers:
+        a: RailsDevs 对开发者是免费的。
+        q: RailsDevs 对开发者收费吗？
+      fee:
+        a_html: 如果您通过 RailsDevs 找到开发人员，您需要支付开发人员第一年工资的 10% 的招聘费。这仅适用于雇用全职员工，不适用于承包商或自由职业者。发送电子邮件给 Joe 以协调付款事宜，电子邮件地址为 joe@railsdevs.com。
+        q: 10% 的招聘费是什么？
+      support:
+        a_html: 联系创建者 – 那就是我, Joe! – 任何问题都可以. 我的邮件是 <a href='mailto:joe@railsdevs.com' class='underline'>joe@railsdevs.com</a>.
+        q: 还有其他问题，我可以联系谁？
+      title: 常见问题
+    hero:
+      description: 直接与数百位正在寻找他们下一份工作的 Ruby on Rails 开发者取得联系。
+      title: 招聘 Ruby on Rails 开发者
+    plan:
+      description: 摒弃传统的招聘方式和中介 – 直接面向 Ruby on Rails 开发者招聘，从初级到高级皆可。
+      features:
+        email_updates: 新候选人邮件提醒
+        hand_selected_matches: 每月精选匹配人员
+        message: 直接给开发者发送消息
+        oss: 支持独立开发者和 OSS
+        rails: 专门的 Ruby on Rails 开发者
+        support: 来自创始人的邮件和视频支持
+        title: RailsDevs 提供
+      hiring_fee: "+ 10% 首年薪水"
+      per_month: "/月"
+      title_html: 开始你的招聘吧
+    purchase_button:
+      title: 立即开始
+    show:
+      description: 订阅 RailsDevs 并直接与数百名正在寻找自由职业、合同工和全职工作的 Ruby on Rails 开发人员联系。
+      title_og: 价格
+      turbo_native_title: 招聘 Rails 开发者
+    stats:
+      description: 真实有效的对话，回复率高于 LinkedIn 或电子邮件。
+      new_devs: 本月新增开发者
+      rails_developers: Rails 开发者
+      response_rate: 回复率
+      title: Rails-only 招聘平台
+  registrations:
+    create_account: 创建一个账号
+    register: 注册
+    sign_up_hero: 创建账号
+    sign_up_html: 或者 %{link}
+  roles:
+    new:
+      hiring_developers: 我在招聘开发者
+      hiring_developers_help_text: 你是一家希望聘请自由职业者、兼职或全职 Ruby on Rails 开发人员的企业。
+      looking_for_work: 我在寻找工作
+      looking_for_work_help_text: 你是正在寻找下一份工作的 Ruby on Rails 开发者。
+      what_brings_you_here: 是什么让你来到 Rails Devs?
+  sessions:
+    sign_in: 登录
+    sign_in_hero: 登录账号
+    sign_in_link: 登录已有账号
+    sign_in_link_html: 或者 %{link}
+  shared:
+    footer:
+      about: 关于
+      analytics: 数据分析
+      copyright: 版权所有
+      email: Email
+      github: GitHub
+      language_name_of_locale: 简体中文
+      masilotti_com: Masilotti.com
+      open_source: 开源
+      open_startup: 创业公司
+      privacy_policy: 隐私政策
+      support: 帮助
+      terms_and_conditions: 条款
+      twitter: Twitter
+  submit_button_component:
+    save: 保存
+    saving: 保存中...
+  subscription_cta_component:
+    cta: 开始招聘
+    description: 与 %{developers}+ 位 Ruby on Rails 开发者取得联系。
+    title: 立即注册以查看更多开发者。
+  users:
+    paywalled:
+      collapse_control_component:
+        title: 您需要付费订阅才能解锁此功能。
+    paywalled_component:
+      description: 仅商业订阅可见的信息。
+      title: 隐私信息

@@ -1,6 +1,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
+  include SubscriptionsHelper
+
   test "conversations where the user is the developer" do
     user = users(:prospect_developer)
     assert_equal user.conversations, [conversations(:one)]
@@ -32,5 +34,25 @@ class UserTest < ActiveSupport::TestCase
     assert_includes User.search("one"), users(:developer)
     assert_includes User.search("owner"), users(:business)
     assert_includes User.search("company"), users(:business)
+  end
+
+  test "needs to sign the hiring agreement when active, not on a legacy plan, and not yet signed" do
+    user = users(:subscribed_business)
+
+    # Already signed.
+    refute user.needs_to_sign_hiring_agreement?
+
+    # Not signed.
+    hiring_agreements_signatures(:one).destroy
+    assert user.needs_to_sign_hiring_agreement?
+
+    # Not signed but not active.
+    HiringAgreements::Term.sole.deactivate!
+    refute user.needs_to_sign_hiring_agreement?
+
+    # Active and not signed but on legacy plan.
+    HiringAgreements::Term.sole.activate!
+    update_subscription(:legacy)
+    refute user.needs_to_sign_hiring_agreement?
   end
 end
