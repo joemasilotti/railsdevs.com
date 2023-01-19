@@ -1,5 +1,5 @@
 <%= tag.div class: class_names("relative", "border-b": highlight?) do %>
-  <%= link_to developer, class: class_names("bg-white hover:bg-gray-50 px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8", "border-l-4 border-blue-400": highlight?) do %>
+  <%= link_to developer, class: class_names("bg-white hover:bg-gray-50 px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8", "border-l-4 border-blue-400 tab-index-mobile": highlight?) do %>
     <div class="shrink-0">
       <%= render AvatarComponent.new(avatarable: developer, variant: :medium) %>
     </div>
