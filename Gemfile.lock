@@ -179,7 +179,7 @@ GEM
       rake
     gemoji (4.0.0.rc3)
     geocoder (1.7.3)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     groupdate (6.0.1)
       activesupport (>= 5.2)
@@ -256,7 +256,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.3)
+    minitest (5.17.0)
     minitest-reporters (1.5.0)
       ansi
       builder
