@@ -163,6 +163,7 @@ en:
     admin_component:
       invisiblize: Invisiblize
       title: Admin
+      view_conversations: View Conversations
     create:
       created: Your business was added!
     edit:
@@ -260,6 +261,7 @@ en:
       invisiblize: Invisiblize
       source_contributor: Source contributor
       title: Admin
+      view_conversations: View Conversations
     availability_component:
       in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
       now_html: Available now
