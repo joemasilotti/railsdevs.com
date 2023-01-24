@@ -14,7 +14,6 @@ gem "sprockets-rails", "~> 3.4"
 gem "stimulus-rails", "~> 0.7"
 gem "turbo-rails", "~> 1.3.1"
 gem "view_component", "~> 2.69"
-gem "faker"
 
 group :development, :test do
   gem "i18n-tasks"
@@ -44,6 +43,7 @@ gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
 gem "devise-i18n", "~> 1.10.1"
+gem "faker"
 gem "fathom_api", "~> 0.1.2"
 gem "geocoder", "~> 1.7.3"
 gem "groupdate", "~> 6.0.1"
