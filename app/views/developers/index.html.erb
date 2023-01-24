@@ -50,7 +50,10 @@
 
         <% if @paywall_results %>
           <%= render Developers::CardComponent.with_collection(@query.records) %>
-          <%= render SubscriptionCTAComponent.new(user: current_user) %>
+          <div class="relative">
+             <%= render Developers::CardComponent.with_collection(Developers::PaywalledSearchResults.random_developers) %>
+             <%= render SubscriptionCTAComponent.new(user: current_user) %>
+           </div>
         <% else %>
           <%= render PagyPaginatorComponent.new(id: "developers", pagy: @query.pagy, url_array: [:developers], container_classes: "divide-y divide-gray-200", options: @query.filters) do |component| %>
             <% component.loading_icon do %>
