@@ -1,16 +1,14 @@
-<%= tag.div class: class_names("relative") do %>
-  <%= tag.div class: class_names("bg-white hover:bg-gray-50 px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8") do %>
+<div class="relative">
+  <div class="bg-white hover:bg-gray-50 px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8">
     <div class="shrink-0">
-      <%= tag.picture do %>
-        <%= image_tag avatar_file_name, class: classes_for_avatar %>
-      <% end %>
+      <%= image_tag avatar_file_name, class: classes_for_avatar %>
     </div>
 
     <div class="self-start flex-1 min-w-0 space-y-3">
       <div class="flex items-baseline">
-        <h2 class="text-lg sm:text-xl font-medium text-gray-900 line-clamp-2 break-word" title="<%= hero %>">
+        <%= tag.h2 title: hero, class: "text-lg sm:text-xl font-medium text-gray-900 line-clamp-2 break-word" do %>
           <%= hero %>
-        </h2>
+        <% end %>
 
         <div class="hidden sm:inline-flex ml-auto flex-row-reverse shrink-0 items-center text-gray-400">
           <div class="flex items-center text-gray-900">
@@ -25,5 +23,5 @@
         <p class="line-clamp-3 break-words"><%= developer.bio %></p>
       </div>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>
