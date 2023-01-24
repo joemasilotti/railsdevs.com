@@ -77,6 +77,12 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "Part-time"
   end
 
+  test "developers with incorrect role type query does not raise an error" do
+    assert_nothing_raised do
+      get developers_path(role_types: ["foo"])
+    end
+  end
+
   test "developers can be filtered by role level" do
     create_developer(hero: "Mid", role_level_attributes: {mid: true})
 
