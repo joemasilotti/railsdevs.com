@@ -51,7 +51,7 @@
         <% if @paywall_results %>
           <%= render Developers::CardComponent.with_collection(@query.records) %>
           <div class="relative">
-             <%= render Developers::PaywalledCardComponent.with_collection(Developers::PaywalledDeveloper.generate(3)) %>
+             <%= render Developers::CardComponent.with_collection(Developers::PaywalledSearchResults.random_developers) %>
              <%= render SubscriptionCTAComponent.new(user: current_user) %>
            </div>
         <% else %>

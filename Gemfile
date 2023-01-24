@@ -16,6 +16,7 @@ gem "turbo-rails", "~> 1.3.1"
 gem "view_component", "~> 2.69"
 
 group :development, :test do
+  gem "faker"
   gem "i18n-tasks"
   gem "letter_opener_web"
   gem "pry-rails"
@@ -43,7 +44,6 @@ gem "aws-sdk-s3", "~> 1", require: false
 gem "classy-yaml", "~> 0.7"
 gem "devise", "~> 4.8.1"
 gem "devise-i18n", "~> 1.10.1"
-gem "faker"
 gem "fathom_api", "~> 0.1.2"
 gem "geocoder", "~> 1.7.3"
 gem "groupdate", "~> 6.0.1"
