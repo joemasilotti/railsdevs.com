@@ -454,59 +454,59 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  apnotic (~> 1.7.0)
-  auto_html (~> 2.1)
-  aws-sdk-s3 (~> 1)
-  capybara (~> 3.36)
-  classy-yaml (~> 0.7)
-  cssbundling-rails (~> 1.0)
-  devise (~> 4.8.1)
-  devise-i18n (~> 1.10.1)
-  erb_lint (~> 0.1.2)
+  apnotic
+  auto_html
+  aws-sdk-s3
+  capybara
+  classy-yaml
+  cssbundling-rails
+  devise
+  devise-i18n
+  erb_lint
   faker
-  fathom_api (~> 0.1.2)
-  geocoder (~> 1.7.3)
-  groupdate (~> 6.0.1)
-  hashid-rails (~> 1.0)
-  honeybadger (~> 4.0)
+  fathom_api
+  geocoder
+  groupdate
+  hashid-rails
+  honeybadger
   hotwire-livereload
-  hotwire-rails (~> 0.1)
+  hotwire-rails
   i18n-tasks
-  image_processing (~> 1.2)
-  inline_svg (~> 1.7)
-  invisible_captcha (~> 2.0.0)
-  jsbundling-rails (~> 1.0)
+  image_processing
+  inline_svg
+  invisible_captcha
+  jsbundling-rails
   letter_opener_web
-  minitest-reporters (~> 1.5)
-  minitest-reporters-pride_reporter (~> 0.0.2)
-  noticed (~> 1.5.9)
-  pagy (~> 5.2)
-  pay (~> 6.1.0)
-  pg (~> 1.1)
+  minitest-reporters
+  minitest-reporters-pride_reporter
+  noticed
+  pagy
+  pay
+  pg
   pg_search
-  postmark-rails (~> 0.22.0)
-  pretender (~> 0.4.0)
+  postmark-rails
+  pretender
   pry-rails
-  puma (~> 5.6)
-  pundit (~> 2.1)
+  puma
+  pundit
   rails (~> 7.0.4.1)
-  rails-i18n (~> 7.0)
-  redcarpet (~> 3.5)
+  rails-i18n
+  redcarpet
   redis
-  rexml (~> 3.2, >= 3.2.5)
-  scout_apm (~> 5.1)
+  rexml (>= 3.2.5)
+  scout_apm
   selenium-webdriver
-  sidekiq (~> 6.4)
-  sitemap_generator (~> 6.1)
-  sprockets-rails (~> 3.4)
+  sidekiq
+  sitemap_generator
+  sprockets-rails
   standard
-  stimulus-rails (~> 0.7)
-  stripe (~> 8.0.0)
-  tarpon (~> 0.4.0)
-  timezone_finder (~> 1.5.7)
-  turbo-rails (~> 1.3.1)
+  stimulus-rails
+  stripe
+  tarpon
+  timezone_finder
+  turbo-rails
   tzinfo-data
-  view_component (~> 2.69)
+  view_component
   webdrivers
   webmock
 
