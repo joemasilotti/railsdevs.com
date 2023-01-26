@@ -249,6 +249,7 @@ en:
   date:
     formats:
       month_year: "%B %Y"
+  deleted_account: "(deleted account)"
   developer_mailer:
     celebration_promotion:
       subject: How's your conversation going with %{contact} at %{company}?

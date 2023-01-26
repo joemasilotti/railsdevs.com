@@ -18,6 +18,10 @@ class Conversation < ApplicationRecord
     where("lower(inbound_email_token) = ?", token).first!
   end
 
+  def deleted_business_or_developer?
+    developer.nil? || business.nil?
+  end
+
   def other_recipient(user)
     developer == user.developer ? business : developer
   end

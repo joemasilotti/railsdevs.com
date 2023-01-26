@@ -30,6 +30,10 @@ class Message < ApplicationRecord
     joins(:conversation).where(conversation: {developer:}).one?
   end
 
+  def deleted_sender?
+    sender.nil?
+  end
+
   def sender?(user)
     [user.developer, user.business].include?(sender)
   end

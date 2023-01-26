@@ -32,7 +32,11 @@
           <% end %>
 
           <% row.with_cell do %>
-            <%= render Admin::BasicLinkComponent.new(conversation.developer.name, admin_developer_conversations_path(conversation.developer)) %>
+            <% if conversation.developer %>
+              <%= render Admin::BasicLinkComponent.new(conversation.developer.name, admin_developer_conversations_path(conversation.developer)) %>
+            <% else %>
+              <%= t("deleted_account") %>
+            <% end %>
           <% end %>
 
           <% row.with_cell do %>
