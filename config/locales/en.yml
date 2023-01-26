@@ -231,7 +231,6 @@ en:
       with: with
   conversations:
     ago: ago
-    conversation: 
     index:
       empty_state:
         body: Get started by finding a developer to message.
