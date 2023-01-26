@@ -244,6 +244,7 @@ en:
       read: Message read.
       unread: Message unread.
     show:
+      deleted_account: "(deleted account)"
       flag: Flag this conversation
       og_title: Conversation with %{with}
       title: Conversation
