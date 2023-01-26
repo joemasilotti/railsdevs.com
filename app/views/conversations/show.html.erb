@@ -10,7 +10,7 @@
         <div class="block"><%= t(".with") %></div>
         <% if @conversation.deleted_business_or_developer? %>
           <span class="font-medium text-gray-600 group-hover:text-gray-500">
-            <%= t(".deleted_account") %>
+            <%= t("deleted_account") %>
           </span>
         <% else %>
           <%= link_to polymorphic_path(@conversation.other_recipient(current_user)), class: "flex items-center space-x-2 group" do %>

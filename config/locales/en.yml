@@ -68,7 +68,6 @@ en:
       index:
         business: Business
         conversations: "'s conversations"
-        deleted_account: "(deleted account)"
         developer: Developer
         email: Email
         no_potential_email: No potential email
@@ -232,8 +231,7 @@ en:
       with: with
   conversations:
     ago: ago
-    conversation:
-      deleted_account: "(deleted account)"
+    conversation: 
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -244,7 +242,6 @@ en:
       read: Message read.
       unread: Message unread.
     show:
-      deleted_account: "(deleted account)"
       flag: Flag this conversation
       og_title: Conversation with %{with}
       title: Conversation
@@ -252,6 +249,7 @@ en:
   date:
     formats:
       month_year: "%B %Y"
+  deleted_account: "(deleted account)"
   developer_mailer:
     celebration_promotion:
       subject: How's your conversation going with %{contact} at %{company}?
@@ -480,7 +478,6 @@ en:
       submit: Send
       terms: View full terms
     message:
-      deleted_account: "(deleted account)"
       wrote: wrote
       you: You
   nav_bar:
