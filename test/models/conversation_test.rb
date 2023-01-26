@@ -26,6 +26,28 @@ class ConversationTest < ActiveSupport::TestCase
     refute Conversation.visible.include?(conversation)
   end
 
+  test "deleted_business_or_developer returns false if both business and developer" do
+    conversation = conversations(:one)
+
+    assert_not conversation.deleted_business_or_developer?
+  end
+
+  test "deleted_business_or_developer returns true if developer deleted" do
+    conversation = conversations(:one)
+    conversation.developer.destroy
+    conversation.reload
+
+    assert conversation.deleted_business_or_developer?
+  end
+
+  test "deleted_business_or_developer returns true if business deleted" do
+    conversation = conversations(:one)
+    conversation.business.destroy
+    conversation.reload
+
+    assert conversation.deleted_business_or_developer?
+  end
+
   test "other recipient is the business when the user is the developer" do
     user = users(:prospect_developer)
     conversation = conversations(:one)
