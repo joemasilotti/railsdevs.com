@@ -161,6 +161,7 @@ en:
       title: Block sender
   businesses:
     admin_component:
+      conversations: Conversations
       invisiblize: Invisiblize
       title: Admin
     create:
@@ -255,6 +256,7 @@ en:
       subject: Tips on responding to your first message on RailsDevs
   developers:
     admin_component:
+      conversations: Conversations
       copy: Copy
       feature: Feature
       invisiblize: Invisiblize
