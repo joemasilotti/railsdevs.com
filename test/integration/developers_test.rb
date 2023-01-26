@@ -137,18 +137,20 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "pagination only appears for subscribed businesses" do
     stub_feature_flag(:paywalled_search_results, true) do
+      10.times { create_developer }
+
       get developers_path
       assert_select "#developers", count: 0
+
+      sign_in(users(:subscribed_business))
+      get developers_path
+      assert_select "#developers"
     end
 
     stub_feature_flag(:paywalled_search_results, false) do
       get developers_path
       assert_select "#developers"
     end
-
-    sign_in(users(:subscribed_business))
-    get developers_path
-    assert_select "#developers"
   end
 
   test "page 2 of search results only renders for subscribers" do
