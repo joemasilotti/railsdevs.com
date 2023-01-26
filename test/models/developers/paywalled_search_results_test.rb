@@ -16,14 +16,15 @@ class Developers::PaywalledSearchResultsTest < ActiveSupport::TestCase
     end
   end
 
-  test "show the paywall when the user is not a subscriber" do
+  test "show the paywall when the user is not a subscriber or not enough results to trigger pagination" do
     stub_feature_flag(:paywalled_search_results, true) do
-      assert paywall(user: users(:empty)).show_paywall?
-      refute paywall(user: users(:subscribed_business)).show_paywall?
+      assert paywall(user: users(:empty)).show_paywall?(11)
+      refute paywall(user: users(:empty)).show_paywall?(9)
+      refute paywall(user: users(:subscribed_business)).show_paywall?(11)
     end
 
     stub_feature_flag(:paywalled_search_results, false) do
-      refute paywall(user: users(:empty)).show_paywall?
+      refute paywall(user: users(:empty)).show_paywall?(11)
     end
   end
 

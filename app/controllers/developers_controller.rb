@@ -9,7 +9,7 @@ class DevelopersController < ApplicationController
 
     paywall = Developers::PaywalledSearchResults.new(user: current_user, page: @query.pagy.page)
     redirect_to developers_path if paywall.unauthorized_page?
-    @paywall_results = paywall.show_paywall?
+    @paywall_results = paywall.show_paywall?(@query.pagy.count)
   end
 
   def new

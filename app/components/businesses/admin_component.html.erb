@@ -6,3 +6,8 @@
     <%= t(".invisiblize") %>
   <% end %>
 </span>
+
+<%= link_to admin_business_conversations_path(business), class: "relative inline-flex items-center px-4 py-2 bg-white text-sm font-medium text-gray-900 hover:underline" do %>
+  <%= inline_svg_tag "icons/solid/chat_bubble_left_right.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", aria_hidden: true %>
+  <%= t(".conversations") %>
+<% end %>

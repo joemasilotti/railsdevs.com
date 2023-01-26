@@ -20,4 +20,9 @@
   <% end %>
 </span>
 
+<%= link_to admin_developer_conversations_path(developer), class: "relative inline-flex items-center px-2 py-2 bg-white text-sm font-medium text-gray-900 hover:underline" do %>
+ <%= inline_svg_tag "icons/solid/chat_bubble_left_right.svg", class: "-ml-1 mr-2 h-5 w-5 text-gray-400", aria_hidden: true %>
+    <%= t(".conversations") %>
+<% end %>
+
 <%= render ToggleComponent.new(developer.source_contributor?, title: t(".source_contributor"), url: admin_developer_source_contributors_path(developer)) %>

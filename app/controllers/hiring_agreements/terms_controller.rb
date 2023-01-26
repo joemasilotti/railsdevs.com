@@ -1,6 +1,7 @@
 module HiringAgreements
   class TermsController < ApplicationController
     before_action :require_active_hiring_agreement!
+    skip_before_action :redirect_suspended_accounts
 
     def show
       @term = Term.active
