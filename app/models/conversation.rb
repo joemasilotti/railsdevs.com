@@ -19,7 +19,7 @@ class Conversation < ApplicationRecord
   end
 
   def deleted_business_or_developer?
-    developer.nil? | business.nil?
+    developer.nil? || business.nil?
   end
 
   def other_recipient(user)
