@@ -35,7 +35,7 @@
             <% if conversation.developer %>
               <%= render Admin::BasicLinkComponent.new(conversation.developer.name, admin_developer_conversations_path(conversation.developer)) %>
             <% else %>
-              Deleted
+              <%= t(".deleted_account") %>
             <% end %>
           <% end %>
 

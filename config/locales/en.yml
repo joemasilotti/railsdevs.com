@@ -68,6 +68,7 @@ en:
       index:
         business: Business
         conversations: "'s conversations"
+        deleted_account: "(deleted account)"
         developer: Developer
         email: Email
         no_potential_email: No potential email
@@ -231,6 +232,8 @@ en:
       with: with
   conversations:
     ago: ago
+    conversation:
+      deleted_account: "(deleted account)"
     index:
       empty_state:
         body: Get started by finding a developer to message.
