@@ -53,14 +53,14 @@
         <%= inline_svg_tag "icons/brands/github.svg", class: "h-6 w-6 tab-index-mobile", aria_hidden: true %>
       <% end %>
 
-      <%= link_to "mailto:joe@railsdevs.com", class: "text-gray-400 hover:text-gray-500 tab-index-mobile" do %>
+      <%= link_to "mailto:joe@railsdevs.com", class: "text-gray-400 hover:text-gray-500" do %>
         <span class="sr-only"><%= t(".email") %></span>
-        <%= inline_svg_tag "icons/outline/mail.svg", class: "h-6 w-6 tab-index-mobile", aria_hidden: true %>
+        <%= inline_svg_tag "icons/outline/mail.svg", class: "h-6 w-6", aria_hidden: true %>
       <% end %>
     </div>
 
     <p class="mt-8 text-center text-base text-gray-400">
-      &copy; <%= Date.today.year %><%= link_to t(".masilotti_com"), "https://masilotti.com", target: "_blank", class: "hover:text-gray-500 tab-index-mobile" %>. <%= t(".copyright") %>
+      &copy; <%= Date.today.year %><%= link_to t(".masilotti_com"), "https://masilotti.com", target: "_blank", class: "hover:text-gray-500" %>. <%= t(".copyright") %>
     </p>
   </div>
 </footer>
