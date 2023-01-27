@@ -39,7 +39,7 @@ class DeveloperQuery
   end
 
   def sort
-    @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
+    (@sort.to_s.downcase.to_sym == :availability) ? :availability : :newest
   end
 
   def countries

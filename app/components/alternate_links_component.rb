@@ -8,6 +8,6 @@ class AlternateLinksComponent < ApplicationComponent
   end
 
   def hreflang_for(locale)
-    locale == I18n.locale ? "x-default" : locale
+    (locale == I18n.locale) ? "x-default" : locale
   end
 end
