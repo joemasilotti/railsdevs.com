@@ -4,6 +4,7 @@
 
 ### January
 
+* January 24 - Revamp CTA design with blurred out developers #743 @izaguirrejoe
 * January 1 - Hiring agreement announcement email #749
 
 ## 2022
