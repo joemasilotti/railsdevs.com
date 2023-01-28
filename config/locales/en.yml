@@ -161,6 +161,7 @@ en:
       title: Block sender
   businesses:
     admin_component:
+      conversations: Conversations
       invisiblize: Invisiblize
       title: Admin
     create:
@@ -248,6 +249,7 @@ en:
   date:
     formats:
       month_year: "%B %Y"
+  deleted_account: "(deleted account)"
   developer_mailer:
     celebration_promotion:
       subject: How's your conversation going with %{contact} at %{company}?
@@ -255,6 +257,7 @@ en:
       subject: Tips on responding to your first message on RailsDevs
   developers:
     admin_component:
+      conversations: Conversations
       copy: Copy
       feature: Feature
       invisiblize: Invisiblize
@@ -716,6 +719,12 @@ en:
     paywalled_component:
       description: Information that is only visible with a business subscription.
       title: Private information
+    suspended:
+      show:
+        cta: Email Joe
+        description: Failure to comply with the hiring agreement has forced RailsDevs to suspend your account. Contact Joe to pay your obligated hiring fees and resume your account.
+        learn_more: Learn more
+        title: Your account has been suspended.
   utc_offsets:
     component:
       gmt: GMT

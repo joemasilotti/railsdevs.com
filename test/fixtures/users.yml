@@ -27,6 +27,12 @@ subscribed_business:
   confirmed_at: <%= DateTime.current %>
   authentication_token: <%= Devise.friendly_token %>
 
+suspended:
+  email: suspended@example.com
+  suspended: true
+  confirmed_at: <%= DateTime.current %>
+  authentication_token: <%= Devise.friendly_token %>
+
 admin:
   email: admin@example.com
   confirmed_at: <%= DateTime.current %>

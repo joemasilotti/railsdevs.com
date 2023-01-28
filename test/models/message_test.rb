@@ -1,6 +1,30 @@
 require "test_helper"
 
 class MessageTest < ActiveSupport::TestCase
+  test "deleted_sender is true if business is nil" do
+    message = messages(:from_business)
+    sender = message.sender
+    sender.destroy
+    message.reload
+
+    assert message.deleted_sender?
+  end
+
+  test "deleted_sender is true if developer is nil" do
+    message = messages(:from_developer)
+    sender = message.sender
+    sender.destroy
+    message.reload
+
+    assert message.deleted_sender?
+  end
+
+  test "deleted_sender is false if sender is present" do
+    message = messages(:from_developer)
+
+    assert_not message.deleted_sender?
+  end
+
   test "user is sender if they are the associated developer" do
     user = users(:prospect_developer)
     assert messages(:from_developer).sender?(user)

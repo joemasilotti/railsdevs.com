@@ -56,6 +56,10 @@ Rails.application.routes.draw do
       resource :terms, only: :show
     end
 
+    namespace :users do
+      resource :suspended, only: :show, controller: :suspended
+    end
+
     root to: "home#show"
   end
 

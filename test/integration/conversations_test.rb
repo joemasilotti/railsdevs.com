@@ -74,4 +74,26 @@ class ConversationsTest < ActionDispatch::IntegrationTest
 
     assert_select "h3", text: I18n.t("businesses.upgrade_required_component.title.upgrade")
   end
+
+  test "viewing conversations with a deleted sender" do
+    conversation = conversations(:one)
+    conversation.developer.destroy
+    sign_in conversation.business.user
+
+    get conversations_path
+
+    assert_match(/deleted account/, response.body)
+  end
+
+  test "viewing a conversation with a deleted sender" do
+    conversation = conversations(:one)
+    conversation.developer.destroy
+    sign_in conversation.business.user
+
+    get conversation_path(conversation)
+
+    assert_match(/deleted account/, response.body)
+    assert_no_match(/Pay hiring fee/, response.body)
+    assert_select "title", "Conversation with (deleted account) · RailsDevs"
+  end
 end

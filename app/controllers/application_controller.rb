@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   around_action :set_locale
+  before_action :redirect_suspended_accounts
   before_action :set_variant
 
   helper_method :resolve_locale
@@ -31,6 +32,12 @@ class ApplicationController < ActionController::Base
     redirect_back_or_to root_path, allow_other_host: false
   rescue ActionController::Redirecting::UnsafeRedirectError
     redirect_to root_path
+  end
+
+  def redirect_suspended_accounts
+    if current_user&.suspended?
+      redirect_to users_suspended_path
+    end
   end
 
   def set_variant
