@@ -12,6 +12,9 @@ class Developer < ApplicationRecord
   FEATURE_LENGTH = 1.week
   RECENTLY_ACTIVE_LENGTH = 1.week
 
+  # TODO: Move to Badge model once new model is in place
+  BADGES = %i[recently_active source_contributor].freeze
+
   enum search_status: {
     actively_looking: 1,
     open: 2,
@@ -61,6 +64,10 @@ class Developer < ApplicationRecord
   scope :filter_by_countries, ->(countries) do
     joins(:location).where(locations: {country: countries})
   end
+
+  scope :filter_by_recently_active, -> { where("developers.updated_at >= ?", RECENTLY_ACTIVE_LENGTH.ago) }
+
+  scope :filter_by_source_contributor, -> { where("source_contributor >= ?", true) }
 
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :available, -> { where(available_on: ..Time.current.to_date) }

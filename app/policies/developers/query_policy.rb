@@ -17,6 +17,7 @@ module Developers
         :sort,
         role_levels: [],
         role_types: [],
+        badges: [],
         utc_offsets: [],
         countries: []
       ]
