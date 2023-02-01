@@ -72,6 +72,14 @@ module Developers
       assert_no_selector build_input("role_levels[]", type: "checkbox", value: "c_level", checked: true)
     end
 
+    test "checks selected badges" do
+      query = DeveloperQuery.new(badges: ["recently_active", "source_contributor"])
+      render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+
+      assert_selector build_input("badges[]", type: "checkbox", value: "recently_active", checked: true)
+      assert_selector build_input("badges[]", type: "checkbox", value: "source_contributor", checked: true)
+    end
+
     test "does not render search query input if user does not have subscription" do
       query = DeveloperQuery.new(search_query: "rails")
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
