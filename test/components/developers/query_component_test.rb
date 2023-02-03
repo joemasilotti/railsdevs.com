@@ -3,6 +3,7 @@ require "test_helper"
 module Developers
   class QueryComponentTest < ViewComponent::TestCase
     include DevelopersHelper
+    include FeatureHelper
 
     setup do
       @user = users(:empty)
@@ -70,6 +71,16 @@ module Developers
       assert_selector build_input("role_levels[]", type: "checkbox", value: "senior", checked: true)
       assert_no_selector build_input("role_levels[]", type: "checkbox", value: "principal", checked: true)
       assert_no_selector build_input("role_levels[]", type: "checkbox", value: "c_level", checked: true)
+    end
+
+    test "checks selected badges" do
+      stub_feature_flag(:badge_filter, true) do
+        query = DeveloperQuery.new(badges: ["recently_active", "source_contributor"])
+        render_inline QueryComponent.new(query:, user: @user, form_id: nil)
+
+        assert_selector build_input("badges[]", type: "checkbox", value: "recently_active", checked: true)
+        assert_selector build_input("badges[]", type: "checkbox", value: "source_contributor", checked: true)
+      end
     end
 
     test "does not render search query input if user does not have subscription" do

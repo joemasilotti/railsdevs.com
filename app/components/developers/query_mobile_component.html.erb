@@ -18,6 +18,24 @@
           <% end %>
         </div>
 
+        <% if Feature.enabled?(:badge_filter) %>
+          <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
+            <h3 class="-mx-2 -my-3 flow-root">
+              <%= render CollapseControlComponent.new(t("developers.query_component.badge.title"), collapsed: true) %>
+            </h3>
+            <div id="role-level-filter-section" data-toggle-target="element" class="hidden pt-6">
+              <div class="space-y-6">
+                <%= form.collection_check_boxes(:badges, badges, :first, :last, {include_hidden: false}) do |b| %>
+                  <div class="flex items-center">
+                    <%= b.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500", checked: badge_selected?(b.object) %>
+                    <%= b.label class: "ml-3 pr-6 text-sm font-medium text-gray-900 whitespace-nowrap" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
         <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
             <%= render CollapseControlComponent.new(t("developers.query_component.role_level.title"), collapsed: true) %>

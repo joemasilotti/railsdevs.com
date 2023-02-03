@@ -2,6 +2,10 @@
 
 # 2023
 
+### February
+
+* February 3 - Filter by developer badges #759 @sarvaiyanidhi
+
 ### January
 
 * January 26 - Tombstone deleted profiles #751 @troyizzle

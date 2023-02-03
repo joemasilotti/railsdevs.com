@@ -368,6 +368,8 @@ en:
       all_countries:
         title: All locations
       apply: Apply
+      badge:
+        title: Badges
       clear: Clear
       close_menu: Close menu
       country:
