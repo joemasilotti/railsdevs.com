@@ -12,7 +12,7 @@ class Developer < ApplicationRecord
   FEATURE_LENGTH = 1.week
   RECENTLY_ACTIVE_LENGTH = 1.week
 
-  # TODO: Move to Badge model once new model is in place
+  # TODO #758: Cache developer badges to a new model
   BADGES = %i[recently_active source_contributor].freeze
 
   enum search_status: {
@@ -65,16 +65,14 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
-  scope :filter_by_recently_active, -> { where("developers.updated_at >= ?", RECENTLY_ACTIVE_LENGTH.ago) }
-
-  scope :filter_by_source_contributor, -> { where("source_contributor >= ?", true) }
-
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
+  scope :recently_active, -> { where("developers.updated_at >= ?", RECENTLY_ACTIVE_LENGTH.ago) }
+  scope :source_contributor, -> { where("source_contributor >= ?", true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   def visible?

@@ -101,15 +101,13 @@ class DeveloperQuery
   end
 
   def badges_filter_records
-    badges.map { |badge| send(badge) } if badges.any?
-  end
-
-  def recently_active
-    @_records.merge!(Developer.filter_by_recently_active)
-  end
-
-  def source_contributor
-    @_records.merge!(Developer.filter_by_source_contributor)
+    badges.each do |badge|
+      if badge == :recently_active
+        @_records.merge!(Developer.recently_active)
+      elsif badge == :source_contributor
+        @_records.merge!(Developer.source_contributor)
+      end
+    end
   end
 
   def sort_records
