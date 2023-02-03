@@ -20,7 +20,8 @@ class BusinessSubscriptionCheckout
     user.payment_processor.checkout(
       mode: "subscription",
       line_items: plan.stripe_price_id,
-      success_url: analytics_event_url(event)
+      success_url: analytics_event_url(event),
+      billing_address_collection: "required"
     )
   end
 
