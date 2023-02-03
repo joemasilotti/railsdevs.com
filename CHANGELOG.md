@@ -4,7 +4,7 @@
 
 ### February
 
-* February 1 - Filter by developer badges #759 @sarvaiyanidhi
+* February 3 - Filter by developer badges #759 @sarvaiyanidhi
 
 ### January
 
