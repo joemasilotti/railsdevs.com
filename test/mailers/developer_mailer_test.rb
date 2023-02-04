@@ -2,14 +2,19 @@ require "test_helper"
 
 class DeveloperMailerTest < ActionMailer::TestCase
   test "stale" do
-    Developers::ProfileReminderNotification.with(developer:).deliver(recipient)
+    assert_emails 1 do
+      Developers::ProfileReminderNotification.with(developer:).deliver(recipient)
+    end
   end
 
   test "welcome" do
-    Developers::WelcomeNotification.with(developer:).deliver(recipient)
+    assert_emails 1 do
+      Developers::WelcomeNotification.with(developer:).deliver(recipient)
+    end
   end
 
   test "first message" do
+    # TODO: Make an assertion here
     DeveloperMailer.with(developer:).first_message
   end
 
