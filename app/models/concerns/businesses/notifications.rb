@@ -3,6 +3,7 @@ module Businesses
     def save_and_notify
       if save
         send_admin_notification
+        send_welcome_notification
         true
       end
     end
@@ -13,6 +14,10 @@ module Businesses
     end
 
     private
+
+    def send_welcome_notification
+      Businesses::NewBusinessNotification.with(business: self).deliver_later(user)
+    end
 
     def send_admin_notification
       Admin::NewBusinessNotification.with(business: self).deliver_later(User.admin)
