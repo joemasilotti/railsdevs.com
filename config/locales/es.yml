@@ -117,11 +117,6 @@ es:
       online_presence:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
         title: Presencia en línea
-      preferred_compensation:
-        description: Desde mi experiencia como freelancer, la remuneración debe de ser discutida después de conocer los detalles del proyecto o trabajo.
-        more_info: Más información sobre esta decisión
-        subtitle: Remuneración preferida eliminada de RailsDevs
-        title: Remuneración preferida
       profile:
         avatar: Avatar
         avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.

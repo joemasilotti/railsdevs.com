@@ -182,11 +182,6 @@ zh-CN:
       online_presence:
         help_text: 人们可以从哪里更多地了解您和您的工作？
         title: 在线状态
-      preferred_compensation:
-        description: 根据我作为自由职业者的经验，只有在了解项目或工作的细节后才能讨论薪酬问题。
-        more_info: 有关此决定的更多信息
-        subtitle: RailsDevs 已经删除了期望薪资
-        title: 期望薪资
       profile:
         avatar: 头像
         avatar_error_text: 上传图片过程中出错了，请重试。

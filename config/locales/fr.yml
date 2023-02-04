@@ -300,11 +300,6 @@ fr:
       online_presence:
         help_text: Où peut-on en apprendre davantage sur vous et votre travail ?
         title: Présence en ligne
-      preferred_compensation:
-        description: D'après mon expérience en tant que freelance, la rémunération ne doit être discutée qu'une fois les détails du projet ou du travail connus.
-        more_info: Plus d'informations sur cette décision
-        subtitle: Les souhaits de rémunération ont été retirés de RailsDevs
-        title: Compensation souhaitée
       profile:
         avatar: Avatar
         avatar_error_text: Un problème est survenu lors du téléchargement de votre image, veuillez réessayer.
