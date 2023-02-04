@@ -305,11 +305,6 @@ en:
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
-      preferred_compensation:
-        description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
-        more_info: More info on this decision
-        subtitle: Preferred compensation removed from RailsDevs
-        title: Preferred compensation
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
