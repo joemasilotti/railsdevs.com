@@ -397,7 +397,6 @@ fr:
       edit: Modifier
       hire: Recruter
       message: Message
-      redirection: Les liens vers les profils des candidats ont changé. Veuillez mettre à jour votre favori pour %{url}.
     update:
       updated: Votre profil a été mis à jour !
   dir: ltr
