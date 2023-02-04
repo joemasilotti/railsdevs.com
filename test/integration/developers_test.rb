@@ -284,7 +284,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "developers are 404ed when not found via hash ID" do
     assert_raises ActiveRecord::RecordNotFound do
-      get developer_path({ id: developers(:one).id })
+      get developer_path({id: developers(:one).id})
     end
   end
 
