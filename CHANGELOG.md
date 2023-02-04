@@ -4,6 +4,7 @@
 
 ### February
 
+* February 4 - Remove availability from developer profiles
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
 
 ### January
