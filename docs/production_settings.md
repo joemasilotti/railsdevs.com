@@ -94,8 +94,8 @@ stripe:
   signing_secret:
   price_ids:
     legacy_plan:
-    part_time_plan:
-    full_time_plan:
+    part_time:
+    full_time:
 ```
 
 ## Active Storage
