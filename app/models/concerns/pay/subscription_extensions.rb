@@ -4,6 +4,7 @@ module Pay
 
     included do
       after_commit :send_admin_notification
+      after_commit :send_subscribed
     end
 
     def send_admin_notification
@@ -13,6 +14,13 @@ module Pay
       ).deliver_later(User.admin)
     rescue Pay::SubscriptionChanges::UnknownSubscriptionChange => e
       Honeybadger.notify(e)
+    end
+
+    def send_subscribed
+      return unless SubscriptionChanges.new(self).subscribed?
+
+      business = subscription.customer.owner.business
+      BusinessMailer.with(business:).subscribed.deliver_later
     end
   end
 end

@@ -30,5 +30,9 @@ module Pay
         raise UnknownSubscriptionChange.new(subscription.previous_changes)
       end
     end
+
+    def subscribed?
+      change == :subscribed
+    end
   end
 end
