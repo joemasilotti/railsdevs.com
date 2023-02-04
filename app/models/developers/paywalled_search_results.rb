@@ -12,18 +12,14 @@ module Developers
     end
 
     def unauthorized_page?
-      feature_enabled? && !user_authorized? && not_on_first_page?
+      !user_authorized? && not_on_first_page?
     end
 
     def show_paywall?(result_count)
-      result_count > Pagy::DEFAULT[:items] && feature_enabled? && !user_authorized?
+      result_count > Pagy::DEFAULT[:items] && !user_authorized?
     end
 
     private
-
-    def feature_enabled?
-      Feature.enabled?(:paywalled_search_results)
-    end
 
     def user_authorized?
       Users::Permission.new(user).authorized?
