@@ -45,22 +45,13 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    if (developer = developer_to_redirect_to_hashid)
-      return redirect_to developer, status: :moved_permanently,
-        notice: t(".redirection", url: developer_url(developer))
-    else
-      @developer = Developer.find_by_hashid!(params[:id])
-    end
+    @developer = Developer.find_by_hashid!(params[:id])
 
     @public_key = params[:key]
     authorize @developer
   end
 
   private
-
-  def developer_to_redirect_to_hashid
-    Developer.find_by(id: params[:id]) if params[:id].match?(/^\d+$/)
-  end
 
   def pundit_params_for(_record)
     params["developer-filters-mobile"] || params

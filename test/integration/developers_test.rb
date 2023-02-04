@@ -282,16 +282,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
-  test "developers are redirected when found via db ID" do
-    developer = developers(:one)
-
-    get developer_path(developer.id)
-    assert_redirected_to developer_path(developer.hashid)
-  end
-
-  test "developers are 404ed when not found via db ID" do
+  test "developers are 404ed when not found via hash ID" do
     assert_raises ActiveRecord::RecordNotFound do
-      get developer_path({ id: '4d' })
+      get developer_path({ id: developers(:one).id })
     end
   end
 
