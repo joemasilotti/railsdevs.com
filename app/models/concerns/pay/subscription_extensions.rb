@@ -19,7 +19,7 @@ module Pay
     def send_subscribed
       return unless SubscriptionChanges.new(self).subscribed?
 
-      business = subscription.customer.owner.business
+      business = customer.owner.business
       BusinessMailer.with(business:).subscribed.deliver_later
     end
   end
