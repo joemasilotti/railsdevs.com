@@ -263,22 +263,6 @@
                 </div>
               </fieldset>
             <% end %>
-
-            <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
-              <div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">
-                  <div class="sm:col-span-1">
-                    <div class="flex">
-                      <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render Developers::NewFieldComponent.new(form.object, :available_on, size: :small) %>
-                    </div>
-                    <div class="mt-1">
-                      <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
