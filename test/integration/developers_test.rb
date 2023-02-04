@@ -292,21 +292,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "developers are redirected when found via db ID" do
-    stub_feature_flag(:redirect_db_id_profiles, true) do
-      developer = developers(:one)
+    developer = developers(:one)
 
-      get developer_path(developer.id)
-      assert_redirected_to developer_path(developer.hashid)
-    end
+    get developer_path(developer.id)
+    assert_redirected_to developer_path(developer.hashid)
   end
 
-  test "developers are 404ed when found via db ID" do
-    stub_feature_flag(:redirect_db_id_profiles, false) do
-      developer = developers(:one)
-
-      assert_raises ActiveRecord::RecordNotFound do
-        get developer_path(developer.id)
-      end
+  test "developers are 404ed when not found via db ID" do
+    assert_raises ActiveRecord::RecordNotFound do
+      get developer_path({ id: '4d' })
     end
   end
 
