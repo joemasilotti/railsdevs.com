@@ -2,7 +2,7 @@ require "test_helper"
 
 class BusinessMailerTest < ActionMailer::TestCase
   test "calling welcome enqueues the mailer" do
-    email = BusinessMailer.with(business:).welcome.deliver_later
+    BusinessMailer.with(business:).welcome.deliver_later
     assert_enqueued_emails 1
   end
 
