@@ -15,7 +15,9 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_one :business, dependent: :destroy
   has_one :developer, dependent: :destroy
+  has_many :referrals_made, foreign_key: "referrer_id", class_name: "Referral", dependent: :destroy
   has_one :referral, dependent: :destroy
+  has_one :referrer, through: :referral
 
   has_many :conversations, ->(user) {
     unscope(where: :user_id)
@@ -27,6 +29,8 @@ class User < ApplicationRecord
     class_name: :Conversation,
     foreign_key: :user_with_unread_messages_id,
     inverse_of: :user_with_unread_messages
+
+  validates :referral_code, uniqueness: true, allow_nil: true
 
   scope :admin, -> { where(admin: true) }
 
