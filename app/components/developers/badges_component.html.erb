@@ -8,4 +8,11 @@
   <% if source_contributor? %>
     <%= render BadgeComponent.new(t(".source_contributor"), color: "gray") %>
   <% end %>
+
+  <% case response_rate %>
+  <% when :good %>
+    <%= render BadgeComponent.new(t(".good_response_rate"), color: "indigo") %>
+  <% when :perfect %>
+    <%= render BadgeComponent.new(t(".perfect_response_rate"), color: "purple") %>
+  <% end %>
 </div>
