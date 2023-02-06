@@ -4,6 +4,7 @@ class ColdMessagesController < ApplicationController
   before_action :require_new_conversation!
   before_action :require_active_subscription!
   before_action :require_signed_hiring_agreement!
+  after_action :update_developer_response_rate, only: :create
 
   def new
     message = Message.new(conversation:)
@@ -49,6 +50,14 @@ class ColdMessagesController < ApplicationController
       store_location!
       redirect_to new_hiring_agreement_signature_path, notice: I18n.t("errors.hiring_agreements.cold_message")
     end
+  end
+
+  def update_developer_response_rate
+    return unless response.redirect?
+
+    UpdateDeveloperResponseRateJob
+      .set(wait: Rails.application.config.developer_response_time_allowed)
+      .perform_later(developer)
   end
 
   def permissions
