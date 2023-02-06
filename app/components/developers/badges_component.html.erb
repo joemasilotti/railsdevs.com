@@ -10,9 +10,9 @@
   <% end %>
 
   <% case response_rate %>
-  <% when :good %>
-    <%= render BadgeComponent.new(t(".good_response_rate"), color: "indigo") %>
-  <% when :perfect %>
-    <%= render BadgeComponent.new(t(".perfect_response_rate"), color: "purple") %>
+  <% when 90 %>
+    <%= render BadgeComponent.new(t(".response_rate", percentage: response_rate), color: "indigo") %>
+  <% when 100 %>
+    <%= render BadgeComponent.new(t(".response_rate", percentage: response_rate), color: "purple") %>
   <% end %>
 </div>

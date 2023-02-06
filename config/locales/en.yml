@@ -269,9 +269,8 @@ en:
       unspecified_html: Currently unavailable
     badges_component:
       featured: Featured developer
-      good_response_rate: Good responder
-      perfect_response_rate: Perfect responder
       recently_active: Recently Active
+      response_rate: "%{percentage}% response rate"
       source_contributor: Source Contributor
     count_component:
       cta: Reset filters
