@@ -1,3 +1,5 @@
+require "fathom"
+
 module OpenStartup
   class Visitors
     def self.fetch
