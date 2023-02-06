@@ -2,15 +2,8 @@ module Developers
   module ResponseRate
     extend ActiveSupport::Concern
 
-    GOOD_RESPONSE_RATE = 90
-    PERFECT_RESPONSE_RATE = 100
-
     def response_rate
-      case replied_rate
-      when GOOD_RESPONSE_RATE...PERFECT_RESPONSE_RATE then :good
-      when PERFECT_RESPONSE_RATE then :perfect
-      else :null
-      end
+      replied_rate.floor(-1)
     end
 
     private
