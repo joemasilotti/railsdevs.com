@@ -113,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_162430) do
     t.string "stack_overflow"
     t.string "public_profile_key"
     t.boolean "source_contributor", default: false, null: false
+    t.integer "response_rate", default: 0, null: false
     t.string "mastodon"
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
