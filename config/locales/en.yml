@@ -85,6 +85,24 @@ en:
     features:
       create:
         created: Profile featured for one week.
+    hire:
+      forms:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          billing_address: Billing address
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
     hired:
       forms:
         index:
@@ -103,24 +121,6 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
-    hire:
-      forms:
-        index:
-          actions: Actions
-          business: Business
-          details: Details
-          developer: Developer
-          employment_type: Employment type
-          start_date: Start date
-          title: Hiring invoice requests
-        show:
-          developer_name: Developer Name
-          employment_type: Employment type
-          feedback: Feedback
-          billing_address: Billing address
-          position: Position
-          start_date: Start date
-          title: Hiring invoice request
     hiring_agreements:
       terms:
         create:
@@ -439,6 +439,20 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
+  hire:
+    forms:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        billing_address: Billing address
+        description: Congrats on your new hire!
+        developer_name: Developer's name
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        position: Position title
+        requesting: Requesting...
+        submit: Submit
+        title: Did you hire through RailsDevs?
   hired:
     forms:
       create:
@@ -457,20 +471,6 @@ en:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
       title: Congrats on your new job!
-  hire:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        developer_name: Developer's name
-        description: Congrats on your new hire!
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        billing_address: Billing address
-        position: Position title
-        submit: Submit
-        requesting: Requesting...
-        title: Did you hire through RailsDevs?
   hiring_agreements:
     signatures:
       create:
@@ -530,9 +530,9 @@ en:
       blocked_conversations: Blocked conversations
       conversations: Conversations
       found_a_job: Found a job?
-      hired_a_dev: Made a hire?
       get_started: Get started
       hire_forms: Hire forms
+      hired_a_dev: Made a hire?
       hired_forms: Hired forms
       hiring_agreement_terms: Hiring agreement terms
       my_business_profile: My business profile
@@ -557,10 +557,10 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
-      new_hired_form_notification:
-        title: "%{developer} requested a celebration package"
       new_hire_form_notification:
         title: "%{business} has hired a developer"
+      new_hired_form_notification:
+        title: "%{developer} requested a celebration package"
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"
