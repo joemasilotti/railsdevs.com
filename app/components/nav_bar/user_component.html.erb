@@ -123,6 +123,17 @@
             <span><%= t(".found_a_job") %></span>
             <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
           <% end %>
+          <% if business? %>
+            <%= link_to new_hire_form_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do %>
+              <span><%= t(".hired_a_dev") %></span>
+              <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
+            <% end %>
+          <% end %>
+        <% elsif business? %>
+          <%= link_to new_hire_form_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do %>
+            <span><%= t(".hired_a_dev") %></span>
+            <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
+          <% end %>
         <% end %>
       </div>
       <!-- Mobile -->

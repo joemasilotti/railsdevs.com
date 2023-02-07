@@ -93,6 +93,10 @@ Rails.application.routes.draw do
       resources :forms, only: [:index, :show]
     end
 
+    namespace :hire do
+      resources :forms, only: [:index, :show]
+    end
+
     namespace :hiring_agreements do
       resources :terms, except: :destroy do
         resource :activation, only: %i[create destroy], module: :terms
