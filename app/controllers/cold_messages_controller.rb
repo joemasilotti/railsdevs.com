@@ -56,7 +56,7 @@ class ColdMessagesController < ApplicationController
     return unless response.redirect?
 
     UpdateDeveloperResponseRateJob
-      .set(wait: Rails.application.config.developer_response_time_allowed)
+      .set(wait: Rails.application.config.developer_response_grace_period)
       .perform_later(developer)
   end
 
