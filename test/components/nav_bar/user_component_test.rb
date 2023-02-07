@@ -8,7 +8,7 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
     render_inline NavBar::UserComponent.new(users(:empty), links: [
       Link.new("Developers", developers_path),
       Link.new("Pricing", pricing_path),
-      Link.new("About", about_path),
+      Link.new("About", about_path)
     ])
 
     assert_link_to developers_path
