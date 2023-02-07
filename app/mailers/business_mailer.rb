@@ -6,6 +6,7 @@ class BusinessMailer < ApplicationMailer
     @business = params[:business]
     from = Rails.configuration.emails.support_mailbox!
     subject = "Welcome to RailsDevs 👋"
+
     mail(to: @business.user.email, from:, subject:)
   end
 
