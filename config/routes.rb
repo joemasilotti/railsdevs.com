@@ -38,6 +38,10 @@ Rails.application.routes.draw do
       resources :forms, only: [:new, :create], module: :hired
     end
 
+    namespace :hire do
+      resources :forms, only: [:new, :create]
+    end
+
     namespace :hiring_agreement, module: :hiring_agreements do
       resource :terms, only: :show
       resource :signature, only: %i[new create]

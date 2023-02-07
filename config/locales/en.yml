@@ -103,6 +103,24 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+    hire:
+      forms:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          billing_address: Billing address
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
     hiring_agreements:
       terms:
         create:
@@ -305,6 +323,11 @@ en:
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
+      preferred_compensation:
+        description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
+        more_info: More info on this decision
+        subtitle: Preferred compensation removed from RailsDevs
+        title: Preferred compensation
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
@@ -393,12 +416,13 @@ en:
       not_interested: Not interested in work right now
       not_interested_tag: Not interested
       open: Open, but not actively looking
-      open_tag: Open to offers
+      open_tag: Open
     show:
       description: Description
       edit: Edit
       hire: Hire me
       message: Message
+      redirection: Links to developer profiles have changed. Please update your bookmark to %{url}.
       share: Share
     update:
       updated: Your profile was updated!
@@ -433,6 +457,20 @@ en:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
       title: Congrats on your new job!
+  hire:
+    forms:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        developer_name: Developer's name
+        description: Congrats on your new hire!
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        billing_address: Billing address
+        position: Position title
+        submit: Submit
+        requesting: Requesting...
+        title: Did you hire through RailsDevs?
   hiring_agreements:
     signatures:
       create:
@@ -492,6 +530,7 @@ en:
       blocked_conversations: Blocked conversations
       conversations: Conversations
       found_a_job: Found a job?
+      hired_a_dev: Made a hire?
       get_started: Get started
       hired_forms: Hired forms
       hiring_agreement_terms: Hiring agreement terms
@@ -519,6 +558,8 @@ en:
         title: "%{developer} added their developer profile"
       new_hired_form_notification:
         title: "%{developer} requested a celebration package"
+      new_hire_form_notification:
+        title: "%{business} has hired a developer"
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"

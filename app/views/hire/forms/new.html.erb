@@ -1,0 +1,35 @@
+<%= form_with model: @form do |form| %>
+  <%= render Admin::Forms::ContainerComponent.new(t(".title"), t(".description")) do |container| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :billing_address, label: t(".billing_address")) do |field| %>
+      <% field.with_input_text_area rows: 3 %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :developer_name, label: t(".developer_name")) do |field| %>
+      <% field.with_input_text type: :text %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :position) do |field| %>
+      <% field.with_input_text type: :text %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :annual_salary) do |field| %>
+      <% field.with_input_text type: :number %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :start_date) do |field| %>
+      <% field.with_input_text type: :date %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :employment_type) do |field| %>
+      <% field.with_input_select options: Hired::Form.employment_types, include_blank: true %>
+    <% end %>
+
+    <%= render Admin::Forms::FieldComponent.new(form, :feedback, label: t(".feedback"), help: t(".feedback_help")) do |field| %>
+      <% field.with_input_text_area rows: 3 %>
+    <% end %>
+
+    <% container.with_button_group do %>
+      <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".requesting")) %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_221401) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_07_162318) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -116,6 +115,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_221401) do
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "hire_forms", force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.text "billing_address", null: false
+    t.string "developer_name", null: false
+    t.string "position", null: false
+    t.date "start_date", null: false
+    t.integer "annual_salary", null: false
+    t.integer "employment_type", null: false
+    t.text "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_hire_forms_on_business_id"
   end
 
   create_table "hired_forms", force: :cascade do |t|
@@ -294,7 +307,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_221401) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at", precision: nil
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -331,8 +344,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_221401) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at", precision: nil
-    t.datetime "ends_at", precision: nil
+    t.datetime "trial_ends_at"
+    t.datetime "ends_at"
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
@@ -410,6 +423,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_221401) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "hire_forms", "businesses"
   add_foreign_key "hired_forms", "developers"
   add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
   add_foreign_key "hiring_agreements_signatures", "users"
