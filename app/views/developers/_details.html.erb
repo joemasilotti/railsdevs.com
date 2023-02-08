@@ -1,9 +1,6 @@
 <h2 class="sr-only"><%= t(".title") %></h2>
 <div class="space-y-5 divide-y divide-gray-200">
   <%= render RenderableComponent.new("space-y-3") do %>
-    <div class="flex items-center space-x-2">
-      <%= render Developers::AvailabilityComponent.new(developer: developer, show_unavailable_icon: true) %>
-    </div>
     <%= render Developers::SearchStatusComponent.new(developer) %>
   <% end %>
 

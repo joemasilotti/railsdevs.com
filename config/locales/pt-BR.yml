@@ -123,11 +123,6 @@ pt-BR:
       online_presence:
         help_text: Onde as pessoas podem saber mais sobre você e seu trabalho?
         title: Presença online
-      preferred_compensation:
-        description: Na minha experiência como autônomo, a remuneração só deve ser discutida após os detalhes do projeto ou trabalho sejam conhecidos.
-        more_info: Mais informações sobre essa decisão
-        subtitle: Remuneração preferida removida do RailsDevs
-        title: Remuneração preferida
       profile:
         avatar: Imagem
         avatar_error_text: Aconteceu algo de errado ao enviar sua imagem. Por favor, tente novamente.

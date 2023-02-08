@@ -305,11 +305,6 @@ en:
       online_presence:
         help_text: Where can people learn more about you and your work?
         title: Online presence
-      preferred_compensation:
-        description: From my experience as a freelancer, compensation should be discussed only after the details of a project or job are known.
-        more_info: More info on this decision
-        subtitle: Preferred compensation removed from RailsDevs
-        title: Preferred compensation
       profile:
         avatar: Avatar
         avatar_error_text: Something went wrong uploading your image, please try again.
@@ -368,6 +363,8 @@ en:
       all_countries:
         title: All locations
       apply: Apply
+      badge:
+        title: Badges
       clear: Clear
       close_menu: Close menu
       country:
@@ -396,13 +393,12 @@ en:
       not_interested: Not interested in work right now
       not_interested_tag: Not interested
       open: Open, but not actively looking
-      open_tag: Open
+      open_tag: Open to offers
     show:
       description: Description
       edit: Edit
       hire: Hire me
       message: Message
-      redirection: Links to developer profiles have changed. Please update your bookmark to %{url}.
       share: Share
     update:
       updated: Your profile was updated!

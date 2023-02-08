@@ -13,13 +13,14 @@ class DeveloperQuery
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
     @role_levels = options.delete(:role_levels)
+    @badges = options.delete(:badges)
     @include_not_interested = options.delete(:include_not_interested)
     @search_query = options.delete(:search_query)
     @user = options.delete(:user)
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:}
+    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:, badges:}
   end
 
   def pagy
@@ -58,6 +59,10 @@ class DeveloperQuery
     @role_levels.to_a.reject(&:blank?).map(&:to_sym)
   end
 
+  def badges
+    @badges.to_a.reject(&:blank?).map(&:to_sym)
+  end
+
   def search_query
     @search_query.to_s.strip
   end
@@ -77,6 +82,7 @@ class DeveloperQuery
     role_level_filter_records
     search_status_filter_records
     search_query_filter_records
+    badges_filter_records
     @pagy, @records = build_pagy(@_records, items: items_per_page)
   end
 
@@ -90,7 +96,18 @@ class DeveloperQuery
       role_levels.empty? &&
       search_query.blank? &&
       countries.blank? &&
+      badges.blank? &&
       !include_not_interested
+  end
+
+  def badges_filter_records
+    badges.each do |badge|
+      if badge == :recently_active
+        @_records.merge!(Developer.recently_active)
+      elsif badge == :source_contributor
+        @_records.merge!(Developer.source_contributor)
+      end
+    end
   end
 
   def sort_records

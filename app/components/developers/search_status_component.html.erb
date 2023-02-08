@@ -1,8 +1,8 @@
 <div class="flex items-center space-x-2">
   <% if actively_looking? %>
-    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-green-500", aria_hidden: true %>
+    <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-green-500", aria_hidden: true %>
   <% elsif open? %>
-    <%= inline_svg_tag "icons/solid/search_circle.svg", class: "h-5 w-5 text-gray-500", aria_hidden: true %>
+    <%= inline_svg_tag "icons/solid/check_circle.svg", class: "h-5 w-5 text-gray-500", aria_hidden: true %>
   <% else %>
     <%= inline_svg_tag "icons/solid/x_circle.svg", class: "h-5 w-5 text-gray-500", aria_hidden: true %>
   <% end %>

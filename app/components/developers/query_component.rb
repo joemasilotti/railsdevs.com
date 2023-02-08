@@ -56,6 +56,14 @@ module Developers
       RoleLevel::TYPES.map { |role| [role, RoleLevel.human_attribute_name(role)] }
     end
 
+    def badge_selected?(badge_pair)
+      query.badges.include?(badge_pair.first)
+    end
+
+    def badges
+      Developer::BADGES.map { |badge| [badge, badge.to_s.humanize] }
+    end
+
     def include_not_interested?
       query.include_not_interested
     end
