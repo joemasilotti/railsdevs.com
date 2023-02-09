@@ -15,8 +15,9 @@ module Admin
 
       def set_developer_source_contributor(source_contributor)
         developer = Developer.find(params[:developer_id])
-        developer.source_contributor = source_contributor
-        developer.save!(touch: false)
+        badge = developer.badge
+        badge.source_contributor = source_contributor
+        badge.save!
       end
     end
   end

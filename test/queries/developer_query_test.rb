@@ -131,8 +131,10 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "filtering by source contributor badge" do
-    source_contributor_developer = create_developer(source_contributor: true)
+    source_contributor_developer = create_developer
+    source_contributor_developer.badge.update!(source_contributor: true)
     not_source_contributor_developer = create_developer(source_contributor: false)
+    not_source_contributor_developer.badge.update!(source_contributor: false)
     blank = create_developer
 
     records = DeveloperQuery.new(badges: ["source_contributor"]).records
@@ -145,7 +147,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "filtering by recently active badge" do
     recently_active_developer = create_developer
     not_recently_active_developer = create_developer
-    not_recently_active_developer.update!(updated_at: 2.weeks.ago)
+    not_recently_active_developer.badge.update!(recently_active: false)
 
     records = DeveloperQuery.new(badges: ["recently_active"]).records
     assert_includes records, recently_active_developer

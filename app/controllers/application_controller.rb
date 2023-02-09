@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   around_action :set_locale
   before_action :redirect_suspended_accounts
   before_action :set_variant
+  before_action :update_recently_active
 
   helper_method :resolve_locale
   helper_method :turbo_native_app?
@@ -44,5 +45,13 @@ class ApplicationController < ActionController::Base
     if Feature.enabled?(:redesign)
       request.variant = :redesign
     end
+  end
+
+  def update_recently_active
+    return unless current_user&.developer
+    return unless current_user.developer&.badge
+    return if current_user.developer.badge.recently_active?
+
+    UpdateDeveloperRecentlyActiveJob.perform_now(current_user.developer.id, true)
   end
 end

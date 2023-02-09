@@ -61,7 +61,7 @@ module Developers
     end
 
     def badges
-      Developer::BADGES.map { |badge| [badge, badge.to_s.humanize] }
+      Developers::Badge::BADGES.map { |badge| [badge, badge.to_s.humanize] }
     end
 
     def include_not_interested?

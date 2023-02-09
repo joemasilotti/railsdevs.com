@@ -62,7 +62,7 @@ module Developers
     end
 
     test "renders source_contributor badge if developer is a source contributor" do
-      @developer.source_contributor = true
+      @developer.badge.update!(source_contributor: true)
       render_inline(CardComponent.new(developer: @developer))
       assert_text I18n.t("developers.badges_component.source_contributor")
     end

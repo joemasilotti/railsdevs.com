@@ -12,9 +12,6 @@ class Developer < ApplicationRecord
   FEATURE_LENGTH = 1.week
   RECENTLY_ACTIVE_LENGTH = 1.week
 
-  # TODO #758: Cache developer badges to a new model
-  BADGES = %i[recently_active source_contributor].freeze
-
   enum search_status: {
     actively_looking: 1,
     open: 2,
@@ -34,6 +31,8 @@ class Developer < ApplicationRecord
   has_one_attached :cover_image
 
   has_noticed_notifications
+
+  delegate :source_contributor?, :recently_active?, to: :badge
 
   accepts_nested_attributes_for :location, reject_if: :all_blank, update_only: true
   accepts_nested_attributes_for :role_level, update_only: true
@@ -73,8 +72,8 @@ class Developer < ApplicationRecord
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
-  scope :recently_active, -> { joins(:badge).where(developers_badges: { recently_active: true }) }
-  scope :source_contributor, -> { joins(:badge).where(developers_badges: { source_contributor: true }) }
+  scope :recently_active, -> { joins(:badge).where(developers_badges: {recently_active: true}) }
+  scope :source_contributor, -> { joins(:badge).where(developers_badges: {source_contributor: true}) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   def visible?

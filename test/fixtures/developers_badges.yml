@@ -1,0 +1,9 @@
+_fixture:
+  model_class: Developers::Badge
+
+one:
+  developer: prospect
+
+two:
+  developer: one
+

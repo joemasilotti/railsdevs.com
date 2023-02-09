@@ -12,7 +12,7 @@ class Admin::Developers::SourceContributorsTest < ActionDispatch::IntegrationTes
 
   test "deactivates a source contributor" do
     developer = developers(:one)
-    developer.update!(source_contributor: true)
+    developer.badge.update!(source_contributor: true)
     sign_in users(:admin)
 
     delete admin_developer_source_contributors_path(developer)

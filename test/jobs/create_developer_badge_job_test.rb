@@ -14,7 +14,7 @@ class CreateDeveloperBadgeJobTest < ActiveJob::TestCase
   end
 
   test "should not create developer badges if already has one" do
-    assert_no_difference "Developers::Badge.count"  do
+    assert_no_difference "Developers::Badge.count" do
       CreateDeveloperBadgeJob.perform_now(@developer.id)
     end
   end
