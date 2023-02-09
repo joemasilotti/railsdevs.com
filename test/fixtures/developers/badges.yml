@@ -1,3 +1,5 @@
 one:
+  developer: prospect
+
+two:
   developer: one
-  recently_active: true

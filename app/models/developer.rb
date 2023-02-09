@@ -73,8 +73,8 @@ class Developer < ApplicationRecord
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
-  scope :recently_active, -> { where("developers.updated_at >= ?", RECENTLY_ACTIVE_LENGTH.ago) }
-  scope :source_contributor, -> { where("source_contributor >= ?", true) }
+  scope :recently_active, -> { joins(:badge).where(developers_badges: { recently_active: true }) }
+  scope :source_contributor, -> { joins(:badge).where(developers_badges: { source_contributor: true }) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   def visible?
@@ -108,10 +108,6 @@ class Developer < ApplicationRecord
 
   def featured?
     featured_at? && featured_at >= FEATURE_LENGTH.ago
-  end
-
-  def recently_active?
-    updated_at >= RECENTLY_ACTIVE_LENGTH.ago
   end
 
   private
