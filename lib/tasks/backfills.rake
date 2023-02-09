@@ -8,4 +8,9 @@ namespace :backfills do
       end
     end
   end
+  task backfill_developer_badges: :environment do
+    Developer.find_each do |developer|
+      CreateDeveloperBadgeJob.perform_now(developer.id)
+    end
+  end
 end

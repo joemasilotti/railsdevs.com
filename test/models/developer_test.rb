@@ -229,4 +229,12 @@ class DeveloperTest < ActiveSupport::TestCase
     @developer.updated_at = Date.current
     assert @developer.recently_active?
   end
+
+  test "after creating a developer a badge is also created" do
+    developer = Developer.create!(developer_attributes)
+    badge = developer.badge
+    assert_equal badge, Developers::Badge.last
+    assert badge.recently_active
+    assert_not badge.source_contributor
+  end
 end
