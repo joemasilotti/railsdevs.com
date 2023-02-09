@@ -26,6 +26,8 @@ class Developer < ApplicationRecord
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
   has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
+  has_one :badge, dependent: :destroy, class_name: "Developers::Badge"
+  after_create :create_badge
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
@@ -110,5 +112,11 @@ class Developer < ApplicationRecord
 
   def recently_active?
     updated_at >= RECENTLY_ACTIVE_LENGTH.ago
+  end
+
+  private
+
+  def create_badge
+    build_badge.save
   end
 end
