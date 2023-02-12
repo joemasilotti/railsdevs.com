@@ -38,10 +38,3 @@ admin:
   confirmed_at: <%= DateTime.current %>
   authentication_token: <%= Devise.friendly_token %>
   admin: true
-
-referrer:
-  email: referrer@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
-  confirmed_at: <%= DateTime.current %>
-  authentication_token: <%= Devise.friendly_token %>
-  referral_code: abc123

@@ -1,6 +1,7 @@
 class Referral < ApplicationRecord
-  belongs_to :user
-  belongs_to :referrer, class_name: "User", optional: true
+  belongs_to :referred_user, class_name: "User"
+  belongs_to :referring_user, class_name: "User", optional: true
+
   before_create :associate_referrer
 
   validates :code, presence: true
@@ -9,6 +10,6 @@ class Referral < ApplicationRecord
 
   def associate_referrer
     referring_user = User.find_by(referral_code: code)
-    self.referrer = referring_user unless referring_user.nil?
+    self.referring_user = referring_user unless referring_user.nil?
   end
 end

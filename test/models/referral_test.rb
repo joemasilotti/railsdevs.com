@@ -2,21 +2,23 @@ require "test_helper"
 
 class ReferralTest < ActiveSupport::TestCase
   setup do
-    @referrer = users(:referrer)
-    @user = users(:empty)
+    @referring_user = users(:developer)
+    @referring_user.update!(referral_code: code)
+
+    @referred_user = users(:empty)
   end
 
   test "associates the referrer to the referral" do
-    user.create_referral! code: referrer.referral_code
-    assert_equal referrer, user.referral.referrer
+    referral = Referral.create!(referred_user: @referred_user, code: code)
+    assert_equal @referring_user, referral.reload.referring_user
   end
 
-  test "creates referral when referrer cannot be found" do
-    user.create_referral! code: "newcode123"
-    assert_nil user.referral.referrer
+  test "creates referral even when referrer cannot be found" do
+    referral = Referral.create!(referred_user: @referred_user, code: "BOGUS")
+    assert_nil referral.reload.referring_user
   end
 
-  private
-
-  attr_reader :referrer, :user
+  def code
+    "ABDDEF"
+  end
 end

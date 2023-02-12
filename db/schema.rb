@@ -358,13 +358,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_214319) do
   end
 
   create_table "referrals", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "referred_user_id", null: false
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "referrer_id"
-    t.index ["referrer_id"], name: "index_referrals_on_referrer_id"
-    t.index ["user_id"], name: "index_referrals_on_user_id"
+    t.bigint "referring_user_id"
+    t.index ["referred_user_id"], name: "index_referrals_on_referred_user_id"
+    t.index ["referring_user_id"], name: "index_referrals_on_referring_user_id"
   end
 
   create_table "role_levels", force: :cascade do |t|
@@ -421,7 +421,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_214319) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "referrals", "users"
+  add_foreign_key "referrals", "users", column: "referred_user_id"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
 end
