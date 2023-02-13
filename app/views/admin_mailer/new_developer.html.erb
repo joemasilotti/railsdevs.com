@@ -1,1 +1,5 @@
 <p><b><%= link_to @developer.name, "mailto:#{@developer.user.email}" %></b> added their <%= link_to "developer profile", notification_url(@notification.record) %>!</p>
+
+<% if @developer.referring_user_email.present? %>
+  <p>Referred by <%= @developer.referring_user_email %></p>
+<% end %>
