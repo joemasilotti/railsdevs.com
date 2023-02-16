@@ -6,8 +6,7 @@ export default class extends Controller {
 
   select(event) {
     const file = event.currentTarget.files[0]
-    this.imageTarget.src = window.URL.createObjectURL(file)
-    this.imageTarget.srcset = window.URL.createObjectURL(file)
+    this.#createPreview(file)
     this.imageTarget.classList.remove(this.visibilityClass)
     this.errorTarget.classList.add(this.visibilityClass)
   }
@@ -25,5 +24,40 @@ export default class extends Controller {
     this.activityTarget.classList.add(this.visibilityClass)
     this.errorTarget.classList.remove(this.visibilityClass)
     console.error(event.detail.error)
+  }
+  
+  #createPreview (file) {
+    const img = this.imageTarget;
+    
+    // Browser may not support MediaSource
+    if (!("MediaSource" in window)) {
+      this.#createPreviewFallback(file)
+      return
+    }
+    
+    const mediaSource = new MediaSource();
+    
+    // Older browsers may not have srcObject
+    if ('srcObject' in img) {
+      try {
+        img.srcObject = mediaSource;
+        return
+      } catch (err) {
+        if (err.name !== "TypeError") {
+          throw err;
+        }
+        // Even if they do, they may only support MediaStream
+        this.#createPreviewFallback(file)
+        return
+      }
+    }
+      
+    img.src = URL.createObjectURL(mediaSource);
+  }
+  
+  #createPreviewFallback (file) {
+    const url = URL.createObjectURL(file)
+    this.imageTarget.src = url
+    this.imageTarget.srcset = url
   }
 }
