@@ -52,7 +52,7 @@ export default class extends Controller {
       }
     }
       
-    img.src = URL.createObjectURL(mediaSource);
+    this.#createPreviewFallback(file)
   }
   
   #createPreviewFallback (file) {
