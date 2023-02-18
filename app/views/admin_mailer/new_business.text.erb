@@ -1,3 +1,7 @@
 <%= @business.contact_name %> (<%= @business.user.email %>) added their business!
 
 <%= notification_url(@notification.record) %>
+
+<% if @business.referring_user_email.present? %>
+Referred by <%= @business.referring_user_email %>
+<% end %>
