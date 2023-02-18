@@ -290,6 +290,9 @@ GEM
     noticed (1.5.9)
       http (>= 4.0.0)
       rails (>= 5.2.0)
+    octokit (5.6.1)
+      faraday (>= 1, < 3)
+      sawyer (~> 0.9)
     orm_adapter (0.5.0)
     pagy (5.2.0)
     parallel (1.22.1)
@@ -385,6 +388,9 @@ GEM
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
+    sawyer (0.9.2)
+      addressable (>= 2.3.5)
+      faraday (>= 0.17.3, < 3)
     scout_apm (5.1.1)
       parser
     selenium-webdriver (4.7.1)
@@ -482,6 +488,7 @@ DEPENDENCIES
   minitest-reporters
   minitest-reporters-pride_reporter
   noticed
+  octokit (~> 5.0)
   pagy
   pay
   pg
