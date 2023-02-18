@@ -4,6 +4,7 @@
 
 ### February
 
+* February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
 * February 8 - Throttle requests to prevent brute-force attacks
 * February 4 - Remove availability from developer profiles
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
