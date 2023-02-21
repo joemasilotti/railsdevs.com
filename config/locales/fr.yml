@@ -407,6 +407,9 @@ fr:
       content_type_invalid: format d'image non pris en charge
       max_file_size_invalid: image supérieure à %{size}
     unauthorized: Vous n'avez pas accès à ça.
+  general:
+    project:
+      name: RailsDevs
   hired:
     forms:
       create:

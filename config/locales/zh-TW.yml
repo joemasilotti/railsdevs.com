@@ -1,5 +1,8 @@
 ---
 zh-TW:
+  general:
+    project:
+      name: RailsDevs
   nav_bar:
     base_component:
       about: 關於

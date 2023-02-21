@@ -7,8 +7,8 @@
             <!-- Logo -->
             <div class="flex-shrink-0">
               <%= link_to root_path, class: "shrink-0 flex items-center text-gray-300 fill-current hover:text-white" do %>
-                <span class="sr-only">RailsDevs</span>
-                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "RailsDevs logo", title: "RailsDevs logo" %>
+                <span class="sr-only"><%= t("general.project.name") %></span>
+                <%= inline_svg_tag "logo.svg", class: "h-10 w-auto", alt: "#{t("general.project.name")} logo", title: "#{t("general.project.name")} logo" %>
               <% end %>
             </div>
 
