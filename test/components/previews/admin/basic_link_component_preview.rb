@@ -3,7 +3,7 @@ module Admin
     # @label With title and path
     # @param title text
     # @param path url
-    def default(title: "title", path: "#")
+    def default(title: "Title", path: "#")
       render_with_template(locals: {title:, path:})
     end
 
@@ -11,7 +11,7 @@ module Admin
     # @param title text
     # @param path url
     # @param external toggle
-    def with_external(title: "title", path: "#", external: true)
+    def with_external(title: "Title", path: "#", external: true)
       render_with_template(locals: {title:, path:, external:})
     end
 
@@ -20,7 +20,7 @@ module Admin
     # @param path url
     # @param external toggle
     # @param data [Hash] text
-    def with_data(title: "title", path: "#", external: true, data: "")
+    def with_data(title: "Title", path: "#", external: true, data: "")
       render_with_template(locals: {title:, path:, external:, data:})
     end
   end

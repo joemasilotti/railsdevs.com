@@ -1,6 +1,6 @@
 <%= render(Admin::Forms::ContainerComponent.new(title, description)) do |container| %>
   <% container.with_aside do %>
-    <%= render Admin::BadgeComponent.new("active") %>
-    <%= render Admin::Forms::ButtonLinkComponent.new("deactivate", "#") %>
+    <%= render Admin::BadgeComponent.new("Active") %>
+    <%= render Admin::Forms::ButtonLinkComponent.new("Deactivate", "#") %>
   <% end %>
 <% end %>
