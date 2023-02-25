@@ -180,9 +180,6 @@ pt-BR:
       content_type_invalid: formato da imagem inválido
       max_file_size_invalid: imagem com mais de %{size}
     unauthorized: Você não tem acesso a isso.
-  general:
-    project:
-      name: RailsDevs
   home:
     show:
       available_developers: Desenvolvedores disponíveis agora

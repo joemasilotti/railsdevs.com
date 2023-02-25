@@ -1,2 +1,2 @@
-<p><b><%= link_to @developer.name, "mailto:#{@developer.user.email}" %></b> was hired via <%= t("general.project.name") %>!</p>
+<p><b><%= link_to @developer.name, "mailto:#{@developer.user.email}" %></b> was hired via <%= Rails.configuration.strings.project_name %>!</p>
 <%= link_to "View request", notification_url(@notification.record) %>

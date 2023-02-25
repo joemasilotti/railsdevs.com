@@ -277,9 +277,6 @@ zh-CN:
       share: 分享
     update:
       updated: 你的个人资料已更新！
-  general:
-    project:
-      name: RailsDevs
   home:
     show:
       available_developers: 现在有空的开发者

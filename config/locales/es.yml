@@ -173,9 +173,6 @@ es:
       content_type_invalid: formato de la imagen no está soportado
       max_file_size_invalid: imagen superior a %{size}
     unauthorized: No tienes permiso para eso.
-  general:
-    project:
-      name: RailsDevs
   home:
     show:
       available_developers: Desarrolladores disponibles ahora
