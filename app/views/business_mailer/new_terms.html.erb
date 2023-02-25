@@ -1,6 +1,6 @@
 <p>Hey <%= @business.first_name %>,</p>
 
-<p>Joe here, founder of <%= link_to "RailsDevs", root_url %>, with two quick updates. You’re receiving this email because you have an active or past subscription.</p>
+<p><%= t("general.founder_introduction") %> <%= link_to Rails.configuration.strings.project_name, root_url %>, with two quick updates. You’re receiving this email because you have an active or past subscription.</p>
 
 <ol>
   <li>The <%= link_to "terms of use", policies_terms_url %> have been updated.</li>

@@ -1,6 +1,6 @@
 Hey <%= @business.first_name %>,
 
-Joe here, founder of RailsDevs, with two quick updates. You’re receiving this email because you have an active or past subscription.
+<%= t("general.founder_introduction") %> <%= Rails.configuration.strings.project_name %>, with two quick updates. You’re receiving this email because you have an active or past subscription.
 
 1. The terms of use have been updated: <%= policies_terms_url %>
 2. There is now an official hiring agreement: <%= hiring_agreement_terms_url %>

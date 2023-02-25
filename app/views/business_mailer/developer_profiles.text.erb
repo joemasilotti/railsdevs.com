@@ -1,6 +1,6 @@
 <%= @business.contact_name %>,
 
-Here are the new developer profiles on RailsDevs:
+Here are the new developer profiles on <%= Rails.configuration.strings.project_name %>:
 
 <% @developers.each do |developer| %>
 <%= developer.hero %>
