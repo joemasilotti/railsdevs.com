@@ -4,6 +4,7 @@
 
 ### February
 
+* February 27 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
 * February 8 - Throttle requests to prevent brute-force attacks
 * February 4 - Remove availability from developer profiles
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
