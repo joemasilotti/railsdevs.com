@@ -16,7 +16,7 @@ module Businesses
     private
 
     def send_welcome_notification
-      Businesses::NewBusinessNotification.with(business: self).deliver_later(user)
+      WelcomeNotification.with(business: self).deliver_later(user)
     end
 
     def send_admin_notification

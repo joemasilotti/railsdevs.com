@@ -1,5 +1,5 @@
 module Businesses
-  class NewBusinessNotification < ApplicationNotification
+  class WelcomeNotification < ApplicationNotification
     deliver_by :database
     deliver_by :email, mailer: "BusinessMailer", method: :welcome
 
