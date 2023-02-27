@@ -3,11 +3,17 @@ class BusinessMailer < ApplicationMailer
   delegate :pluralize, to: "ActionController::Base.helpers"
 
   def welcome
-    @business = params[:business]
-    from = Rails.configuration.emails.support_mailbox!
-    subject = "Welcome to RailsDevs 👋"
+    notification = params[:record].to_notification
+    recipient = params[:recipient]
 
-    mail(to: @business.user.email, from:, subject:)
+    @business = notification.business
+    subject = notification.title
+
+    mail(
+      to: recipient.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject:
+    )
   end
 
   def developer_profiles

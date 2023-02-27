@@ -6,15 +6,11 @@ module Businesses
     param :business
 
     def title
-      t("notifications.admin.new_business_notification.title", business: business.contact_name)
-    end
-
-    def email_subject
-      t("notifications.admin.new_business_notification.email_subject", business: business.contact_name)
+      t("notifications.businesses.welcome.title", business: business.contact_name)
     end
 
     def url
-      business_url(business)
+      developers_url
     end
 
     def business

@@ -5,16 +5,16 @@ module Developers
 
     param :developer
 
-    def developer
-      params[:developer]
-    end
-
     def title
       t("notifications.developers.welcome_notification.title")
     end
 
     def url
-      root_url
+      developer_url(developer)
+    end
+
+    def developer
+      params[:developer]
     end
   end
 end
