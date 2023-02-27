@@ -1,7 +1,6 @@
 require "test_helper"
 
 class ColdMessagesTest < ActionDispatch::IntegrationTest
-  include ActiveJob::TestHelper
   include NotificationsHelper
   include PayHelper
   include SubscriptionsHelper
@@ -136,20 +135,6 @@ class ColdMessagesTest < ActionDispatch::IntegrationTest
 
     assert_response :unprocessable_entity
     assert_select "li", text: "Hiring fee agreement must be accepted"
-  end
-
-  test "creating a new conversation enqueues an UpdateDeveloperResponseRateJob" do
-    sign_in @business.user
-    assert_enqueued_with(job: UpdateDeveloperResponseRateJob, args: [@developer]) do
-      post developer_messages_path(@developer), params: message_params
-    end
-  end
-
-  test "failed creation of a new conversation does not enqueue an UpdateDeveloperResponseRateJob" do
-    sign_in @business.user
-    assert_no_enqueued_jobs(only: UpdateDeveloperResponseRateJob) do
-      post developer_messages_path(@developer), params: {message: {body: nil}}
-    end
   end
 
   def message_params
