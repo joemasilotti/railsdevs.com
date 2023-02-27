@@ -5,6 +5,7 @@
 ### February
 
 * February 27 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
+* February 26 - Business welcome emails #772 @accua
 * February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
 * February 16 - Add support for Mastodon handles #778 @jordelver
 * February 8 - Throttle requests to prevent brute-force attacks
