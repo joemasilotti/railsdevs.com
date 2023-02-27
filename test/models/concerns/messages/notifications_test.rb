@@ -37,7 +37,7 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
     message = Message.new(developer:, business:, sender: business, body: "Hello!")
 
     assert_enqueued_with(job: UpdateDeveloperResponseRateJob, args: [developer]) do
-        assert message.save_and_notify(cold_message: true)
+      assert message.save_and_notify(cold_message: true)
     end
   end
 
@@ -48,7 +48,7 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
     message = Message.new(developer:, business:, sender: business, body: "Hello!")
 
     assert_no_enqueued_jobs only: UpdateDeveloperResponseRateJob do
-        assert message.save_and_notify(cold_message: false)
+      assert message.save_and_notify(cold_message: false)
     end
   end
 
