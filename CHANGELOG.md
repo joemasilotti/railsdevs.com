@@ -4,6 +4,7 @@
 
 ### February
 
+* February 27 - Add a badge for developers with a High Response Rate
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
 
 ### January
