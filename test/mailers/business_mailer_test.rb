@@ -7,8 +7,6 @@ class BusinessMailerTest < ActionMailer::TestCase
     end
   end
 
-  end
-
   def business
     businesses(:one)
   end
