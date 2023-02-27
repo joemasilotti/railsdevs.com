@@ -1,0 +1,7 @@
+<p>Hey <%= @business.first_name %>,</p>
+<p>I'm Joe, the founder of RailsDevs - the <em>reverse</em> job board for Ruby on Rails developers. Welcome!</p>
+<p>The platform is a bit different than traditional job boards. Instead of posting a job description, you <%= link_to "browse developer profiles", developers_url  %> to find a perfect match.</p>
+<p>When you see a good fit, click the Hire button. Your message goes right to their email inbox.</p>
+<p><b>This approach has a ~60% response rate and can dramatically shorten the hiring process.</b> I've seen offers made in as little as 2 weeks.</p>
+<p>What are you looking for in your next hire? I'll send over some folks who could be a good fit.</p>
+<%= render "shared/signature" %>

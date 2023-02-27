@@ -136,34 +136,25 @@ class DevelopersTest < ActionDispatch::IntegrationTest
   end
 
   test "pagination only appears for subscribed businesses" do
-    stub_feature_flag(:paywalled_search_results, true) do
-      10.times { create_developer }
+    10.times { create_developer }
 
-      get developers_path
-      assert_select "#developers", count: 0
+    get developers_path
+    assert_select "#developers", count: 0
 
-      sign_in(users(:subscribed_business))
-      get developers_path
-      assert_select "#developers"
-    end
-
-    stub_feature_flag(:paywalled_search_results, false) do
-      get developers_path
-      assert_select "#developers"
-    end
+    sign_in(users(:subscribed_business))
+    get developers_path
+    assert_select "#developers"
   end
 
   test "page 2 of search results only renders for subscribers" do
     with_pagy_default_items(5) do
       5.times { create_developer }
 
-      stub_feature_flag(:paywalled_search_results, true) do
-        get developers_path
-        assert_text I18n.t("subscription_cta_component.title")
+      get developers_path
+      assert_text I18n.t("subscription_cta_component.title")
 
-        get developers_path(page: 2)
-        assert_redirected_to developers_path
-      end
+      get developers_path(page: 2)
+      assert_redirected_to developers_path
 
       sign_in users(:subscribed_business)
       get developers_path(page: 2)
@@ -291,22 +282,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_response :ok
   end
 
-  test "developers are redirected when found via db ID" do
-    stub_feature_flag(:redirect_db_id_profiles, true) do
-      developer = developers(:one)
-
-      get developer_path(developer.id)
-      assert_redirected_to developer_path(developer.hashid)
-    end
-  end
-
-  test "developers are 404ed when found via db ID" do
-    stub_feature_flag(:redirect_db_id_profiles, false) do
-      developer = developers(:one)
-
-      assert_raises ActiveRecord::RecordNotFound do
-        get developer_path(developer.id)
-      end
+  test "developers are 404ed when not found via hash ID" do
+    assert_raises ActiveRecord::RecordNotFound do
+      get developer_path({id: developers(:one).id})
     end
   end
 

@@ -263,39 +263,7 @@
                 </div>
               </fieldset>
             <% end %>
-
-            <div class="mt-5 md:mt-0 md:col-span-2 space-y-6">
-              <div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 sm:col-span-3 md:gap-6">
-                  <div class="sm:col-span-1">
-                    <div class="flex">
-                      <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
-                      <%= render Developers::NewFieldComponent.new(form.object, :available_on, size: :small) %>
-                    </div>
-                    <div class="mt-1">
-                      <%= form.date_field :available_on, class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full sm:text-sm border-gray-300 rounded-md text-center" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".preferred_compensation.title") %></h3>
-        </div>
-
-        <div class="mt-5 md:mt-0 md:col-span-2">
-          <p class="text-base font-medium text-gray-900"><%= t(".preferred_compensation.subtitle") %></p>
-          <p class="text-gray-600 text-sm mt-1">
-            <%= t(".preferred_compensation.description") %>
-            <%= link_to t(".preferred_compensation.more_info"), "https://github.com/joemasilotti/railsdevs.com/discussions/230", class: "text-gray-800 hover:text-gray-600 text-sm font-medium underline" %>.
-          </p>
         </div>
       </div>
     </div>
@@ -335,6 +303,16 @@
                   twitter.com/
                 </span>
                 <%= form.text_field :twitter, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <%= form.label :mastodon, class: "block text-sm font-medium text-gray-700" %>
+              <div class="mt-1 flex rounded-md shadow-sm">
+                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                  https://
+                </span>
+                <%= form.text_field :mastodon, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
               </div>
             </div>
 

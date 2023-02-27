@@ -25,10 +25,10 @@ module Developers
       assert_selector("img[src$='#{@blob.filename}']")
     end
 
-    test "should render availability" do
+    test "should render search status" do
       render_inline(CardComponent.new(developer: @developer))
 
-      assert_selector("span", text: "Available now")
+      assert_selector("span", text: "Actively looking")
     end
 
     test "renders the badge if featured" do

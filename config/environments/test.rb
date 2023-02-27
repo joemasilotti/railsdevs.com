@@ -70,4 +70,7 @@ Rails.application.configure do
 
   # Render mailer previews for `rake verify_mailer_previews` in test environment.
   config.action_mailer.show_previews = true
+
+  # Disable rate limiting for test suite.
+  Rack::Attack.enabled = false
 end
