@@ -20,6 +20,13 @@ class SocialLinkComponentTest < ViewComponent::TestCase
     assert_text "tw"
   end
 
+  test "mastodon" do
+    render_inline SocialLinkComponent.new("https://ma", :mastodon)
+    assert_selector "a[href='https://ma']"
+    assert_selector "svg[title='Mastodon logo']"
+    assert_text "ma"
+  end
+
   test "linkedin" do
     render_inline SocialLinkComponent.new("li", :linkedin)
     assert_selector "a[href='https://www.linkedin.com/in/li']"

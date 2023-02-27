@@ -23,6 +23,7 @@ class Developer < ApplicationRecord
   }
 
   belongs_to :user
+  has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
   has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
@@ -44,6 +45,8 @@ class Developer < ApplicationRecord
   validates :name, presence: true
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+
+  delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
