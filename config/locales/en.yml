@@ -525,6 +525,8 @@ en:
     businesses:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
+      welcome:
+        title: "Welcome to RailsDevs 👋"
     developers:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
