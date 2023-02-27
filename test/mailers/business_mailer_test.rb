@@ -2,8 +2,11 @@ require "test_helper"
 
 class BusinessMailerTest < ActionMailer::TestCase
   test "calling welcome enqueues the mailer" do
-    BusinessMailer.with(business:).welcome.deliver_later
-    assert_enqueued_emails 1
+    assert_emails 1 do
+      Businesses::NewBusinessNotification.with(business:).deliver(recipient)
+    end
+  end
+
   end
 
   def business
