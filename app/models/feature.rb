@@ -5,6 +5,8 @@ class Feature
       !Rails.env.production?
     when :redesign
       ENV.fetch("REDESIGN", false)
+    when :new_business_notification
+      ENV.fetch("NEW_BUSINESS_NOTIFICATION", false)
     else
       raise "Unknown feature name: #{feature_name}"
     end

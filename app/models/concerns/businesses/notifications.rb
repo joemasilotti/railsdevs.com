@@ -3,7 +3,7 @@ module Businesses
     def save_and_notify
       if save
         send_admin_notification
-        send_welcome_notification
+        send_welcome_notification if Feature.enabled?(:new_business_notification)
         true
       end
     end
