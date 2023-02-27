@@ -4,6 +4,7 @@
 
 ### February
 
+* February 26 - Business welcome emails #772 @accua
 * February 4 - Remove availability from developer profiles
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
 
