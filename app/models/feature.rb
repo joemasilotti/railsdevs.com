@@ -6,7 +6,7 @@ class Feature
     when :redesign
       ENV.fetch("REDESIGN", false)
     when :business_welcome_email
-      true
+      !Rails.env.production?
     else
       raise "Unknown feature name: #{feature_name}"
     end
