@@ -4,7 +4,7 @@
 
 ### February
 
-* February 27 - Add a badge for developers with a High Response Rate
+* February 28 - Add a badge for developers with a high response rate #774 @fig
 * February 26 - Business welcome emails #772 @accua
 * February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
 * February 16 - Add support for Mastodon handles #778 @jordelver
