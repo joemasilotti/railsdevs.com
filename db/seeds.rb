@@ -9,6 +9,9 @@ end
 ActiveJob::Base.queue_adapter = :inline
 ActionMailer::Base.delivery_method = :test
 
+# Allow UpdateDeveloperResponseRateJob to run async.
+UpdateDeveloperResponseRateJob.queue_adapter = :async
+
 puts "Seeding #{Rails.env} database..."
 seed "admins"
 seed "developers"
