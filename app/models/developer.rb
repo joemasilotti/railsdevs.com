@@ -118,10 +118,4 @@ class Developer < ApplicationRecord
   def create_badge
     build_badge.save
   end
-
-  private
-
-  def create_badge
-    build_badge.save
-  end
 end
