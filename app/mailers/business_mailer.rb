@@ -3,11 +3,10 @@ class BusinessMailer < ApplicationMailer
   delegate :pluralize, to: "ActionController::Base.helpers"
 
   def welcome
-    notification = params[:record].to_notification
     recipient = params[:recipient]
 
-    @business = notification.business
-    subject = notification.title
+    @business = params[:business]
+    subject = Developers::WelcomeNotification.new.title
 
     mail(
       to: recipient.email,

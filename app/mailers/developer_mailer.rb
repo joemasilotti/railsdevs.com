@@ -14,14 +14,14 @@ class DeveloperMailer < ApplicationMailer
   end
 
   def welcome
-    @notification = params[:record].to_notification
-    recipient = params[:recipient]
+    @developer = params[:developer]
 
-    @developer = @notification.developer
+    recipient = params[:recipient]
+    subject = Developers::WelcomeNotification.new.title
 
     mail(
       to: recipient.email,
-      subject: @notification.title
+      subject: subject
     )
   end
 
