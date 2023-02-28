@@ -17,11 +17,10 @@ class DeveloperMailer < ApplicationMailer
     @developer = params[:developer]
 
     recipient = params[:recipient]
-    subject = Developers::WelcomeNotification.new.title
 
     mail(
       to: recipient.email,
-      subject: subject
+      subject: t("notifications.developers.welcome_notification.title")
     )
   end
 

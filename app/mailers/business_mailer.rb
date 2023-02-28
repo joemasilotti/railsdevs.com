@@ -6,12 +6,11 @@ class BusinessMailer < ApplicationMailer
     recipient = params[:recipient]
 
     @business = params[:business]
-    subject = Developers::WelcomeNotification.new.title
 
     mail(
       to: recipient.email,
       from: Rails.configuration.emails.support_mailbox!,
-      subject:
+      subject: t("notifications.businesses.welcome.title", business: @business.contact_name)
     )
   end
 
