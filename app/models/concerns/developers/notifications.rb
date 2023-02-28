@@ -3,7 +3,7 @@ module Developers
     def save_and_notify
       if save
         send_admin_notification
-        send_welcome_notification
+        send_welcome_email
         true
       end
     end
@@ -40,8 +40,8 @@ module Developers
       Admin::NewDeveloperNotification.with(developer: self).deliver_later(User.admin)
     end
 
-    def send_welcome_notification
-      WelcomeNotification.with(developer: self).deliver_later(user)
+    def send_welcome_email
+      DeveloperMailer.with(developer: self).welcome.deliver_later
     end
 
     def send_stale_profile_notification

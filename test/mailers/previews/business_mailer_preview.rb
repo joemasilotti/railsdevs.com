@@ -1,7 +1,7 @@
 class BusinessMailerPreview < ActionMailer::Preview
   def welcome
-    notification = Notification.where(type: Businesses::WelcomeNotification.to_s).first
-    BusinessMailer.with(record: notification, recipient: notification.recipient).welcome
+    business = Business.first
+    BusinessMailer.with(business: business).welcome
   end
 
   def developer_profiles

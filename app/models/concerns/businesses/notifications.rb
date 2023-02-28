@@ -3,7 +3,7 @@ module Businesses
     def save_and_notify
       if save
         send_admin_notification
-        send_welcome_notification if Feature.enabled?(:business_welcome_email)
+        send_welcome_email if Feature.enabled?(:business_welcome_email)
         true
       end
     end
@@ -15,8 +15,8 @@ module Businesses
 
     private
 
-    def send_welcome_notification
-      WelcomeNotification.with(business: self).deliver_later(user)
+    def send_welcome_email
+      BusinessMailer.with(business: self).welcome.deliver_later
     end
 
     def send_admin_notification

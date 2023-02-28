@@ -4,6 +4,7 @@
 
 ### February
 
+* February 28 - Don't show welcome notifications in UI #790 @gathuku
 * February 26 - Business welcome emails #772 @accua
 * February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
 * February 16 - Add support for Mastodon handles #778 @jordelver
