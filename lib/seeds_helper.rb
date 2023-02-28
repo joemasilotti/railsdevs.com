@@ -46,6 +46,13 @@ module SeedsHelper
       end
     end
 
+    def create_referral!(referred_user:, referring_user:, code:)
+      Referral.find_or_create_by!(referred_user:) do |referral|
+        referral.referring_user = referring_user
+        referral.code = code
+      end
+    end
+
     def locations
       location_seeds.map do |name, attrs|
         [name.to_sym, Location.new(attrs)]

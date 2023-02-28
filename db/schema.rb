@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_215801) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -112,6 +113,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
     t.string "stack_overflow"
     t.string "public_profile_key"
     t.boolean "source_contributor", default: false, null: false
+    t.integer "response_rate", default: 0, null: false
+    t.string "mastodon"
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
@@ -302,7 +305,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -339,8 +342,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
@@ -366,11 +369,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
   end
 
   create_table "referrals", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "referred_user_id", null: false
     t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_referrals_on_user_id"
+    t.bigint "referring_user_id"
+    t.index ["referred_user_id"], name: "index_referrals_on_referred_user_id"
+    t.index ["referring_user_id"], name: "index_referrals_on_referring_user_id"
   end
 
   create_table "role_levels", force: :cascade do |t|
@@ -410,6 +415,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
     t.boolean "admin", default: false, null: false
     t.string "authentication_token"
     t.boolean "suspended", default: false, null: false
+    t.string "referral_code"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -427,7 +433,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_215801) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
-  add_foreign_key "referrals", "users"
+  add_foreign_key "referrals", "users", column: "referred_user_id"
   add_foreign_key "role_levels", "developers"
   add_foreign_key "role_types", "developers"
 end
