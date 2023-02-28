@@ -1,6 +1,5 @@
 module Developers
   class WelcomeNotification < ApplicationNotification
-    deliver_by :database
     deliver_by :email, mailer: "DeveloperMailer", method: :welcome
 
     param :developer

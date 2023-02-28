@@ -24,4 +24,11 @@ class Businesses::NotificationsTest < ActiveSupport::TestCase
       businesses(:one).invisiblize_and_notify!
     end
   end
+
+  test "does not sends a database welcome notification" do
+    business = Business.new(business_attributes)
+    refute_sends_notification Businesses::WelcomeNotification do
+      assert business.save_and_notify
+    end
+  end
 end

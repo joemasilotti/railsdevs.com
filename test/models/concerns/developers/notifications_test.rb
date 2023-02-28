@@ -19,9 +19,9 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
     end
   end
 
-  test "sends a welcome notification" do
+  test "does not sends a database welcome notification" do
     developer = Developer.new(developer_attributes)
-    assert_sends_notification Developers::WelcomeNotification, to: developer.user do
+    refute_sends_notification Developers::WelcomeNotification do
       assert developer.save_and_notify
     end
   end
