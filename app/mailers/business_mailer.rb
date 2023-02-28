@@ -2,6 +2,16 @@ class BusinessMailer < ApplicationMailer
   default from: Rails.configuration.emails.updates_mailbox!
   delegate :pluralize, to: "ActionController::Base.helpers"
 
+  def welcome
+    @business = params[:business]
+
+    mail(
+      to: @business.user.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject: t(".subject")
+    )
+  end
+
   def developer_profiles
     @business = params[:business]
     @developers = params[:developers]
@@ -14,6 +24,7 @@ class BusinessMailer < ApplicationMailer
     @business = params[:business]
     from = Rails.configuration.emails.support_mailbox!
     subject = "Updated RailsDevs terms of use and hiring agreement"
+
     mail(to: @business.user.email, from:, subject:)
   end
 end

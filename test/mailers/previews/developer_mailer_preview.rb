@@ -5,8 +5,8 @@ class DeveloperMailerPreview < ActionMailer::Preview
   end
 
   def welcome
-    notification = Notification.where(type: Developers::WelcomeNotification.to_s).first
-    DeveloperMailer.with(record: notification, recipient: notification.recipient).welcome
+    developer = Developer.first
+    DeveloperMailer.with(developer: developer).welcome
   end
 
   def celebration_promotion

@@ -20,11 +20,11 @@ class Developer < ApplicationRecord
   }
 
   belongs_to :user
+  has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
   has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
   has_one :badge, dependent: :destroy, class_name: "Developers::Badge"
-  after_create :create_badge
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
@@ -45,6 +45,10 @@ class Developer < ApplicationRecord
   validates :name, presence: true
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+
+  after_create_commit :create_badge
+
+  delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
   scope :filter_by_role_types, ->(role_types) do
     RoleType::TYPES.filter_map { |type|
@@ -107,6 +111,12 @@ class Developer < ApplicationRecord
 
   def featured?
     featured_at? && featured_at >= FEATURE_LENGTH.ago
+  end
+
+  private
+
+  def create_badge
+    build_badge.save
   end
 
   private
