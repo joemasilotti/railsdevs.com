@@ -68,8 +68,6 @@ class Conversation < ApplicationRecord
     messages.where(sender: developer).one? && latest_message.sender == developer
   end
 
-  private
-
   def developer_replied?
     messages.from_developer.any?
   end
