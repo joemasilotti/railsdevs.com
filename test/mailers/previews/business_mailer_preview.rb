@@ -1,7 +1,7 @@
 class BusinessMailerPreview < ActionMailer::Preview
   def welcome
     business = Business.first
-    BusinessMailer.with(business: business, recipient: business.user).welcome
+    BusinessMailer.with(business: business).welcome
   end
 
   def developer_profiles

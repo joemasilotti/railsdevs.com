@@ -1,9 +1,7 @@
 class DeveloperMailer < ApplicationMailer
   def welcome
     @developer = params[:developer]
-    recipient = params[:recipient]
-
-    mail(to: recipient.email, subject: t(".subject"))
+    mail(to: @developer.user.email, subject: t(".subject"))
   end
 
   def profile_reminder

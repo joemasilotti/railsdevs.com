@@ -3,11 +3,10 @@ class BusinessMailer < ApplicationMailer
   delegate :pluralize, to: "ActionController::Base.helpers"
 
   def welcome
-    recipient = params[:recipient]
     @business = params[:business]
 
     mail(
-      to: recipient.email,
+      to: @business.user.email,
       from: Rails.configuration.emails.support_mailbox!,
       subject: t(".subject")
     )

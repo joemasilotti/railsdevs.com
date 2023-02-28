@@ -6,7 +6,7 @@ class DeveloperMailerPreview < ActionMailer::Preview
 
   def welcome
     developer = Developer.first
-    DeveloperMailer.with(developer: developer, recipient: developer.user).welcome
+    DeveloperMailer.with(developer: developer).welcome
   end
 
   def celebration_promotion
