@@ -4,10 +4,6 @@ module Businesses
 
     param :business
 
-    def title
-      t("notifications.businesses.welcome.title", business: business.contact_name)
-    end
-
     def url
       developers_url
     end

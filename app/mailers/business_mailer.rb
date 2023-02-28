@@ -4,13 +4,12 @@ class BusinessMailer < ApplicationMailer
 
   def welcome
     recipient = params[:recipient]
-
     @business = params[:business]
 
     mail(
       to: recipient.email,
       from: Rails.configuration.emails.support_mailbox!,
-      subject: t("notifications.businesses.welcome.title", business: @business.contact_name)
+      subject: t(".subject")
     )
   end
 
@@ -26,6 +25,7 @@ class BusinessMailer < ApplicationMailer
     @business = params[:business]
     from = Rails.configuration.emails.support_mailbox!
     subject = "Updated RailsDevs terms of use and hiring agreement"
+
     mail(to: @business.user.email, from:, subject:)
   end
 end

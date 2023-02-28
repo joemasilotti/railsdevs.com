@@ -2,7 +2,6 @@ class DeveloperMailer < ApplicationMailer
   def profile_reminder
     @notification = params[:record].to_notification
     recipient = params[:recipient]
-
     @developer = @notification.developer
 
     mail(
@@ -15,13 +14,9 @@ class DeveloperMailer < ApplicationMailer
 
   def welcome
     @developer = params[:developer]
-
     recipient = params[:recipient]
 
-    mail(
-      to: recipient.email,
-      subject: t("notifications.developers.welcome_notification.title")
-    )
+    mail(to: recipient.email, subject: t(".subject"))
   end
 
   def celebration_promotion

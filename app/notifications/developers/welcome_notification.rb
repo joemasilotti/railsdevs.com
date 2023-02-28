@@ -4,10 +4,6 @@ module Developers
 
     param :developer
 
-    def title
-      t("notifications.developers.welcome_notification.title")
-    end
-
     def url
       developer_url(developer)
     end
