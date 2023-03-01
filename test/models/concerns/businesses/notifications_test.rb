@@ -12,10 +12,19 @@ class Businesses::NotificationsTest < ActiveSupport::TestCase
     end
   end
 
-  test "invalid records don't send notifications" do
+  test "sends a welcome email" do
+    business = Business.new(business_attributes)
+    assert_enqueued_email_with BusinessMailer, :welcome, args: {business:} do
+      assert business.save_and_notify
+    end
+  end
+
+  test "invalid records don't send notifications or emails" do
     business = Business.new
     refute_sends_notifications do
-      refute business.save_and_notify
+      assert_enqueued_emails 0 do
+        refute business.save_and_notify
+      end
     end
   end
 
