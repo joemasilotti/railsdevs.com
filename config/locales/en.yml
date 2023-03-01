@@ -274,6 +274,7 @@ en:
       unspecified_html: Currently unavailable
     badges_component:
       featured: Featured developer
+      high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
     count_component:

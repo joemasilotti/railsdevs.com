@@ -43,6 +43,7 @@ class Developer < ApplicationRecord
   validates :hero, presence: true
   validates :location, presence: true, on: :create
   validates :name, presence: true
+  validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
 

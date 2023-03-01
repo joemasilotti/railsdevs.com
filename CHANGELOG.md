@@ -2,6 +2,10 @@
 
 # 2023
 
+### March
+
+* March 1 - Add a badge for developers with a high response rate #774 @fig
+
 ### February
 
 * February 28 - Don't show welcome notifications in UI #790 @gathuku

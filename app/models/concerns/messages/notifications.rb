@@ -6,6 +6,7 @@ module Messages
         send_first_message_email if first_message?
         send_admin_notification if cold_message
         schedule_celebration_promotion if first_reply?
+        update_developer_response_rate if cold_message
         true
       end
     end
@@ -27,6 +28,12 @@ module Messages
     def schedule_celebration_promotion
       wait = Rails.configuration.deliver_celebration_promotion_after
       DeveloperMailer.with(conversation: conversation).celebration_promotion.deliver_later(wait:)
+    end
+
+    def update_developer_response_rate
+      UpdateDeveloperResponseRateJob
+        .set(wait: Rails.application.config.developer_response_grace_period)
+        .perform_later(developer)
     end
 
     def first_message?
