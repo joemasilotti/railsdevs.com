@@ -21,6 +21,8 @@ module Pay
 
       business = customer.owner.business
       BusinessMailer.with(business:).subscribed.deliver_later
+    rescue Pay::SubscriptionChanges::UnknownSubscriptionChange => e
+      Honeybadger.notify(e)
     end
   end
 end
