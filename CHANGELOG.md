@@ -2,8 +2,20 @@
 
 # 2023
 
+### March
+
+* March 3 - Added business new hire forms and admin new hire forms
+* March 3 - Upgrade Devise to v4.9.0 to support hotwire turbo integration #786 @sarvaiyanidhi
+* March 1 - Add a badge for developers with a high response rate #774 @fig
+
 ### February
-* February 7 - Added business new hire forms and admin new hire forms
+
+* February 28 - Don't show welcome notifications in UI #790 @gathuku
+* February 26 - Business welcome emails #772 @accua
+* February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
+* February 16 - Add support for Mastodon handles #778 @jordelver
+* February 8 - Throttle requests to prevent brute-force attacks
+
 * February 4 - Remove availability from developer profiles
 * February 3 - Filter by developer badges #759 @sarvaiyanidhi
 

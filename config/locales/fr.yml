@@ -159,6 +159,9 @@ fr:
       cancel: Annuler
       message: Êtes-vous sûr de vouloir signaler cette conversation et bloquer l'expéditeur ? Cela masquera la conversation et l'expéditeur ne pourra plus vous contacter.
       title: Bloquer l'expéditeur
+  business_mailer:
+    welcome:
+      subject: "Bienvenue sur RailsDevs 👋"
   businesses:
     admin_component:
       invisiblize: Masquer
@@ -523,8 +526,6 @@ fr:
       profile_reminder_notification:
         email_subject: Est-ce que votre profil RailsDevs est à jour ?
         title: Est-ce que votre profil de développeur est à jour ?
-      welcome_notification:
-        title: Bienvenue sur RailsDevs!
     index:
       cta: Voir l'historique
       empty_state:

@@ -12,24 +12,19 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
     end
   end
 
-  test "invalid records don't send notifications" do
-    developer = Developer.new
-    refute_sends_notifications do
-      refute developer.save_and_notify
-    end
-  end
-
-  test "sends a welcome notification" do
+  test "sends a welcome email" do
     developer = Developer.new(developer_attributes)
-    assert_sends_notification Developers::WelcomeNotification, to: developer.user do
+    assert_enqueued_email_with DeveloperMailer, :welcome, args: {developer:} do
       assert developer.save_and_notify
     end
   end
 
-  test "invalid records don't send welcome notifications" do
+  test "invalid records don't send notifications or emails" do
     developer = Developer.new
     refute_sends_notifications do
-      refute developer.save_and_notify
+      assert_enqueued_emails 0 do
+        refute developer.save_and_notify
+      end
     end
   end
 

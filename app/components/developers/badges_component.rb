@@ -3,6 +3,7 @@ module Developers
     delegate :featured?, to: :developer
     delegate :recently_active?, to: :developer
     delegate :source_contributor?, to: :developer
+    delegate :response_rate, to: :developer
 
     private attr_reader :developer
 

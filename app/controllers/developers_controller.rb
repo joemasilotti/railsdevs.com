@@ -72,6 +72,7 @@ class DevelopersController < ApplicationController
       :website,
       :github,
       :twitter,
+      :mastodon,
       :linkedin,
       :stack_overflow,
       :avatar,

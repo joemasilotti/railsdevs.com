@@ -177,6 +177,9 @@ en:
       cancel: Cancel
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
+  business_mailer:
+    welcome:
+      subject: "Welcome to RailsDevs 👋"
   businesses:
     admin_component:
       conversations: Conversations
@@ -273,6 +276,8 @@ en:
       subject: How's your conversation going with %{contact} at %{company}?
     first_message:
       subject: Tips on responding to your first message on RailsDevs
+    welcome:
+      subject: "Welcome to RailsDevs 👋"
   developers:
     admin_component:
       conversations: Conversations
@@ -287,6 +292,7 @@ en:
       unspecified_html: Currently unavailable
     badges_component:
       featured: Featured developer
+      high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
     count_component:
@@ -573,8 +579,6 @@ en:
       profile_reminder_notification:
         email_subject: Is your RailsDevs profile up to date?
         title: Is your developer profile up to date?
-      welcome_notification:
-        title: Welcome to RailsDevs!
     index:
       cta: View history
       empty_state:

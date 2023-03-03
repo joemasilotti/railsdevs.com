@@ -30,6 +30,7 @@ module Railsdevs
     config.always_remember_me = true
     config.analytics = config_for(:analytics)
     config.deliver_celebration_promotion_after = nil
+    config.developer_response_grace_period = 12.hours
     config.emails = config_for(:emails)
     config.fathom = config_for(:fathom)
     config.plans = config_for(:plans)
