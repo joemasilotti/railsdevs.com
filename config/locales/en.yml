@@ -162,6 +162,8 @@ en:
   business_mailer:
     welcome:
       subject: "Welcome to RailsDevs 👋"
+    subscribed:
+      subject: "Your RailsDevs subscription is live! 🎉 Let’s find your perfect match."
   businesses:
     admin_component:
       conversations: Conversations

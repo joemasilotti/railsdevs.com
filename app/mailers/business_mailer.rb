@@ -14,11 +14,13 @@ class BusinessMailer < ApplicationMailer
 
   def subscribed
     @business = params[:business]
-    from = Rails.configuration.emails.support_mailbox!
     @developer_count = SignificantFigure.new(Developer.visible.count).rounded
-    subject = "Your RailsDevs subscription is live! 🎉 Let’s find your perfect match."
 
-    mail(to: @business.user.email, from:, subject:)
+    mail(
+      to: @business.user.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject: t(".subject")
+    )
   end
 
   def developer_profiles
