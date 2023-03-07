@@ -12,6 +12,17 @@ class BusinessMailer < ApplicationMailer
     )
   end
 
+  def subscribed
+    @business = params[:business]
+    @developer_count = SignificantFigure.new(Developer.visible.count).rounded
+
+    mail(
+      to: @business.user.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject: t(".subject")
+    )
+  end
+
   def developer_profiles
     @business = params[:business]
     @developers = params[:developers]
