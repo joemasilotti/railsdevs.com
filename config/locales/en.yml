@@ -70,10 +70,12 @@ en:
         conversations: "'s conversations"
         developer: Developer
         email: Email
+        email_tooltip: The developer mentioned an email address in a reply.
         no_potential_email: No potential email
         no_response: No response
         potential_email: Potential email
         replied: Replied
+        replied_tooltip: The developer has replied to this conversation.
         reply_rate: Reply rate
         started: Started
         title: Conversations
