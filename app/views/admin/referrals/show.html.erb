@@ -1,0 +1,43 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new do %>
+    <%= render Admin::BasicLinkComponent.new(@entity.name, @entity) %><span><%= t(".referrals") %></span>
+  <% end %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::StatContainerComponent.new do |container| %>
+      <% container.with_stat title: t(".referrals_count"), value: @referrals.count, icon: "users" %>
+    <% end %>
+  <% end %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header t(".referred_user") %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".business") %>
+
+      <% @referrals.each do |referral| %>
+        <% table.with_row do |row| %>
+
+          <%= referred_user = referral.referred_user %>
+          <%= row.with_cell primary: true do %>
+            <%= render Admin::EmailLinkComponent.new(referred_user.email) %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <% if (developer = referred_user.developer) %>
+              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: admin_developer_conversations_path(developer)) %>
+            <% end %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <% if (business = referred_user.business) %>
+              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_business_conversations_path(business), subtitle: business.name) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <%== pagy_nav @pagy %>
+  <% end %>
+<% end %>

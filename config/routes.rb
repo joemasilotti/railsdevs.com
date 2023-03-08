@@ -94,6 +94,8 @@ Rails.application.routes.draw do
         resource :activation, only: %i[create destroy], module: :terms
       end
     end
+
+    resources :referrals, except: :destroy
   end
 
   namespace :api, defaults: {format: :json} do
@@ -118,6 +120,8 @@ Rails.application.routes.draw do
     resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
+
+
 
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
   get "robots.:format" => "robots#index"
