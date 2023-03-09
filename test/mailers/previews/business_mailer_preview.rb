@@ -9,6 +9,11 @@ class BusinessMailerPreview < ActionMailer::Preview
     BusinessMailer.with(business:).subscribed
   end
 
+  def cancel_subscription
+    business = Business.first
+    BusinessMailer.with(business:).cancel_subscription
+  end
+
   def developer_profiles
     business = Business.first
     developers = Developer.limit(3)

@@ -119,6 +119,9 @@ Rails.application.routes.draw do
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
 
+  # TODO: Added temporary route to be updated after business hiring form changes are merged
+  get "business_hiring_form", to: redirect("")
+
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
   get "robots.:format" => "robots#index"
 
