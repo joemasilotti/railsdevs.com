@@ -5,7 +5,7 @@ module Pay
     included do
       after_commit :send_admin_notification
       after_commit :send_subscribed
-      after_commit :send_cancel_subscription
+      after_commit :send_cancel_subscription if Feature.enabled?(:cancel_subscription)
     end
 
     def send_admin_notification
