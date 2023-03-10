@@ -23,6 +23,16 @@ class BusinessMailer < ApplicationMailer
     )
   end
 
+  def cancel_subscription
+    @business = params[:business]
+
+    mail(
+      to: @business.user.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject: t(".subject")
+    )
+  end
+
   def developer_profiles
     @business = params[:business]
     @developers = params[:developers]
