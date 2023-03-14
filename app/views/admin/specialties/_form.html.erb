@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, @specialty] do |form| %>
+<%= form_with model: [:admin, specialty] do |form| %>
   <%= render Admin::Forms::ContainerComponent.new(title) do |container| %>
     <%= render Admin::Forms::FieldComponent.new(form, :name) do |field| %>
       <% field.with_input_text %>
