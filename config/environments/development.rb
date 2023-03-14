@@ -88,4 +88,7 @@ Rails.application.configure do
   # Set a zero value for developer response grace period in development to allow seeding without leaving
   # unactioned jobs in the queue.
   config.developer_response_grace_period = 0.seconds
+
+  # Disable rate limiting for local development.
+  Rack::Attack.enabled = false
 end
