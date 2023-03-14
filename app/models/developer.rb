@@ -4,6 +4,7 @@ class Developer < ApplicationRecord
   include Developers::Notifications
   include Developers::RichText
   include HasSocialProfiles
+  include HasSpecialties
   include Hashid::Rails
   include PersonName
   include PgSearch::Model
