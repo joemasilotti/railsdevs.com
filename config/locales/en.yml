@@ -128,6 +128,26 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    specialties:
+      create:
+        created: Developer specialty created.
+      edit:
+        title: Edit developer specialty
+      form:
+        cancel: Cancel
+      index:
+        add: Add specialty
+        delete: Delete
+        delete_confirmation: Are you sure you want to delete this specialty?
+        edit: Edit
+        title: Developer specialties
+      new:
+        title: New developer specialty
+      show:
+        developer_specialty: Developer specialty
+        no_developers: No developers with this specialty.
+      update:
+        updated: Developer specialty updated.
     transactions:
       create:
         created: Transaction created
@@ -514,6 +534,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      specialties: Developer specialties
       transactions: Transactions
       users: Users
       view_conversations: View conversations
