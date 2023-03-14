@@ -74,7 +74,7 @@ class DeveloperQuery
   private
 
   def query_and_paginate
-    @_records = Developer.includes(:role_type).with_attached_avatar.visible
+    @_records = Developer.includes(:role_type, :specialties).with_attached_avatar.visible
     sort_records
     country_filter_records
     utc_offset_filter_records
