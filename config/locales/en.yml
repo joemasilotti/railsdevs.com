@@ -42,6 +42,10 @@ en:
         remember_me: Remember me
     errors:
       models:
+        developer:
+          attributes:
+            specialties:
+              too_long: is limited to 5
         location:
           invalid_coordinates: can't be found
     models:
