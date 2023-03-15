@@ -4,6 +4,7 @@
 
 ### March
 
+* March 15 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
 * March 10 - Automate subscriber cancellation email #795 @sarvaiyanidhi
 * March 8 - Add a tooltip to replied and email headers on the admin conversations dashboard #796 @franlocus
 * March 7 - Automate subscriber welcome email #794 @duncantmiller
@@ -13,7 +14,6 @@
 ### February
 
 * February 28 - Don't show welcome notifications in UI #790 @gathuku
-* February 27 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
 * February 26 - Business welcome emails #772 @accua
 * February 18 - Add "referred by" to admin emails #780 @PatrickMcSweeny
 * February 16 - Add support for Mastodon handles #778 @jordelver
