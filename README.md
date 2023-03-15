@@ -27,7 +27,7 @@ brew bundle install --no-upgrade
 * Ruby 3.1.2
 * [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
     * `libpg` is needed to use the native `pg` gem without Rosetta on M1 macs
-* [postgresql](https://www.postgresql.org) - `brew install postgresql` 
+* [postgresql](https://www.postgresql.org) - `brew install postgresql`
     * Note 1: PostgreSQL 13+ is required
     * Note 2: In case you're on Debian 11 and you have multiple versions (e.g. 9.x, 12.x, 14.x) of PostgreSQL installed, make sure that the server of the right version (13+) is listening on port `5432`. One could check/modify that in the `postgresql.conf` file, e.g. in case of version 13: `/etc/postgresql/13/main/postgresql.conf`.
 * [node](https://nodejs.org/en/) - `brew install node`
@@ -95,8 +95,8 @@ stripe:
   private_key: sk_test_YOUR_TEST_STRIPE_KEY
   signing_secret: whsec_YOUR_SIGNING_SECRET
   price_ids:
-    part_time_plan: price_YOUR_PRODUCT_PRICE_ID
-    full_time_plan: price_ANOTHER_PRODUCT_PRICE_ID
+    part_time: price_YOUR_PRODUCT_PRICE_ID
+    full_time: price_ANOTHER_PRODUCT_PRICE_ID
 ```
 
 ## Monitoring

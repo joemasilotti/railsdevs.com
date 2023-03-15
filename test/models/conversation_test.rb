@@ -171,6 +171,16 @@ class ConversationTest < ActiveSupport::TestCase
     refute conversation.first_reply?(conversation.developer)
   end
 
+  test "developer_replied? returns true only when developer has replied" do
+    conversation = conversations(:one)
+    conversation.messages.destroy_all
+    conversation.messages.create!(sender: conversation.business, body: "From business #1")
+    refute conversation.developer_replied?
+
+    conversation.messages.create!(sender: conversation.developer, body: "From developer #1")
+    assert conversation.developer_replied?
+  end
+
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,

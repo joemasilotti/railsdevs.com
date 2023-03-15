@@ -19,8 +19,8 @@
       <% table.with_header t(".business") %>
       <% table.with_header t(".developer") %>
       <% table.with_header t(".started") %>
-      <% table.with_header "#{t(".replied")}?" %>
-      <% table.with_header "#{t(".email")}?" %>
+      <% table.with_header "#{t(".replied")}?", t(".replied_tooltip") %>
+      <% table.with_header "#{t(".email")}?", t(".email_tooltip") %>
       <% table.with_header do %>
         <span class="sr-only"><%= t(".view") %></span>
       <% end %>

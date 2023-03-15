@@ -90,16 +90,16 @@ module SeedsHelper
     end
 
     def location_seeds
-      @location_seeds ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "locations.yml"))
+      @location_seeds ||= YAML.load_file(Rails.root.join("db", "seeds", "locations.yml"))
     end
 
     def developer_avatar_urls
-      @developer_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "avatars.yml"))
+      @developer_avatar_urls ||= YAML.load_file(Rails.root.join("db", "seeds", "avatars.yml"))
         .map { |image_id| unsplash_url_for(image_id) }
     end
 
     def business_avatar_urls
-      @business_avatar_urls ||= YAML.load_file(File.join(Rails.root, "db", "seeds", "business_avatars.yml"))
+      @business_avatar_urls ||= YAML.load_file(Rails.root.join("db", "seeds", "business_avatars.yml"))
         .map { |image_id| unsplash_url_for(image_id) }
     end
 

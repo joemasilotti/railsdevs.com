@@ -70,10 +70,12 @@ en:
         conversations: "'s conversations"
         developer: Developer
         email: Email
+        email_tooltip: The developer mentioned an email address in a reply.
         no_potential_email: No potential email
         no_response: No response
         potential_email: Potential email
         replied: Replied
+        replied_tooltip: The developer has replied to this conversation.
         reply_rate: Reply rate
         started: Started
         title: Conversations
@@ -160,6 +162,10 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   business_mailer:
+    cancel_subscription:
+      subject: RailsDevs cancellation confirmation
+    subscribed:
+      subject: "Your RailsDevs subscription is live! 🎉 Let's find your perfect match."
     welcome:
       subject: "Welcome to RailsDevs 👋"
   businesses:
@@ -274,6 +280,7 @@ en:
       unspecified_html: Currently unavailable
     badges_component:
       featured: Featured developer
+      high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
     count_component:

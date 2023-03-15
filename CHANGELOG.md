@@ -2,6 +2,14 @@
 
 # 2023
 
+### March
+
+* March 10 - Automate subscriber cancellation email #795 @sarvaiyanidhi
+* March 8 - Add a tooltip to replied and email headers on the admin conversations dashboard #796 @franlocus
+* March 7 - Automate subscriber welcome email #794 @duncantmiller
+* March 3 - Upgrade Devise to v4.9.0 to support hotwire turbo integration #786 @sarvaiyanidhi
+* March 1 - Add a badge for developers with a high response rate #774 @fig
+
 ### February
 
 * February 28 - Don't show welcome notifications in UI #790 @gathuku

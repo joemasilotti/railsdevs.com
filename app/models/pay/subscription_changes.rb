@@ -30,5 +30,13 @@ module Pay
         raise UnknownSubscriptionChange.new(subscription.previous_changes)
       end
     end
+
+    def subscribed?
+      change == :subscribed
+    end
+
+    def cancelled?
+      change == :churned
+    end
   end
 end

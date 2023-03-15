@@ -18,6 +18,8 @@ class BadgeComponent < ApplicationComponent
       "bg-green-100 text-green-800"
     when :gray
       "bg-gray-100 text-gray-800"
+    when :purple
+      "bg-purple-100 text-purple-800"
     else
       raise "Unknown color: #{color}"
     end
