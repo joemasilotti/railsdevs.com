@@ -331,7 +331,6 @@ en:
           unique: Your unique skills that make you awesome
         help_text: Personally identifiable information will be removed.
         markdown: Markdown is supported but links and images are removed.
-        title: Bio
       creating: Creating...
       loading: Loading...
       notifications:
@@ -371,7 +370,6 @@ en:
         note:
           description: This feature is in beta and might be changed. Add your specialties ASAP - businesses will be able to filter by them soon.
           title: BETA
-        title: Specialties
       title: Your developer profile
       updating: Updating...
       work_preferences:

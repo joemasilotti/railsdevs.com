@@ -293,7 +293,6 @@ fr:
           unique: Vos compétences uniques qui vous rendent génial
         help_text: Les informations personnelles permettant de vous identifier seront supprimées.
         markdown: Le format Markdown est pris en charge mais les liens et les images sont supprimés.
-        title: Bio
       creating: Création...
       loading: Chargement...
       notifications:
