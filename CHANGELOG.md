@@ -4,6 +4,7 @@
 
 ### March
 
+* March 15 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
 * March 10 - Automate subscriber cancellation email #795 @sarvaiyanidhi
 * March 8 - Add a tooltip to replied and email headers on the admin conversations dashboard #796 @franlocus
 * March 7 - Automate subscriber welcome email #794 @duncantmiller
