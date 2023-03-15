@@ -362,6 +362,12 @@ en:
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
+      specialties:
+        description: Choose up to 5 specialties that set you apart from other developers. Pick ones that you are passionate about - you don't need to be an expert.
+        note:
+          description: This feature is in beta and might be changed. Add your specialties ASAP - businesses will be able to filter by them soon.
+          title: BETA
+        title: Specialties
       title: Your developer profile
       updating: Updating...
       work_preferences:

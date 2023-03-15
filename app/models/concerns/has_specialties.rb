@@ -3,6 +3,6 @@ module HasSpecialties
 
   included do
     has_many :specialty_tags
-    has_many :specialties, -> { order(:name) }, through: :specialty_tags, dependent: :destroy
+    has_many :specialties, -> { visible }, through: :specialty_tags, dependent: :destroy
   end
 end
