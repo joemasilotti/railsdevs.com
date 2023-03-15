@@ -12,6 +12,6 @@ class Specialty < ApplicationRecord
   private
 
   def normalize_name
-    self.name = name&.strip&.downcase
+    self.name = name&.strip
   end
 end
