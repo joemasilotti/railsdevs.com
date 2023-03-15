@@ -119,14 +119,14 @@ es:
         title: Presencia en línea
       profile:
         avatar: Avatar
-        avatar_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
+        avatar_error_text: Algo falló al subir tu imagen, por favor intenta de nuevo.
         change: Subir
         cover_image: Imagen de portada
         help_text: Esta información será pública, así que ten cuidado con lo que compartas.
         hero_help_text: Algunas palabras que te describan como desarrollador.
         name_help_text_html: Tu nombre no va a aparecer en tu perfil público.
         title: Perfil
-        upload_error_text: Algó falló al subir tu imagen, por favor intenta de nuevo.
+        upload_error_text: Algo falló al subir tu imagen, por favor intenta de nuevo.
         upload_file: Sube un archivo
         upload_help_text: PNG, JPG, GIF hasta 10MB de tamaño
       role_level:
@@ -267,4 +267,4 @@ es:
   users:
     paywalled_component:
       description: Información que solo es visible con una suscripción comercial.
-      title: Información provada
+      title: Información privada
