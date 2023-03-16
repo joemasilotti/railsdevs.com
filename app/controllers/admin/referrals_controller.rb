@@ -8,9 +8,9 @@ module Admin
     end
 
     def show
-      @user             = User.find(params[:id])
-      @entity           = @user.developer || @user.company
-      @referrals        = @user.referrals
+      @user = User.find(params[:id])
+      @entity = @user.developer || @user.company
+      @referrals = @user.referrals
       @pagy, @referrals = pagy(@referrals)
     end
 
