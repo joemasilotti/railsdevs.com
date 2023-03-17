@@ -403,8 +403,6 @@ en:
       all_countries:
         title: All locations
       apply: Apply
-      specialties:
-        title: Specialties
       badge:
         title: Badges
       clear: Clear
@@ -419,6 +417,8 @@ en:
         title: Role level
       search_query_label: Search profiles
       search_query_placeholder: Hotwire, React, Heroku, etc.
+      specialties:
+        title: Specialties
       timezone:
         title: Timezone
       title: Developer filters
