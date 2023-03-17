@@ -403,6 +403,8 @@ en:
       all_countries:
         title: All locations
       apply: Apply
+      specialties:
+        title: Specialties
       badge:
         title: Badges
       clear: Clear
@@ -412,7 +414,7 @@ en:
       filters: Filters
       include_not_interested: Include developers not currently interested
       paywalled_search:
-        title: Text search requires a paid account
+        title: Text search requires a paid account.
       role_level:
         title: Role level
       search_query_label: Search profiles

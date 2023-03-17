@@ -15,8 +15,10 @@
         </div>
       </div>
 
-      <%= render Developers::BadgesComponent.new(developer) %>
-      <%= render Developers::SpecialtiesComponent.new(developer.specialties) %>
+      <div class="space-y-2">
+        <%= render Developers::BadgesComponent.new(developer) %>
+        <%= render Developers::SpecialtiesComponent.new(developer.specialties) %>
+      </div>
 
       <div class="text-sm sm:text-base text-gray-700 space-y-4">
         <p class="line-clamp-3 break-words"><%= developer.plain_text_bio %></p>
