@@ -113,6 +113,8 @@ class DeveloperQuery
         @_records.merge!(Developer.recently_active)
       elsif badge == :source_contributor
         @_records.merge!(Developer.source_contributor)
+      elsif badge == :high_response_rate
+        @_records.merge!(Developer.high_response_rate)
       end
     end
   end
