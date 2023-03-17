@@ -4,4 +4,7 @@ class ApplicationJob < ActiveJob::Base
 
   # Most jobs are safe to ignore if the underlying records are no longer available
   discard_on ActiveJob::DeserializationError
+
+  # Don't retry emails for invalid/unsubscribed recipients.
+  discard_on Postmark::InactiveRecipientError
 end
