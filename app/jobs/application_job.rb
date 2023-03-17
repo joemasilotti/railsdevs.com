@@ -5,10 +5,6 @@ class ApplicationJob < ActiveJob::Base
   # Most jobs are safe to ignore if the underlying records are no longer available
   discard_on ActiveJob::DeserializationError
 
-  # Handle Postmark::InactiveRecipientError and don't retry
-  rescue_from(Postmark::InactiveRecipientError) do |exception|
-    Rails.logger.warn "Inactive recipient error: #{exception.message}"
-    # Don't retry this job
-    discard
-  end
+  # Don't retry emails for invalid/unsubscribed recipients.
+  discard_on Postmark::InactiveRecipientError
 end
