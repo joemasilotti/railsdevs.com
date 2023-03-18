@@ -42,9 +42,9 @@ class MessagesController < ApplicationController
   end
 
   def unarchive_conversation_for_receiver
-    if sender.instance_of? Developer
+    if sender.instance_of?(Developer) && conversation.business_archived_at.present?
       conversation.update(business_archived_at: nil)
-    else
+    elsif sender.instance_of?(Business) && conversation.developer_archived_at.present?
       conversation.update(developer_archived_at: nil)
     end
   end
