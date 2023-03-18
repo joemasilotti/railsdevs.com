@@ -1,4 +1,4 @@
-<%= tag.picture do %>
-  <%= tag.source media: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx)", srcset: avatar_image_2x_url %>
+<%= tag.picture "data-file-upload-target": "picture" do %>
+  <%= tag.source media: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx)", srcset: avatar_image_2x_url, "data-file-upload-target": "source" %>
   <%= image_tag avatar_image_url, alt: "#{name} avatar", data:, class: classes %>
 <% end %>

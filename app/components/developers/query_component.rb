@@ -64,8 +64,20 @@ module Developers
       Developer::BADGES.map { |badge| [badge, badge.to_s.humanize] }
     end
 
+    def specialty_selected?(id)
+      query.specialty_ids.include?(id.to_s)
+    end
+
+    def specialties
+      Specialty.visible
+    end
+
     def include_not_interested?
       query.include_not_interested
+    end
+
+    def collapse_specialties?
+      query.specialty_ids.empty?
     end
 
     def collapse_location?

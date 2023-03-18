@@ -1,10 +1,10 @@
-<%= tag.div class: class_names("relative", "border-b": highlight?) do %>
-  <%= link_to developer, class: class_names("bg-white hover:bg-gray-50 px-4 py-6 sm:p-6 flex space-x-4 sm:space-x-8", "border-l-4 border-blue-400": highlight?) do %>
+<%= tag.div class: "relative border-b border-gray-100" do %>
+  <%= link_to developer, class: class_names("bg-white hover:bg-gray-50 py-6 px-8 flex space-x-4 sm:space-x-8", "border-l-4 border-blue-400": highlight?) do %>
     <div class="shrink-0">
       <%= render AvatarComponent.new(avatarable: developer, variant: :medium) %>
     </div>
 
-    <div class="self-start flex-1 min-w-0 space-y-3">
+    <div class="self-start flex-1 min-w-0 space-y-4">
       <div class="flex items-baseline">
         <h2 class="text-lg sm:text-xl font-medium text-gray-900 line-clamp-2 break-word" title="<%= hero %>">
           <%= hero %>
@@ -15,7 +15,10 @@
         </div>
       </div>
 
-      <%= render Developers::BadgesComponent.new(developer) %>
+      <div class="space-y-2">
+        <%= render Developers::BadgesComponent.new(developer) %>
+        <%= render Developers::SpecialtiesComponent.new(developer.specialties) %>
+      </div>
 
       <div class="text-sm sm:text-base text-gray-700 space-y-4">
         <p class="line-clamp-3 break-words"><%= developer.plain_text_bio %></p>

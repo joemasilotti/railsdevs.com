@@ -1,0 +1,16 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(@specialty.name) %>
+  <%= render Admin::BreadcrumbComponent.new(t(".developer_specialty"), admin_specialties_path) %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <% if @specialty.developers.any? %>
+      <%= render Admin::ListComponent.new do |list| %>
+        <% @specialty.developers.each do |developer| %>
+          <% list.with_item developer.name, developer.user.email, path: developer_path(developer) %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= render EmptyStateComponent.new(t(".no_developers"), "user_group") %>
+    <% end %>
+  <% end %>
+<% end %>

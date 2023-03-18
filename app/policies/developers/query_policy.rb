@@ -24,7 +24,10 @@ module Developers
     end
 
     def paywalled_attributes
-      [:search_query]
+      [
+        :search_query,
+        specialty_ids: []
+      ]
     end
   end
 end

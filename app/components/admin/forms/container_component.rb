@@ -6,7 +6,7 @@ module Admin
 
       attr_reader :title, :description
 
-      def initialize(title, description)
+      def initialize(title, description = nil)
         @title = title
         @description = description
       end

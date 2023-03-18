@@ -17,7 +17,7 @@ es:
         locked_at: Fecha de bloqueo
         remember_created_at: Fecha de 'Recordarme'
         reset_password_sent_at: Fecha de envío de código para contraseña
-        reset_password_token: Código para reestablecer contraseña
+        reset_password_token: Código para restablecer contraseña
         sign_in_count: Cantidad de ingresos
         unconfirmed_email: Correo electrónico no confirmado
         unlock_token: Código de desbloqueo
@@ -77,10 +77,10 @@ es:
         new_password: Nueva contraseña
       new:
         forgot_your_password: "¿Ha olvidado su contraseña?"
-        send_me_reset_password_instructions: Envíeme las instrucciones para reestablecer mi contraseña
-      no_token: No puedes acceder a esta página si no es a través de un enlace para reestablecer tu contraseña. Si has llegado hasta aquí desde el correo electrónico para reestablecer tu contraseña, por favor asegúrate de que la URL introducida está completa.
-      send_instructions: Recibirás un correo con instrucciones sobre cómo resetear tu contraseña en unos pocos minutos.
-      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo reestablecer tu contraseña en tu bandeja de entrada.
+        send_me_reset_password_instructions: Envíeme las instrucciones para restablecer mi contraseña
+      no_token: No puedes acceder a esta página si no es a través de un enlace para restablecer tu contraseña. Si has llegado hasta aquí desde el correo electrónico para restablecer tu contraseña, por favor asegúrate de que la URL introducida está completa.
+      send_instructions: Recibirás un correo con instrucciones sobre cómo restablecer tu contraseña en unos pocos minutos.
+      send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás un correo con instrucciones sobre cómo restablecer tu contraseña en tu bandeja de entrada.
       updated: Se ha cambiado tu contraseña. Ya iniciaste sesión.
       updated_not_active: Tu contraseña fue cambiada.
     registrations:
@@ -88,7 +88,7 @@ es:
       edit:
         are_you_sure: "¿Está usted seguro?"
         cancel_my_account: Anular mi cuenta
-        currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmacion de: %{email} '
+        currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmación de: %{email} '
         leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarla
         title: Editar %{resource}
         unhappy: "¿Disconforme?"

@@ -12,7 +12,7 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.title") %></h2>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".profile.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".profile.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -113,8 +113,8 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <div class="md:col-span-1">
-            <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".bio.title") %></h2>
-            <p class="mt-1 text-sm text-gray-500"><%= t(".bio.description") %></p>
+            <%= form.label :bio, class: "text-lg font-medium leading-6 text-gray-900" %>
+            <p class="mt-2 text-sm text-gray-500"><%= t(".bio.description") %></p>
 
             <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".bio.examples.title") %></h4>
             <ul class="text-sm text-gray-500 list-disc list-inside">
@@ -133,10 +133,7 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
             <div class="sm:col-span-6">
-              <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.text_area :bio, rows: 20, class: field_classes(form, :bio) %>
-              </div>
+              <%= form.text_area :bio, rows: 20, class: field_classes(form, :bio) %>
               <p class="mt-2 text-sm text-gray-500"><%= t(".bio.help_text") %></p>
             </div>
           </div>
@@ -144,11 +141,43 @@
       </div>
     </div>
 
+    <% if Feature.enabled?(:developer_specialties) %>
+      <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="md:col-span-1">
+              <%= form.label :specialties, class: "text-lg font-medium leading-6 text-gray-900" %>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.description") %></p>
+              <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.new.before") %> <%= link_to t(".specialties.new.cta"), "mailto:joe@railsdevs.com?subject=#{t(".specialties.new.subject")}", class: "text-gray-700 font-medium underline hover:text-gray-900" %>.</p>
+
+              <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".specialties.note.title") %></h4>
+              <p class="mt-1 text-sm text-gray-500"><%= t(".specialties.note.description") %></p>
+            </div>
+          </div>
+
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <div class="space-y-6">
+              <div class="sm:col-span-6">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name) do |specialty| %>
+                    <div class="flex items-center">
+                      <%= specialty.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                      <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".work_preferences.title") %></h3>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -272,7 +301,7 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".online_presence.title") %></h3>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">

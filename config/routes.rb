@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :impersonate, only: [:create, :destroy]
     resources :conversations, only: :index
+    resources :specialties
     resources :transactions, except: :show
     resources :users, only: [:index]
 
@@ -126,6 +127,9 @@ Rails.application.routes.draw do
     resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
+
+  # TODO: Added temporary route to be updated after business hiring form changes are merged
+  get "business_hiring_form", to: redirect("")
 
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
   get "robots.:format" => "robots#index"
