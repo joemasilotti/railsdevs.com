@@ -1,0 +1,5 @@
+@layer component {
+  .aria-selected\:outline-black[aria-selected="true"] {
+    outline: 2px dotted black;
+  }
+}

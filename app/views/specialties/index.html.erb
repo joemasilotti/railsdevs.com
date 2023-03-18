@@ -1,0 +1,13 @@
+<%= turbo_frame_tag params[:turbo_frame] do %>
+  <ul role="listbox" data-combobox-target="list" data-action="combobox-commit->combobox#commit">
+    <% @specialties.each do |specialty| %>
+      <li>
+        <%= link_to highlight(specialty.name, @query),
+          admin_specialty_path(specialty),
+          id: dom_id(specialty, :search_result),
+          role: "option",
+          class: "aria-selected:outline-black" %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

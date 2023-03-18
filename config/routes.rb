@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource :role, only: :new
 
     resources :businesses, except: :destroy
+    resources :specialties, only: :index
 
     # /notifications/read must come before /notifications/:id.
     resources :read_notifications, only: [:index, :create], path: "/notifications/read"

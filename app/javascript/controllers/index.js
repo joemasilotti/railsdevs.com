@@ -15,8 +15,17 @@ application.register("analytics--page-views", Analytics__PageViewsController)
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 
+import ComboboxController from "./combobox_controller.js"
+application.register("combobox", ComboboxController)
+
+import EnhancementController from "./enhancement_controller.js"
+application.register("enhancement", EnhancementController)
+
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
+
+import Forms__AutosubmitController from "./forms/autosubmit_controller.js"
+application.register("forms--autosubmit", Forms__AutosubmitController)
 
 import Forms__KeyboardSubmitController from "./forms/keyboard_submit_controller.js"
 application.register("forms--keyboard-submit", Forms__KeyboardSubmitController)
