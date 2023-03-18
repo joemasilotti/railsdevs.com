@@ -152,6 +152,37 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, not_recently_active_developer
   end
 
+  test "filtering by response rate badge" do
+    high_response_rate_developer = developers(:prospect)
+    low_response_rate_developer = developers(:one)
+
+    UpdateDeveloperResponseRateJob.perform_now(high_response_rate_developer)
+    UpdateDeveloperResponseRateJob.perform_now(low_response_rate_developer)
+
+    records = DeveloperQuery.new(badges: ["high_response_rate"]).records
+    assert_includes records, high_response_rate_developer
+    refute_includes records, low_response_rate_developer
+  end
+
+  test "filtering by specialties" do
+    turbo = Specialty.create!(name: "Turbo")
+    stimulus = Specialty.create!(name: "Stimulus")
+    react = Specialty.create!(name: "React")
+
+    hotwire_developer = create_developer(specialty_ids: [turbo.id, stimulus.id])
+    turbo_developer = create_developer(specialty_ids: [turbo.id])
+    stimulus_developer = create_developer(specialty_ids: [stimulus.id])
+    react_developer = create_developer(specialty_ids: [react.id])
+    developer = create_developer
+
+    records = DeveloperQuery.new(specialty_ids: [turbo.id, stimulus.id]).records
+    assert_includes records, hotwire_developer
+    assert_includes records, turbo_developer
+    assert_includes records, stimulus_developer
+    refute_includes records, react_developer
+    refute_includes records, developer
+  end
+
   test "filtering developers by their bio or hero does not includes all if business has an active subscription" do
     subscribed_business = users(:subscribed_business)
     loves_oss = create_developer(hero: "I love OSS!")

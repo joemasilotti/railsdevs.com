@@ -159,7 +159,7 @@
             <div class="space-y-6">
               <div class="sm:col-span-6">
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  <%= form.collection_check_boxes(:specialty_ids, Specialty.visible, :id, :name) do |specialty| %>
+                  <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name) do |specialty| %>
                     <div class="flex items-center">
                       <%= specialty.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
                       <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
