@@ -1,17 +1,10 @@
-<%= open_graph_tags title: t(".title") %>
+<%= render partial: "conversations", locals: { title: t(".title"), empty_state_title: t(".empty_state.title"),
+                                              body: t(".empty_state.body"), cta: t(".empty_state.cta"),
+                                              cta_path: developers_path, cta_icon: "search" } %>
 
-<div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-  <% if @conversations.any? %>
-    <% unless turbo_native_app? %>
-      <h1 class="mt-6 text-center text-3xl font-extrabold"><%= t(".title") %></h1>
-    <% end %>
 
-    <ul class="w-full max-w-xl mx-auto rounded-lg overflow-hidden border border-gray-200 divide-y divide-gray-200 mt-8">
-      <%= render @conversations %>
-    </ul>
-  <% else %>
-    <div class="mt-8">
-      <%= render EmptyStateComponent.new(t(".empty_state.title"), "inbox", body: t(".empty_state.body"), cta: t(".empty_state.cta"), cta_path: developers_path, cta_icon: "search") %>
-    </div>
-  <% end %>
-</div>
+<% if @archived_conversations %>
+  <div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">
+    <%= link_to "Archived conversations", conversations_archived_path, class: "text-center underline" %>
+  </div>
+<% end %>
