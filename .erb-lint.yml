@@ -17,6 +17,10 @@ linters:
       require: standard
       inherit_gem:
         standard: config/base.yml
+      Layout/ArgumentAlignment:
+        Enabled: false
+      Layout/FirstArgumentIndentation:
+        Enabled: false
       Layout/InitialIndentation:
         Enabled: false
       Layout/TrailingEmptyLines:

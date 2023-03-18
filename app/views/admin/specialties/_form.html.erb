@@ -1,0 +1,12 @@
+<%= form_with model: [:admin, specialty] do |form| %>
+  <%= render Admin::Forms::ContainerComponent.new(title) do |container| %>
+    <%= render Admin::Forms::FieldComponent.new(form, :name) do |field| %>
+      <% field.with_input_text %>
+    <% end %>
+
+    <% container.with_button_group do %>
+      <%= render Admin::Forms::ButtonLinkComponent.new(t(".cancel"), admin_specialties_path) %>
+      <%= render SubmitButtonComponent.new(button_classes: "ml-3") %>
+    <% end %>
+  <% end %>
+<% end %>

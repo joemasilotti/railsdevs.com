@@ -1,0 +1,9 @@
+<% if specialties.any? %>
+  <div class="flex flex-wrap items-start">
+    <% specialties.each do |specialty| %>
+      <div class="mr-4 mb-2">
+        <%= render BadgeComponent.new(specialty.name, color: "gray") %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,7 +1,7 @@
 <div data-controller="page-scroll">
   <%= form.label :body, t(".help"), class: "block text-sm font-medium text-gray-700" %>
   <div class="mt-1">
-    <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->form#submit"}, class: field_classes(form, :body) %>
+    <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->forms--keyboard-submit#submit"}, class: field_classes(form, :body) %>
   </div>
 
   <% if local_assigns[:terms] %>
@@ -18,7 +18,7 @@
           <% end %>
         </span>
       </div>
-      <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>
+      <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending"), data: {"forms--keyboard-submit-target": "submit"}) %>
     </div>
   <% else %>
     <div class="py-4 flex space-x-4 justify-end items-center">
@@ -29,7 +29,7 @@
           <span class="font-mono"> + Enter</span>
         </div>
       </div>
-      <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending")) %>
+      <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".sending"), data: {"forms--keyboard-submit-target": "submit"}) %>
     </div>
   <% end %>
 </div>

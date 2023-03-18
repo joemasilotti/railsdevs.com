@@ -3,17 +3,15 @@ class Developer < ApplicationRecord
   include Avatarable
   include Developers::Notifications
   include Developers::RichText
+  include HasBadges
   include HasSocialProfiles
+  include HasSpecialties
   include Hashid::Rails
   include PersonName
   include PgSearch::Model
   include PublicProfile
 
   FEATURE_LENGTH = 1.week
-  RECENTLY_ACTIVE_LENGTH = 1.week
-
-  # TODO #758: Cache developer badges to a new model
-  BADGES = %i[recently_active source_contributor].freeze
 
   enum search_status: {
     actively_looking: 1,
@@ -75,8 +73,6 @@ class Developer < ApplicationRecord
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
-  scope :recently_active, -> { where("developers.updated_at >= ?", RECENTLY_ACTIVE_LENGTH.ago) }
-  scope :source_contributor, -> { where("source_contributor >= ?", true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
 
   def visible?
@@ -110,9 +106,5 @@ class Developer < ApplicationRecord
 
   def featured?
     featured_at? && featured_at >= FEATURE_LENGTH.ago
-  end
-
-  def recently_active?
-    updated_at >= RECENTLY_ACTIVE_LENGTH.ago
   end
 end

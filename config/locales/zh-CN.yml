@@ -172,7 +172,6 @@ zh-CN:
           unique: 你擅长的技能
         help_text: 涉及暴露个人身份的信息将被删除。
         markdown: Markdown 是支持的，但不能使用链接和图片。
-        title: 简介
       creating: 创建中...
       loading: 加载中...
       notifications:

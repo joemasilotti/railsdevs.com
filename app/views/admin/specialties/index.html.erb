@@ -1,0 +1,33 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
+
+  <%= render Admin::ContentComponent.new(width: "max-w-xl") do %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header t(".name") %>
+      <% table.with_header t(".developers"), align: :right %>
+      <% table.with_header align: :right do %>
+        <span class="sr-only"><%= t(".actions") %></span>
+        <%= render Admin::IconButtonComponent.new(t(".add"), new_admin_specialty_path, icon: "plus_sm") %>
+      <% end %>
+
+      <% @specialties.each do |specialty| %>
+        <% table.with_row do |row| %>
+          <% row.with_cell primary: true do %>
+            <%= render Admin::BasicLinkComponent.new(specialty.name, admin_specialty_path(specialty)) %>
+          <% end %>
+
+          <% row.with_cell align: :right do %>
+            <%= specialty.developers_count %>
+          <% end %>
+
+          <% row.with_cell align: :right do %>
+            <%= render Admin::BasicLinkGroupComponent.new do |group| %>
+              <% group.with_link t(".edit"), edit_admin_specialty_path(specialty) %>
+              <% group.with_link t(".delete"), admin_specialty_path(specialty), data: {turbo_method: :delete, turbo_confirm: t(".delete_confirmation")} %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
