@@ -64,6 +64,10 @@ class Conversation < ApplicationRecord
     update(user_with_unread_messages: nil) if unread_messages_for?(user)
   end
 
+  def unarchived_by?(user)
+    user.business && business_archived_at.nil? || user.developer && developer_archived_at.nil?
+  end
+
   def unread_messages_for?(user)
     user_with_unread_messages == user
   end
