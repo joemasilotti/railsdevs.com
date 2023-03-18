@@ -112,6 +112,7 @@ ignore_missing:
 ## Consider these keys used:
 ignore_unused:
 - 'activerecord.attributes.*' # 46 unused keys
+- 'activerecord.errors.models.*' # 1 unused key
 - 'errors.messages.*' # 8
 - '{devise}.*' #74
 

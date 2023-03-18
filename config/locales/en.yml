@@ -42,6 +42,10 @@ en:
         remember_me: Remember me
     errors:
       models:
+        developer:
+          attributes:
+            specialties:
+              too_long: is limited to 5
         location:
           invalid_coordinates: can't be found
     models:
@@ -128,6 +132,29 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    specialties:
+      create:
+        created: Developer specialty created.
+      edit:
+        title: Edit developer specialty
+      form:
+        cancel: Cancel
+      index:
+        actions: Actions
+        add: Add specialty
+        delete: Delete
+        delete_confirmation: Are you sure you want to delete this specialty?
+        developers: Developers
+        edit: Edit
+        name: Name
+        title: Developer specialties
+      new:
+        title: New developer specialty
+      show:
+        developer_specialty: Developer specialty
+        no_developers: No developers with this specialty.
+      update:
+        updated: Developer specialty updated.
     transactions:
       create:
         created: Transaction created
@@ -307,7 +334,6 @@ en:
           unique: Your unique skills that make you awesome
         help_text: Personally identifiable information will be removed.
         markdown: Markdown is supported but links and images are removed.
-        title: Bio
       creating: Creating...
       loading: Loading...
       notifications:
@@ -342,6 +368,15 @@ en:
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
+      specialties:
+        description: Choose up to 5 specialties that set you apart from other developers. Pick ones that you are passionate about - you don't need to be an expert.
+        new:
+          before: If you don't see a specialty that matches your unique skills you can
+          cta: suggest a new specialty
+          subject: New developer specialty suggestion
+        note:
+          description: This feature is in beta and might be changed. Add your specialties ASAP - businesses will be able to filter by them soon.
+          title: BETA
       title: Your developer profile
       updating: Updating...
       work_preferences:
@@ -384,11 +419,13 @@ en:
       filters: Filters
       include_not_interested: Include developers not currently interested
       paywalled_search:
-        title: Text search requires a paid account
+        title: Text search requires a paid account.
       role_level:
         title: Role level
       search_query_label: Search profiles
       search_query_placeholder: Hotwire, React, Heroku, etc.
+      specialties:
+        title: Specialties
       timezone:
         title: Timezone
       title: Developer filters
@@ -514,6 +551,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      specialties: Developer specialties
       transactions: Transactions
       users: Users
       view_conversations: View conversations

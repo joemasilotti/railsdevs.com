@@ -18,8 +18,8 @@ application.register("clipboard", ClipboardController)
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
-import FormController from "./form_controller.js"
-application.register("form", FormController)
+import Forms__KeyboardSubmitController from "./forms/keyboard_submit_controller.js"
+application.register("forms--keyboard-submit", Forms__KeyboardSubmitController)
 
 import KeyboardShortcutController from "./keyboard_shortcut_controller.js"
 application.register("keyboard-shortcut", KeyboardShortcutController)

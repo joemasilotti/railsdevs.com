@@ -9,6 +9,7 @@ class DeveloperQuery
     @options = options
     @items_per_page = options.delete(:items_per_page)
     @sort = options.delete(:sort)
+    @specialty_ids = options.delete(:specialty_ids)
     @countries = options.delete(:countries)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
@@ -47,6 +48,10 @@ class DeveloperQuery
     @countries.to_a.reject(&:blank?)
   end
 
+  def specialty_ids
+    @specialty_ids.to_a.reject(&:blank?)
+  end
+
   def utc_offsets
     @utc_offsets.to_a.reject(&:blank?).map(&:to_f)
   end
@@ -74,7 +79,7 @@ class DeveloperQuery
   private
 
   def query_and_paginate
-    @_records = Developer.includes(:role_type).with_attached_avatar.visible
+    @_records = Developer.includes(:role_type, :specialties).with_attached_avatar.visible
     sort_records
     country_filter_records
     utc_offset_filter_records
@@ -83,6 +88,7 @@ class DeveloperQuery
     search_status_filter_records
     search_query_filter_records
     badges_filter_records
+    specialty_filter_records
     @pagy, @records = build_pagy(@_records, items: items_per_page)
   end
 
@@ -97,6 +103,7 @@ class DeveloperQuery
       search_query.blank? &&
       countries.blank? &&
       badges.blank? &&
+      specialty_ids.empty? &&
       !include_not_interested
   end
 
@@ -106,7 +113,15 @@ class DeveloperQuery
         @_records.merge!(Developer.recently_active)
       elsif badge == :source_contributor
         @_records.merge!(Developer.source_contributor)
+      elsif badge == :high_response_rate
+        @_records.merge!(Developer.high_response_rate)
       end
+    end
+  end
+
+  def specialty_filter_records
+    if specialty_ids.any?
+      @_records.merge!(Developer.left_outer_joins(:specialties).where(specialties: {id: specialty_ids}))
     end
   end
 

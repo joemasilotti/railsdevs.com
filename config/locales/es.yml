@@ -112,7 +112,6 @@ es:
     form:
       bio:
         help_text: Escribe algunas oraciones sobre ti.
-        title: Bio
       creating: Creando...
       online_presence:
         help_text: "¿Dónde puede la gente aprender más sobre ti y tu trabajo?"
