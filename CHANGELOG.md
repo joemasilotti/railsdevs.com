@@ -4,7 +4,8 @@
 
 ### March
 
-* March 3 - Added business new hire forms and admin new hire forms
+* March 3 - Added business new hire forms and admin new hire forms #775
+  @RomanTurner
 * March 3 - Upgrade Devise to v4.9.0 to support hotwire turbo integration #786 @sarvaiyanidhi
 * March 1 - Add a badge for developers with a high response rate #774 @fig
 
