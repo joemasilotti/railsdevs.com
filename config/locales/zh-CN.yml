@@ -48,8 +48,6 @@ zh-CN:
         started: 已开始
         title: 对话
         view: 查看
-      archived:
-        title: 存档对话
     developers:
       invisiblizes:
         create:
@@ -107,7 +105,7 @@ zh-CN:
         legend: 开发者消息通知
         values:
           daily: 每天
-          "no": 从不
+          'no': 从不
           weekly: 每周
       loading: 加载中...
       notifications:
@@ -290,7 +288,7 @@ zh-CN:
       subtitle_2: 帮助独立开发者为他们的下一份工作做好准备
       subtitle_3: 坐等公司与你联系，不用再去招聘网站搜寻。
       title_1: 面向 Rails 开发人员的工作台
-      title_2: ""
+      title_2: ''
       title_og: Ruby on Rails 开发人员的工作台
       turbo_native_title: RailsDevs
   impersonating_banner_component:

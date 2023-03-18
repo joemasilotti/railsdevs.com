@@ -80,8 +80,6 @@ en:
         started: Started
         title: Conversations
         view: View
-      archived:
-        title: Archived Conversations
     developers:
       invisiblizes:
         create:
@@ -194,7 +192,7 @@ en:
         legend: Developer notifications
         values:
           daily: Daily
-          "no": Never
+          'no': Never
           weekly: Weekly
       loading: Loading...
       notifications:
@@ -206,7 +204,7 @@ en:
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
-      body: "Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: "
+      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
       subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
@@ -243,6 +241,11 @@ en:
       with: with
   conversations:
     ago: ago
+    archived:
+      empty_state:
+        body: Archived conversations will show up here.
+        title: No conversations
+      title: Archived Conversations
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -257,11 +260,6 @@ en:
       og_title: Conversation with %{with}
       title: Conversation
       with: with
-    archived:
-      title: Archived Conversations
-      empty_state:
-        title: No conversations
-        body: Archived conversations will show up here.
   date:
     formats:
       month_year: "%B %Y"
@@ -717,7 +715,7 @@ en:
     billion: B
     million: M
     thousand: K
-    unit: ""
+    unit: ''
   submit_button_component:
     save: Save
     saving: Saving...

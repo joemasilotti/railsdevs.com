@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_conversation, only: %i(show set_status)
+  before_action :set_conversation, only: %i[show set_status]
 
   def index
     @conversations = load_conversation("unarchived")

@@ -1,7 +1,4 @@
-<%= render partial: "conversations", locals: { title: t(".title"), empty_state_title: t(".empty_state.title"),
-                                              body: t(".empty_state.body"), cta: t(".empty_state.cta"),
-                                              cta_path: developers_path, cta_icon: "search" } %>
-
+<%= render partial: "conversations", locals: {conversations: @conversations, title: t(".title"), empty_state_title: t(".empty_state.title"), body: t(".empty_state.body"), cta: t(".empty_state.cta"), cta_path: developers_path, cta_icon: "search"} %>
 
 <% if @archived_any %>
   <div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">

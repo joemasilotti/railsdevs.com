@@ -65,8 +65,6 @@ fr:
           blocked: Bloquée
           no_blocked_conversations: Pas de conversation bloquée
           title: Conversations bloquées
-        archived:
-          title: Conversations archivées
       index:
         business: Entreprise
         conversations: " : conversations"
@@ -236,6 +234,11 @@ fr:
       with: avec
   conversations:
     ago: auparavant
+    archived:
+      empty_state:
+        body: Les conversations archivées s'afficheront ici.
+        title: Pas de conversation
+      title: Conversations archivées
     index:
       empty_state:
         body: Commencez par trouver un développeur à qui envoyer un message.
@@ -250,11 +253,6 @@ fr:
       og_title: Conversation avec %{with}
       title: Conversation
       with: avec
-    archived:
-      title: Conversations archivées
-      empty_state:
-        title: Pas de conversation
-        body: Les conversations archivées s'afficheront ici.
   date:
     formats:
       month_year: "%B %Y"

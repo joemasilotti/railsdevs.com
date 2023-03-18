@@ -74,7 +74,7 @@ pt-BR:
         legend: Notificações de desenvolvedores
         values:
           daily: Diariamente
-          "no": Nunca
+          'no': Nunca
           weekly: Semanalmente
       notifications:
         title: Notificações por E-mail
@@ -91,6 +91,11 @@ pt-BR:
       title: Iniciar uma conversa
       with: com
   conversations:
+    archived:
+      empty_state:
+        body: As conversas arquivadas aparecerão aqui.
+        title: sem conversa
+      title: Conversas arquivadas
     index:
       empty_state:
         body: Comece buscando um desenvolvedor para enviar uma mensagem.
@@ -101,11 +106,6 @@ pt-BR:
       flag: Sinalizar essa conversa
       title: Conversa
       with: com
-    archived:
-      title: Conversas arquivadas
-      empty_state:
-        title: sem conversa
-        body: As conversas arquivadas aparecerão aqui.
   date:
     formats:
       month_year: "%B / %Y"
@@ -334,7 +334,7 @@ pt-BR:
     billion: B
     million: M
     thousand: K
-    unit: ""
+    unit: ''
   users:
     paywalled_component:
       description: Informações somente disponível com uma assinatura empresarial.
