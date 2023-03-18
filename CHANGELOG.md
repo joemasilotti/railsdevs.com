@@ -4,8 +4,13 @@
 
 ### March
 
-* March 3 - Added business new hire forms and admin new hire forms #775
-  @RomanTurner
+* March 18 - Add developer specialties #803
+* March 16 - Don't retry emails for invalid/unsubscribed recipients #798 @zzJZzz
+* March 15 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
+* March 10 - Automate subscriber cancellation email #795 @sarvaiyanidhi
+* March 8 - Add a tooltip to replied and email headers on the admin conversations dashboard #796 @franlocus
+* March 7 - Automate subscriber welcome email #794 @duncantmiller
+* March 3 - Added business new hire forms and admin new hire forms #775 @RomanTurner
 * March 3 - Upgrade Devise to v4.9.0 to support hotwire turbo integration #786 @sarvaiyanidhi
 * March 1 - Add a badge for developers with a high response rate #774 @fig
 
