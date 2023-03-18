@@ -557,7 +557,7 @@ en:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
       new_hire_form_notification:
-        title: "%{business} has hired a developer"
+        title: "%{business} hired a developer"
       new_hired_form_notification:
         title: "%{developer} requested a celebration package"
       potential_hire_notification:
