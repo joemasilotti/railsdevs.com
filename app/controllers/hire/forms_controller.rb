@@ -38,7 +38,7 @@ module Hire
         :start_date,
         :employment_type,
         :feedback
-      ).merge(business: current_user.business)
+      ).merge(business: business)
     end
   end
 end
