@@ -13,6 +13,10 @@ class Conversation < ApplicationRecord
 
   scope :blocked, -> { where.not(developer_blocked_at: nil).or(Conversation.where.not(business_blocked_at: nil)) }
   scope :visible, -> { where(developer_blocked_at: nil, business_blocked_at: nil) }
+  scope :archived_by_business, -> { where.not(business_archived_at: nil).order(business_archived_at: :desc) }
+  scope :unarchived_by_business, -> { where(business_archived_at: nil).order(updated_at: :desc) }
+  scope :archived_by_developer, -> { where.not(developer_archived_at: nil).order(developer_archived_at: :desc) }
+  scope :unarchived_by_developer, -> { where(developer_archived_at: nil).order(updated_at: :desc) }
 
   def self.find_by_inbound_email_token!(token)
     where("lower(inbound_email_token) = ?", token).first!
