@@ -48,6 +48,8 @@ es:
       blocks:
         index:
           title: Conversaciones bloqueadas
+        archived:
+          title: Conversaciones archivadas
     users:
       index:
         impersonate: Ver como
@@ -71,7 +73,7 @@ es:
         legend: Notificaciones de desarrolladores
         values:
           daily: Diario
-          'no': Nunca
+          "no": Nunca
           weekly: Semanal
       notifications:
         title: Notificaciones por correo electrónico
@@ -98,6 +100,11 @@ es:
       flag: Marcar esta conversación
       title: Conversación
       with: con
+    archived:
+      title: Conversaciones archivadas
+      empty_state:
+        title: sin conversación
+        body: Las conversaciones archivadas se mostrarán aquí.
   developers:
     availability_component:
       in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>

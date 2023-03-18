@@ -65,6 +65,8 @@ fr:
           blocked: Bloquée
           no_blocked_conversations: Pas de conversation bloquée
           title: Conversations bloquées
+        archived:
+          title: Conversations archivées
       index:
         business: Entreprise
         conversations: " : conversations"
@@ -185,7 +187,7 @@ fr:
         legend: Notifications de nouveaux candidats
         values:
           daily: Quotidiennes
-          'no': Jamais
+          "no": Jamais
           weekly: Hebdomadaires
       loading: Chargement...
       notifications:
@@ -197,7 +199,7 @@ fr:
       updating: Mise à jour...
       your_business_profile: Votre profil d'entreprise
     hiring_fee_component:
-      body: 'Salut Joe, j''ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : '
+      body: "Salut Joe, j'ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : "
       cta: Payer les frais d'embauche
       subject: J'ai embauché un candidat via RailsDevs
       title: Avez-vous embauché %{developer}?
@@ -248,6 +250,11 @@ fr:
       og_title: Conversation avec %{with}
       title: Conversation
       with: avec
+    archived:
+      title: Conversations archivées
+      empty_state:
+        title: Pas de conversation
+        body: Les conversations archivées s'afficheront ici.
   date:
     formats:
       month_year: "%B %Y"
@@ -687,7 +694,7 @@ fr:
     billion: B
     million: M
     thousand: K
-    unit: ''
+    unit: ""
   submit_button_component:
     save: Sauvegarder
     saving: Sauvegarde...
