@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = load_conversation("unarchived")
-    @archived_conversations = load_conversation("archived").exists?
+    @archived_any = load_conversation("archived").exists?
   end
 
   def show
@@ -22,7 +22,7 @@ class ConversationsController < ApplicationController
     if unarchived?
       archive_it
       @conversations = load_conversation("unarchived")
-      @archived_conversations = load_conversation("archived")
+      @archived_any = load_conversation("archived").exists?
       render turbo_stream:
         turbo_stream.update("conversations", template: "conversations/index")
     else

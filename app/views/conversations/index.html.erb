@@ -3,7 +3,7 @@
                                               cta_path: developers_path, cta_icon: "search" } %>
 
 
-<% if @archived_conversations %>
+<% if @archived_any %>
   <div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">
     <%= link_to "Archived conversations", conversations_archived_path, class: "text-center underline" %>
   </div>
