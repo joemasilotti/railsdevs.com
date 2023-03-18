@@ -140,10 +140,13 @@ en:
       form:
         cancel: Cancel
       index:
+        actions: Actions
         add: Add specialty
         delete: Delete
         delete_confirmation: Are you sure you want to delete this specialty?
+        developers: Developers
         edit: Edit
+        name: Name
         title: Developer specialties
       new:
         title: New developer specialty

@@ -3,10 +3,10 @@
 
   <%= render Admin::ContentComponent.new(width: "max-w-xl") do %>
     <%= render Admin::Tables::TableComponent.new do |table| %>
-      <% table.with_header "Name" %>
-      <% table.with_header "Developers", align: :right %>
+      <% table.with_header t(".name") %>
+      <% table.with_header t(".developers"), align: :right %>
       <% table.with_header align: :right do %>
-        <span class="sr-only">Actions</span>
+        <span class="sr-only"><%= t(".actions") %></span>
         <%= render Admin::IconButtonComponent.new(t(".add"), new_admin_specialty_path, icon: "plus_sm") %>
       <% end %>
 
