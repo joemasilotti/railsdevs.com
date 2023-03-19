@@ -83,6 +83,10 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :businesses
     end
 
+    namespace :businesses do
+      resources :forms, only: [:index, :show]
+    end
+
     resources :developers, only: [] do
       resource :source_contributors, only: %i[create destroy], module: :developers
       resources :conversations, only: :index, controller: :developer_conversations
@@ -91,10 +95,6 @@ Rails.application.routes.draw do
     end
 
     namespace :hired do
-      resources :forms, only: [:index, :show]
-    end
-
-    namespace :hire do
       resources :forms, only: [:index, :show]
     end
 

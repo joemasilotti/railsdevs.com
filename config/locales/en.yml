@@ -60,6 +60,23 @@ en:
         other: Users
   admin:
     businesses:
+      forms:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          billing_address: Billing address
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
       invisiblizes:
         create:
           created: Profile set to invisible.
@@ -91,24 +108,6 @@ en:
     features:
       create:
         created: Profile featured for one week.
-    hire:
-      forms:
-        index:
-          actions: Actions
-          business: Business
-          details: Details
-          developer: Developer
-          employment_type: Employment type
-          start_date: Start date
-          title: Hiring invoice requests
-        show:
-          billing_address: Billing address
-          developer_name: Developer Name
-          employment_type: Employment type
-          feedback: Feedback
-          position: Position
-          start_date: Start date
-          title: Hiring invoice request
     hired:
       forms:
         index:
