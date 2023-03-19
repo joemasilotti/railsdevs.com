@@ -91,11 +91,6 @@ pt-BR:
       title: Iniciar uma conversa
       with: com
   conversations:
-    archived:
-      empty_state:
-        body: As conversas arquivadas aparecerão aqui.
-        title: sem conversa
-      title: Conversas arquivadas
     index:
       empty_state:
         body: Comece buscando um desenvolvedor para enviar uma mensagem.

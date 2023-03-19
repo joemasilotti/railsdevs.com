@@ -185,7 +185,7 @@ fr:
         legend: Notifications de nouveaux candidats
         values:
           daily: Quotidiennes
-          "no": Jamais
+          'no': Jamais
           weekly: Hebdomadaires
       loading: Chargement...
       notifications:
@@ -197,7 +197,7 @@ fr:
       updating: Mise à jour...
       your_business_profile: Votre profil d'entreprise
     hiring_fee_component:
-      body: "Salut Joe, j'ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : "
+      body: 'Salut Joe, j''ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : '
       cta: Payer les frais d'embauche
       subject: J'ai embauché un candidat via RailsDevs
       title: Avez-vous embauché %{developer}?
@@ -234,11 +234,6 @@ fr:
       with: avec
   conversations:
     ago: auparavant
-    archived:
-      empty_state:
-        body: Les conversations archivées s'afficheront ici.
-        title: Pas de conversation
-      title: Conversations archivées
     index:
       empty_state:
         body: Commencez par trouver un développeur à qui envoyer un message.
@@ -691,7 +686,7 @@ fr:
     billion: B
     million: M
     thousand: K
-    unit: ""
+    unit: ''
   submit_button_component:
     save: Sauvegarder
     saving: Sauvegarde...

@@ -88,11 +88,6 @@ es:
       title: Empieza una conversación
       with: con
   conversations:
-    archived:
-      empty_state:
-        body: Las conversaciones archivadas se mostrarán aquí.
-        title: sin conversación
-      title: Conversaciones archivadas
     index:
       empty_state:
         body: Comienza encontrando a desarrolladores para contactar.

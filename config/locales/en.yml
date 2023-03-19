@@ -180,6 +180,12 @@ en:
       search:
         cta: Search
         help: Filter users by name, company, or email
+  archived_conversations:
+    index:
+      empty_state:
+        body: Archived conversations will show up here.
+        title: No conversations
+      title: Archived Conversations
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -282,12 +288,6 @@ en:
       og_title: Conversation with %{with}
       title: Conversation
       with: with
-  archived_conversations:
-    index:
-      empty_state:
-        body: Archived conversations will show up here.
-        title: No conversations
-      title: Archived Conversations
   date:
     formats:
       month_year: "%B %Y"
