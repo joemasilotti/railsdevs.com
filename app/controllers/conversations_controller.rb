@@ -23,13 +23,11 @@ class ConversationsController < ApplicationController
       archive_it
       @conversations = load_conversation("unarchived")
       @archived_any = load_conversation("archived").exists?
-      render turbo_stream:
-        turbo_stream.update("conversations", template: "conversations/index")
+      redirect_to conversations_path
     else
       unarchive_it
       @conversations = load_conversation("archived")
-      render turbo_stream:
-        turbo_stream.update("conversations", template: "conversations/archived")
+      redirect_to conversations_archived_path
     end
   end
 
