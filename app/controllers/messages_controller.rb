@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save_and_notify
-      unarchive_conversation_for_receiver
+      unarchive_conversation
       respond_to do |format|
         format.turbo_stream { @new_message = conversation.messages.build }
         format.html { redirect_to conversation }
@@ -41,12 +41,9 @@ class MessagesController < ApplicationController
     end
   end
 
-  def unarchive_conversation_for_receiver
-    if sender.instance_of?(Developer) && conversation.business_archived_at.present?
-      conversation.update(business_archived_at: nil)
-    elsif sender.instance_of?(Business) && conversation.developer_archived_at.present?
-      conversation.update(developer_archived_at: nil)
-    end
+  def unarchive_conversation
+    conversation.update(business_archived_at: nil) if conversation.business_archived_at.present?
+    conversation.update(developer_archived_at: nil) if conversation.developer_archived_at.present?
   end
 
   def message_params
