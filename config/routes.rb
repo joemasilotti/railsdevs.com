@@ -94,7 +94,7 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :developers
     end
 
-    namespace :hired do
+    namespace :developers do
       resources :forms, only: [:index, :show]
     end
 

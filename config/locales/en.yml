@@ -102,13 +102,6 @@ en:
         title: Conversations
         view: View
     developers:
-      invisiblizes:
-        create:
-          created: Profile set to invisible.
-    features:
-      create:
-        created: Profile featured for one week.
-    hired:
       forms:
         index:
           actions: Actions
@@ -126,6 +119,12 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
+    features:
+      create:
+        created: Profile featured for one week.
     hiring_agreements:
       terms:
         create:
