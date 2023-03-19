@@ -297,7 +297,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_042319) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at"
+    t.datetime "deleted_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -334,8 +334,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_042319) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
