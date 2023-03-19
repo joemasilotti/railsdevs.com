@@ -22,8 +22,8 @@ Rails.application.routes.draw do
       resources :events, only: :show
     end
 
-    get "conversations/archived", to: "conversations#archived"
-    patch "conversation/:id/set_status", to: "conversations#set_status", as: "set_status"
+    resources :archived_conversations, only: %i[index update], path: "/conversations/archived"
+
     resources :conversations, only: %i[index show] do
       resource :block, only: %i[new create]
       resources :messages, only: :create

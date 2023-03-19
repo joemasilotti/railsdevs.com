@@ -268,11 +268,6 @@ en:
       with: with
   conversations:
     ago: ago
-    archived:
-      empty_state:
-        body: Archived conversations will show up here.
-        title: No conversations
-      title: Archived Conversations
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -287,6 +282,12 @@ en:
       og_title: Conversation with %{with}
       title: Conversation
       with: with
+  archived_conversations:
+    index:
+      empty_state:
+        body: Archived conversations will show up here.
+        title: No conversations
+      title: Archived Conversations
   date:
     formats:
       month_year: "%B %Y"
