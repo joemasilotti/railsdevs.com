@@ -11,7 +11,8 @@ module Developers
     end
 
     def country_selected?(country_pair)
-      query.countries.include?(country_pair.first)
+      countries = query.query_item_builder.countries_query_item.countries
+      countries.include?(country_pair.first)
     end
 
     def top_countries
@@ -81,12 +82,12 @@ module Developers
     end
 
     def collapse_location?
-      query.countries.empty?
+      query.query_item_builder.countries_query_item.countries.empty?
     end
 
     def collapse_all_locations?
       @collapse_all_locations ||=
-        (Location.not_top_countries & query.countries).none?
+        (Location.not_top_countries & query.query_item_builder.countries_query_item.countries).none?
     end
 
     def collapse_timezone?

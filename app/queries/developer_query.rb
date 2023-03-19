@@ -5,12 +5,12 @@ class DeveloperQuery
 
   attr_reader :options
 
-  def initialize(options = {})
+  attr_reader :query_item_builder, :query_items
+
+  def initialize(options = {}, query_item_builder = Developers::QueryItemBuilder.new)
     @options = options
     @items_per_page = options.delete(:items_per_page)
-    @sort = options.delete(:sort)
     @specialty_ids = options.delete(:specialty_ids)
-    @countries = options.delete(:countries)
     @utc_offsets = options.delete(:utc_offsets)
     @role_types = options.delete(:role_types)
     @role_levels = options.delete(:role_levels)
@@ -18,10 +18,16 @@ class DeveloperQuery
     @include_not_interested = options.delete(:include_not_interested)
     @search_query = options.delete(:search_query)
     @user = options.delete(:user)
+
+    @query_item_builder = query_item_builder
+    @query_items = query_item_builder.build_query_items
   end
 
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:, badges:}
+    @filters = { utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, badges: }
+    query_items.each do |query_item|
+      @filters.merge!(query_item.type)
+    end
   end
 
   def pagy
@@ -38,14 +44,6 @@ class DeveloperQuery
     else
       Developer.none
     end
-  end
-
-  def sort
-    @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
-  end
-
-  def countries
-    @countries.to_a.reject(&:blank?)
   end
 
   def specialty_ids
@@ -80,8 +78,11 @@ class DeveloperQuery
 
   def query_and_paginate
     @_records = Developer.includes(:role_type, :specialties).with_attached_avatar.visible
-    sort_records
-    country_filter_records
+
+    query_items.each do |query_item|
+      @_records.merge!(query_item.query) if query_item.query.present?
+    end
+
     utc_offset_filter_records
     role_type_filter_records
     role_level_filter_records
@@ -101,7 +102,7 @@ class DeveloperQuery
       role_types.empty? &&
       role_levels.empty? &&
       search_query.blank? &&
-      countries.blank? &&
+      query_item_builder.countries_query_item.countries.blank? &&
       badges.blank? &&
       specialty_ids.empty? &&
       !include_not_interested
@@ -123,18 +124,6 @@ class DeveloperQuery
     if specialty_ids.any?
       @_records.merge!(Developer.with_specialty_ids(specialty_ids))
     end
-  end
-
-  def sort_records
-    if sort == :availability
-      @_records.merge!(Developer.available_first)
-    else
-      @_records.merge!(Developer.newest_first)
-    end
-  end
-
-  def country_filter_records
-    @_records.merge!(Developer.filter_by_countries(countries)) if countries.any?
   end
 
   def utc_offset_filter_records

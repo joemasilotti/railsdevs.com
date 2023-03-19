@@ -55,8 +55,9 @@ module Developers
     end
 
     def country
-      if query.countries.one?
-        query.countries.first
+      countries = query.query_item_builder.countries_query_item.countries
+      if countries&.one?
+        countries.first
       end
     end
   end

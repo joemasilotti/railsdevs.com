@@ -4,10 +4,11 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = SignificantFigure.new(Developer.visible.count).rounded
-    @query = DeveloperQuery.new(permitted_attributes([:developers, :query]).merge(user: current_user))
+    permitted_filter_options = permitted_attributes([:developers, :query]).merge(user: current_user)
+    query_item_builder = Developers::QueryItemBuilder.new(permitted_filter_options)
+    @query = DeveloperQuery.new(permitted_filter_options, query_item_builder)
     @meta = Developers::Meta.new(query: @query, count: @developers_count)
     Analytics::SearchQuery.create!(permitted_attributes([:developers, :query]))
-
     paywall = Developers::PaywalledSearchResults.new(user: current_user, page: @query.pagy.page)
     redirect_to developers_path if paywall.unauthorized_page?
     @paywall_results = paywall.show_paywall?(@query.pagy.count)
