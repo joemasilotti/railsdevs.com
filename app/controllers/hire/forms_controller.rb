@@ -8,7 +8,7 @@ module Hire
     end
 
     def create
-      @form = Business::BusinessForm.new(form_params)
+      @form = Businesses::BusinessForm.new(form_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else

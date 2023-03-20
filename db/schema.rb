@@ -73,6 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_212906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_business_forms_on_business_id"
+  end
 
   create_table "analytics_search_queries", force: :cascade do |t|
     t.string "search_query"
