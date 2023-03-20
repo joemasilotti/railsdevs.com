@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_212906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -73,6 +73,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["business_id"], name: "index_business_forms_on_business_id"
+
+  create_table "analytics_search_queries", force: :cascade do |t|
+    t.string "search_query"
+    t.integer "specialty_ids", default: [], null: false, array: true
+    t.string "badges", default: [], null: false, array: true
+    t.string "role_levels", default: [], null: false, array: true
+    t.string "role_types", default: [], null: false, array: true
+    t.boolean "include_not_interested"
+    t.string "countries", default: [], null: false, array: true
+    t.integer "utc_offsets"
+    t.string "sort"
+    t.integer "page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "businesses", force: :cascade do |t|
