@@ -4,11 +4,11 @@ module Hire
     before_action :require_business!
 
     def new
-      @form = Hire::Form.new(business: current_user.business)
+      @form = Businesses::BusinessForm.new(business: current_user.business)
     end
 
     def create
-      @form = Hire::Form.new(form_params)
+      @form = Business::BusinessForm.new(form_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else

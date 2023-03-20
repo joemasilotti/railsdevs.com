@@ -1,4 +1,4 @@
-business_form:
+one:
   business_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
   billing_address: 123 sample business st
   developer_name: John Doe

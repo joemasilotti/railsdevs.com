@@ -2,11 +2,11 @@ module Admin
   module Businesses
     class FormsController < ApplicationController
       def index
-        @forms = ::Hire::Form.includes(:business).order(created_at: :desc)
+        @forms = ::Businesses::BusinessForm.includes(:business).order(created_at: :desc)
       end
 
       def show
-        @form = ::Hire::Form.find(params[:id])
+        @form = ::Businesses::BusinessForm.find(params[:id])
       end
     end
   end
