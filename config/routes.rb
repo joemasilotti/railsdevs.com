@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       resources :forms, only: [:new, :create], module: :hired
     end
 
-    namespace :hire do
+    namespace :businesses do
       resources :forms, only: [:new, :create]
     end
 

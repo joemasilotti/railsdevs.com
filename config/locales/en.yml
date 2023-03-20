@@ -246,6 +246,18 @@ en:
       something_went_wrong: Something went wrong uploading your image, please try again.
       updating: Updating...
       your_business_profile: Your business profile
+    forms:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        billing_address: Billing address
+        description: Congrats on your new hire!
+        developer_name: Developer's name
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        requesting: Requesting...
+        submit: Submit
+        title: Did you hire through RailsDevs?
     hiring_fee_component:
       body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
@@ -480,19 +492,6 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
-  hire:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        billing_address: Billing address
-        description: Congrats on your new hire!
-        developer_name: Developer's name
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        requesting: Requesting...
-        submit: Submit
-        title: Did you hire through RailsDevs?
   hired:
     forms:
       create:

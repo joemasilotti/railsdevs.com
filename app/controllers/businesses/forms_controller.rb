@@ -1,4 +1,4 @@
-module Hire
+module Businesses
   class FormsController < ApplicationController
     before_action :authenticate_user!
     before_action :require_business!
@@ -30,7 +30,12 @@ module Hire
     end
 
     def form_params
-      params.require(:hire_form).permit(
+      p "**********************"
+      p "**********************"
+      p params
+      p "**********************"
+      p "**********************"
+      params.require(:businesses_business_form).permit(
         :billing_address,
         :developer_name,
         :annual_salary,
