@@ -4,6 +4,7 @@
 
 ### March
 
+* March 19 - Added business new hire forms and admin new hire forms #775 @MikeRayUX
 * March 18 - Add developer specialties #803
 * March 16 - Don't retry emails for invalid/unsubscribed recipients #798 @zzJZzz
 * March 15 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy
