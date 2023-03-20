@@ -121,7 +121,7 @@ class DeveloperQuery
 
   def specialty_filter_records
     if specialty_ids.any?
-      @_records.merge!(Developer.left_outer_joins(:specialties).where(specialties: {id: specialty_ids}))
+      @_records.merge!(Developer.with_specialty_ids(specialty_ids))
     end
   end
 
