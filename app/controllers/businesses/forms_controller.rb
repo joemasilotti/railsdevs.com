@@ -30,11 +30,6 @@ module Businesses
     end
 
     def form_params
-      p "**********************"
-      p "**********************"
-      p params
-      p "**********************"
-      p "**********************"
       params.require(:businesses_business_form).permit(
         :billing_address,
         :developer_name,
