@@ -24,6 +24,7 @@ class Developer < ApplicationRecord
   has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
+  has_many :specialty, through: :specialty_tags
   has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
@@ -43,7 +44,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
-  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialty: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
