@@ -135,20 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_19_212906) do
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
 
-  create_table "forms_businesses_hires", force: :cascade do |t|
-    t.bigint "business_id", null: false
-    t.text "billing_address", null: false
-    t.string "developer_name", null: false
-    t.string "position", null: false
-    t.date "start_date", null: false
-    t.integer "annual_salary", null: false
-    t.integer "employment_type", null: false
-    t.text "feedback"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["business_id"], name: "index_forms_businesses_hires_on_business_id"
-  end
-
   create_table "hired_forms", force: :cascade do |t|
     t.bigint "developer_id", null: false
     t.text "address", null: false
