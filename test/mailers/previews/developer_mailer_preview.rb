@@ -17,8 +17,8 @@ class DeveloperMailerPreview < ActionMailer::Preview
     DeveloperMailer.with(developer: Developer.first).first_message
   end
 
-  def product_feature_update
-    notification = Notification.where(type: Developers::ProductFeatureNotification.to_s).first
-    DeveloperMailer.with(record: notification, recipient: notification.recipient).product_feature_update
+  def product_announcement
+    notification = Notification.where(type: Developers::ProductAnnouncementNotification.to_s).first
+    DeveloperMailer.with(record: notification, recipient: notification.recipient).product_announcement
   end
 end

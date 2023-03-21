@@ -24,8 +24,8 @@ module Developers
       send_stale_profile_notification
     end
 
-    def notify_product_feature_update
-      send_product_feature_notification
+    def send_product_announcement
+      ProductAnnouncementNotification.with(developer: self).deliver_later(user)
     end
 
     private
@@ -58,10 +58,6 @@ module Developers
 
     def send_invisiblize_notification
       InvisiblizeNotification.with(developer: self).deliver_later(user)
-    end
-
-    def send_product_feature_notification
-      ProductFeatureNotification.with(developer: self).deliver_later(user)
     end
   end
 end

@@ -39,7 +39,7 @@ class DeveloperMailer < ApplicationMailer
     )
   end
 
-  def product_feature_update
+  def product_announcement
     @notification = params[:record].to_notification
     recipient = params[:recipient]
     @developer = @notification.developer

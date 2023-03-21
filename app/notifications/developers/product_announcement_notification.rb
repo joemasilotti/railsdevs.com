@@ -1,7 +1,7 @@
 module Developers
-  class ProductFeatureNotification < ApplicationNotification
+  class ProductAnnouncementNotification < ApplicationNotification
     deliver_by :database, if: :deliver_notification?
-    deliver_by :email, mailer: "DeveloperMailer", method: :product_feature_update, if: :deliver_notification?
+    deliver_by :email, mailer: "DeveloperMailer", method: :product_announcement, if: :deliver_notification?
 
     param :developer
 
@@ -18,7 +18,7 @@ module Developers
     end
 
     def url
-      edit_developer_url(developer, anchor: "notifications")
+      edit_developer_url(developer, anchor: "feature_notifications")
     end
 
     def deliver_notification?
