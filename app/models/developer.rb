@@ -74,6 +74,16 @@ class Developer < ApplicationRecord
   scope :newest_first, -> { order(created_at: :desc) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
+  scope :with_specialty_ids, ->(specialty_ids) {
+    where_sql = <<-SQL
+      exists (
+        select 1 from specialty_tags
+        where specialty_tags.specialty_id in (?)
+          and specialty_tags.developer_id = developers.id
+      )
+    SQL
+    where(where_sql, Array.wrap(specialty_ids))
+  }
 
   def visible?
     !invisible?
