@@ -55,10 +55,6 @@ fr:
         one: Utilisateur
         other: Utilisateurs
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: Profil réglé sur invisible.
     conversations:
       blocks:
         index:

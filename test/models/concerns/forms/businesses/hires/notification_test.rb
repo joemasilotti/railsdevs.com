@@ -7,7 +7,7 @@ class Forms::Businesses::Hires::Notifications::NotificationsTest < ActiveSupport
 
   test "sends a notification to the admins" do
     hire_form = Forms::Businesses::Hire.new(form_attributes)
-    assert_sends_notification Admin::NewHireFormNotification, to: users(:admin) do
+    assert_sends_notification Admin::Forms::Businesses::HireNotification, to: users(:admin) do
       assert hire_form.save_and_notify
     end
   end

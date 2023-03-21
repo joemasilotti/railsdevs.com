@@ -50,7 +50,7 @@ class AdminMailer < ApplicationMailer
     mail(to: recipient.email, subject: @notification.title)
   end
 
-  def new_hire_form
+  def forms_businesses_hire
     @notification = params[:record].to_notification
     recipient = params[:recipient]
 

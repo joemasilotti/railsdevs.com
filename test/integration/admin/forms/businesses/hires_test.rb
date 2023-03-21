@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Admin::BusinessFormsTest < ActionDispatch::IntegrationTest
+class Admin::Forms::Businesses::HiresTest < ActionDispatch::IntegrationTest
   setup do
     sign_in users(:admin)
 
@@ -9,7 +9,7 @@ class Admin::BusinessFormsTest < ActionDispatch::IntegrationTest
   end
 
   test "views list of business forms" do
-    get admin_businesses_forms_path
+    get admin_forms_businesses_hires_path
 
     assert_select "a", @form.business.name
     assert_select "a", @form.developer_name
@@ -18,7 +18,7 @@ class Admin::BusinessFormsTest < ActionDispatch::IntegrationTest
   end
 
   test "views a business form" do
-    get admin_businesses_form_path(@form)
+    get admin_forms_businesses_hire_path(@form)
 
     assert_select "a", @form.business.name
     assert_select "a", @form.business.user.email

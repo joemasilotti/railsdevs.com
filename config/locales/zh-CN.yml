@@ -27,10 +27,6 @@ zh-CN:
         location:
           invalid_coordinates: 无法找到
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: 个人资料已设置为隐藏.
     conversations:
       blocks:
         index:

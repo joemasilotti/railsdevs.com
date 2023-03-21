@@ -85,8 +85,10 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :businesses
     end
 
-    namespace :businesses do
-      resources :forms, only: [:index, :show]
+    namespace :forms do
+      namespace :businesses do
+        resources :hires, only: [:index, :show]
+      end
     end
 
     resources :developers, only: [] do

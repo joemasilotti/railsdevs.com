@@ -26,9 +26,9 @@ class AdminMailerPreview < ActionMailer::Preview
     AdminMailer.with(record: notification, recipient: User.first).subscription_change
   end
 
-  def new_hire_form
-    notification = Notification.where(type: Admin::NewHireFormNotification.to_s).first
-    AdminMailer.with(record: notification, recipient: User.first).new_hire_form
+  def forms_businesses_hire
+    notification = Notification.where(type: Admin::Forms::Businesses::HireNotification.to_s).first
+    AdminMailer.with(record: notification, recipient: User.first).forms_businesses_hire
   end
 
   def new_hired_form
