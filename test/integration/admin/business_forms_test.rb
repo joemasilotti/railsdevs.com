@@ -5,7 +5,7 @@ class Admin::BusinessFormsTest < ActionDispatch::IntegrationTest
     sign_in users(:admin)
 
     @business = businesses(:one)
-    @form = businesses_business_forms(:one)
+    @form = forms_businesses_hires(:one)
   end
 
   test "views list of business forms" do

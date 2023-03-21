@@ -4,11 +4,11 @@ module Businesses
     before_action :require_business!
 
     def new
-      @form = Businesses::BusinessForm.new(business: current_user.business)
+      @form = Forms::Businesses::Hire.new(business: current_user.business)
     end
 
     def create
-      @form = Businesses::BusinessForm.new(form_params)
+      @form = Forms::Businesses::Hire.new(form_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else
@@ -30,7 +30,7 @@ module Businesses
     end
 
     def form_params
-      params.require(:businesses_business_form).permit(
+      params.require(:forms_businesses_hire).permit(
         :billing_address,
         :developer_name,
         :annual_salary,
