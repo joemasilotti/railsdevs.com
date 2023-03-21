@@ -78,4 +78,32 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
       developer.notify_as_stale
     end
   end
+
+  test "sends a feature update notification email" do
+    developer = create_developer
+    assert_sends_notification Developers::ProductFeatureNotification, to: developer.user do
+      developer.notify_product_feature_update
+    end
+  end
+
+  test "does not send a feature update notification email if developer opts out" do
+    developer = create_developer(product_feature_notifications: false)
+    refute_sends_notification Developers::ProductFeatureNotification do
+      developer.notify_product_feature_update
+    end
+  end
+
+  test "does not send a feature update notification email if developer is invisible" do
+    developer = Developer.create!(developer_attributes.merge(search_status: :invisible))
+    refute_sends_notification Developers::ProductFeatureNotification do
+      developer.notify_product_feature_update
+    end
+  end
+
+  test "does not send a feature update notification email if developer is not currently interested" do
+    developer = Developer.create!(developer_attributes.merge(search_status: :not_interested))
+    refute_sends_notification Developers::ProductFeatureNotification do
+      developer.notify_product_feature_update
+    end
+  end
 end

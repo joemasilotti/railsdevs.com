@@ -1,0 +1,7 @@
+<p>Hey <%= @developer.first_name %>,</p>
+<p>Joe, founder of <%= link_to "RailsDevs", root_url %> here. We are thrilled to announce the launch of our new Specialty Tag Feature for Developer Skills in RailsDevs. We believe this new feature will greatly enhance your experience as a developer and help you better showcase your skills and expertise.</p>
+<p>With the Specialty Tag Feature, you can now add new tags to your developer profile that are specific to your specialty skills. This will make it easier for potential employers or collaborators to find and connect with you based on your unique skill set.</p>
+<p>To add a new specialty tag, simply go to your developer profile and select your specialty skills. Once you save the tag, it will be visible on your profile and searchable by others.</p>
+<p>Thank you for choosing RailsDevs and we hope you enjoy using the new Specialty Tag Feature for Developer Skills.</p>
+<%= render "shared/signature" %>
+<p><small><%= link_to "Update my email notification settings", edit_developer_url(@developer, anchor: "notifications") %>.</small></p>

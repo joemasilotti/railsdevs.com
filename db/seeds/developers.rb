@@ -82,3 +82,10 @@ developer = SeedsHelper.create_developer!("hired", {
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h)
 })
 developer.update_and_notify(search_status: :not_interested) unless developer.not_interested?
+
+# Feature Update Developer
+developer = SeedsHelper.create_developer!("developer", {
+  hero: "Feature Update developer",
+  location: SeedsHelper.locations[:new_york]
+})
+developer.notify_product_feature_update unless Notification.exists?(type: Developers::ProductFeatureNotification.name)
