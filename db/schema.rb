@@ -130,7 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_182127) do
     t.boolean "source_contributor", default: false, null: false
     t.integer "response_rate", default: 0, null: false
     t.string "mastodon"
-    t.boolean "product_feature_notifications", default: true
+    t.boolean "product_announcement_notifications", default: true
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"

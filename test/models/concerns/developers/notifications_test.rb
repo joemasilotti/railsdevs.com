@@ -87,7 +87,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
   end
 
   test "does not send a feature update notification email if developer opts out" do
-    developer = create_developer(product_feature_notifications: false)
+    developer = create_developer(product_announcement_notifications: false)
     refute_sends_notification Developers::ProductAnnouncementNotification do
       developer.send_product_announcement
     end

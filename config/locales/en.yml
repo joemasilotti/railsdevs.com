@@ -337,8 +337,8 @@ en:
       creating: Creating...
       loading: Loading...
       notifications:
-        product_feature_notifications: Feature announcements
-        product_feature_notifications_help: Keep me up to date with new product features.
+        product_announcement_notifications: Feature announcements
+        product_announcement_notifications_help: Keep me up to date with new product features.
         profile_reminder_notifications: Profile reminders
         profile_reminder_notifications_help: Periodically remind me to update my developer profile.
         title: Email notifications
@@ -580,7 +580,7 @@ en:
     developers:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
-      product_feature_notification:
+      product_announcement_notification:
         email_subject: "[RailsDevs] New feature alert: Developer specialties 🚨"
         title: 'New feature alert: Developer specialties'
       profile_reminder_notification:

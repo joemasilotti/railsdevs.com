@@ -10,11 +10,11 @@ module Developers
     end
 
     def title
-      t("notifications.developers.product_feature_notification.title")
+      t("notifications.developers.product_announcement_notification.title")
     end
 
     def email_subject
-      t("notifications.developers.product_feature_notification.email_subject")
+      t("notifications.developers.product_announcement_notification.email_subject")
     end
 
     def url
@@ -22,7 +22,7 @@ module Developers
     end
 
     def deliver_notification?
-      developer.product_feature_notifications? && developer.visible? && !developer.not_interested?
+      developer.product_announcement_notifications? && developer.visible? && !developer.not_interested?
     end
   end
 end
