@@ -18,7 +18,7 @@ module Developers
     end
 
     def url
-      edit_developer_url(developer, anchor: "feature_notifications")
+      edit_developer_url(developer, anchor: "specialties")
     end
 
     def deliver_notification?

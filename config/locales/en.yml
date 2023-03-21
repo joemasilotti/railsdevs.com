@@ -337,7 +337,7 @@ en:
       creating: Creating...
       loading: Loading...
       notifications:
-        product_feature_notifications: Feature updates
+        product_feature_notifications: Feature announcements
         product_feature_notifications_help: Keep me up to date with new product features.
         profile_reminder_notifications: Profile reminders
         profile_reminder_notifications_help: Periodically remind me to update my developer profile.
