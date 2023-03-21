@@ -2,7 +2,7 @@ require "test_helper"
 
 class Forms::Businesses::Hires::Notifications::NotificationsTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
-  include HireFormsHelper
+  include Forms::Businesses::HiresHelper
   include NotificationsHelper
 
   test "sends a notification to the admins" do
