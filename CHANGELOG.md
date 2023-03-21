@@ -4,6 +4,7 @@
 
 ### March
 
+* March 21 - Announce specialties to developers #817 @sarvaiyanidhi
 * March 20 - Update developer query to not duplicate records with multiple matching specialties #822 @bschrag620
 * March 18 - Add developer specialties #803
 * March 16 - Don't retry emails for invalid/unsubscribed recipients #798 @zzJZzz
