@@ -1,6 +1,6 @@
 one:
   business_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
-  billing_address: 123 sample business st
+  billing_address: 123 Sample Business St.
   developer_name: John Doe
   position: Rails Devleoper
   start_date: <%= Date.current.tomorrow %>
