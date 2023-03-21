@@ -181,6 +181,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     assert_includes records, stimulus_developer
     refute_includes records, react_developer
     refute_includes records, developer
+    assert_equal records.length, records.uniq.length
   end
 
   test "filtering developers by their bio or hero does not includes all if business has an active subscription" do
