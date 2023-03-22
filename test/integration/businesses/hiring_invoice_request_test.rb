@@ -1,7 +1,7 @@
 require "test_helper"
 
 class Businesses::HiringInvoiceRequestsTest < ActionDispatch::IntegrationTest
-  include Admin::Businesses::HiringInvoiceRequestsHelper
+  include Businesses::HiringInvoiceRequestsHelper
 
   setup do
     sign_in users(:business)

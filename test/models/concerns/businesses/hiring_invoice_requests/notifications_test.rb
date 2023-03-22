@@ -4,7 +4,7 @@ module Businesses
   module HiringInvoiceRequests
     class Notification::NotificationsTest < ActiveSupport::TestCase
       include ActionMailer::TestHelper
-      include Admin::Businesses::HiringInvoiceRequestsHelper
+      include Businesses::HiringInvoiceRequestsHelper
       include NotificationsHelper
 
       test "sends a notification to the admins" do
