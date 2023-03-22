@@ -31,9 +31,8 @@ module Messages
     end
 
     def update_developer_response_rate
-      UpdateDeveloperResponseRateJob
-        .set(wait: Rails.application.config.developer_response_grace_period)
-        .perform_later(developer)
+      wait = Rails.application.config.developer_response_grace_period
+      UpdateDeveloperResponseRateJob.set(wait:).perform_later(developer)
     end
 
     def first_message?

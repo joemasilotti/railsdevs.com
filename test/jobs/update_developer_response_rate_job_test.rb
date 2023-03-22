@@ -3,8 +3,6 @@ require "test_helper"
 class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
   include BusinessesHelper
 
-  GRACE_PERIOD = UpdateDeveloperResponseRateJob::GRACE_PERIOD
-
   setup do
     @developer = developers(:one)
     create_answered_message_for(@developer)
@@ -56,7 +54,13 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
   def start_conversation(developer, grace_period_expired)
     business = Business.create!(business_attributes)
     conversation = Conversation.create!(developer:, business:)
-    conversation.update!(created_at: GRACE_PERIOD.ago - 1.hour) if grace_period_expired
+
+    if grace_period_expired
+      grace_period = Rails.application.config.developer_response_grace_period
+      grace_period_start = grace_period.nil? ? Time.current : grace_period.ago
+      conversation.update!(created_at: grace_period_start - 1.hour)
+    end
+
     Message.create!(conversation:, sender: business, body: "First contact")
     conversation
   end

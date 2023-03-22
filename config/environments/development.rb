@@ -85,9 +85,9 @@ Rails.application.configure do
   # Enable local development exposed via ngrok for webhook testing.
   config.hosts << /.*\.ngrok\.io/
 
-  # Set a zero value for developer response grace period in development to allow seeding without leaving
+  # Disable developer response grace period in development to allow seeding without leaving
   # unactioned jobs in the queue.
-  config.developer_response_grace_period = 0.seconds
+  config.developer_response_grace_period = nil
 
   # Disable rate limiting for local development.
   Rack::Attack.enabled = false

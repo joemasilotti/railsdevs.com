@@ -1,8 +1,6 @@
 class UpdateDeveloperResponseRateJob < ApplicationJob
   queue_as :default
 
-  GRACE_PERIOD = Rails.application.config.developer_response_grace_period
-
   def perform(developer)
     conversations = eligable_conversations(developer)
     replied_rate = Stats::Conversation.new(conversations).replied_rate
@@ -17,8 +15,11 @@ class UpdateDeveloperResponseRateJob < ApplicationJob
   private
 
   def eligable_conversations(developer)
+    grace_period = Rails.application.config.developer_response_grace_period
+    grace_period_start = grace_period.nil? ? Time.current : grace_period.ago
+
     developer.conversations.reject do |conversation|
-      conversation.created_at > GRACE_PERIOD.ago && !conversation.developer_replied?
+      conversation.created_at > grace_period_start && !conversation.developer_replied?
     end
   end
 end
