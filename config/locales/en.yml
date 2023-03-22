@@ -591,6 +591,9 @@ en:
       view_notifications: View notifications
   notifications:
     admin:
+      businesses:
+        hiring_invoice_request_notification:
+          title: "%{business} hired a developer"
       new_business_notification:
         email_subject: New business added
         title: "%{business} added their business"
@@ -600,8 +603,6 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
-      new_hire_form_notification:
-        title: "%{business} hired a developer"
       new_hired_form_notification:
         title: "%{developer} requested a celebration package"
       potential_hire_notification:

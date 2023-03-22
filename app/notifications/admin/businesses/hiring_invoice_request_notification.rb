@@ -7,7 +7,7 @@ module Admin
       param :form
 
       def title
-        t("notifications.admin.new_hire_form_notification.title", business: form.business.name)
+        t("notifications.admin.businesses.hiring_invoice_request_notification.title", business: form.business.name)
       end
 
       def url
