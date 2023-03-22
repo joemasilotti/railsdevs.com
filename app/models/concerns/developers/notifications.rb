@@ -24,6 +24,10 @@ module Developers
       send_stale_profile_notification
     end
 
+    def send_product_announcement
+      ProductAnnouncementNotification.with(developer: self).deliver_later(user)
+    end
+
     private
 
     AVAILABLE_STATUSES = %w[actively_looking open].freeze
