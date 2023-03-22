@@ -1,3 +1,5 @@
+require "test_helper"
+
 module Businesses
   module HiringInvoiceRequests
     class Notification::NotificationsTest < ActiveSupport::TestCase
