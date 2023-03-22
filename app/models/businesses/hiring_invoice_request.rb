@@ -1,7 +1,7 @@
 module Businesses
   class HiringInvoiceRequest < ApplicationRecord
     self.table_name = "businesses_hiring_invoice_requests"
-    include Admin::Businesses::HiringInvoiceRequests::Notifications
+    include Businesses::HiringInvoiceRequests::Notifications
 
     enum employment_type: {
       freelance_or_contract: 1,
