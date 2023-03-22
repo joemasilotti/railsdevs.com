@@ -91,13 +91,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_232519) do
   end
 
   create_table "businesses_hiring_invoice_requests", force: :cascade do |t|
-    t.bigint "business_id"
-    t.text "billing_address"
-    t.string "developer_name"
+    t.bigint "business_id", null: false
+    t.text "billing_address", null: false
+    t.string "developer_name", null: false
+    t.date "start_date", null: false
+    t.integer "annual_salary", null: false
+    t.integer "employment_type", null: false
     t.string "position"
-    t.date "start_date"
-    t.integer "annual_salary"
-    t.integer "employment_type"
     t.text "feedback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
