@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_182127) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_160628) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -134,6 +134,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_182127) do
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
+  end
+
+  create_table "github_profiles", force: :cascade do |t|
+    t.string "organizations", array: true
+    t.string "company"
+    t.bigint "developer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_github_profiles_on_developer_id"
   end
 
   create_table "hired_forms", force: :cascade do |t|

@@ -29,6 +29,7 @@ class Developer < ApplicationRecord
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
   has_one_attached :cover_image
+  has_one :github_profile, dependent: :destroy
 
   has_noticed_notifications
 
@@ -42,6 +43,8 @@ class Developer < ApplicationRecord
   validates :location, presence: true, on: :create
   validates :name, presence: true
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
+
+  scope :has_github, -> { where.not(github: nil) }
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
 
