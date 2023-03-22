@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
     resources :businesses, except: :destroy
 
+    namespace :businesses do
+      resources :hiring_invoice_requests, only: [:new, :create]
+    end
+
     # /notifications/read must come before /notifications/:id.
     resources :read_notifications, only: [:index, :create], path: "/notifications/read"
     resources :notifications, only: %i[index show]
@@ -36,10 +40,6 @@ Rails.application.routes.draw do
 
     resource :hired, only: :show, controller: :hired do
       resources :forms, only: [:new, :create], module: :hired
-    end
-
-    namespace :businesses do
-      resources :hiring_invoice_requests, only: [:new, :create]
     end
 
     namespace :hiring_agreement, module: :hiring_agreements do
