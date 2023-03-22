@@ -74,6 +74,7 @@ en:
           developer_name: Developer Name
           employment_type: Employment type
           feedback: Feedback
+          full_name: Full name
           position: Position
           start_date: Start date
           title: Hiring invoice request

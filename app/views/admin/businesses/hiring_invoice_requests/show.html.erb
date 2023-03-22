@@ -1,7 +1,7 @@
 <%= render Admin::ContainerComponent.new do %>
   <%= render Admin::ContentComponent.new do %>
     <%= render Admin::DescriptionListComponent.new(t(".title")) do |list| %>
-      <% list.with_description "Full name" do %>
+      <% list.with_description t(".full_name") do %>
         <%= render Admin::BasicLinkComponent.new(@form.business.name, business_path(@form.business)) %>
         <br>
         <%= render Admin::EmailLinkComponent.new(@form.business.user.email) %>
