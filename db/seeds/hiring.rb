@@ -11,7 +11,7 @@ Hired::Form.find_or_create_by!(developer:) do |form|
   form.save_and_notify
 end
 
-Forms::Businesses::Hire.find_or_create_by!(business:) do |form|
+Businesses::HiringInvoiceRequest.find_or_create_by!(business:) do |form|
   form.billing_address = "123 Main St\nNew York, NY 10001"
   form.developer_name = "John Doe"
   form.position = "Rails Developer"

@@ -1,4 +1,4 @@
-<%= form_with model: @form, url: {controller: "forms/businesses/hires", action: "create"} do |form| %>
+<%= form_with model: @form do |form| %>
   <%= render Admin::Forms::ContainerComponent.new(t(".title"), t(".description")) do |container| %>
     <%= render Admin::Forms::FieldComponent.new(form, :billing_address, label: t(".billing_address")) do |field| %>
       <% field.with_input_text_area rows: 3 %>

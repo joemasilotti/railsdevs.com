@@ -1,6 +1,6 @@
-module Forms
+module Admin
   module Businesses
-    module HiresHelper
+    module HiringInvoiceRequestsHelper
       def form_attributes
         {
           business: businesses(:one),

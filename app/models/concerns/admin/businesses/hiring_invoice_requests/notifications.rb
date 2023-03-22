@@ -1,6 +1,6 @@
-module Forms
+module Admin
   module Businesses
-    module Hires
+    module HiringInvoiceRequests
       module Notifications
         def save_and_notify
           if save
@@ -10,7 +10,7 @@ module Forms
         end
 
         def send_admin_notification
-          Admin::Forms::Businesses::HireNotification.with(form: self).deliver_later(User.admin)
+          Admin::Businesses::HiringInvoiceRequestNotification.with(form: self).deliver_later(User.admin)
         end
       end
     end

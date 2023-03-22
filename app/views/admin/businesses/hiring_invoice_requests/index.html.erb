@@ -31,7 +31,7 @@
 
           <% row.with_cell align: :right do %>
             <%= render Admin::BasicLinkGroupComponent.new do |group| %>
-              <% group.with_link t(".details"), admin_forms_businesses_hire_path(form) %>
+              <% group.with_link t(".details"), admin_businesses_hiring_invoice_request_path(form) %>
             <% end %>
           <% end %>
         <% end %>

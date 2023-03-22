@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_20_214634) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_232519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -89,6 +89,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_214634) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
+  create_table "businesses_hiring_invoice_requests", force: :cascade do |t|
+    t.bigint "business_id"
+    t.text "billing_address"
+    t.string "developer_name"
+    t.string "position"
+    t.date "start_date"
+    t.integer "annual_salary"
+    t.integer "employment_type"
+    t.text "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_businesses_hiring_invoice_requests_on_business_id"
+  end
+
   create_table "conversations", force: :cascade do |t|
     t.bigint "developer_id"
     t.bigint "business_id"
@@ -132,20 +146,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_214634) do
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
-  end
-
-  create_table "forms_businesses_hires", force: :cascade do |t|
-    t.bigint "business_id", null: false
-    t.text "billing_address", null: false
-    t.string "developer_name", null: false
-    t.string "position", null: false
-    t.date "start_date", null: false
-    t.integer "annual_salary", null: false
-    t.integer "employment_type", null: false
-    t.text "feedback"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["business_id"], name: "index_forms_businesses_hires_on_business_id"
   end
 
   create_table "hired_forms", force: :cascade do |t|
@@ -361,8 +361,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_214634) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at", precision: nil
-    t.datetime "ends_at", precision: nil
+    t.datetime "trial_ends_at"
+    t.datetime "ends_at"
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
@@ -460,7 +460,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_20_214634) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "forms_businesses_hires", "businesses"
+  add_foreign_key "businesses_hiring_invoice_requests", "businesses"
   add_foreign_key "hired_forms", "developers"
   add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
   add_foreign_key "hiring_agreements_signatures", "users"

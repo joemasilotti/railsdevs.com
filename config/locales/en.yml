@@ -60,6 +60,23 @@ en:
         other: Users
   admin:
     businesses:
+      hiring_invoice_requests:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          billing_address: Billing address
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
       invisiblizes:
         create:
           created: Profile set to invisible.
@@ -108,25 +125,6 @@ en:
     features:
       create:
         created: Profile featured for one week.
-    forms:
-      businesses:
-        hires:
-          index:
-            actions: Actions
-            business: Business
-            details: Details
-            developer: Developer
-            employment_type: Employment type
-            start_date: Start date
-            title: Hiring invoice requests
-          show:
-            billing_address: Billing address
-            developer_name: Developer Name
-            employment_type: Employment type
-            feedback: Feedback
-            position: Position
-            start_date: Start date
-            title: Hiring invoice request
     hiring_agreements:
       terms:
         create:
@@ -253,6 +251,18 @@ en:
       cta: Pay hiring fee
       subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
+    hiring_invoice_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        billing_address: Billing address
+        description: Congrats on your new hire!
+        developer_name: Developer's name
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        requesting: Requesting...
+        submit: Submit
+        title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
     show:
@@ -482,20 +492,6 @@ en:
       content_type_invalid: image format not supported
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
-  forms:
-    businesses:
-      hires:
-        create:
-          success: Thank you! Joe will reach out to you soon.
-        new:
-          billing_address: Billing address
-          description: Congrats on your new hire!
-          developer_name: Developer's name
-          feedback: Feedback (optional)
-          feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-          requesting: Requesting...
-          submit: Submit
-          title: Did you hire through RailsDevs?
   hired:
     forms:
       create:
@@ -571,7 +567,7 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
-      business_forms: Business forms
+      businesses_hiring_invoice_requests: Business forms
       conversations: Conversations
       developer_forms: Developer forms
       found_a_job: Found a job?
