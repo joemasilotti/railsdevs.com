@@ -12,7 +12,7 @@ class UpgradeToPayVersion6 < ActiveRecord::Migration[7.0]
     add_index :pay_subscriptions, :pause_starts_at
 
     Pay::Subscription.find_each do |pay_subscription|
-      pay_subscription.update(
+      pay_subscription.update!(
         metered: pay_subscription.data&.dig("metered"),
         pause_behavior: pay_subscription.data&.dig("pause_behavior"),
         pause_starts_at: pay_subscription.data&.dig("paddle_paused_from"),
