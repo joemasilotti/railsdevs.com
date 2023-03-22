@@ -262,7 +262,7 @@ en:
         feedback: Feedback (optional)
         feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
         requesting: Requesting...
-        request: Request
+        submit: Submit
         title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
