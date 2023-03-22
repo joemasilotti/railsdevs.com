@@ -1,5 +1,5 @@
 one:
-  business: businesses(:one)
+  business_id: businesses(:one).id
   billing_address: 123 Sample Business St.
   developer_name: John Doe
   position: Rails Devleoper
