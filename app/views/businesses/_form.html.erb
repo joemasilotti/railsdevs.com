@@ -98,7 +98,7 @@
           <h3 id="notifications" class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></h3>
         </div>
 
-        <div class="mt-5 md:mt-0 md:col-span-2">
+        <div class="mt-5 md:mt-0 md:col-span-2 divide-y divide-gray-200 space-y-6">
           <div>
             <%= form.label t(".developer_notifications.legend"), class: "text-base font-medium text-gray-900" %>
             <p class="text-sm leading-5 text-gray-500"><%= t(".developer_notifications.help_text") %></p>
@@ -117,6 +117,22 @@
                 </fieldset>
               <% end %>
             </div>
+          </div>
+
+          <div class="pt-6">
+            <fieldset>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="h-5 flex items-center">
+                    <%= form.check_box :survey_request_notifications, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                  </div>
+                  <div class="ml-3 text-sm">
+                    <%= form.label :survey_request_notifications, t(".survey_request_notifications.legend"), class: "font-medium text-gray-700" %>
+                    <p class="text-gray-500"><%= t(".survey_request_notifications.help_text") %></p>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
           </div>
         </div>
       </div>
