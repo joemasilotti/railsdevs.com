@@ -1,0 +1,2 @@
+<p><b><%= link_to @business.name, "mailto:#{@business.user.email}" %></b> hired a developer via RailsDevs!</p>
+<%= link_to "View request", notification_url(@notification.record) %>

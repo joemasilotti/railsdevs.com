@@ -48,4 +48,12 @@ class BusinessMailer < ApplicationMailer
 
     mail(to: @business.user.email, from:, subject:)
   end
+
+  def survey
+    @business = params[:business]
+    from = Rails.configuration.emails.support_mailbox!
+    subject = "Why do you use RailsDevs to hire? 1 question survey + swag"
+
+    mail(to: @business.user.email, subject:, from:, message_stream: :broadcast)
+  end
 end

@@ -1,5 +1,5 @@
 module Admin
-  module Hired
+  module Developers
     class FormsController < ApplicationController
       def index
         @forms = ::Hired::Form.includes(:developer).order(created_at: :desc)

@@ -58,7 +58,7 @@ SeedsHelper.create_developer!("freelancer", {
 })
 
 # Core developer
-SeedsHelper.create_developer!("developer", {
+developer = SeedsHelper.create_developer!("developer", {
   hero: "Core developer",
   location: SeedsHelper.locations[:new_york],
   search_status: :actively_looking,
@@ -72,6 +72,7 @@ SeedsHelper.create_developer!("developer", {
   linkedin: Faker::Internet.username,
   stack_overflow: Faker::Number.number(digits: 6)
 })
+developer.send_product_announcement unless Notification.exists?(type: Developers::ProductAnnouncementNotification.name)
 
 # Potential hire
 developer = SeedsHelper.create_developer!("hired", {

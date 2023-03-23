@@ -60,6 +60,24 @@ en:
         other: Users
   admin:
     businesses:
+      hiring_invoice_requests:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          billing_address: Billing address
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          full_name: Full name
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
       invisiblizes:
         create:
           created: Profile set to invisible.
@@ -85,13 +103,6 @@ en:
         title: Conversations
         view: View
     developers:
-      invisiblizes:
-        create:
-          created: Profile set to invisible.
-    features:
-      create:
-        created: Profile featured for one week.
-    hired:
       forms:
         index:
           actions: Actions
@@ -109,6 +120,12 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
+    features:
+      create:
+        created: Profile featured for one week.
     hiring_agreements:
       terms:
         create:
@@ -228,6 +245,9 @@ en:
         help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
       something_went_wrong: Something went wrong uploading your image, please try again.
+      survey_request_notifications:
+        help_text: Help RailsDevs by receiving short, infrequent surveys about how you use the platform.
+        legend: Survey requests
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
@@ -235,6 +255,18 @@ en:
       cta: Pay hiring fee
       subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
+    hiring_invoice_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        billing_address: Billing address
+        description: Congrats on your new hire!
+        developer_name: Developer's name
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        requesting: Requesting...
+        submit: Submit
+        title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
     show:
@@ -337,6 +369,8 @@ en:
       creating: Creating...
       loading: Loading...
       notifications:
+        product_announcement_notifications: Feature announcements
+        product_announcement_notifications_help: Keep me up to date with new product features.
         profile_reminder_notifications: Profile reminders
         profile_reminder_notifications_help: Periodically remind me to update my developer profile.
         title: Email notifications
@@ -539,10 +573,12 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      businesses_hiring_invoice_requests: Hiring invoice requests
       conversations: Conversations
+      developer_forms: Developer forms
       found_a_job: Found a job?
       get_started: Get started
-      hired_forms: Hired forms
+      hired_a_dev: Made a hire?
       hiring_agreement_terms: Hiring agreement terms
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -558,6 +594,9 @@ en:
       view_notifications: View notifications
   notifications:
     admin:
+      businesses:
+        hiring_invoice_request_notification:
+          title: "%{business} hired a developer"
       new_business_notification:
         email_subject: New business added
         title: "%{business} added their business"
@@ -578,6 +617,9 @@ en:
     developers:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
+      product_announcement_notification:
+        email_subject: "[RailsDevs] New feature alert: Developer specialties 🚨"
+        title: 'New feature alert: Developer specialties'
       profile_reminder_notification:
         email_subject: Is your RailsDevs profile up to date?
         title: Is your developer profile up to date?

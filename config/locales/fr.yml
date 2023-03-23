@@ -55,10 +55,6 @@ fr:
         one: Utilisateur
         other: Utilisateurs
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: Profil réglé sur invisible.
     conversations:
       blocks:
         index:
@@ -79,13 +75,6 @@ fr:
         title: Conversations
         view: Voir
     developers:
-      invisiblizes:
-        create:
-          created: Profil réglé sur invisible.
-    features:
-      create:
-        created: Profil réglé sur invisible.
-    hired:
       forms:
         index:
           actions: Actions
@@ -103,6 +92,12 @@ fr:
           position: Rôle
           start_date: Date de début
           title: Demander un pack de célébration
+      invisiblizes:
+        create:
+          created: Profil réglé sur invisible.
+    features:
+      create:
+        created: Profil réglé sur invisible.
     hiring_agreements:
       terms:
         create:
@@ -485,9 +480,9 @@ fr:
       billing: Facturation
       blocked_conversations: Conversations bloquées
       conversations: Conversations
+      developer_forms: Formulaires de développeur
       found_a_job: Vous avez trouvé un emploi ?
       get_started: Commencer
-      hired_forms: Formulaires d'embauche
       hiring_agreement_terms: Conditions de l'accord de recrutement
       my_business_profile: Profil d'entreprise
       my_conversations: Conversations

@@ -27,10 +27,6 @@ zh-CN:
         location:
           invalid_coordinates: 无法找到
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: 个人资料已设置为隐藏.
     conversations:
       blocks:
         index:
@@ -309,9 +305,9 @@ zh-CN:
       billing: 账单
       blocked_conversations: 已屏蔽的对话
       conversations: 对话
+      developer_forms: 开发商表格
       found_a_job: 已找到工作？
       get_started: 开始
-      hired_forms: 聘用表格
       hiring_agreement_terms: 雇佣协议条款
       my_business_profile: 我的企业简介
       my_conversations: 我的对话

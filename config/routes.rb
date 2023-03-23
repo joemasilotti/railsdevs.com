@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
     resources :businesses, except: :destroy
 
+    namespace :businesses do
+      resources :hiring_invoice_requests, only: [:new, :create]
+    end
+
     # /notifications/read must come before /notifications/:id.
     resources :read_notifications, only: [:index, :create], path: "/notifications/read"
     resources :notifications, only: %i[index show]
@@ -79,6 +83,10 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :businesses
     end
 
+    namespace :businesses do
+      resources :hiring_invoice_requests, only: [:index, :show]
+    end
+
     resources :developers, only: [] do
       resource :source_contributors, only: %i[create destroy], module: :developers
       resources :conversations, only: :index, controller: :developer_conversations
@@ -86,7 +94,7 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :developers
     end
 
-    namespace :hired do
+    namespace :developers do
       resources :forms, only: [:index, :show]
     end
 

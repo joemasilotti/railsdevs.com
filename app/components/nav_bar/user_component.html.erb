@@ -19,16 +19,22 @@
                   <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                 <% end %>
 
-                <% if hired? %>
+                <% if developer? %>
                   <%= link_to hired_path, class: "hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do %>
                     <span class="absolute -mt-2.5 -ml-6 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs -rotate-12"><%= t(".new") %></span>
                     <span><%= t(".found_a_job") %></span>
                   <% end %>
                 <% end %>
+                <%# For businesses with developer profiles %>
+                <% if business? %>
+                  <%= link_to new_businesses_hiring_invoice_request_path, class: "hidden md:block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" do %>
+                    <span class="absolute -mt-2.5 -ml-6 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs -rotate-12"><%= t(".new") %></span>
+                    <span><%= t(".hired_a_dev") %></span>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
-
           <!-- Desktop nav bar -->
           <div class="hidden md:block">
             <div class="ml-4 flex items-center md:ml-6 space-x-4">
@@ -38,17 +44,14 @@
                   <span class="sr-only"><%= t(".view_conversations") %></span>
                 <% end %>
               <% end %>
-
               <%= link_to notifications_path, class: "relative p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
                 <span class="sr-only"><%= t(".view_notifications") %></span>
                 <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
-
                 <% if unread_notifications? %>
                   <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
                   <span class="sr-only"><%= t(".new_notifications") %></span>
                 <% end %>
               <% end %>
-
               <!-- Profile dropdown -->
               <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden" class="relative z-10">
                 <div>
@@ -57,12 +60,10 @@
                     <%= render AvatarComponent.new(avatarable:, variant: :thumb, classes: "h-8 w-8 rounded-full") %>
                   </button>
                 </div>
-
                 <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <% user_links.each_with_index do |link, index| %>
                     <%= helpers.link_to_active link.title, link.path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", active_class: "bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index}" %>
                   <% end %>
-
                   <% if admin? %>
                     <div class="border-y border-gray-200 py-1">
                       <span class="block mx-4 text-xs uppercase text-gray-600 font-medium py-2"><%= t(".admin") %></span>
@@ -71,13 +72,11 @@
                       <% end %>
                     </div>
                   <% end %>
-
                   <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", class: "bg-transparent block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer w-full text-left" %>
                 </div>
               </div>
             </div>
           </div>
-
           <div class="-mr-2 flex items-center md:hidden space-x-4">
             <!-- Mobile nav bar -->
             <% if conversations? %>
@@ -86,24 +85,20 @@
                 <span class="sr-only"><%= t(".view_conversations") %></span>
               <% end %>
             <% end %>
-
             <%= link_to notifications_path, class: "relative bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" do %>
               <span class="sr-only">View notifications</span>
               <%= inline_svg_tag "icons/outline/bell.svg", class: "h-6 w-6", aria_hidden: true %>
-
               <% if unread_notifications? %>
                 <span class="absolute top-1 right-1 block h-2 w-2 rounded-full ring-2 ring-gray-300 group-hover:ring-white bg-red-400"></span>
                 <span class="sr-only"><%= t(".new_notifications") %></span>
               <% end %>
             <% end %>
-
             <!-- Mobile menu button -->
             <button type="button" data-action="toggle#toggle accessibility#toggleAriaExpanded" data-accessibility-target="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
               <span data-toggle-target="element">
                 <span class="sr-only">Open main menu</span>
                 <%= inline_svg_tag "icons/outline/menu.svg", class: "block h-6 w-6", aria_hidden: true %>
               </span>
-
               <span data-toggle-target="element" class="hidden">
                 <span class="sr-only">Close main menu</span>
                 <%= inline_svg_tag "icons/outline/x.svg", "data-toggle-target": "element", class: "h-6 w-6", aria_hidden: true %>
@@ -113,7 +108,6 @@
         </div>
       </div>
     <% end %>
-
     <!-- Mobile menu -->
     <div data-toggle-target="element" class="hidden md:hidden" id="mobile-menu">
       <!-- Navigation links -->
@@ -121,15 +115,20 @@
         <% links.each do |link| %>
           <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
         <% end %>
-
-        <% if hired? %>
+        <% if developer? %>
           <%= link_to hired_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do %>
             <span><%= t(".found_a_job") %></span>
             <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
           <% end %>
         <% end %>
-      </div>
 
+        <% if business? %>
+          <%= link_to new_businesses_hiring_invoice_request_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" do %>
+            <span><%= t(".hired_a_dev") %></span>
+            <span class="absolute -mt-2.5 z-10 uppercase text-indigo-400 tracking-tight font-bold text-xs rotate-12"><%= t(".new") %></span>
+          <% end %>
+        <% end %>
+      </div>
       <!-- Mobile -->
       <div class="pt-4 pb-3 border-t border-gray-700">
         <div class="flex items-center px-5">
@@ -144,7 +143,6 @@
           <% user_links.each do |link| %>
             <%= helpers.link_to_active link.title, link.path, active_class: "bg-gray-900 text-white", class: "text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
           <% end %>
-
           <% if admin? %>
             <div class="py-2">
               <div class="border-0.5 border-y border-gray-600 py-2">
@@ -155,7 +153,6 @@
               </div>
             </div>
           <% end %>
-
           <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, role: "menuitem", tabindex: "-1", data: {controller: "turbo-native--sign-out", action: "turbo-native--sign-out#signOut"}, class: "block w-full text-left text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" %>
         </div>
       </div>

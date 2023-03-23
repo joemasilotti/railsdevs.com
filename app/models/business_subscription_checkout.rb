@@ -21,7 +21,8 @@ class BusinessSubscriptionCheckout
       mode: "subscription",
       line_items: plan.stripe_price_id,
       success_url: analytics_event_url(event),
-      billing_address_collection: "required"
+      billing_address_collection: "required",
+      allow_promotion_codes: true
     )
   end
 

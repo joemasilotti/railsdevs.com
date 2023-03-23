@@ -25,4 +25,9 @@ class BusinessMailerPreview < ActionMailer::Preview
     business = Business.first
     BusinessMailer.with(business:).new_terms
   end
+
+  def survey
+    business = Business.first
+    BusinessMailer.with(business:).survey
+  end
 end
