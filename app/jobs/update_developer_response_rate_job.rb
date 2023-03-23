@@ -15,11 +15,10 @@ class UpdateDeveloperResponseRateJob < ApplicationJob
   private
 
   def eligable_conversations(developer)
-    grace_period = Rails.application.config.developer_response_grace_period
-    grace_period_start = grace_period.nil? ? Time.current : grace_period.ago
+    grace_period = Rails.application.config.developer_response_grace_period || 0.seconds
 
     developer.conversations.reject do |conversation|
-      conversation.created_at > grace_period_start && !conversation.developer_replied?
+      conversation.created_at > grace_period.ago && !conversation.developer_replied?
     end
   end
 end
