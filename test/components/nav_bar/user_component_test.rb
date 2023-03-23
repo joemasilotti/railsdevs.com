@@ -6,12 +6,10 @@ class NavBar::UserComponentTest < ViewComponent::TestCase
 
   test "renders links" do
     render_inline NavBar::UserComponent.new(users(:empty), links: [
-      Link.new("Developers", developers_path),
-      Link.new("Pricing", pricing_path)
+      Link.new("Developers", developers_path)
     ])
 
     assert_link_to developers_path
-    assert_link_to pricing_path
   end
 
   test "links to business if persisted" do

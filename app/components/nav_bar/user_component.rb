@@ -31,7 +31,8 @@ module NavBar
       @admin_links ||= [
         Link.new(t(".users"), admin_users_path),
         Link.new(t(".conversations"), admin_conversations_path),
-        Link.new(t(".hired_forms"), admin_hired_forms_path),
+        Link.new(t(".businesses_hiring_invoice_requests"), admin_businesses_hiring_invoice_requests_path),
+        Link.new(t(".developer_forms"), admin_developers_forms_path),
         Link.new(t(".specialties"), admin_specialties_path),
         Link.new(t(".hiring_agreement_terms"), admin_hiring_agreements_terms_path),
         Link.new(t(".transactions"), admin_transactions_path),

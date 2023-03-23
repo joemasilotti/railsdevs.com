@@ -10,7 +10,7 @@ module Admin
     end
 
     def url
-      admin_hired_form_path(form)
+      admin_developers_form_path(form)
     end
 
     def form
