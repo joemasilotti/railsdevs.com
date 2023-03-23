@@ -1,9 +1,9 @@
 namespace :businesses do
   desc "Email current and past subscribers link to survey"
   task email_survey: :environment do
-    businesses = Pay::Customer.includes(owner: :business)
-      .where(id: Pay::Subscription.group(:customer_id).count.keys)
-      .map { |c| c.owner.business }
+    businesses = Business.joins(user: :subscriptions)
+      .where(survey_request_notifications: true)
+      .distinct
 
     puts "Sending #{businesses.count} emails to current/past subscribers..."
     businesses.each do |business|

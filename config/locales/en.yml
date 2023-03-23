@@ -245,6 +245,9 @@ en:
         help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
       something_went_wrong: Something went wrong uploading your image, please try again.
+      survey_request_notifications:
+        help_text: Help RailsDevs by receiving short, infrequent surveys about how you use the platform.
+        legend: Survey requests
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
