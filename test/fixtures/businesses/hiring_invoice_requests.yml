@@ -1,9 +1,0 @@
-one:
-  business_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
-  billing_address: 123 Sample Business St.
-  developer_name: John Doe
-  position: Rails Devleoper
-  start_date: <%= Date.current + 7.days %>
-  annual_salary: 80_000
-  employment_type: 2
-  feedback: John is the perfect candidate!
