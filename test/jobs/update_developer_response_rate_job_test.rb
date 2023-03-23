@@ -56,9 +56,8 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
     conversation = Conversation.create!(developer:, business:)
 
     if grace_period_expired
-      grace_period = Rails.application.config.developer_response_grace_period
-      grace_period_start = grace_period.nil? ? Time.current : grace_period.ago
-      conversation.update!(created_at: grace_period_start - 1.hour)
+      grace_period = Rails.application.config.developer_response_grace_period || 0.seconds
+      conversation.update!(created_at: grace_period.ago - 1.hour)
     end
 
     Message.create!(conversation:, sender: business, body: "First contact")
