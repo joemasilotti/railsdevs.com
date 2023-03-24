@@ -36,11 +36,13 @@ Rails.application.routes.draw do
       resources :public_profiles, only: :new
     end
 
+    namespace :developers do
+      resources :celebration_package_requests, only: [:new, :create]
+    end
+
     get "developers/:id/:key", to: "developers#show", as: :developer_public
 
-    resource :hired, only: :show, controller: :hired do
-      resources :forms, only: [:new, :create], module: :hired
-    end
+    resource :hired, only: :show, controller: :hired
 
     namespace :hiring_agreement, module: :hiring_agreements do
       resource :terms, only: :show
@@ -95,7 +97,7 @@ Rails.application.routes.draw do
     end
 
     namespace :developers do
-      resources :forms, only: [:index, :show]
+      resources :celebration_package_requests, only: [:index, :show]
     end
 
     namespace :hiring_agreements do

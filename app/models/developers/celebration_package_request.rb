@@ -1,8 +1,8 @@
-module Hired
-  class Form < ApplicationRecord
-    include Hired::Notifications
+module Developers
+  class CelebrationPackageRequest < ApplicationRecord
+    include Developers::CelebrationPackageRequests::Notifications
 
-    self.table_name = "hired_forms"
+    self.table_name = "developers_celebration_package_requests"
 
     enum employment_type: {
       freelance_or_contract: 1,

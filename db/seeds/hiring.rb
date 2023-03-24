@@ -1,7 +1,7 @@
 developer = User.find_by(email: "developer@example.com").developer
 business = User.find_by(email: "business@example.com").business
 
-Hired::Form.find_or_create_by!(developer:) do |form|
+Developers::CelebrationPackageRequest.find_or_create_by!(developer:) do |form|
   form.address = "123 Main St\nNew York, NY 10001"
   form.company = "Rails for All"
   form.position = "Rails Developer"
