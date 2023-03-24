@@ -4,7 +4,7 @@
 
 ### March
 
-* March 23 - Refactor hired_form into developers_celebration_package_request #836 @MikeRayUX
+* March 23 - Refactor `Hired::Form` into `Developers::CelebrationPackageRequest` #836 @MikeRayUX
 * March 23 - Business survey email + opt-out checkbox #830
 * March 21 - Added business new hire forms and admin new hire forms #818 @RomanTurner @MikeRayUX
 * March 21 - Announce specialties to developers #817 @sarvaiyanidhi
