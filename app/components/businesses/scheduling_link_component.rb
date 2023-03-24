@@ -8,7 +8,7 @@ module Businesses
     end
 
     def render?
-      user.business && scheduling_link.present?
+      conversation.business?(user) && scheduling_link.present?
     end
 
     def scheduling_link
