@@ -31,7 +31,7 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <div class="flex flex-col space-y-4 sm:flex-row-reverse sm:space-y-0 sm:justify-between my-3 mx-4">
+  <div class="flex flex-col space-y-4 sm:flex-row-reverse sm:space-y-0 sm:justify-between my-3 mx-4 sm:ml-0">
     <div>
       <%= turbo_frame_tag "message_read_indicator" do %>
         <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
