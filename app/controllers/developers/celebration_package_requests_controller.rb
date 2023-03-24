@@ -5,11 +5,11 @@ module Developers
     before_action :require_developer!
 
     def new
-      @form = Developers::CelebrationPackageRequest.new(developer: current_user.developer)
+      @form = ::CelebrationPackageRequest.new(developer: current_user.developer)
     end
 
     def create
-      @form = Developers::CelebrationPackageRequest.new(form_params)
+      @form = ::CelebrationPackageRequest.new(form_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else
