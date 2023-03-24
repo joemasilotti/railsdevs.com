@@ -9,7 +9,7 @@ module Developers
     end
 
     def create
-      @form = ::CelebrationPackageRequest.new(form_params)
+      @form = ::CelebrationPackageRequest.new(developers_celebration_package_request_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else
@@ -25,7 +25,7 @@ module Developers
       end
     end
 
-    def form_params
+    def developers_celebration_package_request_params
       params.require(:developers_celebration_package_request).permit(
         :address,
         :company,
