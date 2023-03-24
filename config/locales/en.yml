@@ -532,8 +532,8 @@ en:
         signed_on: Signed on %{date}
   home:
     show:
-      developers_heading: New Rails developers on RailsDevs
       description_og: RailsDevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
+      developers_heading: New Rails developers on RailsDevs
       get_started: Get started
       learn_more: Learn more
       more: See more developers

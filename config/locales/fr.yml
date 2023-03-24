@@ -438,8 +438,8 @@ fr:
         signed_on: Signé le %{date}
   home:
     show:
-      available_developers: Candidats disponibles maintenant
       description_og: RailsDevs permet aux développeurs indépendants de trouver leur prochain emploi. Arrêtez de parcourir les sites d'offres d'emploi et attendez tranquillement que les entreprises vous contactent en premier.
+      developers_heading: Candidats disponibles maintenant
       get_started: Créer un compte
       learn_more: En savoir plus
       more: Voir plus de développeurs

@@ -181,7 +181,7 @@ pt-BR:
     unauthorized: Você não tem acesso a isso.
   home:
     show:
-      available_developers: Desenvolvedores disponíveis agora
+      developers_heading: Desenvolvedores disponíveis agora
       get_started: Comece agora
       learn_more: Veja mais
       more: Ver mais desenvolvedores
