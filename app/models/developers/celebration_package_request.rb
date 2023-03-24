@@ -1,6 +1,6 @@
 module Developers
   class CelebrationPackageRequest < ApplicationRecord
-    include Developers::CelebrationPackageRequests::Notifications
+    include Notifications
 
     self.table_name = "developers_celebration_package_requests"
 
