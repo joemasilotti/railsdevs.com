@@ -19,9 +19,6 @@ module Developers
 
     private
 
-    def test
-    end
-
     def require_developer!
       if current_user.developer.blank?
         redirect_to new_developer_path, notice: I18n.t("errors.developer_blank")
