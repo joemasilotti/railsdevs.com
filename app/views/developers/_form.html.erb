@@ -410,11 +410,14 @@
 
         <div class="mt-5 md:mt-0 md:col-span-2 space-y-4">
           <div>
-            <%= form.label :scheduling_link, class: "block text-sm font-medium text-gray-700" %>
+            <div class="flex items-center">
+              <%= form.label :scheduling_link, class: "block text-sm font-medium text-gray-700" %>
+              <%= render Developers::NewFieldComponent.new(form.object, :location, size: :small) %>
+            </div>
             <div class="mt-1 flex rounded-md shadow-sm">
-                <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                  https://
-                </span>
+              <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                https://
+              </span>
               <%= form.text_field :scheduling_link, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
             </div>
           </div>
