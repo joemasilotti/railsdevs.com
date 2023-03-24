@@ -20,13 +20,13 @@ class DeveloperQuery
     @user = options.delete(:user)
 
     @query_item_builder = query_item_builder
-    @query_items = query_item_builder.build_query_items
+    @query_items = query_item_builder.query_items
   end
 
   def filters
     @filters = { utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, badges: }
     query_items.each do |query_item|
-      @filters.merge!(query_item.type)
+      @filters.merge!({ query_item.type => query_item.value })
     end
   end
 
@@ -102,7 +102,7 @@ class DeveloperQuery
       role_types.empty? &&
       role_levels.empty? &&
       search_query.blank? &&
-      query_item_builder.countries_query_item.countries.blank? &&
+      query_items.find { |query_item| query_item.type == :countries }&.value.blank? &&
       badges.blank? &&
       specialty_ids.empty? &&
       !include_not_interested

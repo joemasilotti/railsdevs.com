@@ -55,7 +55,7 @@ module Developers
     end
 
     def country
-      countries = query.query_item_builder.countries_query_item.countries
+      countries = query.query_items.find { |query_item| query_item.type == :countries }&.value
       if countries&.one?
         countries.first
       end

@@ -2,9 +2,11 @@ class Developers::CountriesQueryItem
 
   attr_reader :countries, :type
 
-  def initialize(countries = [])
-    @countries = countries
-    @type = { countries: }
+  alias_method :value, :countries
+
+  def initialize(value = [])
+    @countries = value
+    @type = :countries
   end
 
   def query

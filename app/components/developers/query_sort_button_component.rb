@@ -7,7 +7,7 @@ module Developers
 
     def initialize(query:, user:, form_id:, scope: nil)
       @query = query
-      @sort_query_item = query.query_item_builder.sort_query_item
+      @sort_query_item = query.query_items.detect { |query_item| query_item.type == :sort }
       @user = user
       @form_id = form_id
       @scope = scope

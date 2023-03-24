@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developers_count = SignificantFigure.new(Developer.visible.count).rounded
-    permitted_filter_options = permitted_attributes([:developers, :query]).merge(user: current_user)
+    permitted_filter_options = permitted_attributes([:developers, :query]) #.merge(user: current_user)
     query_item_builder = Developers::QueryItemBuilder.new(permitted_filter_options)
     @query = DeveloperQuery.new(permitted_filter_options, query_item_builder)
     @meta = Developers::Meta.new(query: @query, count: @developers_count)

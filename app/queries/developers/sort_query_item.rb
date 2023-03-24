@@ -2,9 +2,11 @@ class Developers::SortQueryItem
 
   attr_reader :sort, :type
 
-  def initialize(sort = nil)
-    @sort = sort
-    @type = { sort: }
+  alias_method :value, :sort
+
+  def initialize(value = nil)
+    @sort = value
+    @type = :sort
   end
 
   def query
