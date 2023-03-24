@@ -21,6 +21,7 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
+        scheduling_link: Scheduling link
         twitter: Twitter
         website: Website
       location:
@@ -271,6 +272,8 @@ en:
       edit: Edit
     show:
       bio: Bio
+    scheduling_link_component:
+      title: Schedule a meeting
     subscriptions_component:
       expires_on: Expires on
       plan: Plan
@@ -402,6 +405,9 @@ en:
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
+      scheduling:
+        title: Scheduling
+        help_text: Provide your meeting scheduling link and help businesses find the perfect time for a call.
       specialties:
         description: Choose up to 5 specialties that set you apart from other developers. Pick ones that you are passionate about - you don't need to be an expert.
         new:

@@ -86,6 +86,7 @@ class DevelopersController < ApplicationController
       :search_query,
       :profile_reminder_notifications,
       :product_announcement_notifications,
+      :scheduling_link,
       specialty_ids: [],
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,

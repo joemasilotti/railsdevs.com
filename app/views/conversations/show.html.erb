@@ -31,9 +31,18 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <%= turbo_frame_tag "message_read_indicator" do %>
-    <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
-  <% end %>
+  <div class="flex flex-col space-y-4 sm:flex-row-reverse sm:space-y-0 sm:justify-between my-3 mx-4">
+    <div>
+      <%= turbo_frame_tag "message_read_indicator" do %>
+        <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
+      <% end %>
+    </div>
+    <div>
+      <% if @conversation.developer %>
+        <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
+      <% end %>
+    </div>
+  </div>
 
   <% if @conversation.developer %>
     <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
