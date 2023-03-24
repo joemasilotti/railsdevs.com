@@ -1,9 +1,7 @@
 desc "These tasks are meant to be run once then removed"
 namespace :backfills do
-  task specialties: :environment do
-    specialties = YAML.load_file(Rails.root.join("db", "seeds", "specialties.yml"))
-    specialties.each do |specialty|
-      Specialty.find_or_create_by!(name: specialty)
-    end
+  task rename_notifications: :environment do
+    Notification.where(type: "Admin::NewHiredFormNotification")
+      .update_all(type: Admin::Developers::NewCelebrationPackageRequestNotification.to_s)
   end
 end
