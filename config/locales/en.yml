@@ -398,7 +398,7 @@ en:
         help_text: Select all roles that you would consider taking.
         title: Role type
       scheduling:
-        help_text: Provide your meeting scheduling link and help businesses find the perfect time for a call.
+        help_text: Share your scheduling link (Calendly, SavvyCal, etc.) to make it easier to organize interviews with businesses.
         title: Scheduling
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
