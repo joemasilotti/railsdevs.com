@@ -108,7 +108,8 @@ class Developer < ApplicationRecord
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
-      available_on.blank?
+      available_on.blank? ||
+      scheduling_link.blank?
   end
 
   def feature!
