@@ -9,7 +9,7 @@ module Developers
       end
 
       def send_admin_notification
-        Admin::Developers::NewCelebrationPackageRequestNotification.with(celebration_package_request: self).deliver_later(User.admin)
+        Admin::Developers::NewCelebrationPackageRequestNotification.with(form: self).deliver_later(User.admin)
       end
     end
   end

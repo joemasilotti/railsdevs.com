@@ -4,18 +4,18 @@ module Admin
       deliver_by :database
       deliver_by :email, mailer: "AdminMailer", method: :developers_celebration_package_request
 
-      param :celebration_package_request
+      param :form
 
       def title
-        t("notifications.admin.developers.celebration_package_request.title", developer: celebration_package_request.developer.name)
+        t("notifications.admin.developers.celebration_package_request.title", developer: form.developer.name)
       end
 
       def url
-        admin_developers_celebration_package_requests_path(celebration_package_request)
+        admin_developers_celebration_package_requests_path(form)
       end
 
-      def celebration_package_request
-        params[:celebration_package_request]
+      def form
+        params[:form]
       end
     end
   end
