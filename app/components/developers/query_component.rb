@@ -10,12 +10,12 @@ module Developers
       @form_id = form_id
     end
 
-    def countries
+    def query_countries
       query.query_items.find { |query_item| query_item.type == :countries }&.value
     end
 
     def country_selected?(country_pair)
-      countries.include?(country_pair.first)
+      query_countries.include?(country_pair.first)
     end
 
     def top_countries
@@ -85,12 +85,12 @@ module Developers
     end
 
     def collapse_location?
-      countries.empty?
+      query_countries.empty?
     end
 
     def collapse_all_locations?
       @collapse_all_locations ||=
-        (Location.not_top_countries & countries).none?
+        (Location.not_top_countries & query_countries).none?
     end
 
     def collapse_timezone?
