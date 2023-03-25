@@ -1,6 +1,5 @@
 module Developers
   class CelebrationPackageRequest < ApplicationRecord
-    self.table_name = "developers_celebration_package_requests"
     include CelebrationPackageRequests::Notifications
 
     enum employment_type: {
