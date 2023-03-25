@@ -60,7 +60,7 @@
                     <%= render AvatarComponent.new(avatarable:, variant: :thumb, classes: "h-8 w-8 rounded-full") %>
                   </button>
                 </div>
-                <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 mt-2 w-80 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                <div data-toggle-target="element" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                   <% user_links.each_with_index do |link, index| %>
                     <%= helpers.link_to_active link.title, link.path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", active_class: "bg-gray-100", role: "menuitem", tabindex: "-1", id: "user-menu-item-#{index}" %>
                   <% end %>

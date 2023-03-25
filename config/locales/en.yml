@@ -573,9 +573,9 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
-      businesses_hiring_invoice_requests: Hiring invoice requests
+      businesses_hiring_invoice_requests: Hiring invoices
       conversations: Conversations
-      developers_celebration_package_requests: Celebration package requests
+      developers_celebration_package_requests: Celebration packages
       found_a_job: Found a job?
       get_started: Get started
       hired_a_dev: Made a hire?
