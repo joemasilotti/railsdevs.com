@@ -1,5 +1,5 @@
 module Businesses
-  class HiringFeeComponent < ApplicationComponent
+  class SchedulingLinkComponent < ApplicationComponent
     private attr_reader :user, :conversation
 
     def initialize(user, conversation)
@@ -8,11 +8,11 @@ module Businesses
     end
 
     def render?
-      user.permissions.pays_hiring_fee? && conversation.hiring_fee_eligible?
+      conversation.business?(user) && scheduling_link.present?
     end
 
-    def developer
-      conversation.developer.name
+    def scheduling_link
+      conversation.developer&.scheduling_link
     end
   end
 end

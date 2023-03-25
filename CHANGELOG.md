@@ -4,6 +4,7 @@
 
 ### March
 
+* March 25 - Add developer scheduling link #838 @jkostolansky
 * March 23 - Business survey email + opt-out checkbox #830
 * March 21 - Added business new hire forms and admin new hire forms #818 @RomanTurner @MikeRayUX
 * March 21 - Announce specialties to developers #817 @sarvaiyanidhi

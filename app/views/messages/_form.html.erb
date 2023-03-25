@@ -1,7 +1,7 @@
 <div data-controller="page-scroll">
-  <%= form.label :body, t(".help"), class: "block text-sm font-medium text-gray-700" %>
+  <%= form.label :body, t(".help"), class: "sr-only" %>
   <div class="mt-1">
-    <%= form.text_area :body, rows: 4, required: true, autofocus: true, data: {action: "keydown->forms--keyboard-submit#submit"}, class: field_classes(form, :body) %>
+    <%= form.text_area :body, rows: 4, required: true, autofocus: true, placeholder: t(".help"), data: {action: "keydown->forms--keyboard-submit#submit"}, class: field_classes(form, :body) %>
   </div>
 
   <% if local_assigns[:terms] %>

@@ -21,6 +21,7 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
+        scheduling_link: Scheduling link
         twitter: Twitter
         website: Website
       location:
@@ -251,9 +252,7 @@ en:
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
-      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
-      subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
     hiring_invoice_requests:
       create:
@@ -269,6 +268,8 @@ en:
         title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
+    scheduling_link_component:
+      title: Schedule a meeting
     show:
       bio: Bio
     subscriptions_component:
@@ -396,6 +397,9 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
+      scheduling:
+        help_text: Share your scheduling link (Calendly, SavvyCal, etc.) to make it easier to organize interviews with businesses.
+        title: Scheduling
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
         invisible_help_text: Your profile is hidden and can only be seen by yourself.
