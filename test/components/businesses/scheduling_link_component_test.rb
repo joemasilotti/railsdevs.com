@@ -29,6 +29,13 @@ module Businesses
       assert_no_text "Schedule a meeting"
     end
 
+    test "doesn't blow up if no developer" do
+      update_scheduling_link(nil)
+
+      render_inline SchedulingLinkComponent.new(@business_user, @conversation)
+      assert_no_text "Schedule a meeting"
+    end
+
     private
 
     def update_scheduling_link(link)

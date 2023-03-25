@@ -12,7 +12,7 @@ module Businesses
     end
 
     def scheduling_link
-      conversation.developer.scheduling_link
+      conversation.developer&.scheduling_link
     end
   end
 end
