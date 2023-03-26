@@ -11,7 +11,7 @@ module Admin
       end
 
       def url
-        admin_developers_celebration_package_requests_path(form)
+        admin_developers_celebration_package_request_path(form)
       end
 
       def form
