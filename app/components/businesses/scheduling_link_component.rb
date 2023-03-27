@@ -1,5 +1,7 @@
 module Businesses
   class SchedulingLinkComponent < ApplicationComponent
+    include LinksHelper
+
     private attr_reader :user, :conversation
 
     def initialize(user, conversation)
@@ -13,6 +15,10 @@ module Businesses
 
     def scheduling_link
       conversation.developer&.scheduling_link
+    end
+
+    def normalized_link
+      normalized_href(scheduling_link)
     end
   end
 end
