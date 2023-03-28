@@ -1,14 +1,14 @@
-module Hired
-  class FormsController < ApplicationController
+module Developers
+  class CelebrationPackageRequestsController < ApplicationController
     before_action :authenticate_user!
     before_action :require_developer!
 
     def new
-      @form = Hired::Form.new(developer: current_user.developer)
+      @form = CelebrationPackageRequest.new(developer: current_user.developer)
     end
 
     def create
-      @form = Hired::Form.new(form_params)
+      @form = CelebrationPackageRequest.new(developers_celebration_package_request_params)
       if @form.save_and_notify
         redirect_to root_path, notice: t(".success")
       else
@@ -24,8 +24,8 @@ module Hired
       end
     end
 
-    def form_params
-      params.require(:hired_form).permit(
+    def developers_celebration_package_request_params
+      params.require(:developers_celebration_package_request).permit(
         :address,
         :company,
         :position,

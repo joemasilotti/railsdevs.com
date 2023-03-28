@@ -60,11 +60,11 @@ class AdminMailer < ApplicationMailer
     mail(to: recipient.email, subject: @notification.title)
   end
 
-  def new_hired_form
+  def developers_celebration_package_request
     @notification = params[:record].to_notification
     recipient = params[:recipient]
 
-    @form = @notification.form
+    @form = @notification.celebration_package_request
     @developer = @form.developer
 
     mail(to: recipient.email, subject: @notification.title)

@@ -31,8 +31,8 @@ class AdminMailerPreview < ActionMailer::Preview
     AdminMailer.with(record: notification, recipient: User.first).businesses_hiring_invoice_request
   end
 
-  def new_hired_form
-    notification = Notification.where(type: Admin::NewHiredFormNotification.to_s).first
-    AdminMailer.with(record: notification, recipient: User.first).new_hired_form
+  def developers_celebration_package_request
+    notification = Notification.where(type: Admin::Developers::NewCelebrationPackageRequestNotification.to_s).first
+    AdminMailer.with(record: notification, recipient: User.first).developers_celebration_package_request
   end
 end

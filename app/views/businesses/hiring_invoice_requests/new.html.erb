@@ -21,7 +21,7 @@
     <% end %>
 
     <%= render Admin::Forms::FieldComponent.new(form, :employment_type) do |field| %>
-      <% field.with_input_select options: Hired::Form.employment_types, include_blank: true %>
+      <% field.with_input_select options: Developers::CelebrationPackageRequest.employment_types, include_blank: true %>
     <% end %>
 
     <%= render Admin::Forms::FieldComponent.new(form, :feedback, label: t(".feedback"), help: t(".feedback_help")) do |field| %>

@@ -24,7 +24,7 @@ class Developer < ApplicationRecord
   has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
-  has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
+  has_many :celebration_package_requests, class_name: "Developers::CelebrationPackageRequest", dependent: :destroy
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
