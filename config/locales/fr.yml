@@ -75,7 +75,7 @@ fr:
         title: Conversations
         view: Voir
     developers:
-      forms:
+      celebration_package_requests:
         index:
           actions: Actions
           company: Entreprise
@@ -403,19 +403,6 @@ fr:
       max_file_size_invalid: image supérieure à %{size}
     unauthorized: Vous n'avez pas accès à ça.
   hired:
-    forms:
-      create:
-        success: Merci ! Joe vous contactera bientôt.
-      new:
-        company_name: Nom d'entreprise
-        description: Félicitations pour votre nouvel emploi !
-        feedback: Commentaires (facultatif)
-        feedback_help: N'hésitez pas à nous dire comment nous pouvons améliorer RailsDevs ou à nous faire part de tout ce que vous souhaitez partager.
-        mailing_address: Adresse postale
-        mailing_address_help: Où pouvons-nous envoyer votre colis de célébration ?
-        request_package: Demande de colis
-        requesting: Chargement...
-        title: Avez-vous trouvé un emploi grâce à RailsDevs ?
     show:
       description: RailsDevs offre un pack de célébration pour vous féliciter d'avoir rejoint une entreprise par le biais de la plateforme.
       image_alt: Pack de célébration RailsDevs
@@ -478,7 +465,7 @@ fr:
       billing: Facturation
       blocked_conversations: Conversations bloquées
       conversations: Conversations
-      developer_forms: Formulaires de développeur
+      developers_celebration_package_requests: Formulaires de développeur
       found_a_job: Vous avez trouvé un emploi ?
       get_started: Commencer
       hiring_agreement_terms: Conditions de l'accord de recrutement
@@ -495,6 +482,9 @@ fr:
       view_notifications: Voir notifications
   notifications:
     admin:
+      developers:
+        celebration_package_request:
+          title: "%{developer} a demandé un pack de célébration"
       new_business_notification:
         email_subject: Nouvelle entreprise ajoutée
         title: "%{business} ont ajouté leur entreprise"
@@ -504,8 +494,6 @@ fr:
       new_developer_notification:
         email_subject: Nouveau profil ajouté
         title: "%{developer} a ajouté son profil de développeur"
-      new_hired_form_notification:
-        title: "%{developer} a demandé un pack de célébration"
       potential_hire_notification:
         email_subject: Nouvelle embauche potentielle
         title: "%{developer} a peut-être été embauché"

@@ -104,7 +104,7 @@ en:
         title: Conversations
         view: View
     developers:
-      forms:
+      celebration_package_requests:
         index:
           actions: Actions
           company: Company
@@ -343,6 +343,19 @@ en:
       high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
+    celebration_package_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        company_name: Company name
+        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        mailing_address: Mailing address
+        mailing_address_help: Where can we send your celebration package?
+        request_package: Request package
+        requesting: Requesting...
+        title: Did you find a job through RailsDevs?
     count_component:
       cta: Reset filters
       title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
@@ -503,19 +516,6 @@ en:
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
   hired:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        company_name: Company name
-        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        mailing_address: Mailing address
-        mailing_address_help: Where can we send your celebration package?
-        request_package: Request package
-        requesting: Requesting...
-        title: Did you find a job through RailsDevs?
     show:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
@@ -577,9 +577,9 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
-      businesses_hiring_invoice_requests: Hiring invoice requests
+      businesses_hiring_invoice_requests: Hiring invoices
       conversations: Conversations
-      developer_forms: Developer forms
+      developers_celebration_package_requests: Celebration packages
       found_a_job: Found a job?
       get_started: Get started
       hired_a_dev: Made a hire?
@@ -601,6 +601,9 @@ en:
       businesses:
         hiring_invoice_request_notification:
           title: "%{business} hired a developer"
+      developers:
+        celebration_package_request:
+          title: "%{developer} requested a celebration package"
       new_business_notification:
         email_subject: New business added
         title: "%{business} added their business"
@@ -610,8 +613,6 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
-      new_hired_form_notification:
-        title: "%{developer} requested a celebration package"
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"
