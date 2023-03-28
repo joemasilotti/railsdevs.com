@@ -54,7 +54,7 @@ class RenameHiredFormsToDevelopersCelebrationPackageRequests < ActiveRecord::Mig
     # 3. Symbolize new key with ActiveRecord
     Notification.where(type: notification_type).each do |notification|
       notification.update!(params: notification.params.transform_keys do |key|
-        (key == new_param_key) ? new_param_key.to_sym : key
+        key == new_param_key ? new_param_key.to_sym : key
       end)
     end
   end
