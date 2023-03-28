@@ -1,9 +1,11 @@
 require "test_helper"
 
-require Rails.root.join("db/migrate/20230328145749_migrate_url_attributes.rb")
+class BackfillsTaskTest < ActiveSupport::TestCase
+  include RakeTaskHelper
 
-class MigrateUrlAttributesTest < ActiveSupport::TestCase
-  test "works for developers" do
+  test "backfills URL attributes" do
+    load_rake_tasks_once
+
     developer = developers(:one)
     developer.update_columns(
       website: "https://www.example.com",
@@ -15,8 +17,15 @@ class MigrateUrlAttributesTest < ActiveSupport::TestCase
       stack_overflow: "https://stackoverflow.com/users/123/so_user"
     )
 
+    business = businesses(:one)
+    business.update_columns(
+      website: "https://www.example.com"
+    )
+
     assert_no_changes "developer.reload.updated_at" do
-      MigrateUrlAttributes.new.up
+      assert_no_changes "business.reload.updated_at" do
+        Rake::Task["backfills:url_attributes"].invoke
+      end
     end
 
     assert_equal "www.example.com", developer.website
@@ -26,17 +35,6 @@ class MigrateUrlAttributesTest < ActiveSupport::TestCase
     assert_equal "twitter_user", developer.twitter
     assert_equal "linkedin_user", developer.linkedin
     assert_equal "123", developer.stack_overflow
-  end
-
-  test "works for businesses" do
-    business = businesses(:one)
-    business.update_columns(
-      website: "https://www.example.com"
-    )
-
-    assert_no_changes "business.reload.updated_at" do
-      MigrateUrlAttributes.new.up
-    end
 
     assert_equal "www.example.com", business.website
   end
