@@ -1,3 +1,9 @@
+module Hired
+  class Form < ActiveRecord::Base
+    self.table_name = "hired_forms"
+  end
+end
+
 class RenameHiredFormsToDevelopersCelebrationPackageRequests < ActiveRecord::Migration[7.0]
   def up
     rename_table :hired_forms, :developers_celebration_package_requests
