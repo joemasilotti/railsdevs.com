@@ -205,6 +205,7 @@ GEM
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
       http-parser (~> 1.2.0)
+    http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
@@ -257,6 +258,9 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0218.1)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
@@ -281,6 +285,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.14.2)
       mini_portile2 (~> 2.8.0)
@@ -364,6 +369,11 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rexml (3.2.5)
     rinku (2.0.6)
     rubocop (1.29.1)
@@ -478,6 +488,7 @@ DEPENDENCIES
   inline_svg
   invisible_captcha
   jsbundling-rails
+  json
   letter_opener_web
   minitest-reporters
   minitest-reporters-pride_reporter
@@ -496,6 +507,7 @@ DEPENDENCIES
   rails-i18n
   redcarpet
   redis
+  rest-client
   rexml (>= 3.2.5)
   scout_apm
   selenium-webdriver

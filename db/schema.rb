@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_23_132220) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -118,6 +118,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_132220) do
     t.index ["developer_id", "business_id"], name: "index_conversations_on_developer_id_and_business_id", unique: true
     t.index ["developer_id"], name: "index_conversations_on_developer_id"
     t.index ["inbound_email_token"], name: "index_conversations_on_inbound_email_token", unique: true
+  end
+
+  create_table "developer_external_profiles", force: :cascade do |t|
+    t.bigint "developer_id", null: false
+    t.string "site", null: false
+    t.jsonb "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id"], name: "index_developer_external_profiles_on_developer_id"
   end
 
   create_table "developers", force: :cascade do |t|
@@ -464,6 +473,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_132220) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses_hiring_invoice_requests", "businesses"
+  add_foreign_key "developer_external_profiles", "developers"
   add_foreign_key "hired_forms", "developers"
   add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
   add_foreign_key "hiring_agreements_signatures", "users"
