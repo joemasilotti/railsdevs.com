@@ -2,22 +2,34 @@ class RenameHiredFormsToDevelopersCelebrationPackageRequests < ActiveRecord::Mig
   def up
     rename_table :hired_forms, :developers_celebration_package_requests
 
-    Notification.where(type: 'Admin::NewHiredFormNotification')
-                .update_all(type: 'Admin::Developers::NewCelebrationPackageRequestNotification')
+    Notification.where(type: "Admin::NewHiredFormNotification")
+      .update_all(type: "Admin::Developers::NewCelebrationPackageRequestNotification")
 
-    migrate_notifications('Admin::Developers::NewCelebrationPackageRequestNotification', 'Hired::Form', 'form', 'Developers::CelebrationPackageRequest', 'celebration_package_request')
+    migrate_notifications(
+      notification_type: "Admin::Developers::NewCelebrationPackageRequestNotification",
+      old_model_name: "Hired::Form",
+      old_param_key: "form",
+      new_model_name: "Developers::CelebrationPackageRequest",
+      new_param_key: "celebration_package_request"
+    )
   end
 
   def down
     rename_table :developers_celebration_package_requests, :hired_forms
 
-    Notification.where(type: 'Admin::Developers::NewCelebrationPackageRequestNotification')
-                .update_all(type: 'Admin::NewHiredFormNotification')
+    Notification.where(type: "Admin::Developers::NewCelebrationPackageRequestNotification")
+      .update_all(type: "Admin::NewHiredFormNotification")
 
-    migrate_notifications('Admin::NewHiredFormNotification', 'Developers::CelebrationPackageRequest',  'celebration_package_request', 'Hired::Form', 'form')
+    migrate_notifications(
+      notification_type: "Admin::NewHiredFormNotification",
+      old_model_name: "Developers::CelebrationPackageRequest",
+      old_param_key: "celebration_package_request",
+      new_model_name: "Hired::Form",
+      new_param_key: "form"
+    )
   end
 
-  def migrate_notifications(notification_type, old_model_name, old_param_key, new_model_name, new_param_key)
+  def migrate_notifications(notification_type:, old_model_name:, old_param_key:, new_model_name:, new_param_key:)
     gid_replace_sql = "REPLACE(params->'#{old_param_key}'->>'_aj_globalid', '#{old_model_name}', '#{new_model_name}')"
 
     # Only update records that actually contain the old Global ID
@@ -37,13 +49,13 @@ class RenameHiredFormsToDevelopersCelebrationPackageRequests < ActiveRecord::Mig
       SET params = jsonb_set( params, '{#{new_param_key}}', params->'#{old_param_key}')::jsonb - '#{old_param_key}'
       WHERE params->'#{old_param_key}'->>'_aj_globalid' LIKE '%#{new_model_name}%';
     SQL
-
     execute(rename_sql)
 
     # 3. Symbolize new key with ActiveRecord
     Notification.where(type: notification_type).each do |notification|
-      notification.update!(params: notification.params.transform_keys { |key| key == new_param_key ? new_param_key.to_sym : key })
+      notification.update!(params: notification.params.transform_keys do |key|
+        (key == new_param_key) ? new_param_key.to_sym : key
+      end)
     end
   end
 end
-
