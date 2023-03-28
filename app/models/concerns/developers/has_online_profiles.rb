@@ -14,7 +14,7 @@ module Developers
 
       url_attribute :stack_overflow, prefix: "stackoverflow.com/users/" do |value|
         normalized_value = value[%r{^(\d+)/}, 1] # "12345/user-name" => "12345"
-        normalized_value.present? ? normalized_value : value
+        normalized_value.presence || value
       end
     end
   end
