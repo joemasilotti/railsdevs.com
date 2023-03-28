@@ -70,7 +70,8 @@ developer = SeedsHelper.create_developer!("developer", {
   twitter: Faker::Internet.username,
   mastodon: Faker::Internet.url,
   linkedin: Faker::Internet.username,
-  stack_overflow: Faker::Number.number(digits: 6)
+  stack_overflow: Faker::Number.number(digits: 6),
+  scheduling_link: Faker::Internet.url
 })
 developer.send_product_announcement unless Notification.exists?(type: Developers::ProductAnnouncementNotification.name)
 

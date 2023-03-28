@@ -274,8 +274,8 @@ zh-CN:
       updated: 你的个人资料已更新！
   home:
     show:
-      available_developers: 现在有空的开发者
       description_og: RailsDevs 帮助独立开发者为他们的下一份工作做好准备。坐等公司与你联系，不用再去招聘网站搜寻。
+      developers_heading: 现在有空的开发者
       get_started: 开始
       learn_more: 了解更多
       more: 查看更多开发者

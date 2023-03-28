@@ -43,7 +43,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
-  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialties: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
@@ -108,7 +108,8 @@ class Developer < ApplicationRecord
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
-      available_on.blank?
+      available_on.blank? ||
+      scheduling_link.blank?
   end
 
   def feature!
