@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -126,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
     t.jsonb "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["developer_id", "site"], name: "index_developer_external_profiles_on_developer_id_and_site", unique: true
     t.index ["developer_id"], name: "index_developer_external_profiles_on_developer_id"
   end
 
@@ -336,7 +336,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
     t.string "processor_id"
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at", precision: nil
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -373,8 +373,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at", precision: nil
-    t.datetime "ends_at", precision: nil
+    t.datetime "trial_ends_at"
+    t.datetime "ends_at"
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"

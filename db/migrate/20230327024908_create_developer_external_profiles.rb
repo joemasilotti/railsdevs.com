@@ -6,6 +6,7 @@ class CreateDeveloperExternalProfiles < ActiveRecord::Migration[7.0]
       t.jsonb :data
 
       t.timestamps
+      t.index [:developer_id, :site], unique: true
     end
   end
 end

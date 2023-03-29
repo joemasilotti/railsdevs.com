@@ -21,7 +21,7 @@ module DeveloperExternalProfiles
     end
 
     def get_profile(url)
-      header_dic = {'Authorization' => 'Bearer ' + @api_key}
+      header_hash = {'Authorization' => 'Bearer ' + @api_key}
       params = {
         'url' => url,
         'fallback_to_cache' => 'on-error',
@@ -31,14 +31,8 @@ module DeveloperExternalProfiles
       uri = URI(@endpoint)
       uri.query = URI.encode_www_form(params)
 
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-
-      request = Net::HTTP::Get.new(uri)
-      header_dic.each { |key, value| request[key] = value }
-
       begin
-        response = http.request(request)
+        response = Net::HTTP.get_response(uri, header_hash)
 
         if response.code.to_i == 200
           parse_json_response(response.body)
