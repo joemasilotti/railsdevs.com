@@ -13,6 +13,7 @@ module Businesses
 
       render_inline SchedulingLinkComponent.new(@business_user, @conversation)
       assert_text "Schedule a meeting"
+      assert_selector "a[href='https://savvycal.com/prospect']"
     end
 
     test "doesn't render for business if developer has no scheduling link" do

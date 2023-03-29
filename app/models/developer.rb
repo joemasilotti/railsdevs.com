@@ -1,10 +1,10 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  include Developers::HasOnlineProfiles
   include Developers::Notifications
   include Developers::RichText
   include HasBadges
-  include HasSocialProfiles
   include HasSpecialties
   include Hashid::Rails
   include PersonName
