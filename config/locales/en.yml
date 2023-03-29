@@ -21,6 +21,7 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
+        scheduling_link: Scheduling link
         twitter: Twitter
         website: Website
       location:
@@ -103,7 +104,7 @@ en:
         title: Conversations
         view: View
     developers:
-      forms:
+      celebration_package_requests:
         index:
           actions: Actions
           company: Company
@@ -251,9 +252,7 @@ en:
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
-      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
-      subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
     hiring_invoice_requests:
       create:
@@ -269,6 +268,8 @@ en:
         title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
+    scheduling_link_component:
+      title: Schedule a meeting
     show:
       bio: Bio
     subscriptions_component:
@@ -342,6 +343,19 @@ en:
       high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
+    celebration_package_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        company_name: Company name
+        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        mailing_address: Mailing address
+        mailing_address_help: Where can we send your celebration package?
+        request_package: Request package
+        requesting: Requesting...
+        title: Did you find a job through RailsDevs?
     count_component:
       cta: Reset filters
       title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
@@ -396,6 +410,9 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
+      scheduling:
+        help_text: Share your scheduling link (Calendly, SavvyCal, etc.) to make it easier to organize interviews with businesses.
+        title: Scheduling
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
         invisible_help_text: Your profile is hidden and can only be seen by yourself.
@@ -499,19 +516,6 @@ en:
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
   hired:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        company_name: Company name
-        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        mailing_address: Mailing address
-        mailing_address_help: Where can we send your celebration package?
-        request_package: Request package
-        requesting: Requesting...
-        title: Did you find a job through RailsDevs?
     show:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
@@ -573,9 +577,9 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
-      businesses_hiring_invoice_requests: Hiring invoice requests
+      businesses_hiring_invoice_requests: Hiring invoices
       conversations: Conversations
-      developer_forms: Developer forms
+      developers_celebration_package_requests: Celebration packages
       found_a_job: Found a job?
       get_started: Get started
       hired_a_dev: Made a hire?
@@ -597,6 +601,9 @@ en:
       businesses:
         hiring_invoice_request_notification:
           title: "%{business} hired a developer"
+      developers:
+        celebration_package_request:
+          title: "%{developer} requested a celebration package"
       new_business_notification:
         email_subject: New business added
         title: "%{business} added their business"
@@ -606,8 +613,6 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: "%{developer} added their developer profile"
-      new_hired_form_notification:
-        title: "%{developer} requested a celebration package"
       potential_hire_notification:
         email_subject: New potential hire
         title: "%{developer} may have been hired"

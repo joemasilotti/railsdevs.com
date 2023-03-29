@@ -1,10 +1,10 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  include Developers::HasOnlineProfiles
   include Developers::Notifications
   include Developers::RichText
   include HasBadges
-  include HasSocialProfiles
   include HasSpecialties
   include Hashid::Rails
   include PersonName
@@ -24,7 +24,7 @@ class Developer < ApplicationRecord
   has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
-  has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
+  has_many :celebration_package_requests, class_name: "Developers::CelebrationPackageRequest", dependent: :destroy
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
@@ -109,7 +109,8 @@ class Developer < ApplicationRecord
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
-      available_on.blank?
+      available_on.blank? ||
+      scheduling_link.blank?
   end
 
   def feature!
