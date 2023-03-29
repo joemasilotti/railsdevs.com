@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
@@ -333,7 +334,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
     t.string "owner_type"
     t.bigint "owner_id"
     t.string "processor", null: false
-    t.string "processor_id"
+    t.string "processor_id", precision: nil
     t.boolean "default"
     t.jsonb "data"
     t.datetime "deleted_at"
@@ -373,8 +374,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_024908) do
     t.string "processor_plan", null: false
     t.integer "quantity", default: 1, null: false
     t.string "status", null: false
-    t.datetime "trial_ends_at"
-    t.datetime "ends_at"
+    t.datetime "trial_ends_at", precision: nil
+    t.datetime "ends_at", precision: nil
     t.decimal "application_fee_percent", precision: 8, scale: 2
     t.jsonb "metadata"
     t.jsonb "data"
