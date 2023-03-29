@@ -65,17 +65,19 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
     end
   end
 
-  test "sends a stale notification email" do
+  test "marks the developer as stale and sends an email" do
     developer = create_developer
     assert_sends_notification Developers::ProfileReminderNotification, to: developer.user do
-      developer.notify_as_stale
+      developer.mark_as_stale_and_notify
     end
+
+    assert_equal developer.reload.search_status, "not_interested"
   end
 
   test "does not send a stale notification email if developer opts out" do
     developer = create_developer(profile_reminder_notifications: false)
     refute_sends_notification Developers::ProfileReminderNotification do
-      developer.notify_as_stale
+      developer.mark_as_stale_and_notify
     end
   end
 

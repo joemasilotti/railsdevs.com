@@ -2,7 +2,7 @@ class StaleDevelopersQuery
   EARLIEST_TIME = 30.days.ago.beginning_of_day
 
   def stale_and_not_recently_notified
-    Developer.actively_looking_or_open
+    Developer.actively_looking_or_open_or_not_interested
       .where(updated_at: ..EARLIEST_TIME)
       .where(no_recent_notifications)
   end

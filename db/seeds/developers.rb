@@ -26,7 +26,7 @@ developer = SeedsHelper.create_developer!("stale", {
 })
 long_time_ago = 31.days.ago
 developer.update!(created_at: long_time_ago, updated_at: long_time_ago)
-developer.notify_as_stale unless Notification.exists?(type: Developers::ProfileReminderNotification.name)
+developer.mark_as_stale_and_notify unless Notification.exists?(type: Developers::ProfileReminderNotification.name)
 
 # Featured developer
 developer = SeedsHelper.create_developer!("featured", {

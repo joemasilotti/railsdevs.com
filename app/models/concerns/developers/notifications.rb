@@ -20,8 +20,8 @@ module Developers
       send_invisiblize_notification
     end
 
-    def notify_as_stale
-      send_stale_profile_notification
+    def mark_as_stale_and_notify
+      send_stale_profile_notification if mark_stale
     end
 
     def send_product_announcement
@@ -58,6 +58,10 @@ module Developers
 
     def send_invisiblize_notification
       InvisiblizeNotification.with(developer: self).deliver_later(user)
+    end
+
+    def mark_stale
+      update_column(:search_status, UNAVAILABLE_STATUSES[0])
     end
   end
 end

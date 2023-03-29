@@ -7,21 +7,21 @@ class StaleDevelopersQueryTest < ActiveSupport::TestCase
     travel_to(31.days.ago)
     stale_developer = create_developer
     notified_developer = create_developer(user: users(:developer))
-    notified_developer.notify_as_stale
+    notified_developer.mark_as_stale_and_notify
     travel_back
 
     records = StaleDevelopersQuery.new.stale_and_not_recently_notified
     assert_includes records, stale_developer
     assert_includes records, notified_developer
 
-    stale_developer.notify_as_stale
+    stale_developer.mark_as_stale_and_notify
     refute_includes StaleDevelopersQuery.new.stale_and_not_recently_notified, stale_developer
   end
 
   test ".stale_and_not_recently_notified returns no developers if previously stale developer updates profile" do
     travel_to(31.days.ago)
     stale_developer = create_developer
-    stale_developer.notify_as_stale
+    stale_developer.mark_as_stale_and_notify
     travel_back
 
     assert_includes StaleDevelopersQuery.new.stale_and_not_recently_notified, stale_developer
@@ -29,7 +29,7 @@ class StaleDevelopersQueryTest < ActiveSupport::TestCase
     assert_empty StaleDevelopersQuery.new.stale_and_not_recently_notified
   end
 
-  test ".stale_and_not_recently_notified ignores invisible and developers not looking" do
+  test ".stale_and_not_recently_notified ignores invisible developers" do
     travel_to(31.days.ago)
     developer = create_developer(search_status: nil)
     travel_back
@@ -38,10 +38,6 @@ class StaleDevelopersQueryTest < ActiveSupport::TestCase
     assert_includes records, developer
 
     developer.search_status = :invisible
-    developer.save(touch: false) # Don't update #updated_at.
-    refute_includes StaleDevelopersQuery.new.stale_and_not_recently_notified, developer
-
-    developer.search_status = :not_interested
     developer.save(touch: false) # Don't update #updated_at.
     refute_includes StaleDevelopersQuery.new.stale_and_not_recently_notified, developer
   end
