@@ -2,10 +2,5 @@
 
 one:
   developer: one
-  site: "LinkedIn"
-  data: {}
-
-two:
-  developer: two
-  site: "LinkedIn"
+  site: "linkedin"
   data: {}
