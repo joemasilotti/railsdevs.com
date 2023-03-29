@@ -1,13 +1,12 @@
-require 'uri'
-require 'net/http'
-require 'json'
+require "uri"
+require "net/http"
+require "json"
 
 module DeveloperExternalProfiles
   class LinkedinProfile
-
     class LinkedInAPIError < StandardError
       attr_reader :status, :message
-    
+
       def initialize(status, message)
         @status = status
         @message = message
@@ -21,11 +20,11 @@ module DeveloperExternalProfiles
     end
 
     def get_profile(url)
-      header_hash = {'Authorization' => 'Bearer ' + @api_key}
+      header_hash = {"Authorization" => "Bearer " + @api_key}
       params = {
-        'url' => url,
-        'fallback_to_cache' => 'on-error',
-        'use_cache' => 'if-present'
+        "url" => url,
+        "fallback_to_cache" => "on-error",
+        "use_cache" => "if-present"
       }
 
       uri = URI(@endpoint)
@@ -44,16 +43,15 @@ module DeveloperExternalProfiles
       end
     end
 
-
     private
 
     def parse_json_response(response_body)
       response_hash = JSON.parse(response_body)
       begin
         # Attempt to access the first company name in the experiences array
-        current_experience = response_hash["experiences"][0]
+        response_hash["experiences"][0]
       rescue NoMethodError
-        current_experience = nil
+        nil
       end
     rescue JSON::ParserError => e
       raise LinkedInAPIError.new("JSON parsing error: #{e.message}")
@@ -66,6 +64,5 @@ module DeveloperExternalProfiles
     def endpoint
       "https://nubela.co/proxycurl/api/v2/linkedin"
     end
-
   end
 end
