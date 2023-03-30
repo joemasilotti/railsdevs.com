@@ -293,7 +293,6 @@ zh-CN:
     loading: 加载中...
   nav_bar:
     base_component:
-      about: 关于
       developers: 开发者们
       home: 主页
       pricing: 价格

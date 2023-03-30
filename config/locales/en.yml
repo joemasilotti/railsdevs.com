@@ -198,6 +198,19 @@ en:
       search:
         cta: Search
         help: Filter users by name, company, or email
+  affiliates:
+    registrations:
+      create:
+        notice: Your request will be approved shortly. Look out for an email from Joe soon.
+      index:
+        description: Earn 10% recurring commissions for every referral to RailsDevs. Join the affiliate program today and start earning money while promoting the only open source hiring platform for Ruby on Rails developers.
+        title: Earn money promoting RailsDevs
+      new:
+        agreement: I agree to these rules
+        submit: Register
+        submitting: Registering...
+        subtitle: Program rules
+        title: RailsDevs affiliate program registration
   blocks:
     create:
       notice: "%{other_recipient} was blocked."
@@ -566,7 +579,7 @@ en:
       you: You
   nav_bar:
     base_component:
-      about: About
+      affiliates: Affiliate program
       developers: Developers
       home: Home
       pricing: Pricing
@@ -598,6 +611,9 @@ en:
       view_notifications: View notifications
   notifications:
     admin:
+      affiliates:
+        registration_notification:
+          title: "%{email} requested to join the affiliate program"
       businesses:
         hiring_invoice_request_notification:
           title: "%{business} hired a developer"

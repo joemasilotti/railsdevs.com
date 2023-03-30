@@ -4,6 +4,7 @@
 
 ### March
 
+* March 30 - Affiliate program landing page and sign up form #850
 * March 28 - Refactor `Hired::Form` into `Developers::CelebrationPackageRequest` #836 @MikeRayUX
 * March 25 - Add developer scheduling link #838 @jkostolansky
 * March 23 - Business survey email + opt-out checkbox #830

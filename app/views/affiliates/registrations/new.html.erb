@@ -1,0 +1,46 @@
+<%= render "shared/error_messages", resource: @registration %>
+
+<div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">
+  <div class="mx-auto mt-8">
+    <div class="px-0 sm:px-6 lg:px-8">
+      <div class="mt-8 sm:px-6">
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+          <div class="px-4 py-5 sm:px-6 flex">
+            <div class="flex-grow">
+              <h3 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h3>
+              <p class="mt-1 text-sm text-gray-500"><%= t(".subtitle") %></p>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+            <div class="max-w-prose">
+              <ol role="list" class="space-y-4 text-gray-600">
+                <li>You can't refer yourself.</li>
+                <li>You <em>can</em> refer your hiring manager, CTO, HR department, etc.</li>
+                <li>No ads and no pretending to be an employee.</li>
+                <li>Abuse or misues of the system may result in a suspension or ban.</li>
+                <li>The rules may change at any time.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+            <div class="prose-sm max-w-prose">
+              <%= form_with(model: @registration, url: affiliates_path) do |form| %>
+                <div class="flex space-x-4 justify-between items-center">
+                  <div class="flex items-center space-x-2">
+                    <%= form.check_box :agreement, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                    <span class="text-sm text-gray-600">
+                      <%= form.label :agreement, t(".agreement"), required: true %>
+                    </span>
+                  </div>
+                  <%= render SubmitButtonComponent.new(text: t(".submit"), disable_with: t(".submitting")) %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
