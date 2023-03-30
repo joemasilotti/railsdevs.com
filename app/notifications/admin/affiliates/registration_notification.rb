@@ -11,11 +11,11 @@ module Admin
       end
 
       def title
-        t("notifications.admin.affiliates.registration_notification.title")
+        t("notifications.admin.affiliates.registration_notification.title", email: user.email)
       end
 
       def url
-        "mailto:#{user.email}"
+        root_path
       end
     end
   end

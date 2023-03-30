@@ -613,7 +613,7 @@ en:
     admin:
       affiliates:
         registration_notification:
-          title: Someone requested to join the affiliate program
+          title: "%{email} requested to join the affiliate program"
       businesses:
         hiring_invoice_request_notification:
           title: "%{business} hired a developer"
