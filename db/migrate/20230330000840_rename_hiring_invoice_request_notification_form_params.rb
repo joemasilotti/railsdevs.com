@@ -1,10 +1,10 @@
 class RenameHiringInvoiceRequestNotificationFormParams < ActiveRecord::Migration[7.0]
   def up
-    migrate_notifications(old_param_name: 'form', new_param_name: 'hiring_invoice_request')
+    migrate_notifications(old_param_name: "form", new_param_name: "hiring_invoice_request")
   end
 
   def down
-    migrate_notifications(old_param_name: 'hiring_invoice_request', new_param_name: 'form')
+    migrate_notifications(old_param_name: "hiring_invoice_request", new_param_name: "form")
   end
 
   def migrate_notifications(old_param_name:, new_param_name:)
@@ -17,7 +17,7 @@ class RenameHiringInvoiceRequestNotificationFormParams < ActiveRecord::Migration
     execute(rename_sql)
 
     # 3. Symbolize new key with ActiveRecord
-    Notification.where(type: 'Admin::Businesses::HiringInvoiceRequestNotification').each do |notification|
+    Notification.where(type: "Admin::Businesses::HiringInvoiceRequestNotification").each do |notification|
       notification.update!(params: notification.params.transform_keys do |key|
         key == new_param_name ? new_param_name.to_sym : key
       end)
