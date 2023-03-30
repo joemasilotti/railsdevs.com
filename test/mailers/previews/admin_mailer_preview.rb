@@ -35,4 +35,9 @@ class AdminMailerPreview < ActionMailer::Preview
     notification = Notification.where(type: Admin::Developers::NewCelebrationPackageRequestNotification.to_s).first
     AdminMailer.with(record: notification, recipient: User.first).developers_celebration_package_request
   end
+
+  def affiliates_registration
+    notification = Notification.where(type: Admin::Affiliates::RegistrationNotification.to_s).first
+    AdminMailer.with(record: notification, recipient: User.first).affiliates_registration
+  end
 end

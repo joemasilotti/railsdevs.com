@@ -69,4 +69,11 @@ class AdminMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: @notification.title)
   end
+
+  def affiliates_registration
+    @notification = params[:record].to_notification
+    @recipient = params[:recipient]
+
+    mail(to: @recipient.email, subject: @notification.title)
+  end
 end
