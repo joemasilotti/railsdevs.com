@@ -24,7 +24,7 @@ module DeveloperExternalProfiles
     private
 
     def get_profile(linkedin_url)
-      api = DeveloperExternalProfiles::LinkedinApi.new
+      api = DeveloperExternalProfiles::Linkedin.new
       api.get_profile(linkedin_url)
     end
   end

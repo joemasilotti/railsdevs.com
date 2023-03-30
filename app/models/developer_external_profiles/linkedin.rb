@@ -3,7 +3,7 @@ require "net/http"
 require "json"
 
 module DeveloperExternalProfiles
-  class LinkedinApi
+  class Linkedin
     def initialize
       @api_key = api_key
       @endpoint = endpoint
