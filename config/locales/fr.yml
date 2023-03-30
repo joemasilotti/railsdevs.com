@@ -453,7 +453,6 @@ fr:
       you: Vous
   nav_bar:
     base_component:
-      about: À propos
       developers: Candidats
       home: Accueil
       pricing: Tarif
