@@ -11,7 +11,7 @@ module Admin
       end
 
       def url
-        admin_businesses_hiring_invoice_requests_path(hiring_invoice_request)
+        admin_businesses_hiring_invoice_request_path(hiring_invoice_request)
       end
 
       def hiring_invoice_request
