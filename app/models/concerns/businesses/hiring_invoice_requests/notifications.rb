@@ -9,7 +9,7 @@ module Businesses
       end
 
       def send_admin_notification
-        Admin::Businesses::HiringInvoiceRequestNotification.with(form: self).deliver_later(User.admin)
+        Admin::Businesses::HiringInvoiceRequestNotification.with(hiring_invoice_request: self).deliver_later(User.admin)
       end
     end
   end
