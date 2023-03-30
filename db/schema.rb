@@ -124,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_223735) do
     t.bigint "developer_id", null: false
     t.string "site", null: false
     t.jsonb "data"
+    t.string "error"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["developer_id", "site"], name: "index_developer_external_profiles_on_developer_id_and_site", unique: true

@@ -4,16 +4,6 @@ require "json"
 
 module DeveloperExternalProfiles
   class LinkedinProfile
-    class LinkedInAPIError < StandardError
-      attr_reader :status, :message
-
-      def initialize(status, message)
-        @status = status
-        @message = message
-        super("API error: #{status} - #{message}")
-      end
-    end
-
     def initialize
       @api_key = api_key
       @endpoint = endpoint
@@ -36,10 +26,10 @@ module DeveloperExternalProfiles
         if response.code.to_i == 200
           parse_json_response(response.body)
         else
-          raise LinkedInAPIError.new("API error: #{response.code} - #{response.body}")
+          {error: "API Error: #{response.code} - #{response.body}"}
         end
       rescue RestClient::ExceptionWithResponse => e
-        raise LinkedInAPIError.new("API error: #{e.response.code} - #{e.response.body}")
+        {error: "Exception occurred: #{e.message}"}
       end
     end
 
@@ -49,12 +39,12 @@ module DeveloperExternalProfiles
       response_hash = JSON.parse(response_body)
       begin
         # Attempt to access the first company name in the experiences array
-        response_hash["experiences"][0]
+        {data: response_hash["experiences"][0]}
       rescue NoMethodError
-        nil
+        {error: "JSON Parsing Error: #{e.message}"}
       end
     rescue JSON::ParserError => e
-      raise LinkedInAPIError.new("JSON parsing error: #{e.message}")
+      {error: "JSON Parsing Error: #{e.message}"}
     end
 
     def api_key

@@ -6,6 +6,6 @@ class DeveloperExternalProfile < ApplicationRecord
   validates :developer, uniqueness: {scope: :site}
 
   def self.linkedin_developer(developer)
-    where("developer_id = ? and site=?", developer.id, "linkedin").first!
+    find_by("developer_id = ? and site=?", developer.id, "linkedin")
   end
 end

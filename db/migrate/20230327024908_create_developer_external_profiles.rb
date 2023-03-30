@@ -4,6 +4,7 @@ class CreateDeveloperExternalProfiles < ActiveRecord::Migration[7.0]
       t.references :developer, null: false, foreign_key: true
       t.string :site, null: false
       t.jsonb :data
+      t.string :error
 
       t.timestamps
       t.index [:developer_id, :site], unique: true
