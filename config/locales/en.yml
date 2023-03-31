@@ -161,7 +161,6 @@ en:
       show:
         business: Business
         developer: Developer
-        email: Email
         referrals: "'s referrals"
         referrals_count: Total Referrals
         referred_user: Referred User
