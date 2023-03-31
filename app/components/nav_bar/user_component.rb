@@ -34,6 +34,7 @@ module NavBar
         Link.new(t(".businesses_hiring_invoice_requests"), admin_businesses_hiring_invoice_requests_path),
         Link.new(t(".developers_celebration_package_requests"), admin_developers_celebration_package_requests_path),
         Link.new(t(".specialties"), admin_specialties_path),
+        Link.new(t(".referrals"), admin_referrals_path),
         Link.new(t(".hiring_agreement_terms"), admin_hiring_agreements_terms_path),
         Link.new(t(".transactions"), admin_transactions_path),
         Link.new(t(".blocked_conversations"), admin_conversations_blocks_path)

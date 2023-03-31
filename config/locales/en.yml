@@ -150,6 +150,15 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    referrals:
+      index:
+        business: Business
+        code: Referal code
+        developer: Developer
+        email: Email
+        referrals_count: Referrals
+        title: Referrals
+        view: View
     specialties:
       create:
         created: Developer specialty created.
@@ -195,6 +204,13 @@ en:
         email: Email
         impersonate: Impersonate
         title: Users
+      referrals:
+        index:
+          business: Business
+          developer: Developer
+          referrals: "'s referrals"
+          referrals_count: Referrals
+          referred_user: Referred user
       search:
         cta: Search
         help: Filter users by name, company, or email
@@ -603,6 +619,7 @@ en:
       new: New!
       new_notifications: You have a new notification
       open_user_menu: Open user menu
+      referrals: Referrals
       sign_out: Sign out
       specialties: Developer specialties
       transactions: Transactions

@@ -55,4 +55,15 @@ class UserTest < ActiveSupport::TestCase
     update_subscription(:legacy)
     refute user.needs_to_sign_hiring_agreement?
   end
+
+  test "business name, then developer name, then email" do
+    user = User.new(email: "user@example.com")
+    assert_equal "user@example.com", user.name
+
+    user.developer = Developer.new(name: "Developer Name")
+    assert_equal "Developer Name", user.name
+
+    user.business = Business.new(name: "Business Name")
+    assert_equal "Business Name", user.name
+  end
 end
