@@ -39,7 +39,10 @@
 
   <div class="mt-8 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <% if policy(@message).create? %>
-      <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
+      <div class="flex gap-2">
+        <%= render "conversations/extend_offer_link" %>
+        <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
+      </div>
       <div class="mt-4">
         <%= turbo_frame_tag "new_message" do %>
           <%= render "conversations/new_message", conversation: @conversation, message: @message %>
