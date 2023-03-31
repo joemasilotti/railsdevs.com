@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_30_000840) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_210502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -456,6 +456,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_000840) do
     t.string "authentication_token"
     t.boolean "suspended", default: false, null: false
     t.string "referral_code"
+    t.integer "referrals_count", default: 0, null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

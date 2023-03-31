@@ -1,6 +1,6 @@
 class Referral < ApplicationRecord
   belongs_to :referred_user, class_name: "User"
-  belongs_to :referring_user, class_name: "User", optional: true
+  belongs_to :referring_user, class_name: "User", optional: true, counter_cache: true
 
   before_create :associate_referring_user
 
