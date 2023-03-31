@@ -60,6 +60,11 @@ en:
       user:
         one: User
         other: Users
+      offer:
+        pay_rate_time_unit:
+          hour: hour
+          day: day
+          year: year
   admin:
     businesses:
       hiring_invoice_requests:

@@ -6,6 +6,7 @@ class Conversation < ApplicationRecord
   belongs_to :user_with_unread_messages, class_name: :User, inverse_of: :unread_conversations, optional: true
 
   has_many :messages, -> { order(:created_at) }, dependent: :destroy
+  has_many :offers, -> { order(:created_at) }, dependent: :destroy
 
   has_noticed_notifications
 
