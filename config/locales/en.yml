@@ -150,6 +150,31 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    referrals:
+      create:
+        created: Referral created
+      destroy:
+        destroyed: Referral deleted
+      form:
+        code: Code
+        referred_user: Referred User
+        referring_user: Referring User
+      index:
+        business: Business
+        code: Referal Code
+        developer: Developer
+        email: Email
+        referrals_count: Total Referrals
+        title: Referrals
+      show:
+        business: Business
+        developer: Developer
+        email: Email
+        referrals: "'s referrals"
+        referrals_count: Total Referrals
+        referred_user: Referred User
+      update:
+        updated: Referral updated
     specialties:
       create:
         created: Developer specialty created.
@@ -198,31 +223,6 @@ en:
       search:
         cta: Search
         help: Filter users by name, company, or email
-    referrals:
-      index:
-        title: Referrals
-        email: Email
-        business: Business
-        developer: Developer
-        referrals_count: Total Referrals
-        code: Referal Code
-      show:
-        referrals: "'s referrals"
-        email: Email
-        referred_user: Referred User
-        business: Business
-        developer: Developer
-        referrals_count: Total Referrals
-      create:
-        created: Referral created
-      destroy:
-        destroyed: Referral deleted
-      form:
-        code: Code
-        referred_user: Referred User
-        referring_user: Referring User
-      update:
-        updated: Referral updated
   affiliates:
     registrations:
       create:
@@ -238,7 +238,7 @@ en:
         title: RailsDevs affiliate program registration
   blocks:
     create:
-      notice: '%{other_recipient} was blocked.'
+      notice: "%{other_recipient} was blocked."
     new:
       block: Block
       cancel: Cancel
@@ -250,7 +250,7 @@ en:
     subscribed:
       subject: "Your RailsDevs subscription is live! 🎉 Let's find your perfect match."
     welcome:
-      subject: 'Welcome to RailsDevs 👋'
+      subject: "Welcome to RailsDevs 👋"
   businesses:
     admin_component:
       conversations: Conversations
@@ -355,15 +355,15 @@ en:
       with: with
   date:
     formats:
-      month_year: '%B %Y'
-  deleted_account: '(deleted account)'
+      month_year: "%B %Y"
+  deleted_account: "(deleted account)"
   developer_mailer:
     celebration_promotion:
       subject: How's your conversation going with %{contact} at %{company}?
     first_message:
       subject: Tips on responding to your first message on RailsDevs
     welcome:
-      subject: 'Welcome to RailsDevs 👋'
+      subject: "Welcome to RailsDevs 👋"
   developers:
     admin_component:
       conversations: Conversations
@@ -628,36 +628,36 @@ en:
       new: New!
       new_notifications: You have a new notification
       open_user_menu: Open user menu
+      referrals: Referrals
       sign_out: Sign out
       specialties: Developer specialties
       transactions: Transactions
       users: Users
       view_conversations: View conversations
       view_notifications: View notifications
-      referrals: Referrals
   notifications:
     admin:
       affiliates:
         registration_notification:
-          title: '%{email} requested to join the affiliate program'
+          title: "%{email} requested to join the affiliate program"
       businesses:
         hiring_invoice_request_notification:
-          title: '%{business} hired a developer'
+          title: "%{business} hired a developer"
       developers:
         celebration_package_request:
-          title: '%{developer} requested a celebration package'
+          title: "%{developer} requested a celebration package"
       new_business_notification:
         email_subject: New business added
-        title: '%{business} added their business'
+        title: "%{business} added their business"
       new_conversation_notification:
         email_subject: New conversation started
-        title: '%{name} (%{company}) started a conversation with %{developer}'
+        title: "%{name} (%{company}) started a conversation with %{developer}"
       new_developer_notification:
         email_subject: New developer profile added
-        title: '%{developer} added their developer profile'
+        title: "%{developer} added their developer profile"
       potential_hire_notification:
         email_subject: New potential hire
-        title: '%{developer} may have been hired'
+        title: "%{developer} may have been hired"
     businesses:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
@@ -665,7 +665,7 @@ en:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
       product_announcement_notification:
-        email_subject: '[RailsDevs] New feature alert: Developer specialties 🚨'
+        email_subject: "[RailsDevs] New feature alert: Developer specialties 🚨"
         title: 'New feature alert: Developer specialties'
       profile_reminder_notification:
         email_subject: Is your RailsDevs profile up to date?
@@ -678,8 +678,8 @@ en:
       mark_all_as_read: Mark all as read
       title: New notifications
     new_message_notification:
-      email_subject: '%{sender} sent you a message on RailsDevs'
-      title: '%{sender} sent you a message'
+      email_subject: "%{sender} sent you a message on RailsDevs"
+      title: "%{sender} sent you a message"
     show:
       notice: Notification marked as read.
   open_startup:
@@ -767,8 +767,8 @@ en:
         rails: Exclusively Ruby on Rails developers
         support: Email and video support from the founder
         title: RailsDevs exclusives
-      hiring_fee: '+ 10% first year salary'
-      per_month: '/month'
+      hiring_fee: "+ 10% first year salary"
+      per_month: "/month"
       title_html: For your 1<sup>st</sup> hire and beyond
     purchase_button:
       title: Get started today
