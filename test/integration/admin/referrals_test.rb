@@ -15,6 +15,6 @@ class ReferralsTest < ActionDispatch::IntegrationTest
   test "list all users referrals" do
     sign_in users(:admin)
     get admin_referrals_path
-    assert_select "tr td", text: users(:developer).email
+    assert_select "tr td", text: users(:admin).email
   end
 end
