@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :conversations, only: %i[index show] do
       resource :block, only: %i[new create]
       resources :messages, only: :create
+      resources :offers, only: %i[new create]
     end
 
     resources :developers, except: :destroy do

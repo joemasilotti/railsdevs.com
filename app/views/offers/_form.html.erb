@@ -1,0 +1,47 @@
+<%= render "shared/error_messages", resource: offer %>
+
+<div class="flex flex-col space-y-3">
+  <% unless turbo_native_app? %>
+    <h2 class="text-xl font-bold leading-tight text-gray-900">
+      <%= t(".title") %>
+    </h2>
+  <% end %>
+
+  <%= form_with model: [conversation, offer] do |form| %>
+    <div class="my-4 flex flex-col">
+      <div class="space-y-6">
+        <div>
+          <%= form.label :start_date, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.date_field :start_date, value: Date.current, class: field_classes(form, :start_date) %>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :pay_rate_value, class: "block text-sm font-medium text-gray-700" %>
+          <div class="relative mt-1 rounded-md shadow-sm">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <span class="text-gray-500 sm:text-sm">$</span>
+            </div>
+            <%= form.text_field :pay_rate_value, type: 'number', value: 50, class: "pl-7 pr-20 #{field_classes(form, :pay_rate_value)}" %>
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <%= form.select :pay_rate_time_unit, Offer.pay_rate_time_units.keys.map { |unit| [unit, "/#{unit}"] }, {}, class: "#{field_classes(form, :pay_rate_time_unit)} h-full border-0 bg-transparent pr-7 text-gray-500 sm:text-sm" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <%= form.label :comment, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_area :comment, class: field_classes(form, :comment) %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <%= render SubmitButtonComponent.new(disable_with: t(".extending")) %>
+    </div>
+  <% end %>
+</div>

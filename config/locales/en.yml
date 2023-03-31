@@ -330,6 +330,8 @@ en:
       with: with
   conversations:
     ago: ago
+    extend_offer_link:
+      title: Extend an offer
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -677,6 +679,10 @@ en:
       title: "%{sender} sent you a message"
     show:
       notice: Notification marked as read.
+  offers:
+    form:
+      title: 'Extend an offer'
+      extending: 'Extending...'
   open_startup:
     contributions:
       index:
