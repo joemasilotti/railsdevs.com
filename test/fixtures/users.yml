@@ -38,3 +38,4 @@ admin:
   confirmed_at: <%= DateTime.current %>
   authentication_token: <%= Devise.friendly_token %>
   admin: true
+  referral_code: abc123

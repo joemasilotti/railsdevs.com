@@ -39,6 +39,10 @@ class User < ApplicationRecord
       .or(where("businesses.company ILIKE ?", query))
   end
 
+  def name
+    business&.name || developer&.name || email
+  end
+
   # Always remember when signing in with Devise.
   def remember_me
     Rails.configuration.always_remember_me

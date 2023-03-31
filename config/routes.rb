@@ -75,7 +75,9 @@ Rails.application.routes.draw do
     resources :conversations, only: :index
     resources :specialties
     resources :transactions, except: :show
-    resources :users, only: [:index]
+    resources :users, only: [:index] do
+      resources :referrals, only: :index, module: :users
+    end
 
     namespace :conversations do
       resources :blocks, only: :index
@@ -106,6 +108,8 @@ Rails.application.routes.draw do
         resource :activation, only: %i[create destroy], module: :terms
       end
     end
+
+    resources :referrals, only: :index
   end
 
   namespace :api, defaults: {format: :json} do
