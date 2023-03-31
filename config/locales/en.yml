@@ -128,20 +128,6 @@ en:
       create:
         created: Profile featured for one week.
     hiring_agreements:
-      index:
-        business: Business
-        code: Referal Code
-        developer: Developer
-        email: Email
-        referrals_count: Total Referrals
-        title: Referrals
-      show:
-        business: Business
-        developer: Developer
-        email: Email
-        referrals: "'s referrals"
-        referrals_count: Total Referrals
-        referred_user: Referred User
       terms:
         create:
           created: Hiring agreement terms added.
@@ -166,6 +152,21 @@ en:
           updated: Hiring agreement terms updated.
       update:
         updated: Referral updated
+    referrals:
+      index:
+        business: Business
+        code: Referal Code
+        developer: Developer
+        email: Email
+        referrals_count: Total Referrals
+        title: Referrals
+      show:
+        business: Business
+        developer: Developer
+        email: Email
+        referrals: "'s referrals"
+        referrals_count: Total Referrals
+        referred_user: Referred User
     specialties:
       create:
         created: Developer specialty created.
