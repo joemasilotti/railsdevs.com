@@ -211,12 +211,14 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       params = valid_developer_params
       params[:developer][:role_type_attributes] = {part_time_contract: true}
       params[:developer][:role_level_attributes] = {senior: true}
+      params[:developer][:specialty_ids] = [specialties(:one).id]
       post developers_path, params:
     end
 
     assert user.developer.role_type.part_time_contract?
     assert user.developer.role_level.senior?
     assert user.developer.avatar.attached?
+    assert_includes user.developer.specialties, specialties(:one)
   end
 
   test "custom develper meta tags are rendered" do

@@ -55,10 +55,6 @@ fr:
         one: Utilisateur
         other: Utilisateurs
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: Profil réglé sur invisible.
     conversations:
       blocks:
         index:
@@ -79,14 +75,7 @@ fr:
         title: Conversations
         view: Voir
     developers:
-      invisiblizes:
-        create:
-          created: Profil réglé sur invisible.
-    features:
-      create:
-        created: Profil réglé sur invisible.
-    hired:
-      forms:
+      celebration_package_requests:
         index:
           actions: Actions
           company: Entreprise
@@ -103,6 +92,12 @@ fr:
           position: Rôle
           start_date: Date de début
           title: Demander un pack de célébration
+      invisiblizes:
+        create:
+          created: Profil réglé sur invisible.
+    features:
+      create:
+        created: Profil réglé sur invisible.
     hiring_agreements:
       terms:
         create:
@@ -197,9 +192,7 @@ fr:
       updating: Mise à jour...
       your_business_profile: Votre profil d'entreprise
     hiring_fee_component:
-      body: 'Salut Joe, j''ai recruté %{developer} via RailsDevs et souhaite coordonner le paiement des frais. Leur salaire de départ est de : '
       cta: Payer les frais d'embauche
-      subject: J'ai embauché un candidat via RailsDevs
       title: Avez-vous embauché %{developer}?
     primary_action_component:
       edit: Modifier
@@ -293,7 +286,6 @@ fr:
           unique: Vos compétences uniques qui vous rendent génial
         help_text: Les informations personnelles permettant de vous identifier seront supprimées.
         markdown: Le format Markdown est pris en charge mais les liens et les images sont supprimés.
-        title: Bio
       creating: Création...
       loading: Chargement...
       notifications:
@@ -411,19 +403,6 @@ fr:
       max_file_size_invalid: image supérieure à %{size}
     unauthorized: Vous n'avez pas accès à ça.
   hired:
-    forms:
-      create:
-        success: Merci ! Joe vous contactera bientôt.
-      new:
-        company_name: Nom d'entreprise
-        description: Félicitations pour votre nouvel emploi !
-        feedback: Commentaires (facultatif)
-        feedback_help: N'hésitez pas à nous dire comment nous pouvons améliorer RailsDevs ou à nous faire part de tout ce que vous souhaitez partager.
-        mailing_address: Adresse postale
-        mailing_address_help: Où pouvons-nous envoyer votre colis de célébration ?
-        request_package: Demande de colis
-        requesting: Chargement...
-        title: Avez-vous trouvé un emploi grâce à RailsDevs ?
     show:
       description: RailsDevs offre un pack de célébration pour vous féliciter d'avoir rejoint une entreprise par le biais de la plateforme.
       image_alt: Pack de célébration RailsDevs
@@ -444,8 +423,8 @@ fr:
         signed_on: Signé le %{date}
   home:
     show:
-      available_developers: Candidats disponibles maintenant
       description_og: RailsDevs permet aux développeurs indépendants de trouver leur prochain emploi. Arrêtez de parcourir les sites d'offres d'emploi et attendez tranquillement que les entreprises vous contactent en premier.
+      developers_heading: Candidats disponibles maintenant
       get_started: Créer un compte
       learn_more: En savoir plus
       more: Voir plus de développeurs
@@ -474,7 +453,6 @@ fr:
       you: Vous
   nav_bar:
     base_component:
-      about: À propos
       developers: Candidats
       home: Accueil
       pricing: Tarif
@@ -486,9 +464,9 @@ fr:
       billing: Facturation
       blocked_conversations: Conversations bloquées
       conversations: Conversations
+      developers_celebration_package_requests: Formulaires de développeur
       found_a_job: Vous avez trouvé un emploi ?
       get_started: Commencer
-      hired_forms: Formulaires d'embauche
       hiring_agreement_terms: Conditions de l'accord de recrutement
       my_business_profile: Profil d'entreprise
       my_conversations: Conversations
@@ -503,6 +481,9 @@ fr:
       view_notifications: Voir notifications
   notifications:
     admin:
+      developers:
+        celebration_package_request:
+          title: "%{developer} a demandé un pack de célébration"
       new_business_notification:
         email_subject: Nouvelle entreprise ajoutée
         title: "%{business} ont ajouté leur entreprise"
@@ -512,8 +493,6 @@ fr:
       new_developer_notification:
         email_subject: Nouveau profil ajouté
         title: "%{developer} a ajouté son profil de développeur"
-      new_hired_form_notification:
-        title: "%{developer} a demandé un pack de célébration"
       potential_hire_notification:
         email_subject: Nouvelle embauche potentielle
         title: "%{developer} a peut-être été embauché"

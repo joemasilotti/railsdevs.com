@@ -34,5 +34,9 @@ module Pay
     def subscribed?
       change == :subscribed
     end
+
+    def cancelled?
+      change == :churned
+    end
   end
 end

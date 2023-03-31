@@ -18,19 +18,18 @@
       <% @referrals.each do |referral| %>
         <% table.with_row do |row| %>
 
-          <%= referred_user = referral.referred_user %>
           <%= row.with_cell primary: true do %>
-            <%= render Admin::EmailLinkComponent.new(referred_user.email) %>
+            <%= render Admin::EmailLinkComponent.new(referral.referred_user.email) %>
           <% end %>
 
           <%= row.with_cell do %>
-            <% if (developer = referred_user.developer) %>
+            <% if (developer = referral.referred_user.developer) %>
               <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: admin_developer_conversations_path(developer)) %>
             <% end %>
           <% end %>
 
           <%= row.with_cell do %>
-            <% if (business = referred_user.business) %>
+            <% if (business = referral.referred_user.business) %>
               <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_business_conversations_path(business), subtitle: business.name) %>
             <% end %>
           <% end %>

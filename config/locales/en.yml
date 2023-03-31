@@ -21,6 +21,7 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
+        scheduling_link: Scheduling link
         twitter: Twitter
         website: Website
       location:
@@ -42,6 +43,10 @@ en:
         remember_me: Remember me
     errors:
       models:
+        developer:
+          attributes:
+            specialties:
+              too_long: is limited to 5
         location:
           invalid_coordinates: can't be found
     models:
@@ -56,6 +61,24 @@ en:
         other: Users
   admin:
     businesses:
+      hiring_invoice_requests:
+        index:
+          actions: Actions
+          business: Business
+          details: Details
+          developer: Developer
+          employment_type: Employment type
+          start_date: Start date
+          title: Hiring invoice requests
+        show:
+          billing_address: Billing address
+          developer_name: Developer Name
+          employment_type: Employment type
+          feedback: Feedback
+          full_name: Full name
+          position: Position
+          start_date: Start date
+          title: Hiring invoice request
       invisiblizes:
         create:
           created: Profile set to invisible.
@@ -70,23 +93,18 @@ en:
         conversations: "'s conversations"
         developer: Developer
         email: Email
+        email_tooltip: The developer mentioned an email address in a reply.
         no_potential_email: No potential email
         no_response: No response
         potential_email: Potential email
         replied: Replied
+        replied_tooltip: The developer has replied to this conversation.
         reply_rate: Reply rate
         started: Started
         title: Conversations
         view: View
     developers:
-      invisiblizes:
-        create:
-          created: Profile set to invisible.
-    features:
-      create:
-        created: Profile featured for one week.
-    hired:
-      forms:
+      celebration_package_requests:
         index:
           actions: Actions
           company: Company
@@ -103,6 +121,12 @@ en:
           position: Position
           start_date: Start date
           title: Celebration package request
+      invisiblizes:
+        create:
+          created: Profile set to invisible.
+    features:
+      create:
+        created: Profile featured for one week.
     hiring_agreements:
       terms:
         create:
@@ -126,6 +150,29 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
+    specialties:
+      create:
+        created: Developer specialty created.
+      edit:
+        title: Edit developer specialty
+      form:
+        cancel: Cancel
+      index:
+        actions: Actions
+        add: Add specialty
+        delete: Delete
+        delete_confirmation: Are you sure you want to delete this specialty?
+        developers: Developers
+        edit: Edit
+        name: Name
+        title: Developer specialties
+      new:
+        title: New developer specialty
+      show:
+        developer_specialty: Developer specialty
+        no_developers: No developers with this specialty.
+      update:
+        updated: Developer specialty updated.
     transactions:
       create:
         created: Transaction created
@@ -176,6 +223,19 @@ en:
         referring_user: Referring User
       update:
         updated: Referral updated
+  affiliates:
+    registrations:
+      create:
+        notice: Your request will be approved shortly. Look out for an email from Joe soon.
+      index:
+        description: Earn 10% recurring commissions for every referral to RailsDevs. Join the affiliate program today and start earning money while promoting the only open source hiring platform for Ruby on Rails developers.
+        title: Earn money promoting RailsDevs
+      new:
+        agreement: I agree to these rules
+        submit: Register
+        submitting: Registering...
+        subtitle: Program rules
+        title: RailsDevs affiliate program registration
   blocks:
     create:
       notice: '%{other_recipient} was blocked.'
@@ -185,6 +245,8 @@ en:
       message: Are you sure you want to flag this conversation and block the sender? This will hide the conversation and they won't be able to contact you again.
       title: Block sender
   business_mailer:
+    cancel_subscription:
+      subject: RailsDevs cancellation confirmation
     subscribed:
       subject: "Your RailsDevs subscription is live! 🎉 Let's find your perfect match."
     welcome:
@@ -222,15 +284,30 @@ en:
         help: Information about you, the contact point for your business on RailsDevs.
         title: Personal details
       something_went_wrong: Something went wrong uploading your image, please try again.
+      survey_request_notifications:
+        help_text: Help RailsDevs by receiving short, infrequent surveys about how you use the platform.
+        legend: Survey requests
       updating: Updating...
       your_business_profile: Your business profile
     hiring_fee_component:
-      body: 'Hi Joe, I hired %{developer} via RailsDevs and would like to coordinate paying the fee. Their starting salary is: '
       cta: Pay hiring fee
-      subject: I hired a developer via RailsDevs
       title: Have you hired %{developer}?
+    hiring_invoice_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        billing_address: Billing address
+        description: Congrats on your new hire!
+        developer_name: Developer's name
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        requesting: Requesting...
+        submit: Submit
+        title: Did you hire through RailsDevs?
     primary_action_component:
       edit: Edit
+    scheduling_link_component:
+      title: Schedule a meeting
     show:
       bio: Bio
     subscriptions_component:
@@ -304,6 +381,19 @@ en:
       high_response_rate: High response rate
       recently_active: Recently Active
       source_contributor: Source Contributor
+    celebration_package_requests:
+      create:
+        success: Thank you! Joe will reach out to you soon.
+      new:
+        company_name: Company name
+        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
+        feedback: Feedback (optional)
+        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
+        mailing_address: Mailing address
+        mailing_address_help: Where can we send your celebration package?
+        request_package: Request package
+        requesting: Requesting...
+        title: Did you find a job through RailsDevs?
     count_component:
       cta: Reset filters
       title_html: Showing <span class='font-bold'>%{count}</span> of <span class='font-bold'>%{total}</span>+ developers.
@@ -328,10 +418,11 @@ en:
           unique: Your unique skills that make you awesome
         help_text: Personally identifiable information will be removed.
         markdown: Markdown is supported but links and images are removed.
-        title: Bio
       creating: Creating...
       loading: Loading...
       notifications:
+        product_announcement_notifications: Feature announcements
+        product_announcement_notifications_help: Keep me up to date with new product features.
         profile_reminder_notifications: Profile reminders
         profile_reminder_notifications_help: Periodically remind me to update my developer profile.
         title: Email notifications
@@ -357,12 +448,24 @@ en:
       role_type:
         help_text: Select all roles that you would consider taking.
         title: Role type
+      scheduling:
+        help_text: Share your scheduling link (Calendly, SavvyCal, etc.) to make it easier to organize interviews with businesses.
+        title: Scheduling
       search_status:
         actively_looking_help_text: Your profile can get featured on the homepage.
         invisible_help_text: Your profile is hidden and can only be seen by yourself.
         not_interested_help_text: Your profile will not appear in search results.
         open_help_text: Companies can still find you, but you won't appear on the homepage.
         title: Search status
+      specialties:
+        description: Choose up to 5 specialties that set you apart from other developers. Pick ones that you are passionate about - you don't need to be an expert.
+        new:
+          before: If you don't see a specialty that matches your unique skills you can
+          cta: suggest a new specialty
+          subject: New developer specialty suggestion
+        note:
+          description: This feature is in beta and might be changed. Add your specialties ASAP - businesses will be able to filter by them soon.
+          title: BETA
       title: Your developer profile
       updating: Updating...
       work_preferences:
@@ -405,11 +508,13 @@ en:
       filters: Filters
       include_not_interested: Include developers not currently interested
       paywalled_search:
-        title: Text search requires a paid account
+        title: Text search requires a paid account.
       role_level:
         title: Role level
       search_query_label: Search profiles
       search_query_placeholder: Hotwire, React, Heroku, etc.
+      specialties:
+        title: Specialties
       timezone:
         title: Timezone
       title: Developer filters
@@ -449,19 +554,6 @@ en:
       max_file_size_invalid: image over %{size}
     unauthorized: You don't have access to that.
   hired:
-    forms:
-      create:
-        success: Thank you! Joe will reach out to you soon.
-      new:
-        company_name: Company name
-        description: Congrats on your new job! Tell us about it and we'll send you a custom RailsDevs celebration package free.
-        feedback: Feedback (optional)
-        feedback_help: Please let us know how we can improve RailsDevs or anything you'd like to share.
-        mailing_address: Mailing address
-        mailing_address_help: Where can we send your celebration package?
-        request_package: Request package
-        requesting: Requesting...
-        title: Did you find a job through RailsDevs?
     show:
       description: RailsDevs offers a celebration package to congratulate you on joining a company through the platform.
       image_alt: RailsDevs celebration package
@@ -482,8 +574,8 @@ en:
         signed_on: Signed on %{date}
   home:
     show:
-      available_developers: Developers available now
       description_og: RailsDevs empowers independent developers available for their next gig. Stop scouring job boards and sit back as companies reach out to you first.
+      developers_heading: New Rails developers on RailsDevs
       get_started: Get started
       learn_more: Learn more
       more: See more developers
@@ -512,7 +604,7 @@ en:
       you: You
   nav_bar:
     base_component:
-      about: About
+      affiliates: Affiliate program
       developers: Developers
       home: Home
       pricing: Pricing
@@ -523,10 +615,12 @@ en:
       admin: Admin
       billing: Billing
       blocked_conversations: Blocked conversations
+      businesses_hiring_invoice_requests: Hiring invoices
       conversations: Conversations
+      developers_celebration_package_requests: Celebration packages
       found_a_job: Found a job?
       get_started: Get started
-      hired_forms: Hired forms
+      hired_a_dev: Made a hire?
       hiring_agreement_terms: Hiring agreement terms
       my_business_profile: My business profile
       my_conversations: My conversations
@@ -535,6 +629,7 @@ en:
       new_notifications: You have a new notification
       open_user_menu: Open user menu
       sign_out: Sign out
+      specialties: Developer specialties
       transactions: Transactions
       users: Users
       view_conversations: View conversations
@@ -542,6 +637,15 @@ en:
       referrals: Referrals
   notifications:
     admin:
+      affiliates:
+        registration_notification:
+          title: '%{email} requested to join the affiliate program'
+      businesses:
+        hiring_invoice_request_notification:
+          title: '%{business} hired a developer'
+      developers:
+        celebration_package_request:
+          title: '%{developer} requested a celebration package'
       new_business_notification:
         email_subject: New business added
         title: '%{business} added their business'
@@ -551,8 +655,6 @@ en:
       new_developer_notification:
         email_subject: New developer profile added
         title: '%{developer} added their developer profile'
-      new_hired_form_notification:
-        title: '%{developer} requested a celebration package'
       potential_hire_notification:
         email_subject: New potential hire
         title: '%{developer} may have been hired'
@@ -562,6 +664,9 @@ en:
     developers:
       invisiblize_notification:
         title: Your profile on RailsDevs was flagged
+      product_announcement_notification:
+        email_subject: '[RailsDevs] New feature alert: Developer specialties 🚨'
+        title: 'New feature alert: Developer specialties'
       profile_reminder_notification:
         email_subject: Is your RailsDevs profile up to date?
         title: Is your developer profile up to date?

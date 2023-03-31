@@ -14,17 +14,5 @@ module Businesses
     def developer
       conversation.developer.name
     end
-
-    def recipient
-      Rails.configuration.emails.support!
-    end
-
-    def subject
-      t(".subject")
-    end
-
-    def body
-      t(".body", developer:)
-    end
   end
 end

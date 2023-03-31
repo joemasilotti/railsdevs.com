@@ -183,10 +183,17 @@ class DeveloperTest < ActiveSupport::TestCase
     assert @developer.missing_fields?
   end
 
-  test "missing fields available on is blank" do
+  test "missing fields when available on is blank" do
     refute @developer.missing_fields?
 
     @developer.available_on = nil
+    assert @developer.missing_fields?
+  end
+
+  test "missing fields when scheduling link is blank" do
+    refute @developer.missing_fields?
+
+    @developer.scheduling_link = nil
     assert @developer.missing_fields?
   end
 

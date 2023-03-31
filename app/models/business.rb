@@ -1,5 +1,6 @@
 class Business < ApplicationRecord
   include Avatarable
+  include Businesses::HasOnlineProfiles
   include Businesses::Notifications
   include PersonName
 

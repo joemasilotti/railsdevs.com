@@ -23,6 +23,16 @@ class BusinessMailer < ApplicationMailer
     )
   end
 
+  def cancel_subscription
+    @business = params[:business]
+
+    mail(
+      to: @business.user.email,
+      from: Rails.configuration.emails.support_mailbox!,
+      subject: t(".subject")
+    )
+  end
+
   def developer_profiles
     @business = params[:business]
     @developers = params[:developers]
@@ -37,5 +47,13 @@ class BusinessMailer < ApplicationMailer
     subject = "Updated RailsDevs terms of use and hiring agreement"
 
     mail(to: @business.user.email, from:, subject:)
+  end
+
+  def survey
+    @business = params[:business]
+    from = Rails.configuration.emails.support_mailbox!
+    subject = "Why do you use RailsDevs to hire? 1 question survey + swag"
+
+    mail(to: @business.user.email, subject:, from:, message_stream: :broadcast)
   end
 end

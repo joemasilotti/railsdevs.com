@@ -1,0 +1,41 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
+
+  <%= render Admin::ContentComponent.new do %>
+    <%= render Admin::Tables::TableComponent.new do |table| %>
+      <% table.with_header t(".business") %>
+      <% table.with_header t(".developer") %>
+      <% table.with_header t(".employment_type") %>
+      <% table.with_header t(".start_date") %>
+      <% table.with_header align: :right do %>
+        <span class="sr-only"><%= t(".actions") %></span>
+      <% end %>
+
+      <% @forms.each do |form| %>
+        <% table.with_row do |row| %>
+          <%= row.with_cell primary: true do %>
+            <%= render Admin::LabeledAvatarComponent.new(form.business, title: form.business.name, path: admin_business_conversations_path(form.business)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::BasicLinkComponent.new(form.developer_name, admin_users_path(query: form.developer_name)) %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= form.employment_type.humanize %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= form.start_date.to_formatted_s(:long) %>
+          <% end %>
+
+          <% row.with_cell align: :right do %>
+            <%= render Admin::BasicLinkGroupComponent.new do |group| %>
+              <% group.with_link t(".details"), admin_businesses_hiring_invoice_request_path(form) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

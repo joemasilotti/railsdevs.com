@@ -38,4 +38,17 @@ class DeveloperMailer < ApplicationMailer
       subject: t(".subject")
     )
   end
+
+  def product_announcement
+    @notification = params[:record].to_notification
+    recipient = params[:recipient]
+    @developer = @notification.developer
+
+    mail(
+      to: recipient.email,
+      subject: @notification.email_subject,
+      from: Rails.configuration.emails.updates_mailbox!,
+      message_stream: :broadcast
+    )
+  end
 end

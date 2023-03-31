@@ -118,7 +118,6 @@ pt-BR:
     form:
       bio:
         help_text: Escreva algo sobre você.
-        title: Sobre
       creating: Criando...
       online_presence:
         help_text: Onde as pessoas podem saber mais sobre você e seu trabalho?
@@ -182,7 +181,7 @@ pt-BR:
     unauthorized: Você não tem acesso a isso.
   home:
     show:
-      available_developers: Desenvolvedores disponíveis agora
+      developers_heading: Desenvolvedores disponíveis agora
       get_started: Comece agora
       learn_more: Veja mais
       more: Ver mais desenvolvedores
@@ -201,7 +200,6 @@ pt-BR:
       you: Você
   nav_bar:
     base_component:
-      about: Sobre
       developers: Desenvolvedores
       pricing: Preços
     guest_component:

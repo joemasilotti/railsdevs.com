@@ -1,0 +1,99 @@
+<%= open_graph_tags title: t(".title"), description: t(".description"), image: image_url("opengraph/affiliates.png") %>
+
+<div class="bg-white px-6 py-8 md:py-16 lg:px-8">
+  <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+    <!-- Hero -->
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= t(".title") %></h1>
+    <p class="mt-6 text-xl leading-8"><%= t(".description") %></p>
+    <div class="mt-10 flex">
+      <%= link_to "Sign up for an account", new_affiliate_path, class: "rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+    </div>
+
+    <!-- Details -->
+    <div class="mt-10 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">How much can I make?</h2>
+      <p class="mt-6">RailsDevs charges businesses $299 for a monthly subscription and a 10% hiring fee for full-time employees. If you refer a business that subscribes for 3 months and hires a developer at $150,000 <span class="font-semibold">you will make about $1,600</span>.</p>
+    </div>
+
+    <!-- How it works -->
+    <div class="mt-10 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">How it works</h2>
+      <ol role="list" class="mt-8 max-w-xl space-y-8 text-gray-600">
+        <li class="flex flex-col">
+          <strong class="font-semibold text-gray-900">Step 1</strong>
+          Sign up for a RailsDevs account. You don't need to create a developer or business profile and it's free to join.
+        </li>
+        <li class="flex flex-col">
+          <strong class="font-semibold text-gray-900">Step 2</strong>
+          You'll receive a unique referral URL via email. Use this in your website footer, podcast, newsletter, and social media posts. Or share it directly with your hiring manager!
+        </li>
+        <li class="flex flex-col">
+          <strong class="font-semibold text-gray-900">Step 3</strong>
+          Get paid 10% recurring commissions. You’ll get paid for every month your referral is a paying customer of RailsDevs.
+        </li>
+      </ol>
+      <p class="mt-8">Commissions include the monthly subscription fee <em>and</em> hiring fees. If your referral hires a developer for $150,000 you will receive $1,5000 - 10% of the <%= link_to "10% hiring fee", pricing_path, class: "font-semibold underline" %>.</p>
+    </div>
+
+    <!-- Rules -->
+    <div class="mt-10 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">Program rules</h2>
+      <ol role="list" class="mt-8 max-w-xl space-y-2 text-gray-600">
+        <li>You can't refer yourself.</li>
+        <li>You <em>can</em> refer your hiring manager, CTO, HR department, etc.</li>
+        <li>No ads and no pretending to be an employee.</li>
+      </ol>
+      <p class="mt-8">Questions? <%= link_to "Send Joe an email", "mailto:#{Rails.application.config.emails.support}", class: "font-semibold underline" %>.</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="mt-10 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">FAQs</h2>
+      <dl class="mt-8 space-y-8">
+        <div>
+          <dt>
+            <span class="text-base font-semibold leading-7">How do I get paid?</span>
+          </dt>
+          <dd class="mt-2">
+            <p class="text-base leading-7 text-gray-600">Commission fees pay out on the first business day of each month. Affiliates are paid via PayPal and have no minimums to hit before you receive your money.</p>
+          </dd>
+        </div>
+
+        <div>
+          <dt>
+            <span class="text-base font-semibold leading-7">How do I track my referrals?</span>
+          </dt>
+          <dd class="mt-2">
+            <p class="text-base leading-7 text-gray-600"><%= link_to "Email Joe", "mailto:#{Rails.application.config.emails.support}", class: "font-semibold underline" %> for a report on your referrals. A self-serve dashboard is coming soon.</p>
+          </dd>
+        </div>
+
+        <div>
+          <dt>
+            <span class="text-base font-semibold leading-7">What if I forgot to ask someone to use my URL?</span>
+          </dt>
+          <dd class="mt-2">
+            <p class="text-base leading-7 text-gray-600"><%= link_to "Email Joe", "mailto:#{Rails.application.config.emails.support}", class: "font-semibold underline" %> who you referred and when and the conversion will be manually attributed to you so you get paid.</p>
+          </dd>
+        </div>
+
+        <div>
+          <dt>
+            <span class="text-base font-semibold leading-7">Do I get money for referring developers?</span>
+          </dt>
+          <dd class="mt-2">
+            <p class="text-base leading-7 text-gray-600">Not at this time, no. You only get paid for referring businesses that sign up for a paid subscription.</p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="mx-auto max-w-3xl py-24">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Ready to partner <span class="block sm:inline-block">with RailsDevs?</span></h2>
+      <div class="mt-8">
+        <%= link_to "Sign up for an account", new_affiliate_path, class: "rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+      </div>
+    </div>
+  </div>
+</div>

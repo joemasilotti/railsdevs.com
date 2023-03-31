@@ -1,0 +1,9 @@
+<p>Hey <%= @business.first_name %>,</p>
+
+<p>Your subscription to RailsDevs is cancelled. Your access to the site will be available until the end of your billing period.</p>
+
+<p>Were you able to hire someone? <%= link_to "Fill out this form", business_hiring_form_url %> and I’ll send you info on next steps.</p>
+
+<p>A friendly reminder that according to the signed <%= link_to "hiring agreement", hiring_agreement_terms_url %> you must notify RailsDevs that you have hired someone no later than the developer's first day of employment.</p>
+
+<%= render "shared/signature" %>

@@ -1,14 +1,25 @@
-<div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 items-start">
+<div class="flex flex-wrap items-start">
   <% if featured? %>
-    <%= render BadgeComponent.new(t(".featured"), color: "blue") %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".featured"), color: "blue") %>
+    </div>
   <% end %>
+
   <% if recently_active? %>
-    <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
+    </div>
   <% end %>
+
   <% if source_contributor? %>
-    <%= render BadgeComponent.new(t(".source_contributor"), color: "gray") %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".source_contributor"), color: "gray") %>
+    </div>
   <% end %>
-  <% if response_rate >= 90 %>
-    <%= render BadgeComponent.new(t(".high_response_rate"), color: "purple") %>
+
+  <% if response_rate >= HasBadges::HIGH_RESPONSE_RATE_CUTTOFF %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".high_response_rate"), color: "purple") %>
+    </div>
   <% end %>
 </div>

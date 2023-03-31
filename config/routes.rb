@@ -7,12 +7,17 @@ Rails.application.routes.draw do
     }
 
     resource :about, only: :show, controller: :about
+    resources :affiliates, only: %w[index create new], controller: "affiliates/registrations"
     resource :conduct, only: :show
     resource :home, only: :show
     resource :pricing, only: :show, controller: :pricing
     resource :role, only: :new
 
     resources :businesses, except: :destroy
+
+    namespace :businesses do
+      resources :hiring_invoice_requests, only: [:new, :create]
+    end
 
     # /notifications/read must come before /notifications/:id.
     resources :read_notifications, only: [:index, :create], path: "/notifications/read"
@@ -32,11 +37,13 @@ Rails.application.routes.draw do
       resources :public_profiles, only: :new
     end
 
+    namespace :developers do
+      resources :celebration_package_requests, only: [:new, :create]
+    end
+
     get "developers/:id/:key", to: "developers#show", as: :developer_public
 
-    resource :hired, only: :show, controller: :hired do
-      resources :forms, only: [:new, :create], module: :hired
-    end
+    resource :hired, only: :show, controller: :hired
 
     namespace :hiring_agreement, module: :hiring_agreements do
       resource :terms, only: :show
@@ -66,6 +73,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :impersonate, only: [:create, :destroy]
     resources :conversations, only: :index
+    resources :specialties
     resources :transactions, except: :show
     resources :users, only: [:index]
 
@@ -78,6 +86,10 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :businesses
     end
 
+    namespace :businesses do
+      resources :hiring_invoice_requests, only: [:index, :show]
+    end
+
     resources :developers, only: [] do
       resource :source_contributors, only: %i[create destroy], module: :developers
       resources :conversations, only: :index, controller: :developer_conversations
@@ -85,8 +97,8 @@ Rails.application.routes.draw do
       resources :invisiblizes, only: :create, module: :developers
     end
 
-    namespace :hired do
-      resources :forms, only: [:index, :show]
+    namespace :developers do
+      resources :celebration_package_requests, only: [:index, :show]
     end
 
     namespace :hiring_agreements do
@@ -120,6 +132,9 @@ Rails.application.routes.draw do
     resource :postmark, only: :create, controller: :postmark
     resource :revenuecat, only: :create, controller: :revenue_cat
   end
+
+  # TODO: Added temporary route to be updated after business hiring form changes are merged
+  get "business_hiring_form", to: redirect("")
 
   get "/sitemap.xml.gz", to: redirect("#{Rails.configuration.sitemaps_host}sitemaps/sitemap.xml.gz"), as: :sitemap
   get "robots.:format" => "robots#index"

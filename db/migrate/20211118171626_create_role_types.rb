@@ -1,4 +1,10 @@
 class CreateRoleTypes < ActiveRecord::Migration[7.0]
+  class Developer < ActiveRecord::Base
+  end
+
+  class RoleType < ActiveRecord::Base
+  end
+
   def change
     create_table :role_types do |t|
       t.belongs_to :developer, index: {unique: true}, foreign_key: true
@@ -11,7 +17,7 @@ class CreateRoleTypes < ActiveRecord::Migration[7.0]
     end
 
     Developer.find_each do |developer|
-      developer.create_role_type!
+      RoleType.create!(developer_id: developer.id)
     end
   end
 end

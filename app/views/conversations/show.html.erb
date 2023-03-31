@@ -31,23 +31,23 @@
     <%= render @conversation.messages %>
   </ul>
 
-  <%= turbo_frame_tag "message_read_indicator" do %>
-    <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
-  <% end %>
-
-  <% if @conversation.developer %>
-    <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
-  <% end %>
-
-  <div class="mt-16 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
-    <% if policy(@message).create? %>
-      <%= turbo_frame_tag "new_message" do %>
-        <%= render "conversations/new_message", conversation: @conversation, message: @message %>
-      <% end %>
-    <% else %>
-      <div class="mt-4 md:mt-8">
-        <%= render Businesses::UpgradeRequiredComponent.new(current_user) %>
-      </div>
+  <div class="my-3 mx-4">
+    <%= turbo_frame_tag "message_read_indicator" do %>
+      <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
     <% end %>
+  </div>
+
+  <div class="mt-8 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
+    <% if policy(@message).create? %>
+      <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
+      <div class="mt-4">
+        <%= turbo_frame_tag "new_message" do %>
+          <%= render "conversations/new_message", conversation: @conversation, message: @message %>
+        <% end %>
+      </div>
+    <% else %>
+      <%= render Businesses::UpgradeRequiredComponent.new(current_user) %>
+    <% end %>
+    <%= render Businesses::HiringFeeComponent.new(current_user, @conversation) %>
   </div>
 </div>

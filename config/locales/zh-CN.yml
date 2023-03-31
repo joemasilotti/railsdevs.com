@@ -27,10 +27,6 @@ zh-CN:
         location:
           invalid_coordinates: 无法找到
   admin:
-    businesses:
-      invisiblizes:
-        create:
-          created: 个人资料已设置为隐藏.
     conversations:
       blocks:
         index:
@@ -172,7 +168,6 @@ zh-CN:
           unique: 你擅长的技能
         help_text: 涉及暴露个人身份的信息将被删除。
         markdown: Markdown 是支持的，但不能使用链接和图片。
-        title: 简介
       creating: 创建中...
       loading: 加载中...
       notifications:
@@ -279,8 +274,8 @@ zh-CN:
       updated: 你的个人资料已更新！
   home:
     show:
-      available_developers: 现在有空的开发者
       description_og: RailsDevs 帮助独立开发者为他们的下一份工作做好准备。坐等公司与你联系，不用再去招聘网站搜寻。
+      developers_heading: 现在有空的开发者
       get_started: 开始
       learn_more: 了解更多
       more: 查看更多开发者
@@ -298,7 +293,6 @@ zh-CN:
     loading: 加载中...
   nav_bar:
     base_component:
-      about: 关于
       developers: 开发者们
       home: 主页
       pricing: 价格
@@ -310,9 +304,9 @@ zh-CN:
       billing: 账单
       blocked_conversations: 已屏蔽的对话
       conversations: 对话
+      developers_celebration_package_requests: 开发商表格
       found_a_job: 已找到工作？
       get_started: 开始
-      hired_forms: 聘用表格
       hiring_agreement_terms: 雇佣协议条款
       my_business_profile: 我的企业简介
       my_conversations: 我的对话

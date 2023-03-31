@@ -6,6 +6,7 @@ class DevelopersController < ApplicationController
     @developers_count = SignificantFigure.new(Developer.visible.count).rounded
     @query = DeveloperQuery.new(permitted_attributes([:developers, :query]).merge(user: current_user))
     @meta = Developers::Meta.new(query: @query, count: @developers_count)
+    Analytics::SearchQuery.create!(permitted_attributes([:developers, :query]))
 
     paywall = Developers::PaywalledSearchResults.new(user: current_user, page: @query.pagy.page)
     redirect_to developers_path if paywall.unauthorized_page?
@@ -14,6 +15,7 @@ class DevelopersController < ApplicationController
 
   def new
     @developer = current_user.build_developer
+    @specialties = Specialty.visible
   end
 
   def create
@@ -24,12 +26,14 @@ class DevelopersController < ApplicationController
       event = Analytics::Event.added_developer_profile(url)
       redirect_to event, notice: t(".created")
     else
+      @specialties = Specialty.visible
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
     @developer = Developer.find_by_hashid!(params[:id])
+    @specialties = Specialty.visible
     authorize @developer
   end
 
@@ -40,6 +44,7 @@ class DevelopersController < ApplicationController
     if @developer.update_and_notify(developer_params)
       redirect_to @developer, notice: t(".updated")
     else
+      @specialties = Specialty.visible
       render :edit, status: :unprocessable_entity
     end
   end
@@ -80,6 +85,9 @@ class DevelopersController < ApplicationController
       :search_status,
       :search_query,
       :profile_reminder_notifications,
+      :product_announcement_notifications,
+      :scheduling_link,
+      specialty_ids: [],
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES

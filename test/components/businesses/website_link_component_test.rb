@@ -24,7 +24,7 @@ module Businesses
 
       render_inline WebsiteLinkComponent.new(@business)
       assert_text "Demo Company"
-      assert_selector "a[href='http://democompany.com']"
+      assert_selector "a[href='https://democompany.com']"
     end
 
     test "renders normalized link when the link starts with 'https'" do

@@ -50,13 +50,30 @@ class AdminMailer < ApplicationMailer
     mail(to: recipient.email, subject: @notification.title)
   end
 
-  def new_hired_form
+  def businesses_hiring_invoice_request
     @notification = params[:record].to_notification
     recipient = params[:recipient]
 
-    @form = @notification.form
+    @form = @notification.hiring_invoice_request
+    @business = @form.business
+
+    mail(to: recipient.email, subject: @notification.title)
+  end
+
+  def developers_celebration_package_request
+    @notification = params[:record].to_notification
+    recipient = params[:recipient]
+
+    @form = @notification.celebration_package_request
     @developer = @form.developer
 
     mail(to: recipient.email, subject: @notification.title)
+  end
+
+  def affiliates_registration
+    @notification = params[:record].to_notification
+    @recipient = params[:recipient]
+
+    mail(to: @recipient.email, subject: @notification.title)
   end
 end

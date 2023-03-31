@@ -24,7 +24,7 @@
 
           <%= row.with_cell do %>
             <% if (business = user.business) %>
-              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path:  admin_referral_path(user.id), subtitle: business.name) %>
+              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_referral_path(user.id), subtitle: business.name) %>
             <% end %>
           <% end %>
 

@@ -12,12 +12,12 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.title") %></h2>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".profile.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".profile.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
-            <div class="sm:col-span-3">
+            <div>
               <%= form.label :name, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
                 <%= form.text_field :name, autocomplete: "name", class: field_classes(form, :name) %>
@@ -25,7 +25,7 @@
               <p class="mt-2 text-sm text-gray-500"><%= t(".profile.name_help_text_html") %></p>
             </div>
 
-            <div class="sm:col-span-6">
+            <div>
               <%= form.label :hero, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
                 <%= form.text_field :hero, class: field_classes(form, :hero) %>
@@ -62,7 +62,7 @@
               </div>
             <% end %>
 
-            <div class="sm:col-span-6" data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
+            <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.avatar") %></span>
               <div class="mt-1 flex items-center">
                 <div class="relative">
@@ -82,7 +82,7 @@
               </div>
             </div>
 
-            <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50" class="sm:col-span-6">
+            <div data-controller="file-upload" data-file-upload-visibility-class="hidden" data-file-upload-loading-class="opacity-50">
               <span class="block text-sm font-medium text-gray-700"><%= t(".profile.cover_image") %></span>
               <div class="relative">
                 <%= form.hidden_field :cover_image, value: form.object.cover_image.signed_id, id: "developer_cover_image_hidden" if form.object.cover_image.attached? %>
@@ -112,31 +112,26 @@
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <div class="md:col-span-1">
-            <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".bio.title") %></h2>
-            <p class="mt-1 text-sm text-gray-500"><%= t(".bio.description") %></p>
+          <%= form.label :bio, class: "text-lg font-medium leading-6 text-gray-900" %>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".bio.description") %></p>
 
-            <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".bio.examples.title") %></h4>
-            <ul class="text-sm text-gray-500 list-disc list-inside">
-              <li class="mt-1"><%= t(".bio.examples.origin") %></li>
-              <li class="mt-1"><%= t(".bio.examples.accomplishment") %></li>
-              <li class="mt-1"><%= t(".bio.examples.learned") %></li>
-              <li class="mt-1"><%= t(".bio.examples.passion") %></li>
-              <li class="mt-1"><%= t(".bio.examples.help") %></li>
-              <li class="mt-1"><%= t(".bio.examples.unique") %></li>
-            </ul>
+          <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".bio.examples.title") %></h4>
+          <ul class="text-sm text-gray-500 list-disc list-inside">
+            <li class="mt-1"><%= t(".bio.examples.origin") %></li>
+            <li class="mt-1"><%= t(".bio.examples.accomplishment") %></li>
+            <li class="mt-1"><%= t(".bio.examples.learned") %></li>
+            <li class="mt-1"><%= t(".bio.examples.passion") %></li>
+            <li class="mt-1"><%= t(".bio.examples.help") %></li>
+            <li class="mt-1"><%= t(".bio.examples.unique") %></li>
+          </ul>
 
-            <p class="mt-4 text-sm text-gray-500"><%= t(".bio.markdown") %></p>
-          </div>
+          <p class="mt-4 text-sm text-gray-500"><%= t(".bio.markdown") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
-            <div class="sm:col-span-6">
-              <%= form.label :bio, class: "block text-sm font-medium text-gray-700" %>
-              <div class="mt-1">
-                <%= form.text_area :bio, rows: 20, class: field_classes(form, :bio) %>
-              </div>
+            <div>
+              <%= form.text_area :bio, rows: 20, class: field_classes(form, :bio) %>
               <p class="mt-2 text-sm text-gray-500"><%= t(".bio.help_text") %></p>
             </div>
           </div>
@@ -144,11 +139,39 @@
       </div>
     </div>
 
+    <% if Feature.enabled?(:developer_specialties) %>
+      <div id="specialties" class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div>
+            <%= form.label :specialties, class: "text-lg font-medium leading-6 text-gray-900" %>
+            <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.description") %></p>
+            <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.new.before") %> <%= link_to t(".specialties.new.cta"), "mailto:joe@railsdevs.com?subject=#{t(".specialties.new.subject")}", class: "text-gray-700 font-medium underline hover:text-gray-900" %>.</p>
+
+            <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".specialties.note.title") %></h4>
+            <p class="mt-1 text-sm text-gray-500"><%= t(".specialties.note.description") %></p>
+          </div>
+
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <div class="space-y-6">
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name) do |specialty| %>
+                  <div class="flex items-center">
+                    <%= specialty.check_box class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                    <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".work_preferences.title") %></h3>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2">
@@ -272,11 +295,12 @@
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".online_presence.title") %></h3>
-          <p class="mt-1 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
         </div>
+
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="space-y-6">
-            <div class="sm:col-span-3">
+            <div>
               <%= form.label :website, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
@@ -306,7 +330,7 @@
               </div>
             </div>
 
-            <div class="sm:col-span-3">
+            <div>
               <%= form.label :mastodon, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
@@ -345,7 +369,8 @@
         <div class="md:col-span-1">
           <h3 id="notifications" class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></h3>
         </div>
-        <div class="mt-5 md:mt-0 md:col-span-2">
+
+        <div class="mt-5 md:mt-0 md:col-span-2 space-y-4">
           <fieldset>
             <div class="space-y-4">
               <div class="flex items-start">
@@ -359,6 +384,43 @@
               </div>
             </div>
           </fieldset>
+          <fieldset id="feature_notifications">
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="h-5 flex items-center">
+                  <%= form.check_box :product_announcement_notifications, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+                </div>
+                <div class="ml-3 text-sm">
+                  <%= form.label :product_announcement_notifications, t(".notifications.product_announcement_notifications"), class: "font-medium text-gray-700" %>
+                  <p class="text-gray-500"><%= t(".notifications.product_announcement_notifications_help") %></p>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <h3 id="scheduling" class="text-lg font-medium leading-6 text-gray-900"><%= t(".scheduling.title") %></h3>
+          <p class="mt-2 text-sm text-gray-500"><%= t(".scheduling.help_text") %></p>
+        </div>
+
+        <div class="mt-5 md:mt-0 md:col-span-2 space-y-4">
+          <div>
+            <div class="flex items-center">
+              <%= form.label :scheduling_link, class: "block text-sm font-medium text-gray-700" %>
+              <%= render Developers::NewFieldComponent.new(form.object, :scheduling_link, size: :small) %>
+            </div>
+            <div class="mt-1 flex rounded-md shadow-sm">
+              <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+                https://
+              </span>
+              <%= form.text_field :scheduling_link, class: "flex-1 focus:ring-gray-500 focus:border-gray-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300" %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
