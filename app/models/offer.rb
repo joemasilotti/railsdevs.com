@@ -1,4 +1,7 @@
 class Offer < ApplicationRecord
+  include Offers::Notifications
+  has_noticed_notifications
+
   belongs_to :conversation, touch: true
   has_one :developer, through: :conversation
   has_one :business, through: :conversation
@@ -7,10 +10,11 @@ class Offer < ApplicationRecord
   enum state: { proposed: 0, accepted: 1, declined: 2 }
 
   validates :conversation_id, uniqueness: { conditions: -> { where(state: %i[accepted proposed]) } }
+  validates :start_date, presence: true
+  validates :pay_rate_value, presence: true
+  validates :pay_rate_time_unit, presence: true
 
-  def sender
-    business
-  end
+  alias_attribute :sender, :business
 
   def deleted_sender?
     business.nil?

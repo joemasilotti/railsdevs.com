@@ -1,0 +1,15 @@
+<%= @sender %> sent you a message:
+
+<%= "–" * 100 %>
+
+<%= "Start date: #{@offer.start_date}" %>
+
+<%= "Pay rate: #{@offer.pay_rate_value}/#{@offer.pay_rate_time_unit_key}" %>
+
+--- Comment ---
+
+<%= @offer.comment? ? @offer.comment : 'No comment' %>
+
+<%= "–" * 100 %>
+
+<%= notification_url(@notification.record) %>

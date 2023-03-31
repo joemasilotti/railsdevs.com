@@ -684,6 +684,9 @@ en:
     new_message_notification:
       email_subject: "%{sender} sent you a message on RailsDevs"
       title: "%{sender} sent you a message"
+    new_offer_notification:
+      email_subject: "%{sender} extended you an offer on RailsDevs"
+      title: "%{sender} extended you an offer"
     show:
       notice: Notification marked as read.
   offers:

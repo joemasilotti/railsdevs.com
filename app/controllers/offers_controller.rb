@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OffersController < ApplicationController
   before_action :authenticate_user!
   before_action :require_active_subscription!
@@ -7,7 +9,8 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = Offer.create!(**offer_params, conversation_id: params[:conversation_id])
+    @offer = Offer.new(**offer_params, conversation_id: params[:conversation_id])
+    @offer.save_and_notify
 
     redirect_to conversation_path(params[:conversation_id])
   end
@@ -16,7 +19,7 @@ class OffersController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.permissions.active_subscription?
-      redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
+      redirect_to pricing_path, alert: t('errors.business_subscription_inactive')
     end
   end
 
