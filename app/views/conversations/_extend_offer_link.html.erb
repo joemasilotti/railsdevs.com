@@ -1,5 +1,5 @@
 <%= link_to(
-      new_conversation_offer_path(conversation_id: @conversation.id),
+      new_conversation_offer_path(conversation_id: conversation.id),
       method: :post,
       data: {"turbo-frame": "modal"},
       class: local_assigns[:classes] || "cursor-pointer inline-flex items-center px-4 py-2 rounded-md border border-gray-300 shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"

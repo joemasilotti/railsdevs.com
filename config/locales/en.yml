@@ -29,10 +29,10 @@ en:
         country_code: Country
       offer:
         pay_rate_time_unit:
+          day: day
+          hour: hour
           one: pay rate time unit
           other: pay rate time units
-          hour: hour
-          day: day
           year: year
       role_level:
         c_level: C-level
@@ -691,16 +691,16 @@ en:
       notice: Notification marked as read.
   offers:
     form:
-      title: 'Extend an offer*'
-      disclaimer: '*This is an non-official offer and it should be only used to discuss terms of the collaboration with the developer.'
-      extending: 'Extending...'
-      cancel: 'Cancel'
+      cancel: Cancel
+      disclaimer: "*This is an non-official offer and it should be only used to discuss terms of the collaboration with the developer."
+      extending: Extending...
+      title: Extend an offer*
     offer:
-      proposed_an_offer: 'proposed an offer'
-      start_date: 'Start date: %{start_date}'
-      pay_rate: 'Pay rate: %{pay_rate_value}'
       comment: 'Comment:'
-      no_comment: 'No comment added'
+      no_comment: No comment added
+      pay_rate: 'Pay rate: %{pay_rate_value}'
+      proposed_an_offer: proposed an offer
+      start_date: 'Start date: %{start_date}'
   open_startup:
     contributions:
       index:

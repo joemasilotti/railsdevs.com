@@ -19,7 +19,7 @@ class OffersController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.permissions.active_subscription?
-      redirect_to pricing_path, alert: t('errors.business_subscription_inactive')
+      redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
     end
   end
 

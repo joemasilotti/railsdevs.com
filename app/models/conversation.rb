@@ -72,4 +72,8 @@ class Conversation < ApplicationRecord
   def developer_replied?
     messages.from_developer.any?
   end
+
+  def active_offer?
+    offers.active.any?
+  end
 end

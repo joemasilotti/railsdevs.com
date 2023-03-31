@@ -29,19 +29,19 @@
 
   <ul id="messages" class="mt-8 space-y-2">
     <%= render @conversation.messages %>
+    <div class="my-3 mx-4">
+      <%= turbo_frame_tag "message_read_indicator" do %>
+        <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
+      <% end %>
+    </div>
+
     <%= render @conversation.offers %>
   </ul>
-
-  <div class="my-3 mx-4">
-    <%= turbo_frame_tag "message_read_indicator" do %>
-      <%= render Conversations::ReadIndicatorComponent.new(current_user, conversation: @conversation) %>
-    <% end %>
-  </div>
 
   <div class="mt-8 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <% if policy(@message).create? %>
       <div class="flex gap-2">
-        <%= render "conversations/extend_offer_link" %>
+        <%= render("conversations/extend_offer_link", conversation: @conversation) unless @conversation.active_offer? %>
         <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
       </div>
       <div class="mt-4">
