@@ -262,6 +262,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_182219) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "state", default: 0, null: false
     t.index ["conversation_id"], name: "index_offers_on_conversation_id"
   end
 
