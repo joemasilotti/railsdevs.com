@@ -42,7 +42,8 @@
 
 
     <p class="text-xs text-gray-600"><%= t('.disclaimer') %></p>
-    <div class="flex justify-end mt-4">
+    <div class="flex justify-between mt-4">
+      <%= button_to t(".cancel"), conversation_path(@conversation), data: {turbo_frame: "_top"}, class: "inline-flex justify-center align-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
       <%= render SubmitButtonComponent.new(disable_with: t(".extending")) %>
     </div>
   <% end %>

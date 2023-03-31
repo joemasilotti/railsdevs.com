@@ -684,6 +684,13 @@ en:
       title: 'Extend an offer*'
       disclaimer: '*This is an non-official offer and it should be only used to discuss terms of the collaboration with the developer.'
       extending: 'Extending...'
+      cancel: 'Cancel'
+    offer:
+      proposed_an_offer: 'proposed an offer'
+      start_date: 'Start date: %{start_date}'
+      pay_rate: 'Pay rate: %{pay_rate_value}'
+      comment: 'Comment:'
+      no_comment: 'No comment added'
   open_startup:
     contributions:
       index:
