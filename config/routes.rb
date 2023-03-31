@@ -107,7 +107,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :referrals, except: :destroy
+    resources :referrals, only:  %i[index show]
   end
 
   namespace :api, defaults: {format: :json} do

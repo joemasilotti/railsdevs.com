@@ -150,8 +150,6 @@ en:
           title: Hiring agreement
         update:
           updated: Hiring agreement terms updated.
-      update:
-        updated: Referral updated
     referrals:
       index:
         business: Business
