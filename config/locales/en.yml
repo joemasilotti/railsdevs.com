@@ -681,7 +681,8 @@ en:
       notice: Notification marked as read.
   offers:
     form:
-      title: 'Extend an offer'
+      title: 'Extend an offer*'
+      disclaimer: '*This is an non-official offer and it should be only used to discuss terms of the collaboration with the developer.'
       extending: 'Extending...'
   open_startup:
     contributions:

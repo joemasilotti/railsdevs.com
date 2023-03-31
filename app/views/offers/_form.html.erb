@@ -40,7 +40,9 @@
       </div>
     </div>
 
-    <div class="flex justify-end">
+
+    <p class="text-xs text-gray-600"><%= t('.disclaimer') %></p>
+    <div class="flex justify-end mt-4">
       <%= render SubmitButtonComponent.new(disable_with: t(".extending")) %>
     </div>
   <% end %>
