@@ -1,0 +1,4 @@
+one:
+  referred_user: subscribed_business
+  referring_user: admin
+  code: abc123
