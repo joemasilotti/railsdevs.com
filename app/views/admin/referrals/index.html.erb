@@ -9,6 +9,9 @@
       <% table.with_header t(".business") %>
       <% table.with_header t(".referrals_count") %>
       <% table.with_header t(".code") %>
+      <% table.with_header do %>
+        <span class="sr-only"><%= t(".view") %></span>
+      <% end %>
 
       <% @users.each do |user| %>
         <% table.with_row do |row| %>
@@ -18,13 +21,13 @@
 
           <%= row.with_cell do %>
             <% if (developer = user.developer) %>
-              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: admin_referral_path(user.id)) %>
+              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: developer_path(developer)) %>
             <% end %>
           <% end %>
 
           <%= row.with_cell do %>
             <% if (business = user.business) %>
-              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: admin_referral_path(user.id), subtitle: business.name) %>
+              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: business_path(business), subtitle: business.name) %>
             <% end %>
           <% end %>
 
@@ -34,6 +37,10 @@
 
           <%= row.with_cell do %>
             <%= user.referral_code %>
+          <% end %>
+
+          <% row.with_cell do %>
+            <%= render Admin::BasicLinkComponent.new(t(".view"), admin_user_referrals_path(user)) %>
           <% end %>
         <% end %>
       <% end %>

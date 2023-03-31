@@ -153,17 +153,12 @@ en:
     referrals:
       index:
         business: Business
-        code: Referal Code
+        code: Referal code
         developer: Developer
         email: Email
-        referrals_count: Total Referrals
+        referrals_count: Referrals
         title: Referrals
-      show:
-        business: Business
-        developer: Developer
-        referrals: "'s referrals"
-        referrals_count: Total Referrals
-        referred_user: Referred User
+        view: View
     specialties:
       create:
         created: Developer specialty created.
@@ -209,6 +204,13 @@ en:
         email: Email
         impersonate: Impersonate
         title: Users
+      referrals:
+        index:
+          business: Business
+          developer: Developer
+          referrals: "'s referrals"
+          referrals_count: Referrals
+          referred_user: Referred user
       search:
         cta: Search
         help: Filter users by name, company, or email
