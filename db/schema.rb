@@ -254,6 +254,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_182219) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.bigint "conversation_id", null: false
+    t.date "start_date"
+    t.float "pay_rate_value"
+    t.integer "pay_rate_time_unit"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_offers_on_conversation_id"
+  end
+
   create_table "open_startup_contributions", force: :cascade do |t|
     t.date "occurred_on", null: false
     t.string "description", null: false
