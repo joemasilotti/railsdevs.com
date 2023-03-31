@@ -67,7 +67,8 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
-  scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
+  scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) } # TODO: its different from `Developer.actively_looking.or(Developer.open)` — is it intentional?
+  scope :actively_looking_or_open_only, -> { where(search_status: [:actively_looking, :open]) } # https://github.com/activerecord-hackery/ransack/issues/404
   scope :available, -> { where(available_on: ..Time.current.to_date) }
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
@@ -75,7 +76,7 @@ class Developer < ApplicationRecord
   scope :product_announcement_notifications, -> { where(product_announcement_notifications: true) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
-  scope :with_specialty_ids, ->(specialty_ids) {
+  scope :with_specialty_ids, ->(*specialty_ids) {
     where_sql = <<-SQL
       exists (
         select 1 from specialty_tags
@@ -83,7 +84,7 @@ class Developer < ApplicationRecord
           and specialty_tags.developer_id = developers.id
       )
     SQL
-    where(where_sql, Array.wrap(specialty_ids))
+    where(where_sql, Array.wrap(specialty_ids).flatten)
   }
 
   def visible?
