@@ -6,6 +6,8 @@ class Offer < ApplicationRecord
   enum pay_rate_time_units: { hour: 0, day: 1, year: 2 }
   enum state: { proposed: 0, accepted: 1, declined: 2 }
 
+  validates :conversation_id, uniqueness: { conditions: -> { where(state: %i[accepted proposed]) } }
+
   def sender
     business
   end

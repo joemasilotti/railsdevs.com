@@ -27,6 +27,13 @@ en:
         website: Website
       location:
         country_code: Country
+      offer:
+        pay_rate_time_unit:
+          one: pay rate time unit
+          other: pay rate time units
+          hour: hour
+          day: day
+          year: year
       role_level:
         c_level: C-level
         junior: Junior
@@ -60,11 +67,6 @@ en:
       user:
         one: User
         other: Users
-      offer:
-        pay_rate_time_unit:
-          hour: hour
-          day: day
-          year: year
   admin:
     businesses:
       hiring_invoice_requests:
