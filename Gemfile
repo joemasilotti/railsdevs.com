@@ -67,6 +67,7 @@ gem "scout_apm"
 gem "sidekiq"
 gem "sitemap_generator"
 gem "stripe"
+gem "ransack"
 gem "tarpon"
 gem "timezone_finder"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
