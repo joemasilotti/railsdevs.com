@@ -27,7 +27,9 @@ class ReferrableTest < ActiveSupport::TestCase
 
   test "a user who referred multiple people" do
     assert_nil @b.referred_by
-    assert_equal [@c, @d], @b.referred_users
+    assert_equal 2, @b.referred_users.count
+    assert_includes @b.referred_users, @c
+    assert_includes @b.referred_users, @d
   end
 
   test "a user who was referred and referred someone else" do

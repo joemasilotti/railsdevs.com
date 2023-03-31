@@ -21,7 +21,6 @@ module Admin
     private
 
     def create_referral_for(referring_user)
-
       Referral.create!(
         referring_user: referring_user,
         referred_user: users(:empty),
