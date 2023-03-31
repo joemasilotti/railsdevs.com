@@ -200,7 +200,6 @@ pt-BR:
       you: Você
   nav_bar:
     base_component:
-      about: Sobre
       developers: Desenvolvedores
       pricing: Preços
     guest_component:

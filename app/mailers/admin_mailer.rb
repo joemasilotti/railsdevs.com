@@ -56,7 +56,7 @@ class AdminMailer < ApplicationMailer
     @notification = params[:record].to_notification
     recipient = params[:recipient]
 
-    @form = @notification.form
+    @form = @notification.hiring_invoice_request
     @business = @form.business
 
     mail(to: recipient.email, subject: @notification.title)
@@ -70,6 +70,13 @@ class AdminMailer < ApplicationMailer
     @developer = @form.developer
 
     mail(to: recipient.email, subject: @notification.title)
+  end
+
+  def affiliates_registration
+    @notification = params[:record].to_notification
+    @recipient = params[:recipient]
+
+    mail(to: @recipient.email, subject: @notification.title)
   end
 
   def linkedin_weekly_profiles

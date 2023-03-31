@@ -193,7 +193,6 @@ es:
       you: Tú
   nav_bar:
     base_component:
-      about: Acerca de
       developers: Desarrolladores
       pricing: Precios
     guest_component:
