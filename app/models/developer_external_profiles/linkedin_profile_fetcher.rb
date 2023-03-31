@@ -1,6 +1,6 @@
 module DeveloperExternalProfiles
   class LinkedinProfileFetcher
-    def conversion_developer_profiles
+    def conversation_developer_profiles
       developer_external_profiles_list = []
 
       Conversation.includes(:developer).where.not(developers: {linkedin: nil}).map(&:developer).uniq.each do |developer|

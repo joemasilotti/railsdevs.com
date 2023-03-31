@@ -1,4 +1,6 @@
 class AdminMailer < ApplicationMailer
+  delegate :pluralize, to: "ActionController::Base.helpers"
+
   def new_developer
     @notification = params[:record].to_notification
     recipient = params[:recipient]
@@ -68,5 +70,11 @@ class AdminMailer < ApplicationMailer
     @developer = @form.developer
 
     mail(to: recipient.email, subject: @notification.title)
+  end
+
+  def linkedin_weekly_profiles
+    @developer_external_profiles = params[:developer_external_profiles_records]
+    subject = "#{pluralize(@developer_external_profiles.count, "Developer")} updated Linkedin profile in past 7 days"
+    mail(to: Rails.configuration.emails.support!, subject:)
   end
 end

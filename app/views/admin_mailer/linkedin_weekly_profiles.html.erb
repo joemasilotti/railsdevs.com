@@ -1,0 +1,26 @@
+<p>Here are the developer with linkedin profiles updated in past 7 days:</p>
+<table style="color: #6B7280; font-size: 0.875rem; line-height: 1.25rem; text-align: left; width: 100%; ">
+  <thead style="background-color: #F9FAFB; color: #374151; font-size: 0.75rem; line-height: 1rem; text-transform: uppercase; ">
+    <tr>
+      <th scope="col" style="padding-top: 0.75rem;padding-bottom: 0.75rem; padding-left: 1.5rem;padding-right: 1.5rem; ">Developer Name</th>
+      <th scope="col" style="padding-top: 0.75rem;padding-bottom: 0.75rem; padding-left: 1.5rem;padding-right: 1.5rem; ">Linkeidn URL</th>
+      <th scope="col" style="padding-top: 0.75rem;padding-bottom: 0.75rem; padding-left: 1.5rem;padding-right: 1.5rem; ">Current Company</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @developer_external_profiles.each do |developer_external_profile| %>
+    <tr style="background-color: #ffffff; border-bottom-width: 1px; ">
+      <th scope="row" style="padding-top: 1rem;padding-bottom: 1rem; padding-left: 1.5rem;padding-right: 1.5rem; color: #111827; font-weight: 500; white-space: nowrap; ">
+        <%= link_to developer_external_profile[:name], developer_url(developer_external_profile[:id]) %>                
+      </th>
+      <td style="padding-top: 1rem;padding-bottom: 1rem; padding-left: 1.5rem;padding-right: 1.5rem; ">
+        <%= link_to "https://linkedin.com/in/#{developer_external_profile[:linkedin]}", "https://linkedin.com/in/#{developer_external_profile[:linkedin]}" %>
+      </td>
+      <td style="padding-top: 1rem;padding-bottom: 1rem; padding-left: 1.5rem;padding-right: 1.5rem; ">
+        <%= developer_external_profile[:company] %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>  
+</table>
+<%= render "shared/signature" %>
