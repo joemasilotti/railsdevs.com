@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @developer_external_profiles.each do |developer_external_profile| %>
+  <% @developer_external_profiles&.each do |developer_external_profile| %>
     <tr style="background-color: #ffffff; border-bottom-width: 1px; ">
       <th scope="row" style="padding-top: 1rem;padding-bottom: 1rem; padding-left: 1.5rem;padding-right: 1.5rem; color: #111827; font-weight: 500; white-space: nowrap; ">
         <%= link_to developer_external_profile[:name], developer_url(developer_external_profile[:id]) %>                

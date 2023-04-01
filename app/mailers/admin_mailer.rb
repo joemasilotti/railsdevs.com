@@ -83,7 +83,7 @@ class AdminMailer < ApplicationMailer
 
   def linkedin_weekly_profiles
     @developer_external_profiles = params[:developer_external_profiles_records]
-    subject = "#{pluralize(@developer_external_profiles.count, "Developer")} updated Linkedin profile in past 7 days"
+    subject = "#{pluralize(@developer_external_profiles&.count, "Developer")} updated their LinkedIn profile in the last 7 days"
     mail(to: Rails.configuration.emails.support!, subject:)
   end
 end

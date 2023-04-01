@@ -1,5 +1,4 @@
-require "uri"
-require "net/http"
+require "faraday"
 require "json"
 
 module DeveloperExternalProfiles
@@ -10,25 +9,26 @@ module DeveloperExternalProfiles
     end
 
     def get_profile(url)
-      header_hash = {"Authorization" => "Bearer " + @api_key}
       params = {
         "url" => url,
         "fallback_to_cache" => "on-error",
         "use_cache" => "if-present"
       }
 
-      uri = URI(@endpoint)
-      uri.query = URI.encode_www_form(params)
+      conn = Faraday.new(@endpoint) do |faraday|
+        faraday.headers["Authorization"] = "Bearer #{@api_key}"
+        faraday.adapter Faraday.default_adapter
+      end
 
       begin
-        response = Net::HTTP.get_response(uri, header_hash)
+        response = conn.get("", params)
 
-        if response.code.to_i == 200
+        if response.status.to_i == 200
           parse_json_response(response.body)
         else
           {error: "API Error: #{response.code} - #{response.body}"}
         end
-      rescue RestClient::ExceptionWithResponse => e
+      rescue Faraday::Error => e
         {error: "Exception occurred: #{e.message}"}
       end
     end

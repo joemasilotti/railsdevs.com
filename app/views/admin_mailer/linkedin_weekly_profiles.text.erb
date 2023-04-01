@@ -1,6 +1,6 @@
 Here are the developer with linkedin profiles updated in past 7 days:
 
-<% @developer_external_profiles.each do |developer_external_profile| %>
+<% @developer_external_profiles&.each do |developer_external_profile| %>
   <%= link_to developer_external_profile[:name], developer_url(developer_external_profile[:id]) %>                
   <%= link_to "https://linkedin.com/in/#{developer_external_profile[:linkedin]}", "https://linkedin.com/in/#{developer_external_profile[:linkedin]}" %>
   <%= developer_external_profile[:company] %>
