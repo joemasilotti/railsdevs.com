@@ -48,7 +48,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, developer
 
     {
-      utc_offsets: [1],
+      location_utc_offset_in: [1],
       role_types: [:full_time_employment],
       role_levels: [:junior],
       include_not_interested: true,
@@ -96,7 +96,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     eastern = create_developer(location_attributes: {utc_offset: EASTERN_UTC_OFFSET})
     pacific = create_developer(location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
 
-    records = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET]).records
+    records = DeveloperQuery.new(location_utc_offset_in: [PACIFIC_UTC_OFFSET]).records
 
     assert_includes records, pacific
     refute_includes records, eastern
@@ -202,10 +202,10 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   end
 
   test "returns hash with filters" do
-    utc_offsets = [PACIFIC_UTC_OFFSET, EASTERN_UTC_OFFSET]
+    location_utc_offset_in = [PACIFIC_UTC_OFFSET, EASTERN_UTC_OFFSET]
     filters = {
       sort: :availability,
-      utc_offsets:,
+      location_utc_offset_in:,
       role_types: [:part_time_contract],
       role_levels: [:junior],
       include_not_interested: true,

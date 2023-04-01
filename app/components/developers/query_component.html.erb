@@ -147,7 +147,7 @@
         </h3>
         <%= tag.div id: "timezone-accordion", "data-toggle-target": "element", class: [hidden: collapse_timezone?] do %>
           <div class="space-y-4 pt-6">
-            <%= form.collection_check_boxes(:utc_offsets, time_zones, :first, :last, {include_hidden: false}) do |b| %>
+            <%= form.collection_check_boxes(:location_utc_offset_in, time_zones, :first, :last, {include_hidden: false}) do |b| %>
               <div class="flex items-center">
                 <%= b.check_box checked: time_zone_selected?(b.object), class: "h-4 w-4 border-gray-300 rounded text-gray-600 focus:ring-gray-500" %>
                 <%= b.label class: "ml-3 text-gray-500 text-sm" %>

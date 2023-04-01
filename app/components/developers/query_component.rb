@@ -23,7 +23,7 @@ module Developers
     end
 
     def time_zone_selected?(time_zone_pair)
-      query.utc_offsets.include?(time_zone_pair.first.to_f)
+      query.location_utc_offset_in.include?(time_zone_pair.first.to_f)
     end
 
     def time_zones
@@ -90,7 +90,7 @@ module Developers
     end
 
     def collapse_timezone?
-      query.utc_offsets.empty?
+      query.location_utc_offset_in.empty?
     end
 
     private

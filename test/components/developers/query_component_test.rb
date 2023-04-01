@@ -38,19 +38,19 @@ module Developers
       query = DeveloperQuery.new({})
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
 
-      assert_selector build_input("utc_offsets[]", type: "checkbox", value: EASTERN_UTC_OFFSET)
-      assert_selector build_input("utc_offsets[]", type: "checkbox", value: PACIFIC_UTC_OFFSET)
+      assert_selector build_input("location_utc_offset_in[]", type: "checkbox", value: EASTERN_UTC_OFFSET)
+      assert_selector build_input("location_utc_offset_in[]", type: "checkbox", value: PACIFIC_UTC_OFFSET)
 
-      assert_selector "label[for=utc_offsets_#{EASTERN_UTC_OFFSET}]", text: "GMT-5"
-      assert_selector "label[for=utc_offsets_#{PACIFIC_UTC_OFFSET}]", text: "GMT-8"
+      assert_selector "label[for=location_utc_offset_in_#{EASTERN_UTC_OFFSET}]", text: "GMT-5"
+      assert_selector "label[for=location_utc_offset_in_#{PACIFIC_UTC_OFFSET}]", text: "GMT-8"
     end
 
     test "checks selected timezones" do
-      query = DeveloperQuery.new(utc_offsets: [PACIFIC_UTC_OFFSET])
+      query = DeveloperQuery.new(location_utc_offset_in: [PACIFIC_UTC_OFFSET])
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
 
-      assert_no_selector build_input("utc_offsets[]", type: "checkbox", value: EASTERN_UTC_OFFSET, checked: true)
-      assert_selector build_input("utc_offsets[]", type: "checkbox", value: PACIFIC_UTC_OFFSET, checked: true)
+      assert_no_selector build_input("location_utc_offset_in[]", type: "checkbox", value: EASTERN_UTC_OFFSET, checked: true)
+      assert_selector build_input("location_utc_offset_in[]", type: "checkbox", value: PACIFIC_UTC_OFFSET, checked: true)
     end
 
     test "checks selected role types" do
@@ -131,7 +131,7 @@ module Developers
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
       assert_selector("#timezone-accordion", visible: false)
 
-      query = DeveloperQuery.new(utc_offsets: [EASTERN_UTC_OFFSET])
+      query = DeveloperQuery.new(location_utc_offset_in: [EASTERN_UTC_OFFSET])
       render_inline QueryComponent.new(query:, user: @user, form_id: nil)
       assert_selector("#timezone-accordion", visible: true)
     end

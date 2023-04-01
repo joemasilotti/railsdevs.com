@@ -49,9 +49,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     sign_in user
 
-    get developers_path(utc_offsets: [PACIFIC_UTC_OFFSET])
+    get developers_path(location_utc_offset_in: [PACIFIC_UTC_OFFSET])
 
-    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='utc_offsets[]']"
+    assert_select "input[checked][type=checkbox][value=#{PACIFIC_UTC_OFFSET}][name='location_utc_offset_in[]']"
     assert_select "h2", "Pacific"
   end
 
