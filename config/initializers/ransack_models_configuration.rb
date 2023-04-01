@@ -4,6 +4,8 @@
 # This configuration allows to build queries using ransack based on user input
 # (which it is actually built for). However, it may cause security issues if handled
 # incorrectly. Some details here https://github.com/activerecord-hackery/ransack/issues/1273
+
+# standard:disable Lint/ConstantDefinitionInBlock
 Rails.application.config.to_prepare do
   class Developer < ApplicationRecord
     class << self
@@ -61,3 +63,4 @@ Rails.application.config.to_prepare do
     end
   end
 end
+# standard:enable Lint/ConstantDefinitionInBlock
