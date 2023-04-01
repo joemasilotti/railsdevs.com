@@ -1,10 +1,10 @@
 class DeveloperQuery
-  SEARCHABLE_OPTIONS = %i(location_utc_offset_in role_types role_levels include_not_interested search_query countries badges specialty_ids)
+  SEARCHABLE_OPTIONS = %i[location_utc_offset_in role_types role_levels include_not_interested search_query countries badges specialty_ids]
 
   # Those options seem like they should not be exposed directly as a part of DeveloperQuery
   # and better be a part of some presenter or accessed through options hash
   # Howerver currently many implementations depend on those public methods so we describe them explicitly
-  EXPOSED_OPTIONS = %i(countries location_utc_offset_in role_types role_levels badges specialty_ids include_not_interested search_query)
+  EXPOSED_OPTIONS = %i[countries location_utc_offset_in role_types role_levels badges specialty_ids include_not_interested search_query]
 
   include Pagy::Backend
 
@@ -20,7 +20,7 @@ class DeveloperQuery
   end
 
   # Different options that are public methods which external components depend on
-  # also have different rules of presentation which would be better a part of a 
+  # also have different rules of presentation which would be better a part of a
   # specific presenter class
   EXPOSED_OPTIONS.each do |opt|
     define_method(opt) do

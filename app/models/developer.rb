@@ -44,7 +44,7 @@ class Developer < ApplicationRecord
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialties: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
-  scope :filter_by_search_query_no_order, ->(query) { filter_by_search_query(query).reorder('') } # https://github.com/Casecommons/pg_search/issues/238
+  scope :filter_by_search_query_no_order, ->(query) { filter_by_search_query(query).reorder("") } # https://github.com/Casecommons/pg_search/issues/238
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
