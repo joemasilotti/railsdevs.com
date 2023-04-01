@@ -44,28 +44,9 @@ class Developer < ApplicationRecord
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialties: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
+  scope :filter_by_search_query_no_order, ->(query) { filter_by_search_query(query).reorder('') } # https://github.com/Casecommons/pg_search/issues/238
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
-
-  scope :filter_by_role_types, ->(role_types) do
-    RoleType::TYPES.filter_map { |type|
-      where(role_type: {type => true}) if role_types.include?(type)
-    }.reduce(:or)&.joins(:role_type)
-  end
-
-  scope :filter_by_role_levels, ->(role_levels) do
-    RoleLevel::TYPES.filter_map { |level|
-      where(role_level: {level => true}) if role_levels.include?(level)
-    }.reduce(:or)&.joins(:role_level)
-  end
-
-  scope :filter_by_utc_offsets, ->(utc_offsets) do
-    joins(:location).where(locations: {utc_offset: utc_offsets})
-  end
-
-  scope :filter_by_countries, ->(countries) do
-    joins(:location).where(locations: {country: countries})
-  end
 
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) } # TODO: its different from `Developer.actively_looking.or(Developer.open)` — is it intentional?
   scope :actively_looking_or_open_only, -> { where(search_status: [:actively_looking, :open]) } # https://github.com/activerecord-hackery/ransack/issues/404
@@ -76,16 +57,6 @@ class Developer < ApplicationRecord
   scope :product_announcement_notifications, -> { where(product_announcement_notifications: true) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
-  scope :with_specialty_ids, ->(*specialty_ids) {
-    where_sql = <<-SQL
-      exists (
-        select 1 from specialty_tags
-        where specialty_tags.specialty_id in (?)
-          and specialty_tags.developer_id = developers.id
-      )
-    SQL
-    where(where_sql, Array.wrap(specialty_ids).flatten)
-  }
 
   def visible?
     !invisible?
