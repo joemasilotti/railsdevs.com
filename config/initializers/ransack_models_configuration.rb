@@ -11,16 +11,20 @@ Rails.configuration.after_initialize do
         ["name"]
       end
 
-      def ransackable_scopes_skip_sanitize_args # https://github.com/activerecord-hackery/ransack/issues/1232
-        ["with_specialty_ids"]
-      end
-
       def ransackable_associations(auth_object = nil)
-        ["role_type", "role_level", "location"]
+        ["role_type", "role_level", "location", "specialty_tags"]
       end
 
       def ransackable_scopes(auth_object = nil)
-        ["recently_active", "source_contributor", "high_response_rate", "actively_looking_or_open_only", "with_specialty_ids", "filter_by_search_query"]
+        ["recently_active", "source_contributor", "high_response_rate", "actively_looking_or_open_only", "filter_by_search_query_no_order", "available_first", "newest_first"]
+      end
+    end
+  end
+
+  class SpecialtyTag < ApplicationRecord
+    class << self
+      def ransackable_attributes(auth_object = nil)
+        ["developer_id", "specialty_id"]
       end
     end
   end
