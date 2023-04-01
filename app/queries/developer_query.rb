@@ -1,4 +1,11 @@
 class DeveloperQuery
+  SEARCHABLE_OPTIONS = %i(utc_offsets role_types role_levels include_not_interested search_query countries badges specialty_ids)
+
+  # Those options seem like they should not be exposed directly as a part of DeveloperQuery
+  # and better be a part of some presenter or accessed through options hash
+  # Howerver currently many implementations depend on those public methods so we describe them explicitly
+  EXPOSED_OPTIONS = %i(countries utc_offsets role_types role_levels badges specialty_ids include_not_interested search_query)
+
   include Pagy::Backend
 
   alias_method :build_pagy, :pagy
@@ -7,21 +14,40 @@ class DeveloperQuery
 
   def initialize(options = {})
     @options = options
+    @ransack_params_builder = DeveloperQueryRansackParamsBuilder.new
     @items_per_page = options.delete(:items_per_page)
-    @sort = options.delete(:sort)
-    @specialty_ids = options.delete(:specialty_ids)
-    @countries = options.delete(:countries)
-    @utc_offsets = options.delete(:utc_offsets)
-    @role_types = options.delete(:role_types)
-    @role_levels = options.delete(:role_levels)
-    @badges = options.delete(:badges)
-    @include_not_interested = options.delete(:include_not_interested)
-    @search_query = options.delete(:search_query)
     @user = options.delete(:user)
   end
 
+  # Different options that are public methods which external components depend on
+  # also have different rules of presentation which would be better a part of a 
+  # specific presenter class
+  EXPOSED_OPTIONS.each do |opt|
+    define_method(opt) do
+      case opt
+      when :countries, :specialty_ids
+        Array.wrap(options[opt]).reject(&:blank?)
+      when :role_types, :role_levels, :badges
+        Array.wrap(options[opt]).reject(&:blank?).map(&:to_sym)
+      when :utc_offsets
+        Array.wrap(options[opt]).reject(&:blank?).map(&:to_f)
+      when :search_query
+        options[opt].to_s.strip
+      when :include_not_interested
+        ActiveModel::Type::Boolean.new.cast(options[opt])
+      else
+        options[opt]
+      end
+    end
+  end
+
   def filters
-    @filters = {sort:, utc_offsets:, role_types:, role_levels:, include_not_interested:, search_query:, countries:, badges:}
+    @filters ||= begin
+      # For some reason currently there are no explicit filters for specialties
+      # and building filters like this make this detail visible
+      filters_options = SEARCHABLE_OPTIONS - [:specialty_ids] + [:sort]
+      options.slice(*filters_options).to_h
+    end
   end
 
   def pagy
@@ -41,54 +67,16 @@ class DeveloperQuery
   end
 
   def sort
-    @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
-  end
-
-  def countries
-    @countries.to_a.reject(&:blank?)
-  end
-
-  def specialty_ids
-    @specialty_ids.to_a.reject(&:blank?)
-  end
-
-  def utc_offsets
-    @utc_offsets.to_a.reject(&:blank?).map(&:to_f)
-  end
-
-  def role_types
-    @role_types.to_a.reject(&:blank?).map(&:to_sym)
-  end
-
-  def role_levels
-    @role_levels.to_a.reject(&:blank?).map(&:to_sym)
-  end
-
-  def badges
-    @badges.to_a.reject(&:blank?).map(&:to_sym)
-  end
-
-  def search_query
-    @search_query.to_s.strip
-  end
-
-  def include_not_interested
-    ActiveModel::Type::Boolean.new.cast(@include_not_interested)
+    options[:sort].to_s.downcase.to_sym == :availability ? :availability : :newest
   end
 
   private
 
   def query_and_paginate
-    @_records = Developer.includes(:role_type, :specialties).with_attached_avatar.visible
-    sort_records
-    country_filter_records
-    utc_offset_filter_records
-    role_type_filter_records
-    role_level_filter_records
-    search_status_filter_records
-    search_query_filter_records
-    badges_filter_records
-    specialty_filter_records
+    base_scope = Developer.with_attached_avatar.visible.includes(:role_type, :specialties)
+    ransack_params = @ransack_params_builder.call(options)
+    @_records = base_scope.ransack(ransack_params).result(distinct: true)
+
     @pagy, @records = build_pagy(@_records, items: items_per_page)
   end
 
@@ -97,66 +85,7 @@ class DeveloperQuery
   end
 
   def empty_search?
-    utc_offsets.empty? &&
-      role_types.empty? &&
-      role_levels.empty? &&
-      search_query.blank? &&
-      countries.blank? &&
-      badges.blank? &&
-      specialty_ids.empty? &&
-      !include_not_interested
-  end
-
-  def badges_filter_records
-    badges.each do |badge|
-      if badge == :recently_active
-        @_records.merge!(Developer.recently_active)
-      elsif badge == :source_contributor
-        @_records.merge!(Developer.source_contributor)
-      elsif badge == :high_response_rate
-        @_records.merge!(Developer.high_response_rate)
-      end
-    end
-  end
-
-  def specialty_filter_records
-    if specialty_ids.any?
-      @_records.merge!(Developer.with_specialty_ids(specialty_ids))
-    end
-  end
-
-  def sort_records
-    if sort == :availability
-      @_records.merge!(Developer.available_first)
-    else
-      @_records.merge!(Developer.newest_first)
-    end
-  end
-
-  def country_filter_records
-    @_records.merge!(Developer.filter_by_countries(countries)) if countries.any?
-  end
-
-  def utc_offset_filter_records
-    if utc_offsets.any?
-      @_records.merge!(Developer.filter_by_utc_offsets(utc_offsets))
-    end
-  end
-
-  def role_type_filter_records
-    @_records.merge!(Developer.filter_by_role_types(role_types)) if role_types.any?
-  end
-
-  def role_level_filter_records
-    @_records.merge!(Developer.filter_by_role_levels(role_levels)) if role_levels.any?
-  end
-
-  def search_status_filter_records
-    @_records.merge!(Developer.actively_looking.or(Developer.open)) unless include_not_interested
-  end
-
-  def search_query_filter_records
-    @_records.merge!(Developer.filter_by_search_query(search_query)) unless search_query.empty?
+    SEARCHABLE_OPTIONS.all? { |opt| options[opt].blank? }
   end
 
   # Needed for #pagy (aliased to #build_pagy) helper.
