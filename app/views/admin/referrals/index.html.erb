@@ -2,13 +2,10 @@
   <%= render Admin::HeadingComponent.new(t(".title")) %>
 
   <%= render Admin::ContentComponent.new do %>
-
     <%= render Admin::Tables::TableComponent.new do |table| %>
-      <% table.with_header t(".email") %>
-      <% table.with_header t(".developer") %>
-      <% table.with_header t(".business") %>
-      <% table.with_header t(".referrals_count") %>
+      <% table.with_header t(".user") %>
       <% table.with_header t(".code") %>
+      <% table.with_header t(".referrals_count") %>
       <% table.with_header do %>
         <span class="sr-only"><%= t(".view") %></span>
       <% end %>
@@ -16,27 +13,15 @@
       <% @users.each do |user| %>
         <% table.with_row do |row| %>
           <%= row.with_cell primary: true do %>
-            <%= render Admin::EmailLinkComponent.new(user.email) %>
-          <% end %>
-
-          <%= row.with_cell do %>
-            <% if (developer = user.developer) %>
-              <%= render Admin::LabeledAvatarComponent.new(developer, title: developer.name, path: developer_path(developer)) %>
-            <% end %>
-          <% end %>
-
-          <%= row.with_cell do %>
-            <% if (business = user.business) %>
-              <%= render Admin::LabeledAvatarComponent.new(business, title: business.company, path: business_path(business), subtitle: business.name) %>
-            <% end %>
-          <% end %>
-
-          <%= row.with_cell do %>
-            <%= user.referrals_count %>
+            <%= render Admin::LabeledAvatarComponent.new(user&.developer || user&.business, title: user.email, path: "mailto:#{user.email}") %>
           <% end %>
 
           <%= row.with_cell do %>
             <%= user.referral_code %>
+          <% end %>
+
+          <%= row.with_cell do %>
+            <%= user.referrals_count %>
           <% end %>
 
           <% row.with_cell do %>
