@@ -4,7 +4,7 @@ class Feature
     when :badge_filter
       !Rails.env.production?
     when :cancel_subscription
-      !Rails.env.production?
+      true
     when :redesign
       ENV.fetch("REDESIGN", false)
     when :business_welcome_email
