@@ -30,7 +30,7 @@ module DeveloperExternalProfiles
             error_class: "LinkedIn API Error",
             error_message: "API Error: #{response.status} - #{response.body}",
             context: {
-              message: 'Error occurred while fetching data from LinkedIn API',
+              message: "Error occurred while fetching data from LinkedIn API",
               developer: "Developer Linkedin URL - #{url}",
               linkedin_api_response: response&.body
             }
