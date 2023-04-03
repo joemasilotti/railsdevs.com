@@ -2,26 +2,43 @@ module DeveloperExternalProfiles
   class LinkedinProfileFetcher
     def developer_profiles
       developer_external_profiles_list = []
-
-      Developer.where.not(linkedin: [nil, ""]).distinct.each do |developer|
-        linkedin_url = "https://linkedin.com/in/#{developer.linkedin}/"
-        response = get_profile(linkedin_url)
-
-        if response[:error]
-          developer_external_profiles_list << {developer_id: developer.id, site: "linkedin", data: {}, error: response[:error]}
-        else
-          developer_external_profile = Developers::ExternalProfile.linkedin_developer(developer)
-          developer_external_profile.data = response[:data] unless developer_external_profile.blank?
-          if developer_external_profile.blank? || developer_external_profile.data_changed?
-            developer_external_profiles_list << {developer_id: developer.id, site: "linkedin", data: response[:data], error: nil}
-          end
-        end
+      developers_with_linked_in_profiles.each do |developer|
+        response = fetch_linkedin_profile(developer.linkedin)
+        external_profile_record = external_profile(developer, response)
+        developer_external_profiles_list << external_profile_record if external_profile_record.present?
       end
 
-      Developers::ExternalProfile.upsert_all(developer_external_profiles_list, unique_by: [:developer_id, :site]) unless developer_external_profiles_list.empty?
+      upsert_external_profiles(developer_external_profiles_list)
+    end
+
+    def external_profile(developer, response)
+      if response[:error]
+        {developer_id: developer.id, site: "linkedin", data: {}, error: response[:error]}
+      else
+        external_profile = Developers::ExternalProfile.linkedin_developer(developer)
+        external_profile.data = response[:data] unless external_profile.blank?
+        if external_profile.blank? || external_profile.data_changed?
+          {developer_id: developer.id, site: "linkedin", data: response[:data], error: nil}
+        end
+      end
+    end
+
+    def upsert_external_profiles(profiles)
+      unless profiles.empty?
+        Developers::ExternalProfile.upsert_all(profiles, unique_by: [:developer_id, :site])
+      end
     end
 
     private
+
+    def developers_with_linked_in_profiles
+      Developer.where.not(linkedin: [nil, ""]).distinct
+    end
+
+    def fetch_linkedin_profile(linkedin_id)
+      linkedin_url = "https://linkedin.com/in/#{linkedin_id}/"
+      get_profile(linkedin_url)
+    end
 
     def get_profile(linkedin_url)
       api = DeveloperExternalProfiles::Linkedin.new

@@ -26,9 +26,23 @@ module DeveloperExternalProfiles
         if response.status.to_i == 200
           parse_json_response(response.body)
         else
-          {error: "API Error: #{response.code} - #{response.body}"}
+          Honeybadger.notify(
+            error_class: "LinkedIn API Error",
+            error_message: "API Error: #{response.status} - #{response.body}",
+            context: {
+              message: 'Error occurred while fetching data from LinkedIn API',
+              developer: "Developer Linkedin URL - #{url}",
+              linkedin_api_response: response&.body
+            }
+          )
+          {error: "API Error: #{response.status} - #{response.body}"}
         end
       rescue Faraday::Error => e
+        Honeybadger.notify(e, context: {
+          message: "Error occurred while fetching data from LinkedIn API - #{e.message}",
+          developer: "Developer Linkedin URL - #{url}",
+          linkedin_api_response: response&.body
+        })
         {error: "Exception occurred: #{e.message}"}
       end
     end
@@ -44,6 +58,10 @@ module DeveloperExternalProfiles
         {error: "JSON Parsing Error: #{e.message}"}
       end
     rescue JSON::ParserError => e
+      Honeybadger.notify(e, context: {
+        message: "Error occurred while parsing JSON response from LinkedIn API - #{e.message}",
+        linkedin_api_response: response_body
+      })
       {error: "JSON Parsing Error: #{e.message}"}
     end
 
