@@ -85,7 +85,6 @@ class Developer < ApplicationRecord
     SQL
     where(where_sql, Array.wrap(specialty_ids))
   }
-  scope :actively_looking_or_open_or_not_interested, -> { where(search_status: [:actively_looking, :not_interested, :open, nil]) }
 
   def visible?
     !invisible?

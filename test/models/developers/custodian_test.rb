@@ -6,7 +6,7 @@ class Developers::CustodianTest < ActiveSupport::TestCase
 
   setup do
     @developer = create_developer
-    @developer.update!(updated_at: 31.days.ago)
+    @developer.update!(updated_at: 94.days.ago)
   end
 
   test "marks stale developers as not interested" do
