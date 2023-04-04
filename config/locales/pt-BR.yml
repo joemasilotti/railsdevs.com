@@ -13,7 +13,6 @@ pt-BR:
         company: Nome da Empresa
         name: Seu nome
       developer:
-        available_on: Disponível para iniciar em
         email: E-mail
         github: Github
         hero: Descrição
@@ -105,10 +104,6 @@ pt-BR:
     formats:
       month_year: "%B / %Y"
   developers:
-    availability_component:
-      in_future_html: Disponível em <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Disponível agora
-      unspecified_html: Atualmente indisponível
     cover_image_component:
       alt: Imagem de capa do desenvolvedor
     create:

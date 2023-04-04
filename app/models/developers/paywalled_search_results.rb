@@ -3,7 +3,7 @@ module Developers
     private attr_reader :user, :page
 
     def self.random_developers
-      Developer.visible.available.sample(3)
+      Developer.visible.sample(3)
     end
 
     def initialize(user:, page:)

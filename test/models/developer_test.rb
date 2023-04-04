@@ -11,34 +11,6 @@ class DeveloperTest < ActiveSupport::TestCase
     assert_equal @developer.hashid.to_s, @developer.to_param
   end
 
-  test "unspecified availability" do
-    @developer.available_on = nil
-
-    assert_equal "unspecified", @developer.availability_status
-    assert @developer.available_unspecified?
-  end
-
-  test "available in a future date" do
-    @developer.available_on = Date.current + 2.weeks
-
-    assert_equal "in_future", @developer.availability_status
-    assert @developer.available_in_future?
-  end
-
-  test "available from a past date" do
-    @developer.available_on = Date.current - 3.weeks
-
-    assert_equal "now", @developer.availability_status
-    assert @developer.available_now?
-  end
-
-  test "available from today" do
-    @developer.available_on = Date.current
-
-    assert_equal "now", @developer.availability_status
-    assert @developer.available_now?
-  end
-
   test "is valid" do
     assert Developer.new(developer_attributes).valid?
   end
@@ -72,17 +44,6 @@ class DeveloperTest < ActiveSupport::TestCase
 
     refute developer.valid?
     assert_not_nil developer.errors[:bio]
-  end
-
-  test "available scope is only developers available today or earlier" do
-    developers(:one).update!(available_on: Time.zone.local(2021, 1, 1))
-    developers(:prospect).update!(available_on: Time.zone.local(2022, 1, 1))
-
-    travel_to Time.zone.local(2021, 5, 4) do
-      developers = Developer.available
-      assert_includes developers, developers(:one)
-      refute_includes developers, developers(:prospect)
-    end
   end
 
   test "should accept avatars of valid file formats" do
@@ -180,13 +141,6 @@ class DeveloperTest < ActiveSupport::TestCase
     refute @developer.missing_fields?
 
     @developer.build_role_type
-    assert @developer.missing_fields?
-  end
-
-  test "missing fields when available on is blank" do
-    refute @developer.missing_fields?
-
-    @developer.available_on = nil
     assert @developer.missing_fields?
   end
 

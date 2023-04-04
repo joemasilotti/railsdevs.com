@@ -3,7 +3,7 @@ require "test_helper"
 module Developers
   class BannerComponentTest < ViewComponent::TestCase
     test "renders new fields component title if none of the other banner renders" do
-      developers(:one).update!(available_on: nil)
+      developers(:one).update!(scheduling_link: nil)
       new_fields_component = NewFieldsComponent.new(users(:developer))
       invisible_banner_component = InvisibleBannerComponent.new(users(:developer))
       unseeded_warning_component = UnseededWarningComponent.new(seedable: true)
@@ -11,8 +11,8 @@ module Developers
       assert_text I18n.t("developers.new_fields_component.title")
     end
 
-    test "renders invisible banner component's title if new fields component and invisible banner component can be rendered" do
-      developers(:one).update!(available_on: nil, search_status: "invisible")
+    test "renders invisible banner component's title if BOTH new fields component and invisible banner component can be rendered" do
+      developers(:one).update!(scheduling_link: nil, search_status: "invisible")
       new_fields_component = NewFieldsComponent.new(users(:developer))
       invisible_banner_component = InvisibleBannerComponent.new(users(:developer))
       unseeded_warning_component = UnseededWarningComponent.new(seedable: true)

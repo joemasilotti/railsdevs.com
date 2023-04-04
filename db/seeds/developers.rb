@@ -41,8 +41,7 @@ SeedsHelper.create_developer!("junior", {
   location: SeedsHelper.locations[:new_york],
   search_status: :actively_looking,
   role_type: RoleType.new(full_time_employment: true),
-  role_level: RoleLevel.new(junior: true),
-  available_on: Date.yesterday
+  role_level: RoleLevel.new(junior: true)
 })
 
 # Freelancer developer
@@ -52,7 +51,6 @@ SeedsHelper.create_developer!("freelancer", {
   search_status: :open,
   role_type: RoleType.new(part_time_contract: true),
   role_level: RoleLevel.new(mid: true, senior: true),
-  available_on: Date.today + 7.days,
   website: Faker::Internet.url,
   github: Faker::Internet.username
 })
@@ -64,7 +62,6 @@ developer = SeedsHelper.create_developer!("developer", {
   search_status: :actively_looking,
   role_type: RoleType.new(RoleType::TYPES.map { |t| [t, true] }.to_h),
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h),
-  available_on: Date.yesterday,
   website: Faker::Internet.url,
   github: Faker::Internet.username,
   twitter: Faker::Internet.username,

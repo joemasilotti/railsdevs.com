@@ -126,11 +126,7 @@ class DeveloperQuery
   end
 
   def sort_records
-    if sort == :availability
-      @_records.merge!(Developer.available_first)
-    else
-      @_records.merge!(Developer.newest_first)
-    end
+    @_records.merge!(Developer.newest_first)
   end
 
   def country_filter_records

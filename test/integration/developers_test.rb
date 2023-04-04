@@ -34,15 +34,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert response.body.index("Newest") < response.body.index("Oldest")
   end
 
-  test "developers can be sorted by availability" do
-    create_developer(hero: "Available", available_on: Date.yesterday)
-
-    get developers_path(sort: :availability)
-
-    assert_select "button.font-medium[value=availability]"
-    assert_select "h2", "Available"
-  end
-
   test "subscribers can filter developers by time zone" do
     create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
     user = users(:subscribed_business)
@@ -125,7 +116,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "paginating filtered developers respects the filters" do
     sign_in users(:subscribed_business)
-    developers(:prospect).update!(available_on: Date.yesterday, search_status: :open)
+    developers(:prospect).update!(search_status: :open)
 
     with_pagy_default_items(1) do
       get developers_path(sort: :availability)
@@ -417,7 +408,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     {
       developer: {
         name: "Developer",
-        available_on: Date.yesterday,
         hero: "A developer",
         bio: "I develop.",
         avatar: fixture_file_upload("lovelace.jpg", "image/jpeg"),

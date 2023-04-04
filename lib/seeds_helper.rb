@@ -19,8 +19,7 @@ module SeedsHelper
     def create_random_developer!
       create_developer!(Faker::Internet.username, {
         location: locations[:portland],
-        search_status: :open,
-        available_on: Faker::Date.between(from: 30.days.ago, to: 30.days.from_now)
+        search_status: :open
       })
     end
 
