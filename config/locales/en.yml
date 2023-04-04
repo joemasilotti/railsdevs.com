@@ -627,7 +627,7 @@ en:
         title: 'New feature alert: Developer specialties'
       profile_reminder_notification:
         email_subject: Your RailsDevs profile is no longer appearing in search results
-        title: 'Your profile is no longer appearing in search results. Update your search status to "Actively looking" or "Open".'
+        title: Your profile is no longer appearing in search results. Update your search status to "Actively looking" or "Open".
     index:
       cta: View history
       empty_state:
