@@ -2,6 +2,10 @@
 
 # 2023
 
+### April
+
+* April 3 - Admin notification for developer's Linkedin profile experience changes - #839 @sarvaiyanidhi
+
 ### March
 
 * March 31 - Admin dashboard for referrals #799 @hafezbusra
