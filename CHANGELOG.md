@@ -2,6 +2,10 @@
 
 # 2023
 
+### April
+
+* April 4 - Remove `developers.available_on` #854
+
 ### March
 
 * March 31 - Admin dashboard for referrals #799 @hafezbusra

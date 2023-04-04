@@ -5,7 +5,6 @@ class HomeTest < ActionDispatch::IntegrationTest
 
   test "shows developer profiles actively looking" do
     developers(:prospect).update!(
-      available_on: Date.yesterday,
       search_status: :open
     )
 

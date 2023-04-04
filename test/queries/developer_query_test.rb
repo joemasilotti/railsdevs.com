@@ -59,20 +59,6 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     end
   end
 
-  test "sorting by availability excludes developers who haven't set that field" do
-    available = create_developer(available_on: Date.yesterday)
-    unavailable = create_developer(available_on: Date.tomorrow)
-    blank = create_developer(available_on: nil)
-
-    records = DeveloperQuery.new(sort: :availability).records
-
-    assert_includes records, available
-    assert_includes records, unavailable
-    refute_includes records, blank
-
-    assert records.find_index(available) < records.find_index(unavailable)
-  end
-
   test "sorting by newest" do
     oldest = create_developer
     newest = create_developer

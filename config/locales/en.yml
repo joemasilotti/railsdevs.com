@@ -15,7 +15,6 @@ en:
         contact_role: Your job title or role
         name: Your name
       developer:
-        available_on: Available to start on
         email: E-mail
         github: Github
         hero: Hero
@@ -361,10 +360,6 @@ en:
       invisiblize: Invisiblize
       source_contributor: Source contributor
       title: Admin
-    availability_component:
-      in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Available now
-      unspecified_html: Currently unavailable
     badges_component:
       featured: Featured developer
       high_response_rate: High response rate

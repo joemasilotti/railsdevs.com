@@ -1,5 +1,4 @@
 class Developer < ApplicationRecord
-  include Availability
   include Avatarable
   include Developers::HasOnlineProfiles
   include Developers::Notifications
@@ -68,8 +67,6 @@ class Developer < ApplicationRecord
   end
 
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
-  scope :available, -> { where(available_on: ..Time.current.to_date) }
-  scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :product_announcement_notifications, -> { where(product_announcement_notifications: true) }
@@ -108,7 +105,6 @@ class Developer < ApplicationRecord
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
-      available_on.blank? ||
       scheduling_link.blank?
   end
 

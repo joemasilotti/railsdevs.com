@@ -15,7 +15,6 @@ fr:
         contact_role: Votre poste au sein de l'entreprise
         name: Votre nom
       developer:
-        available_on: Disponible à partir du
         email: E-mail
         github: Github
         hero: Titre / Poste
@@ -255,10 +254,6 @@ fr:
       feature: Mettre en avant
       invisiblize: Rendre invisible
       title: Admin
-    availability_component:
-      in_future_html: Disponible dans <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Disponible maintenant
-      unspecified_html: Actuellement indisponible
     badges_component:
       featured: En vedette
       recently_active: Actif depuis peu
