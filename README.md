@@ -115,7 +115,7 @@ Significant changes and product updates are documented in the [changelog](CHANGE
 
 ## License
 
-All code and documentation are copyright 2022 Joe Masilotti [under the MIT license](LICENSE).
+All code and documentation are copyright 2023 Joe Masilotti [under the MIT license](LICENSE).
 
 All other resources including, but not limited to, images, copy, and branding, are copyrighted 2022 Joe Masilotti and used by permission for this project only.
 
