@@ -109,8 +109,8 @@ class DeveloperQuery
 
   def badges_filter_records
     badges.each do |badge|
-      if badge == :recently_active
-        @_records.merge!(Developer.recently_active)
+      if badge == :recently_added
+        @_records.merge!(Developer.recently_added)
       elsif badge == :source_contributor
         @_records.merge!(Developer.source_contributor)
       elsif badge == :high_response_rate

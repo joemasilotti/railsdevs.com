@@ -361,9 +361,9 @@ en:
       source_contributor: Source contributor
       title: Admin
     badges_component:
-      featured: Featured developer
+      featured: Featured
       high_response_rate: High response rate
-      recently_active: Recently Active
+      recently_added: New profile
       source_contributor: Source Contributor
     celebration_package_requests:
       create:

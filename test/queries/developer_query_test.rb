@@ -128,14 +128,14 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, blank
   end
 
-  test "filtering by recently active badge" do
-    recently_active_developer = create_developer
-    not_recently_active_developer = create_developer
-    not_recently_active_developer.update!(updated_at: 2.weeks.ago)
+  test "filtering by recently added badge" do
+    recently_added_developer = create_developer
+    not_recently_added_developer = create_developer
+    not_recently_added_developer.update!(created_at: 2.weeks.ago)
 
-    records = DeveloperQuery.new(badges: ["recently_active"]).records
-    assert_includes records, recently_active_developer
-    refute_includes records, not_recently_active_developer
+    records = DeveloperQuery.new(badges: ["recently_added"]).records
+    assert_includes records, recently_added_developer
+    refute_includes records, not_recently_added_developer
   end
 
   test "filtering by response rate badge" do
@@ -197,7 +197,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       include_not_interested: true,
       search_query: "rails engineer",
       countries: ["United States"],
-      badges: [:recently_active]
+      badges: [:recently_added]
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end

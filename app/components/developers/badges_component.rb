@@ -1,7 +1,7 @@
 module Developers
   class BadgesComponent < ApplicationComponent
     delegate :featured?, to: :developer
-    delegate :recently_active?, to: :developer
+    delegate :recently_added?, to: :developer
     delegate :source_contributor?, to: :developer
     delegate :response_rate, to: :developer
 

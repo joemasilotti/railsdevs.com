@@ -256,7 +256,6 @@ fr:
       title: Admin
     badges_component:
       featured: En vedette
-      recently_active: Actif depuis peu
     count_component:
       cta: Réinitialiser les filtres
       title_html: Affichage de <span class='font-bold'>%{count}</span> sur <span class='font-bold'>%{total}</span>+ développeurs.

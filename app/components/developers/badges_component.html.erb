@@ -5,9 +5,9 @@
     </div>
   <% end %>
 
-  <% if recently_active? %>
+  <% if recently_added? %>
     <div class="mr-4 mb-2">
-      <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
+      <%= render BadgeComponent.new(t(".recently_added"), color: "green") %>
     </div>
   <% end %>
 

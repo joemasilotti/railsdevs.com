@@ -6,11 +6,15 @@ module Developers
       @developer = developers(:one)
     end
 
-    test "renders recently active badge if the developer profile is active in last 7 days" do
-      @developer.updated_at = Date.current
+    test "renders recently added badge if the developer profile was added in the last 7 days" do
+      @developer.created_at = Date.current
       render_inline BadgesComponent.new(@developer)
       assert_selector("span[class~='bg-green-100']")
-      assert_text "Recently Active"
+      assert_text "New profile"
+
+      @developer.created_at = 2.weeks.ago
+      render_inline BadgesComponent.new(@developer)
+      refute_text "New profile"
     end
 
     test "renders feature badge if the developer profile is features" do
