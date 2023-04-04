@@ -1,5 +1,6 @@
 class Developer < ApplicationRecord
   include Avatarable
+  include Developers::Bumpable
   include Developers::HasOnlineProfiles
   include Developers::Notifications
   include Developers::RichText
