@@ -1,8 +1,12 @@
 Hey <%= @developer.first_name %>,
 
-Joe, founder of RailsDevs (<%= root_url %>) here. It looks like your developer profile hasn't been updated in a while. Is everything still accurate?
+Joe, founder of RailsDevs here. Your profile hasn't been updated in 3+ months.
 
-If not, you can update your profile (<%= notification_url(@notification.record) %>). Or, if you've found a gig and are no longer looking let me know by replying to this email!
+I changed your search status to indicate you are no longer looking for work. Your profile will no longer appear in search results.
+
+Landed a job via RailsDevs? Fill out this form so I can send you some free congratulations swag: hired_url
+
+Still looking? Update your search status to "Actively looking" or "Open" so hiring businesses can find you again: notification_url(@notification.record)
 
 <%= render "shared/signature" %>
 Update my email notification settings:

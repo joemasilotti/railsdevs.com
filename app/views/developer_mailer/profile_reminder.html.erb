@@ -1,5 +1,7 @@
 <p>Hey <%= @developer.first_name %>,</p>
-<p>Joe, founder of <%= link_to "RailsDevs", root_url %> here. Your developer profile is no longer active as it hasn't been updated in a while.</p>
-<p>Please <%= link_to "update your seach status", notification_url(@notification.record) %>. to make yourself available for work again</p>
+<p>Joe, founder of <%= link_to "RailsDevs", root_url %> here. Your profile hasn't been updated in 3+ months.</p>
+<p>I changed your search status to indicate you are no longer looking for work. Your profile will no longer appear in search results.</p>
+<p>Landed a job via RailsDevs? <%= link_to "Fill out this form", hired_url %> so I can send you some free congratulations swag!</p>
+<p>Still looking? <%= link_to "Update your search status", notification_url(@notification.record) %> to "Actively looking" or "Open" so hiring businesses can find you again.</p>
 <%= render "shared/signature" %>
 <p><small><%= link_to "Update my email notification settings", edit_developer_url(@developer, anchor: "notifications") %>.</small></p>
