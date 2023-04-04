@@ -152,12 +152,10 @@ en:
           updated: Hiring agreement terms updated.
     referrals:
       index:
-        business: Business
         code: Referal code
-        developer: Developer
-        email: Email
         referrals_count: Referrals
         title: Referrals
+        user: User
         view: View
     specialties:
       create:
