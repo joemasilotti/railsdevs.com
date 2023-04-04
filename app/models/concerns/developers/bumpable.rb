@@ -6,7 +6,11 @@ module Developers
       before_update :touch_bumped_at, if: :user_initiated
     end
 
-    attr_accessor :user_initiated
+    attr_accessor :user_initiated, :specialties_changed
+
+    def specialty_changed(specialty)
+      self.specialties_changed = true
+    end
 
     private
 
@@ -25,7 +29,7 @@ module Developers
     ]
 
     def touch_bumped_at
-      if significant_changes?
+      if significant_changes? || specialties_changed
         self.profile_updated_at = Time.current
         self.bumped_at = Time.current unless recently_bumped?
       end

@@ -24,6 +24,10 @@ module Developers
       assert_changes "@developer.profile_updated_at" do
         @developer.update!(location_attributes: {country: "Canada"}, user_initiated: true)
       end
+
+      assert_changes "@developer.profile_updated_at" do
+        @developer.update!(specialty_ids: [specialties(:one).id], user_initiated: true)
+      end
     end
 
     test "doesn't touch profile_updated_at if no significant changes were made" do
