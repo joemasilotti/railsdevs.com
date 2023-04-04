@@ -13,6 +13,8 @@ class Feature
       !Rails.env.production?
     when :offer_extending
       !Rails.env.production?
+    when :sort
+      !Rails.env.production?
     else
       raise "Unknown feature name: #{feature_name}"
     end
