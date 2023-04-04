@@ -4,6 +4,14 @@
 
 ### March
 
+* March 31 - Admin dashboard for referrals #799 @hafezbusra
+* March 30 - Affiliate program landing page and sign up form #850
+* March 28 - Refactor `Hired::Form` into `Developers::CelebrationPackageRequest` #836 @MikeRayUX
+* March 25 - Add developer scheduling link #838 @jkostolansky
+* March 23 - Business survey email + opt-out checkbox #830
+* March 21 - Added business new hire forms and admin new hire forms #818 @RomanTurner @MikeRayUX
+* March 21 - Announce specialties to developers #817 @sarvaiyanidhi
+* March 20 - Update developer query to not duplicate records with multiple matching specialties #822 @bschrag620
 * March 18 - Add developer specialties #803
 * March 16 - Don't retry emails for invalid/unsubscribed recipients #798 @zzJZzz
 * March 15 - Fix Preview image doesn't change when select new avatar in profile page #787 @ryy

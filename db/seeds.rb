@@ -9,8 +9,8 @@ end
 ActiveJob::Base.queue_adapter = :inline
 ActionMailer::Base.delivery_method = :test
 
-# Allow UpdateDeveloperResponseRateJob to run async.
-UpdateDeveloperResponseRateJob.queue_adapter = :async
+# Disable developer response grace period to prevent scheduling future jobs.
+Rails.configuration.developer_response_grace_period = nil
 
 puts "Seeding #{Rails.env} database..."
 seed "admins"

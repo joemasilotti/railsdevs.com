@@ -1,10 +1,10 @@
 class Developer < ApplicationRecord
   include Availability
   include Avatarable
+  include Developers::HasOnlineProfiles
   include Developers::Notifications
   include Developers::RichText
   include HasBadges
-  include HasSocialProfiles
   include HasSpecialties
   include Hashid::Rails
   include PersonName
@@ -24,7 +24,7 @@ class Developer < ApplicationRecord
   has_one :referring_user, through: :user
   has_many :conversations, -> { visible }
   has_many :messages, -> { where(sender_type: Developer.name) }, through: :conversations
-  has_many :hired_forms, class_name: "Hired::Form", dependent: :destroy
+  has_many :celebration_package_requests, class_name: "Developers::CelebrationPackageRequest", dependent: :destroy
   has_one :location, dependent: :destroy, autosave: true
   has_one :role_level, dependent: :destroy, autosave: true
   has_one :role_type, dependent: :destroy, autosave: true
@@ -43,7 +43,7 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
-  pg_search_scope :filter_by_search_query, against: [:bio, :hero], using: {tsearch: {tsvector_column: :textsearchable_index_col}}
+  pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialties: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
 
@@ -72,8 +72,19 @@ class Developer < ApplicationRecord
   scope :available_first, -> { where.not(available_on: nil).order(:available_on) }
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
+  scope :product_announcement_notifications, -> { where(product_announcement_notifications: true) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
+  scope :with_specialty_ids, ->(specialty_ids) {
+    where_sql = <<-SQL
+      exists (
+        select 1 from specialty_tags
+        where specialty_tags.specialty_id in (?)
+          and specialty_tags.developer_id = developers.id
+      )
+    SQL
+    where(where_sql, Array.wrap(specialty_ids))
+  }
 
   def visible?
     !invisible?
@@ -97,7 +108,8 @@ class Developer < ApplicationRecord
       location.missing_fields? ||
       role_level.missing_fields? ||
       role_type.missing_fields? ||
-      available_on.blank?
+      available_on.blank? ||
+      scheduling_link.blank?
   end
 
   def feature!

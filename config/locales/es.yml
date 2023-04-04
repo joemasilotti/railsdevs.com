@@ -174,7 +174,7 @@ es:
     unauthorized: No tienes permiso para eso.
   home:
     show:
-      available_developers: Desarrolladores disponibles ahora
+      developers_heading: Desarrolladores disponibles ahora
       get_started: Empezar
       learn_more: Aprender más
       more: Ver más desarrolladores
@@ -193,7 +193,6 @@ es:
       you: Tú
   nav_bar:
     base_component:
-      about: Acerca de
       developers: Desarrolladores
       pricing: Precios
     guest_component:

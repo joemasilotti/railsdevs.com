@@ -93,7 +93,7 @@ class BusinessesTest < ActionDispatch::IntegrationTest
 
     assert_equal "New Owner Name", business.reload.name
     assert_equal "New Role", business.reload.contact_role
-    assert_equal "http://www.newwebsite.com", business.reload.website
+    assert_equal "www.newwebsite.com", business.reload.website
   end
 
   test "invalid profile creation" do

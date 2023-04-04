@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_31_210502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -61,6 +61,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "analytics_search_queries", force: :cascade do |t|
+    t.string "search_query"
+    t.integer "specialty_ids", default: [], null: false, array: true
+    t.string "badges", default: [], null: false, array: true
+    t.string "role_levels", default: [], null: false, array: true
+    t.string "role_types", default: [], null: false, array: true
+    t.boolean "include_not_interested"
+    t.string "countries", default: [], null: false, array: true
+    t.integer "utc_offsets"
+    t.string "sort"
+    t.integer "page"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "businesses", force: :cascade do |t|
     t.bigint "user_id"
     t.string "contact_name", null: false
@@ -72,7 +87,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.string "website"
     t.string "contact_role"
     t.boolean "invisible", default: false, null: false
+    t.boolean "survey_request_notifications", default: true
     t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
+  create_table "businesses_hiring_invoice_requests", force: :cascade do |t|
+    t.bigint "business_id", null: false
+    t.text "billing_address", null: false
+    t.string "developer_name", null: false
+    t.date "start_date", null: false
+    t.integer "annual_salary", null: false
+    t.integer "employment_type", null: false
+    t.string "position"
+    t.text "feedback"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_id"], name: "index_businesses_hiring_invoice_requests_on_business_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -115,12 +145,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.boolean "source_contributor", default: false, null: false
     t.integer "response_rate", default: 0, null: false
     t.string "mastodon"
+    t.boolean "product_announcement_notifications", default: true
+    t.string "scheduling_link"
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
   end
 
-  create_table "hired_forms", force: :cascade do |t|
+  create_table "developers_celebration_package_requests", force: :cascade do |t|
     t.bigint "developer_id", null: false
     t.text "address", null: false
     t.string "company", null: false
@@ -130,7 +162,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.text "feedback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["developer_id"], name: "index_hired_forms_on_developer_id"
+    t.index ["developer_id"], name: "index_developers_celebration_package_requests_on_developer_id"
   end
 
   create_table "hiring_agreements_signatures", force: :cascade do |t|
@@ -424,6 +456,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
     t.string "authentication_token"
     t.boolean "suspended", default: false, null: false
     t.string "referral_code"
+    t.integer "referrals_count", default: 0, null: false
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -432,7 +465,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_230358) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "hired_forms", "developers"
+  add_foreign_key "businesses_hiring_invoice_requests", "businesses"
+  add_foreign_key "developers_celebration_package_requests", "developers"
   add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
   add_foreign_key "hiring_agreements_signatures", "users"
   add_foreign_key "notification_tokens", "users"
