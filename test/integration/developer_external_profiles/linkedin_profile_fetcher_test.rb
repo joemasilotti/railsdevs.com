@@ -5,7 +5,7 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
   include DevelopersHelper
 
   def setup
-    @fetcher = DeveloperExternalProfiles::LinkedinProfileFetcher.new
+    @fetcher = Developers::ExternalProfiles::LinkedinProfileFetcher.new
     @developer_external_profiles_list = []
   end
 
@@ -27,7 +27,7 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
 
     external_profile = developer.external_profiles.find_by(site: "linkedin")
     assert_not_nil external_profile
-    assert_equal response_hash["experiences"][0]["company"], external_profile.data["company"]
+    assert_equal "Example Company", external_profile.data["company"]
   end
 
   test "handles error response from API" do

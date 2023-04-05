@@ -466,6 +466,8 @@ DEPENDENCIES
   devise-i18n
   erb_lint
   faker
+  faraday
+  faraday_middleware
   fathom_api
   geocoder
   groupdate

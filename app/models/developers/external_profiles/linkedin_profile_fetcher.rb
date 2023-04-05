@@ -1,14 +1,14 @@
-module DeveloperExternalProfiles
+module Developers::ExternalProfiles
   class LinkedinProfileFetcher
     def developer_profiles
-      developer_external_profiles_list = []
+      profiles = []
       developers_with_linked_in_profiles.each do |developer|
         response = fetch_linkedin_profile(developer.linkedin)
-        external_profile_record = external_profile(developer, response)
-        developer_external_profiles_list << external_profile_record if external_profile_record.present?
+        record = external_profile(developer, response)
+        profiles << record if record.present?
       end
 
-      upsert_external_profiles(developer_external_profiles_list)
+      upsert_external_profiles(profiles)
     end
 
     def external_profile(developer, response)
@@ -32,7 +32,7 @@ module DeveloperExternalProfiles
     private
 
     def developers_with_linked_in_profiles
-      Developer.where.not(linkedin: [nil, ""]).distinct
+      Developer.where.not(linkedin: [nil, ""])
     end
 
     def fetch_linkedin_profile(linkedin_id)
@@ -41,8 +41,7 @@ module DeveloperExternalProfiles
     end
 
     def get_profile(linkedin_url)
-      api = DeveloperExternalProfiles::Linkedin.new
-      api.get_profile(linkedin_url)
+      Developers::ExternalProfiles::Linkedin.new.get_profile(linkedin_url)
     end
   end
 end

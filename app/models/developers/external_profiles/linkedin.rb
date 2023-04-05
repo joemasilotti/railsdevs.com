@@ -1,7 +1,4 @@
-require "faraday"
-require "json"
-
-module DeveloperExternalProfiles
+module Developers::ExternalProfiles
   class Linkedin
     def initialize
       @api_key = api_key
@@ -18,31 +15,17 @@ module DeveloperExternalProfiles
       conn = Faraday.new(@endpoint) do |faraday|
         faraday.headers["Authorization"] = "Bearer #{@api_key}"
         faraday.adapter Faraday.default_adapter
+        faraday.response :json
       end
 
       begin
         response = conn.get("", params)
-
         if response.status.to_i == 200
           parse_json_response(response.body)
         else
-          Honeybadger.notify(
-            error_class: "LinkedIn API Error",
-            error_message: "API Error: #{response.status} - #{response.body}",
-            context: {
-              message: "Error occurred while fetching data from LinkedIn API",
-              developer: "Developer Linkedin URL - #{url}",
-              linkedin_api_response: response&.body
-            }
-          )
           {error: "API Error: #{response.status} - #{response.body}"}
         end
       rescue Faraday::Error => e
-        Honeybadger.notify(e, context: {
-          message: "Error occurred while fetching data from LinkedIn API - #{e.message}",
-          developer: "Developer Linkedin URL - #{url}",
-          linkedin_api_response: response&.body
-        })
         {error: "Exception occurred: #{e.message}"}
       end
     end
@@ -50,18 +33,13 @@ module DeveloperExternalProfiles
     private
 
     def parse_json_response(response_body)
-      response_hash = JSON.parse(response_body)
       begin
         # Attempt to access the first company name in the experiences array
-        {data: response_hash["experiences"][0]}
-      rescue NoMethodError
+        {data: response_body["experiences"][0]}
+      rescue NoMethodError => e
         {error: "JSON Parsing Error: #{e.message}"}
       end
     rescue JSON::ParserError => e
-      Honeybadger.notify(e, context: {
-        message: "Error occurred while parsing JSON response from LinkedIn API - #{e.message}",
-        linkedin_api_response: response_body
-      })
       {error: "JSON Parsing Error: #{e.message}"}
     end
 

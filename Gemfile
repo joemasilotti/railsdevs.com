@@ -44,6 +44,8 @@ gem "aws-sdk-s3", require: false
 gem "classy-yaml"
 gem "devise"
 gem "devise-i18n"
+gem "faraday"
+gem "faraday_middleware"
 gem "fathom_api", require: false
 gem "geocoder"
 gem "groupdate"
