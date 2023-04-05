@@ -116,28 +116,6 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     refute_includes records, blank
   end
 
-  test "filtering by source contributor badge" do
-    source_contributor_developer = create_developer(source_contributor: true)
-    not_source_contributor_developer = create_developer(source_contributor: false)
-    blank = create_developer
-
-    records = DeveloperQuery.new(badges: ["source_contributor"]).records
-
-    assert_includes records, source_contributor_developer
-    refute_includes records, not_source_contributor_developer
-    refute_includes records, blank
-  end
-
-  test "filtering by recently active badge" do
-    recently_active_developer = create_developer
-    not_recently_active_developer = create_developer
-    not_recently_active_developer.update!(updated_at: 2.weeks.ago)
-
-    records = DeveloperQuery.new(badges: ["recently_active"]).records
-    assert_includes records, recently_active_developer
-    refute_includes records, not_recently_active_developer
-  end
-
   test "filtering by response rate badge" do
     high_response_rate_developer = developers(:prospect)
     low_response_rate_developer = developers(:one)
@@ -148,6 +126,37 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     records = DeveloperQuery.new(badges: ["high_response_rate"]).records
     assert_includes records, high_response_rate_developer
     refute_includes records, low_response_rate_developer
+  end
+
+  test "filtering by source contributor badge" do
+    source_contributor = create_developer(source_contributor: true)
+    not_source_contributor = create_developer(source_contributor: false)
+
+    records = DeveloperQuery.new(badges: ["source_contributor"]).records
+    assert_includes records, source_contributor
+    refute_includes records, not_source_contributor
+  end
+
+  test "filtering by recently added badge" do
+    recently_added_developer = create_developer
+    assert recently_added_developer.recently_added?
+    not_recently_added_developer = create_developer(created_at: 2.weeks.ago)
+    refute not_recently_added_developer.recently_added?
+
+    records = DeveloperQuery.new(badges: ["recently_added"]).records
+    assert_includes records, recently_added_developer
+    refute_includes records, not_recently_added_developer
+  end
+
+  test "filtering by recently updated badge" do
+    recently_updated_developer = create_developer(profile_updated_at: 1.day.ago)
+    assert recently_updated_developer.recently_updated?
+    not_recently_updated_developer = create_developer(profile_updated_at: 2.weeks.ago)
+    refute not_recently_updated_developer.recently_updated?
+
+    records = DeveloperQuery.new(badges: ["recently_updated"]).records
+    assert_includes records, recently_updated_developer
+    refute_includes records, not_recently_updated_developer
   end
 
   test "filtering by specialties" do
@@ -197,7 +206,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
       include_not_interested: true,
       search_query: "rails engineer",
       countries: ["United States"],
-      badges: [:recently_active]
+      badges: [:recently_added]
     }
     assert_equal DeveloperQuery.new(filters.dup).filters, filters
   end

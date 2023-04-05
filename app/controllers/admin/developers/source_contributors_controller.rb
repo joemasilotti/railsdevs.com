@@ -14,9 +14,7 @@ module Admin
       private
 
       def set_developer_source_contributor(source_contributor)
-        developer = Developer.find(params[:developer_id])
-        developer.source_contributor = source_contributor
-        developer.save!(touch: false)
+        Developer.find(params[:developer_id]).update!(source_contributor:)
       end
     end
   end

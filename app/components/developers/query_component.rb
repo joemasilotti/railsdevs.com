@@ -61,7 +61,9 @@ module Developers
     end
 
     def badges
-      Developer::BADGES.map { |badge| [badge, badge.to_s.humanize] }
+      # i18n-tasks-use t('activerecord.attributes.developer.source_contributor')
+      # i18n-tasks-use t('activerecord.attributes.developer.recently_added')
+      Developer::BADGES.map { |badge| [badge, Developer.human_attribute_name(badge)] }
     end
 
     def specialty_selected?(id)

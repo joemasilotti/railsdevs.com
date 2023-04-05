@@ -2,6 +2,7 @@ class Developer < ApplicationRecord
   include Avatarable
   include Developers::HasOnlineProfiles
   include Developers::Notifications
+  include Developers::PublicChanges
   include Developers::RichText
   include HasBadges
   include HasSpecialties

@@ -81,3 +81,19 @@ developer = SeedsHelper.create_developer!("hired", {
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h)
 })
 developer.update_and_notify(search_status: :not_interested) unless developer.not_interested?
+
+# New developer
+SeedsHelper.create_developer!("new", {
+  hero: "New Developer",
+  location: SeedsHelper.locations[:new_york],
+  search_status: :actively_looking,
+  created_at: Time.current
+})
+
+# Recently updated developer
+SeedsHelper.create_developer!("updated", {
+  hero: "Recently Updated Developer",
+  location: SeedsHelper.locations[:new_york],
+  search_status: :actively_looking,
+  profile_updated_at: Time.current
+})

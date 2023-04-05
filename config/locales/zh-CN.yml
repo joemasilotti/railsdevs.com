@@ -136,7 +136,6 @@ zh-CN:
       title: 管理员
     badges_component:
       featured: 出色开发者
-      recently_active: 最近活跃
       source_contributor: 来源贡献者
     count_component:
       cta: 重置过滤条件
