@@ -20,7 +20,9 @@ en:
         hero: Hero
         linkedin: Linkedin
         name: Name
+        recently_added: New profiles
         scheduling_link: Scheduling link
+        source_contributor: Source contributors
         twitter: Twitter
         website: Website
       location:
@@ -361,10 +363,11 @@ en:
       source_contributor: Source contributor
       title: Admin
     badges_component:
-      featured: Featured developer
+      featured: Featured
       high_response_rate: High response rate
-      recently_active: Recently Active
-      source_contributor: Source Contributor
+      recently_added: New profile
+      recently_updated: Recently updated
+      source_contributor: Source contributor
     celebration_package_requests:
       create:
         success: Thank you! Joe will reach out to you soon.

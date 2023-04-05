@@ -4,6 +4,7 @@
 
 ### April
 
+* April 5 - Distinguish between new profiles and recently updated ones #856
 * April 4 - Remove `developers.available_on` #854
 
 ### March
