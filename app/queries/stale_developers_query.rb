@@ -1,3 +1,6 @@
+# TODO: In PR #847, use developers.profile_updated_at instead of updated_at.
+# OR... don't merge PR but increase OG to 6.months and let them know they are being "demoted" in search results.
+# But find a better word for demoted.
 class StaleDevelopersQuery
   EARLIEST_TIME = 30.days.ago.beginning_of_day
 

@@ -34,6 +34,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert response.body.index("Newest") < response.body.index("Oldest")
   end
 
+  # test "developers can be sorted by availability" do
+  # create_developer(hero: "Available", available_on: Date.yesterday)
+
+  # get developers_path(sort: :availability)
+
+  # assert_select "button.font-medium[value=availability]"
+  # assert_select "h2", "Available"
+  # end
+
   test "subscribers can filter developers by time zone" do
     create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
     user = users(:subscribed_business)
@@ -114,6 +123,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:one).hero, count: 0
   end
 
+  # TODO: Update to new sort query.
   test "paginating filtered developers respects the filters" do
     sign_in users(:subscribed_business)
     developers(:prospect).update!(search_status: :open)

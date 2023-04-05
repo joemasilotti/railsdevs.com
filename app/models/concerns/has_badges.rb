@@ -11,6 +11,7 @@ module HasBadges
 
   RECENT_CHANGES_LENGTH = 1.week
   HIGH_RESPONSE_RATE_CUTTOFF = 90
+  LOW_RESPONSE_RATE_CUTTOFF = 50
 
   included do
     scope :high_response_rate, -> { where("response_rate >= ?", HIGH_RESPONSE_RATE_CUTTOFF) }

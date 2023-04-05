@@ -509,8 +509,8 @@ en:
         title: Work preference
     query_sort_button_component:
       sort:
-        availability: Availability
         newest: Newest
+        recommended: Recommended
         title: Sort
     search_status:
       actively_looking: Actively looking for work
