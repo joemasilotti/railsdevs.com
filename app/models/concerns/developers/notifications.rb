@@ -61,7 +61,7 @@ module Developers
     end
 
     def mark_stale
-      update_column(:search_status, UNAVAILABLE_STATUSES[0])
+      update_column(:search_status, :not_interested)
     end
   end
 end
