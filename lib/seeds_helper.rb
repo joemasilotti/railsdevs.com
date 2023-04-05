@@ -6,7 +6,9 @@ module SeedsHelper
         user:,
         name: Faker::Name.name,
         hero: attributes.delete(:hero) || Faker::Lorem.sentence,
-        bio: Faker::Lorem.paragraph(sentence_count: 10)
+        bio: Faker::Lorem.paragraph(sentence_count: 10),
+        profile_updated_at: attributes.delete(:profile_updated_at) || 2.weeks.ago,
+        created_at: attributes.delete(:created_at) || 2.weeks.ago
       })
 
       Developer.find_or_create_by!(user:) do |developer|
@@ -19,8 +21,7 @@ module SeedsHelper
     def create_random_developer!
       create_developer!(Faker::Internet.username, {
         location: locations[:portland],
-        search_status: :open,
-        available_on: Faker::Date.between(from: 30.days.ago, to: 30.days.from_now)
+        search_status: :open
       })
     end
 

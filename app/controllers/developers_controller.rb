@@ -71,7 +71,6 @@ class DevelopersController < ApplicationController
   def developer_params
     params.require(:developer).permit(
       :name,
-      :available_on,
       :hero,
       :bio,
       :website,
@@ -91,6 +90,6 @@ class DevelopersController < ApplicationController
       location_attributes: [:city, :state, :country],
       role_type_attributes: RoleType::TYPES,
       role_level_attributes: RoleLevel::TYPES
-    )
+    ).merge(user_initiated: true)
   end
 end

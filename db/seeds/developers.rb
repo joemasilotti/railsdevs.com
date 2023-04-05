@@ -41,8 +41,7 @@ SeedsHelper.create_developer!("junior", {
   location: SeedsHelper.locations[:new_york],
   search_status: :actively_looking,
   role_type: RoleType.new(full_time_employment: true),
-  role_level: RoleLevel.new(junior: true),
-  available_on: Date.yesterday
+  role_level: RoleLevel.new(junior: true)
 })
 
 # Freelancer developer
@@ -52,7 +51,6 @@ SeedsHelper.create_developer!("freelancer", {
   search_status: :open,
   role_type: RoleType.new(part_time_contract: true),
   role_level: RoleLevel.new(mid: true, senior: true),
-  available_on: Date.today + 7.days,
   website: Faker::Internet.url,
   github: Faker::Internet.username
 })
@@ -64,7 +62,6 @@ developer = SeedsHelper.create_developer!("developer", {
   search_status: :actively_looking,
   role_type: RoleType.new(RoleType::TYPES.map { |t| [t, true] }.to_h),
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h),
-  available_on: Date.yesterday,
   website: Faker::Internet.url,
   github: Faker::Internet.username,
   twitter: Faker::Internet.username,
@@ -84,3 +81,19 @@ developer = SeedsHelper.create_developer!("hired", {
   role_level: RoleLevel.new(RoleLevel::TYPES.map { |t| [t, true] }.to_h)
 })
 developer.update_and_notify(search_status: :not_interested) unless developer.not_interested?
+
+# New developer
+SeedsHelper.create_developer!("new", {
+  hero: "New Developer",
+  location: SeedsHelper.locations[:new_york],
+  search_status: :actively_looking,
+  created_at: Time.current
+})
+
+# Recently updated developer
+SeedsHelper.create_developer!("updated", {
+  hero: "Recently Updated Developer",
+  location: SeedsHelper.locations[:new_york],
+  search_status: :actively_looking,
+  profile_updated_at: Time.current
+})

@@ -4,7 +4,8 @@
 
 ### April
 
-* April 3 - Admin notification for developer's Linkedin profile experience changes - #839 @sarvaiyanidhi
+* April 5 - Distinguish between new profiles and recently updated ones #856
+* April 4 - Remove `developers.available_on` #854
 
 ### March
 

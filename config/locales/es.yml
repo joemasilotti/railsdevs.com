@@ -10,7 +10,6 @@ es:
         company: Nombre de la empresa
         name: Tu nombre
       developer:
-        available_on: Disponible para empezar el
         email: Correo Electrónico
         github: Github
         hero: Hero
@@ -99,10 +98,6 @@ es:
       title: Conversación
       with: con
   developers:
-    availability_component:
-      in_future_html: Disponible en <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Disponible ahora
-      unspecified_html: No disponible actualmente
     cover_image_component:
       alt: Imagen de portada del desarrollador
     create:

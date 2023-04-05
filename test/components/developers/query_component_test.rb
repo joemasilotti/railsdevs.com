@@ -75,10 +75,10 @@ module Developers
 
     test "checks selected badges" do
       stub_feature_flag(:badge_filter, true) do
-        query = DeveloperQuery.new(badges: ["recently_active", "source_contributor"])
+        query = DeveloperQuery.new(badges: ["recently_added", "source_contributor"])
         render_inline QueryComponent.new(query:, user: @user, form_id: nil)
 
-        assert_selector build_input("badges[]", type: "checkbox", value: "recently_active", checked: true)
+        assert_selector build_input("badges[]", type: "checkbox", value: "recently_added", checked: true)
         assert_selector build_input("badges[]", type: "checkbox", value: "source_contributor", checked: true)
       end
     end

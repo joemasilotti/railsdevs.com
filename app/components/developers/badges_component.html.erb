@@ -5,9 +5,9 @@
     </div>
   <% end %>
 
-  <% if recently_active? %>
+  <% if high_response_rate? %>
     <div class="mr-4 mb-2">
-      <%= render BadgeComponent.new(t(".recently_active"), color: "green") %>
+      <%= render BadgeComponent.new(t(".high_response_rate"), color: "purple") %>
     </div>
   <% end %>
 
@@ -17,9 +17,13 @@
     </div>
   <% end %>
 
-  <% if response_rate >= HasBadges::HIGH_RESPONSE_RATE_CUTTOFF %>
+  <% if recently_added? %>
     <div class="mr-4 mb-2">
-      <%= render BadgeComponent.new(t(".high_response_rate"), color: "purple") %>
+      <%= render BadgeComponent.new(t(".recently_added"), color: "green") %>
+    </div>
+  <% elsif recently_updated? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".recently_updated"), color: "green") %>
     </div>
   <% end %>
 </div>

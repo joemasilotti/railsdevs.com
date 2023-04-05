@@ -49,18 +49,16 @@ module Developers
       assert_selector "a.border-l-4.border-blue-400"
     end
 
-    test "renders recently active badge if developer is active in last 7 days" do
+    test "renders recently added badge if developer is new in last 7 days" do
       @developer.update!(bio: "I am the first developer")
-      @developer.recently_active?
       render_inline(CardComponent.new(developer: @developer))
-      assert_text I18n.t("developers.badges_component.recently_active")
+      assert_text I18n.t("developers.badges_component.recently_added")
     end
 
-    test "doesn't render recently active badge if developer is active more than 7 days ago" do
-      @developer.update!(updated_at: 2.weeks.ago)
-      @developer.recently_active?
+    test "doesn't render recently added badge if developer was added more than 7 days ago" do
+      @developer.update!(created_at: 2.weeks.ago)
       render_inline(CardComponent.new(developer: @developer))
-      assert_no_text I18n.t("developers.card_component.recently_active")
+      assert_no_text I18n.t("developers.card_component.recently_added")
     end
 
     test "renders source_contributor badge if developer is a source contributor" do

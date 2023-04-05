@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_31_210502) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_04_202658) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -122,7 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_210502) do
 
   create_table "developers", force: :cascade do |t|
     t.string "name", null: false
-    t.date "available_on"
     t.string "hero", null: false
     t.text "bio", null: false
     t.string "website"
@@ -147,6 +146,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_31_210502) do
     t.string "mastodon"
     t.boolean "product_announcement_notifications", default: true
     t.string "scheduling_link"
+    t.datetime "profile_updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"
