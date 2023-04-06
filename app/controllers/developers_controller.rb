@@ -3,7 +3,7 @@ class DevelopersController < ApplicationController
   before_action :require_new_developer!, only: %i[new create]
 
   def index
-    @developers_count = SignificantFigure.new(Developer.visible.count).rounded
+    @developers_count = SignificantFigure.new(Developer.actively_looking_or_open.count).rounded
     @query = DeveloperQuery.new(permitted_attributes([:developers, :query]).merge(user: current_user))
     @meta = Developers::Meta.new(query: @query, count: @developers_count)
     Analytics::SearchQuery.create!(permitted_attributes([:developers, :query]))
