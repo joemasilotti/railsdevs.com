@@ -1,75 +1,40 @@
-module Developers
-  module SearchScore
-    extend ActiveSupport::Concern
+module Developers::SearchScore
+  extend ActiveSupport::Concern
 
-    included do
-      before_save :update_search_score
+  included do
+    small, medium, large, x_large = 5, 10, 20, 30
+
+    scores :scheduling_link?,    by: medium,  if: :present?
+    scores :source_contributor?, by: large,   if: :present?
+    scores :recently_added?,     by: x_large, if: :present?
+
+    scores :bio, by: medium, if: -> { _1&.length > 500 }
+    scores :bio, by: -large, if: -> { _1&.length < 50 }
+
+    scores :profile_updated_at, by: -medium, if: -> { _1&.before? 6.months.ago }
+    scores :profile_updated_at, by: medium,  if: -> { _1 && (3.months.ago..1.month.ago).cover?(_1) }
+    scores :profile_updated_at, by: large,   if: -> { _1&.after? 1.month.ago }
+
+    scores :response_rate, by: large,  if: -> { conversations_count.positive? && _1 >= HasBadges::HIGH_RESPONSE_RATE_CUTTOFF }
+    scores :response_rate, by: -large, if: -> { conversations_count.positive? && _1 <= HasBadges::LOW_RESPONSE_RATE_CUTTOFF  }
+
+    before_save :update_search_score
+  end
+
+  class_methods do
+    attr_reader :scorings
+
+    def scores(attribute, by:, **options)
+      @scorings ||= Hash.new { |h,k| h[k] = [] }
+      @scorings[attribute] << -> { by if instance_exec(public_send(attribute), &options.fetch(:if)) }
     end
+  end
 
-    def update_search_score
-      self.search_score = calculate_search_score
-    end
+  def update_search_score
+    self.search_score = score_for(*scorings.keys)
+  end
 
-    private
-
-    SMALL = 5
-    MEDIUM = 10
-    LARGE = 20
-    X_LARGE = 30
-
-    def calculate_search_score
-      response_rate_score +
-        source_contributor_score +
-        scheduling_link_score +
-        recently_updated_score +
-        recently_added_score +
-        bio_length_score
-    end
-
-    def response_rate_score
-      return 0 if conversations_count == 0
-
-      if response_rate >= HasBadges::HIGH_RESPONSE_RATE_CUTTOFF
-        LARGE
-      elsif response_rate <= HasBadges::LOW_RESPONSE_RATE_CUTTOFF
-        -LARGE
-      else
-        0
-      end
-    end
-
-    def scheduling_link_score
-      scheduling_link.present? ? MEDIUM : 0
-    end
-
-    def source_contributor_score
-      source_contributor.present? ? LARGE : 0
-    end
-
-    def recently_updated_score
-      if 1.month.ago < profile_updated_at
-        LARGE
-      elsif 3.months.ago < profile_updated_at
-        MEDIUM
-      elsif profile_updated_at < 6.months.ago
-        -MEDIUM
-      else
-        0
-      end
-    end
-
-    def recently_added_score
-      recently_added? ? X_LARGE : 0
-    end
-
-    def bio_length_score
-      if bio.length > 500
-        MEDIUM
-      elsif bio.length < 50
-        -LARGE
-      else
-        0
-      end
-    end
+  def score_for(*attributes)
+    self.class.scorings.fetch_values(*attributes).flatten(1).filter_map { instance_exec(&_1) }.sum
   end
 end
