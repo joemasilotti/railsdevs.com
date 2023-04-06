@@ -2,22 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 import debounce from "lodash.debounce"
 
 export default class extends Controller {
-  static targets = ["submit"]
-
   initialize() {
-    this.submit = debounce(this.submit.bind(this), 200)
+    this.debouncedSubmit = debounce(this.debouncedSubmit.bind(this), 300)
   }
 
-  connect() {
-    this.submitTarget.hidden = true
+  submit(e) {
+    this.element.requestSubmit()
   }
 
-  hideValidationMessage(event) {
-    event.stopPropagation()
-    event.preventDefault()
-  }
-
-  submit() {
-    this.submitTarget.click()
+  debouncedSubmit() {
+    this.submit()
   }
 }

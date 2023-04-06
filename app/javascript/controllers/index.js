@@ -12,6 +12,12 @@ application.register("analytics--events", Analytics__EventsController)
 import Analytics__PageViewsController from "./analytics/page_views_controller.js"
 application.register("analytics--page-views", Analytics__PageViewsController)
 
+import AttachTemplateTagsController from "./attach_template_tags_controller.js"
+application.register("attach-template-tags", AttachTemplateTagsController)
+
+import AutofetchController from "./autofetch_controller.js"
+application.register("autofetch", AutofetchController)
+
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 

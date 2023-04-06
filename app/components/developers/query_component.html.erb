@@ -13,26 +13,51 @@
 
     <% if Feature.enabled?(:developer_specialties) %>
       <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t(".paywalled_search.title")) do |component| %>
-        <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
-          <div class="border-t border-gray-200 py-6">
-            <h3 class="-mx-2 -my-3 flow-root">
-              <%= render CollapseControlComponent.new(t(".specialties.title"), collapsed: collapse_specialties?) do %>
-                <span aria-hidden="true">
-                  <%= render BadgeComponent.new("New!", color: :purple) %>
-                </span>
+        <div class="border-t border-gray-200 py-6" data-attach-template-tags-target="parentElement" >
+          <h3 class="-mx-2 -my-3 flow-root">
+            <%= render CollapseControlComponent.new(t(".specialties.title")) do %>
+              <span aria-hidden="true">
+                <%= render BadgeComponent.new("New!", color: :purple) %>
+              </span>
+            <% end %>
+          </h3>
+
+          <template class="when-javascript-enabled">
+            <div class="mt-1 relative flex items-center inline-block" data-controller="autofetch">
+
+                <%= text_field_tag "specialties", "",
+                      placeholder: t(".specialties_placeholder"),
+                      class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
+                      data: {
+                        action: "input->autofetch#onInputChange",
+                        "autofetch-target": "input",
+                      },
+                      role: "combobox",
+                      aria: {
+                        controls: "options",
+                        expanded: "false",
+                      },
+                      autocomplete: "off"
+                %>
+              <%= turbo_frame_tag "specialties_dropdown", data: { "autofetch-target": "specialties" } do %>
               <% end %>
-            </h3>
-            <%= tag.div id: "specialties-accordion", "data-toggle-target": "element", class: [hidden: collapse_specialties?] do %>
-              <div class="space-y-4 pt-6">
-                <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name, {include_hidden: false}) do |specialty| %>
-                  <div class="flex items-center">
-                    <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
-                    <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
+            </div>
+          </template>
+
+          <noscript>
+              <div>
+                <%= tag.div id: "specialties-accordion", "data-toggle-target": "element" do %>
+                  <div class="space-y-4 pt-6">
+                    <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name, {include_hidden: false}) do |specialty| %>
+                      <div class="flex items-center">
+                        <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                        <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
+                      </div>
+                    <% end %>
                   </div>
                 <% end %>
               </div>
-            <% end %>
-          </div>
+          </noscript>
         </div>
 
         <% component.custom_paywall do %>
