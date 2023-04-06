@@ -4,6 +4,7 @@
 
 ### April
 
+* April 7 - Send subscription renewal email #860 @jkostolansky
 * April 5 - Distinguish between new profiles and recently updated ones #856
 * April 4 - Remove `developers.available_on` #854
 
