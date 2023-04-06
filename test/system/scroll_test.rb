@@ -24,16 +24,17 @@ class ScrollTest < ApplicationSystemTestCase
 
   test "scrolling to bottom of the developers page loads more results for subscribers" do
     with_pagy_default_items(5) do
-      5.times { create_developer }
+      4.times { create_developer }
+      create_developer(hero: "Last Developer", search_score: -100)
 
       user = users(:subscribed_business)
       sign_in(user)
 
       visit developers_path
-      refute_text developers(:one).hero
+      refute_text "Last Developer"
 
       scroll_to_bottom_of_page
-      assert_text developers(:one).hero
+      assert_text "Last Developer"
     end
   end
 
