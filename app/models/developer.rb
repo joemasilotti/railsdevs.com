@@ -44,9 +44,6 @@ class Developer < ApplicationRecord
   validates :name, presence: true
   validates :response_rate, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 100}
 
-  # TODO: Validate presence of search_status for new records.
-  # validates :search_status, presence: true, on: :create
-
   pg_search_scope :filter_by_search_query, against: [:bio, :hero], associated_against: {specialties: :name}, using: {tsearch: {tsvector_column: :textsearchable_index_col, prefix: true}}
 
   delegate :email, to: :referring_user, prefix: true, allow_nil: true
@@ -71,14 +68,12 @@ class Developer < ApplicationRecord
     joins(:location).where(locations: {country: countries})
   end
 
-  # TODO: Remove nil from this query.
   scope :actively_looking_or_open, -> { where(search_status: [:actively_looking, :open, nil]) }
   scope :featured, -> { where("featured_at >= ?", FEATURE_LENGTH.ago).order(featured_at: :desc) }
   scope :newest_first, -> { order(created_at: :desc) }
   scope :by_score, -> { order(search_score: :desc, created_at: :asc) }
   scope :product_announcement_notifications, -> { where(product_announcement_notifications: true) }
   scope :profile_reminder_notifications, -> { where(profile_reminder_notifications: true) }
-  # TODO: Consolidate to "NOT invisible or nil".
   scope :visible, -> { where.not(search_status: :invisible).or(where(search_status: nil)) }
   scope :with_specialty_ids, ->(specialty_ids) {
     where_sql = <<-SQL
