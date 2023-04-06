@@ -3,7 +3,6 @@ require "test_helper"
 module Developers
   class SearchScoreTest < ActiveSupport::TestCase
     setup do
-      # 0 baseline score
       @developer = developers(:one)
     end
 
@@ -68,6 +67,32 @@ module Developers
     test "large demotion for bios with fewer than 50 characters" do
       @developer.bio = "X" * 49
       assert_equal(-20, @developer.score_for(:bio))
+    end
+
+    test "normalizes scores to 100" do
+      @developer.bio = "X" * 501 # +10
+      @developer.scheduling_link = "savvycal.com" # +10
+      @developer.profile_updated_at = 4.months.ago # 0
+      @developer.created_at = 2.weeks.ago # 0
+
+      @developer.update_search_score
+
+      score = 18 # (10 + 10) / 110, rounded
+      assert_equal score, @developer.search_score
+    end
+
+    test "max normalized score of 100" do
+      @developer.response_rate = HasBadges::HIGH_RESPONSE_RATE_CUTTOFF
+      @developer.conversations_count = 1 # +20
+      @developer.source_contributor = true # +20
+      @developer.scheduling_link = "savvycal.com" # +10
+      @developer.profile_updated_at = 3.weeks.ago # +20
+      @developer.created_at = 6.days.ago # +30
+      @developer.bio = "X" * 501 # +20
+
+      @developer.update_search_score
+
+      assert_equal 100, @developer.search_score
     end
   end
 end
