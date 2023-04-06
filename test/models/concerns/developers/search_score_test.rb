@@ -5,10 +5,6 @@ module Developers
     setup do
       # 0 baseline score
       @developer = developers(:one)
-      @developer.bio = "X" * 51
-      @developer.scheduling_link = nil
-      @developer.profile_updated_at = 4.months.ago
-      @developer.created_at = 2.weeks.ago
     end
 
     test "large boost for high response rate" do

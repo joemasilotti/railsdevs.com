@@ -31,7 +31,7 @@ module Developers::SearchScore
   end
 
   def update_search_score
-    self.search_score = score_for(*scorings.keys)
+    self.search_score = score_for(*self.class.scorings.keys)
   end
 
   def score_for(*attributes)
