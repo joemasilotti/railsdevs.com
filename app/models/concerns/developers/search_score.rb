@@ -34,7 +34,8 @@ module Developers::SearchScore
     scores :response_rate, by: medium, if: -> { conversations? && _1 >= HasBadges::HIGH_RESPONSE_RATE_CUTTOFF }
     scores :response_rate, by: -medium, if: -> { conversations? && _1 <= HasBadges::LOW_RESPONSE_RATE_CUTTOFF }
 
-    before_save :update_search_score
+    after_create_commit :update_search_score
+    before_update :update_search_score
   end
 
   class_methods do

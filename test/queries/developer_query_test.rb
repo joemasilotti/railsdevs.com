@@ -199,7 +199,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "returns hash with filters" do
     utc_offsets = [PACIFIC_UTC_OFFSET, EASTERN_UTC_OFFSET]
     filters = {
-      sort: :availability,
+      sort: :recommended,
       utc_offsets:,
       role_types: [:part_time_contract],
       role_levels: [:junior],

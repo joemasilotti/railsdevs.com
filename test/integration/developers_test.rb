@@ -24,24 +24,25 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains "looking for their"
   end
 
-  test "developers are sorted newest first" do
+  test "developers are sorted by their search score" do
+    create_developer(hero: "Lower Score", search_score: 10)
+    create_developer(hero: "Higher Score", search_score: 20)
+
+    get developers_path
+
+    assert_select "button.font-medium[value=recommended]"
+    assert response.body.index("Higher Score") < response.body.index("Lower Score")
+  end
+
+  test "developers can be sorted by newest first" do
     create_developer(hero: "Oldest")
     create_developer(hero: "Newest")
 
-    get developers_path
+    get developers_path(sort: :newest)
 
     assert_select "button.font-medium[value=newest]"
     assert response.body.index("Newest") < response.body.index("Oldest")
   end
-
-  # test "developers can be sorted by availability" do
-  # create_developer(hero: "Available", available_on: Date.yesterday)
-
-  # get developers_path(sort: :availability)
-
-  # assert_select "button.font-medium[value=availability]"
-  # assert_select "h2", "Available"
-  # end
 
   test "subscribers can filter developers by time zone" do
     create_developer(hero: "Pacific", location_attributes: {utc_offset: PACIFIC_UTC_OFFSET})
@@ -123,16 +124,15 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", text: developers(:one).hero, count: 0
   end
 
-  # TODO: Update to new sort query.
   test "paginating filtered developers respects the filters" do
     sign_in users(:subscribed_business)
     developers(:prospect).update!(search_status: :open)
 
     with_pagy_default_items(1) do
-      get developers_path(sort: :availability)
+      get developers_path(sort: :newest)
       assert_select "#developers h2", count: 1
       assert_select "#mobile-filters h2", count: 1
-      assert_select "a[href=?]", "/developers?sort=availability&page=2"
+      assert_select "a[href=?]", "/developers?sort=newest&page=2"
     end
   end
 
@@ -149,7 +149,8 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
   test "page 2 of search results only renders for subscribers" do
     with_pagy_default_items(5) do
-      5.times { create_developer }
+      4.times { create_developer }
+      create_developer(hero: "Last Developer", search_score: -100)
 
       get developers_path
       assert_text I18n.t("subscription_cta_component.title")
@@ -160,7 +161,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
       sign_in users(:subscribed_business)
       get developers_path(page: 2)
       refute_text I18n.t("subscription_cta_component.title")
-      assert_text developers(:one).hero
+      assert_text "Last Developer"
     end
   end
 
