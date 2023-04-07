@@ -1,0 +1,93 @@
+<%= open_graph_tags title: "Higher quality search results on RailsDevs", description: "It's now easier than ever to hire a Rails developer on RailsDevs. A new approach to search results promises to bring higher quality profiles to the top. Read on for how it works and how developers can improve their search rank.", image: image_url("opengraph/recommended.png") %>
+
+<div class="bg-white px-6 py-8 md:py-16 lg:px-8">
+  <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+    <p class="text-base font-semibold leading-7 text-indigo-600">Announcing</p>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Higher quality search results on RailsDevs</h1>
+    <p class="mt-6 text-xl leading-8">It's now easier than ever to hire a Rails developer on RailsDevs. A new approach to search results promises to bring higher quality profiles to the top. Read on for how it works and how developers can improve their search rank.</p>
+
+    <div class="mt-10 max-w-2xl">
+      <p class="mt-8">Previously, new developer profiles appeared first. With no way to effect their rank, a developer's profile would be continuously pushed farther and farther down results. A great candidate could be buried on page 5!</p>
+      <p class="mt-6">Now, sorting by "recommended" surfaces higher quality profiles to the top based on:</p>
+
+      <ul role="list" class="mt-8 space-y-6 text-gray-600">
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "mt-1 h-5 w-5 flex-none text-indigo-600", aria_hidden: true %>
+          <span><strong class="font-semibold text-gray-900">Responsiveness.</strong> How frequently a developer responds to conversations.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "mt-1 h-5 w-5 flex-none text-indigo-600", aria_hidden: true %>
+          <span><strong class="font-semibold text-gray-900">Frequency.</strong> How often a developer’s profile is updated.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "mt-1 h-5 w-5 flex-none text-indigo-600", aria_hidden: true %>
+          <span><strong class="font-semibold text-gray-900">Completeness.</strong> How much of a developer’s profile is filled out.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "mt-1 h-5 w-5 flex-none text-indigo-600", aria_hidden: true %>
+          <span><strong class="font-semibold text-gray-900">Contributors.</strong> Developers contributing to the <%= link_to "source code", "https://github.com/joemasilotti/railsdevs.com", class: "font-semibold underline text-gray-800" %> of RailsDevs.</span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/check_circle.svg", class: "mt-1 h-5 w-5 flex-none text-indigo-600", aria_hidden: true %>
+          <span>And more (see below for a complete breakdown).</span>
+        </li>
+      </ul>
+
+      <p class="mt-8">You can try the new system today by selecting <%= link_to "Recommended from the Sort dropdown", developers_path(sort: :recommended), class: "font-semibold underline text-gray-800" %>.</p>
+    </div>
+
+    <%= image_tag "recommended.png", class: "aspect-video rounded-xl bg-gray-50 object-cover mt-8", alt: "Sort Ruby on Rails developers by recommended on RailsDevs." %>
+
+    <div class="mt-16 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">How can developers increase their rank?</h2>
+      <p class="mt-8">Developers have direct control over each criteria that contributes to their rank and can increase their rank by:</p>
+
+      <ul role="list" class="mt-8 space-y-6 text-gray-600">
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-green-600", aria_hidden: true %>
+          <span>Responding to 90% of conversations &rarr; <strong class="font-semibold text-gray-900">20 points</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-green-600", aria_hidden: true %>
+          <span>Contributing to the <%= link_to "RailsDevs source code", "https://github.com/joemasilotti/railsdevs.com", class: "font-medium underline" %> &rarr; <strong class="font-semibold text-gray-900">20 points</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-green-600", aria_hidden: true %>
+          <span>Adding a scheduling link &rarr; <strong class="font-semibold text-gray-900">20 points</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-green-600", aria_hidden: true %>
+          <span>Updating your profile every month &rarr; <strong class="font-semibold text-gray-900">20 points</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/plus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-green-600", aria_hidden: true %>
+          <span>Having a bio with more than 500 characters &rarr; <strong class="font-semibold text-gray-900">10 points</strong></span>
+        </li>
+      </ul>
+
+      <p class="mt-8">New developers to the platform will also receive a healthy <strong class="font-semibold text-gray-900">30 point boost</strong> for 7 days.</p>
+      <p class="mt-6">Note that there is also behavior that can indicate a developer is no longer job searching or hasn’t put much effort into their profile. Here are ways a developer’s rank could decrease.</p>
+
+      <ul role="list" class="mt-8 space-y-6 text-gray-600">
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/minus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-red-600", aria_hidden: true %>
+          <span>Responding to fewer than 50% of conversations &rarr; <strong class="font-semibold text-gray-900">20 point deduction</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/minus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-red-600", aria_hidden: true %>
+          <span>Having a bio with less than 50 characters &rarr; <strong class="font-semibold text-gray-900">20 point deduction</strong></span>
+        </li>
+        <li class="flex gap-x-3">
+          <%= inline_svg_tag "icons/solid/minus_circle.svg", class: "mt-1 h-5 w-5 flex-none text-red-600", aria_hidden: true %>
+          <span>Not updating your profile in 6+ months &rarr; <strong class="font-semibold text-gray-900">10 points</strong></span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-16 max-w-2xl">
+      <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">Feedback</h2>
+      <p class="mt-8">Note that this new system is still in beta! And I’d love to hear your feedback. Please <%= link_to "send me an email", "mailto:#{Rails.application.config.emails.support!}", class: "font-semibold underline text-gray-800" %> if you have ideas on how it could be improved or something looks weird.</p>
+      <p class="mt-6">For transparency, the code powering the system is <%= link_to "available on GitHub", "https://github.com/joemasilotti/railsdevs.com/blob/main/app/models/concerns/developers/search_score.rb", class: "font-semibold underline text-gray-800" %>.</p>
+    </div>
+  </div>
+</div>

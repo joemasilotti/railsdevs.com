@@ -28,7 +28,6 @@ The "named" developers cover most states of each field on the profile. There are
 * `invisible@example.com` - This business was marked as spam and is hidden.
 * `suspended@example.com` - This account has been suspended and they cannot use the site.
 
-
 ### Admins
 
 There is one admin account that is not associated with a developer nor a business.

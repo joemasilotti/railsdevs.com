@@ -3,10 +3,10 @@ require "test_helper"
 class DeveloperQueryTest < ActiveSupport::TestCase
   include DevelopersHelper
 
-  test "sort is :availability and defaults to :newest" do
-    assert_equal DeveloperQuery.new(sort: "availability").sort, :availability
-
+  test "sort defaults to :newest" do
     assert_equal DeveloperQuery.new(sort: "newest").sort, :newest
+
+    assert_equal DeveloperQuery.new(sort: "recommended").sort, :recommended
     assert_equal DeveloperQuery.new(sort: "bogus").sort, :newest
     assert_equal DeveloperQuery.new(sort: "").sort, :newest
     assert_equal DeveloperQuery.new.sort, :newest
@@ -199,7 +199,7 @@ class DeveloperQueryTest < ActiveSupport::TestCase
   test "returns hash with filters" do
     utc_offsets = [PACIFIC_UTC_OFFSET, EASTERN_UTC_OFFSET]
     filters = {
-      sort: :availability,
+      sort: :newest,
       utc_offsets:,
       role_types: [:part_time_contract],
       role_levels: [:junior],

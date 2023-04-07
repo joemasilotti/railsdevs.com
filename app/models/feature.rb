@@ -11,8 +11,6 @@ class Feature
       true
     when :developer_specialties
       !Rails.env.production?
-    when :sort
-      !Rails.env.production?
     else
       raise "Unknown feature name: #{feature_name}"
     end
