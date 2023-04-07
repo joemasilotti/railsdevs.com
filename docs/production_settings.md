@@ -163,11 +163,12 @@ Note that `heroku/ruby` might already be present if you've deployed before.
 ## Background jobs
 
 1. `bundle exec rake sitemap:refresh` - daily at 12:00 AM UTC
-2. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
-3. `bundle exec rake locations:utc_offset` - daily at 5:00 AM UTC
-4. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
-5. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
-6. `bundle exec rake developers:notify_stale_profiles` - daily at 8:00 AM UTC
+1. `bundle exec rake open_startup:refresh_metrics` - daily at 12:00 AM UTC
+1. `bundle exec rake developers:calculate_search_score` - daily at 7:00 AM UTC
+1. `bundle exec rake developers:notify_stale_profiles` - daily at 8:00 AM UTC
+1. `bundle exec rake locations:utc_offset` - daily at 5:00 AM UTC
+1. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
+1. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
 
 ## Sitemap hosting on S3
 
