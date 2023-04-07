@@ -4,7 +4,6 @@ class FiltersTest < ApplicationSystemTestCase
   test "recommended sort click adds sort param" do
     visit developers_path
     sort_by "recommended"
-
     assert_current_path(/sort=recommended/)
   end
 

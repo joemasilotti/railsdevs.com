@@ -7,11 +7,12 @@ Rails.application.routes.draw do
     }
 
     resource :about, only: :show, controller: :about
-    resources :affiliates, only: %w[index create new], controller: "affiliates/registrations"
     resource :conduct, only: :show
     resource :home, only: :show
     resource :pricing, only: :show, controller: :pricing
+    resource :recommended_sorting, only: :show
     resource :role, only: :new
+    resources :affiliates, only: %w[index create new], controller: "affiliates/registrations"
 
     resources :businesses, except: :destroy
 
