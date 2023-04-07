@@ -38,6 +38,9 @@ group :test do
   gem "webmock"
 end
 
+gem 'docusign_esign', '~> 3.5'
+gem 'omniauth-oauth2'
+gem "omniauth-rails_csrf_protection"
 gem "apnotic"
 gem "auto_html"
 gem "aws-sdk-s3", require: false
