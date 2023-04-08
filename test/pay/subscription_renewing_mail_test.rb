@@ -14,7 +14,7 @@ class SubscriptionRenewingMailTest < ActiveSupport::TestCase
 
     last_mail = ActionMailer::Base.deliveries.last
     assert_equal [subscription.customer.owner.email], last_mail.to
-    assert_equal "Your RailsDevs subscription renews in 3 days. Have you made a hire?", last_mail.subject
+    assert_equal "Your RailsDevs subscription renews soon. Have you made a hire?", last_mail.subject
   end
 
   private

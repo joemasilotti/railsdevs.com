@@ -714,7 +714,7 @@ en:
         title: RailsDevs revenue
   pay_mailer:
     subscription_renewing:
-      subject: Your RailsDevs subscription renews in 3 days. Have you made a hire?
+      subject: Your RailsDevs subscription renews soon. Have you made a hire?
   policies:
     privacy:
       show:
