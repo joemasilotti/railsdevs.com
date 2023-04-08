@@ -4,10 +4,6 @@ module Developers
 
     delegate :sort, :search_query, to: :query
 
-    def render?
-      Feature.enabled?(:sort)
-    end
-
     def initialize(query:, user:, form_id:, scope: nil)
       @query = query
       @user = user

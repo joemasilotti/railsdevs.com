@@ -7,4 +7,9 @@ namespace :developers do
     notified_developers = stale_developers.profile_reminder_notifications
     Rails.logger.info "Notifying #{notified_developers.count} developer(s) about their stale profile"
   end
+
+  desc "Resave all developers to trigger updating of their search score"
+  task calculate_search_score: :environment do
+    Developer.visible.find_each(&:save)
+  end
 end

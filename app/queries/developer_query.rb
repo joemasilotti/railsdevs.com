@@ -41,7 +41,7 @@ class DeveloperQuery
   end
 
   def sort
-    @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
+    @sort.to_s.downcase.to_sym == :recommended ? :recommended : :newest
   end
 
   def countries
@@ -128,7 +128,11 @@ class DeveloperQuery
   end
 
   def sort_records
-    @_records.merge!(Developer.newest_first)
+    if sort == :recommended
+      @_records.merge!(Developer.by_score)
+    else
+      @_records.merge!(Developer.newest_first)
+    end
   end
 
   def country_filter_records
