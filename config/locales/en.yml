@@ -716,6 +716,9 @@ en:
         revenue: Revenue
         source: Source
         title: RailsDevs revenue
+  pay_mailer:
+    subscription_renewing:
+      subject: Your RailsDevs subscription renews soon. Have you made a hire?
   policies:
     privacy:
       show:

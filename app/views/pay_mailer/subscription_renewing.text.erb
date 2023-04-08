@@ -1,0 +1,9 @@
+Hey <%= @business.first_name %>,
+
+Joe, founder of RailsDevs here. A quick reminder that your subscription will renew on <%= l(@renewal_date, format: :long) %>.
+
+Already hired someone? Congratulations! Fill out this form and I’ll send you info on next steps: <%= new_businesses_hiring_invoice_request_url %>
+
+If you’re still looking then hit reply or schedule a call and I’ll help find a new batch of candidates: https://savvycal.com/joemasilotti/RailsDevs
+
+<%= render "shared/signature" %>
