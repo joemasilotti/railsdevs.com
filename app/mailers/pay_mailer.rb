@@ -1,4 +1,7 @@
 class PayMailer < Pay::UserMailer
+  # Use our custom templates if they exist, otherwise fall back to Pay
+  default template_path: %w[pay_mailer pay/user_mailer]
+
   def subscription_renewing
     @business = params[:pay_customer].owner.business
     @renewal_date = params[:date].to_date
