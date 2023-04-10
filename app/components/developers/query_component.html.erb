@@ -38,7 +38,8 @@
               </div>
 
 
-              <%= text_field_tag "specialties", "",
+              <%# the form name is intentionally left blank, so that it's not submitted as part of the form data%>
+              <%= text_field_tag "", "",
                     placeholder: t(".specialties_placeholder"),
                     class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
                     data: {
