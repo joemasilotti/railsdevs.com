@@ -24,6 +24,9 @@ application.register("clipboard", ClipboardController)
 import ComboboxController from "./combobox_controller.js"
 application.register("combobox", ComboboxController)
 
+import DropdownPillController from "./dropdown_pill_controller.js"
+application.register("dropdown-pill", DropdownPillController)
+
 import EnhancementController from "./enhancement_controller.js"
 application.register("enhancement", EnhancementController)
 

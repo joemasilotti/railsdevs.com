@@ -7,12 +7,18 @@
     >
       <% @specialties.each do |specialty| %>
         <li class="relative cursor-default select-none py-2 pl-3 pr-9 text-gray-900" role="option" tabindex="-1">
-          <%= link_to highlight(specialty.name, @query),
-            admin_specialty_path(specialty),
+          <%= tag.div highlight(specialty.name, @query),
+            # "#",
             id: dom_id(specialty, :search_result),
             role: "option",
-            class: "aria-selected:outline-black" %>
+            class: "aria-selected:outline-black",
+            data: {
+              action: "click->dropdown-pill#onSpecialityClick",
+              value: specialty.id
+            }
+          %>
         </li>
+
       <% end %>
     </ul>
   <% end %>

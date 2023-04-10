@@ -502,7 +502,7 @@ en:
         title: Role level
       search_query_label: Search profiles
       search_query_placeholder: Hotwire, React, Heroku, etc.
-      specialties_placeholder: Click here to choose...
+      specialties_placeholder: "AI, Ruby, DevOps, etc."
       specialties:
         title: Specialties
       timezone:

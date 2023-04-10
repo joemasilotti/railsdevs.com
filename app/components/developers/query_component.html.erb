@@ -23,23 +23,38 @@
           </h3>
 
           <template class="when-javascript-enabled">
-            <div class="mt-1 relative flex items-center inline-block" data-controller="autofetch">
 
-                <%= text_field_tag "specialties", "",
-                      placeholder: t(".specialties_placeholder"),
-                      class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
-                      data: {
-                        action: "input->autofetch#onInputChange",
-                        "autofetch-target": "input",
-                      },
-                      role: "combobox",
-                      aria: {
-                        controls: "options",
-                        expanded: "false",
-                      },
-                      autocomplete: "off"
-                %>
-              <%= turbo_frame_tag "specialties_dropdown", data: { "autofetch-target": "specialties" } do %>
+            <div class="mt-2 relative flex flex-col inline-block" data-controller="autofetch dropdown-pill">
+
+              <div id="pillContainer" class="flex flex-wrap space-y-2 whitespace-nowrap"
+                    data-dropdown-pill-target="pillContainer"
+                    class="flex flex-wrap mb-3 space-x-3"
+              >
+                <% specialties.each do |specialty| %>
+                  <template id="<%= dom_id(specialty) %>-template">
+                    <%= render 'specialties/pill', specialty: specialty %>
+                  </template>
+                <% end %>
+              </div>
+
+
+              <%= text_field_tag "specialties", "",
+                    placeholder: t(".specialties_placeholder"),
+                    class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
+                    data: {
+                      action: "input->autofetch#onInputChange",
+                      "autofetch-target": "input",
+                      "dropdown-pill-target": "input",
+                    },
+                    role: "combobox",
+                    aria: {
+                      controls: "options",
+                      expanded: "false",
+                    },
+                    autocomplete: "off"
+              %>
+
+              <%= turbo_frame_tag "specialties_dropdown", data: { "autofetch-target": "specialties", "dropdown-pill-target": "dropdown" } do %>
               <% end %>
             </div>
           </template>
