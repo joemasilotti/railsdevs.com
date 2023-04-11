@@ -24,7 +24,7 @@ config.middleware.use OmniAuth::Builder do
 
     strategy.options[:client_options].site = Rails.application.routes.url_helpers.root_url
     strategy.options[:prompt] = "login"
-    strategy.options[:oauth_base_uri] = Rails.env.development? ? "https://account-d.docusign.com" : "https://account.docusign.com"
+    strategy.options[:oauth_base_uri] = Rails.env.production? ? "https://account.docusign.com" : "https://account-d.docusign.com"
     strategy.options[:target_account_id] = false
     strategy.options[:allow_silent_authentication] = false
     strategy.options[:client_options].authorize_url = "#{strategy.options[:oauth_base_uri]}/oauth/auth"
