@@ -406,11 +406,9 @@ fr:
       create:
         created: Accord de recrutement signé.
       new:
-        accept: Accepter l'accord
-        accepting: Acceptation...
-        agreement: J'accepte ces conditions
         description: Dernière mise à jour %{last_updated}
         questions_html: Vous avez des questions ? Envoyez un e-mail au fondateur - c'est moi, Joe ! à <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
+        sign_via_docusign: Visitez Docusign pour signer électroniquement le contrat d'embauche
         title: Contrat de recrutement - RailsDevs
     terms:
       show:

@@ -548,13 +548,11 @@ en:
   hiring_agreements:
     signatures:
       create:
-        created: Hiring agreement signed.
+        created: Hiring agreement signed successfully!
       new:
-        accept: Accept agreement
-        accepting: Accepting...
-        agreement: I agree to these terms
         description: Last updated %{last_updated}
         questions_html: Questions? Email the founder – that's me, Joe! – at <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
+        sign_via_docusign: Visit Docusign to Electronically Sign the hiring agreement
         title: RailsDevs hiring agreement
     terms:
       show:

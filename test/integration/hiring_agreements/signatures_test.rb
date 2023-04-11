@@ -1,11 +1,15 @@
 require "test_helper"
 
 class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
-  test "signs the active agreement" do
+  test "signature successfully created after docusign success callback" do
     sign_in users(:empty)
 
+    docusign_envelope_id = "abc123"
+    mock_docusign_envelope_created_event(envelope_id: docusign_envelope_id)
+
     assert_changes "HiringAgreements::Signature.count", 1 do
-      post hiring_agreement_signature_path, params: signature_params(signed: true)
+      get docusign_signature_callback_path,
+        params: docusign_callback_params(envelope_id: docusign_envelope_id, signed: true)
     end
 
     assert_equal users(:empty), HiringAgreements::Signature.last.user
@@ -23,11 +27,14 @@ class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
-  test "requires the agreement to be signed" do
+  test "requires the agreement to be signed successfully" do
     sign_in users(:empty)
 
+    docusign_envelope_id = "abc123"
+
     assert_no_changes "HiringAgreements::Signature.count" do
-      post hiring_agreement_signature_path, params: signature_params(signed: false)
+      get docusign_signature_callback_path,
+        params: docusign_callback_params(envelope_id: docusign_envelope_id, signed: false)
     end
   end
 
@@ -35,16 +42,24 @@ class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
     sign_in users(:empty)
     post stripe_checkout_path(plan: :full_time)
 
-    post hiring_agreement_signature_path, params: signature_params(signed: true)
+    docusign_envelope_id = "abc123"
+    mock_docusign_envelope_created_event(envelope_id: docusign_envelope_id)
+
+    get docusign_signature_callback_path,
+      params: docusign_callback_params(envelope_id: docusign_envelope_id, signed: true)
 
     assert_redirected_to pricing_path
   end
 
-  def signature_params(signed: true)
+  def docusign_callback_params(envelope_id:, signed: true)
     {
-      hiring_agreements_signature: {
-        agreement: signed ? "1" : "0"
-      }
+      envelope_id: signed ? envelope_id : "invalid",
+      event: "signing_complete"
     }
+  end
+
+  def mock_docusign_envelope_created_event(envelope_id:)
+    cookies[:ds_pending_envelope_id] =
+      ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base[0..31]).encrypt_and_sign(envelope_id)
   end
 end

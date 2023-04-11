@@ -1,6 +1,10 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
+  # Handle OmniAuth OAuth2 login callback result that includes the AuthHash
+  get "/auth/:provider/callback", to: "docusign/sessions#new"
+  get "/docusign/signature/callback", to: "hiring_agreements/signatures#create"
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users, controllers: {
       registrations: "users"
@@ -47,7 +51,7 @@ Rails.application.routes.draw do
 
     namespace :hiring_agreement, module: :hiring_agreements do
       resource :terms, only: :show
-      resource :signature, only: %i[new create]
+      resource :signature, only: %i[new]
     end
 
     namespace :open_startup, path: "/open" do
