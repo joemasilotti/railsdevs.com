@@ -509,9 +509,13 @@ en:
         title: Work preference
     query_sort_button_component:
       sort:
-        availability: Availability
         newest: Newest
+        recommended: Recommended
         title: Sort
+    recommended_sort_banner:
+      cta: Read more
+      dismiss: Dismiss
+      title: Your sorting by recommended, which is still in beta.
     search_status:
       actively_looking: Actively looking for work
       actively_looking_tag: Actively looking
@@ -710,6 +714,9 @@ en:
         revenue: Revenue
         source: Source
         title: RailsDevs revenue
+  pay_mailer:
+    subscription_renewing:
+      subject: Your RailsDevs subscription renews soon. Have you made a hire?
   policies:
     privacy:
       show:

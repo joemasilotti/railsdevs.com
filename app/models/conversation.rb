@@ -1,7 +1,7 @@
 class Conversation < ApplicationRecord
   has_secure_token :inbound_email_token
 
-  belongs_to :developer
+  belongs_to :developer, counter_cache: true
   belongs_to :business
   belongs_to :user_with_unread_messages, class_name: :User, inverse_of: :unread_conversations, optional: true
 

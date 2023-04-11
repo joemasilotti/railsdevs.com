@@ -1,0 +1,16 @@
+<div class="flex items-center bg-gray-900 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+  <p class="text-sm leading-6 text-white">
+    <%= t(".title") %>
+    <%= link_to recommended_sorting_path, class: "whitespace-nowrap font-semibold" do %>
+      <%= t(".cta") %>
+      <span aria-hidden="true">&rarr;</span>
+    <% end %>
+  </p>
+
+  <div class="flex flex-1 justify-end">
+    <%= button_tag form: form_id, scope: form_id, name: :sort, value: :newest, type: :submit, class: "-m-3 p-3 focus-visible:outline-offset-[-4px]" do %>
+      <span class="sr-only"><%= t(".dismiss") %></span>
+      <%= inline_svg_tag "icons/outline/x.svg", class: "h-4 w-4 text-white", aria_hidden: true %>
+    <% end %>
+  </div>
+</div>
