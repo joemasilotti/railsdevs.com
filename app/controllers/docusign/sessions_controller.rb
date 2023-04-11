@@ -5,19 +5,15 @@ class Docusign::SessionsController < ApplicationController
   before_action :clear_ds_session, only: :new
 
   def new
-    Rails.logger.debug "\n==> DocuSign callback Authentication response:\n#{auth_hash.to_yaml}\n"
-    Rails.logger.info "==> Login: New token for admin user which will expire at: #{Time.at(auth_hash.credentials["expires_at"])}"
-
     if auth_hash&.credentials&.token
       store_auth_hash_from_docusign_callback
-      Rails.logger.debug "\n==> Session:\n#{session.to_h.to_yaml}\n"
       redirect_url = Docusign::EmbeddedSigningService.new({
         account_id: session[:ds_account_id],
         base_path: session[:ds_base_path],
         access_token: session[:ds_access_token],
         signer_email: current_user.email,
         signer_name: session[:ds_user_name] || current_user.name,
-        ds_ping_url: Rails.env.development? ? "http://localhost:3000" : "https://railsdevs.com",
+        ds_ping_url: Rails.application.routes.url_helpers.root_url,
         signer_client_id: 1000,
         cookies:
       }).worker
