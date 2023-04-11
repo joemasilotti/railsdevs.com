@@ -4,6 +4,7 @@
 
 ### April
 
+* April 11 - Convert hiring agreement to in-app DocuSign #835 @MikeRayUX
 * April 5 - Distinguish between new profiles and recently updated ones #856
 * April 4 - Remove `developers.available_on` #854
 
