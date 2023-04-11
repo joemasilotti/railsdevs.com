@@ -121,7 +121,9 @@ Creating an API key:
      the integration key and the secret to our App Credentials next.
 
 Using API key in our App:
+
   1. Add key to development credentials `EDITOR="mate --wait" bin/rails credentials:edit --environment development`
+
 ```yml
 docusign:
   integration_key: my-new-docusign-integration-key
@@ -136,24 +138,38 @@ https://account-d.docusign.com and clicking "Manage" in the top navbar.
 
 ##### Production (Go-Live™):
 
-The detailed Go-Live overview can be found [here](https://developers.docusign.com/docs/esign-rest-api/go-live/#go-live-requirements). In short, you must have a paid account in order to Go-Live. Additionally, you will only be able to see the option to select a paid Go-Live account once your API key has passed the review process (see below steps)
+The detailed Go-Live overview can be found
+[here](https://developers.docusign.com/docs/esign-rest-api/go-live/#go-live-requirements).
+In short, you must have a paid account in order to Go-Live. Additionally, you
+will only be able to see the option to select a paid Go-Live account once your
+API key has passed the review process (see below steps)
 
-Promoting our Docusign Api key to Production:
+Submitting our API key for review:
 
 1. In the development environment, make 20 successful API calls with our Api key
-   ([required in order to Go-Live](https://developers.docusign.com/docs/esign-rest-api/go-live/troubleshooting/)) This can be accomplished quickly by signing
-   the agreement 20 times in development mode. Do this by visiting
+   ([required in order to
+   Go-Live](https://developers.docusign.com/docs/esign-rest-api/go-live/troubleshooting/))
+   This can be accomplished quickly by signing the agreement 20 times in
+   development mode. Do this by visiting
    http://localhost:3000/hiring_agreement/signature/new, signing the agreement,
    then deleting the signature via `HiringAgreements::Signature.last.destroy` in
    the rails console. Rinse and repeat until 20 successful API calls have been
    made.
-1. Under your Api key Actions, Submit and Pass the API key review process (Takes about 20 minutes) Once your key passes review, it's status should be updated to "Review passed Promote to production"
+1. Under your Api key Actions, Submit and Pass the API key review process (Takes
+   about 20 minutes) Once your key passes review, it's status should be updated
+   to "Review passed Promote to production"
+
+
+Promoting our Docusign Api key to Production:
+
 1. Go to your Api Key in the Admin console and click `Actions -> Edit`. Add
    Redirect URIs and links to your API key that contain your Production domain
    url. (e.g `https://my-live-website.com/auth/docusign/callback`)
-1. Under your Api key Actions, Promote the API key to Production by selecting an eligible Go-Live account
-   (paid Docusign account via https://account.docusign.com not https://account-d.docusign.com/)
-1. Add the key to production credentials `EDITOR="mate --wait" bin/rails credentials:edit --environment production`
+1. Under your Api key Actions, Promote the API key to Production by selecting an
+   eligible Go-Live account (paid Docusign account via
+   https://account.docusign.com not https://account-d.docusign.com/)
+1. Add the key to production credentials `EDITOR="mate --wait" bin/rails
+   credentials:edit --environment production`
 1. Deploy
 
 
