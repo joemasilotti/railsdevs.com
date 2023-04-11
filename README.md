@@ -105,71 +105,54 @@ stripe:
 
 Creating an API key:
 
-  1. Go to https://account-d.docusign.com to create or log in to an existing
-     Docusign Developer Account.
-  1. Visit "Settings" (on the top right of the navbar) and then "Apps and Keys"
-     (lower left in sidebar)
+  1. Go to https://account-d.docusign.com to create or log in to an existing Docusign Developer Account.
+  1. Visit "Settings" (on the top right of the navbar) and then "Apps and Keys" (lower left in sidebar)
   1. Click the "ADD APP AND INTEGRATION KEY" button.
   1. Name your App and click "Create App"
-  1. Under "Is your application able to securely store a client secret?" Select
-     "Yes"
+  1. Under "Is your application able to securely store a client secret?" Select "Yes"
   1. Leave "Require Proof Key for Code Exchange (PKCE)" unchecked.
   1. Click "ADD SECRET KEY" and write it down (we will only be able to see this once)
   1. Under "Redirect URIs" add the omniauth callback for localhost: `http://localhost:3000/auth/docusign/callback`
-  1. Write down the integration key next to you App name. You'll find it under
-     "Apps and Integration Keys" next to you App name. We will be adding both
-     the integration key and the secret to our App Credentials next.
+  1. Write down the integration key next to you App name. You'll find it under "Apps and Integration Keys" next to you App
+     name. We will be adding both the integration key and the secret to our App Credentials next.
 
 Using API key in our App:
 
   1. Add key to development credentials `EDITOR="mate --wait" bin/rails credentials:edit --environment development`
 
-```yml
-docusign:
-  integration_key: my-new-docusign-integration-key
-  secret_key: my-new-docusign-secret-key
-```
-Now create signatures via Docusign Embedded Signing Service by visiting
-http://localhost:3000/hiring_agreement/signature/new and clicking the "Visit
-Docusign to Electronically Sign the hiring agreement" button.
+```yml docusign: integration_key: my-new-docusign-integration-key secret_key: my-new-docusign-secret-key ``` Now create
+signatures via Docusign Embedded Signing Service by visiting http://localhost:3000/hiring_agreement/signature/new and
+clicking the "Visit Docusign to Electronically Sign the hiring agreement" button.
 
-Completed/Signed documents can be viewed by visiting your
-https://account-d.docusign.com and clicking "Manage" in the top navbar.
+Completed/Signed documents can be viewed by visiting your https://account-d.docusign.com and clicking "Manage" in the top
+navbar.
 
 ##### Production (Go-Live™):
 
 The detailed Go-Live overview can be found
-[here](https://developers.docusign.com/docs/esign-rest-api/go-live/#go-live-requirements).
-In short, you must have a paid account in order to Go-Live. Additionally, you
-will only be able to see the option to select a paid Go-Live account once your
+[here](https://developers.docusign.com/docs/esign-rest-api/go-live/#go-live-requirements). In short, you must have a paid
+account in order to Go-Live. Additionally, you will only be able to see the option to select a paid Go-Live account once your
 API key has passed the review process (see below steps)
 
 Submitting our API key for review:
 
-1. In the development environment, make 20 successful API calls with our Api key
-   ([required in order to
-   Go-Live](https://developers.docusign.com/docs/esign-rest-api/go-live/troubleshooting/))
-   This can be accomplished quickly by signing the agreement 20 times in
-   development mode. Do this by visiting
-   http://localhost:3000/hiring_agreement/signature/new, signing the agreement,
-   then deleting the signature via `HiringAgreements::Signature.last.destroy` in
-   the rails console. Rinse and repeat until 20 successful API calls have been
+1. In the development environment, make 20 successful API calls with our Api key ([required in order to
+   Go-Live](https://developers.docusign.com/docs/esign-rest-api/go-live/troubleshooting/)) This can be accomplished quickly
+   by signing the agreement 20 times in development mode. Do this by visiting
+   http://localhost:3000/hiring_agreement/signature/new, signing the agreement, then deleting the signature via
+   `HiringAgreements::Signature.last.destroy` in the rails console. Rinse and repeat until 20 successful API calls have been
    made.
-1. Under your Api key Actions, Submit and Pass the API key review process (Takes
-   about 20 minutes) Once your key passes review, it's status should be updated
-   to "Review passed Promote to production"
+1. Under your Api key Actions, Submit and Pass the API key review process (Takes about 20 minutes) Once your key passes
+   review, it's status should be updated to "Review passed Promote to production"
 
 
 Promoting our Docusign Api key to Production:
 
-1. Go to your Api Key in the Admin console and click `Actions -> Edit`. Add
-   Redirect URIs and links to your API key that contain your Production domain
-   url. (e.g `https://my-live-website.com/auth/docusign/callback`)
-1. Under your Api key Actions, Promote the API key to Production by selecting an
-   eligible Go-Live account (paid Docusign account via
-   https://account.docusign.com not https://account-d.docusign.com/)
-1. Add the key to production credentials `EDITOR="mate --wait" bin/rails
-   credentials:edit --environment production`
+1. Go to your Api Key in the Admin console and click `Actions -> Edit`. Add Redirect URIs and links to your API key that
+   contain your Production domain url. (e.g `https://my-live-website.com/auth/docusign/callback`)
+1. Under your Api key Actions, Promote the API key to Production by selecting an eligible Go-Live account (paid Docusign
+   account via https://account.docusign.com not https://account-d.docusign.com/)
+1. Add the key to production credentials `EDITOR="mate --wait" bin/rails credentials:edit --environment production`
 1. Deploy
 
 
