@@ -43,6 +43,10 @@
 
     <!-- Paginated list of developers -->
     <div class="col-span-12 md:col-span-9 border-l">
+      <% if @query.sort == :recommended %>
+        <%= render "recommended_sort_banner", form_id: "developer-filters-desktop" %>
+      <% end %>
+
       <%= render Developers::CountComponent.new(count: @query.pagy.count, total: @developers_count) %>
 
       <% if @query.records.any? %>

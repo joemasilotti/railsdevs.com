@@ -247,7 +247,6 @@ zh-CN:
         title: 工作偏好
     query_sort_button_component:
       sort:
-        availability: 有空与否
         newest: 最新的
         title: 排序
     search_status:

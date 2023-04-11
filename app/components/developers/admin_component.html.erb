@@ -1,5 +1,10 @@
 <h2 class="text-sm font-medium text-gray-500"><%= t(".title") %></h2>
 
+<dl class="flex items-baseline space-x-1">
+  <dd class="text-2xl font-semibold tracking-tight text-gray-900"><%= developer.search_score %></dd>
+  <dt class="truncate text-sm font-medium text-gray-500">search score</dt>
+</dl>
+
 <span class="relative z-0 inline-flex shadow-sm rounded-md">
   <%= tag.div data: {controller: "clipboard", clipboard_visibility_class: "hidden", clipboard_content_value: "#{developer.hero} #{developer_url(developer)}", clipboard_html_content_value: link_to(developer.hero, developer_url(developer))} do %>
     <button data-action="clipboard#copy clipboard#toggle" type="button" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500">

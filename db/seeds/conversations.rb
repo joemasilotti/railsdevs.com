@@ -19,4 +19,4 @@ SeedsHelper.create_message!(conversation:, sender: business, body: "Looking for 
 
 # Populate response rate for developers
 developers = Developer.joins(:conversations).distinct
-developers.each{ UpdateDeveloperResponseRateJob.perform_now(_1) }
+developers.each { |d| UpdateDeveloperResponseRateJob.perform_now(d) }

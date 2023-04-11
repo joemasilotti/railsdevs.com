@@ -24,7 +24,7 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains "looking for their"
   end
 
-  test "developers are sorted newest first" do
+  test "developers are sorted by newest first" do
     create_developer(hero: "Oldest")
     create_developer(hero: "Newest")
 
@@ -32,6 +32,16 @@ class DevelopersTest < ActionDispatch::IntegrationTest
 
     assert_select "button.font-medium[value=newest]"
     assert response.body.index("Newest") < response.body.index("Oldest")
+  end
+
+  test "developers can be sorted by their search score" do
+    create_developer(hero: "Lower Score", search_score: 10)
+    create_developer(hero: "Higher Score", search_score: 20)
+
+    get developers_path(sort: :recommended)
+
+    assert_select "button.font-medium[value=recommended]"
+    assert response.body.index("Higher Score") < response.body.index("Lower Score")
   end
 
   test "subscribers can filter developers by time zone" do
@@ -119,10 +129,10 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     developers(:prospect).update!(search_status: :open)
 
     with_pagy_default_items(1) do
-      get developers_path(sort: :availability)
+      get developers_path(sort: :newest)
       assert_select "#developers h2", count: 1
       assert_select "#mobile-filters h2", count: 1
-      assert_select "a[href=?]", "/developers?sort=availability&page=2"
+      assert_select "a[href=?]", "/developers?sort=newest&page=2"
     end
   end
 

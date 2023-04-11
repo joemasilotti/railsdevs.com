@@ -1,6 +1,6 @@
 # Postgres
 brew "libpq" # M1 macs need libpq for pg gem
-brew "postgresql"
+brew "postgresql@14"
 
 # Redis
 brew "redis"

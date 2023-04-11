@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_04_202658) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_05_172134) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -142,11 +142,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_04_202658) do
     t.string "stack_overflow"
     t.string "public_profile_key"
     t.boolean "source_contributor", default: false, null: false
-    t.integer "response_rate", default: 0, null: false
     t.string "mastodon"
+    t.integer "response_rate", default: 0, null: false
     t.boolean "product_announcement_notifications", default: true
     t.string "scheduling_link"
     t.datetime "profile_updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.integer "search_score", default: 0, null: false
+    t.integer "conversations_count", default: 0, null: false
     t.index ["public_profile_key"], name: "index_developers_on_public_profile_key", unique: true
     t.index ["textsearchable_index_col"], name: "textsearchable_index", using: :gin
     t.index ["user_id"], name: "index_developers_on_user_id"

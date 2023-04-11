@@ -366,7 +366,6 @@ fr:
         title: Préférence de travail
     query_sort_button_component:
       sort:
-        availability: Disponibilité
         newest: Le plus récent
         title: Trier
     search_status:
