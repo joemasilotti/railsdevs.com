@@ -17,6 +17,7 @@ class Offer < ApplicationRecord
   scope :active, -> { where(state: %i[accepted proposed]) }
 
   alias_attribute :sender, :business
+  alias_attribute :receiver, :developer
 
   def deleted_sender?
     business.nil?

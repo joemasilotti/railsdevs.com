@@ -5,7 +5,18 @@
         <%= t("deleted_account") %>
       <% else %>
         <span class="text-gray-900"><%= offer.sender.name %></span>
-        <span class="text-gray-600"><%= t(".proposed_an_offer") %></span>
+        <span class="text-gray-600 inline-flex items-center gap-2">
+        <% case offer.state %>
+        <% when 'proposed'%>
+            <%= t(".proposed_an_offer") %>
+        <% when 'accepted'%>
+            <%= t(".accepted_the_offer") %>
+            <%= inline_svg_tag "icons/solid/check.svg", class: "h-5 w-5 text-green-600", aria_hidden: true %>
+        <% when 'declined'%>
+            <%= t(".declined_the_offer") %>
+            <%= inline_svg_tag "icons/solid/x_circle.svg", class: "h-5 w-5 text-red-600", aria_hidden: true %>
+        <% end %>
+        </span>
       <% end %>
     </h3>
 
@@ -16,8 +27,27 @@
 
   <div class="mt-4 text-sm text-gray-800 prose">
     <p><%= t(".start_date", start_date: offer.start_date) %></p>
-    <p><%= "#{t(".pay_rate", pay_rate_value: offer.pay_rate_value)}/#{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}" %></p>
+    <p>
+      <%=
+        <<~text.squish
+          #{t(".pay_rate", pay_rate_value: number_to_currency(offer.pay_rate_value, locale: :en, precision: 2))}
+          /
+          #{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}
+        text
+      %>
+    </p>
     <p><%= t(".comment") %></p>
     <p class="text-gray-500 text-sm"><%= offer.comment? ? offer.comment : t(".no_comment") %></p>
   </div>
+
+  <% if offer.proposed? && offer.receiver == current_user.developer %>
+    <div class="flex justify-end items-center gap-2">
+      <%= form_tag(decline_conversation_offer_path(offer.conversation, offer)) do %>
+        <%= render SubmitButtonComponent.new(text: 'Decline') %>
+      <% end %>
+      <%= form_tag(accept_conversation_offer_path(offer.conversation, offer)) do %>
+        <%= render SubmitButtonComponent.new(text: 'Accept') %>
+      <% end %>
+    </div>
+  <% end %>
 </li>

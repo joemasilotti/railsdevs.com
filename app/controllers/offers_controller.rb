@@ -9,10 +9,24 @@ class OffersController < ApplicationController
   end
 
   def create
+    user_not_authorized unless conversation.business?(current_user)
+
     @offer = Offer.new(**offer_params, conversation_id: params[:conversation_id])
     @offer.save_and_notify
 
     redirect_to conversation_path(params[:conversation_id])
+  end
+
+  def accept
+    user_not_authorized unless conversation.developer?(current_user)
+
+    offer.accept_and_notify
+  end
+
+  def decline
+    user_not_authorized unless conversation.developer?(current_user)
+
+    offer.decline_and_notify
   end
 
   private
