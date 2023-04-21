@@ -11,6 +11,8 @@ class Feature
       true
     when :developer_specialties
       !Rails.env.production?
+    when :offer_extending
+      !Rails.env.production?
     else
       raise "Unknown feature name: #{feature_name}"
     end

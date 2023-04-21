@@ -35,13 +35,16 @@
       <% end %>
     </div>
 
-    <%= render @conversation.offers.last %>
+    <%= render(@conversation.offers.last) if Feature.enabled?(:offer_extending) %>
   </ul>
 
   <div class="mt-8 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
     <% if policy(@message).create? %>
       <div class="flex gap-2">
-        <%= render("conversations/extend_offer_link", conversation: @conversation) if @conversation.business?(current_user) && !@conversation.active_offer? %>
+        <% if Feature.enabled?(:offer_extending) && @conversation.business?(current_user) && !@conversation.active_offer? %>
+          <%= render("conversations/extend_offer_link", conversation: @conversation) %>
+        <% end %>
+
         <%= render Businesses::SchedulingLinkComponent.new(current_user, @conversation) %>
       </div>
       <div class="mt-4">
