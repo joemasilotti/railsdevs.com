@@ -181,6 +181,24 @@ class ConversationTest < ActiveSupport::TestCase
     assert conversation.developer_replied?
   end
 
+  test "active_offer? returns true only when conversation has some proposed or accepted offers" do
+    conversation = conversations(:one)
+    conversation.offers.destroy_all
+    refute conversation.active_offer?
+
+    conversation_offer = conversation.offers.create!(
+      state: :proposed, start_date: Time.zone.today,
+      pay_rate_value: 10, pay_rate_time_unit: 'hour'
+    )
+    assert conversation.active_offer?
+
+    conversation_offer.accepted!
+    assert conversation.active_offer?
+
+    conversation_offer.declined!
+    refute conversation.active_offer?
+  end
+
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,
