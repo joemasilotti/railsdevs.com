@@ -1,4 +1,4 @@
-class NewOfferNotification < ApplicationNotification
+class OfferAcceptedNotification < ApplicationNotification
   include IosNotification
 
   deliver_by :database
@@ -8,11 +8,11 @@ class NewOfferNotification < ApplicationNotification
   param :conversation
 
   def title
-    t("notifications.new_offer_notification.title", sender: offer.sender.name)
+    t("notifications.offer_accepted_notification.title", developer: offer.receiver.name)
   end
 
   def email_subject
-    t("notifications.new_offer_notification.email_subject", sender: offer.sender.name)
+    t("notifications.offer_accepted_notification.email_subject", developer: offer.receiver.name)
   end
 
   def ios_subject

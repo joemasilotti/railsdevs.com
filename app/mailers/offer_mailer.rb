@@ -1,7 +1,7 @@
 class OfferMailer < ApplicationMailer
   default from: Rails.configuration.emails.notifications_mailbox!
 
-  def new_offer
+  def offer_notification
     @notification = params[:record].to_notification
     @recipient = params[:recipient]
 
