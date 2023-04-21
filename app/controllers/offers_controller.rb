@@ -33,15 +33,15 @@ class OffersController < ApplicationController
 
   def require_active_subscription!
     if conversation.business?(current_user) && !current_user.permissions.active_subscription?
-      redirect_to pricing_path, alert: t("errors.business_subscription_inactive")
+      redirect_to pricing_path, alert: t('errors.business_subscription_inactive')
     end
   end
 
-  def conversation
-    @conversation ||= Conversation.visible.find(params[:conversation_id])
+  def offer
+    @offer = Offer.find_by(id: params[:id])
   end
 
-  def offer_params
-    params.require(:offer).permit(:start_date, :pay_rate_value, :pay_rate_time_unit, :comment, :conversation_id)
+  def conversation
+    @conversation ||= offer&.conversation || Conversation.visible.find(params[:conversation_id])
   end
 end
