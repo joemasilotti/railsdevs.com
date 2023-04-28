@@ -27,7 +27,7 @@
             <div class="absolute inset-y-0 right-0 flex items-center">
               <%= form.select :pay_rate_time_unit,
                               Offer.pay_rate_time_units.map { |unit, value| [unit, value] },
-                              required: true,
+                              {},
                               class: "#{field_classes(form, :pay_rate_time_unit)} h-full border-0 bg-transparent pr-7 text-gray-500 sm:text-sm" %>
             </div>
           </div>

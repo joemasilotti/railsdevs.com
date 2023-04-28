@@ -28,8 +28,7 @@
   <div class="mt-4 text-sm text-gray-800 prose">
     <p><%= t(".start_date", start_date: offer.start_date) %></p>
     <p>
-      <%= t(".pay_rate", pay_rate_value: number_to_currency(offer.pay_rate_value, locale: :en, precision: 2)) %>
-      <%= "/#{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}" %>
+      <%= "#{t(".pay_rate", pay_rate_value: number_to_currency(offer.pay_rate_value, locale: :en, precision: 2))}/#{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}" %>
     </p>
     <p><%= t(".comment") %></p>
     <p class="text-gray-500 text-sm"><%= offer.comment? ? offer.comment : t(".no_comment") %></p>

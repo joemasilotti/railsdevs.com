@@ -35,7 +35,7 @@
       <% end %>
     </div>
 
-    <%= render(@conversation.offers.last) if Feature.enabled?(:offer_extending) %>
+    <%= render(@conversation.offers.last) if @conversation.offers.any? && Feature.enabled?(:offer_extending) %>
   </ul>
 
   <div class="mt-8 max-w-prose w-full mx-auto px-4 sm:px-0 pb-6">
