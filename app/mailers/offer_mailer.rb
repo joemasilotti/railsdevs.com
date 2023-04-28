@@ -2,15 +2,15 @@ class OfferMailer < ApplicationMailer
   default from: Rails.configuration.emails.notifications_mailbox!
 
   def new_offer_notification
-    offer_notification('new_offer')
+    offer_notification("new_offer")
   end
 
   def offer_accepted_notification
-    offer_notification('offer_accepted')
+    offer_notification("offer_accepted")
   end
 
   def offer_declined_notification
-    offer_notification('offer_declined')
+    offer_notification("offer_declined")
   end
 
   private
