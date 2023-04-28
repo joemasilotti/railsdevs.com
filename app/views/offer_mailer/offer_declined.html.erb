@@ -1,0 +1,8 @@
+<p><%= @sender %> declined your <%= link_to "offer", notification_url(@notification.record) %>:</p>
+
+<blockquote>
+  <p>Start date: <%= @offer.start_date %></p>
+  <p>Pay rate: <%= @offer.pay_rate_value %>/<%= @offer.pay_rate_time_unit_key %></p>
+  <p>Comment:</p>
+  <p><%= @offer.comment? ? @offer.comment : 'No comment' %></p>
+</blockquote>

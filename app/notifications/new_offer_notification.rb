@@ -2,7 +2,7 @@ class NewOfferNotification < ApplicationNotification
   include IosNotification
 
   deliver_by :database
-  deliver_by :email, mailer: "OfferMailer", method: :offer_notification
+  deliver_by :email, mailer: "OfferMailer", method: :new_offer_notification
 
   param :offer
   param :conversation
