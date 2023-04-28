@@ -8,10 +8,10 @@ class Offer < ApplicationRecord
   has_one :developer, through: :conversation
   has_one :business, through: :conversation
 
-  enum pay_rate_time_units: { hour: 0, day: 1, year: 2 }
-  enum state: { proposed: 0, accepted: 1, declined: 2 }
+  enum pay_rate_time_units: {hour: 0, day: 1, year: 2}
+  enum state: {proposed: 0, accepted: 1, declined: 2}
 
-  validates :conversation, uniqueness: { unless: :declined? }
+  validates :conversation, uniqueness: { conditions: -> { active }, unless: :declined? }
   validates :start_date, presence: true
   validates :pay_rate_value, presence: true
   validates :pay_rate_time_unit, presence: true

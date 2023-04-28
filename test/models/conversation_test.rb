@@ -198,7 +198,7 @@ class ConversationTest < ActiveSupport::TestCase
 
     conversation_offer = conversation.offers.create!(
       state: :proposed, start_date: Time.zone.today,
-      pay_rate_value: 10, pay_rate_time_unit: 'hour'
+      pay_rate_value: 10, pay_rate_time_unit: "hour"
     )
     assert conversation.active_offer?
 
