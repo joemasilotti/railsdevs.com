@@ -10,6 +10,16 @@ class ConversationTest < ActiveSupport::TestCase
     ]
   end
 
+  test "offers are sorted oldest first" do
+    conversation = conversations(:one)
+
+    assert_equal conversation.offers.pluck(:comment), [
+      "My first offer",
+      "My second offer",
+      "My third offer"
+    ]
+  end
+
   test "visible does not include ones blocked by the developer" do
     conversation = conversations(:one)
     assert Conversation.visible.include?(conversation)
