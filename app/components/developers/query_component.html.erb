@@ -24,12 +24,13 @@
 
           <template class="when-javascript-enabled">
 
-            <div class="mt-2 relative flex flex-col inline-block" data-controller="autofetch dropdown-pill">
+            <div class="mt-2 relative flex flex-col inline-block" data-controller="autofetch dropdown-pill" data-toggle-target="element">
 
-              <div id="pillContainer" class="flex flex-wrap space-y-2 whitespace-nowrap"
-                    data-dropdown-pill-target="pillContainer"
-                    class="flex flex-wrap mb-3 space-x-3"
+              <div id="pillContainer"
+                   class="flex flex-wrap space-y-2 whitespace-nowrap"
+                  data-dropdown-pill-target="pillContainer"
               >
+
                 <% specialties.each do |specialty| %>
                   <template id="<%= dom_id(specialty) %>-template">
                     <%= render 'specialties/pill', specialty: specialty %>
@@ -59,21 +60,18 @@
               <% end %>
             </div>
           </template>
-
-          <noscript>
-              <div>
-                <%= tag.div id: "specialties-accordion", "data-toggle-target": "element" do %>
-                  <div class="space-y-4 pt-6">
-                    <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name, {include_hidden: false}) do |specialty| %>
-                      <div class="flex items-center">
-                        <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
-                        <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
-                      </div>
-                    <% end %>
+          <div class="hide-when-javascript-enabled">
+            <%= tag.div id: "specialties-accordion", "data-toggle-target": "element" do %>
+              <div class="space-y-4 pt-6">
+                <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name, {include_hidden: false}) do |specialty| %>
+                  <div class="flex items-center">
+                    <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500" %>
+                    <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
                   </div>
                 <% end %>
               </div>
-          </noscript>
+            <% end %>
+          </div>
         </div>
 
         <% component.custom_paywall do %>

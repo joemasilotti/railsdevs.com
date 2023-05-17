@@ -6,6 +6,7 @@ export default class extends Controller {
 
   connect() {
     this.attachTemplateTags()
+    this.hideElements()
   }
 
   attachTemplateTags() {
@@ -13,6 +14,13 @@ export default class extends Controller {
     templateTags.forEach((templateTag) => {
       const clonedNode = templateTag.content.cloneNode(true);
       this.parentElementTarget.appendChild(clonedNode);
+    })
+  }
+
+  hideElements() {
+    const elementsToHide = document.querySelectorAll(".hide-when-javascript-enabled")
+    elementsToHide.forEach((elementToHide) => {
+      elementToHide.classList.add("hidden")
     })
   }
 }

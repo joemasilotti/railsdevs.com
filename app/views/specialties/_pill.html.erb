@@ -1,6 +1,6 @@
 <span id="<%= dom_id(specialty) %>"
+  data-specialty-id="<%= specialty.id %>"
   class="inline-flex items-center rounded-full bg-indigo-100 py-0.5 pl-2 pr-0.5 mr-1 text-xs font-medium text-indigo-700"
-  data-controller="dropdown-pill"
   data-action="click->dropdown-pill#removePill"
 >
   <%= specialty.name %>
@@ -11,5 +11,3 @@
     </svg>
   </div>
 </span>
-
-<input type="hidden" name="specialty_ids[]" id="specialty_ids_<%= specialty.id %>" value="<%= specialty.id %>">
