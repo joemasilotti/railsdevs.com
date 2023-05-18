@@ -14,3 +14,10 @@ prospect:
   hero: A prospect developer
   bio: I am prospect developer.
   search_status: open
+
+ai_developer:
+  user: ai_developer
+  name: AI Developer
+  hero: AI Developer
+  bio: I am an AI developer.
+  search_status: open

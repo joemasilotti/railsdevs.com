@@ -38,10 +38,27 @@ class FiltersTest < ApplicationSystemTestCase
     assert_current_path(/sort=availability/)
     assert_current_path(/include_not_interested=1/)
 
+    find(:css, "#sort button[type='button']")
+
     click_sort_by_newset
 
     assert_current_path(/sort=newest/)
     assert_current_path(/include_not_interested=1/)
+  end
+
+  test "Mias stuff" do
+    user = users(:subscribed_business)
+    sign_in(user)
+
+    visit developers_path
+
+    # Fill in the input field and submit the form
+    specialty = specialties(:ai)
+    fill_in "specialties-search-query", with: specialty.name
+    find(:css, "div[id*='search_result_specialty_']").click
+    find(:css, "input[type=submit]").click
+
+    assert_current_path(/specialty_ids%5B%5D=#{specialty.id}/)
   end
 
   def click_sort_by_newset

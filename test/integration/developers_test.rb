@@ -98,6 +98,17 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_select "h2", "OSS lover"
   end
 
+  test "developers can be filtered by specialty" do
+    user = users(:subscribed_business)
+    sign_in(user)
+
+    specialty = specialties(:ai)
+    binding.pry
+    get developers_path(specialties: [specialty.id])
+
+    assert_select "input[checked][type=checkbox][value=#{specialty.id}][name='specialties[]']"
+  end
+
   test "developers not interested in work can be shown" do
     create_developer(hero: "Not interested", search_status: :not_interested)
 

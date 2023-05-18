@@ -43,6 +43,7 @@
               <%= text_field_tag "", "",
                     placeholder: t(".specialties_placeholder"),
                     class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
+                    id: "specialties-search-query",
                     data: {
                       action: "input->autofetch#onInputChange",
                       "autofetch-target": "input",
