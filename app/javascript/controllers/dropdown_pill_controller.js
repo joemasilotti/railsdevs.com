@@ -14,18 +14,18 @@ export default class extends Controller {
   }
 
   addPill(domId) {
-    const existingPill = document.getElementById(`specialty_${domId}`)
+    const displayedPill = document.getElementById(`specialty_${domId}`)
 
-    if (existingPill) {
-      // the pill is alreadt there, so don't display it
-    }
-    else {
+    if (!displayedPill) {
       const template = document.getElementById(`specialty_${domId}-template`)
       const content = template.content.cloneNode(true)
       this.pillContainerTarget.appendChild(content)
 
       const checkbox = document.getElementById(`specialty_ids_${domId}`)
       checkbox.checked = true
+    }
+    else {
+      // the pill is already there, so don't do anything
     }
   }
 
