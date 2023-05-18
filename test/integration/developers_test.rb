@@ -103,7 +103,6 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     specialty = specialties(:ai)
-    binding.pry
     get developers_path(specialties: [specialty.id])
 
     assert_select "input[checked][type=checkbox][value=#{specialty.id}][name='specialties[]']"

@@ -14,17 +14,24 @@ export default class extends Controller {
   }
 
   addPill(domId) {
-    const template = document.getElementById(`specialty_${domId}-template`)
-    const content = template.content.cloneNode(true)
-    this.pillContainerTarget.appendChild(content)
+    const existingPill = document.getElementById(`specialty_${domId}`)
 
-    const checkbox = document.getElementById(`specialty_ids_${domId}`)
-    checkbox.checked = true
+    if (existingPill) {
+      // the pill is alreadt there, so don't display it
+    }
+    else {
+      const template = document.getElementById(`specialty_${domId}-template`)
+      const content = template.content.cloneNode(true)
+      this.pillContainerTarget.appendChild(content)
+
+      const checkbox = document.getElementById(`specialty_ids_${domId}`)
+      checkbox.checked = true
+    }
   }
 
   removePill(event) {
     event.currentTarget.remove()
-    
+
     const checkbox = document.getElementById(`specialty_ids_${event.currentTarget.dataset.specialtyId}`)
     checkbox.checked = false
   }
