@@ -4,13 +4,16 @@ export default class extends Controller {
   static targets = ["dropdown", "input", "pillContainer"];
 
   connect() {
+    this.addPIllsFromCheckboxes()
+  }
+
+  addPIllsFromCheckboxes() {
     // look up all checked checkboxes and add a pill for each
     const checkedBoxes = document.querySelectorAll("div[id=specialties-accordion] input[type=checkbox]:checked")
 
     checkedBoxes.forEach((checkbox) => {
       this.addPill(checkbox.value)
     })
-
   }
 
   addPill(domId) {
