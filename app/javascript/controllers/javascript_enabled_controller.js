@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["parentElement"]
 
   connect() {
     this.attachTemplateTags()
@@ -12,7 +11,7 @@ export default class extends Controller {
     const templateTags = document.querySelectorAll("template.when-javascript-enabled")
     templateTags.forEach((templateTag) => {
       const clonedNode = templateTag.content.cloneNode(true);
-      this.parentElementTarget.appendChild(clonedNode);
+      templateTag.parentElement.appendChild(clonedNode);
     })
   }
 

@@ -13,7 +13,7 @@
 
     <% if Feature.enabled?(:developer_specialties) %>
       <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t(".paywalled_search.title")) do |component| %>
-        <div class="border-t border-gray-200 py-6" data-javascript-enabled-target="parentElement" >
+        <div class="border-t border-gray-200 py-6">
           <h3 class="-mx-2 -my-3 flow-root">
             <%= render CollapseControlComponent.new(t(".specialties.title")) do %>
               <span aria-hidden="true">
@@ -61,6 +61,7 @@
               <% end %>
             </div>
           </template>
+
           <div class="hide-when-javascript-enabled">
             <%= tag.div id: "specialties-accordion", "data-toggle-target": "element" do %>
               <div class="space-y-4 pt-6">
