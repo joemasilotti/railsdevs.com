@@ -18,9 +18,6 @@ application.register("javascript-enabled", AttachTemplateTagsController)
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 
-import ComboboxController from "./combobox_controller.js"
-application.register("combobox", ComboboxController)
-
 import DropdownPillController from "./dropdown_pill_controller.js"
 application.register("dropdown-pill", DropdownPillController)
 

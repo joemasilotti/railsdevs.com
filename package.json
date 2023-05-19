@@ -2,7 +2,6 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "@github/combobox-nav": "^2.1.7",
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo-rails": "^7.2.2",
     "@rails/activestorage": "^7.0.0",
