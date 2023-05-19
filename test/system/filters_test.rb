@@ -46,7 +46,7 @@ class FiltersTest < ApplicationSystemTestCase
     assert_current_path(/include_not_interested=1/)
   end
 
-  test "Mias stuff" do
+  test "select and search for specialty" do
     user = users(:subscribed_business)
     sign_in(user)
 

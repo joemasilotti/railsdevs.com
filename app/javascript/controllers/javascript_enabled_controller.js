@@ -5,7 +5,6 @@ export default class extends Controller {
   connect() {
     this.attachTemplateTags()
     this.hideElements()
-    console.log("Javascript enabled")
   }
 
   attachTemplateTags() {

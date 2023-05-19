@@ -12,8 +12,8 @@ application.register("analytics--events", Analytics__EventsController)
 import Analytics__PageViewsController from "./analytics/page_views_controller.js"
 application.register("analytics--page-views", Analytics__PageViewsController)
 
-import AttachTemplateTagsController from "./javascript_enabled_controller.js"
-application.register("javascript-enabled", AttachTemplateTagsController)
+import JavascriptEnabledController from "./javascript_enabled_controller.js"
+application.register("javascript-enabled", JavascriptEnabledController)
 
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)

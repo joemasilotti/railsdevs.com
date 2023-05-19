@@ -103,9 +103,9 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     sign_in(user)
 
     specialty = specialties(:ai)
-    get developers_path(specialties: [specialty.id])
+    get developers_path(specialty_ids: [specialty.id])
 
-    assert_select "input[checked][type=checkbox][value=#{specialty.id}][name='specialties[]']"
+    assert_select %(input[checked][type=checkbox][value="#{specialty.id}"][name="specialty_ids[]"])
   end
 
   test "developers not interested in work can be shown" do
