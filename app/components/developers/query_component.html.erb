@@ -21,47 +21,9 @@
               </span>
             <% end %>
           </h3>
-
           <template class="when-javascript-enabled">
-
-            <div class="mt-2 relative flex flex-col inline-block" data-controller="autofetch dropdown-pill" data-toggle-target="element">
-
-              <div id="pillContainer"
-                   class="flex flex-wrap space-y-2 whitespace-nowrap"
-                  data-dropdown-pill-target="pillContainer"
-              >
-
-                <% specialties.each do |specialty| %>
-                  <template id="<%= dom_id(specialty) %>-template">
-                    <%= render 'specialties/pill', specialty: specialty %>
-                  </template>
-                <% end %>
-              </div>
-
-
-              <%# the form name is intentionally left blank, so that it's not submitted as part of the form data%>
-              <%= text_field_tag "", "",
-                    placeholder: t(".specialties_placeholder"),
-                    class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
-                    id: "specialties-search-query",
-                    data: {
-                      action: "input->autofetch#onInputChange",
-                      "autofetch-target": "input",
-                      "dropdown-pill-target": "input",
-                    },
-                    role: "combobox",
-                    aria: {
-                      controls: "options",
-                      expanded: "false",
-                    },
-                    autocomplete: "off"
-              %>
-
-              <%= turbo_frame_tag "specialties_dropdown", data: { "autofetch-target": "specialties", "dropdown-pill-target": "dropdown" } do %>
-              <% end %>
-            </div>
+            <%= render Developers::SpecialtyDropdownComponent.new(specialty_query: params[:specialty_query]) %>
           </template>
-
           <div class="hide-when-javascript-enabled">
             <%= tag.div id: "specialties-accordion", "data-toggle-target": "element" do %>
               <div class="space-y-4 pt-6">
@@ -75,7 +37,6 @@
             <% end %>
           </div>
         </div>
-
         <% component.custom_paywall do %>
           <%# Intentionally render nothing for now. %>
         <% end %>

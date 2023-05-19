@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
-// TODO: debounce!!!!
 export default class extends Controller {
-  static targets = ["dropdown", "input", "pillContainer"];
+  static targets = ["dropdown", "input", "pillContainer", "option"];
 
   connect() {
     this.populatePillsFromCheckedCheckboxes()
@@ -25,8 +24,8 @@ export default class extends Controller {
     return document.querySelectorAll("div[id=specialties-accordion] input[type=checkbox]:checked");
   }
 
-  isPillNotDisplayed(domId) {
-    return document.getElementById(`specialty_${domId}`) == null
+  isPillDisplayed(domId) {
+    return document.getElementById(`specialty_${domId}`) !== null
   }
 
   checkCheckbox(domId) {
@@ -44,15 +43,16 @@ export default class extends Controller {
     this.dropdownTarget.innerHTML = "";
   }
 
-  addPill(domId) {
-    if (this.isPillNotDisplayed(domId)) {
-      this.createPill(domId)
-      this.checkCheckbox(domId)
+  addPill(value) {
+    if (!this.isPillDisplayed(value)) {
+      this.createPill(value)
+      this.checkCheckbox(value)
     }
   }
 
-  createPill(domId) {
-    const template = document.getElementById(`specialty_${domId}-template`);
+  createPill(value) {
+    const id = `specialty_${value}-template`
+    const template = document.getElementById(id);
     const content = template.content.cloneNode(true)
     this.pillContainerTarget.appendChild(content)
   }
@@ -61,5 +61,11 @@ export default class extends Controller {
     this.checkedCheckboxes.forEach((checkedCheckbox) => {
       this.addPill(checkedCheckbox.value)
     })
+  }
+
+  optionTargetConnected(element) {
+    if (this.isPillDisplayed(element.dataset.value)) {
+      element.parentElement.remove()
+    }
   }
 }

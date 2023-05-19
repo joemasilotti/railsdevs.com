@@ -15,9 +15,6 @@ application.register("analytics--page-views", Analytics__PageViewsController)
 import AttachTemplateTagsController from "./javascript_enabled_controller.js"
 application.register("javascript-enabled", AttachTemplateTagsController)
 
-import AutofetchController from "./autofetch_controller.js"
-application.register("autofetch", AutofetchController)
-
 import ClipboardController from "./clipboard_controller.js"
 application.register("clipboard", ClipboardController)
 
