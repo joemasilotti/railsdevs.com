@@ -1,10 +1,6 @@
 <div class="mt-2 relative flex flex-col inline-block">
 
-  <div id="pillContainer"
-        class="flex flex-wrap space-y-2 whitespace-nowrap"
-        data-dropdown-pill-target="pillContainer"
-  >
-
+  <div id="pillContainer" class="flex flex-wrap space-y-2 whitespace-nowrap" data-dropdown-pill-target="pillContainer">
     <% @specialties.each do |specialty| %>
       <template data-dropdown-pill-target="pillTemplate" data-specialty-id="<%= specialty.id %>">
         <%= render 'specialties/pill', specialty: specialty %>
@@ -13,24 +9,24 @@
   </div>
 
   <%= turbo_frame_tag @turbo_frame, data: { "turbo-frame": "navigation" } do %>
-    <%= form_tag "/specialties", method: "get", data: { controller: "forms--autosubmit" } do %>
+    <%= form_tag specialties_path, method: "get", data: { controller: "forms--autosubmit" } do %>
       <input name="turbo_frame" value="<%= @turbo_frame %>" type="hidden" />
 
       <%= text_field_tag "specialty_query", @specialty_query,
-            placeholder: t(".specialties_placeholder"),
-            class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
-            id: "specialties-search-query",
-            data: {
-              action: "input->forms--autosubmit#debouncedSubmit",
-              "dropdown-pill-target": "input",
-              "turbo-permanent": "true"
-            },
-            role: "combobox",
-            aria: {
-              controls: "options",
-              expanded: "false",
-            },
-            autocomplete: "off"
+        placeholder: t(".specialties_placeholder"),
+        class: "shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md mt-2",
+        id: "specialties-search-query",
+        data: {
+          action: "input->forms--autosubmit#debouncedSubmit",
+          "dropdown-pill-target": "input",
+          "turbo-permanent": "true"
+        },
+        role: "combobox",
+        aria: {
+          controls: "options",
+          expanded: "false",
+        },
+        autocomplete: "off"
       %>
 
       <% if @specialty_query.present? && @specialties.any? %>
@@ -44,7 +40,6 @@
               <%= tag.div highlight(specialty.name, @specialty_query),
                 id: dom_id(specialty, :search_result),
                 role: "option",
-                class: "aria-selected:outline-black",
                 data: {
                   action: "click->dropdown-pill#handleSpecialitySelection",
                   "dropdown-pill-target": "option",

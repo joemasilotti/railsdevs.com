@@ -1,6 +1,5 @@
 module Developers
   class QueryComponent < ApplicationComponent
-    include Turbo::FramesHelper
 
     attr_reader :query, :user, :form_id
 

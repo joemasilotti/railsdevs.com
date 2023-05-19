@@ -1,6 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
-  static targets = ["dropdown", "input", "pillContainer", "option", "checkbox", "pill", "pillTemplate"];
+  static targets = [
+    "checkbox",
+    "dropdown",
+    "input",
+    "option",
+    "pill",
+    "pillContainer",
+    "pillTemplate"
+  ];
 
   connect() {
     this.populatePillsFromCheckedCheckboxes()

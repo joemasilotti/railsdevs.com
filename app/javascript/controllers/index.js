@@ -21,9 +21,6 @@ application.register("clipboard", ClipboardController)
 import DropdownPillController from "./dropdown_pill_controller.js"
 application.register("dropdown-pill", DropdownPillController)
 
-import EnhancementController from "./enhancement_controller.js"
-application.register("enhancement", EnhancementController)
-
 import FileUploadController from "./file_upload_controller.js"
 application.register("file-upload", FileUploadController)
 
