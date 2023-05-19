@@ -1,5 +1,6 @@
-<span id="<%= dom_id(specialty) %>"
+<span id="<%= dom_id(specialty, :pill) %>"
   data-specialty-id="<%= specialty.id %>"
+  data-dropdown-pill-target="pill"
   class="inline-flex items-center rounded-full bg-indigo-100 py-0.5 pl-2 pr-0.5 mr-1 text-xs font-medium text-indigo-700"
   data-action="click->dropdown-pill#removePill"
 >

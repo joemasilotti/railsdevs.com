@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
-  static targets = ["dropdown", "input", "pillContainer", "option"];
+  static targets = ["dropdown", "input", "pillContainer", "option", "checkbox", "pill", "pillTemplate"];
 
   connect() {
     this.populatePillsFromCheckedCheckboxes()
@@ -21,20 +21,20 @@ export default class extends Controller {
   // utility methods
 
   get checkedCheckboxes() {
-    return document.querySelectorAll("div[id=specialties-accordion] input[type=checkbox]:checked");
+    return this.checkboxTargets.filter((checkbox) => checkbox.checked)
   }
 
-  isPillDisplayed(domId) {
-    return document.getElementById(`specialty_${domId}`) !== null
+  isPillDisplayed(value) {
+    return this.pillTargets.some((pill) => pill.dataset.specialtyId === value)
   }
 
-  checkCheckbox(domId) {
-    const checkbox = document.getElementById(`specialty_ids_${domId}`);
+  checkCheckbox(value) {
+    const checkbox = this.checkboxTargets.find((checkbox) => checkbox.value === value)
     checkbox.checked = true
   }
 
-  uncheckCheckbox(domId) {
-    const checkbox = document.getElementById(`specialty_ids_${domId}`);
+  uncheckCheckbox(value) {
+    const checkbox = this.checkboxTargets.find((checkbox) => checkbox.value === value)
     checkbox.checked = false
   }
 
@@ -51,13 +51,13 @@ export default class extends Controller {
   }
 
   createPill(value) {
-    const id = `specialty_${value}-template`
-    const template = document.getElementById(id);
+    const template = this.pillTemplateTargets.find((t) => t.dataset.specialtyId === value)
     const content = template.content.cloneNode(true)
     this.pillContainerTarget.appendChild(content)
   }
 
   populatePillsFromCheckedCheckboxes() {
+    console.log(this.checkedCheckboxes)
     this.checkedCheckboxes.forEach((checkedCheckbox) => {
       this.addPill(checkedCheckbox.value)
     })
