@@ -19,14 +19,4 @@ class Admin::Developers::SourceContributorsTest < ActionDispatch::IntegrationTes
 
     refute developer.reload.source_contributor?
   end
-
-  test "neither update the updated_at column" do
-    developer = developers(:one)
-    sign_in users(:admin)
-
-    assert_no_changes "developer.reload.updated_at" do
-      post admin_developer_source_contributors_path(developer)
-      delete admin_developer_source_contributors_path(developer)
-    end
-  end
 end

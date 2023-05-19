@@ -15,7 +15,6 @@ fr:
         contact_role: Votre poste au sein de l'entreprise
         name: Votre nom
       developer:
-        available_on: Disponible à partir du
         email: E-mail
         github: Github
         hero: Titre / Poste
@@ -255,13 +254,8 @@ fr:
       feature: Mettre en avant
       invisiblize: Rendre invisible
       title: Admin
-    availability_component:
-      in_future_html: Disponible dans <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Disponible maintenant
-      unspecified_html: Actuellement indisponible
     badges_component:
       featured: En vedette
-      recently_active: Actif depuis peu
     count_component:
       cta: Réinitialiser les filtres
       title_html: Affichage de <span class='font-bold'>%{count}</span> sur <span class='font-bold'>%{total}</span>+ développeurs.
@@ -372,7 +366,6 @@ fr:
         title: Préférence de travail
     query_sort_button_component:
       sort:
-        availability: Disponibilité
         newest: Le plus récent
         title: Trier
     search_status:

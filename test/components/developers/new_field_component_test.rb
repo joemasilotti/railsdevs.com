@@ -15,7 +15,7 @@ module Developers
     end
 
     test "renders if the field is blank" do
-      render_inline NewFieldComponent.new(developers(:prospect), :available_on)
+      render_inline NewFieldComponent.new(developers(:prospect), :scheduling_link)
       assert_text I18n.t("developers.new_field_component.new")
     end
 

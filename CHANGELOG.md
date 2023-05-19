@@ -2,6 +2,13 @@
 
 # 2023
 
+### April
+
+* April 8 - Send subscription renewal email #860 @jkostolansky
+* April 7 - Launch recommended sorting option #859
+* April 5 - Distinguish between new profiles and recently updated ones #856
+* April 4 - Remove `developers.available_on` #854
+
 ### March
 
 * March 31 - Admin dashboard for referrals #799 @hafezbusra

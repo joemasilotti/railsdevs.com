@@ -41,7 +41,7 @@ class DeveloperQuery
   end
 
   def sort
-    @sort.to_s.downcase.to_sym == :availability ? :availability : :newest
+    @sort.to_s.downcase.to_sym == :recommended ? :recommended : :newest
   end
 
   def countries
@@ -109,12 +109,14 @@ class DeveloperQuery
 
   def badges_filter_records
     badges.each do |badge|
-      if badge == :recently_active
-        @_records.merge!(Developer.recently_active)
+      if badge == :high_response_rate
+        @_records.merge!(Developer.high_response_rate)
       elsif badge == :source_contributor
         @_records.merge!(Developer.source_contributor)
-      elsif badge == :high_response_rate
-        @_records.merge!(Developer.high_response_rate)
+      elsif badge == :recently_added
+        @_records.merge!(Developer.recently_added)
+      elsif badge == :recently_updated
+        @_records.merge!(Developer.recently_updated)
       end
     end
   end
@@ -126,8 +128,8 @@ class DeveloperQuery
   end
 
   def sort_records
-    if sort == :availability
-      @_records.merge!(Developer.available_first)
+    if sort == :recommended
+      @_records.merge!(Developer.by_score)
     else
       @_records.merge!(Developer.newest_first)
     end

@@ -15,13 +15,14 @@ en:
         contact_role: Your job title or role
         name: Your name
       developer:
-        available_on: Available to start on
         email: E-mail
         github: Github
         hero: Hero
         linkedin: Linkedin
         name: Name
+        recently_added: New profiles
         scheduling_link: Scheduling link
+        source_contributor: Source contributors
         twitter: Twitter
         website: Website
       location:
@@ -361,15 +362,12 @@ en:
       invisiblize: Invisiblize
       source_contributor: Source contributor
       title: Admin
-    availability_component:
-      in_future_html: Available in <time datetime="%{date}">%{date_in_words}</time>
-      now_html: Available now
-      unspecified_html: Currently unavailable
     badges_component:
-      featured: Featured developer
+      featured: Featured
       high_response_rate: High response rate
-      recently_active: Recently Active
-      source_contributor: Source Contributor
+      recently_added: New profile
+      recently_updated: Recently updated
+      source_contributor: Source contributor
     celebration_package_requests:
       create:
         success: Thank you! Joe will reach out to you soon.
@@ -513,9 +511,13 @@ en:
         title: Work preference
     query_sort_button_component:
       sort:
-        availability: Availability
         newest: Newest
+        recommended: Recommended
         title: Sort
+    recommended_sort_banner:
+      cta: Read more
+      dismiss: Dismiss
+      title: Your sorting by recommended, which is still in beta.
     search_status:
       actively_looking: Actively looking for work
       actively_looking_tag: Actively looking
@@ -716,6 +718,9 @@ en:
         revenue: Revenue
         source: Source
         title: RailsDevs revenue
+  pay_mailer:
+    subscription_renewing:
+      subject: Your RailsDevs subscription renews soon. Have you made a hire?
   policies:
     privacy:
       show:

@@ -18,6 +18,8 @@ The "named" developers cover most states of each field on the profile. There are
 * `stale@example.com` - Updates their profile over a month ago.
 * `junior@example.com` - Actively looking for full-time junior roles.
 * `freelancer@example.com` - Available soon, open to offers, and looking for contract work.
+* `new@example.com` - A recently added profile.
+* `updated@example.com` - A recently updated profile.
 
 ### Businesses
 
@@ -25,7 +27,6 @@ The "named" developers cover most states of each field on the profile. There are
 * `lead@example.com` - A business with a complete profile but no subscription.
 * `invisible@example.com` - This business was marked as spam and is hidden.
 * `suspended@example.com` - This account has been suspended and they cannot use the site.
-
 
 ### Admins
 

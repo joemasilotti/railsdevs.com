@@ -13,8 +13,6 @@ zh-CN:
         contact_name: 你的名称
         contact_role: 你的职称或者角色
         name: 你的名称
-      developer:
-        available_on: 何时可开始
       location:
         country_code: 国家
       user:
@@ -136,13 +134,8 @@ zh-CN:
       invisiblize: 隐形化
       source_contributor: 来源贡献者
       title: 管理员
-    availability_component:
-      in_future_html: 在 <time datetime="%{date}">%{date_in_words}</time> 后有空
-      now_html: 目前有空
-      unspecified_html: 目前离线
     badges_component:
       featured: 出色开发者
-      recently_active: 最近活跃
       source_contributor: 来源贡献者
     count_component:
       cta: 重置过滤条件
@@ -254,7 +247,6 @@ zh-CN:
         title: 工作偏好
     query_sort_button_component:
       sort:
-        availability: 有空与否
         newest: 最新的
         title: 排序
     search_status:

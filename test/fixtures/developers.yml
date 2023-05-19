@@ -1,12 +1,12 @@
 one:
   user: developer
   name: Developer One
-  available_on: <%= Date.new(2021, 1, 1) %>
   hero: Developer number one
   bio: I am the first developer.
   search_status: actively_looking
   scheduling_link: https://example.com
   public_profile_key: abc123
+  profile_updated_at: <%= Time.current %>
 
 prospect:
   user: prospect_developer
@@ -14,6 +14,7 @@ prospect:
   hero: A prospect developer
   bio: I am prospect developer.
   search_status: open
+  profile_updated_at: <%= Time.current %>
 
 ai_developer:
   user: ai_developer
@@ -21,3 +22,4 @@ ai_developer:
   hero: AI Developer
   bio: I am an AI developer.
   search_status: open
+  profile_updated_at: <%= Time.current %>

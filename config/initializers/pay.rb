@@ -9,6 +9,12 @@ Pay.setup do |config|
 
   config.automount_routes = true
   config.routes_path = "/pay"
+
+  config.mailer = "PayMailer"
+
+  config.emails.subscription_renewing = ->(_pay_subscription, price) {
+    (price&.type == "recurring") && %w[month year].include?(price.recurring&.interval)
+  }
 end
 
 Rails.application.config.to_prepare do
