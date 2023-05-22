@@ -30,7 +30,7 @@
                 <div class="space-y-4 pt-6">
                   <%= form.collection_check_boxes(:specialty_ids, specialties, :id, :name, {include_hidden: false}) do |specialty| %>
                     <div class="flex items-center">
-                      <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500", data: { "dropdown-pill-target": "checkbox" } %>
+                      <%= specialty.check_box checked: specialty_selected?(specialty.object.id), class: "h-4 w-4 border-gray-300 rounded text-gray-600 text-gray-600 focus:ring-gray-500", data: {"dropdown-pill-target": "checkbox"} %>
                       <%= specialty.label class: "text-gray-500 text-sm ml-3" %>
                     </div>
                   <% end %>

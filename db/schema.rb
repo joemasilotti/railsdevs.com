@@ -142,8 +142,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_05_172134) do
     t.string "stack_overflow"
     t.string "public_profile_key"
     t.boolean "source_contributor", default: false, null: false
-    t.string "mastodon"
     t.integer "response_rate", default: 0, null: false
+    t.string "mastodon"
     t.boolean "product_announcement_notifications", default: true
     t.string "scheduling_link"
     t.datetime "profile_updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false

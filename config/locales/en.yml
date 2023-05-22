@@ -482,8 +482,6 @@ en:
     profile_action_component:
       add_profile: Add my profile
       edit_profile: Update my profile
-    specialty_dropdown_component:
-      specialties_placeholder: "AI, Turbo Native, DevOps, etc."
     query_component:
       all_countries:
         title: All locations
@@ -531,6 +529,8 @@ en:
       hire: Hire me
       message: Message
       share: Share
+    specialty_dropdown_component:
+      specialties_placeholder: AI, Turbo Native, DevOps, etc.
     update:
       updated: Your profile was updated!
   dir: ltr
