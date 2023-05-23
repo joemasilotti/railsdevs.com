@@ -78,6 +78,7 @@ en:
           feedback: Feedback
           full_name: Full name
           position: Position
+          salary: Salary
           start_date: Start date
           title: Hiring invoice request
       invisiblizes:
