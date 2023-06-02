@@ -28,4 +28,8 @@ class Offer < ApplicationRecord
   def pay_rate_time_unit_key
     self.class.pay_rate_time_units.key(pay_rate_time_unit)
   end
+
+  def rate
+    "#{pay_rate_value}/#{pay_rate_time_unit_key}"
+  end
 end

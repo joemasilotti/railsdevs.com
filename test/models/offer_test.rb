@@ -47,6 +47,10 @@ class OfferTest < ActiveSupport::TestCase
     assert_equal Offer.new(pay_rate_time_unit: 2).pay_rate_time_unit_key, "year"
   end
 
+  test "#rate returns properly formatted string of pay_rate_value and pay_rate_time_unit" do
+    assert_equal Offer.new(pay_rate_value: 50, pay_rate_time_unit: 2).rate, "50.0/year"
+  end
+
   def create_notification(message, recipient)
     message.notifications_as_message.create!(recipient:,
       type: NewMessageNotification.name,
