@@ -25,10 +25,6 @@ class Offer < ApplicationRecord
     business.nil?
   end
 
-  def comment?
-    comment.present?
-  end
-
   def pay_rate_time_unit_key
     self.class.pay_rate_time_units.key(pay_rate_time_unit)
   end

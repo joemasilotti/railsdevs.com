@@ -8,7 +8,7 @@
 
 --- Comment ---
 
-<%= @offer.comment? ? @offer.comment : 'No comment' %>
+<%= @offer.presence || 'No comment' %>
 
 <%= "–" * 100 %>
 

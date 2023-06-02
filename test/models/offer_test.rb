@@ -35,16 +35,6 @@ class OfferTest < ActiveSupport::TestCase
     assert offer.deleted_sender?
   end
 
-  test "#comment? returns true when offer's comment is nil" do
-    offer = offers(:one)
-
-    assert offer.comment?
-
-    offer.comment = nil
-
-    assert_not offer.comment?
-  end
-
   test "#pay_rate_time_unit_key returns 'hour' when pay_rate_time_unit is 0" do
     assert_equal Offer.new(pay_rate_time_unit: 0).pay_rate_time_unit_key, "hour"
   end
