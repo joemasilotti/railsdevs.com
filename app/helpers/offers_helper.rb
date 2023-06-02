@@ -1,11 +1,11 @@
 module OffersHelper
   def offer_state_notice(offer_state)
     case offer_state
-    when 'proposed' then t(".proposed_an_offer")
-    when 'accepted' then accepted_offer_notice
-    when 'declined' then declined_offer_notice
+    when "proposed" then t(".proposed_an_offer")
+    when "accepted" then accepted_offer_notice
+    when "declined" then declined_offer_notice
     else
-      raise ArgumentError, 'Unknown offer sate'
+      raise ArgumentError, "Unknown offer sate"
     end
   end
 
