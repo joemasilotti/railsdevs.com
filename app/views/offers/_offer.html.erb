@@ -6,16 +6,7 @@
       <% else %>
         <span class="text-gray-900"><%= offer.sender.name %></span>
         <span class="text-gray-600 inline-flex items-center gap-2">
-        <% case offer.state %>
-        <% when 'proposed' %>
-            <%= t(".proposed_an_offer") %>
-        <% when 'accepted' %>
-            <%= t(".accepted_the_offer") %>
-            <%= inline_svg_tag "icons/solid/check.svg", class: "h-5 w-5 text-green-600", aria_hidden: true %>
-        <% when 'declined' %>
-            <%= t(".declined_the_offer") %>
-            <%= inline_svg_tag "icons/solid/x_circle.svg", class: "h-5 w-5 text-red-600", aria_hidden: true %>
-        <% end %>
+          <%= offer_state_notice(offer.state) %>
         </span>
       <% end %>
     </h3>
