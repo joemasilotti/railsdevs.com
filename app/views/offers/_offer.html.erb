@@ -22,7 +22,7 @@
       <%= "#{t(".pay_rate", pay_rate_value: number_to_currency(offer.pay_rate_value, locale: :en, precision: 2))}/#{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}" %>
     </p>
     <p><%= t(".comment") %></p>
-    <p class="text-gray-500 text-sm"><%= offer.presence || t(".no_comment") %></p>
+    <p class="text-gray-500 text-sm"><%= offer.comment.presence || t(".no_comment") %></p>
   </div>
 
   <% if offer.proposed? && offer.receiver == current_user.developer %>

@@ -4,5 +4,5 @@
   <p>Start date: <%= @offer.start_date %></p>
   <p>Pay rate: <%= @offer.rate %></p>
   <p>Comment:</p>
-  <p><%= @offer.presence || 'No comment' %></p>
+  <p><%= @offer.comment.presence || 'No comment' %></p>
 </blockquote>
