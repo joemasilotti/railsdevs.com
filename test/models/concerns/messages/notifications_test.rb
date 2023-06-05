@@ -36,7 +36,7 @@ class Messages::NotificationsTest < ActiveSupport::TestCase
 
     message = Message.new(developer:, business:, sender: business, body: "Hello!")
 
-    assert_enqueued_with(job: UpdateDeveloperResponseRateJob, args: [developer]) do
+    assert_enqueued_with(job: UpdateDeveloperResponseRateJob, args: [developer.id]) do
       assert message.save_and_notify(cold_message: true)
     end
   end

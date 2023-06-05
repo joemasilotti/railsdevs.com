@@ -7,11 +7,11 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
     @developer = developers(:one)
     create_answered_message_for(@developer)
     create_ignored_message_for(@developer, grace_period_expired: true)
-    UpdateDeveloperResponseRateJob.perform_now(@developer)
+    UpdateDeveloperResponseRateJob.perform_now(@developer.id)
   end
 
   test "should update developer response" do
-    UpdateDeveloperResponseRateJob.perform_now(@developer)
+    UpdateDeveloperResponseRateJob.perform_now(@developer.id)
 
     assert_equal 50, @developer.reload.response_rate
   end
@@ -20,7 +20,7 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
     assert_no_changes @developer.reload.response_rate do
       create_ignored_message_for(@developer, grace_period_expired: false)
 
-      UpdateDeveloperResponseRateJob.perform_now(@developer)
+      UpdateDeveloperResponseRateJob.perform_now(@developer.id)
     end
   end
 
@@ -28,7 +28,7 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
     assert_changes -> { @developer.reload.response_rate }, from: 50, to: 67 do
       create_answered_message_for(@developer, grace_period_expired: false)
 
-      UpdateDeveloperResponseRateJob.perform_now(@developer)
+      UpdateDeveloperResponseRateJob.perform_now(@developer.id)
     end
   end
 
@@ -36,7 +36,7 @@ class UpdateDeveloperResponseRateJobTest < ActiveJob::TestCase
     assert_changes -> { @developer.reload.response_rate }, from: 50, to: 33 do
       create_ignored_message_for(@developer, grace_period_expired: true)
 
-      UpdateDeveloperResponseRateJob.perform_now(@developer)
+      UpdateDeveloperResponseRateJob.perform_now(@developer.id)
     end
   end
 
