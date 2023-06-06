@@ -6,7 +6,7 @@ prawn_document do |pdf|
   pdf.text @term.body
   pdf.move_down(50)
 
-  pdf.bounding_box([pdf.bounds.right - 200, pdf.cursor], width: 200) do
+  pdf.bounding_box([pdf.bounds.left, pdf.cursor], width: 200) do
     if @signature.present?
       pdf.font("Courier") { pdf.text @signature.full_name }
     end
