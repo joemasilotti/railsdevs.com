@@ -13,7 +13,8 @@
 # These inflection rules are supported but not enabled by default:
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym "API"
-  inflect.acronym "MRR"
-  inflect.acronym "UTC"
   inflect.acronym "CTA"
+  inflect.acronym "MRR"
+  inflect.acronym "PDF"
+  inflect.acronym "UTC"
 end

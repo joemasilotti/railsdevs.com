@@ -538,8 +538,8 @@ en:
     business_subscription_inactive: Sign up for a business subscription to message developers.
     developer_blank: Please create a developer profile first.
     hiring_agreements:
-      cold_message: The hiring agreement has been updated. Please agree before messaging developers.
-      payment: The hiring agreement has been updated. Please agree before subscribing.
+      cold_message: Please sign the hiring agreement to message developers.
+      payment: Please sign the hiring agreement before subscribing.
     messages:
       attached: is not attached
       content_type_invalid: image format not supported
@@ -557,12 +557,15 @@ en:
       new:
         accept: Accept agreement
         accepting: Accepting...
-        agreement: I agree to these terms
+        agreement: By checking this box I confirm understanding and acceptance of the outlined terms. I acknowledge that this constitutes a legally binding agreement under applicable laws.
         description: Last updated %{last_updated}
         questions_html: Questions? Email the founder – that's me, Joe! – at <a href="mailto:joe@railsdevs.com" class="font-medium no-underline hover:underline">joe@railsdevs.com</a>.
+        sign_below: Sign agreement below
         title: RailsDevs hiring agreement
     terms:
       show:
+        download: Download signed PDF
+        signed_by: by %{name}
         signed_on: Signed on %{date}
   home:
     show:

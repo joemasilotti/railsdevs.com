@@ -43,7 +43,8 @@ class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
   def signature_params(signed: true)
     {
       hiring_agreements_signature: {
-        agreement: signed ? "1" : "0"
+        agreement: signed ? "1" : "0",
+        full_name: "Kat Signer"
       }
     }
   end

@@ -24,7 +24,7 @@ module HiringAgreements
     end
 
     def signature_params
-      params.require(:hiring_agreements_signature).permit(:agreement)
+      params.require(:hiring_agreements_signature).permit(:full_name, :agreement).merge(ip_address: request.ip)
     end
   end
 end

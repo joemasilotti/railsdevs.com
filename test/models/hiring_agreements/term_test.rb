@@ -39,10 +39,10 @@ class HiringAgreements::TermTest < ActiveSupport::TestCase
     refute HiringAgreements::Term.signed_by?(user)
 
     inactive_term = create_term!
-    inactive_term.signatures.create!(user:)
+    inactive_term.signatures.create!(user:, full_name: user.name)
     refute HiringAgreements::Term.signed_by?(user)
 
-    @active_term.signatures.create!(user:)
+    @active_term.signatures.create!(user:, full_name: user.name)
     assert HiringAgreements::Term.signed_by?(user)
   end
 
