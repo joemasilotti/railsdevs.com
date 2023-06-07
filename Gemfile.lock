@@ -298,7 +298,7 @@ GEM
     pay (6.3.2)
       rails (>= 6.0.0)
     pdf-core (0.9.0)
-    pg (1.2.3)
+    pg (1.5.3)
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
@@ -530,7 +530,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.25
