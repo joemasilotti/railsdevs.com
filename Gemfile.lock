@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/prawnpdf/prawn.git
+  revision: 8ceaa105f3e6038fac2eb4b84355d71b00d895f3
+  specs:
+    prawn (2.4.0)
+      matrix (~> 0.4)
+      pdf-core (~> 0.9.0)
+      ttfunk (~> 1.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -307,9 +316,6 @@ GEM
     postmark-rails (0.22.0)
       actionmailer (>= 3.0.0)
       postmark (>= 1.21.3, < 2.0)
-    prawn (2.4.0)
-      pdf-core (~> 0.9.0)
-      ttfunk (~> 1.7)
     prawn-rails (1.4.2)
       actionview (>= 3.1.0)
       prawn
@@ -502,6 +508,7 @@ DEPENDENCIES
   pg
   pg_search
   postmark-rails
+  prawn!
   prawn-rails
   pretender
   pry-rails
