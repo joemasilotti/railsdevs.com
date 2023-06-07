@@ -1,42 +1,43 @@
 <%= render "shared/error_messages", resource: @signature %>
 
-<div class="min-h-full flex flex-col justify-center sm:px-6 lg:px-8">
-  <div class="mx-auto mt-8">
-    <div class="px-0 sm:px-6 lg:px-8">
-      <div class="mt-8 sm:px-6">
-        <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-          <div class="px-4 py-5 sm:px-6 flex">
-            <div class="flex-grow">
-              <h3 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h3>
-              <p class="mt-1 text-sm text-gray-500"><%= t(".description", last_updated: @signature.term.created_at.to_formatted_s(:calendar)) %></p>
+<div class="max-w-5xl mx-auto sm:px-6 lg:px-8 mt-8 sm:mt-16">
+  <div class="bg-white sm:shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900"><%= t(".title") %></h3>
+      <p class="mt-1 text-sm text-gray-500"><%= t(".description", last_updated: @signature.term.created_at.to_formatted_s(:calendar)) %></p>
+    </div>
+
+    <div class="border-t border-gray-200" data-controller="pdf">
+      <%= link_to "#signature", class: "sticky top-0 left-0 bg-yellow-50 flex items-center py-3 px-6" do %>
+        <%= inline_svg_tag "icons/solid/arrow_narrow_down.svg", class: "h-5 w-5 mr-1.5" %>
+        <%= t(".sign_below") %>
+      <% end %>
+
+      <%= tag.iframe src: hiring_agreement_terms_path(format: :pdf), class: "w-full h-[750px]" %>
+    </div>
+
+    <div id="signature" class="border-t border-gray-200 px-4 py-5 sm:px-6">
+      <%= form_with(model: @signature, url: [:hiring_agreement, :signature]) do |form| %>
+        <div class="space-y-6">
+          <div>
+            <%= form.label :full_name, class: "block text-sm font-medium leading-6 text-gray-900" %>
+            <div class="mt-1">
+              <%= form.text_field :full_name, autocomplete: "name", class: "block w-full max-w-xs rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6" %>
             </div>
           </div>
 
-          <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-            <div class="prose-sm max-w-prose">
-              <%= simple_format @signature.term.body %>
-            </div>
+          <div class="flex items-center space-x-2 max-w-prose">
+            <%= form.check_box :agreement, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+            <span class="text-sm text-gray-600">
+              <%= form.label :agreement, t(".agreement"), required: true %>
+            </span>
           </div>
 
-          <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
-            <div class="prose-sm max-w-prose">
-              <%= form_with(model: @signature, url: [:hiring_agreement, :signature]) do |form| %>
-                <div class="flex space-x-4 justify-between items-center">
-                  <div class="flex items-center space-x-2">
-                    <%= form.check_box :agreement, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
-                    <span class="text-sm text-gray-600">
-                      <%= form.label :agreement, t(".agreement"), required: true %>
-                    </span>
-                  </div>
-                  <%= render SubmitButtonComponent.new(text: t(".accept"), disable_with: t(".accepting")) %>
-                </div>
-              <% end %>
-            </div>
-          </div>
+          <%= render SubmitButtonComponent.new(text: t(".accept"), disable_with: t(".accepting")) %>
         </div>
-
-        <p class="mt-8 px-6 prose"><%= t(".questions_html") %></p>
-      </div>
+      <% end %>
     </div>
   </div>
+
+  <p class="mt-8 px-6 prose"><%= t(".questions_html") %></p>
 </div>

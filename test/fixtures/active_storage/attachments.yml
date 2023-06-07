@@ -15,3 +15,9 @@ business_avatar:
   record_type: Business
   record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
   blob_id: <%= ActiveRecord::FixtureSet.identify(:basecamp) %>
+
+signed_pdf:
+  name: signed_pdf
+  record_type: "HiringAgreements::Signature"
+  record_id: <%= ActiveRecord::FixtureSet.identify(:one) %>
+  blob_id: <%= ActiveRecord::FixtureSet.identify(:agreement) %>

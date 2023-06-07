@@ -20,11 +20,11 @@ module HiringAgreements
     private
 
     def require_new_signature!
-      redirect_to root_path if HiringAgreements::Term.signed_by?(current_user)
+      redirect_to hiring_agreement_terms_path if HiringAgreements::Term.signed_by?(current_user)
     end
 
     def signature_params
-      params.require(:hiring_agreements_signature).permit(:agreement)
+      params.require(:hiring_agreements_signature).permit(:full_name, :agreement).merge(ip_address: request.ip)
     end
   end
 end

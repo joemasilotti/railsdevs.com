@@ -2,6 +2,10 @@
 
 # 2023
 
+### June
+
+* June 7 - Render signed hiring agreement PDFs via Prawn #870
+
 ### April
 
 * April 8 - Send subscription renewal email #860 @jkostolansky

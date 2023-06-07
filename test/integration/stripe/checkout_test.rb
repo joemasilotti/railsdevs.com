@@ -49,6 +49,9 @@ class Stripe::CheckoutTest < ActionDispatch::IntegrationTest
   end
 
   def sign_active_agreement!
-    @user.hiring_agreement_signatures.create!(term: HiringAgreements::Term.active)
+    @user.hiring_agreement_signatures.create!(
+      term: HiringAgreements::Term.active,
+      full_name: "Kat Signer"
+    )
   end
 end

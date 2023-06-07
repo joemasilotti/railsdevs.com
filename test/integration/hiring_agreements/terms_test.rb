@@ -15,6 +15,12 @@ class HiringAgreements::TermsTest < ActionDispatch::IntegrationTest
   test "renders when it was signed" do
     sign_in users(:subscribed_business)
     get hiring_agreement_terms_path
-    assert_select "div", text: "Signed on September  1, 2022"
+    assert_select "div", /Signed on September 1, 2022/
+  end
+
+  test "links to PDF download when attached to signature" do
+    sign_in users(:subscribed_business)
+    get hiring_agreement_terms_path
+    assert_select "form[action$='pdf?disposition=download']"
   end
 end
