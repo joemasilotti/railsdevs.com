@@ -37,10 +37,6 @@ module Developers::ExternalProfiles
 
     def fetch_linkedin_profile(linkedin_id)
       linkedin_url = "https://linkedin.com/in/#{linkedin_id}/"
-      get_profile(linkedin_url)
-    end
-
-    def get_profile(linkedin_url)
       Developers::ExternalProfiles::Linkedin.new.get_profile(linkedin_url)
     end
   end
