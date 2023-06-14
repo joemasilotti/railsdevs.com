@@ -9,8 +9,9 @@
       <% list.with_description t(".billing_address"), simple_format(@form.billing_address) %>
       <% list.with_description t(".developer_name"), @form.developer_name %>
       <% list.with_description t(".position"), @form.position %>
-      <% list.with_description t(".start_date"), @form.start_date.to_formatted_s(:long) %>
       <% list.with_description t(".employment_type"), @form.employment_type.humanize %>
+      <% list.with_description t(".salary"), number_to_currency(@form.annual_salary, precision: 0) %>
+      <% list.with_description t(".start_date"), @form.start_date.to_formatted_s(:long) %>
       <% list.with_description t(".feedback"), @form.feedback, wide: true %>
     <% end %>
   <% end %>

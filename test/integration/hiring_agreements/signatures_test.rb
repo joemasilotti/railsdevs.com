@@ -20,7 +20,7 @@ class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
   test "requires no existing signed agreement" do
     sign_in users(:subscribed_business)
     get new_hiring_agreement_signature_path
-    assert_redirected_to root_path
+    assert_redirected_to hiring_agreement_terms_path
   end
 
   test "requires the agreement to be signed" do
@@ -43,7 +43,8 @@ class HiringAgreements::SignaturesTest < ActionDispatch::IntegrationTest
   def signature_params(signed: true)
     {
       hiring_agreements_signature: {
-        agreement: signed ? "1" : "0"
+        agreement: signed ? "1" : "0",
+        full_name: "Kat Signer"
       }
     }
   end

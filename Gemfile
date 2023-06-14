@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.2.2"
 
 gem "rails", "~> 7.0.4.3"
 
@@ -60,6 +60,8 @@ gem "pagy"
 gem "pay"
 gem "pg_search"
 gem "postmark-rails"
+gem "prawn", github: "prawnpdf/prawn"
+gem "prawn-rails"
 gem "pretender"
 gem "pundit"
 gem "rack-attack"

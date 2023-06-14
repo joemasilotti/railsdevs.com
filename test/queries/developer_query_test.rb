@@ -120,8 +120,8 @@ class DeveloperQueryTest < ActiveSupport::TestCase
     high_response_rate_developer = developers(:prospect)
     low_response_rate_developer = developers(:one)
 
-    UpdateDeveloperResponseRateJob.perform_now(high_response_rate_developer)
-    UpdateDeveloperResponseRateJob.perform_now(low_response_rate_developer)
+    UpdateDeveloperResponseRateJob.perform_now(high_response_rate_developer.id)
+    UpdateDeveloperResponseRateJob.perform_now(low_response_rate_developer.id)
 
     records = DeveloperQuery.new(badges: ["high_response_rate"]).records
     assert_includes records, high_response_rate_developer
