@@ -7,7 +7,7 @@ module Developers
     validates :developer, uniqueness: {scope: :site}
 
     def self.linkedin_developer(developer)
-      find_by("developer_id = ? and site=?", developer.id, "linkedin")
+      find_by(developer:, site: "linkedin")
     end
 
     def company(data_json)
