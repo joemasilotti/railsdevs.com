@@ -22,12 +22,12 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
       .to_return(response)
 
     response_hash = JSON.parse(response[:body])
-    @developer_external_profiles_list << @fetcher.external_profile(developer, {data: response_hash["experiences"][0]})
+    @developer_external_profiles_list << @fetcher.external_profile(developer, mock_response(response_hash))
     @fetcher.upsert_external_profiles(@developer_external_profiles_list)
 
     external_profile = developer.external_profiles.find_by(site: "linkedin")
     assert_not_nil external_profile
-    assert_equal "Example Company", external_profile.data["company"]
+    assert_equal "Example Company", external_profile.data["experiences"][0]["company"]
   end
 
   test "handles error response from API" do
@@ -42,11 +42,20 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
       .with(headers: {"Authorization" => "Bearer test_api_key"})
       .to_return(error_response)
 
-    @developer_external_profiles_list << @fetcher.external_profile(developer, {error: "API Error: #{error_response[:status]} - #{error_response[:body]}"})
+    @developer_external_profiles_list << @fetcher.external_profile(developer, mock_response(nil, "API Error: #{error_response[:status]} - #{error_response[:body]}"))
     @fetcher.upsert_external_profiles(@developer_external_profiles_list)
 
     external_profile = developer.external_profiles.find_by(site: "linkedin")
     assert_not_nil external_profile
     assert_equal "API Error: #{error_response[:status]} - #{error_response[:body]}", external_profile.error
+  end
+
+  private
+
+  def mock_response(data, error = nil)
+    response = Developers::ExternalProfiles::Linkedin::Response.new(data: data, error: error)
+    response.instance_variable_set(:@data, data)
+    response.instance_variable_set(:@error, error)
+    response
   end
 end

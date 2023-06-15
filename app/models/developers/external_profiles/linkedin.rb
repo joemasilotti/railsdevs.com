@@ -1,5 +1,18 @@
 module Developers::ExternalProfiles
   class Linkedin
+    class Response
+      attr_reader :error, :data
+
+      def initialize(data: nil, error: nil)
+        @data = data
+        @error = error
+      end
+
+      def error?
+        error.present?
+      end
+    end
+
     def initialize
       @api_key = api_key
       @endpoint = endpoint
@@ -14,13 +27,13 @@ module Developers::ExternalProfiles
 
       conn = Faraday.new(@endpoint) do |faraday|
         faraday.headers["Authorization"] = "Bearer #{@api_key}"
-        faraday.adapter Faraday.default_adapter
-        faraday.response :json
+        faraday.adapter(Faraday.default_adapter)
+        faraday.response(:json)
       end
 
       begin
         response = conn.get("", params)
-        if response.status.to_i == 200
+        if response.success?
           parse_json_response(response.body)
         else
           {error: "API Error: #{response.status} - #{response.body}"}
@@ -33,13 +46,9 @@ module Developers::ExternalProfiles
     private
 
     def parse_json_response(response_body)
-      begin
-        # Attempt to access the first company name in the experiences array
-        {data: response_body["experiences"][0]}
-      rescue NoMethodError => e
-        {error: "JSON Parsing Error: #{e.message}"}
-      end
-    rescue JSON::ParserError => e
+      # Attempt to access the first company name in the experiences array
+      {data: response_body["experiences"][0]}
+    rescue JSON::ParserError, NoMethodError => e
       {error: "JSON Parsing Error: #{e.message}"}
     end
 

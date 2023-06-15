@@ -12,13 +12,13 @@ module Developers::ExternalProfiles
     end
 
     def external_profile(developer, response)
-      if response[:error]
-        {developer_id: developer.id, site: "linkedin", data: {}, error: response[:error]}
+      if response.error?
+        {developer_id: developer.id, site: "linkedin", data: {}, error: response.error}
       else
         external_profile = Developers::ExternalProfile.linkedin_developer(developer)
-        external_profile.data = response[:data] unless external_profile.blank?
+        external_profile.data = response.data unless external_profile.blank?
         if external_profile.blank? || external_profile.data_changed?
-          {developer_id: developer.id, site: "linkedin", data: response[:data], error: nil}
+          {developer_id: developer.id, site: "linkedin", data: response.data, error: nil}
         end
       end
     end
@@ -37,7 +37,8 @@ module Developers::ExternalProfiles
 
     def fetch_linkedin_profile(linkedin_id)
       linkedin_url = "https://linkedin.com/in/#{linkedin_id}/"
-      Developers::ExternalProfiles::Linkedin.new.get_profile(linkedin_url)
+      api_response = Developers::ExternalProfiles::Linkedin.new.get_profile(linkedin_url)
+      Developers::ExternalProfiles::Linkedin::Response.new(data: api_response[:data], error: api_response[:error])
     end
   end
 end

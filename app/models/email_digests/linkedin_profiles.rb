@@ -1,6 +1,5 @@
 class EmailDigests::LinkedinProfiles
   def send_weekly_digest
-    # return unless Time.current.monday?
     developer_external_profiles_records = []
 
     prev_7_days = 7.days.ago.beginning_of_day..1.day.ago.end_of_day
