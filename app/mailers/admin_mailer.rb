@@ -1,6 +1,4 @@
 class AdminMailer < ApplicationMailer
-  delegate :pluralize, to: "ActionController::Base.helpers"
-
   def new_developer
     @notification = params[:record].to_notification
     recipient = params[:recipient]
