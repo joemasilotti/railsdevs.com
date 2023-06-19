@@ -169,6 +169,8 @@ Note that `heroku/ruby` might already be present if you've deployed before.
 1. `bundle exec rake locations:utc_offset` - daily at 5:00 AM UTC
 1. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
 1. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
+1. `bundle exec rake linkedin:fetch_profiles` - weekly on every Sunday at 7:00 AM UTC
+1. `bundle exec rake linkedin:weekly_digest` - weekly on every Monday at 7:00 AM UTC
 
 ## Sitemap hosting on S3
 
