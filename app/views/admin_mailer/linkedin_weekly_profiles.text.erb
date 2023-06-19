@@ -1,9 +1,9 @@
-Here are the developer with linkedin profiles updated in past 7 days:
+Developers with LinkedIn profile updates in the last 7 days:
 
-<% @developer_external_profiles&.each do |developer_external_profile| %>
-  <%= link_to developer_external_profile[:name], developer_url(developer_external_profile[:id]) %>                
-  <%= link_to "https://linkedin.com/in/#{developer_external_profile[:linkedin]}", "https://linkedin.com/in/#{developer_external_profile[:linkedin]}" %>
-  <%= developer_external_profile[:company] %>
+<% @linkedin_profiles.each do |linkedin_profile| %>
+  <%= linkedin_profile.developer.name %>                
+  <%= "https://linkedin.com/in/#{linkedin_profile.developer.linkedin}" %>
+  <%= linkedin_profile.company(linkedin_profile.data) %>
 <% end %>
 
 <%= render "shared/signature" %>

@@ -19,9 +19,9 @@ Developers::ExternalProfile.find_or_create_by!(developer: valid_linkedin_develop
     location: nil,
     logo_url: "",
     starts_at: {
-      day: 1,
-      month: 8,
-      year: 2021
+      day: rand(1..31),
+      month: rand(1..12),
+      year: rand(1980..2022)
     },
     title: "Co-Founder"
   }

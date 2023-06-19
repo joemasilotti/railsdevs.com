@@ -2,7 +2,7 @@ module Developers::ExternalProfiles
   class LinkedinProfileFetcher
     def developer_profiles
       profiles = []
-      developers_with_linked_in_profiles.each do |developer|
+      developers_with_linkedin_profiles.each do |developer|
         response = fetch_linkedin_profile(developer.linkedin)
         record = external_profile(developer, response)
         profiles << record if record.present?
@@ -31,7 +31,7 @@ module Developers::ExternalProfiles
 
     private
 
-    def developers_with_linked_in_profiles
+    def developers_with_linkedin_profiles
       Developer.where.not(linkedin: [nil, ""])
     end
 
