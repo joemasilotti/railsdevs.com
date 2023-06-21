@@ -4,6 +4,7 @@
 
 ### June
 
+* June 21 - Sort developers by recently updated, by default #871
 * June 7 - Render signed hiring agreement PDFs via Prawn #870
 
 ### April
