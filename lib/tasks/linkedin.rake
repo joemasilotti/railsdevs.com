@@ -4,8 +4,8 @@ namespace :linkedin do
     Developers::ExternalProfiles::LinkedinProfileFetcher.new.developer_profiles
   end
 
-  desc "Email LinkedIn updates from past 7 days"
-  task weekly_digest: :environment do
-    EmailDigests::LinkedinProfiles.new.send_weekly_digest
+  desc "Email LinkedIn updates"
+  task send_digest: :environment do
+    EmailDigests::LinkedinProfiles.new.send_digest
   end
 end

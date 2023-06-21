@@ -41,9 +41,8 @@ class AdminMailerPreview < ActionMailer::Preview
     AdminMailer.with(record: notification, recipient: User.first).affiliates_registration
   end
 
-  def linkedin_weekly_profiles
-    prev_7_days = 7.days.ago.beginning_of_day..1.day.ago.end_of_day
-    linkedin_profiles = Developers::ExternalProfile.where(updated_at: prev_7_days).where.not(data: {}).includes(:developer).limit(3)
-    AdminMailer.with(linkedin_profiles:).linkedin_weekly_profiles
+  def linkedin_profiles
+    linkedin_profiles = Developers::ExternalProfile.where.not(data: {}).includes(:developer).limit(3)
+    AdminMailer.with(linkedin_profiles:).linkedin_profiles
   end
 end
