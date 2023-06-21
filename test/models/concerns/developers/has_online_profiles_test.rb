@@ -74,6 +74,8 @@ class Developers::HasOnlineProfilesTest < ActiveSupport::TestCase
   test "normalizes LinkedIn handle" do
     values = %w[
       joemasilotti
+      joemasilotti/
+      /joemasilotti/
       http://linkedin.com/in/joemasilotti
       https://linkedin.com/in/joemasilotti
       http://www.linkedin.com/in/joemasilotti

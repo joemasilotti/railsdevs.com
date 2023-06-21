@@ -167,6 +167,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_182219) do
     t.index ["developer_id"], name: "index_developers_celebration_package_requests_on_developer_id"
   end
 
+  create_table "developers_external_profiles", force: :cascade do |t|
+    t.bigint "developer_id", null: false
+    t.string "site", null: false
+    t.jsonb "data", default: {}, null: false
+    t.string "error"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["developer_id", "site"], name: "index_developers_external_profiles_on_developer_id_and_site", unique: true
+    t.index ["developer_id"], name: "index_developers_external_profiles_on_developer_id"
+  end
+
   create_table "hiring_agreements_signatures", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "hiring_agreements_term_id", null: false
@@ -329,10 +340,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_182219) do
     t.string "owner_type"
     t.bigint "owner_id"
     t.string "processor", null: false
-    t.string "processor_id"
+    t.string "processor_id", precision: nil
     t.boolean "default"
     t.jsonb "data"
-    t.datetime "deleted_at", precision: nil
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_type", "owner_id", "deleted_at", "default"], name: "pay_customer_owner_index"
@@ -471,6 +482,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_182219) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "businesses_hiring_invoice_requests", "businesses"
   add_foreign_key "developers_celebration_package_requests", "developers"
+  add_foreign_key "developers_external_profiles", "developers"
   add_foreign_key "hiring_agreements_signatures", "hiring_agreements_terms"
   add_foreign_key "hiring_agreements_signatures", "users"
   add_foreign_key "notification_tokens", "users"

@@ -4,6 +4,7 @@
 
 ### June
 
+* June 21 - Notify admins of recent LinkedIn profile changes #839 @sarvaiyanidhi
 * June 7 - Render signed hiring agreement PDFs via Prawn #870
 
 ### April
