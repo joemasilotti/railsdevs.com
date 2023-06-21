@@ -1,5 +1,8 @@
 <p>Hey <%= @developer.first_name %>,</p>
-<p>Joe, founder of <%= link_to "RailsDevs", root_url %> here. It looks like your developer profile hasn't been updated in a while. Is everything still accurate?</p>
-<p>If not, you can <%= link_to "update your profile", notification_url(@notification.record) %>. Or, if you've found a gig and are no longer looking let me know by replying to this email!</p>
+<p>Joe, founder of RailsDevs here. It looks like your developer profile hasn't been updated in a while.</p>
+<ul>
+  <li>Found a job? <%= link_to "Fill out this form", new_developers_celebration_package_request_url %> so I can send you some swag!</li>
+  <li>Still looking? <%= link_to "Update your profile", notification_url(@notification.record) %> to get bumped to the top of search results.</li>
+</ul>
 <%= render "shared/signature" %>
 <p><small><%= link_to "Update my email notification settings", edit_developer_url(@developer, anchor: "notifications") %>.</small></p>
