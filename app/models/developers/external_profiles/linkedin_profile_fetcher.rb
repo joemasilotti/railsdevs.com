@@ -2,10 +2,16 @@ module Developers::ExternalProfiles
   class LinkedinProfileFetcher
     def developer_profiles
       profiles = []
-      developers_with_linkedin_profiles.each do |developer|
+      developers = developers_with_linkedin_profiles
+      Rails.logger.info "Fetching #{developers.count} #{"LinkedIn profile".pluralize(developers.count)}..."
+
+      developers.find_each.with_index do |developer, index|
         response = fetch_linkedin_profile(developer.linkedin)
         record = external_profile(developer, response)
         profiles << record if record.present?
+
+        developers_left = developers.count - index - 1
+        Rails.logger.info "#{developers_left} #{"profile".pluralize(developers_left)} left"
       end
 
       upsert_external_profiles(profiles)
