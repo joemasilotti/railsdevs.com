@@ -24,24 +24,24 @@ class DevelopersTest < ActionDispatch::IntegrationTest
     assert_description_contains "looking for their"
   end
 
-  test "developers are sorted by newest first" do
-    create_developer(hero: "Oldest")
-    create_developer(hero: "Newest")
+  test "developers are sorted by when they updated their profile" do
+    create_developer(hero: "Recent Update").update!(updated_at: Date.today)
+    create_developer(hero: "Older Update").update!(updated_at: Date.yesterday)
 
     get developers_path
 
-    assert_select "button.font-medium[value=newest]"
-    assert response.body.index("Newest") < response.body.index("Oldest")
+    assert_select "button.font-medium[value=freshest]"
+    assert response.body.index("Recent Update") < response.body.index("Older Update")
   end
 
-  test "developers can be sorted by their search score" do
-    create_developer(hero: "Lower Score", search_score: 10)
-    create_developer(hero: "Higher Score", search_score: 20)
+  test "developers can be sorted by newest first" do
+    create_developer(hero: "Oldest")
+    create_developer(hero: "Newest")
 
-    get developers_path(sort: :recommended)
+    get developers_path(sort: :newest)
 
-    assert_select "button.font-medium[value=recommended]"
-    assert response.body.index("Higher Score") < response.body.index("Lower Score")
+    assert_select "button.font-medium[value=newest]"
+    assert response.body.index("Newest") < response.body.index("Oldest")
   end
 
   test "subscribers can filter developers by time zone" do

@@ -1,8 +1,12 @@
 Hey <%= @developer.first_name %>,
 
-Joe, founder of RailsDevs (<%= root_url %>) here. It looks like your developer profile hasn't been updated in a while. Is everything still accurate?
+Joe, founder of RailsDevs here. It looks like your developer profile hasn't been updated in a while.
 
-If not, you can update your profile (<%= notification_url(@notification.record) %>). Or, if you've found a gig and are no longer looking let me know by replying to this email!
+Found a job? Fill out this form so I can send you some swag!
+  <%= new_developers_celebration_package_request_url %>
+
+Still looking? Update your profile to get bumped to the top of search results.
+  <%= notification_url(@notification.record) %>
 
 <%= render "shared/signature" %>
 Update my email notification settings:

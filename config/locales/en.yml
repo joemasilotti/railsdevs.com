@@ -510,8 +510,8 @@ en:
         title: Work preference
     query_sort_button_component:
       sort:
-        newest: Newest
-        recommended: Recommended
+        freshest: Recently updated
+        newest: Newest profiles
         title: Sort
     recommended_sort_banner:
       cta: Read more
