@@ -7,7 +7,13 @@ module Developers::ExternalProfiles
       developers.find_each.with_index do |developer, index|
         response = fetch_linkedin_profile(developer.linkedin)
         record = external_profile(developer, response)
-        Developers::ExternalProfile.upsert(record, unique_by: [:developer_id, :site]) if record.present?
+        # Developers::ExternalProfile.upsert(record, unique_by: [:developer_id, :site]) if record.present?
+        if record.present?
+          external_profile = Developers::ExternalProfile.find_or_initialize_by(developer_id: record[:developer_id], site: record[:site])
+          external_profile.data = record[:data]
+          external_profile.error = record[:error]
+          external_profile.save!
+        end
 
         developers_left = developers.count - index - 1
         Rails.logger.info "#{developers_left} #{"profile".pluralize(developers_left)} left"

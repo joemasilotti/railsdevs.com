@@ -1,9 +1,6 @@
 namespace :linkedin do
   desc "Fetch and parse LinkedIn profiles, then email updates"
   task fetch_and_send_profiles: :environment do
-    # Only fetch and send profiles once per month, on the 21st.
-    return unless Date.current.day == 21
-
     # Fetch LinkedIn profile details using ProxyCurl API
     Developers::ExternalProfiles::LinkedinProfileFetcher.new.developer_profiles
     Rails.logger.info "LinkedIn profiles fetched and parsed for developers."
