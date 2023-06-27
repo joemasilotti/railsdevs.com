@@ -6,13 +6,16 @@ module Developers::ExternalProfiles
 
       developers.find_each.with_index do |developer, index|
         response = fetch_linkedin_profile(developer.linkedin)
-        record = external_profile(developer, response)
-        # Developers::ExternalProfile.upsert(record, unique_by: [:developer_id, :site]) if record.present?
+        external_profile = Developers::ExternalProfile.find_or_initialize_by(developer_id: developer.id, site: "linkedin")
+        record = external_profile(developer, response, external_profile)
         if record.present?
-          external_profile = Developers::ExternalProfile.find_or_initialize_by(developer_id: record[:developer_id], site: record[:site])
           external_profile.data = record[:data]
           external_profile.error = record[:error]
+          external_profile.fetched_at = Time.now
           external_profile.save!
+        else
+          external_profile.fetched_at = Time.now
+          external_profile.save(touch: false)
         end
 
         developers_left = developers.count - index - 1
@@ -20,11 +23,10 @@ module Developers::ExternalProfiles
       end
     end
 
-    def external_profile(developer, response)
+    def external_profile(developer, response, external_profile)
       if response.error?
         {developer_id: developer.id, site: "linkedin", data: {}, error: response.error}
       else
-        external_profile = Developers::ExternalProfile.linkedin_developer(developer)
         response_data = response.data.delete_if { |key, value| key == "logo_url" } unless response.data.blank?
         external_profile.data = response_data unless external_profile.blank?
         if external_profile.blank? || external_profile.data_changed?
@@ -36,7 +38,9 @@ module Developers::ExternalProfiles
     private
 
     def developers_with_linkedin_profiles
-      Developer.where.not(linkedin: [nil, ""])
+      # Developer.where.not(linkedin: [nil, ""])
+      Developer.joins(:external_profiles)
+        .where("(developers_external_profiles.fetched_at <= ? or developers_external_profiles.fetched_at is NULL) AND (developers.linkedin IS NOT NULL OR developers.linkedin != ?)", 30.days.ago, "")
     end
 
     def fetch_linkedin_profile(linkedin_id)

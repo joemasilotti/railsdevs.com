@@ -21,10 +21,11 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
       .to_return(response)
 
     response_hash = JSON.parse(response[:body])
-    @developer_external_profile = @fetcher.external_profile(developer, mock_response(response_hash))
-    Developers::ExternalProfile.upsert(@developer_external_profile)
+    @developer_external_profile = @fetcher.external_profile(developer, mock_response(response_hash), nil)
+    external_profile = Developers::ExternalProfile.find_or_initialize_by(developer_id: developer.id, site: "linkedin")
+    external_profile.data = @developer_external_profile[:data]
+    external_profile.save!
 
-    external_profile = developer.external_profiles.find_by(site: "linkedin")
     assert_not_nil external_profile
     assert_equal "Example Company", external_profile.data["experiences"][0]["company"]
   end
@@ -41,8 +42,10 @@ class LinkedinProfileFetcherTest < ActiveSupport::TestCase
       .with(headers: {"Authorization" => "Bearer test_api_key"})
       .to_return(error_response)
 
-    @developer_external_profile = @fetcher.external_profile(developer, mock_response(nil, "API Error: #{error_response[:status]} - #{error_response[:body]}"))
-    Developers::ExternalProfile.upsert(@developer_external_profile)
+    @developer_external_profile = @fetcher.external_profile(developer, mock_response(nil, "API Error: #{error_response[:status]} - #{error_response[:body]}"), nil)
+    external_profile = Developers::ExternalProfile.find_or_initialize_by(developer_id: developer.id, site: "linkedin")
+    external_profile.error = @developer_external_profile[:error]
+    external_profile.save!
 
     external_profile = developer.external_profiles.find_by(site: "linkedin")
     assert_not_nil external_profile

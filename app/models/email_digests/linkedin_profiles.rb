@@ -1,15 +1,14 @@
 class EmailDigests::LinkedinProfiles
   def send_digest
-    last_month = Date.current.last_month
-    last_month = last_month.beginning_of_month..last_month.end_of_month
+    last_30_days = 30.days.ago..Time.now
     linkedin_profiles = Developers::ExternalProfile
-      .where(updated_at: last_month)
+      .where(updated_at: last_30_days)
       .where.not(data: {})
       .includes(:developer)
 
     return if linkedin_profiles.empty?
 
     linkedin_profiles = linkedin_profiles.to_a
-    AdminMailer.with(linkedin_profiles:).linkedin_weekly_profiles.deliver_later
+    AdminMailer.with(linkedin_profiles:).linkedin_profiles.deliver_later
   end
 end
