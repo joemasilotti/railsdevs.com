@@ -169,7 +169,6 @@ Note that `heroku/ruby` might already be present if you've deployed before.
 1. `bundle exec rake locations:utc_offset` - daily at 5:00 AM UTC
 1. `bundle exec rake developer_digest:daily` - daily at 2:00 PM UTC
 1. `bundle exec rake developer_digest:weekly` - daily at 2:00 PM UTC
-1. `bundle exec rake linkedin:fetch_and_send_profiles` - 21st of every month at 1:00 AM UTC
 
 ## Sitemap hosting on S3
 
@@ -243,6 +242,15 @@ stripe:
 
 fathom:
   api_key:
-````
+```
 
 You can point to production to verify data (Stripe doesn't report climate contributions in dev) but make sure you use a read only access key.
+
+## LinkedIn Profiles
+
+To fetch LinkedIn data of developers using ProxyCurl API and email list to Admin you will need to run below task
+
+1. Fetching developers profiles not fetched from API in last 30 days
+1. Email developers with LinkedIn data updated in last 30 days.
+
+`bundle exec rake linkedin:fetch_and_send_profiles`
