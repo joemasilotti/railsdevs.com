@@ -4,13 +4,13 @@
 
 ### June
 
+* June 30 - Add extend an offer feature to conversation #851
 * June 21 - Sort developers by recently updated, by default #871
 * June 21 - Notify admins of recent LinkedIn profile changes #839 @sarvaiyanidhi
 * June 7 - Render signed hiring agreement PDFs via Prawn #870
 
 ### April
 
-* April 28 - Add extend an offer feature to conversation (hidden behind feature flag) @rainbowRider5
 * April 8 - Send subscription renewal email #860 @jkostolansky
 * April 7 - Launch recommended sorting option #859
 * April 5 - Distinguish between new profiles and recently updated ones #856
