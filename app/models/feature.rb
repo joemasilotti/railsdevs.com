@@ -1,11 +1,10 @@
 class Feature
   ENABLED_FEATURES = {
-    cancel_subscription: true,
     badge_filter: !Rails.env.production?,
     business_welcome_email: true,
+    cancel_subscription: true,
     developer_specialties: !Rails.env.production?,
     offer_extending: !Rails.env.production?,
-    sort: !Rails.env.production?,
     redesign: ENV.fetch("REDESIGN", false)
   }.freeze
 
