@@ -702,13 +702,17 @@ en:
       extending: Extending...
       title: Extend an offer*
     offer:
-      accepted_the_offer: accepted the offer
       comment: 'Comment:'
-      declined_the_offer: declined the offer
       no_comment: No comment added
       pay_rate: 'Pay rate: %{pay_rate_value}'
-      proposed_an_offer: proposed an offer
       start_date: 'Start date: %{start_date}'
+  offers_helper:
+    accepted_offer_notice:
+      accepted_the_offer: accepted the offer
+    declined_offer_notice:
+      declined_the_offer: declined the offer
+    offer_state_notice:
+      proposed_an_offer: proposed an offer
   open_startup:
     contributions:
       index:
