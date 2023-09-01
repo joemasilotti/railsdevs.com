@@ -75,8 +75,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
     ansi (1.5.0)
     apnotic (1.7.0)
       connection_pool (~> 2)
@@ -112,7 +112,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     builder (3.2.4)
-    capybara (3.36.0)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -267,8 +267,8 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_magick (4.11.0)
-    mini_mime (1.1.2)
-    mini_portile2 (2.8.2)
+    mini_mime (1.1.5)
+    mini_portile2 (2.8.4)
     minitest (5.18.1)
     minitest-reporters (1.5.0)
       ansi
@@ -291,10 +291,10 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.3)
+    nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.15.3-x86_64-darwin)
+    nokogiri (1.15.4-x86_64-darwin)
       racc (~> 1.4)
     noticed (1.5.9)
       http (>= 4.0.0)
@@ -335,7 +335,7 @@ GEM
     pundit (2.2.0)
       activesupport (>= 3.0.0)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-attack (6.6.1)
       rack (>= 1.0, < 3)
     rack-test (2.1.0)
@@ -381,7 +381,7 @@ GEM
       redis-client (>= 0.9.0)
     redis-client (0.14.1)
       connection_pool
-    regexp_parser (2.5.0)
+    regexp_parser (2.8.1)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
