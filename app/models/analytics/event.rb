@@ -14,8 +14,8 @@ module Analytics
       Analytics::Event.create!(url:, goal: goals.added_business_profile)
     end
 
-    def self.subscribed_to_busines_plan(url, value:)
-      Analytics::Event.create!(url:, goal: goals.subscribed_to_busines_plan, value: value * 100)
+    def self.subscribed_to_business_plan(url, value:)
+      Analytics::Event.create!(url:, goal: goals.subscribed_to_business_plan, value: value * 100)
     end
 
     def self.goals
