@@ -1,13 +1,11 @@
 class AdminMailerPreview < ActionMailer::Preview
   def new_developer
-    developer = User.find_by(email: "developer@example.com").developer
-    notification = Notification.find_by(type: Admin::NewDeveloperNotification.to_s, params: {developer:})
+    notification = Notification.find_by(type: Admin::NewDeveloperNotification.to_s)
     AdminMailer.with(record: notification, recipient: User.first).new_developer
   end
 
   def new_business
-    business = User.find_by(email: "business@example.com").business
-    notification = Notification.find_by(type: Admin::NewBusinessNotification.to_s, params: {business:})
+    notification = Notification.find_by(type: Admin::NewBusinessNotification.to_s)
     AdminMailer.with(record: notification, recipient: User.first).new_business
   end
 

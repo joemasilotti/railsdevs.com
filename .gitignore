@@ -47,3 +47,7 @@ dip.yml
 
 # Ignore RubyMine settings files
 .idea/
+
+# Ignore rvm gemset file
+.ruby-gemset
+
