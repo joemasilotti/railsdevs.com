@@ -1,14 +1,14 @@
 development:
   added_developer_profile: ACZJLHEM
   added_business_profile: EGNOLFJL
-  subscribed_to_busines_plan: IWOCMRQ3
+  subscribed_to_business_plan: IWOCMRQ3
 
 test:
   added_developer_profile: TEST_DEV
   added_business_profile: TEST_BIZ
-  subscribed_to_busines_plan: TEST_SUB
+  subscribed_to_business_plan: TEST_SUB
 
 production:
   added_developer_profile: BDHJV6OB
   added_business_profile: OYBFYEJK
-  subscribed_to_busines_plan: 3HOXYNYL
+  subscribed_to_business_plan: 3HOXYNYL
