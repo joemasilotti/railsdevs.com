@@ -33,8 +33,7 @@ group :test do
   gem "capybara"
   gem "minitest-reporters", require: false
   gem "minitest-reporters-pride_reporter", require: false
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "selenium-webdriver", ">= 4.11.0"
   gem "webmock"
 end
 

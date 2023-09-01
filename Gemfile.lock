@@ -408,7 +408,7 @@ GEM
     rubyzip (2.3.2)
     scout_apm (5.1.1)
       parser
-    selenium-webdriver (4.7.1)
+    selenium-webdriver (4.12.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -457,10 +457,6 @@ GEM
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webdrivers (5.2.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -525,7 +521,7 @@ DEPENDENCIES
   redis
   rexml (>= 3.2.5)
   scout_apm
-  selenium-webdriver
+  selenium-webdriver (>= 4.11.0)
   sidekiq
   sitemap_generator
   sprockets-rails
@@ -537,7 +533,6 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   view_component
-  webdrivers
   webmock
 
 RUBY VERSION
