@@ -40,9 +40,4 @@ class AdminMailerPreview < ActionMailer::Preview
     notification = Notification.where(type: Admin::Affiliates::RegistrationNotification.to_s).first
     AdminMailer.with(record: notification, recipient: User.first).affiliates_registration
   end
-
-  def linkedin_profiles
-    linkedin_profiles = Developers::ExternalProfile.where.not(data: {}).includes(:developer).limit(3)
-    AdminMailer.with(linkedin_profiles:).linkedin_profiles
-  end
 end

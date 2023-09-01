@@ -78,10 +78,4 @@ class AdminMailer < ApplicationMailer
 
     mail(to: recipient.email, subject: @notification.title)
   end
-
-  def linkedin_profiles
-    @linkedin_profiles = params[:linkedin_profiles]
-    subject = "#{@linkedin_profiles.count} #{"developer".pluralize(@linkedin_profiles.count)} recently updated their LinkedIn profile"
-    mail(to: Rails.configuration.emails.support!, subject:)
-  end
 end
