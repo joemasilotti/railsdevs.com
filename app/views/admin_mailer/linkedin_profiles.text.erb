@@ -1,9 +1,0 @@
-Developers with LinkedIn profile updates in the last month:
-
-<% @linkedin_profiles.each do |linkedin_profile| %>
-  <%= linkedin_profile.developer.name %>
-  <%= "https://linkedin.com/in/#{linkedin_profile.developer.linkedin}" %>
-  <%= linkedin_profile.company(linkedin_profile.data) %>
-<% end %>
-
-<%= render "shared/signature" %>
