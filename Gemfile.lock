@@ -75,8 +75,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
     ansi (1.5.0)
     apnotic (1.7.0)
       connection_pool (~> 2)
@@ -112,7 +112,7 @@ GEM
       parser (>= 2.4)
       smart_properties
     builder (3.2.4)
-    capybara (3.36.0)
+    capybara (3.39.2)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -330,7 +330,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (4.0.7)
+    public_suffix (5.0.3)
     puma (5.6.4)
       nio4r (~> 2.0)
     pundit (2.2.0)
@@ -382,7 +382,7 @@ GEM
       redis-client (>= 0.9.0)
     redis-client (0.14.1)
       connection_pool
-    regexp_parser (2.5.0)
+    regexp_parser (2.8.1)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -409,7 +409,7 @@ GEM
     rubyzip (2.3.2)
     scout_apm (5.1.1)
       parser
-    selenium-webdriver (4.7.1)
+    selenium-webdriver (4.12.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -458,10 +458,6 @@ GEM
       method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webdrivers (5.2.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
     webmock (3.14.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -526,7 +522,7 @@ DEPENDENCIES
   redis
   rexml (>= 3.2.5)
   scout_apm
-  selenium-webdriver
+  selenium-webdriver (>= 4.11.0)
   sidekiq
   sitemap_generator
   sprockets-rails
@@ -538,7 +534,6 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   view_component
-  webdrivers
   webmock
 
 RUBY VERSION
