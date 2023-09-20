@@ -515,7 +515,7 @@ DEPENDENCIES
   puma
   pundit
   rack-attack
-  rails (~> 7.0, >= 7.0.4.3)
+  rails (~> 7.0.0, >= 7.0.4.3)
   rails-i18n
   redcarpet
   redis
