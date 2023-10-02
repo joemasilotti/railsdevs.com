@@ -599,7 +599,6 @@ en:
       you: You
   nav_bar:
     base_component:
-      affiliates: Affiliate program
       developers: Developers
       home: Home
       pricing: Pricing
