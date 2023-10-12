@@ -12,7 +12,7 @@
           <%= form.label :hiring_fee_agreement, t(".hiring_fee_agreement"), required: true %>
 
           <% if HiringAgreements::Term.active? %>
-            <%= link_to t(".terms"), hiring_agreement_terms_path, class: "underline font-medium" %>
+            <%= link_to t(".terms"), hiring_agreement_terms_path, target: "_blank", class: "underline font-medium" %>
           <% else %>
             <%= link_to t(".hiring_fee_cta"), pricing_path(anchor: "hiring-fee"), class: "underline font-medium" %>
           <% end %>
