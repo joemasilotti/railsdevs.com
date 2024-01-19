@@ -20,6 +20,8 @@ class SocialLinkComponent < ApplicationComponent
     case network
     when :github
       "https://github.com/#{handle}"
+    when :gitlab
+      "https://gitlab.com/#{handle}"
     when :twitter
       "https://twitter.com/#{handle}"
     when :mastodon

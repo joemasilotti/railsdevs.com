@@ -16,6 +16,7 @@
     <%= render RenderableComponent.new("space-y-3 pt-4") do %>
       <%= render ExternalLinkComponent.new(developer.website) %>
       <%= render SocialLinkComponent.new(developer.github, :github) %>
+      <%= render SocialLinkComponent.new(developer.gitlab, :gitlab) %>
       <%= render SocialLinkComponent.new(developer.linkedin, :linkedin) %>
       <%= render SocialLinkComponent.new(developer.stack_overflow, :stack_overflow) %>
       <%= render SocialLinkComponent.new(developer.twitter, :twitter) %>

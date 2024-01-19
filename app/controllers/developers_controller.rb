@@ -75,6 +75,7 @@ class DevelopersController < ApplicationController
       :bio,
       :website,
       :github,
+      :gitlab,
       :twitter,
       :mastodon,
       :linkedin,
