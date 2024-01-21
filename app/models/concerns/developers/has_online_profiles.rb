@@ -9,6 +9,7 @@ module Developers
       url_attribute :scheduling_link
 
       url_attribute :github, prefix: "github.com/"
+      url_attribute :gitlab, prefix: "gitlab.com/"
       url_attribute :twitter, prefix: "twitter.com/"
 
       url_attribute :linkedin, prefix: "linkedin.com/in/" do |value|

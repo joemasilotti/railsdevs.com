@@ -13,6 +13,13 @@ class SocialLinkComponentTest < ViewComponent::TestCase
     assert_text "gh"
   end
 
+  test "gitlab" do
+    render_inline SocialLinkComponent.new("gl", :gitlab)
+    assert_selector "a[href='https://gitlab.com/gl']"
+    assert_selector "svg[title='GitLab logo']"
+    assert_text "gl"
+  end
+
   test "twitter" do
     render_inline SocialLinkComponent.new("tw", :twitter)
     assert_selector "a[href='https://twitter.com/tw']"

@@ -1,5 +1,9 @@
 # Changelog
 
+# 2024
+
+* January 19 - Add GitLab profile to Dev Profile, under Online Presence section
+
 # 2023
 
 ### June

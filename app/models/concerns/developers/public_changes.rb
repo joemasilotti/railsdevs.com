@@ -21,6 +21,7 @@ module Developers
       search_status
       website
       github
+      gitlab
       linkedin
       stack_overflow
       twitter
