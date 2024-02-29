@@ -1,0 +1,38 @@
+<li class="bg-white px-4 py-6 shadow sm:rounded-lg sm:px-6">
+  <div class="sm:flex sm:justify-between sm:items-baseline">
+    <h3 class="text-base font-medium">
+      <% if offer.deleted_sender? %>
+        <%= t("deleted_account") %>
+      <% else %>
+        <span class="text-gray-900"><%= offer.sender.name %></span>
+        <span class="text-gray-600 inline-flex items-center gap-2">
+          <%= offer_state_notice(offer.state) %>
+        </span>
+      <% end %>
+    </h3>
+
+    <p class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3">
+      <%= render TimeComponent.new(offer.created_at) %>
+    </p>
+  </div>
+
+  <div class="mt-4 text-sm text-gray-800 prose">
+    <p><%= t(".start_date", start_date: offer.start_date) %></p>
+    <p>
+      <%= "#{t(".pay_rate", pay_rate_value: number_to_currency(offer.pay_rate_value, locale: :en, precision: 2))}/#{t("activerecord.attributes.offer.pay_rate_time_unit.#{offer.pay_rate_time_unit_key}")}" %>
+    </p>
+    <p><%= t(".comment") %></p>
+    <p class="text-gray-500 text-sm"><%= offer.comment.presence || t(".no_comment") %></p>
+  </div>
+
+  <% if offer.proposed? && offer.receiver == current_user.developer %>
+    <div class="flex justify-end items-center gap-2">
+      <%= form_tag(decline_conversation_offer_path(offer.conversation, offer)) do %>
+        <%= render SubmitButtonComponent.new(text: "Decline") %>
+      <% end %>
+      <%= form_tag(accept_conversation_offer_path(offer.conversation, offer)) do %>
+        <%= render SubmitButtonComponent.new(text: "Accept") %>
+      <% end %>
+    </div>
+  <% end %>
+</li>

@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+yesterday_one:
+  start_date: 2023-03-24
+  pay_rate_value: 50
+  pay_rate_time_unit: hour
+  comment: My first offer
+  state: proposed
+  conversation: one
+  created_at: <%= 1.day.ago %>
+
+one:
+  start_date: 2023-03-24
+  pay_rate_value: 4000
+  pay_rate_time_unit: day
+  comment: My second offer
+  state: proposed
+  conversation: one
+
+tomorrow_one:
+  start_date: 2023-03-24
+  pay_rate_value: 4000
+  pay_rate_time_unit: day
+  comment: My third offer
+  state: proposed
+  conversation: one
+  created_at: <%= 1.day.from_now %>

@@ -10,6 +10,16 @@ class ConversationTest < ActiveSupport::TestCase
     ]
   end
 
+  test "offers are sorted oldest first" do
+    conversation = conversations(:one)
+
+    assert_equal conversation.offers.pluck(:comment), [
+      "My first offer",
+      "My second offer",
+      "My third offer"
+    ]
+  end
+
   test "visible does not include ones blocked by the developer" do
     conversation = conversations(:one)
     assert Conversation.visible.include?(conversation)
@@ -179,6 +189,24 @@ class ConversationTest < ActiveSupport::TestCase
 
     conversation.messages.create!(sender: conversation.developer, body: "From developer #1")
     assert conversation.developer_replied?
+  end
+
+  test "active_offer? returns true only when conversation has some proposed or accepted offers" do
+    conversation = conversations(:one)
+    conversation.offers.destroy_all
+    refute conversation.active_offer?
+
+    conversation_offer = conversation.offers.create!(
+      state: :proposed, start_date: Time.zone.today,
+      pay_rate_value: 10, pay_rate_time_unit: "hour"
+    )
+    assert conversation.active_offer?
+
+    conversation_offer.accepted!
+    assert conversation.active_offer?
+
+    conversation_offer.declined!
+    refute conversation.active_offer?
   end
 
   def create_notification(message, recipient)

@@ -27,6 +27,13 @@ en:
         website: Website
       location:
         country_code: Country
+      offer:
+        pay_rate_time_unit:
+          day: day
+          hour: hour
+          one: pay rate time unit
+          other: pay rate time units
+          year: year
       role_level:
         c_level: C-level
         junior: Junior
@@ -330,6 +337,8 @@ en:
       with: with
   conversations:
     ago: ago
+    extend_offer_link:
+      title: Extend an offer
     index:
       empty_state:
         body: Get started by finding a developer to message.
@@ -674,8 +683,35 @@ en:
     new_message_notification:
       email_subject: "%{sender} sent you a message on RailsDevs"
       title: "%{sender} sent you a message"
+    new_offer_notification:
+      email_subject: "%{sender} extended you an offer on RailsDevs"
+      title: "%{sender} extended you an offer"
+    offer_accepted_notification:
+      email_subject: "%{receiver} accepted your offer on RailsDevs"
+      title: "%{receiver} accepted your offer"
+    offer_declined_notification:
+      email_subject: "%{receiver} declined your offer on RailsDevs"
+      title: "%{receiver} declined your offer"
     show:
       notice: Notification marked as read.
+  offers:
+    form:
+      cancel: Cancel
+      disclaimer: "*This is an non-official offer and it should be only used to discuss terms of the collaboration with the developer."
+      extending: Extending...
+      title: Extend an offer*
+    offer:
+      comment: 'Comment:'
+      no_comment: No comment added
+      pay_rate: 'Pay rate: %{pay_rate_value}'
+      start_date: 'Start date: %{start_date}'
+  offers_helper:
+    accepted_offer_notice:
+      accepted_the_offer: accepted the offer
+    declined_offer_notice:
+      declined_the_offer: declined the offer
+    offer_state_notice:
+      proposed_an_offer: proposed an offer
   open_startup:
     contributions:
       index:
