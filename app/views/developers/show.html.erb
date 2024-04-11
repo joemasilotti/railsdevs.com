@@ -15,7 +15,7 @@
     <div class="pt-6 pb-8 xl:pb-10">
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-5xl lg:grid lg:grid-cols-3">
         <div class="lg:col-span-2 lg:pr-8 lg:border-r lg:border-gray-200">
-          <div class="space-y-6">
+          <div class="space-y-4">
             <div class="md:flex md:items-start md:justify-between md:space-x-4 lg:border-b lg:pb-6">
               <div class="w-full">
                 <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
@@ -31,7 +31,7 @@
             </div>
 
             <%= render Developers::BadgesComponent.new(@developer) %>
-            <%= render Developers::SpecialtiesComponent.new(@developer.specialties) %>
+            <%= render Developers::SpecialtiesComponent.new(@developer.specialties, force_show: current_user == @developer.user) %>
 
             <aside class="mt-8 lg:hidden">
               <%= render "details", developer: @developer, public_key: @public_key %>
