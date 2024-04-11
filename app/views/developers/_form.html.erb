@@ -144,6 +144,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div>
             <%= form.label :specialties, class: "text-lg font-medium leading-6 text-gray-900" %>
+            <%= render Developers::NewFieldComponent.new(form.object, :specialties) %>
             <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.description") %></p>
             <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.new.before") %> <%= link_to t(".specialties.new.cta"), "mailto:joe@railsdevs.com?subject=#{t(".specialties.new.subject")}", class: "text-gray-700 font-medium underline hover:text-gray-900" %>.</p>
 
