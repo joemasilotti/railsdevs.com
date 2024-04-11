@@ -7,7 +7,7 @@ module Developers
     end
 
     def render?
-      Feature.enabled?(:developer_specialties)
+      Feature.enabled?(:developer_specialty_querying)
     end
   end
 end

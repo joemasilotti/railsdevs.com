@@ -18,7 +18,7 @@
           <% end %>
         </div>
 
-        <% if Feature.enabled?(:developer_specialties) %>
+        <% if Feature.enabled?(:developer_specialty_querying) %>
           <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t("developers.query_component.paywalled_search.title")) do |component| %>
             <div data-controller="toggle" data-toggle-visibility-class="hidden" class="border-t border-gray-200 px-4 py-6">
               <h3 class="-mx-2 -my-3 flow-root">

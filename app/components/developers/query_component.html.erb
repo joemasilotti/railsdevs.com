@@ -11,7 +11,7 @@
       <% end %>
     </div>
 
-    <% if Feature.enabled?(:developer_specialties) %>
+    <% if Feature.enabled?(:developer_specialty_querying) %>
       <%= render Users::PaywalledComponent.new(user, nil, size: :small, title: t(".paywalled_search.title")) do |component| %>
         <div data-controller="toggle accessibility" data-toggle-visibility-class="hidden">
           <div class="border-t border-gray-200 py-6">
