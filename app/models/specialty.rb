@@ -5,7 +5,7 @@ class Specialty < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
 
-  scope :visible, -> { order(:name) }
+  scope :visible, -> { order("LOWER(name)") }
 
   before_validation :normalize_name
 
