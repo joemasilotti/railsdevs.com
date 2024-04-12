@@ -1,7 +1,7 @@
 module Admin
   class SpecialtiesController < ApplicationController
     def index
-      @specialties = Specialty.includes(developers: :user).order(:name)
+      @specialties = Specialty.includes(developers: :user).visible
     end
 
     def new

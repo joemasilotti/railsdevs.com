@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.3.0"
 
-gem "rails", "~> 7.0.4.3"
+gem "rails", "~> 7.0.8"
 
 gem "cssbundling-rails"
 gem "hotwire-rails"
@@ -33,8 +33,7 @@ group :test do
   gem "capybara"
   gem "minitest-reporters", require: false
   gem "minitest-reporters-pride_reporter", require: false
-  gem "selenium-webdriver"
-  gem "webdrivers"
+  gem "selenium-webdriver", ">= 4.11.0"
   gem "webmock"
 end
 
@@ -44,6 +43,8 @@ gem "aws-sdk-s3", require: false
 gem "classy-yaml"
 gem "devise"
 gem "devise-i18n"
+gem "faraday"
+gem "faraday_middleware"
 gem "fathom_api", require: false
 gem "geocoder"
 gem "groupdate"
@@ -57,6 +58,8 @@ gem "pagy"
 gem "pay"
 gem "pg_search"
 gem "postmark-rails"
+gem "prawn", github: "prawnpdf/prawn"
+gem "prawn-rails"
 gem "pretender"
 gem "pundit"
 gem "rack-attack"

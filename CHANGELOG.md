@@ -1,10 +1,17 @@
 # Changelog
 
+# 2024
+
+* April 12 - Progressively enhanced combobox for developer specialties #820 @MiaSinek
+* January 19 - Add GitLab profile to Dev Profile, under Online Presence section
+
 # 2023
 
-### May
+### June
 
-* May 22 - Progressively enhanced combobox for developer specialties #820 @MiaSinek
+* June 21 - Sort developers by recently updated, by default #871
+* June 21 - Notify admins of recent LinkedIn profile changes #839 @sarvaiyanidhi
+* June 7 - Render signed hiring agreement PDFs via Prawn #870
 
 ### April
 

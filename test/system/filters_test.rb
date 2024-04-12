@@ -1,10 +1,10 @@
 require "application_system_test_case"
 
 class FiltersTest < ApplicationSystemTestCase
-  test "recommended sort click adds sort param" do
+  test "freshest sort click adds sort param" do
     visit developers_path
-    sort_by "recommended"
-    assert_current_path(/sort=recommended/)
+    sort_by "freshest"
+    assert_current_path(/sort=freshest/)
   end
 
   test "developers newest sort click adds sort param" do
@@ -24,21 +24,21 @@ class FiltersTest < ApplicationSystemTestCase
 
   test "applying multiple filters to developers" do
     visit developers_path
-    sort_by "recommended"
+    sort_by "newest"
 
-    assert_current_path(/sort=recommended/)
+    assert_current_path(/sort=newest/)
 
     find(:css, "[name='include_not_interested']").set(true)
     find(:css, "input[type=submit]").click
 
-    assert_current_path(/sort=recommended/)
+    assert_current_path(/sort=newest/)
     assert_current_path(/include_not_interested=1/)
 
     find(:css, "#sort button[type='button']")
 
-    sort_by "newest"
+    sort_by "freshest"
 
-    assert_current_path(/sort=newest/)
+    assert_current_path(/sort=freshest/)
     assert_current_path(/include_not_interested=1/)
   end
 
@@ -50,7 +50,7 @@ class FiltersTest < ApplicationSystemTestCase
 
     # Fill in the input field and submit the form
     specialty = specialties(:ai)
-    fill_in "specialties-search-query", with: specialty.name
+    fill_in "specialty_query", with: specialty.name
     find(:css, "div[id*='search_result_specialty_']").click
     find(:css, "input[type=submit]").click
 

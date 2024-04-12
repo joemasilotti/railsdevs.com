@@ -24,7 +24,7 @@ brew bundle install --no-upgrade
 
 ...or manually:
 
-* Ruby 3.1.2
+* Ruby 3.2.3
 * [libpq](https://www.postgresql.org/docs/9.5/libpq.html) - `brew install libpq`
     * `libpg` is needed to use the native `pg` gem without Rosetta on M1 macs
 * [postgresql](https://www.postgresql.org) - `brew install postgresql`
@@ -108,6 +108,7 @@ Application monitoring is powered by [Scout APM](https://scoutapm.com). This hel
 * Run `rails test` to run unit/integration tests.
 * Run `rails test:system` to run system tests, using `headless_chrome`.
 * Run `HEADFUL=1 rails test:system` to run system tests, using `headful_chrome`.
+* Run `bin/rails verify_mailer_previews` to verify mailer previews.
 
 ## Changelog
 

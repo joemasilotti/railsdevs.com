@@ -9,3 +9,7 @@ mountains: <%= ActiveStorage::FixtureSet.blob(
 basecamp: <%= ActiveStorage::FixtureSet.blob(
   filename: "basecamp.png"
 ) %>
+
+agreement: <%= ActiveStorage::FixtureSet.blob(
+  filename: "agreement.pdf"
+) %>

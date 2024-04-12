@@ -9,7 +9,7 @@ class Specialty < ApplicationRecord
 
   pg_search_scope :containing, against: :name, using: {tsearch: {prefix: true}}
 
-  scope :visible, -> { order(:name) }
+  scope :visible, -> { order("LOWER(name)") }
 
   before_validation :normalize_name
 

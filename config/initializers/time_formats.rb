@@ -1,1 +1,1 @@
-Time::DATE_FORMATS[:calendar] = "%B %e, %Y"
+Time::DATE_FORMATS[:calendar] = "%B %-e, %Y"
