@@ -589,7 +589,7 @@ en:
   messages:
     form:
       help: Add your message
-      hiring_fee_agreement: I agree to pay RailsDevs the 10% hiring fee if I hire this developer for a full-time role.
+      hiring_fee_agreement: I agree to pay RailsDevs the 10% hiring fee if I hire this developer for a full-time employment role.
       hiring_fee_cta: Questions?
       sending: Sending...
       submit: Send
