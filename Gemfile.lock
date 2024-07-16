@@ -300,6 +300,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.5-x86_64-linux)
+      racc (~> 1.4)
     noticed (1.5.9)
       http (>= 4.0.0)
       rails (>= 5.2.0)
@@ -390,8 +392,8 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.7)
-      strscan (>= 3.0.9)
+    rexml (3.3.2)
+      strscan
     rinku (2.0.6)
     rubocop (1.29.1)
       parallel (~> 1.10)
@@ -478,8 +480,8 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-19
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   apnotic
