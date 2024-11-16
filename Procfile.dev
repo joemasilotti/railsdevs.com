@@ -1,4 +1,4 @@
-web: bin/rails server -p 3001
+web: bin/rails server -b 'ssl://0.0.0.0:3001?key=./localhost-key.pem&cert=./localhost.pem'
 worker: bundle exec sidekiq
 js: yarn build --watch
 css: yarn build:css --watch
