@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
     notification.mark_as_read!
 
     if (url = notification.to_notification.url)
-      redirect_to url, allow_other_host: true
+      redirect_to url
     else
       redirect_to notifications_path, notice: t(".notice")
     end
