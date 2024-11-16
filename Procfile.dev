@@ -3,4 +3,4 @@ worker: bundle exec sidekiq
 js: yarn build --watch
 css: yarn build:css --watch
 redesign: yarn build:redesign --watch
-stripe: stripe listen --forward-to localhost:3000/pay/webhooks/stripe
+stripe: stripe listen --forward-to localhost:3001/pay/webhooks/stripe
