@@ -12,7 +12,7 @@ class NotificationsController < ApplicationController
     notification = current_user.notifications.find(params[:id])
     notification.mark_as_read!
 
-    if (url = notification.to_notification.url) && url.start_with?("/notifications")
+    if (url = notification.to_notification.url) && url.include?("/notifications/#{notification.id}")
       redirect_to URI.join("#{request.protocol}//#{request.host_with_port}", url).to_s
     else
       redirect_to notifications_path, notice: t(".notice")
