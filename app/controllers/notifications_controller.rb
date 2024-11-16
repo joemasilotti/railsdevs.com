@@ -18,7 +18,7 @@ class NotificationsController < ApplicationController
         Rails.logger.info "Redirecting to conversation with ID: #{conversation.id}"
         redirect_to conversation_path(conversation.id)
       else
-        Rails.logger.error "Missing conversation or conversation ID"
+        Rails.logger.error "Missing conversation or conversation ID. Notification ID: #{notification.id}, Notification Type: #{notification.to_notification.class.name}"
         redirect_to notifications_path, alert: t(".missing_conversation")
       end
     elsif notification.to_notification.respond_to?(:conversation_url)
