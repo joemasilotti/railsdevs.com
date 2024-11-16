@@ -15,7 +15,7 @@ module Locales
     end
 
     def default_url_options(options = {})
-      options.merge({locale: resolve_locale})
+      options.merge({locale: resolve_locale, host: "localhost", port: 3001, protocol: "https"})
     end
 
     def resolve_locale(locale = I18n.locale)
