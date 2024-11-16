@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
     notification.mark_as_read!
 
     if (url = notification.to_notification.url)
-      redirect_to URI.join(request.base_url, url).to_s
+      redirect_to URI.join("#{request.protocol}#{request.host_with_port}", url).to_s
     else
       redirect_to notifications_path, notice: t(".notice")
     end
