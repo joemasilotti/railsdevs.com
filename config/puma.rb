@@ -16,7 +16,7 @@ worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 # Ensure SSL is enabled with mkcert certificates.
 #
-ssl_bind '127.0.0.1', '3000', {
+ssl_bind '0.0.0.0', '3001', {
   key: "./localhost-key.pem",
   cert: "./localhost.pem",
   verify_mode: "none"
