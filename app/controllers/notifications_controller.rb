@@ -12,8 +12,8 @@ class NotificationsController < ApplicationController
     notification = current_user.notifications.find(params[:id])
     notification.mark_as_read!
 
-    if (conversation_id = notification.to_notification.conversation_id)
-      redirect_to conversation_path(conversation_id)
+    if (conversation = notification.to_notification.conversation)
+      redirect_to conversation_path(conversation.id)
     else
       redirect_to notifications_path, notice: t(".notice")
     end
