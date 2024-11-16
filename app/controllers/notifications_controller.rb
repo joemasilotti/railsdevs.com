@@ -14,7 +14,11 @@ class NotificationsController < ApplicationController
 
     if notification.to_notification.respond_to?(:conversation)
       conversation = notification.to_notification.conversation
-      redirect_to conversation_path(conversation.id)
+      if conversation.present? && conversation.id.present?
+        redirect_to conversation_path(conversation.id)
+      else
+        redirect_to notifications_path, alert: t(".missing_conversation")
+      end
     elsif notification.to_notification.respond_to?(:conversation_url)
       redirect_to notification.to_notification.conversation_url
     else
