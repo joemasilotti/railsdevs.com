@@ -20,7 +20,7 @@ class NewMessageNotification < ApplicationNotification
   end
 
   def url
-    conversation_url(conversation)
+    conversation_url(conversation, locale: I18n.locale)
   end
 
   def message

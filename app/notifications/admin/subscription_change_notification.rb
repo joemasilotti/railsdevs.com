@@ -35,7 +35,7 @@ module Admin
     end
 
     def url
-      admin_business_conversations_url(business)
+      admin_business_conversations_url(business, locale: I18n.locale)
     end
 
     def business
