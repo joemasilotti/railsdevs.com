@@ -8,7 +8,7 @@
   <% end %>
 
   <%= form_with model: developer do |form| %>
-    <div class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
+    <section class="bg-white shadow px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
           <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".profile.title") %></h2>
@@ -107,12 +107,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+    <section class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <%= form.label :bio, class: "text-lg font-medium leading-6 text-gray-900" %>
+          <h2><%= form.label :bio, class: "text-lg font-medium leading-6 text-gray-900" %></h2>
           <p class="mt-2 text-sm text-gray-500"><%= t(".bio.description") %></p>
 
           <h4 class="font-medium uppercase tracking-wide text-gray-500 text-sm mt-4"><%= t(".bio.examples.title") %></h4>
@@ -137,13 +137,13 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <% if Feature.enabled?(:developer_specialties) %>
-      <div id="specialties" class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <section id="specialties" class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div>
-            <%= form.label :specialties, class: "text-lg font-medium leading-6 text-gray-900" %>
+            <h2 class="text-lg font-medium leading-6 text-gray-900">Specialties</h2>
             <%= render Developers::NewFieldComponent.new(form.object, :specialties) %>
             <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.description") %></p>
             <p class="mt-2 text-sm text-gray-500"><%= t(".specialties.new.before") %> <%= link_to t(".specialties.new.cta"), "mailto:joe@railsdevs.com?subject=#{t(".specialties.new.subject")}", class: "text-gray-700 font-medium underline hover:text-gray-900" %>.</p>
@@ -165,13 +165,13 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     <% end %>
 
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+    <section class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".work_preferences.title") %></h3>
+          <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".work_preferences.title") %></h2>
           <p class="mt-2 text-sm text-gray-500"><%= t(".work_preferences.help_text") %></p>
         </div>
 
@@ -290,12 +290,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+    <section class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 class="text-lg font-medium leading-6 text-gray-900"><%= t(".online_presence.title") %></h3>
+          <h2 class="text-lg font-medium leading-6 text-gray-900"><%= t(".online_presence.title") %></h2>
           <p class="mt-2 text-sm text-gray-500"><%= t(".online_presence.help_text") %></p>
         </div>
 
@@ -373,12 +373,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+    <section class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 id="scheduling" class="text-lg font-medium leading-6 text-gray-900"><%= t(".scheduling.title") %></h3>
+          <h2 id="scheduling" class="text-lg font-medium leading-6 text-gray-900"><%= t(".scheduling.title") %></h2>
           <p class="mt-2 text-sm text-gray-500"><%= t(".scheduling.help_text") %></p>
         </div>
 
@@ -397,12 +397,12 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
-      <div class="md:grid md:grid-cols-3 md:gap-6">
+    <section class="bg-white shadow mt-8 px-4 py-5 lg:rounded-lg sm:p-6">
+      <fieldset class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1">
-          <h3 id="notifications" class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></h3>
+          <legend id="notifications" class="text-lg font-medium leading-6 text-gray-900"><%= t(".notifications.title") %></legend>
         </div>
 
         <div class="mt-5 md:mt-0 md:col-span-2 space-y-4">
@@ -433,8 +433,8 @@
             </div>
           </fieldset>
         </div>
-      </div>
-    </div>
+      </fieldset>
+    </section>
 
     <div class="flex justify-end mt-8 mb-16 mr-4 sm:mr-6 lg:mr-0">
       <%= render SubmitButtonComponent.new(disable_with: developer.persisted? ? t(".updating") : t(".creating"), button_classes: "ml-3") %>
