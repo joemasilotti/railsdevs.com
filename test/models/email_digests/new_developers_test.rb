@@ -11,8 +11,8 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
     create_developers
     @business.update!(developer_notifications: :daily)
 
-    args = {business: @business, developers: [@yesterday]}
-    assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
+    params = {business: @business, developers: [@yesterday]}
+    assert_enqueued_email_with BusinessMailer, :developer_profiles, params: params do
       EmailDigests::NewDevelopers.new.send_daily_digest
     end
   end
@@ -32,8 +32,8 @@ class EmailDigests::NewDevelopersTest < ActionMailer::TestCase
       @business.update!(developer_notifications: :weekly)
 
       developers = [@seven_days_ago, @two_days_ago, @yesterday]
-      args = {business: @business, developers:}
-      assert_enqueued_email_with BusinessMailer, :developer_profiles, args: do
+      params = {business: @business, developers:}
+      assert_enqueued_email_with BusinessMailer, :developer_profiles, params: params do
         EmailDigests::NewDevelopers.new.send_weekly_digest
       end
     end
