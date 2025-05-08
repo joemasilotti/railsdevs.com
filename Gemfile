@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0"
+ruby "3.4.3"
 
 gem "rails", "~> 7.0.8"
 
@@ -37,12 +37,15 @@ group :test do
   gem "webmock"
 end
 
+gem "abbrev"
 gem "apnotic"
 gem "auto_html"
 gem "aws-sdk-s3", require: false
+gem "bigdecimal"
 gem "classy-yaml"
 gem "devise"
 gem "devise-i18n"
+gem "drb"
 gem "faraday"
 gem "faraday_middleware"
 gem "fathom_api", require: false
@@ -53,6 +56,7 @@ gem "honeybadger"
 gem "image_processing"
 gem "inline_svg"
 gem "invisible_captcha"
+gem "mutex_m"
 gem "noticed"
 gem "pagy"
 gem "pay"
