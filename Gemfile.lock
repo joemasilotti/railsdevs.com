@@ -10,6 +10,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    abbrev (0.1.2)
     actioncable (7.1.5.1)
       actionpack (= 7.1.5.1)
       activesupport (= 7.1.5.1)
@@ -524,6 +525,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  abbrev
   apnotic
   auto_html
   aws-sdk-s3
@@ -585,7 +587,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.3.0p0
+   ruby 3.4.3p32
 
 BUNDLED WITH
    2.4.19
