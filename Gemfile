@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0"
+ruby "3.4.3"
 
 gem "rails", "~> 7.1.5"
 
@@ -37,6 +37,7 @@ group :test do
   gem "webmock"
 end
 
+gem "abbrev"
 gem "apnotic"
 gem "auto_html"
 gem "aws-sdk-s3", require: false
