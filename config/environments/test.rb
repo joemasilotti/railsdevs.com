@@ -73,4 +73,6 @@ Rails.application.configure do
 
   # Disable rate limiting for test suite.
   Rack::Attack.enabled = false
+
+  config.active_job.queue_adapter = :test
 end
