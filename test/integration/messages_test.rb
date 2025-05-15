@@ -128,7 +128,7 @@ class MessagesTest < ActionDispatch::IntegrationTest
     sign_in @business.user
     developer = users(:developer).developer
 
-    assert_enqueued_email_with DeveloperMailer, :first_message, args: {developer:} do
+    assert_enqueued_email_with DeveloperMailer, :first_message, params: {developer:} do
       post developer_messages_path(developer), params: message_params
     end
   end

@@ -2,12 +2,11 @@ module OpenStartup
   class StripeTransaction < ApplicationRecord
     self.table_name = "open_startup_stripe_transactions"
 
-    enum transaction_type: {
+    enum :transaction_type,
       charge: "charge",
       contribution: "contribution",
       stripe_fee: "stripe_fee",
       payment: "payment"
-    }
 
     validates :stripe_id, presence: true
     validates :amount, numericality: {greater_than_or_equal_to: 0}

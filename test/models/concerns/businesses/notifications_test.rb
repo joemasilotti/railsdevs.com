@@ -14,7 +14,7 @@ class Businesses::NotificationsTest < ActiveSupport::TestCase
 
   test "sends a welcome email" do
     business = Business.new(business_attributes)
-    assert_enqueued_email_with BusinessMailer, :welcome, args: {business:} do
+    assert_enqueued_email_with BusinessMailer, :welcome, params: {business:} do
       assert business.save_and_notify
     end
   end
