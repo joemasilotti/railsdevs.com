@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0"
+ruby "3.4.4"
 
-gem "rails", "~> 7.0.8"
+gem "rails", "~> 7.2.2"
 
 gem "cssbundling-rails"
 gem "hotwire-rails"
@@ -37,6 +37,7 @@ group :test do
   gem "webmock"
 end
 
+gem "abbrev"
 gem "apnotic"
 gem "auto_html"
 gem "aws-sdk-s3", require: false
@@ -53,9 +54,9 @@ gem "honeybadger"
 gem "image_processing"
 gem "inline_svg"
 gem "invisible_captcha"
-gem "noticed"
+gem "noticed", "~> 1.6.0"
 gem "pagy"
-gem "pay"
+gem "pay", "~> 6.8"
 gem "pg_search"
 gem "postmark-rails"
 gem "prawn", github: "prawnpdf/prawn"
@@ -69,7 +70,7 @@ gem "rexml", ">= 3.2.5"
 gem "scout_apm"
 gem "sidekiq"
 gem "sitemap_generator"
-gem "stripe"
+gem "stripe", "~> 9"
 gem "tarpon"
 gem "timezone_finder"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

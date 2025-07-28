@@ -8,7 +8,7 @@ class SubscriptionRenewingMailTest < ActiveSupport::TestCase
     subscription = pay_subscriptions(:full_time)
     event = new_upcoming_invoice_event(subscription, renewal_timestamp)
 
-    assert_enqueued_email_with PayMailer, :subscription_renewing, args: {
+    assert_enqueued_email_with PayMailer, :subscription_renewing, params: {
       pay_customer: subscription.customer,
       pay_subscription: subscription,
       date: Time.zone.at(renewal_timestamp)

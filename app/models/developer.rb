@@ -14,12 +14,11 @@ class Developer < ApplicationRecord
 
   FEATURE_LENGTH = 1.week
 
-  enum search_status: {
+  enum :search_status,
     actively_looking: 1,
     open: 2,
     not_interested: 3,
     invisible: 4
-  }
 
   belongs_to :user
   has_one :referring_user, through: :user

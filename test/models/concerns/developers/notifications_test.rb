@@ -14,7 +14,7 @@ class Developers::NotificationsTest < ActiveSupport::TestCase
 
   test "sends a welcome email" do
     developer = Developer.new(developer_attributes)
-    assert_enqueued_email_with DeveloperMailer, :welcome, args: {developer:} do
+    assert_enqueued_email_with DeveloperMailer, :welcome, params: {developer:} do
       assert developer.save_and_notify
     end
   end
