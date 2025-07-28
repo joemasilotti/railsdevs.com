@@ -60,5 +60,7 @@ class DeveloperMailer < ApplicationMailer
       subject: "Thank you for being part of RailsDevs ❤️",
       reply_to: "joe@masilotti.com"
     )
+  rescue Postmark::InactiveRecipientError => e
+    Rails.logger.warn("Postmark inactive recipient: #{e.message}")
   end
 end
