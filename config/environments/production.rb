@@ -69,6 +69,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_job = "SafeMailerJob"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
