@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> RailsDevs is gone but the code will live forever.
+> Note that the code itself is licensed under MIT but everything else (IP, copy, assets, etc.) is not.
+> [Send me an email](mailto:joe@masilotti.com) if you have any questions.
+
 # RailsDevs
 
 The reverse job board for Rails developers.
