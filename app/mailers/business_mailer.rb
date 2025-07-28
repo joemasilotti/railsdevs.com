@@ -56,4 +56,14 @@ class BusinessMailer < ApplicationMailer
 
     mail(to: @business.user.email, subject:, from:, message_stream: :broadcast)
   end
+
+  def shut_down
+    @business = params[:business]
+
+    mail(
+      to: @business.user.email,
+      subject: "RailsDevs is shutting down",
+      reply_to: "joe@masilotti.com"
+    )
+  end
 end

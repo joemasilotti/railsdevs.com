@@ -21,4 +21,9 @@ class DeveloperMailerPreview < ActionMailer::Preview
     notification = Notification.where(type: Developers::ProductAnnouncementNotification.to_s).first
     DeveloperMailer.with(record: notification, recipient: notification.recipient).product_announcement
   end
+
+  def shut_down
+    developer = Developer.first
+    DeveloperMailer.with(developer: developer).shut_down
+  end
 end

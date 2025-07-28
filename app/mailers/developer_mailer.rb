@@ -51,4 +51,14 @@ class DeveloperMailer < ApplicationMailer
       message_stream: :broadcast
     )
   end
+
+  def shut_down
+    @developer = params[:developer]
+
+    mail(
+      to: @developer.user.email,
+      subject: "Thank you for being part of RailsDevs ❤️",
+      reply_to: "joe@masilotti.com"
+    )
+  end
 end

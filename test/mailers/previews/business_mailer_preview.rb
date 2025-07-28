@@ -30,4 +30,9 @@ class BusinessMailerPreview < ActionMailer::Preview
     business = Business.first
     BusinessMailer.with(business:).survey
   end
+
+  def shut_down
+    business = Business.first
+    BusinessMailer.with(business:).shut_down
+  end
 end
